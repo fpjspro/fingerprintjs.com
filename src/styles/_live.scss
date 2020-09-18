@@ -96,10 +96,9 @@
       left: 0;
       width: 100%;
       height: 5rem;
-      background: linear-gradient(
+      background: linear-gdient(
         to top,
-        adjust-color(c("brand-water"), $lightness: 96%, $saturation: -25%)
-          2.5rem,
+        v("off-white") 2.5rem,
         v("transparent")
       );
     }

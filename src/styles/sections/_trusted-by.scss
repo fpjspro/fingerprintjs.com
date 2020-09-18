@@ -7,8 +7,8 @@
   }
 
   .section__title {
-    font-weight: v('normal');
-    opacity: v('faded');
+    font-weight: v("normal");
+    opacity: v("faded");
   }
 
   .logo-bar {
@@ -23,9 +23,10 @@
     }
 
     &__logo {
-      margin: 1rem 0;
+      margin: 1rem;
       width: auto;
       max-height: 48px;
+      max-width: 110px;
 
       @media screen and (max-width: 768px) {
         margin: 2rem;
