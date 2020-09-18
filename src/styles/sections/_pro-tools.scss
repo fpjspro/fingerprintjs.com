@@ -1,0 +1,72 @@
+.section--pro-tools {
+  background-image: url(~@/assets/images/pro-tools-background.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left top;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .section__title {
+    font-weight: v(light);
+    font-size: 5rem;
+
+    @media screen and (max-width: 425px) {
+      font-size: 3rem;
+    }
+  }
+
+  .section-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    @include gap(3rem);
+  }
+
+  .pro-tools-item {
+    padding: 3rem 3rem 6rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem 0 adjust-color(c("brand-water"), $alpha: -0.8);
+    position: relative;
+    background-color: v("white");
+
+    &:hover {
+      .pro-tools-item__link {
+        color: v("brand-water");
+      }
+    }
+
+    &__icon {
+      width: 6rem;
+      height: 6rem;
+      fill: v("brand-water");
+      margin-bottom: 2rem;
+    }
+
+    &__title {
+      font-size: 2.5rem;
+      color: v("brand-water");
+      opacity: v("faded");
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    &__description {
+      color: v("brand-water");
+      line-height: 1.333;
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    &__link {
+      font-size: 1.75rem;
+      font-weight: v(semi);
+      color: v("brand-fire");
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+      @include transition((color));
+    }
+  }
+}

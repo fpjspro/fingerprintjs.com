@@ -1,0 +1,35 @@
+.section--trusted-by {
+  padding: 6rem 0;
+
+  .section-header {
+    max-width: 60ch;
+    margin-bottom: 5rem;
+  }
+
+  .section__title {
+    font-weight: v('normal');
+    opacity: v('faded');
+  }
+
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // @include gap(3rem);
+
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    &__logo {
+      margin: 1rem 0;
+      width: auto;
+      max-height: 48px;
+
+      @media screen and (max-width: 768px) {
+        margin: 2rem;
+      }
+    }
+  }
+}

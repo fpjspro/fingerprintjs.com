@@ -1,0 +1,79 @@
+.section--developer-friendly {
+  background-color: adjust-color(c("brand-water"), $lightness: 15%);
+  position: relative;
+  --div-color: #{adjust-color(
+      c("brand-water"),
+      $lightness: 25%,
+      $saturation: -25%
+    )};
+  --div-dash-size: 25px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // @include gap(2rem);
+    position: relative;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: v("contentWidth");
+      bottom: -7.5rem;
+      height: 2px;
+      transform: translateX(-50%);
+      background: v("div-color");
+      pointer-events: none;
+
+      @media screen and (max-width: 1264px) {
+        width: calc(100% - 4rem);
+      }
+    }
+
+    &:after {
+      bottom: -6.5rem;
+      background: linear-gradient(
+        to right,
+        var(--div-color) 50%,
+        var(--transparent) 0%
+      );
+      background-position: bottom;
+      background-size: 2rem 1px;
+      background-repeat: repeat-x;
+    }
+
+    > * + * {
+      @media screen and (min-width: 1025px) {
+        margin-left: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      display: block;
+    }
+  }
+
+  .section-content {
+    @media screen and (max-width: 1024px) {
+      margin-top: 4rem;
+    }
+  }
+
+  .section__title {
+    font-size: 5rem;
+    font-weight: v(bold);
+    color: v("white");
+    margin-bottom: 3rem;
+
+    @media screen and (max-width: 425px) {
+      font-size: 3rem;
+    }
+  }
+
+  .section__description {
+    color: v("white");
+    opacity: v("muted");
+  }
+}
