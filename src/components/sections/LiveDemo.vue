@@ -176,9 +176,17 @@
 
 <script lang="ts">
 import Vue from "vue"
+import tippy from "tippy.js"
 
 export default Vue.extend({
   name: "LiveDemo",
   props: {},
+  mounted() {
+    tippy("[data-tippy-content]", {
+      animation: "shift-away",
+      interactive: true,
+      arrow: false,
+    })
+  },
 })
 </script>
