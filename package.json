@@ -1,33 +1,38 @@
 {
-  "name": "fingerprintjs.com",
+  "name": "fingerprintjs-vue",
   "version": "0.1.0",
-  "main": "index.js",
-  "repository": "git@github.com:fpjspro/fingerprintjs.com.git",
-  "author": "Valentin Vasilyev <valentin@fingerprintjs.com>",
-  "license": "MIT",
-  "private": false,
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
   "dependencies": {
-    "@fp-pro/client": "^2.7.5",
-    "bootstrap": "^4.3.1",
-    "jquery": "^3",
-    "mapbox-gl": "^1.9.1",
-    "vue": "^2.6.11"
+    "@types/prismjs": "^1.16.1",
+    "Prism": "^2.0.0",
+    "core-js": "^2.6.5",
+    "from": "^0.1.7",
+    "import": "^0.0.6",
+    "prismjs": "^1.21.0",
+    "vue": "^2.6.10",
+    "vue-meta": "^2.4.0",
+    "vue-svg-loader": "^0.16.0"
   },
   "devDependencies": {
-    "@types/gtag.js": "^0.0.2",
-    "@types/jquery": "^3",
-    "@types/node": "^12",
-    "node-sass": "^4.13.0",
-    "popper.js": "^1.16.0",
-    "ts-loader": "^6",
-    "typescript": "^3.8.3",
-    "webpack": "^4",
-    "webpack-cli": "^3"
-  },
-  "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch --colors",
-    "sass:build": "node-sass ./src/scss/main.scss ./dist/main.css",
-    "sass:watch": "node-sass --watch ./src/scss/main.scss ./dist/main.css"
+    "@vue/cli-plugin-babel": "^3.12.0",
+    "@vue/cli-plugin-eslint": "^3.12.0",
+    "@vue/cli-plugin-typescript": "^3.12.0",
+    "@vue/cli-service": "^3.12.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "prettier": "^1.18.2",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "typescript": "^3.4.3",
+    "vue-template-compiler": "^2.6.12"
   }
 }
