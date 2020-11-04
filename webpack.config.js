@@ -172,6 +172,7 @@ module.exports = {
       safe: true // load .env.example (defaults to "false" which does not use dotenv-safe)
     }),
   ]),
+  devtool: 'source-map',
   devServer: {
     contentBase: buildDir,
     open: false,
