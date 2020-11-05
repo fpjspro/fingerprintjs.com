@@ -138,6 +138,10 @@ module.exports = {
           to: 'img/company-logos',
         },
         {
+          from: path.join(__dirname, 'img/fpjs_preview.png'),
+          to: 'img/fpjs_preview.png',
+        },
+        {
           from: path.join(__dirname, 'favicon.ico'),
           to: 'favicon.ico',
         },
@@ -172,6 +176,7 @@ module.exports = {
       safe: true // load .env.example (defaults to "false" which does not use dotenv-safe)
     }),
   ]),
+  devtool: isProd ? false : 'source-map',
   devServer: {
     contentBase: buildDir,
     open: false,
