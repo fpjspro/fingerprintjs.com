@@ -57,8 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let json = await response.json();
         starCounter.forEach((counter) => {
           counter.innerHTML = new Intl.NumberFormat('en-US', {
-            notation: 'compact',
-            compactDisplay: 'short',
+            notation: 'standard',
             maximumFractionDigits: 1,
           }).format(json.stargazers_count);
         });
