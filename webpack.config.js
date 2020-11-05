@@ -138,6 +138,10 @@ module.exports = {
           to: 'img/company-logos',
         },
         {
+          from: path.join(sourceDir, 'img/fpjs_preview.png'),
+          to: 'img/fpjs_preview.png',
+        },
+        {
           from: path.join(__dirname, 'favicon.ico'),
           to: 'favicon.ico',
         },
