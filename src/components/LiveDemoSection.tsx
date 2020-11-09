@@ -1,5 +1,5 @@
-import React from 'react'
-import FpjsWidget from './FpjsWidget'
+import React from 'react';
+import FpjsWidget from './LoadableFpjsWidget';
 
 export default function LiveDemoSection() {
   return (

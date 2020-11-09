@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 // import Features from '../components/Features';
 // import BlogRoll from '../components/BlogRoll';
-import Clients from '../components/Clients';
+import ClientsSection from '../components/ClientsSection';
 import LiveDemoSection from '../components/LiveDemoSection';
 import MadeForDevelopersSection from '../components/MadeForDevelopersSection';
 import ServerAPISection from '../components/ServerAPISection';
@@ -22,7 +22,7 @@ export const IndexPageTemplate = ({
 }) => (
   <div>
     <LiveDemoSection/>
-    <Clients />
+    <ClientsSection/>
     <MadeForDevelopersSection/>
     <ServerAPISection/>
     <UseCasesSection blurbs={intro.blurbs}/>

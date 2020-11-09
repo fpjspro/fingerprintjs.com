@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Clients() {
+export default function ClientsSection() {
   const trustedLogos = [
     "ebay",
     "target",

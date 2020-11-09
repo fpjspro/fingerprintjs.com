@@ -1,6 +1,6 @@
 import React from 'react';
 import {ReactComponent as AccountFraudSvg} from '../img/account_fraud.svg';
-import {ReactComponent as PaymentProcessingSvg} from '../img/payment_processing.svg';
+// import {ReactComponent as PaymentProcessingSvg} from '../img/payment_processing.svg';
 
 export default function UseCasesSection({blurbs}) {
   return (
@@ -17,18 +17,18 @@ export default function UseCasesSection({blurbs}) {
         </header>
         <div className='section-content'>
           <div className='use-cases'>
-            {blurbs.map(blurbs => {
+            {blurbs.map((blurb, i) => {
               return (
-                <div className='use-case use-case--large'>
+                <div key={`use-case_${i}_${blurb.title}`} className='use-case use-case--large'>
                   <div className='use-case__icon-container'>
                     <AccountFraudSvg className="use-case__icon"/>
                   </div>
                   <div className='use-case-info'>
                     <h3 className='use-case__title'>
-                      {blurbs.title}
+                      {blurb.title}
                     </h3>
                     <p className='use-case__description'>
-                      {blurbs.text}
+                      {blurb.text}
                     </p>
                   </div>
                 </div>

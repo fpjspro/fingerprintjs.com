@@ -2,26 +2,41 @@ import * as FP from '@fingerprintjs/fingerprintjs-pro';
 import React, {useState, useEffect} from 'react';
 import {getVisitTitle, getBrowserName, getBotDecision} from '../utils/utils';
 import classNames from 'classnames';
+
+// TODO replace with svg react somponents
 import sprite from '../img/sprite.svg';
+
+// TODO discuss
+interface VisitorResponse extends FP.FullIpExtendedGetResult {
+  timestamp: number;
+  browserDetails: {
+    botProbability: number;
+    browserName: string;
+    browserVersion: string;
+    os: string;
+    osVersion: string;
+    device: string;
+  };
+}
 
 export default function FpjsWidget() {
   // const dashboardEndpoint = process.env.FPJS_DASHBOARD_ENDPOINT;
   const clientToken = process.env.FPJS_TOKEN;
   const apiToken = process.env.FPJS_API_TOKEN;
   const endpoint = process.env.FPJS_ENDPOINT;
-  const region = process.env.FPJS_REGION;
-  const config = {
+  const region = process.env.FPJS_REGION as FP.Region;
+  const config: FP.GetOptions<true, "full"> = {
     ipResolution: "full",
     extendedResult: true,
     timeout: 30_000,
   };
   
-  const [currentVisit, setCurrentVisit] = useState();
-  const [visits, setVisits] = useState([]);
-  const [visitorId, setVisitorId] = useState();
+  const [currentVisit, setCurrentVisit] = useState<VisitorResponse>();
+  const [visits, setVisits] = useState<VisitorResponse[]>([]);
+  const [visitorId, setVisitorId] = useState<string>();
 
   useEffect(() => {
-    FP.load({ token: clientToken, endpoint, region })
+    FP.load({ token: clientToken!, endpoint, region })
       .then((fp) => fp.get(config))
       .then(({visitorId}) => {
         setVisitorId(visitorId);
@@ -46,7 +61,7 @@ export default function FpjsWidget() {
               xmlnsXlink="http://www.w3.org/1999/xlink"
               className='info'
               data-tippy-content='FingerprintJS Pro allows you to get a history of visits with all available information'
-              tabIndex='0'
+              tabIndex={0}
             >
               <use xlinkHref={`${sprite}#info`}></use>
             </svg>
@@ -84,7 +99,7 @@ export default function FpjsWidget() {
               <svg
                 className='info'
                 data-tippy-content='Every visitor to your website is assigned a unique & permanent identifier.'
-                tabIndex='0'
+                tabIndex={0}
               >
                 <use xlinkHref={`${sprite}#info`}></use>
               </svg>
@@ -99,7 +114,7 @@ export default function FpjsWidget() {
               <svg
                 className='info'
                 data-tippy-content='Every response will include the botProbability field that you can use to identify bot traffic.'
-                tabIndex='0'
+                tabIndex={0}
               >
                 <use xlinkHref={`${sprite}#info`}></use>
               </svg>
@@ -122,7 +137,7 @@ export default function FpjsWidget() {
               <svg
                 className='info'
                 data-tippy-content='FingerprintJS Pro analyzes every page view and detects if it was made in incognito mode. Open this page in private mode to see it in action.'
-                tabIndex='0'
+                tabIndex={0}
               >
                 <use xlinkHref={`${sprite}#info`}></use>
               </svg>
@@ -142,7 +157,7 @@ export default function FpjsWidget() {
                   className='info'
                   style={{marginLeft: "10px"}}
                   data-tippy-content='Based on the visit IP address'
-                  tabIndex='0'
+                  tabIndex={0}
                 >
                   <use xlinkHref={`${sprite}#info`}></use>
                 </svg>
