@@ -6,7 +6,12 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        data: `@import "${__dirname}/src/css/index";`,
+      }
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -66,12 +71,18 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
+      resolve: 'gatsby-plugin-svgr',
       options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
-      },
-    }, // must be after other CSS plugins
+        exclude: [`${__dirname}/src/img/sprite.svg`],
+      }
+    },
+    // {
+    //   resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
+    //   options: {
+    //     develop: true, // Activates purging in npm run develop
+    //     purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
+    //   },
+    // }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 }
