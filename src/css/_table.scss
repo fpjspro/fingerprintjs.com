@@ -1,0 +1,209 @@
+/*======================================
+=            TABLE Defaults            =
+=======================================*/
+
+.table {
+  --background: var(--off-white);
+  --borders: 1px solid #{adjust-color(c('off-white'), $lightness: -5%)};
+  --cellpadding: 0;
+  --cell-alignment-x: flex-start;
+  --cell-alignment-y: flex-start;
+  background-color: v('background');
+  border-radius: 1rem;
+  overflow: hidden;
+
+  // Table Rows
+  &-row {
+    display: flex;
+
+    + .table-row {
+      border-top: v('borders');
+    }
+
+    // Table Header (First Row)
+    &--header {
+      font-size: 1.75rem;
+      font-weight: v('bold');
+      font-family: v('ff-mono');
+
+      .table-col {
+        display: flex;
+        align-items: v('cell-alignment-y');
+        justify-content: v('cell-alignment-x');
+      }
+    } // End of Table Header
+  } // End of Table Rows
+
+  &-col {
+    flex: 1 0;
+    padding: v('cellpadding');
+
+    + .table-col {
+      border-left: v('borders');
+    }
+  }
+
+  &--columns {
+    display: flex;
+
+    .table-col,
+    .table-row {
+      display: flex;
+    }
+
+    .table-col {
+      flex: 1;
+      flex-flow: column nowrap;
+      padding: 0;
+
+      + .table-col {
+        .table-row {
+          &:not(.table-row--header) {
+            border-left: v('borders');
+          }
+        }
+      }
+    }
+
+    .table-row {
+      padding: v('cellpadding');
+      align-items: v('cell-alignment-x');
+      justify-content: v('cell-alignment-y');
+
+      + .table-row {
+        border-top: v('borders');
+      }
+
+      &:not(.table-row--header) {
+        flex: 1;
+      }
+
+      &--header {
+        text-align: v('cell-alignment-x');
+        justify-content: v('cell-alignment-x');
+        align-items: v('cell-alignment-y');
+      }
+    }
+  }
+}
+
+/*=====  End of TABLE Defaults  ======*/
+
+/*========================================
+=            TABLE CALCULATOR            =
+=========================================*/
+
+.table--calculator {
+  --background: var(--white);
+  --borders: 2px solid var(--off-white);
+  --cellpadding: 3rem;
+  --cell-alignment-x: center;
+  --cell-alignment-y: center;
+  box-shadow: 0 3rem 7rem 0 transparentize(c('brand-water'), 0.9);
+
+  @media screen and (max-width: 860px) {
+    display: block;
+  }
+
+  .table-col {
+    border-left: none;
+
+    @media screen and (max-width: 860px) {
+      flex-flow: row wrap;
+    }
+
+    &:nth-of-type(odd) {
+      .table-row--header {
+        color: v('white');
+        background: v('brand-water');
+      }
+    }
+    &:nth-of-type(even) {
+      .table-row--header {
+        color: v('white');
+        background: adjust-color(c('brand-water'), $saturation: -32%, $lightness: +24%);
+      }
+    }
+    &:nth-of-type(1) {
+      flex: 2 0;
+
+      @media screen and (max-width: 860px) {
+        flex-flow: column nowrap;
+      }
+
+      .table-row--header {
+        color: transparentize(c('brand-water'), 0.3);
+        background: v('off-white');
+        font-weight: v('normal');
+      }
+
+      .table-row {
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  .table-row {
+    flex-flow: column nowrap;
+    text-align: v('cell-alignment-x');
+
+    @media screen and (max-width: 860px) {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    > * + * {
+      margin-top: 2rem;
+    }
+
+    &:not(.table-row--header) {
+      @media screen and (max-width: 860px) {
+        flex: 2;
+      }
+    }
+
+    &--header {
+      --lines: 2;
+      --lh: 1.57;
+      --font-size: 1.75rem;
+      border-left: 0;
+      min-height: calc((var(--font-size) * var(--lh)) * var(--lines) + (var(--cellpadding) * 2));
+
+      @media screen and (max-width: 860px) {
+        min-height: unset;
+        flex: 1;
+        min-width: 132px;
+      }
+    }
+
+    .preset,
+    .user-input {
+      width: 100%;
+
+      > * + * {
+        margin-top: 1rem;
+      }
+    }
+
+    .on-demand,
+    .reserved {
+      &__price {
+        font-size: 3rem;
+        font-weight: v('bold');
+        line-height: 1.1;
+      }
+
+      &__per {
+        color: transparentize(c('brand-water'), 0.5);
+      }
+    }
+
+    .description {
+      font-size: 1.75rem;
+      opacity: v('faded');
+    }
+  }
+}
+
+/*=====  End of TABLE CALCULATOR  ======*/

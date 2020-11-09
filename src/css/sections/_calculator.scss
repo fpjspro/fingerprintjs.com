@@ -1,0 +1,60 @@
+.section--calculator {
+  background-repeat: no-repeat;
+  background-size: 1400px auto;
+  background-image: url('../img/bg-full.png');
+  background-position: center 75%;
+  // background-image: url('../img/hero-1366+.png');
+  // background-size: 768px auto;
+  // background-position: center 75%;
+
+  @media screen and (max-width: 1024px) {
+    background-position: center 120%;
+  }
+
+  @media (max-width: 860px) {
+    background-image: url('../img/hero-768+.png');
+    background-position: center 55%;
+    background-size: 100vw auto;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-areas: 'sub sub' 'title description';
+    margin-bottom: 4rem;
+
+    @media screen and (max-width: 640px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'sub' 'title' 'description';
+    }
+  }
+
+  .section__title {
+    font-size: 4rem;
+    grid-area: title;
+  }
+
+  .section__description,
+  .section__subtitle {
+    font-size: 2.25rem;
+    opacity: v('faded');
+  }
+
+  .section__subtitle {
+    grid-area: sub;
+  }
+
+  .section__description {
+    font-size: 1.75rem;
+    text-align: right;
+    grid-area: description;
+    max-width: 35ch;
+    justify-self: flex-end;
+
+    @media screen and (max-width: 640px) {
+      justify-self: unset;
+      text-align: left;
+      margin-top: 2rem;
+    }
+  }
+}

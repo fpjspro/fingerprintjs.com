@@ -1,0 +1,167 @@
+.section--pricing-models {
+  counter-reset: subsection;
+  background-repeat: no-repeat;
+  background-size: 1400px auto;
+  background-image: url('../img/bg-full.png');
+  background-position: center center;
+
+  // background-repeat: no-repeat;
+  // background-size: auto;
+  // background-image: url('../img/generic-1-1920+.png'), url('../img/generic-2-1920+.png');
+  // background-position: 0% 0%, 60vw 80%;
+
+  // @media screen and (max-width: 2560px) {
+  //   background-image: url('../img/generic-1-1920+.png'), url('../img/generic-2-1920+.png');
+  //   background-position: -30vw 0%, 60vw 80%;
+  // }
+
+  // @media screen and (max-width: 1920px) {
+  //   background-image: url('../img/generic-1-1920+.png'), url('../img/generic-2-1920+.png');
+  //   background-position: -50vw 0%, 60vw 80%;
+  // }
+
+  // @media screen and (max-width: 1440px) {
+  //   background-image: url('../img/generic-1-1366+.png'), url('../img/generic-2-1366+.png');
+  //   background-position: 0% 0%, 100% 80%;
+  // }
+
+  // @media screen and (max-width: 1024px) {
+  //   background-image: url('../img/generic-1-768+.png'), url('../img/generic-2-768+.png');
+  //   background-position: 0% 0%, 100% 100%;
+  // }
+
+  // @media screen and (max-width: 425px) {
+  //   background-image: url('../img/use-cases-320+.png');
+  //   background-position: center;
+  //   background-size: contain;
+  // }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section__title {
+    font-size: 4rem;
+  }
+
+  .section__description {
+    font-size: 2.25rem;
+    opacity: v('faded');
+  }
+
+  .subsection {
+    display: grid;
+    grid-template-columns: Min(33%, 300px) 2fr;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 7rem 0 transparentize(c('brand-water'), 0.9);
+    background-color: v('white');
+    counter-increment: subsection;
+
+    @media screen and (max-width: 931px) {
+      grid-template-columns: 1fr;
+    }
+
+    &--on-demand {
+      .subsection-aside {
+        background-color: adjust-color(c('brand-water'), $saturation: -32%, $lightness: +24%);
+        background-image: url('../img/on-demand.png');
+
+        @media screen and (max-width: 860px) {
+          background-image: none;
+        }
+      }
+    }
+
+    &--reserved {
+      .subsection-aside {
+        background-color: v('brand-water');
+        background-image: url('../img/reserved.png');
+
+        @media screen and (max-width: 860px) {
+          background-image: none;
+        }
+      }
+    }
+
+    &__title {
+      font-size: 5rem;
+      font-weight: v('bold');
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      position: relative;
+
+      @media screen and (max-width: 768px) {
+        font-size: 4rem;
+      }
+
+      &:before {
+        content: counter(subsection);
+        position: absolute;
+        top: 0;
+        font-size: 2.25rem;
+        line-height: 5rem;
+        left: -3rem;
+
+        @media screen and (max-width: 768px) {
+          line-height: 4rem;
+        }
+      }
+    }
+
+    &__description {
+      font-size: 1.75rem;
+      opacity: v('faded');
+    }
+
+    &-aside,
+    &-content {
+      padding: 5rem 6rem;
+    }
+
+    &-aside {
+      color: v('white');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50% bottom;
+
+      @media screen and (max-width: 768px) {
+        padding: 3rem 3rem 3rem 6rem;
+      }
+    }
+
+    &-content {
+      @media screen and (max-width: 768px) {
+        padding: 3rem;
+      }
+
+      .list {
+        li {
+          font-size: 1.75rem;
+          color: transparentize(c('brand-water'), 0.3);
+        }
+      }
+
+      .table {
+        --cellpadding: 1.5rem 2rem;
+        margin-top: 4rem;
+        // min-width: 100px;
+        width: 100%;
+        max-width: 400px;
+
+        &-col {
+          min-width: 50%;
+        }
+      }
+
+      .quote {
+        font-size: 1.75rem;
+        opacity: v('faded');
+        padding: 3rem;
+        border-radius: 1rem;
+        background-color: v(off-white);
+        margin-top: 4rem;
+      }
+    }
+  }
+}
