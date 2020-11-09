@@ -64,13 +64,13 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
         exclude: [`${__dirname}/src/img/sprite.svg`],
       }
     },
+    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

@@ -20,11 +20,11 @@ interface VisitorResponse extends FP.FullIpExtendedGetResult {
 }
 
 export default function FpjsWidget() {
-  // const dashboardEndpoint = process.env.FPJS_DASHBOARD_ENDPOINT;
-  const clientToken = process.env.FPJS_TOKEN;
-  const apiToken = process.env.FPJS_API_TOKEN;
-  const endpoint = process.env.FPJS_ENDPOINT;
-  const region = process.env.FPJS_REGION as FP.Region;
+  // const dashboardEndpoint = process.env.GATSBY_FPJS_DASHBOARD_ENDPOINT;
+  const clientToken = process.env.GATSBY_FPJS_TOKEN;
+  const apiToken = process.env.GATSBY_FPJS_API_TOKEN;
+  const endpoint = process.env.GATSBY_FPJS_ENDPOINT;
+  const region = process.env.GATSBY_FPJS_REGION as FP.Region;
   const config: FP.GetOptions<true, "full"> = {
     ipResolution: "full",
     extendedResult: true,
