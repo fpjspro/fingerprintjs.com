@@ -41,6 +41,9 @@ const pricingTable = [
   { label: '20M', value: 20000000 },
 ];
 
+// Minimum number of identifications for custom pricing
+const minimumIdentifications = 100000;
+
 document.addEventListener('DOMContentLoaded', () => {
   // FPJS widget
   initFpjsWidget();
@@ -176,7 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     userInputIdentifications.on('input', (e) => {
-      const identifications = e.target.value;
+      let identifications = parseInt(e.target.value, 10);
+      // Don't allow the number of identifications to go below the minimum.
+      identifications = (identifications >= minimumIdentifications) ? identifications : minimumIdentifications;
+
       $('.preset__select').val('').trigger('change.select2');
 
       const onDemandPriceValue = calculatePrice(identifications, 'monthly');
