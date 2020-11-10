@@ -1,6 +1,6 @@
 import React from 'react';
 import FpjsWidget from '../FpjsWidget';
-import GetStartedForm from '../GetStartedForm.tsx';
+import GetStartedForm from '../GetStartedForm';
 
 export default function LiveDemoSection() {
   return (

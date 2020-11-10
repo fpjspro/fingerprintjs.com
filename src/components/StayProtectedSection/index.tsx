@@ -1,5 +1,5 @@
 import React from 'react'
-import GetStartedForm from '../GetStartedForm.tsx'
+import GetStartedForm from '../GetStartedForm'
 
 export default function StayProtectedSection() {
   return (
