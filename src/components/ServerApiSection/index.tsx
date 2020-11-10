@@ -1,10 +1,10 @@
 import React from 'react';
-import APIResponseCode from './APIResponseCode';
-import CurlCode from './CurlCode';
-import {ReactComponent as ToolsSvg} from '../img/tools.svg';
-import {ReactComponent as IntegrationsSvg} from '../img/integrations.svg';
+import ApiResponseCode from '../ApiResponseCode';
+import CurlCode from '../CurlCode';
+import {ReactComponent as ToolsSvg} from './tools.svg';
+import {ReactComponent as IntegrationsSvg} from './integrations.svg';
 
-export default function ServerAPISection() {
+export default function ServerApiSection() {
   return (
     <section className="section section--flexible-api">
       <div className="container container--large">
@@ -49,7 +49,7 @@ export default function ServerAPISection() {
               </div>
               <div className="window">
                   <div className="window-content">
-                    <APIResponseCode/>
+                    <ApiResponseCode/>
                   </div>
               </div>
           </div>

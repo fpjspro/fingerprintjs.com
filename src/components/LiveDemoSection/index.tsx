@@ -1,5 +1,6 @@
 import React from 'react';
-import FpjsWidget from './LoadableFpjsWidget';
+import FpjsWidget from '../FpjsWidget';
+import GetStartedForm from '../GetStartedForm.tsx';
 
 export default function LiveDemoSection() {
   return (
@@ -16,6 +17,7 @@ export default function LiveDemoSection() {
             </em>
             browser fingerprinting as a service.
           </p>
+          <GetStartedForm onSubmit={(email) => console.log(email)}/>
         </header>
         <div className='section-content' style={{"position": "relative"}}>
           <FpjsWidget/>

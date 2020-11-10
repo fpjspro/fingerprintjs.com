@@ -8,8 +8,11 @@ import Layout from '../components/Layout';
 import ClientsSection from '../components/ClientsSection';
 import LiveDemoSection from '../components/LiveDemoSection';
 import MadeForDevelopersSection from '../components/MadeForDevelopersSection';
-import ServerAPISection from '../components/ServerAPISection';
+import ServerApiSection from '../components/ServerApiSection';
 import UseCasesSection from '../components/UseCasesSection';
+import Billing from '../components/Billing';
+import ProToolsSection from '../components/ProToolsSection';
+import StayProtectedSection from '../components/StayProtectedSection';
 
 export const IndexPageTemplate = ({
   // image,
@@ -24,8 +27,11 @@ export const IndexPageTemplate = ({
     <LiveDemoSection/>
     <ClientsSection/>
     <MadeForDevelopersSection/>
-    <ServerAPISection/>
+    <ServerApiSection/>
     <UseCasesSection blurbs={intro.blurbs}/>
+    <Billing/>
+    <ProToolsSection/>
+    <StayProtectedSection/>
   </div>
 )
 

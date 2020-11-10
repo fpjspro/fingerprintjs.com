@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function APIResponseCode() {
+export default function ApiResponseCode() {
   return (
     <pre>
       <code className='line-numbers language-javascript'>

@@ -1,5 +1,5 @@
 import React from 'react'
-import GetTokenCode from './GetTokenCode'
+import GetTokenCode from '../GetTokenCode'
 
 export default function MadeForDevelopersSection() {
   return (

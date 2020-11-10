@@ -1,10 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Footer from './Footer'
-import Header from './Header'
+import Footer from '../Footer'
+import Header from '../Header'
 // import './all.sass'
-import '../css/index.scss'
-import useSiteMetadata from './SiteMetadata'
+import '../../css/index.scss'
+import useSiteMetadata from '../SiteMetadata'
 import { withPrefix } from 'gatsby'
 
 const TemplateWrapper = ({ children }) => {

@@ -1,12 +1,9 @@
 import * as FP from '@fingerprintjs/fingerprintjs-pro';
 import React, {useState, useEffect} from 'react';
-import {getVisitTitle, getBrowserName, getBotDecision} from '../utils/utils';
+import {getVisitTitle, getBrowserName, getBotDecision} from '../../utils/fpjs-widget';
 import classNames from 'classnames';
+import {ReactComponent as InfoSvg} from './info.svg';
 
-// TODO replace with svg react somponents
-import sprite from '../img/sprite.svg';
-
-// TODO discuss
 interface VisitorResponse extends FP.FullIpExtendedGetResult {
   timestamp: number;
   browserDetails: {
@@ -55,16 +52,11 @@ export default function FpjsWidget() {
         <div className='fingerprint-live-demo-history'>
           <div className='fingerprint-live-demo__header'>
             Visit History
-            <svg
-              version="1.1" 
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
+            <InfoSvg 
               className='info'
               data-tippy-content='FingerprintJS Pro allows you to get a history of visits with all available information'
               tabIndex={0}
-            >
-              <use xlinkHref={`${sprite}#info`}></use>
-            </svg>
+            />
           </div>
           <div className='history'>
             <ul className='history-visits'>
@@ -96,13 +88,11 @@ export default function FpjsWidget() {
               <span className='user-id'>
                 {visitorId}
               </span>
-              <svg
+              <InfoSvg 
                 className='info'
                 data-tippy-content='Every visitor to your website is assigned a unique & permanent identifier.'
                 tabIndex={0}
-              >
-                <use xlinkHref={`${sprite}#info`}></use>
-              </svg>
+              />
             </div>
             <div className='current-visit__bot'>
               <span className='current-visit__label'>
@@ -111,13 +101,11 @@ export default function FpjsWidget() {
               <span className='user-bot'>
                 {getBotDecision(currentVisit?.bot?.probability ?? currentVisit?.browserDetails?.botProbability ?? 0)}
               </span>
-              <svg
+              <InfoSvg 
                 className='info'
                 data-tippy-content='Every response will include the botProbability field that you can use to identify bot traffic.'
                 tabIndex={0}
-              >
-                <use xlinkHref={`${sprite}#info`}></use>
-              </svg>
+              />
             </div>
             <div className='current-visit__ip'>
               <span className='current-visit__label'>
@@ -134,13 +122,11 @@ export default function FpjsWidget() {
               <span className='user-incognito'>
                 {currentVisit?.incognito ? 'Yes' : 'No'}
               </span>
-              <svg
+              <InfoSvg 
                 className='info'
                 data-tippy-content='FingerprintJS Pro analyzes every page view and detects if it was made in incognito mode. Open this page in private mode to see it in action.'
                 tabIndex={0}
-              >
-                <use xlinkHref={`${sprite}#info`}></use>
-              </svg>
+              />
             </div>
             <div className='current-visit__browser'>
               <span className='current-visit__label'>
@@ -153,16 +139,16 @@ export default function FpjsWidget() {
             <div className='current-visit__location'>
               <span className='current-visit__label'>
                 Location
-                <svg
+                <InfoSvg 
                   className='info'
                   style={{marginLeft: "10px"}}
                   data-tippy-content='Based on the visit IP address'
                   tabIndex={0}
-                >
-                  <use xlinkHref={`${sprite}#info`}></use>
-                </svg>
+                />
               </span>
-              <div className='user-location' id='fpjs_location'><img id='fpjs_location_img' /></div>
+              <div className='user-location' id='fpjs_location'>
+                {currentVisit && <img src={`https://api.mapbox.com/styles/v1/mapbox/${currentVisit?.incognito ? 'dark-v10' : 'outdoors-v11'}/static/${currentVisit?.ipLocation?.longitude},${currentVisit?.ipLocation?.latitude},7.00,0/512x512?access_token=pk.eyJ1IjoidmFsZW50aW52YXNpbHlldiIsImEiOiJja2ZvMGttN2UxanJ1MzNtcXp5YzNhbWxuIn0.BjZhTdjY812J3OdfgRiZ4A`} />}
+              </div>
             </div>
           </div>
         </div>
