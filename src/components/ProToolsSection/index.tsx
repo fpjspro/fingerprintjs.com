@@ -5,11 +5,12 @@ import {ReactComponent as BotDetectionSvg} from './bot_detection.svg';
 import {ReactComponent as AnonymousUserIdentificationSvg} from './anonymous_user_identification.svg';
 import {ReactComponent as IncognitoDetectionSvg} from './incognito_detection.svg';
 import {ReactComponent as ApiWebhooksSvg} from './api_webhooks.svg';
+import Container from '../base/Container';
 
 export default function ProToolsSection() {
   return (
     <section className='section section--pro-tools'>
-      <div className='container'>
+      <Container>
         <header className='section-header'>
           <h2 className='section__title'>
             FingerprintJS
@@ -82,7 +83,7 @@ export default function ProToolsSection() {
           {/* Add Pagination */}
           <div className="swiper-pagination"></div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

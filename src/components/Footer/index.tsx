@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import GithubButton from '../GithubButton';
 import {ReactComponent as LinkedInSvg} from '../../img/linkedin.svg';
 import {ReactComponent as TwitterSvg} from '../../img/twitter.svg';
+import Container from '../base/Container';
 
 interface FooterLinkSection {
   title: string;
@@ -87,7 +88,7 @@ const footerLinks: FooterLinkSection[] = [
 export default function Footer() {
   return (
     <footer className='footer'>
-      <div className='container container--large'>
+      <Container size='large'>
         <nav className='nav nav--footer'>
           <div className='menu-wrapper'>
             {footerLinks.map(({title, links}) => {
@@ -160,7 +161,7 @@ export default function Footer() {
         <div className='copyrights'>
           &copy; 2020 FingerprintJS, Inc
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

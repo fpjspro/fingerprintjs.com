@@ -1,22 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {ReactComponent as AccountFraudSvg} from './account_fraud.svg';
+import Container from '../base/Container';
 
 export default function UseCasesSection({blurbs}) {
-  // useEffect(() => {
-  //   const importIcon = async () => {
-  //     try {
-  //       const { default: namedImport } = await import(`../img/${blurbs[0].image}.svg`);
-  //       console.log(namedImport);
-  //     } catch (err) {
-  //       throw err;
-  //     }
-  //   };
-  //   importIcon();
-  // }, [])
-
   return (
     <section className='section section--use-cases'>
-      <div className='container'>
+      <Container>
         <header className='section-header'>
           <h2 className='section__title'>
             FingerprintJS
@@ -48,7 +37,7 @@ export default function UseCasesSection({blurbs}) {
             }
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

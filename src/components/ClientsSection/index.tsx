@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from '../base/Container';
 
 export default function ClientsSection() {
   const trustedLogos = [
@@ -13,7 +14,7 @@ export default function ClientsSection() {
 
   return (
     <section className='section section--trusted-by'>
-      <div className='container'>
+      <Container>
         <header className='section-header'>
         <h2 className='section__title'>
           <strong>
@@ -36,7 +37,7 @@ export default function ClientsSection() {
         </div>
         <div className="swiper-pagination"></div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

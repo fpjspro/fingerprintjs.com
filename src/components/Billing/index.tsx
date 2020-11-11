@@ -3,6 +3,7 @@ import {Link} from 'gatsby';
 import classNames from 'classnames';
 import { PaymentType } from '../../types/PaymentType';
 import { handlePriceChange } from '../../utils/pricing';
+import Container from '../base/Container';
 
 const sliderConfig = {
   min: 0,
@@ -42,7 +43,7 @@ export default function Billing() {
 
   return (
     <section className='section section--billing'>
-      <div className='container container--large'>
+      <Container size='large'>
         <header className='section-header'>
           <h2 className='section__title'>
             Predictable &amp; Transparent Billing
@@ -147,7 +148,7 @@ export default function Billing() {
             Detailed Pricing
           </a>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

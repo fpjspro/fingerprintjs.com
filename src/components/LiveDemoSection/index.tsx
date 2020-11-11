@@ -1,16 +1,19 @@
 import React from 'react';
 import FpjsWidget from '../FpjsWidget';
 import GetStartedForm from '../GetStartedForm';
+import Container from '../base/Container';
+import styles from './LiveDemoSection.module.scss';
+import Section from '../base/Section';
 
 export default function LiveDemoSection() {
   return (
-    <section className="section section--live-demo">
-      <div className='container container--large'>
-        <header className='section-header'>
-          <h1 className='section__title'>
+    <Section classes={styles.liveDemo}>
+      <Container size='large' classes={styles.container}>
+        <header className={styles.header}>
+          <h1 className={styles.title}>
             Browser Fingerprinting API
           </h1>
-          <p className='section__description'>
+          <p className={styles.description}>
             Stop fraud, spam, and account takeovers with
             <em>
               99.5% accurate
@@ -19,10 +22,10 @@ export default function LiveDemoSection() {
           </p>
           <GetStartedForm onSubmit={(email) => console.log(email)}/>
         </header>
-        <div className='section-content' style={{"position": "relative"}}>
+        <div className={styles.content} style={{"position": "relative"}}>
           <FpjsWidget/>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }

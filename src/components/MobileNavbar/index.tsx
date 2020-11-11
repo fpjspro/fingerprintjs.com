@@ -3,11 +3,12 @@ import { Link } from 'gatsby'
 import {ReactComponent as LinkedInSvg} from '../../img/linkedin.svg';
 import {ReactComponent as TwitterSvg} from '../../img/twitter.svg';
 import GithubButton from '../GithubButton';
+import Container from '../base/Container';
 
 export default function MobileNavbar() {
   return (
     <div className='mobile-nav'>
-      <div className='container container--large'>
+      <Container size='large'>
         <div className='top-links'>
           <a href='mailto:sales@fingerprintjs.com' className='btn btn--outlined'>
             Contact Sales
@@ -17,7 +18,7 @@ export default function MobileNavbar() {
           </a>
         </div>
         <div className='main-links'>
-          <div className='container container--large' style={{'padding': 0}}>
+          <Container size='large'> {/*style={{'padding': 0}}>*/}
             <Link to='/demo' className='nav__link'>
               Technical Demo
             </Link>
@@ -39,7 +40,7 @@ export default function MobileNavbar() {
             <a href='https://dashboard.fingerprintjs.com/signup' className='nav__link'>
               Sign Up
             </a>
-          </div>
+          </Container>
         </div>
         <div className='contact-social'>
           <GithubButton/>
@@ -61,7 +62,7 @@ export default function MobileNavbar() {
             </ul>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   )
 }

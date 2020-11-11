@@ -1,0 +1,33 @@
+.top {
+  background-color: v('off-white');
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.75rem;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.secondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: flex-end;
+
+  >*+* {
+    margin-left: 4rem;
+  }
+}
+
+.link {
+  @include transition((opacity));
+  opacity: 1;
+
+
+  &:not(.has-submenu) {
+    &:hover {
+      opacity: v('faded');
+    }
+  }
+}
