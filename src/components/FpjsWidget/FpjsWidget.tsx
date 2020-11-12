@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import {getVisitTitle, getBrowserName, getBotDecision} from '../../utils/fpjs-widget';
 import classNames from 'classnames';
 import {ReactComponent as InfoSvg} from './info.svg';
+import {ReactComponent as IncognitoSvg} from './incognito.svg';
+import styles from './FpjsWidget.module.scss';
 
 interface VisitorResponse extends FP.FullIpExtendedGetResult {
   timestamp: number;
@@ -31,8 +33,10 @@ export default function FpjsWidget() {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>();
   const [visits, setVisits] = useState<VisitorResponse[]>([]);
   const [visitorId, setVisitorId] = useState<string>();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     FP.load({ token: clientToken!, endpoint, region })
       .then((fp) => fp.get(config))
       .then(({visitorId}) => {
@@ -42,117 +46,126 @@ export default function FpjsWidget() {
       .then(data => {
         setVisits(data.visits);
         setCurrentVisit(data.visits[0]);
-      });
+      })
+      .catch((e) => {
+        console.error(`Fingerprint loading failed: ${e.message}`);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
   }, []);
 
   return (
     <>
-      <div className='fingerprint-live-demo-loader' id='fpjs_loader'></div>
-      <div className='fingerprint-live-demo' id='fpjs_container'>
-        <div className='fingerprint-live-demo-history'>
-          <div className='fingerprint-live-demo__header'>
+      {isLoading ? <div className={styles.loader}></div> :
+      <div className={classNames(styles.demo, {[styles.loaded]: !isLoading, [styles.incognito]: currentVisit?.incognito})}>
+        <div className={styles.history}>
+          <div className={styles.header}>
             Visit History
-            <InfoSvg 
-              className='info'
+            <InfoSvg
               data-tippy-content='FingerprintJS Pro allows you to get a history of visits with all available information'
               tabIndex={0}
             />
           </div>
-          <div className='history'>
-            <ul className='history-visits'>
-              {visits && visits.map(({ requestId, timestamp }, i) => {
+          <div className={styles.content}>
+            <ul className={styles.visits}>
+              {visits && visits.map(({ requestId, timestamp, incognito }, i) => {
                 return (
                   <li 
                     className={classNames(
-                      "history-visits__visit",
-                      {"history-visits__visit--selected": currentVisit?.requestId === requestId} 
+                      styles.visit,
+                      {[styles.selected]: currentVisit?.requestId === requestId},
+                      {[styles.incognito]: incognito},
+                      {[styles.now]: i === 0}
                     )}
                     id={`visit_${requestId}`}
                     key={requestId}
                     onClick={() => setCurrentVisit(visits[i])}
                   >
                     {i === 0 ? 'Current visit' : getVisitTitle(timestamp)}
+                    {incognito && <IncognitoSvg/>}
                   </li>
                 )
               })}
             </ul>
           </div>
         </div>
-        <div className='fingerprint-live-demo-current-visit'>
-          <div className='fingerprint-live-demo__header' id='fpjs_visit_title'></div>
-          <div className='current-visit'>
-            <div className='current-visit__id'>
-              <span className='current-visit__label'>
+        <div className={styles.currentVisit}>
+          <div className={styles.header}>
+            {currentVisit && (currentVisit.requestId === visits[0].requestId 
+              ? 'Your Current Visit' 
+              : getVisitTitle(currentVisit.timestamp))}
+          </div>
+          <div className={styles.content}>
+            <div className={styles.visitId}>
+              <span className={styles.label}>
                 Your ID:
               </span>
-              <span className='user-id'>
+              <span className={styles.value}>
                 {visitorId}
               </span>
-              <InfoSvg 
-                className='info'
+              <InfoSvg
                 data-tippy-content='Every visitor to your website is assigned a unique & permanent identifier.'
                 tabIndex={0}
               />
             </div>
-            <div className='current-visit__bot'>
-              <span className='current-visit__label'>
+            <div className={classNames(styles.info, styles.bot)}>
+              <span className={styles.label}>
                 Bot
               </span>
-              <span className='user-bot'>
+              <span className={styles.value}>
                 {getBotDecision(currentVisit?.bot?.probability ?? currentVisit?.browserDetails?.botProbability ?? 0)}
               </span>
-              <InfoSvg 
-                className='info'
+              <InfoSvg
                 data-tippy-content='Every response will include the botProbability field that you can use to identify bot traffic.'
                 tabIndex={0}
               />
             </div>
-            <div className='current-visit__ip'>
-              <span className='current-visit__label'>
+            <div className={classNames(styles.info, styles.ip)}>
+              <span className={styles.label}>
                 IP
               </span>
-              <span className='user-ip'>
+              <span className={styles.value}>
                 {currentVisit?.ip}
               </span>
             </div>
-            <div className='current-visit__incognito'>
-              <span className='current-visit__label'>
+            <div className={classNames(styles.info, styles.incognito)}>
+              <span className={styles.label}>
                 Incognito
               </span>
-              <span className='user-incognito'>
+              <span className={styles.value}>
                 {currentVisit?.incognito ? 'Yes' : 'No'}
               </span>
-              <InfoSvg 
-                className='info'
+              <InfoSvg
                 data-tippy-content='FingerprintJS Pro analyzes every page view and detects if it was made in incognito mode. Open this page in private mode to see it in action.'
                 tabIndex={0}
               />
             </div>
-            <div className='current-visit__browser'>
-              <span className='current-visit__label'>
+            <div className={classNames(styles.info, styles.browser)}>
+              <span className={styles.label}>
                 Browser
               </span>
-              <span className='user-browser'>
+              <span className={styles.value}>
                 {currentVisit && getBrowserName(currentVisit?.browserDetails || currentVisit)}
               </span>
             </div>
-            <div className='current-visit__location'>
-              <span className='current-visit__label'>
+            <div className={classNames(styles.info, styles.location)}>
+              <span className={styles.label}>
                 Location
-                <InfoSvg 
-                  className='info'
+                <InfoSvg
                   style={{marginLeft: "10px"}}
                   data-tippy-content='Based on the visit IP address'
                   tabIndex={0}
                 />
               </span>
-              <div className='user-location' id='fpjs_location'>
+              <div className={styles.value}>
                 {currentVisit && <img src={`https://api.mapbox.com/styles/v1/mapbox/${currentVisit?.incognito ? 'dark-v10' : 'outdoors-v11'}/static/${currentVisit?.ipLocation?.longitude},${currentVisit?.ipLocation?.latitude},7.00,0/512x512?access_token=pk.eyJ1IjoidmFsZW50aW52YXNpbHlldiIsImEiOiJja2ZvMGttN2UxanJ1MzNtcXp5YzNhbWxuIn0.BjZhTdjY812J3OdfgRiZ4A`} />}
               </div>
             </div>
           </div>
         </div>
       </div>
+    }
   </>
   )
 }

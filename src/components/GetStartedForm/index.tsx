@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {ReactComponent as ChevronRightSvg} from './chevron-right.svg';
 import {ReactComponent as CheckSvg} from './check.svg';
 import {ReactComponent as CloseSvg} from './close.svg';
+import styles from './GetStartedForm.module.scss';
 
 export default function GetStartedForm({onSubmit}: {onSubmit: (email: string) => void}) {
   const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ export default function GetStartedForm({onSubmit}: {onSubmit: (email: string) =>
   return (
     <form className='form form--get-started' onSubmit={handleSubmit}>
       <div className='field field-with-button'>
-        <label htmlFor='email' className='label'>
+        <label htmlFor='email' className={styles.label}>
           <input 
             type='email' 
             name='email' 

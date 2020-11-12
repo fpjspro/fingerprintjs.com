@@ -258,7 +258,7 @@
     flex-wrap: wrap;
 
     .mobile-toggler {
-      @media screen and (min-width: 1025px) {
+      @media screen and (min-width: 1024px) {
         display: none;
       }
     }

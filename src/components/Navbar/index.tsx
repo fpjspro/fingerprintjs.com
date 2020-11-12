@@ -26,9 +26,6 @@ export default function Navbar() {
           <a className={nav.link} href='https://dashboard.fingerprintjs.com/login' target="_blank">
             Log In
           </a>
-          <a className={nav.link} href='https://dashboard.fingerprintjs.com/signup'>
-            Sign Up
-          </a>
         </nav>
       </Container>
     </div>

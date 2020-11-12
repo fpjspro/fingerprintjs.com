@@ -7,8 +7,8 @@ import Section from '../base/Section';
 
 export default function LiveDemoSection() {
   return (
-    <Section classes={styles.liveDemo}>
-      <Container size='large' classes={styles.container}>
+    <Section className={styles.liveDemo}>
+      <Container size='large' className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.title}>
             Browser Fingerprinting API

@@ -6,8 +6,10 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import GithubButton from '../GithubButton';
 import {ReactComponent as BurgerSvg} from './burger.svg';
 // import MobileNavbar from '../MobileNavbar';
-import styles from './Header.module.scss';
+import Button from '../base/Button';
 import Container from '../base/Container';
+// important to import after other styles to override
+import styles from './Header.module.scss';
 
 export default function Header() {
   useEffect(() => {
@@ -15,32 +17,37 @@ export default function Header() {
   }, []);
 
   return (
-    <>
+    <header>
       <Navbar />
-      <div className={styles.mainNav}>
+      <div className={styles.nav}>
         <Container size='large'>
-          <nav className={`${styles.nav} ${styles.navMain}`}>
+          <nav className={styles.navMain}>
             <div className={styles.navLeft}>
               <Link to="/" className={`${styles.link} ${styles.linkLogo}`} title="Logo">
                 <img src="/img/company-logos/fpjs.svg" alt="FingerprintJS" className={styles.logo} />
               </Link>
             </div>
             <div className={styles.navRight}>
-              <GithubButton/>
-              <a href="mailto:sales@fingerprintjs.com" className="btn btn--outlined">
+              <GithubButton className={styles.desktopOnly} />
+              <Button 
+                href="mailto:sales@fingerprintjs.com" 
+                variant='outline'
+                className={styles.desktopOnly}>
                 Contact Sales
-              </a>
-              <a href="https://dashboard.fingerprintjs.com/signup" className="btn">
+              </Button>
+              <Button href="https://dashboard.fingerprintjs.com/signup">
                 Free Trial
-              </a>
-              <button className="btn btn--clear btn--icon-only mobile-toggler">
-                <BurgerSvg className="btn__icon"/>
-              </button>
+              </Button>
+              <Button 
+                className={styles.mobileToggler} 
+                variant='clear'>
+                <BurgerSvg className={styles.buttonIcon}/>
+              </Button>
             </div>
           </nav>
         </Container>
       </div>
       {/* <MobileNavbar/> */}
-    </>
+    </header>
   )
 }

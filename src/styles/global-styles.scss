@@ -48,6 +48,18 @@ body {
   overflow: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 /*
 	Improved screen reader only CSS class
 	@author Gaël Poupard

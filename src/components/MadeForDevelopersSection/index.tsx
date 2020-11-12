@@ -1,13 +1,15 @@
 import React from 'react'
 import GetTokenCode from '../GetTokenCode'
 import Container from '../base/Container';
+import Section from '../base/Section';
+import styles from './MadeForDevelopersSection.module.scss';
 
 export default function MadeForDevelopersSection() {
   return (
-  <section className="section section--developer-friendly">
+  <Section className={styles.developerFriendly}>
     <Container size='large'>
-      <header className="section-header">
-        <h2 className="section__title">Made for developers</h2>
+      <header className={styles.header}>
+        <h2 className={styles.title}>Made for developers</h2>
         <div className="tools-integrations">
           <div className="tools-integrations-item">
             <h3 className="tools-integrations-item__title">
@@ -27,7 +29,7 @@ export default function MadeForDevelopersSection() {
           </div>
         </div>
       </header>
-      <div className="section-content">
+      <div className={styles.content}>
         <div className="window">
           <div className="window-header">
             <div className="window-header__btn window-header__btn--close"></div>
@@ -40,6 +42,6 @@ export default function MadeForDevelopersSection() {
         </div>
       </div>
     </Container>
-  </section>
+  </Section>
   )
 }
