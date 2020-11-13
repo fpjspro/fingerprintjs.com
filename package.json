@@ -7,6 +7,7 @@
     "@fingerprintjs/fingerprintjs-pro": "^3.0.1",
     "@loadable/component": "^5.14.1",
     "@svgr/webpack": "^5.4.0",
+    "@tippyjs/react": "^4.2.0",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-preset-gatsby": "^0.5.16",
     "classnames": "^2.2.6",

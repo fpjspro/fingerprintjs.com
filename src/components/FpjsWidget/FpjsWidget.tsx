@@ -4,6 +4,7 @@ import {getVisitTitle, getBrowserName, getBotDecision} from '../../utils/fpjs-wi
 import classNames from 'classnames';
 import {ReactComponent as InfoSvg} from './info.svg';
 import {ReactComponent as IncognitoSvg} from './incognito.svg';
+import Tippy from '@tippyjs/react';
 import styles from './FpjsWidget.module.scss';
 
 interface VisitorResponse extends FP.FullIpExtendedGetResult {
@@ -62,10 +63,9 @@ export default function FpjsWidget() {
         <div className={styles.history}>
           <div className={styles.header}>
             Visit History
-            <InfoSvg
-              data-tippy-content='FingerprintJS Pro allows you to get a history of visits with all available information'
-              tabIndex={0}
-            />
+            <Tippy content='FingerprintJS Pro allows you to get a history of visits with all available information'>
+              <InfoSvg tabIndex={0}/>
+            </Tippy>
           </div>
           <div className={styles.content}>
             <ul className={styles.visits}>
@@ -104,10 +104,9 @@ export default function FpjsWidget() {
               <span className={styles.value}>
                 {visitorId}
               </span>
-              <InfoSvg
-                data-tippy-content='Every visitor to your website is assigned a unique & permanent identifier.'
-                tabIndex={0}
-              />
+              <Tippy content='Every visitor to your website is assigned a unique & permanent identifier.'>
+                <InfoSvg tabIndex={0}/>
+              </Tippy>
             </div>
             <div className={classNames(styles.info, styles.bot)}>
               <span className={styles.label}>
@@ -116,10 +115,9 @@ export default function FpjsWidget() {
               <span className={styles.value}>
                 {getBotDecision(currentVisit?.bot?.probability ?? currentVisit?.browserDetails?.botProbability ?? 0)}
               </span>
-              <InfoSvg
-                data-tippy-content='Every response will include the botProbability field that you can use to identify bot traffic.'
-                tabIndex={0}
-              />
+              <Tippy content='Every response will include the botProbability field that you can use to identify bot traffic.'>
+                <InfoSvg tabIndex={0}/>
+              </Tippy>
             </div>
             <div className={classNames(styles.info, styles.ip)}>
               <span className={styles.label}>
@@ -136,10 +134,9 @@ export default function FpjsWidget() {
               <span className={styles.value}>
                 {currentVisit?.incognito ? 'Yes' : 'No'}
               </span>
-              <InfoSvg
-                data-tippy-content='FingerprintJS Pro analyzes every page view and detects if it was made in incognito mode. Open this page in private mode to see it in action.'
-                tabIndex={0}
-              />
+              <Tippy content='FingerprintJS Pro analyzes every page view and detects if it was made in incognito mode. Open this page in private mode to see it in action.'>
+                <InfoSvg tabIndex={0}/>
+              </Tippy>
             </div>
             <div className={classNames(styles.info, styles.browser)}>
               <span className={styles.label}>
@@ -152,11 +149,12 @@ export default function FpjsWidget() {
             <div className={classNames(styles.info, styles.location)}>
               <span className={styles.label}>
                 Location
-                <InfoSvg
-                  style={{marginLeft: "10px"}}
-                  data-tippy-content='Based on the visit IP address'
-                  tabIndex={0}
-                />
+                <Tippy content='Based on the visit IP address'>
+                  <InfoSvg
+                    style={{marginLeft: "10px"}}
+                    tabIndex={0}
+                  />
+                </Tippy>
               </span>
               <div className={styles.value}>
                 {currentVisit && <img src={`https://api.mapbox.com/styles/v1/mapbox/${currentVisit?.incognito ? 'dark-v10' : 'outdoors-v11'}/static/${currentVisit?.ipLocation?.longitude},${currentVisit?.ipLocation?.latitude},7.00,0/512x512?access_token=pk.eyJ1IjoidmFsZW50aW52YXNpbHlldiIsImEiOiJja2ZvMGttN2UxanJ1MzNtcXp5YzNhbWxuIn0.BjZhTdjY812J3OdfgRiZ4A`} />}
