@@ -27,6 +27,20 @@
   &:hover {
     background-color: adjust-color(c('brand-fire'), $lightness: -20%);
   }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    fill: v('color');
+
+    &.mobileOnly {
+      display: inline-block;
+
+      @media screen and (min-width: 641px) {
+        display: none;
+      }
+    }
+  }
 }
 
 .label {

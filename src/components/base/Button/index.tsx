@@ -2,10 +2,9 @@ import React from 'react';
 import styles from './Button.module.scss';
 import classNames from 'classnames';
 
-interface ButtonProps {
+interface ButtonProps extends Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'className'>{
   variant?: 'primary' | 'outline' | 'clear';
   href?: string;
-  className?: string | string[];
   mobileIcon?: React.ReactNode;
   children?: React.ReactNode;
 }
@@ -16,6 +15,7 @@ export default function Button({
   className = '',
   mobileIcon,
   children,
+  type,
 }: ButtonProps) {
   const classes = classNames(
     styles.button, 
@@ -36,10 +36,13 @@ export default function Button({
       </span> 
     </a>) : (
     <button 
+      type={type}
       className={classes}>
-      {mobileIcon && <span className={styles.mobileOnly}>
-        {mobileIcon}
-        </span>} 
+      {mobileIcon && 
+        <span className={classNames(styles.icon, styles.mobileOnly)}>
+          {mobileIcon}
+        </span>
+      } 
       <span className={classNames({[styles.desktopOnly]: mobileIcon})}>
         {children}
       </span> 

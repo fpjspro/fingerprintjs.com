@@ -44,7 +44,7 @@
 }
 
 .history,
-.current-visit {
+.currentVisit {
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -156,7 +156,7 @@
   }
 }
 
-.current-visit {
+.currentVisit {
   @media screen and (max-width: 640px) {
     order: -1;
   }
@@ -397,7 +397,8 @@
         }
       }
     }
-    .current-visit {
+
+    .currentVisit {
       color: v('white');
 
       .location {
@@ -406,8 +407,6 @@
         }
       }
     }
-
-    // end of Current Visit
   }
 }
 

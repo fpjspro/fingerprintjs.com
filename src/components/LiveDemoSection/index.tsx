@@ -16,7 +16,7 @@ export default function LiveDemoSection() {
           <p className={styles.description}>
             Stop fraud, spam, and account takeovers with
             <em>
-              99.5% accurate
+              {' '}99.5% accurate{' '}
             </em>
             browser fingerprinting as a service.
           </p>

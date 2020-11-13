@@ -3,6 +3,8 @@ import {ReactComponent as ChevronRightSvg} from './chevron-right.svg';
 import {ReactComponent as CheckSvg} from './check.svg';
 import {ReactComponent as CloseSvg} from './close.svg';
 import styles from './GetStartedForm.module.scss';
+import classNames from 'classnames';
+import Button from '../base/Button';
 
 export default function GetStartedForm({onSubmit}: {onSubmit: (email: string) => void}) {
   const [email, setEmail] = useState('');
@@ -12,39 +14,40 @@ export default function GetStartedForm({onSubmit}: {onSubmit: (email: string) =>
   }
 
   return (
-    <form className='form form--get-started' onSubmit={handleSubmit}>
-      <div className='field field-with-button'>
+    <form className={classNames(styles.form, styles.getStarted)} onSubmit={handleSubmit}>
+      <div className={classNames(styles.field, styles.withButton)}>
         <label htmlFor='email' className={styles.label}>
           <input 
             type='email' 
             name='email' 
             required 
-            className='input gtm-email-input' 
+            className={classNames(styles.field, 'gtm-email-input')} 
             placeholder='Enter your email'
             value={email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
           />
         </label>
-        <button className='btn submit gtm-get-started-btn' type='submit'>
-          <span className='btn__label btn__label--desktop-only gtm-get-started-btn'>
-            Get Started
-          </span>
-          <ChevronRightSvg className='btn__icon btn__icon--mobile-only gtm-get-started-btn'/>
-        </button>
+        <Button 
+          className={classNames(styles.submit, 'gtm-get-started-btn')} 
+          type='submit'
+          mobileIcon={<ChevronRightSvg className='gtm-get-started-btn'/>}>
+          Get Started
+        </Button>
       </div>
-      <div className='form-state form-state--success'>
-        <CheckSvg className='form-state__icon'/>
-        <div className='form-state__label'>
+      <div className={classNames(styles.state, styles.success)}>
+        <CheckSvg className={styles.icon}/>
+        <div className={styles.label}>
           We sent you a link to start your trial
         </div>
       </div>
-      <div className='form-state form-state--failed'>
-        <CloseSvg className='form-state__icon'/>
-        <div className='form-state__label form-failed-reason'>
-          Submit failed. Please try again.
+      <div className={classNames(styles.state, styles.failed)}>
+        <CloseSvg className={styles.icon}/>
+        <div className={styles.label}>
+          {/* TODO: add error message */}
+          Something gone wrong. Please try again later.
         </div>
       </div>
-      <ul className='form-description'>
+      <ul className={styles.description}>
         <li>
           <CheckSvg/>
           10 Day Trial
