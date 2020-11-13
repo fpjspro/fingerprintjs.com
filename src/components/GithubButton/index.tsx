@@ -9,7 +9,7 @@ interface GithubReposResponse {
 }
 
 interface GithubButtonProps {
-  className: string | string[];
+  className?: string | string[];
 }
 
 export default function GithubButton({className}: GithubButtonProps) {

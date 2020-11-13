@@ -1,59 +1,53 @@
 import React from 'react';
-import ApiResponseCode from '../ApiResponseCode';
-import CurlCode from '../CurlCode';
 import {ReactComponent as ToolsSvg} from './tools.svg';
 import {ReactComponent as IntegrationsSvg} from './integrations.svg';
+import Container from '../base/Container';
+import Section from '../base/Section';
+import ToolsTextBlock from '../base/ToolsTextBlock';
+import CodeWindow from '../base/CodeWindow';
+import styles from './ServerApiSection.module.scss';
 
 export default function ServerApiSection() {
   return (
-    <section className="section section--flexible-api">
-      <div className="container container--large">
-          <header className="section-header">
-              <h2 className="section__title">Server API & Webhooks</h2>
-              <div className="tools-integrations">
-                  <div className="tools-integrations-item">
-                    <div className="tools-integrations-item__icon-container">
-                      <ToolsSvg className="tools-integrations-item__icon"/>
-                    </div>
-                    <h3 className="tools-integrations-item__title">
-                      &gt; Server-side visitor history API
-                    </h3>
-                    <p className="tools-integrations-item__description">  
-                      Access suspicious visitor activity, bot probability and geolocation at lightspeed.
-                      Integrate our API into your server-side business rules or signup process.
-                    </p>
-                  </div>
-                  <div className="tools-integrations-item">
-                    <div className="tools-integrations-item__icon-container">
-                      <IntegrationsSvg className="tools-integrations-item__icon"/>
-                    </div>
-                    <h3 className="tools-integrations-item__title">
-                      &gt; Webhooks for flexible workflows
-                    </h3>
-                    <p className="tools-integrations-item__description">
-                      Receive instant notifications delivered securely to your backend systems, ideal for building scalable and asynchronous processes.
-                    </p>
-                  </div>
-              </div>
-          </header>
-          <div className="section-content">
-              <div className="window">
-                  <div className="window-header">
-                      <div className="window-header__btn window-header__btn--close"></div>
-                      <div className="window-header__btn window-header__btn--minimize"></div>
-                      <div className="window-header__btn window-header__btn--expand"></div>
-                  </div>
-                  <div className="window-content">
-                    <CurlCode/>
-                  </div>
-              </div>
-              <div className="window">
-                  <div className="window-content">
-                    <ApiResponseCode/>
-                  </div>
-              </div>
+    <Section className={styles.flexibleApi}>
+      <Container size="large" className={styles.container}>
+        <header className={styles.header}>
+          <h2 className={styles.title}>Server API & Webhooks</h2>
+          <div className={styles.tools}>
+            <ToolsTextBlock 
+              icon={<ToolsSvg/>}
+              title={'Server-side visitor history API'} 
+              text={`Access suspicious visitor activity, bot probability and geolocation at lightspeed.
+              Integrate our API into your server-side business rules or signup process.`}
+            />
+            <ToolsTextBlock 
+              icon={<IntegrationsSvg/>}
+              title={'Webhooks for flexible workflows'} 
+              text={'Receive instant notifications delivered securely to your backend systems, ideal for building scalable and asynchronous processes.'}
+            />
           </div>
-      </div>
-    </section>
+        </header>
+        <div className={styles.content}>
+          <CodeWindow code={`curl https://api.fpjs.io/visitors/:visitId \\
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV1...'`}/>
+          <CodeWindow 
+            code={
+`{
+  "visitorId": "Ibk1527CUFmcnjLwIs4A9",
+  "visits": [
+    {
+      "incognito": true,
+      "botProbability": 0,
+      "ip": "61.127.217.15",
+      "ipLocation": { ... },
+      "browserDetails": { ... }
+    }
+  ]
+}`
+            }
+            hasControls={false}/>
+        </div>
+      </Container>
+    </Section>
   )
 }

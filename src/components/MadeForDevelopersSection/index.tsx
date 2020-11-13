@@ -1,45 +1,37 @@
 import React from 'react'
-import GetTokenCode from '../GetTokenCode'
+import CodeWindow from '../base/CodeWindow';
 import Container from '../base/Container';
 import Section from '../base/Section';
+import ToolsTextBlock from '../base/ToolsTextBlock';
 import styles from './MadeForDevelopersSection.module.scss';
 
 export default function MadeForDevelopersSection() {
   return (
   <Section className={styles.developerFriendly}>
-    <Container size='large'>
+    <Container size='large' className={styles.container}>
       <header className={styles.header}>
         <h2 className={styles.title}>Made for developers</h2>
-        <div className="tools-integrations">
-          <div className="tools-integrations-item">
-            <h3 className="tools-integrations-item__title">
-              &gt; Built on proven open-source library
-            </h3>
-            <p className="tools-integrations-item__description">      
-              Since 2012, FingerprintJS has been used to identify billions of users. Our Pro solution was developed based on feedback to provide unparalleled accuracy, ease of use, and security.
-            </p>
-          </div>
-          <div className="tools-integrations-item">
-            <h3 className="tools-integrations-item__title">
-              &gt; Use our Pro agent for serious accuracy
-            </h3>
-            <p className="tools-integrations-item__description">
-              Get to 99.5% identification accuracy with custom domains, CNAME integration, bot detection and additional identification methods beyond fingerprinting.
-            </p>
-          </div>
+        <div className={styles.tools}>
+          <ToolsTextBlock 
+            title={'Built on proven open-source library'} 
+            text={'Since 2012, FingerprintJS has been used to identify billions of users. Our Pro solution was developed based on feedback to provide unparalleled accuracy, ease of use, and security.'}
+          />
+          <ToolsTextBlock 
+            title={'Use our Pro agent for serious accuracy'} 
+            text={'Get to 99.5% identification accuracy with custom domains, CNAME integration, bot detection and additional identification methods beyond fingerprinting.'}
+          />
         </div>
       </header>
       <div className={styles.content}>
-        <div className="window">
-          <div className="window-header">
-            <div className="window-header__btn window-header__btn--close"></div>
-            <div className="window-header__btn window-header__btn--minimize"></div>
-            <div className="window-header__btn window-header__btn--expand"></div>
-          </div>
-          <div className="window-content">
-          <GetTokenCode/>
-          </div>
-        </div>
+        <CodeWindow code={`import FP from '@fingerprintjs/fingerprintjs-pro';
+
+FP.load({ token })
+  .then(fp => fp.get({ extendedResult: true }))
+  .then(res => {
+    console.log(res.visitorId);
+    console.log(res.incognito);
+    console.log(res.bot && res.bot.probability);
+  });`}/>
       </div>
     </Container>
   </Section>

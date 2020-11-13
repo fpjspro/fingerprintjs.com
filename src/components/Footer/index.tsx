@@ -127,7 +127,7 @@ export default function Footer() {
               1440 W. Taylor St #735, Chicago, IL 60607, USA
               <br/><br/>
               <a
-                href="javascript:location='mailto:\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0040\u0066\u0069\u006e\u0067\u0065\u0072\u0070\u0072\u0069\u006e\u0074\u006a\u0073\u002e\u0063\u006f\u006d';void 0"
+                // href="javascript:location='mailto:\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0040\u0066\u0069\u006e\u0067\u0065\u0072\u0070\u0072\u0069\u006e\u0074\u006a\u0073\u002e\u0063\u006f\u006d';void 0"
               >
                 <script type='text/javascript'>
                   document.write(
