@@ -6,7 +6,12 @@ import styles from './GetStartedForm.module.scss';
 import classNames from 'classnames';
 import Button from '../common/Button';
 
-export default function GetStartedForm({onSubmit}: {onSubmit: (email: string) => void}) {
+interface GetStartedFormProps {
+  className?: string | string[];
+  onSubmit: (email: string) => void;
+}
+
+export default function GetStartedForm({className, onSubmit}: GetStartedFormProps) {
   const [email, setEmail] = useState('');
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,7 +19,9 @@ export default function GetStartedForm({onSubmit}: {onSubmit: (email: string) =>
   }
 
   return (
-    <form className={classNames(styles.form, styles.getStarted)} onSubmit={handleSubmit}>
+    <form 
+      className={classNames(className, styles.form, styles.getStarted)} 
+      onSubmit={handleSubmit}>
       <div className={classNames(styles.field, styles.withButton)}>
         <label htmlFor='email' className={styles.label}>
           <input 

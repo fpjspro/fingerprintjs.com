@@ -1,0 +1,110 @@
+.proTools {
+  background-color: v('off-white');
+  background-repeat: no-repeat;
+  background-size: 1400px auto;
+  background-image: url('../../img/bg-full.png');
+  background-position: center center;
+
+  .container {
+    position: relative;
+    z-index: 20;
+
+    @media screen and (max-width: 640px) {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .sectionTitle {
+    font-weight: v(light);
+    font-size: 5rem;
+
+    @media screen and (max-width: 425px) {
+      font-size: 3rem;
+    }
+  }
+
+  .item {
+    padding: 3rem 3rem 6rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem 0 adjust-color(c('brand-water'), $alpha: -0.8);
+    position: relative;
+    background-color: v('white');
+    // margin-bottom: 3rem;
+
+    @media screen and (max-width: 767px) {
+      margin: 0 3rem;
+      width: calc(100% - 6rem) !important;
+      height: 240px;
+    }
+
+    @media screen and (max-width: 374px) {
+      height: 270px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      height: 220px;
+    }
+
+    // dirty hack for slider
+    @media screen and (min-width: 1024px) {
+      height: 280px;
+    }
+
+    &:hover {
+      .pro-tools-item__link {
+        color: v('brand-water');
+      }
+    }
+
+    .icon {
+      width: 6rem;
+      height: 6rem;
+      fill: v('brand-water');
+      margin-bottom: 2rem;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      color: v('brand-water');
+      opacity: v('faded');
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      color: v('brand-water');
+      line-height: 1.333;
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .link {
+      font-size: 1.75rem;
+      font-weight: v(semi);
+      color: v('brand-fire');
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+      @include transition((color));
+    }
+  }
+}
+
+// dirty hack for swiper
+#swiper--pro-tools {
+  @media screen and (max-width: 767px) {
+    & > .swiper-wrapper {
+      width: 100% !important;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    overflow: visible;
+  }
+}
