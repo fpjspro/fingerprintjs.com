@@ -4,7 +4,7 @@ import {ReactComponent as CheckSvg} from './check.svg';
 import {ReactComponent as CloseSvg} from './close.svg';
 import styles from './GetStartedForm.module.scss';
 import classNames from 'classnames';
-import Button from '../base/Button';
+import Button from '../common/Button';
 
 export default function GetStartedForm({onSubmit}: {onSubmit: (email: string) => void}) {
   const [email, setEmail] = useState('');

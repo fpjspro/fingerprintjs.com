@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import nav from './Navbar.module.scss';
-import Container from '../base/Container';
+import Container from '../common/Container';
 
 export default function Navbar() {
   return (

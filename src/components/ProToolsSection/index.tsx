@@ -5,7 +5,7 @@ import {ReactComponent as BotDetectionSvg} from './bot_detection.svg';
 import {ReactComponent as AnonymousUserIdentificationSvg} from './anonymous_user_identification.svg';
 import {ReactComponent as IncognitoDetectionSvg} from './incognito_detection.svg';
 import {ReactComponent as ApiWebhooksSvg} from './api_webhooks.svg';
-import Container from '../base/Container';
+import Container from '../common/Container';
 
 export default function ProToolsSection() {
   return (

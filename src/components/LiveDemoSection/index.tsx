@@ -1,9 +1,9 @@
 import React from 'react';
 import FpjsWidget from '../FpjsWidget';
 import GetStartedForm from '../GetStartedForm';
-import Container from '../base/Container';
+import Container from '../common/Container';
 import styles from './LiveDemoSection.module.scss';
-import Section from '../base/Section';
+import Section from '../common/Section';
 
 export default function LiveDemoSection() {
   return (

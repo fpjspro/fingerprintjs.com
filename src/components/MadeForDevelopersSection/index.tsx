@@ -1,8 +1,8 @@
 import React from 'react'
-import CodeWindow from '../base/CodeWindow';
-import Container from '../base/Container';
-import Section from '../base/Section';
-import ToolsTextBlock from '../base/ToolsTextBlock';
+import CodeWindow from '../common/CodeWindow';
+import Container from '../common/Container';
+import Section from '../common/Section';
+import ToolsTextBlock from '../common/ToolsTextBlock';
 import styles from './MadeForDevelopersSection.module.scss';
 
 export default function MadeForDevelopersSection() {

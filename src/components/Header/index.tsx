@@ -6,8 +6,8 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import GithubButton from '../GithubButton';
 import {ReactComponent as BurgerSvg} from './burger.svg';
 // import MobileNavbar from '../MobileNavbar';
-import Button from '../base/Button';
-import Container from '../base/Container';
+import Button from '../common/Button';
+import Container from '../common/Container';
 // important to import after other styles to override
 import styles from './Header.module.scss';
 

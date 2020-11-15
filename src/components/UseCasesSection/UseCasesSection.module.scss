@@ -1,0 +1,133 @@
+.section {
+  background-color: v('off-white');
+  background-repeat: no-repeat;
+  background-size: 1400px auto;
+  background-image: url('../../img/bg-full.png');
+  background-position: center center;
+
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .sectionTitle {
+    font-weight: v(light);
+    font-size: 5rem;
+
+    @media screen and (max-width: 425px) {
+      font-size: 3rem;
+    }
+  }
+
+  .useCases {
+    display: grid;
+    @include gap(3rem);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: auto;
+
+    .useCase {
+      display: flex;
+      align-items: flex-start;
+      padding: 4rem;
+      background-color: v('white');
+      border-radius: 1rem;
+      // @include gap(2rem);
+      position: relative;
+
+      >*+* {
+        margin-left: 2rem;
+      }
+
+      @media screen and (max-width: 425px) {
+        padding: 2rem;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        box-shadow: 0 20px 40px 0px adjust-color(c('brand-water'), $alpha: -0.9);
+        opacity: v('muted');
+        pointer-events: none;
+        @include transition((opacity));
+      }
+
+      &:hover {
+
+        // box-shadow: 0 20px 40px 0 adjust-color(c('brand-water'), $alpha: -0.9);
+        &:before {
+          opacity: 1;
+        }
+
+        .icon {
+          opacity: 1;
+        }
+
+        .link,
+        .title {
+          color: c('brand-fire');
+        }
+      }
+
+      .iconContainer {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5rem;
+        height: 28px;
+      }
+
+      .icon {
+        width: 3rem;
+        height: 3rem;
+        // stroke: c('brand-water');
+        opacity: v('extra-faded');
+        @include transition((opacity));
+      }
+
+      .title {
+        margin-bottom: 2rem;
+        @include transition((color));
+      }
+      
+      .description {
+        font-size: 1.75rem;
+        opacity: v('faded');
+      }
+
+      .link {
+        display: inline-block;
+        font-size: 1.75rem;
+        margin-top: 3rem;
+        text-decoration: underline;
+        @include transition((color));
+      }
+
+      &.large {
+        padding: 6rem;
+        display: block;
+        text-align: center;
+
+        >*+* {
+          margin-left: 0rem;
+        }
+
+        @media screen and (max-width: 425px) {
+          padding: 2rem;
+        }
+
+        .iconContainer {
+          height: auto;
+        }
+
+        .icon {
+          width: 7rem;
+          height: 7rem;
+        }
+      }
+    }
+  }
+}

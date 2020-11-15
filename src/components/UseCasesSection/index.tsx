@@ -1,13 +1,16 @@
 import React from 'react';
 import {ReactComponent as AccountFraudSvg} from './account_fraud.svg';
-import Container from '../base/Container';
+import Container from '../common/Container';
+import Section from '../common/Section';
+import styles from './UseCasesSection.module.scss';
+import classNames from 'classnames';
 
 export default function UseCasesSection({blurbs}) {
   return (
-    <section className='section section--use-cases'>
+    <Section className={styles.section}>
       <Container>
-        <header className='section-header'>
-          <h2 className='section__title'>
+        <header className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>
             FingerprintJS
             <br />
             <strong>
@@ -15,19 +18,19 @@ export default function UseCasesSection({blurbs}) {
             </strong>
           </h2>
         </header>
-        <div className='section-content'>
-          <div className='use-cases'>
+        <div className={styles.content}>
+          <div className={styles.useCases}>
             {blurbs.map((blurb, i) => {
               return (
-                <div key={`use-case_${i}_${blurb.title}`} className='use-case use-case--large'>
-                  <div className='use-case__icon-container'>
-                    <AccountFraudSvg className="use-case__icon"/>
+                <div key={`use-case_${i}_${blurb.title}`} className={classNames(styles.useCase, styles.large)}>
+                  <div className={styles.iconContainer}>
+                    <AccountFraudSvg className={styles.icon}/>
                   </div>
-                  <div className='use-case-info'>
-                    <h3 className='use-case__title'>
+                  <div className={styles.info}>
+                    <h3 className={styles.title}>
                       {blurb.title}
                     </h3>
-                    <p className='use-case__description'>
+                    <p className={styles.description}>
                       {blurb.text}
                     </p>
                   </div>
@@ -38,6 +41,6 @@ export default function UseCasesSection({blurbs}) {
           </div>
         </div>
       </Container>
-    </section>
+    </Section>
   )
 }

@@ -3,123 +3,99 @@ import {Link} from 'gatsby';
 import classNames from 'classnames';
 import { PaymentType } from '../../types/PaymentType';
 import { handlePriceChange } from '../../utils/pricing';
-import Container from '../base/Container';
+import Container from '../common/Container';
+import Section from '../common/Section';
+import styles from './Billing.module.scss';
+import RangeSlider, {SliderValue} from '../common/RangeSlider';
+import Button from '../common/Button';
 
 const sliderConfig = {
   min: 0,
   max: 6,
-  default: 0,
+  def: 0,
 }
 
 export default function Billing() {
+  const sliderTable: SliderValue[] = [
+    { label: '100K', value: 100000 },
+    { label: '250K', value: 250000 },
+    { label: '500K', value: 500000 },
+    { label: '1M', value: 1000000 },
+    { label: '5M', value: 5000000 },
+    { label: '10M', value: 10000000 },
+    { label: '20M', value: 20000000 },
+  ];
+  const defaultValue = Math.floor(sliderTable.length / 2);
+  const [sliderValue, setSliderValue] = useState(defaultValue);
+  const [monthlyPayment, setMonthlyPayment] = useState(sliderTable[sliderValue].label);
   const [paymentType, setPaymentType] = useState<PaymentType>('monthly');
-  const [sliderValue, setSliderValue] = useState(sliderConfig.default);
 
-  const [valueLabel, setValueLabel] = useState('');
-  const [monthlyPayment, setMonthlyPayment] = useState('');
-  const [sliderOffsetCss, setSliderOffsetCss] = useState('');
-
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = Number(e.target.value);
+  const handleSliderChange = (newValue: number) => {
     setSliderValue(newValue);
-    recalculatePricing(newValue, paymentType);
+    recalculatePricing(sliderTable[newValue].value, paymentType);
   }
 
-  const handlePaymentTypeChange = (type: PaymentType) => (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handlePaymentTypeChange = (type: PaymentType) => (_) => {
     setPaymentType(type);
-    recalculatePricing(sliderValue, type);
+    recalculatePricing(sliderTable[sliderValue].value, type);
   }
 
-  const recalculatePricing = (sliderValue: number, paymentType: PaymentType) => {
-    const {valueLabel, newPrice, leftOffsetCss} = handlePriceChange(sliderConfig.min, sliderConfig.max, sliderValue, paymentType);
-    setValueLabel(valueLabel);
+  const recalculatePricing = (value: number, paymentType: PaymentType) => {
+    const newPrice = handlePriceChange(value, paymentType);
     setMonthlyPayment(newPrice);
-    setSliderOffsetCss(leftOffsetCss);
   }
 
   useEffect(() => {
-    recalculatePricing(sliderValue, paymentType);
+    recalculatePricing(sliderTable[sliderValue].value, paymentType);
   }, []);
 
   return (
-    <section className='section section--billing'>
+    <Section className={styles.section}>
       <Container size='large'>
-        <header className='section-header'>
-          <h2 className='section__title'>
+        <header className={styles.header}>
+          <h2 className={styles.title}>
             Predictable &amp; Transparent Billing
           </h2>
-          <Link to='/pricing' className='btn btn--outlined'>
-            Detailed Pricing
+          <Link to='/pricing'>
+            <Button variant='outline'>
+              Detailed Pricing
+            </Button>
           </Link>
         </header>
-        <div className='section-content'>
-          <div className='identification-per-month'>
-            <h3 className='identification-per-month__title'>
+        <div className={styles.content}>
+          <div className={styles.idsPerMonth}>
+            <h3 className={styles.title}>
               How many identification API calls per month do you need?
             </h3>
-            <div className='slider' style={{'--left': sliderOffsetCss} as React.CSSProperties}>
-              <span className='slider-output'>
-                {valueLabel}
-              </span>
-              <label htmlFor='billingSlider' className='slider-label'>
-                <span className='slider-label__text'>
-                  100K
-                </span>
-                <span className='slider-label__text'>
-                  250K
-                </span>
-                <span className='slider-label__text'>
-                  500K
-                </span>
-                <span className='slider-label__text'>
-                  1M
-                </span>
-                <span className='slider-label__text'>
-                  5M
-                </span>
-                <span className='slider-label__text'>
-                  10M
-                </span>
-                <span className='slider-label__text'>
-                  20M
-                </span>
-              </label>
-              <div className='slider-input-container'>
-                <input
-                  className='slider-input'
-                  type='range'
-                  min={sliderConfig.min}
-                  max={sliderConfig.max}
-                  value={sliderValue}
-                  name='billing-slider'
-                  onChange={handleSliderChange}
-                />
-              </div>
-            </div>
-            <p className='identification-per-month__footnote'>
+            <RangeSlider 
+              values={sliderTable}
+              currentValue={sliderValue}
+              config={sliderConfig}
+              handleValueChange={handleSliderChange}
+            />
+            <p className={styles.footnote}>
               Our standard plan comes with 1 year visit history and email support. 
               <br />
               <br />
-              <a href="mailto:sales@fingerprintjs.com" style={{textDecoration: 'underline'}}>Contact sales</a> 
+              <a href="mailto:sales@fingerprintjs.com" style={{textDecoration: 'underline'}}>Contact sales</a>{' '}
               for an enterprise license, 99.9% SLA and 24/7 dedicated support.
             </p>
           </div>
-          <div className='payment'>
-            <div className='payment-per-month'>
-              <span className='price'>
-                {monthlyPayment}
+          <div className={styles.payment}>
+            <div>
+              <span className={styles.price}>
+                {monthlyPayment}{' '}
               </span>
               per month
             </div>
-            <div className='billed' id='billed_annual_text'>
+            <div className={styles.billed}>
               billed yearly
             </div>
-            <div className='payment-switcher' data-type='annually'>
+            <div className={styles.switcher} data-type='annually'>
               <button
                 className={classNames(
-                  'payment-switcher__button',
-                  'payment-switcher__button--annually', 
-                  {'payment-switcher__button--active': paymentType === 'annually'}
+                  styles.button,
+                  {[styles.active]: paymentType === 'annually'}
                 )}
                 onClick={handlePaymentTypeChange('annually')}
                 data-type='annually'
@@ -128,9 +104,8 @@ export default function Billing() {
               </button>
               <button
                 className={classNames(
-                  'payment-switcher__button', 
-                  'payment-switcher__button--monthly', 
-                  {'payment-switcher__button--active': paymentType === 'monthly'}
+                  styles.button,
+                  {[styles.active]: paymentType === 'monthly'}
                 )}
                 onClick={handlePaymentTypeChange('monthly')}
                 data-type='monthly'
@@ -138,17 +113,17 @@ export default function Billing() {
                 Pay Monthly
               </button>
             </div>
-            <p className='payment__description'>
+            <p className={styles.description}>
               With annual pricing you lock in an annual price with a discount by prepaying. This plan is recommended for users with predictable or high traffic volumes.
             </p>
           </div>
         </div>
-        <div className='section-link'>
+        <div className={styles.link}>
           <a href='#0' className='btn btn--outlined'>
             Detailed Pricing
           </a>
         </div>
       </Container>
-    </section>
+    </Section>
   )
 }

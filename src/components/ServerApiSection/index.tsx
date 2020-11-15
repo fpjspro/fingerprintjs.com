@@ -1,10 +1,10 @@
 import React from 'react';
 import {ReactComponent as ToolsSvg} from './tools.svg';
 import {ReactComponent as IntegrationsSvg} from './integrations.svg';
-import Container from '../base/Container';
-import Section from '../base/Section';
-import ToolsTextBlock from '../base/ToolsTextBlock';
-import CodeWindow from '../base/CodeWindow';
+import Container from '../common/Container';
+import Section from '../common/Section';
+import ToolsTextBlock from '../common/ToolsTextBlock';
+import CodeWindow from '../common/CodeWindow';
 import styles from './ServerApiSection.module.scss';
 
 export default function ServerApiSection() {
