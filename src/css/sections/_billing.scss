@@ -43,6 +43,10 @@
     align-items: stretch;
     // @include gap(3rem);
 
+    // There is a problem with react-select where the selection values are cut off by the containing element.
+    // https://github.com/JedWatson/react-select/issues/404
+    overflow: visible;
+
     >*+* {
       @media screen and (min-width: 1025px) {
         margin-left: 3rem;

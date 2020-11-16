@@ -14,8 +14,8 @@ interface GetStartedFormProps {
 export default function GetStartedForm({className, onSubmit}: GetStartedFormProps) {
   const [email, setEmail] = useState('');
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit(email);
+    e.preventDefault()
+    onSubmit(email)
   }
 
   return (
@@ -56,15 +56,15 @@ export default function GetStartedForm({className, onSubmit}: GetStartedFormProp
       </div>
       <ul className={styles.description}>
         <li>
-          <CheckSvg/>
+          <CheckSvg />
           10 Day Trial
         </li>
         <li>
-          <CheckSvg/>
+          <CheckSvg />
           Cancel Any Time
         </li>
         <li>
-          <CheckSvg/>
+          <CheckSvg />
           API &amp; Webhooks
         </li>
       </ul>

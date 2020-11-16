@@ -22,9 +22,7 @@ export default function ProToolsSection() {
           <h2 className={styles.sectionTitle}>
             FingerprintJS
             <br />
-            <strong>
-              Pro Tools
-            </strong>
+            <strong>Pro Tools</strong>
           </h2>
         </header>
 

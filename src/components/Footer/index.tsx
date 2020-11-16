@@ -7,84 +7,84 @@ import Container from '../common/Container';
 import styles from './Footer.module.scss';
 
 interface FooterLinkSection {
-  title: string;
-  links: {title: string, url: string, isLocal?: boolean}[];
+  title: string
+  links: { title: string; url: string; isLocal?: boolean }[]
 }
 
 const footerLinks: FooterLinkSection[] = [
   {
-    title: "General",
+    title: 'General',
     links: [
       {
-        title: "Technical Demo",
-        url: "/demo",
+        title: 'Technical Demo',
+        url: '/demo',
         isLocal: true,
       },
       {
-        title: "Open Source",
-        url: "https://github.com/fingerprintjs/fingerprintjs"
+        title: 'Open Source',
+        url: 'https://github.com/fingerprintjs/fingerprintjs',
       },
       {
-        title: "Pricing",
-        url: "/pricing",
+        title: 'Pricing',
+        url: '/pricing',
         isLocal: true,
       },
       {
-        title: "Support",
-        url: "mailto:support@fingerprintjs.com"
+        title: 'Support',
+        url: 'mailto:support@fingerprintjs.com',
       },
       {
-        title: "Terms of Use",
-        url: "https://dev.fingerprintjs.com/docs/terms-of-service"
+        title: 'Terms of Use',
+        url: 'https://dev.fingerprintjs.com/docs/terms-of-service',
       },
       {
-        title: "Privacy Policy",
-        url: "https://dev.fingerprintjs.com/docs/privacy-policy"
+        title: 'Privacy Policy',
+        url: 'https://dev.fingerprintjs.com/docs/privacy-policy',
       },
       {
-        title: "Careers",
-        url: "https://fingerprintjs.breezy.hr/"
+        title: 'Careers',
+        url: 'https://fingerprintjs.breezy.hr/',
       },
       {
-        title: "Log In",
-        url: "https://dashboard.fingerprintjs.com/login"
-      }
-    ]
+        title: 'Log In',
+        url: 'https://dashboard.fingerprintjs.com/login',
+      },
+    ],
   },
   {
-    title: "Docs",
+    title: 'Docs',
     links: [
       {
-        title: "Get Started",
-        url: "https://dev.fingerprintjs.com/docs/introduction"
+        title: 'Get Started',
+        url: 'https://dev.fingerprintjs.com/docs/introduction',
       },
       {
-        title: "Pro vs Free Version",
-        url: "https://dev.fingerprintjs.com/docs/pro-vs-free"
+        title: 'Pro vs Free Version',
+        url: 'https://dev.fingerprintjs.com/docs/pro-vs-free',
       },
       {
-        title: "Browser Fingerprinting",
-        url: "https://dev.fingerprintjs.com/docs/browser-fingerprinting"
+        title: 'Browser Fingerprinting',
+        url: 'https://dev.fingerprintjs.com/docs/browser-fingerprinting',
       },
       {
-        title: "Incognito Mode Detection",
-        url: "https://dev.fingerprintjs.com/docs/incognito-private-mode-detection"
+        title: 'Incognito Mode Detection',
+        url: 'https://dev.fingerprintjs.com/docs/incognito-private-mode-detection',
       },
       {
-        title: "Bot Detection",
-        url: "https://dev.fingerprintjs.com/docs/bot-detection"
+        title: 'Bot Detection',
+        url: 'https://dev.fingerprintjs.com/docs/bot-detection',
       },
       {
-        title: "Server API",
-        url: "https://dev.fingerprintjs.com/docs/server-api"
+        title: 'Server API',
+        url: 'https://dev.fingerprintjs.com/docs/server-api',
       },
       {
-        title: "Legal",
-        url: "https://dev.fingerprintjs.com/docs/dpa-gdpr"
-      }
-    ]
-  }
-];
+        title: 'Legal',
+        url: 'https://dev.fingerprintjs.com/docs/dpa-gdpr',
+      },
+    ],
+  },
+]
 
 export default function Footer() {
   return (
@@ -116,7 +116,7 @@ export default function Footer() {
                       )
                     })}
                 </div>
-              ) 
+              )
             })}
           </div>
 
@@ -148,12 +148,12 @@ export default function Footer() {
                 <ul className={styles.links}>
                   <li className={styles.link}>
                     <a href='https://www.linkedin.com/company/fingerprintjs/' target='_blank' rel='noopener'>
-                      <LinkedInSvg/>
+                      <LinkedInSvg />
                     </a>
                   </li>
                   <li className={styles.link}>
                     <a href='https://twitter.com/FingerprintJs' target='_blank' rel='noopener'>
-                      <TwitterSvg/>
+                      <TwitterSvg />
                     </a>
                   </li>
                 </ul>

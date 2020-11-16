@@ -10,15 +10,7 @@ import classNames from 'classnames';
 SwiperCore.use([Pagination]);
 
 export default function ClientsSection() {
-  const trustedLogos = [
-    "ebay",
-    "target",
-    "us-bank",
-    "booking",
-    "ameritrade",
-    "dell",
-    "agoda"
-  ];
+  const trustedLogos = ['ebay', 'target', 'us-bank', 'booking', 'ameritrade', 'dell', 'agoda']
 
   return (
     <Section className={styles.clients}>

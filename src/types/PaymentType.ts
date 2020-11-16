@@ -1,1 +1,4 @@
-export type PaymentType = 'monthly'| 'annually';
+export enum PaymentType {
+  monthly,
+  annually,
+}

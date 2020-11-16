@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './Container.module.scss';
-import classNames from 'classnames';
+import React from 'react'
+import styles from './Container.module.scss'
+import classNames from 'classnames'
 
 export default function Container({children, size = 'regular', className}:
  {children: React.ReactNode, size?: 'regular' | 'large', className?: string | string[]}

@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout';
+import Layout from '../components/Layout'
 // import Features from '../components/Features';
 // import BlogRoll from '../components/BlogRoll';
-import ClientsSection from '../components/ClientsSection';
-import LiveDemoSection from '../components/LiveDemoSection';
-import MadeForDevelopersSection from '../components/MadeForDevelopersSection';
-import ServerApiSection from '../components/ServerApiSection';
-import UseCasesSection from '../components/UseCasesSection';
-import Billing from '../components/Billing';
-import ProToolsSection from '../components/ProToolsSection';
-import StayProtectedSection from '../components/StayProtectedSection';
+import ClientsSection from '../components/ClientsSection'
+import LiveDemoSection from '../components/LiveDemoSection'
+import MadeForDevelopersSection from '../components/MadeForDevelopersSection'
+import ServerApiSection from '../components/ServerApiSection'
+import UseCasesSection from '../components/UseCasesSection'
+import Billing from '../components/Billing'
+import ProToolsSection from '../components/ProToolsSection'
+import StayProtectedSection from '../components/StayProtectedSection'
 
 export const IndexPageTemplate = ({
   // image,
@@ -24,14 +24,14 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
-    <LiveDemoSection/>
-    <ClientsSection/>
-    <MadeForDevelopersSection/>
-    <ServerApiSection/>
-    <UseCasesSection blurbs={intro.blurbs}/>
-    <Billing/>
-    <ProToolsSection/>
-    <StayProtectedSection/>
+    <LiveDemoSection />
+    <ClientsSection />
+    <MadeForDevelopersSection />
+    <ServerApiSection />
+    <UseCasesSection blurbs={intro.blurbs} />
+    <Billing />
+    <ProToolsSection />
+    <StayProtectedSection />
   </div>
 )
 

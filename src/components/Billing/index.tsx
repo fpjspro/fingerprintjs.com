@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'gatsby';
 import classNames from 'classnames';
 import { PaymentType } from '../../types/PaymentType';
-import { handlePriceChange } from '../../utils/pricing';
+import { handlePriceChange, pricingTable } from '../../utils/pricing';
 import Container from '../common/Container';
 import Section from '../common/Section';
 import styles from './Billing.module.scss';
-import RangeSlider, {SliderValue} from '../common/RangeSlider';
+import RangeSlider from '../common/RangeSlider';
 import Button from '../common/Button';
 
 const sliderConfig = {
@@ -16,28 +16,19 @@ const sliderConfig = {
 }
 
 export default function Billing() {
-  const sliderTable: SliderValue[] = [
-    { label: '100K', value: 100000 },
-    { label: '250K', value: 250000 },
-    { label: '500K', value: 500000 },
-    { label: '1M', value: 1000000 },
-    { label: '5M', value: 5000000 },
-    { label: '10M', value: 10000000 },
-    { label: '20M', value: 20000000 },
-  ];
-  const defaultValue = Math.floor(sliderTable.length / 2);
+  const defaultValue = Math.floor(pricingTable.length / 2);
   const [sliderValue, setSliderValue] = useState(defaultValue);
-  const [monthlyPayment, setMonthlyPayment] = useState(sliderTable[sliderValue].label);
-  const [paymentType, setPaymentType] = useState<PaymentType>('monthly');
+  const [monthlyPayment, setMonthlyPayment] = useState(pricingTable[sliderValue].label);
+  const [paymentType, setPaymentType] = useState<PaymentType>(PaymentType.monthly);
 
   const handleSliderChange = (newValue: number) => {
     setSliderValue(newValue);
-    recalculatePricing(sliderTable[newValue].value, paymentType);
+    recalculatePricing(pricingTable[newValue].value, paymentType);
   }
 
   const handlePaymentTypeChange = (type: PaymentType) => (_) => {
     setPaymentType(type);
-    recalculatePricing(sliderTable[sliderValue].value, type);
+    recalculatePricing(pricingTable[sliderValue].value, type);
   }
 
   const recalculatePricing = (value: number, paymentType: PaymentType) => {
@@ -46,7 +37,7 @@ export default function Billing() {
   }
 
   useEffect(() => {
-    recalculatePricing(sliderTable[sliderValue].value, paymentType);
+    recalculatePricing(pricingTable[sliderValue].value, paymentType);
   }, []);
 
   return (
@@ -68,7 +59,7 @@ export default function Billing() {
               How many identification API calls per month do you need?
             </h3>
             <RangeSlider 
-              values={sliderTable}
+              values={pricingTable}
               currentValue={sliderValue}
               config={sliderConfig}
               handleValueChange={handleSliderChange}
@@ -95,9 +86,9 @@ export default function Billing() {
               <button
                 className={classNames(
                   styles.button,
-                  {[styles.active]: paymentType === 'annually'}
+                  {[styles.active]: paymentType === PaymentType.annually}
                 )}
-                onClick={handlePaymentTypeChange('annually')}
+                onClick={handlePaymentTypeChange(PaymentType.annually)}
                 data-type='annually'
               >
                 Pay Annually
@@ -105,9 +96,9 @@ export default function Billing() {
               <button
                 className={classNames(
                   styles.button,
-                  {[styles.active]: paymentType === 'monthly'}
+                  {[styles.active]: paymentType === PaymentType.monthly}
                 )}
-                onClick={handlePaymentTypeChange('monthly')}
+                onClick={handlePaymentTypeChange(PaymentType.monthly)}
                 data-type='monthly'
               >
                 Pay Monthly

@@ -5,7 +5,7 @@ import Section from '../common/Section';
 import styles from './UseCasesSection.module.scss';
 import classNames from 'classnames';
 
-export default function UseCasesSection({blurbs}) {
+export default function UseCasesSection({ blurbs }) {
   return (
     <Section className={styles.section}>
       <Container>
@@ -13,9 +13,7 @@ export default function UseCasesSection({blurbs}) {
           <h2 className={styles.sectionTitle}>
             FingerprintJS
             <br />
-            <strong>
-              Use Cases
-            </strong>
+            <strong>Use Cases</strong>
           </h2>
         </header>
         <div className={styles.content}>
@@ -36,8 +34,7 @@ export default function UseCasesSection({blurbs}) {
                   </div>
                 </div>
               )
-            })
-            }
+            })}
           </div>
         </div>
       </Container>

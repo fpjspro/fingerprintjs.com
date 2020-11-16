@@ -8,25 +8,25 @@ import Tippy from '@tippyjs/react';
 import styles from './FpjsWidget.module.scss';
 
 interface VisitorResponse extends FP.FullIpExtendedGetResult {
-  timestamp: number;
+  timestamp: number
   browserDetails: {
-    botProbability: number;
-    browserName: string;
-    browserVersion: string;
-    os: string;
-    osVersion: string;
-    device: string;
-  };
+    botProbability: number
+    browserName: string
+    browserVersion: string
+    os: string
+    osVersion: string
+    device: string
+  }
 }
 
 export default function FpjsWidget() {
   // const dashboardEndpoint = process.env.GATSBY_FPJS_DASHBOARD_ENDPOINT;
-  const clientToken = process.env.GATSBY_FPJS_TOKEN;
-  const apiToken = process.env.GATSBY_FPJS_API_TOKEN;
-  const endpoint = process.env.GATSBY_FPJS_ENDPOINT;
-  const region = process.env.GATSBY_FPJS_REGION as FP.Region;
-  const config: FP.GetOptions<true, "full"> = {
-    ipResolution: "full",
+  const clientToken = process.env.GATSBY_FPJS_TOKEN
+  const apiToken = process.env.GATSBY_FPJS_API_TOKEN
+  const endpoint = process.env.GATSBY_FPJS_ENDPOINT
+  const region = process.env.GATSBY_FPJS_REGION as FP.Region
+  const config: FP.GetOptions<true, 'full'> = {
+    ipResolution: 'full',
     extendedResult: true,
     timeout: 30_000,
   };
@@ -40,13 +40,13 @@ export default function FpjsWidget() {
     setIsLoading(true);
     FP.load({ token: clientToken!, endpoint, region })
       .then((fp) => fp.get(config))
-      .then(({visitorId}) => {
-        setVisitorId(visitorId);
-        return loadFpjsHistory(endpoint, visitorId, apiToken);
+      .then(({ visitorId }) => {
+        setVisitorId(visitorId)
+        return loadFpjsHistory(endpoint, visitorId, apiToken)
       })
-      .then(data => {
-        setVisits(data.visits);
-        setCurrentVisit(data.visits[0]);
+      .then((data) => {
+        setVisits(data.visits)
+        setCurrentVisit(data.visits[0])
       })
       .catch((e) => {
         console.error(`Fingerprint loading failed: ${e.message}`);
@@ -169,6 +169,5 @@ export default function FpjsWidget() {
 }
 
 function loadFpjsHistory(endpoint, visitorId, apiToken) {
-  return fetch(`${endpoint}/visitors/${visitorId}?token=${apiToken}&limit=20`)
-    .then((response) => response.json());
+  return fetch(`${endpoint}/visitors/${visitorId}?token=${apiToken}&limit=20`).then((response) => response.json())
 }

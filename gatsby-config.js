@@ -1,3 +1,14 @@
+var path = require('path')
+
+const resolvePath = (directoryName, pathName) => {
+  const result = path.join(directoryName, pathName)
+  if (process.platform === 'win32') {
+    return result.replace(/\\/g, '\\\\')
+  }
+
+  return result
+}
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby + Netlify CMS Starter',
@@ -9,8 +20,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: `@import "${__dirname}/src/styles/common";`,
-      }
+        data: `@import "${resolvePath(__dirname, '/src/styles/common')}";`,
+      },
     },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support

@@ -49,6 +49,10 @@
     .table-col,
     .table-row {
       display: flex;
+
+      // There is a problem with react-select where the selection values are cut off by the containing element.
+      // https://github.com/JedWatson/react-select/issues/404
+      overflow: visible;
     }
 
     .table-col {
@@ -100,6 +104,10 @@
   --cell-alignment-x: center;
   --cell-alignment-y: center;
   box-shadow: 0 3rem 7rem 0 transparentize(c('brand-water'), 0.9);
+
+  // There is a problem with react-select where the selection values are cut off by the containing element.
+  // https://github.com/JedWatson/react-select/issues/404
+  overflow: visible;
 
   @media screen and (max-width: 860px) {
     display: block;
@@ -180,6 +188,10 @@
     .preset,
     .user-input {
       width: 100%;
+
+      // There is a problem with react-select where the selection values are cut off by the containing element.
+      // https://github.com/JedWatson/react-select/issues/404
+      overflow: visible;
 
       > * + * {
         margin-top: 1rem;

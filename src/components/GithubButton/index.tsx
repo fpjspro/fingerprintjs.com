@@ -5,7 +5,7 @@ import styles from './GithubButton.module.scss';
 import classNames from 'classnames';
 
 interface GithubReposResponse {
-  stargazers_count: number;
+  stargazers_count: number
 }
 
 interface GithubButtonProps {
@@ -19,17 +19,15 @@ export default function GithubButton({className}: GithubButtonProps) {
     headers: {
       Authorization: `token ${githubToken}`,
     },
-  };
+  }
 
-  const {data} = useFetch<GithubReposResponse>(url, options);
+  const { data } = useFetch<GithubReposResponse>(url, options)
 
   return (
     <a className={classNames(styles.button, className)} href="https://github.com/fingerprintjs/fingerprintjs">
       <div className={styles.label}>
-        <GithubIconSvg className={styles.icon}/>
-        <span>
-          Star
-        </span>
+        <GithubIconSvg className={styles.icon} />
+        <span>Star</span>
       </div>
       <div className={styles.counter}>{data?.stargazers_count}</div>
     </a>
