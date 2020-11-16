@@ -14,7 +14,7 @@ module.exports = {
     'prettier/react',
   ],
   parser: '@typescript-eslint/parser',
-  ignorePatterns: ['node_modules', 'public/*', '.cache/*'],
+  ignorePatterns: ['public/*', '.cache/*'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -32,4 +32,12 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/naming-convention': ['error', { selector: 'enumMember', format: ['PascalCase'] }],
   },
+  overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
 }
