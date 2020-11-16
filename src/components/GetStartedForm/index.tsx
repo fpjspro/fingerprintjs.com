@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ReactComponent as ChevronRightSvg } from './chevron-right.svg'
+import { ReactComponent as ChevronRightSvg } from '../../img/chevron-right.svg'
 import { ReactComponent as CheckSvg } from './check.svg'
 import { ReactComponent as CloseSvg } from './close.svg'
 import styles from './GetStartedForm.module.scss'
