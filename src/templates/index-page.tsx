@@ -99,6 +99,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
     } else {
       setFormState(FormState.success)
 
+      // TODO: add to gtm
       // dataLayer.push({ event: 'signupintent.success' });
     }
   }
