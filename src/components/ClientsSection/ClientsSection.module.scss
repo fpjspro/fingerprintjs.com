@@ -25,16 +25,18 @@
   }
 }
 
-#swiper--trusted-by {
-  .swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.pagination {
+  bottom: -5px !important;
+}
 
-    @media screen and (min-width: 1024px) {
-      &:first-child {
-        justify-content: flex-start;
-      }
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 1024px) {
+    &:first-child {
+      justify-content: flex-start;
     }
   }
 }
