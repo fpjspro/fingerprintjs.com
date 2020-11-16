@@ -1,4 +1,4 @@
-import { PaymentType } from './../types/PaymentType';
+import { PaymentType } from './../types/PaymentType'
 
 export const minimumIdentifications = 100000
 
@@ -13,10 +13,10 @@ export const pricingTable = [
 ]
 
 export function handlePriceChange(currentValue: number, type: PaymentType): string {
-  const value = Number(currentValue);
-  const newPrice = calculatePrice(value, type);
+  const value = Number(currentValue)
+  const newPrice = calculatePrice(value, type)
 
-  return newPrice;
+  return newPrice
 }
 
 export function calculatePrice(price: number, type: PaymentType): string {

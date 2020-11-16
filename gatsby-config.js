@@ -80,7 +80,7 @@ module.exports = {
       options: {
         exclude: [`${__dirname}/src/img/sprite.svg`],
         ref: true,
-      }
+      },
     },
     'gatsby-plugin-typescript',
     {

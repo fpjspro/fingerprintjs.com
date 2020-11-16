@@ -1,18 +1,18 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination } from 'swiper';
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Pagination } from 'swiper'
 
-import {ReactComponent as BrowserFingerprintingSvg} from './browser_fingerprinting.svg';
-import {ReactComponent as GeolocationSvg} from './geolocation.svg';
-import {ReactComponent as BotDetectionSvg} from './bot_detection.svg';
-import {ReactComponent as AnonymousUserIdentificationSvg} from './anonymous_user_identification.svg';
-import {ReactComponent as IncognitoDetectionSvg} from './incognito_detection.svg';
-import {ReactComponent as ApiWebhooksSvg} from './api_webhooks.svg';
-import Container from '../common/Container';
-import Section from '../common/Section';
-import styles from './ProTools.module.scss';
+import { ReactComponent as BrowserFingerprintingSvg } from './browser_fingerprinting.svg'
+import { ReactComponent as GeolocationSvg } from './geolocation.svg'
+import { ReactComponent as BotDetectionSvg } from './bot_detection.svg'
+import { ReactComponent as AnonymousUserIdentificationSvg } from './anonymous_user_identification.svg'
+import { ReactComponent as IncognitoDetectionSvg } from './incognito_detection.svg'
+import { ReactComponent as ApiWebhooksSvg } from './api_webhooks.svg'
+import Container from '../common/Container'
+import Section from '../common/Section'
+import styles from './ProTools.module.scss'
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination])
 
 export default function ProToolsSection() {
   return (
@@ -54,65 +54,59 @@ export default function ProToolsSection() {
           >
             <div className='swiper-wrapper'>
               <SwiperSlide className={`swiper-slide ${styles.item}`}>
-                <BrowserFingerprintingSvg className={styles.icon}/>
-                <h3 className={styles.title}>
-                  Browser Fingerprinting
-                </h3>
+                <BrowserFingerprintingSvg className={styles.icon} />
+                <h3 className={styles.title}>Browser Fingerprinting</h3>
                 <p className={styles.description}>
-                  Our fingerprinting approach is the most advanced in the market and employs many cutting-edge methods of browser identification.
+                  Our fingerprinting approach is the most advanced in the market and employs many cutting-edge methods
+                  of browser identification.
                 </p>
                 {/* <a href='#0' className='pro-tools-item__link'>
                   Learn More
                 </a> */}
               </SwiperSlide>
               <SwiperSlide className={`swiper-slide ${styles.item}`}>
-                <GeolocationSvg className={styles.icon}/>
-                <h3 className={styles.title}>
-                  Geolocation
-                </h3>
+                <GeolocationSvg className={styles.icon} />
+                <h3 className={styles.title}>Geolocation</h3>
                 <p className={styles.description}>
-                  Every identification API request will provide the geolocation of the current visitor, including geoposition, city, country, timezone and ISP information.
+                  Every identification API request will provide the geolocation of the current visitor, including
+                  geoposition, city, country, timezone and ISP information.
                 </p>
               </SwiperSlide>
               <SwiperSlide className={`swiper-slide ${styles.item}`}>
-                <BotDetectionSvg className={styles.icon}/>
-                <h3 className={styles.title}>
-                  Bot Detection
-                </h3>
+                <BotDetectionSvg className={styles.icon} />
+                <h3 className={styles.title}>Bot Detection</h3>
                 <p className={styles.description}>
-                  Our bot probability value will tell you the likelihood of a current visitor being a programmed headless agent to help identify bot traffic on your site.
+                  Our bot probability value will tell you the likelihood of a current visitor being a programmed
+                  headless agent to help identify bot traffic on your site.
                 </p>
               </SwiperSlide>
               <SwiperSlide className={`swiper-slide ${styles.item}`}>
-                <AnonymousUserIdentificationSvg className={styles.icon}/>
-                <h3 className={styles.title}>
-                  Anonymous User Identification
-                </h3>
+                <AnonymousUserIdentificationSvg className={styles.icon} />
+                <h3 className={styles.title}>Anonymous User Identification</h3>
                 <p className={styles.description}>
-                  Every visitor to your website is assigned a permanent visitorID that can be used to identify visitors trying to change their identity via proxies or other techniques.
+                  Every visitor to your website is assigned a permanent visitorID that can be used to identify visitors
+                  trying to change their identity via proxies or other techniques.
                 </p>
               </SwiperSlide>
               <SwiperSlide className={`swiper-slide ${styles.item}`}>
-                <IncognitoDetectionSvg className={styles.icon}/>
-                <h3 className={styles.title}>
-                  Incognito Mode Detection
-                </h3>
+                <IncognitoDetectionSvg className={styles.icon} />
+                <h3 className={styles.title}>Incognito Mode Detection</h3>
                 <p className={styles.description}>
-                  FingerprintJS Pro tracks whether visitors are using incognito mode, and can accurately identify users across incognito browsing sessions.
+                  FingerprintJS Pro tracks whether visitors are using incognito mode, and can accurately identify users
+                  across incognito browsing sessions.
                 </p>
               </SwiperSlide>
               <SwiperSlide className={`swiper-slide ${styles.item}`}>
-                <ApiWebhooksSvg className={styles.icon}/>
-                <h3 className={styles.title}>
-                  API & Webhooks
-                </h3>
+                <ApiWebhooksSvg className={styles.icon} />
+                <h3 className={styles.title}>API & Webhooks</h3>
                 <p className={styles.description}>
-                  In addition to browser fingerprinting, FingerprintJS Pro's server-side API processes and analyzes vast amounts of data, searching for patterns and re-occurrences of fraudulent activity.
+                  In addition to browser fingerprinting, FingerprintJS Pro's server-side API processes and analyzes vast
+                  amounts of data, searching for patterns and re-occurrences of fraudulent activity.
                 </p>
               </SwiperSlide>
             </div>
             {/* Add Pagination */}
-            <div className="swiper-pagination"></div>
+            <div className='swiper-pagination'></div>
           </Swiper>
         </div>
       </Container>

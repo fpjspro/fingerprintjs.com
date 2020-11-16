@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import GithubButton from '../GithubButton';
-import {ReactComponent as LinkedInSvg} from '../../img/linkedin.svg';
-import {ReactComponent as TwitterSvg} from '../../img/twitter.svg';
-import Container from '../common/Container';
-import styles from './Footer.module.scss';
+import GithubButton from '../GithubButton'
+import { ReactComponent as LinkedInSvg } from '../../img/linkedin.svg'
+import { ReactComponent as TwitterSvg } from '../../img/twitter.svg'
+import Container from '../common/Container'
+import styles from './Footer.module.scss'
 
 interface FooterLinkSection {
   title: string
@@ -92,59 +92,47 @@ export default function Footer() {
       <Container size='large'>
         <nav className={styles.nav}>
           <div className={styles.wrapper}>
-            {footerLinks.map(({title, links}) => {
+            {footerLinks.map(({ title, links }) => {
               return (
                 <div key={title} className={styles.menu}>
-                <h3 className={styles.title}>{title}</h3>
-                    {links.map(({title, url, isLocal}) => {
-                      return isLocal ? (
-                          <Link className={styles.link}
-                            key={url} 
-                            to={url} 
-                            target='_blank' 
-                            rel='noopener'>
-                            {title}
-                          </Link>
-                      ) : (
-                          <a className={styles.link}
-                            key={url} 
-                            href={url} 
-                            target='_blank' 
-                            rel='noopener'>
-                            {title}
-                          </a>
-                      )
-                    })}
+                  <h3 className={styles.title}>{title}</h3>
+                  {links.map(({ title, url, isLocal }) => {
+                    return isLocal ? (
+                      <Link className={styles.link} key={url} to={url} target='_blank' rel='noopener'>
+                        {title}
+                      </Link>
+                    ) : (
+                      <a className={styles.link} key={url} href={url} target='_blank' rel='noopener'>
+                        {title}
+                      </a>
+                    )
+                  })}
                 </div>
               )
             })}
           </div>
 
           <div className={styles.contact}>
-            <h3 className={styles.title}>
-              FingerprintJS
-            </h3>
+            <h3 className={styles.title}>FingerprintJS</h3>
             <address className={styles.address}>
               1440 W. Taylor St #735, Chicago, IL 60607, USA
-              <br/><br/>
+              <br />
+              <br />
               <a
                 href="javascript:location='mailto:\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0040\u0066\u0069\u006e\u0067\u0065\u0072\u0070\u0072\u0069\u006e\u0074\u006a\u0073\u002e\u0063\u006f\u006d';void 0"
-                dangerouslySetInnerHTML={{__html:
-`<script type='text/javascript'>
+                dangerouslySetInnerHTML={{
+                  __html: `<script type='text/javascript'>
   document.write(
     '\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0040\u0066\u0069\u006e\u0067\u0065\u0072\u0070\u0072\u0069\u006e\u0074\u006a\u0073\u002e\u0063\u006f\u006d'
   )
-</script>`
+</script>`,
                 }}
-              >
-              </a>
+              ></a>
             </address>
             <div className={styles.social}>
-              <GithubButton/>
+              <GithubButton />
               <div>
-                <small>
-                  Find us on social
-                </small>
+                <small>Find us on social</small>
                 <ul className={styles.links}>
                   <li className={styles.link}>
                     <a href='https://www.linkedin.com/company/fingerprintjs/' target='_blank' rel='noopener'>
@@ -161,9 +149,7 @@ export default function Footer() {
             </div>
           </div>
         </nav>
-        <div className={styles.copyrights}>
-          &copy; 2020 FingerprintJS, Inc
-        </div>
+        <div className={styles.copyrights}>&copy; 2020 FingerprintJS, Inc</div>
       </Container>
     </footer>
   )

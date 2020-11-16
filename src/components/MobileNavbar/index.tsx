@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import {ReactComponent as LinkedInSvg} from '../../img/linkedin.svg';
-import {ReactComponent as TwitterSvg} from '../../img/twitter.svg';
-import GithubButton from '../GithubButton';
-import Container from '../common/Container';
+import { ReactComponent as LinkedInSvg } from '../../img/linkedin.svg'
+import { ReactComponent as TwitterSvg } from '../../img/twitter.svg'
+import GithubButton from '../GithubButton'
+import Container from '../common/Container'
 
 export default function MobileNavbar() {
   return (
