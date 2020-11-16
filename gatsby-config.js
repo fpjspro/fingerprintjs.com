@@ -10,7 +10,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: `@import "${__dirname}/src/styles/common";`,
-      }
+      },
     },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -68,7 +68,7 @@ module.exports = {
       resolve: 'gatsby-plugin-svgr',
       options: {
         exclude: [`${__dirname}/src/img/sprite.svg`],
-      }
+      },
     },
     'gatsby-plugin-typescript',
     {
