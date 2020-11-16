@@ -176,12 +176,10 @@
     }
 
     .value {
-      // &:not(.current-visit__label) {
-        font-weight: v('normal');
-        font-family: v(ff-sans);
-        opacity: v('faded');
-        margin-left: 1rem;
-      // }
+      font-weight: v('normal');
+      font-family: v(ff-sans);
+      opacity: v('faded');
+      margin-left: 1rem;
     }
 
     svg {
@@ -193,7 +191,9 @@
       }
     }
 
-    .location .label,
+    .visitId,
+    .label,
+    .location,
     .info {
       &:not(.location) {
         &:not(.browser) {
@@ -202,7 +202,7 @@
           flex-wrap: wrap;
           height: 3rem;
 
-          >*+* {
+          > * + * {
             margin-left: 1rem;
           }
         }
@@ -215,7 +215,7 @@
       }
     }
 
-    .visit-id {
+    .visitId {
       display: flex;
       align-items: center;
       font-size: 2.5rem;
@@ -257,7 +257,7 @@
     .browser {
       grid-area: browser;
 
-      span[class*='user-'] {
+      .value {
         margin-left: 0;
       }
     }

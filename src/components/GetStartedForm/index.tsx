@@ -5,13 +5,14 @@ import { ReactComponent as CloseSvg } from './close.svg'
 import styles from './GetStartedForm.module.scss'
 import classNames from 'classnames'
 import Button from '../common/Button'
+import { FormProps } from '../../interfaces/formProps'
+import { FormState } from '../../types/FormState'
 
-interface GetStartedFormProps {
+interface GetStartedFormProps extends FormProps {
   className?: string | string[]
-  onSubmit: (email: string) => void
 }
 
-export default function GetStartedForm({ className, onSubmit }: GetStartedFormProps) {
+export default function GetStartedForm({ className, formState, onSubmit, errorMessage }: GetStartedFormProps) {
   const [email, setEmail] = useState('')
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -19,8 +20,17 @@ export default function GetStartedForm({ className, onSubmit }: GetStartedFormPr
   }
 
   return (
-    <form className={classNames(className, styles.form, styles.getStarted)} onSubmit={handleSubmit}>
-      <div className={classNames(styles.field, styles.withButton)}>
+    <form 
+      className={classNames(
+        className,
+        styles.form, 
+        styles.getStarted, 
+        {[styles.success]: formState === FormState.success},
+        {[styles.failed]: formState === FormState.failed},
+        {[styles.loading]: formState === FormState.loading},
+      )} 
+      onSubmit={handleSubmit}>
+      {(formState === FormState.default || formState === FormState.loading) && <div className={classNames(styles.field, styles.withButton)}>
         <label htmlFor='email' className={styles.label}>
           <input
             type='email'
@@ -39,18 +49,17 @@ export default function GetStartedForm({ className, onSubmit }: GetStartedFormPr
         >
           Get Started
         </Button>
-      </div>
-      <div className={classNames(styles.state, styles.success)}>
+      </div>}
+      {formState === FormState.success &&<div className={classNames(styles.state, styles.success)}>
         <CheckSvg className={styles.icon} />
         <div className={styles.label}>We sent you a link to start your trial</div>
-      </div>
-      <div className={classNames(styles.state, styles.failed)}>
+      </div>}
+      {formState === FormState.failed &&<div className={classNames(styles.state, styles.failed)}>
         <CloseSvg className={styles.icon} />
         <div className={styles.label}>
-          {/* TODO: add error message */}
-          Something gone wrong. Please try again later.
+          {errorMessage}
         </div>
-      </div>
+      </div>}
       <ul className={styles.description}>
         <li>
           <CheckSvg />

@@ -3,8 +3,9 @@ import Section from '../common/Section'
 import React from 'react'
 import GetStartedForm from '../GetStartedForm'
 import styles from './StayProtectedSection.module.scss'
+import { FormProps } from 'interfaces/formProps'
 
-export default function StayProtectedSection() {
+export default function StayProtectedSection({formState, onSubmit, errorMessage}: FormProps) {
   return (
     <Section className={styles.stayProtected}>
       <Container>
@@ -14,7 +15,12 @@ export default function StayProtectedSection() {
             Pro
           </h2>
           <p className={styles.subtitle}>Starting today is better than starting tomorrow</p>
-          <GetStartedForm className={styles.form} onSubmit={(email) => console.log(email)} />
+          <GetStartedForm 
+            className={styles.form}
+            formState={formState}
+            onSubmit={onSubmit}
+            errorMessage={errorMessage}
+          />
         </header>
       </Container>
     </Section>

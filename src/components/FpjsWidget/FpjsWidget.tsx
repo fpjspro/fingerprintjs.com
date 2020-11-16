@@ -6,6 +6,7 @@ import { ReactComponent as InfoSvg } from './info.svg'
 import { ReactComponent as IncognitoSvg } from './incognito.svg'
 import Tippy from '@tippyjs/react'
 import styles from './FpjsWidget.module.scss'
+import { FpjsWidgetProps } from 'interfaces/fpjsWidgetProps'
 
 interface VisitorResponse extends FP.FullIpExtendedGetResult {
   timestamp: number
@@ -19,31 +20,14 @@ interface VisitorResponse extends FP.FullIpExtendedGetResult {
   }
 }
 
-export default function FpjsWidget() {
-  // const dashboardEndpoint = process.env.GATSBY_FPJS_DASHBOARD_ENDPOINT;
-  const clientToken = process.env.GATSBY_FPJS_TOKEN
-  const apiToken = process.env.GATSBY_FPJS_API_TOKEN
-  const endpoint = process.env.GATSBY_FPJS_ENDPOINT
-  const region = process.env.GATSBY_FPJS_REGION as FP.Region
-  const config: FP.GetOptions<true, 'full'> = {
-    ipResolution: 'full',
-    extendedResult: true,
-    timeout: 30_000,
-  }
-
+export default function FpjsWidget({endpoint, visitorId, apiToken}: FpjsWidgetProps) {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>()
   const [visits, setVisits] = useState<VisitorResponse[]>([])
-  const [visitorId, setVisitorId] = useState<string>()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setIsLoading(true)
-    FP.load({ token: clientToken!, endpoint, region })
-      .then((fp) => fp.get(config))
-      .then(({ visitorId }) => {
-        setVisitorId(visitorId)
-        return loadFpjsHistory(endpoint, visitorId, apiToken)
-      })
+    loadFpjsHistory(endpoint, visitorId, apiToken)
       .then((data) => {
         setVisits(data.visits)
         setCurrentVisit(data.visits[0])
@@ -54,7 +38,7 @@ export default function FpjsWidget() {
       .finally(() => {
         setIsLoading(false)
       })
-  }, [])
+  }, [endpoint, visitorId, apiToken])
 
   return (
     <>

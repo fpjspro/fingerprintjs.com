@@ -10,7 +10,7 @@ import classNames from 'classnames'
 SwiperCore.use([Pagination])
 
 export default function ClientsSection() {
-  const trustedLogos = ['ebay', 'target', 'us-bank', 'booking', 'ameritrade', 'dell', 'agoda']
+  const clients = ['ebay', 'target', 'us-bank', 'booking', 'ameritrade', 'dell', 'agoda']
 
   return (
     <Section className={styles.clients}>
@@ -32,10 +32,10 @@ export default function ClientsSection() {
           }}
           pagination={{ clickable: true, el: '.swiper-pagination' }}
         >
-          {trustedLogos.map((logo) => {
+          {clients.map((client) => {
             return (
-              <SwiperSlide className={styles.slide}>
-                <img className={styles.logo} key={`logo_${logo}`} src={`/img/company-logos/${logo}.svg`} />
+              <SwiperSlide  key={`slide_${client}`} className={styles.slide}>
+                <img className={styles.logo} src={`/img/company-logos/${client}.svg`} />
               </SwiperSlide>
             )
           })}
