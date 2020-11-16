@@ -7,6 +7,10 @@
   // background-size: 768px auto;
   // background-position: center 75%;
 
+  // There is a problem with react-select where the selection values are cut off by the containing element.
+  // https://github.com/JedWatson/react-select/issues/404
+  overflow: visible;
+
   @media screen and (max-width: 1024px) {
     background-position: center 120%;
   }

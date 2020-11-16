@@ -12,7 +12,7 @@ const sliderConfig = {
 }
 
 export default function Billing() {
-  const [paymentType, setPaymentType] = useState<PaymentType>('monthly')
+  const [paymentType, setPaymentType] = useState<PaymentType>(PaymentType.monthly)
   const [sliderValue, setSliderValue] = useState(sliderConfig.default)
 
   const [valueLabel, setValueLabel] = useState('')
@@ -104,18 +104,18 @@ export default function Billing() {
             <div className='payment-switcher' data-type='annually'>
               <button
                 className={classNames('payment-switcher__button', 'payment-switcher__button--annually', {
-                  'payment-switcher__button--active': paymentType === 'annually',
+                  'payment-switcher__button--active': paymentType === PaymentType.annually,
                 })}
-                onClick={handlePaymentTypeChange('annually')}
+                onClick={handlePaymentTypeChange(PaymentType.annually)}
                 data-type='annually'
               >
                 Pay Annually
               </button>
               <button
                 className={classNames('payment-switcher__button', 'payment-switcher__button--monthly', {
-                  'payment-switcher__button--active': paymentType === 'monthly',
+                  'payment-switcher__button--active': paymentType === PaymentType.monthly,
                 })}
-                onClick={handlePaymentTypeChange('monthly')}
+                onClick={handlePaymentTypeChange(PaymentType.monthly)}
                 data-type='monthly'
               >
                 Pay Monthly
