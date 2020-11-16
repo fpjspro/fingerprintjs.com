@@ -54,7 +54,6 @@
     "start": "yarn develop",
     "build": "yarn clean && gatsby build",
     "develop": "yarn clean && gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.tsx}\"",
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx,.js",
     "lint:fix": "eslint . --ext .ts,.tsx,.js --quiet --fix",
     "test": "echo \"Error: no test specified\" && exit 1"

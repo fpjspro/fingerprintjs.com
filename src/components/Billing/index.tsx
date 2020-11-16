@@ -6,7 +6,7 @@ import { handlePriceChange, pricingTable } from '../../utils/pricing';
 import Container from '../common/Container';
 import Section from '../common/Section';
 import styles from './Billing.module.scss';
-import RangeSlider from '../common/RangeSlider';
+import RangeSlider, {SliderValue} from '../common/RangeSlider';
 import Button from '../common/Button';
 
 const sliderConfig = {
@@ -16,6 +16,9 @@ const sliderConfig = {
 }
 
 export default function Billing() {
+  const sliderTable = pricingTable.map(({label, value}) => {
+    return {label, value} as SliderValue;
+  });
   const defaultValue = Math.floor(pricingTable.length / 2);
   const [sliderValue, setSliderValue] = useState(defaultValue);
   const [monthlyPayment, setMonthlyPayment] = useState(pricingTable[sliderValue].label);
@@ -23,12 +26,12 @@ export default function Billing() {
 
   const handleSliderChange = (newValue: number) => {
     setSliderValue(newValue);
-    recalculatePricing(pricingTable[newValue].value, paymentType);
+    recalculatePricing(sliderTable[newValue].value, paymentType);
   }
 
   const handlePaymentTypeChange = (type: PaymentType) => (_) => {
     setPaymentType(type);
-    recalculatePricing(pricingTable[sliderValue].value, type);
+    recalculatePricing(sliderTable[sliderValue].value, type);
   }
 
   const recalculatePricing = (value: number, paymentType: PaymentType) => {
@@ -37,7 +40,7 @@ export default function Billing() {
   }
 
   useEffect(() => {
-    recalculatePricing(pricingTable[sliderValue].value, paymentType);
+    recalculatePricing(sliderTable[sliderValue].value, paymentType);
   }, []);
 
   return (
@@ -59,7 +62,7 @@ export default function Billing() {
               How many identification API calls per month do you need?
             </h3>
             <RangeSlider 
-              values={pricingTable}
+              values={sliderTable}
               currentValue={sliderValue}
               config={sliderConfig}
               handleValueChange={handleSliderChange}
