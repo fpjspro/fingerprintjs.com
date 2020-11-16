@@ -1,6 +1,6 @@
-import { PaymentType } from './../types/PaymentType';
+import { PaymentType } from './../types/PaymentType'
 
-export const minimumIdentifications: number = 100000;
+export const minimumIdentifications = 100000
 
 export const pricingTable = [
   { label: '100K', value: 100000 },
@@ -10,22 +10,27 @@ export const pricingTable = [
   { label: '5M', value: 5000000 },
   { label: '10M', value: 10000000 },
   { label: '20M', value: 20000000 },
-];
+]
 
-export function handlePriceChange(min: number, max: number, current: number, type: PaymentType): {
-  valueLabel: string,
-  newPrice: string,
+export function handlePriceChange(
+  min: number,
+  max: number,
+  current: number,
+  type: PaymentType
+): {
+  valueLabel: string
+  newPrice: string
   leftOffsetCss: string
 } {
-  const minValue = Number(min);
-  const maxValue = Number(max);
-  const value = Number(current);
-  const magicNumber = ((value - minValue) * 100) / (maxValue - minValue);
-  const valueLabel = pricingTable[value].label;
-  const newPrice = calculatePrice(pricingTable[value].value, type);
-  const leftOffsetCss = `calc(${magicNumber}% + (${15 - magicNumber * 0.3}px))`;
+  const minValue = Number(min)
+  const maxValue = Number(max)
+  const value = Number(current)
+  const magicNumber = ((value - minValue) * 100) / (maxValue - minValue)
+  const valueLabel = pricingTable[value].label
+  const newPrice = calculatePrice(pricingTable[value].value, type)
+  const leftOffsetCss = `calc(${magicNumber}% + (${15 - magicNumber * 0.3}px))`
 
-  return {valueLabel, newPrice, leftOffsetCss};
+  return { valueLabel, newPrice, leftOffsetCss }
 }
 
 export function calculatePrice(price: number, type: PaymentType): string {
@@ -35,15 +40,15 @@ export function calculatePrice(price: number, type: PaymentType): string {
     currencyDisplay: 'symbol',
     currency: 'USD',
     notation: 'standard',
-  };
+  }
 
   if (type === PaymentType.monthly) {
-    return new Intl.NumberFormat('en-US', currencyFormatOptions).format(price / 1000);
+    return new Intl.NumberFormat('en-US', currencyFormatOptions).format(price / 1000)
   }
   if (type === PaymentType.annually) {
-    return new Intl.NumberFormat('en-US', currencyFormatOptions).format((price / 1000) * 0.8);
+    return new Intl.NumberFormat('en-US', currencyFormatOptions).format((price / 1000) * 0.8)
   } else {
-    throw new Error('Payment type is required');
+    throw new Error('Payment type is required')
   }
 }
 

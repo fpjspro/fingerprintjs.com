@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import nav from './Navbar.module.scss';
-import Container from '../base/Container';
+import React from 'react'
+import { Link } from 'gatsby'
+import nav from './Navbar.module.scss'
+import Container from '../base/Container'
 
 export default function Navbar() {
   return (
@@ -11,7 +11,7 @@ export default function Navbar() {
           <Link className={nav.link} to='/demo'>
             Technical Demo
           </Link>
-          <a className={nav.link} href="https://github.com/fingerprintjs/fingerprintjs" target="_blank">
+          <a className={nav.link} href='https://github.com/fingerprintjs/fingerprintjs' target='_blank'>
             Open Source
           </a>
           <Link className={nav.link} to='/pricing'>
@@ -23,7 +23,7 @@ export default function Navbar() {
           <a className={nav.link} href='mailto:support@fingerprintjs.com'>
             Support
           </a>
-          <a className={nav.link} href='https://dashboard.fingerprintjs.com/login' target="_blank">
+          <a className={nav.link} href='https://dashboard.fingerprintjs.com/login' target='_blank'>
             Log In
           </a>
           <a className={nav.link} href='https://dashboard.fingerprintjs.com/signup'>

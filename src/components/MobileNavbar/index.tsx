@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import {ReactComponent as LinkedInSvg} from '../../img/linkedin.svg';
-import {ReactComponent as TwitterSvg} from '../../img/twitter.svg';
-import GithubButton from '../GithubButton';
-import Container from '../base/Container';
+import { ReactComponent as LinkedInSvg } from '../../img/linkedin.svg'
+import { ReactComponent as TwitterSvg } from '../../img/twitter.svg'
+import GithubButton from '../GithubButton'
+import Container from '../base/Container'
 
 export default function MobileNavbar() {
   return (
@@ -18,7 +18,9 @@ export default function MobileNavbar() {
           </a>
         </div>
         <div className='main-links'>
-          <Container size='large'> {/*style={{'padding': 0}}>*/}
+          <Container size='large'>
+            {' '}
+            {/*style={{'padding': 0}}>*/}
             <Link to='/demo' className='nav__link'>
               Technical Demo
             </Link>
@@ -43,20 +45,18 @@ export default function MobileNavbar() {
           </Container>
         </div>
         <div className='contact-social'>
-          <GithubButton/>
+          <GithubButton />
           <div className='social'>
-            <small>
-              Find us on social
-            </small>
+            <small>Find us on social</small>
             <ul className='social-links'>
               <li className='social-links__link'>
                 <a href='https://www.linkedin.com/company/fingerprintjs/' target='_blank' rel='noopener'>
-                  <LinkedInSvg/>
+                  <LinkedInSvg />
                 </a>
               </li>
               <li className='social-links__link'>
                 <a href='https://twitter.com/FingerprintJs' target='_blank' rel='noopener'>
-                  <TwitterSvg/>
+                  <TwitterSvg />
                 </a>
               </li>
             </ul>

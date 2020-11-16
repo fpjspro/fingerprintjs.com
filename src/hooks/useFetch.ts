@@ -1,7 +1,7 @@
 // source: https://usehooks-typescript.com/use-fetch/
 import { useEffect, useReducer, useRef } from 'react'
 import axios, { AxiosRequestConfig } from 'axios'
-    
+
 interface State<T> {
   status: 'init' | 'fetching' | 'error' | 'fetched'
   data?: T
@@ -12,15 +12,9 @@ interface Cache<T> {
   [url: string]: T
 }
 
-type Action<T> =
-  | { type: 'request' }
-  | { type: 'success'; payload: T }
-  | { type: 'failure'; payload: string }
+type Action<T> = { type: 'request' } | { type: 'success'; payload: T } | { type: 'failure'; payload: string }
 
-export function useFetch<T = unknown>(
-  url?: string,
-  options?: AxiosRequestConfig,
-): State<T> {
+export function useFetch<T = unknown>(url?: string, options?: AxiosRequestConfig): State<T> {
   const cache = useRef<Cache<T>>({})
   let cancelRequest = false
   const initialState: State<T> = {
@@ -52,13 +46,13 @@ export function useFetch<T = unknown>(
         try {
           const response = await axios(url, options)
           cache.current[url] = response.data
-          
+
           if (cancelRequest) return
-          
+
           dispatch({ type: 'success', payload: response.data })
         } catch (error) {
           if (cancelRequest) return
-          
+
           dispatch({ type: 'failure', payload: error.message })
         }
       }
