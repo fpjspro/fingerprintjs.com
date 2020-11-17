@@ -2,8 +2,9 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import PriceCalculator from '../../components/PriceCalculator'
 import Section from '../../components/common/Section'
-import styles from './Pricing.module.scss'
 import classNames from 'classnames'
+import Container from '../../components/common/Container'
+import styles from './Pricing.module.scss'
 
 interface SectionHeaderProps {
   title: string
@@ -47,9 +48,9 @@ function CalculatorSection() {
   return (
     <Section className={styles.pricingSection}>
       <SectionHeader
-        title={'Pro Pricing'}
-        subtitle={'Calculator'}
-        description={`If you don't know how many identifications you need, use monthly user sessions`}
+        title='Pro Pricing'
+        subtitle='Calculator'
+        description="If you don't know how many identifications you need, use monthly user sessions"
       />
       <PriceCalculator />
     </Section>
@@ -59,12 +60,10 @@ function CalculatorSection() {
 function PricingModelsSection() {
   return (
     <Section className={styles.pricingSection}>
-      <SectionHeader title={'Pricing Models'} subtitle={'We support 2 models of pricing'} invertOrder />
+      <SectionHeader title='Pricing Models' subtitle='We support 2 models of pricing' invertOrder />
       <PricingCard
-        title={'On-\nDemand'}
-        description={
-          'For on-demand pricing, you pay monthly per API call. This plan is recommended for users with unpredictable or low traffic volumes.'
-        }
+        title='On-Demand'
+        description='For on-demand pricing, you pay monthly per API call. This plan is recommended for users with unpredictable or low traffic volumes.'
         sectionClasses={styles.pricingCardOnDemand}
       >
         <ul className={styles.arrowList}>
@@ -94,8 +93,8 @@ function PricingModelsSection() {
         </div>
       </PricingCard>
       <PricingCard
-        title={'Reserved'}
-        description={'Reserved is a 1 year prepaid plan that has several advantages compared to the on-demand model.'}
+        title='Reserved'
+        description='Reserved is a 1 year prepaid plan that has several advantages compared to the on-demand model.'
         sectionClasses={styles.pricingCardReserved}
       >
         <ul className={classNames(styles.numberList, styles.horizontal)}>
@@ -114,8 +113,10 @@ function PricingModelsSection() {
 export default function PricingPage() {
   return (
     <Layout>
-      <CalculatorSection />
-      <PricingModelsSection />
+      <Container size='large'>
+        <CalculatorSection />
+        <PricingModelsSection />
+      </Container>
     </Layout>
   )
 }

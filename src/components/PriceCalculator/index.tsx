@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Select from '../common/Select'
 import classNames from 'classnames'
 import { minimumIdentifications, pricingTable, calculatePrice } from '../../utils/pricing'
-import styles from './PriceCalculator.module.scss'
 import { PaymentType } from '../../types/PaymentType'
+import Button from '../../components/common/Button'
+import styles from './PriceCalculator.module.scss'
 
 interface ColumnProps {
   title: string
@@ -41,8 +42,9 @@ interface ValuePreset {
   value: number
 }
 
+const labelFormat = new Intl.NumberFormat('en-US')
+
 export default function PriceCalculator() {
-  const labelFormat = new Intl.NumberFormat('en-US')
   const selectOptions = pricingTable.map((entry) => ({
     label: labelFormat.format(entry.value),
     value: entry.value,
@@ -72,50 +74,17 @@ export default function PriceCalculator() {
     }
   }
 
-  const reactSelectStyle = {
-    control: (provided, state) => ({
-      ...provided,
-      height: 48,
-      minHeight: 48,
-      borderRadius: 8,
-      borderColor: state.isFocused ? 'rgba(13, 16, 43, 1)' : 'rgba(13, 16, 43, 0.3)',
-      boxShadow: null,
-      '&:hover': {
-        borderColor: 'rgba(13, 16, 43, 1)',
-      },
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      color: 'black',
-      backgroundColor: state.isSelected ? 'rgb(242, 242, 247)' : 'transparent',
-      fontWeight: state.isSelected ? 'bold' : provided.fontWeight,
-      borderRadius: 8,
-      '&:active': {
-        backgroundColor: 'rgb(242, 242, 247)',
-        fontWeight: 'bold',
-      },
-      '&:hover': {
-        backgroundColor: 'rgb(242, 242, 247)',
-        borderRadius: 8,
-        fontWeight: 'bold',
-      },
-    }),
-    menuPortal: (base) => ({ ...base, zIndex: 9999 }),
-  }
-
   return (
     <div className={styles.wrapper}>
-      <Column title={'How many identifications per month do you need?'}>
+      <Column title='How many identifications per month do you need?'>
         <div className={styles.presetSelector}>
           <div className={styles.description}>
             <strong>Select from preset</strong>
           </div>
           <Select
-            styles={reactSelectStyle}
             value={customCount === undefined ? selectedPreset : null}
             options={selectOptions}
             onChange={onPresetSelected}
-            menuPortalTarget={document.body}
           />
         </div>
         <div className={styles.customInput}>
@@ -125,8 +94,7 @@ export default function PriceCalculator() {
             onChange={(e) => onCustomCountChanged(e.target.value)}
             type='number'
             name='identification-user-input'
-            className={'input user-input__input preset__specific-number'}
-            placeholder={'ex. 630,000'}
+            placeholder='ex. 630,000'
           />
         </div>
       </Column>
@@ -140,10 +108,10 @@ export default function PriceCalculator() {
                   PaymentType.monthly
                 )
           }
-          description={'Pay as you go, cancel any time'}
+          description='Pay as you go, cancel any time'
         />
       </Column>
-      <Column title={'Reserved'}>
+      <Column title='Reserved'>
         <Price
           value={
             customCount === undefined
@@ -153,14 +121,15 @@ export default function PriceCalculator() {
                   PaymentType.annually
                 )
           }
-          description={'Requires a 12 month prepay'}
+          description='Requires a 12 month prepay'
         />
       </Column>
-      <Column title={'Enterprise License'}>
+      <Column title='Enterprise License'>
         <div className={styles.description}>Enterprise support license with SLA</div>
-        <a href='mailto:sales@fingerprintjs.com' className='btn btn--outlined btn--small'>
-          Contact Sales
-        </a>
+
+        <Button variant='outline'>
+          <a href='mailto:sales@fingerprintjs.com'>Contact Sales</a>
+        </Button>
       </Column>
     </div>
   )
