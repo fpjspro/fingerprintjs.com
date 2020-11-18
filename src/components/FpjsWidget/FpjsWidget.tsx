@@ -1,164 +1,116 @@
-import * as FP from '@fingerprintjs/fingerprintjs-pro'
 import React, { useState, useEffect } from 'react'
 import { getVisitTitle, getBrowserName, getBotDecision } from '../../utils/fpjs-widget'
-import classNames from 'classnames'
 import { ReactComponent as InfoSvg } from './info.svg'
 import { ReactComponent as IncognitoSvg } from './incognito.svg'
-import { ReactComponent as ChevronRightSvg } from '../../img/chevron-right.svg'
-import { ReactComponent as ChevronLeftSvg } from '../../img/chevron-left.svg'
 import Tippy from '@tippyjs/react'
 import styles from './FpjsWidget.module.scss'
-import { FpjsWidgetProps } from 'interfaces/fpjsWidgetProps'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation } from 'swiper'
+import { FpjsWidgetProps } from './widgetProps'
+import classNames from 'classnames'
+import { VisitorResponse } from './visitorResponse'
+import { CurrentVisitProps } from './currentVisitProps'
+import MobileWidget from './MobileWidget'
 
-SwiperCore.use([Navigation])
-
-interface VisitorResponse extends FP.FullIpExtendedGetResult {
-  timestamp: number
-  browserDetails: {
-    botProbability: number
-    browserName: string
-    browserVersion: string
-    os: string
-    osVersion: string
-    device: string
-  }
-}
-
-export default function FpjsWidget({endpoint, visitorId, apiToken}: FpjsWidgetProps) {
+export default function FpjsWidget({ endpoint, visitorId, apiToken }: FpjsWidgetProps) {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>()
   const [visits, setVisits] = useState<VisitorResponse[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
+    if (!visitorId) {
+      return
+    }
+
+    let isCancelled = false
     setIsLoading(true)
-    loadFpjsHistory(endpoint, visitorId, apiToken)
-      .then((data) => {
-        setVisits(data.visits)
-        setCurrentVisit(data.visits[0])
-      })
-      .catch((e) => {
+
+    async function fetchVisits() {
+      try {
+        const { visits } = await loadFpjsHistory(endpoint, visitorId, apiToken)
+
+        if (!isCancelled) {
+          setIsLoaded(true)
+          setVisits(visits)
+          setCurrentVisit(visits[0])
+        }
+      } catch (e) {
         console.error(`Fingerprint loading failed: ${e.message}`)
-      })
-      .finally(() => {
-        setIsLoading(false)
-      })
+      } finally {
+        if (!isCancelled) {
+          setIsLoading(false)
+        }
+      }
+    }
+    fetchVisits()
+
+    return () => {
+      isCancelled = true
+    }
   }, [endpoint, visitorId, apiToken])
 
   return (
     <>
-      {isLoading ? (
-        <div className={styles.loader}></div>
-      ) : (
-        <>
-          <div
-            className={classNames(
-              styles.demo,
-              styles.desktopOnly, {
-              [styles.loaded]: !isLoading,
-              [styles.incognito]: currentVisit?.incognito,
-            })}
-          >
-            <div className={styles.history}>
-              <div className={styles.header}>
-                Visit History
-                <Tippy content='FingerprintJS Pro allows you to get a history of visits with all available information'>
-                  <InfoSvg tabIndex={0} />
-                </Tippy>
-              </div>
-              <div className={styles.content}>
-                <ul className={styles.visits}>
-                  {visits &&
-                    visits.map(({ requestId, timestamp, incognito }, i) => {
-                      return (
-                        <li
-                          className={classNames(
-                            styles.visit,
-                            { [styles.selected]: currentVisit?.requestId === requestId },
-                            { [styles.incognito]: incognito },
-                            { [styles.now]: i === 0 }
-                          )}
-                          id={`visit_${requestId}`}
-                          key={requestId}
-                          onClick={() => setCurrentVisit(visits[i])}
-                        >
-                          {i === 0 ? 'Current visit' : getVisitTitle(timestamp)}
-                          {incognito && <IncognitoSvg />}
-                        </li>
-                      )
-                    })}
-                </ul>
-              </div>
-            </div>
-            <CurrentVisit 
-              currentVisit={currentVisit} 
-              visits={visits} 
-              visitorId={visitorId}
-            />
+      {isLoading && <div className={styles.loader}></div>}
+      <div
+        className={classNames(styles.demo, styles.desktopOnly, {
+          [styles.loaded]: isLoaded,
+          [styles.incognito]: currentVisit?.incognito,
+        })}
+      >
+        <div className={styles.history}>
+          <div className={styles.header}>
+            Visit History
+            <Tippy content='FingerprintJS Pro allows you to get a history of visits with all available information'>
+              <InfoSvg tabIndex={0} />
+            </Tippy>
           </div>
-          <Swiper
-            className={classNames(
-              styles.demo,
-              styles.mobileOnly, {
-              [styles.loaded]: !isLoading,
-              [styles.incognito]: currentVisit?.incognito,
-            })}
-            spaceBetween={10}
-            slidesPerView={1}
-            width={window.innerWidth - 48}
-            centeredSlides={true}
-            pagination={{
-              dynamicBullets: true,
-              el: '.swiper-pagination',
-              clickable: true,
-            }}
-            navigation={{
-              nextEl: '.btn-next',
-              prevEl: '.btn-prev',
-            }}>
+          <div className={styles.content}>
+            <ul className={styles.visits}>
               {visits &&
-                visits.map(visit => {
+                visits.map(({ requestId, timestamp, incognito }, i) => {
                   return (
-                    <SwiperSlide 
-                      key={visit.timestamp} 
-                      className={`swiper-slide ${styles.item}`}>
-                      <CurrentVisit 
-                        currentVisit={visit} 
-                        visits={visits} 
-                        visitorId={visitorId}
-                      />
-                    </SwiperSlide>
+                    <li
+                      className={classNames(
+                        styles.visit,
+                        { [styles.selected]: currentVisit?.requestId === requestId },
+                        { [styles.incognito]: incognito },
+                        { [styles.now]: i === 0 }
+                      )}
+                      id={`visit_${requestId}`}
+                      key={requestId}
+                      onClick={() => setCurrentVisit(visits[i])}
+                    >
+                      {i === 0 ? 'Current visit' : getVisitTitle(timestamp)}
+                      {incognito && <IncognitoSvg />}
+                    </li>
                   )
                 })}
-          </Swiper>
-          <div className='swiper-pagination'></div>
-        </>
+            </ul>
+          </div>
+        </div>
+        <CurrentVisit currentVisit={currentVisit} visits={visits} visitorId={visitorId} />
+      </div>
+      {!isLoading && (
+        <MobileWidget isLoaded={isLoaded} visitorId={visitorId} visits={visits} currentVisit={currentVisit} />
       )}
     </>
   )
 }
 
-function CurrentVisit({currentVisit, visits, visitorId}) {
+function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
   return (
     <div className={styles.currentVisit}>
       <div className={styles.header}>
-        <button className={classNames('btn-prev', styles.mobileOnly)}>
-          <ChevronLeftSvg/>
-        </button>
         <div className={styles.title}>
           {currentVisit &&
             (currentVisit.requestId === visits[0].requestId
               ? 'Your Current Visit'
               : getVisitTitle(currentVisit.timestamp))}
         </div>
-        <button className={classNames('btn-next', styles.mobileOnly)}>
-          <ChevronRightSvg/>
-        </button>
       </div>
       <div className={styles.content}>
         <div className={styles.visitId}>
-          <span className={styles.label}>Your ID:</span>
+          <span className={styles.label}>Your ID: </span>
           <span className={styles.value}>{visitorId}</span>
           <Tippy content='Every visitor to your website is assigned a unique & permanent identifier.'>
             <InfoSvg tabIndex={0} />
@@ -214,7 +166,7 @@ function CurrentVisit({currentVisit, visits, visitorId}) {
   )
 }
 
-
-function loadFpjsHistory(endpoint, visitorId, apiToken) {
-  return fetch(`${endpoint}/visitors/${visitorId}?token=${apiToken}&limit=20`).then((response) => response.json())
+async function loadFpjsHistory(endpoint: string, visitorId: string, apiToken: string) {
+  const response = await fetch(`${endpoint}visitors/${visitorId}?token=${apiToken}&limit=20`)
+  return await response.json()
 }

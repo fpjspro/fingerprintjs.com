@@ -15,13 +15,13 @@
     // @include gap(3rem);
     margin-bottom: 4rem;
 
-    >*+* {
+    > * + * {
       @media screen and (min-width: 1024px) {
         margin-left: 3rem;
       }
     }
 
-    >.btn {
+    >a {
       @media screen and (max-width: 1024px) {
         display: none;
       }
@@ -43,7 +43,7 @@
     align-items: stretch;
     // @include gap(3rem);
 
-    >*+* {
+    > * + * {
       @media screen and (min-width: 1025px) {
         margin-left: 3rem;
       }
@@ -73,7 +73,7 @@
       border-bottom: 2px solid adjust-color(c('off-white'), $lightness: -5%);
     }
 
-    >*+* {
+    > * + * {
       margin-top: 3rem;
     }
 

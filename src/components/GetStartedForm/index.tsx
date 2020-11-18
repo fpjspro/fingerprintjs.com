@@ -5,9 +5,13 @@ import { ReactComponent as CloseSvg } from './close.svg'
 import styles from './GetStartedForm.module.scss'
 import classNames from 'classnames'
 import Button from '../common/Button'
-import { FormProps } from '../../interfaces/formProps'
 import { FormState } from '../../types/FormState'
 
+export interface FormProps {
+  formState: FormState
+  onSubmit: (email: string) => void
+  errorMessage?: string
+}
 interface GetStartedFormProps extends FormProps {
   className?: string | string[]
 }
@@ -20,46 +24,51 @@ export default function GetStartedForm({ className, formState, onSubmit, errorMe
   }
 
   return (
-    <form 
+    <form
       className={classNames(
         className,
-        styles.form, 
-        styles.getStarted, 
-        {[styles.success]: formState === FormState.success},
-        {[styles.failed]: formState === FormState.failed},
-        {[styles.loading]: formState === FormState.loading},
-      )} 
-      onSubmit={handleSubmit}>
-      {(formState === FormState.default || formState === FormState.loading) && <div className={classNames(styles.field, styles.withButton)}>
-        <label htmlFor='email' className={styles.label}>
-          <input
-            type='email'
-            name='email'
-            required
-            className={classNames(styles.field, 'gtm-email-input')}
-            placeholder='Enter your email'
-            value={email}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-          />
-        </label>
-        <Button
-          className={classNames(styles.submit, 'gtm-get-started-btn')}
-          type='submit'
-          mobileIcon={<ChevronRightSvg className='gtm-get-started-btn' />}
-        >
-          Get Started
-        </Button>
-      </div>}
-      {formState === FormState.success &&<div className={classNames(styles.state, styles.success)}>
-        <CheckSvg className={styles.icon} />
-        <div className={styles.label}>We sent you a link to start your trial</div>
-      </div>}
-      {formState === FormState.failed &&<div className={classNames(styles.state, styles.failed)}>
-        <CloseSvg className={styles.icon} />
-        <div className={styles.label}>
-          {errorMessage}
+        styles.form,
+        styles.getStarted,
+        { [styles.success]: formState === FormState.success },
+        { [styles.failed]: formState === FormState.failed },
+        { [styles.loading]: formState === FormState.loading }
+      )}
+      onSubmit={handleSubmit}
+    >
+      {(formState === FormState.default || formState === FormState.loading) && (
+        <div className={classNames(styles.field, styles.withButton)}>
+          <label htmlFor='email' className={styles.label}>
+            <input
+              type='email'
+              name='email'
+              required
+              className={classNames(styles.field, 'gtm-email-input')}
+              placeholder='Enter your email'
+              value={email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+            />
+          </label>
+          <Button
+            className={classNames(styles.submit, 'gtm-get-started-btn')}
+            type='submit'
+            mobileIcon={<ChevronRightSvg className='gtm-get-started-btn' />}
+          >
+            Get Started
+          </Button>
         </div>
-      </div>}
+      )}
+      {formState === FormState.success && (
+        <div className={classNames(styles.state, styles.success)}>
+          <CheckSvg className={styles.icon} />
+          <div className={styles.label}>We sent you a link to start your trial</div>
+        </div>
+      )}
+      {formState === FormState.failed && (
+        <div className={classNames(styles.state, styles.failed)}>
+          <CloseSvg className={styles.icon} />
+          <div className={styles.label}>{errorMessage}</div>
+        </div>
+      )}
       <ul className={styles.description}>
         <li>
           <CheckSvg />

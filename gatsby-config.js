@@ -11,9 +11,10 @@ const resolvePath = (directoryName, pathName) => {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
-    description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+    title: 'FingerprintJS Pro - browser fingerprinting & fraud detection API',
+    description: 'Stop fraud, spam, and account takeovers with 99.5% accurate browser fingerprinting as a service.',
+    url: 'https://fingerprintjs.com',
+    image: 'https://fingerprintjs.com/img/fpjs_preview.png',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

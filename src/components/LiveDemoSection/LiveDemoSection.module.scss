@@ -4,7 +4,7 @@
   align-items: center;
   @include gap(5rem);
 
-  >*+* {
+  > * + * {
     @media screen and (max-width: 1024px) {
       margin-top: 10rem;
       margin-left: 0rem;

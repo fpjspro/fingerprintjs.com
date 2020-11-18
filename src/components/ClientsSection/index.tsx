@@ -17,8 +17,7 @@ export default function ClientsSection() {
       <Container>
         <header className={styles.header}>
           <h2 className={styles.title}>
-            <strong>FingerprintJS</strong>
-            is trusted by public companies and innovative startups.
+            <strong>FingerprintJS</strong> is trusted by public companies and innovative startups.
           </h2>
         </header>
         <Swiper
@@ -34,7 +33,7 @@ export default function ClientsSection() {
         >
           {clients.map((client) => {
             return (
-              <SwiperSlide  key={`slide_${client}`} className={styles.slide}>
+              <SwiperSlide key={`slide_${client}`} className={styles.slide}>
                 <img className={styles.logo} src={`/img/company-logos/${client}.svg`} />
               </SwiperSlide>
             )

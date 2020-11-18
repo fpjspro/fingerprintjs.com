@@ -100,9 +100,9 @@ export default function Billing() {
           </div>
         </div>
         <div className={styles.link}>
-          <a href='#0' className='btn btn--outlined'>
-            Detailed Pricing
-          </a>
+          <Link to='/pricing'>
+            <Button variant='outline'>Detailed Pricing</Button>
+          </Link>
         </div>
       </Container>
     </Section>

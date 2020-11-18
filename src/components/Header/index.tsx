@@ -1,20 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../Navbar'
 import { Link } from 'gatsby'
 import Prism from 'prismjs'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import GithubButton from '../GithubButton'
 import { ReactComponent as BurgerSvg } from './burger.svg'
-// import MobileNavbar from '../MobileNavbar';
+import MobileNavbar from '../MobileNavbar'
 import Button from '../common/Button'
 import Container from '../common/Container'
-// important to import after other styles to override
+
 import styles from './Header.module.scss'
+import { isBrowser } from '../../utils/browser'
 
 export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   useEffect(() => {
     Prism.highlightAll()
   }, [])
+
+  const handleOpenMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+    isBrowser() && document.body.classList.toggle('isMobileMenuOpen')
+  }
 
   return (
     <header>
@@ -33,14 +41,14 @@ export default function Header() {
                 Contact Sales
               </Button>
               <Button href='https://dashboard.fingerprintjs.com/signup'>Free Trial</Button>
-              <Button className={styles.mobileToggler} variant='clear'>
+              <Button className={styles.mobileToggler} variant='clear' onClick={handleOpenMobileMenu}>
                 <BurgerSvg className={styles.buttonIcon} />
               </Button>
             </div>
           </nav>
         </Container>
       </div>
-      {/* <MobileNavbar/> */}
+      {isMobileMenuOpen && <MobileNavbar />}
     </header>
   )
 }

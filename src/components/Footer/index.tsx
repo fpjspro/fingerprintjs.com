@@ -98,11 +98,11 @@ export default function Footer() {
                   <h3 className={styles.title}>{title}</h3>
                   {links.map(({ title, url, isLocal }) => {
                     return isLocal ? (
-                      <Link className={styles.link} key={url} to={url} target='_blank' rel='noopener'>
+                      <Link className={styles.link} key={url} to={url} target='_blank' rel='noreferrer'>
                         {title}
                       </Link>
                     ) : (
-                      <a className={styles.link} key={url} href={url} target='_blank' rel='noopener'>
+                      <a className={styles.link} key={url} href={url} target='_blank' rel='noreferrer'>
                         {title}
                       </a>
                     )
@@ -118,16 +118,9 @@ export default function Footer() {
               1440 W. Taylor St #735, Chicago, IL 60607, USA
               <br />
               <br />
-              <a
-                href="javascript:location='mailto:\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0040\u0066\u0069\u006e\u0067\u0065\u0072\u0070\u0072\u0069\u006e\u0074\u006a\u0073\u002e\u0063\u006f\u006d';void 0"
-                dangerouslySetInnerHTML={{
-                  __html: `<script type='text/javascript'>
-  document.write(
-    '\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0040\u0066\u0069\u006e\u0067\u0065\u0072\u0070\u0072\u0069\u006e\u0074\u006a\u0073\u002e\u0063\u006f\u006d'
-  )
-</script>`,
-                }}
-              ></a>
+              <a href="mailto:\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0040\u0066\u0069\u006e\u0067\u0065\u0072\u0070\u0072\u0069\u006e\u0074\u006a\u0073\u002e\u0063\u006f\u006d'">
+                support@fingerprintjs.com
+              </a>
             </address>
             <div className={styles.social}>
               <GithubButton />
@@ -135,12 +128,12 @@ export default function Footer() {
                 <small>Find us on social</small>
                 <ul className={styles.links}>
                   <li className={styles.link}>
-                    <a href='https://www.linkedin.com/company/fingerprintjs/' target='_blank' rel='noopener'>
+                    <a href='https://www.linkedin.com/company/fingerprintjs/' target='_blank' rel='noreferrer'>
                       <LinkedInSvg />
                     </a>
                   </li>
                   <li className={styles.link}>
-                    <a href='https://twitter.com/FingerprintJs' target='_blank' rel='noopener'>
+                    <a href='https://twitter.com/FingerprintJs' target='_blank' rel='noreferrer'>
                       <TwitterSvg />
                     </a>
                   </li>

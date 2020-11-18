@@ -4,58 +4,63 @@ import { ReactComponent as LinkedInSvg } from '../../img/linkedin.svg'
 import { ReactComponent as TwitterSvg } from '../../img/twitter.svg'
 import GithubButton from '../GithubButton'
 import Container from '../common/Container'
+import styles from './MobileNavbar.module.scss'
+import Button from '../common/Button'
+import classNames from 'classnames'
 
 export default function MobileNavbar() {
   return (
-    <div className='mobile-nav'>
-      <Container size='large'>
-        <div className='top-links'>
-          <a href='mailto:sales@fingerprintjs.com' className='btn btn--outlined'>
+    <div className={styles.nav}>
+      <Container size='large' className={styles.container}>
+        <div className={classNames(styles.links, styles.top)}>
+          <Button href='mailto:sales@fingerprintjs.com' variant='outline'>
             Contact Sales
-          </a>
-          <a href='https://dashboard.fingerprintjs.com/signup' className='btn'>
-            Free Trial
-          </a>
+          </Button>
+          <Button href='https://dashboard.fingerprintjs.com/signup'>Free Trial</Button>
         </div>
-        <div className='main-links'>
-          <Container size='large'>
+        <div className={classNames(styles.links, styles.main)}>
+          <Container size='large' className={styles.container}>
             {' '}
-            {/*style={{'padding': 0}}>*/}
-            <Link to='/demo' className='nav__link'>
+            <Link to='/demo' className={styles.link}>
               Technical Demo
             </Link>
-            <a href='{{site.repo_link}}' target='_blank' rel='noopener' className='nav__link'>
+            <a
+              href='https://github.com/fingerprintjs/fingerprintjs'
+              target='_blank'
+              rel='noreferrer'
+              className={styles.link}
+            >
               Open Source
             </a>
-            <Link to='/pricing' className='nav__link'>
+            <Link to='/pricing' className={styles.link}>
               Pricing
             </Link>
-            <a href='https://dev.fingerprintjs.com' className='nav__link'>
+            <a href='https://dev.fingerprintjs.com' className={styles.link}>
               Documentation
             </a>
-            <a href='mailto:support@fingerprintjs.com' className='nav__link'>
+            <a href='mailto:support@fingerprintjs.com' className={styles.link}>
               Support
             </a>
-            <a href='https://dashboard.fingerprintjs.com/login' className='nav__link'>
+            <a href='https://dashboard.fingerprintjs.com/login' className={styles.link}>
               Log In
             </a>
-            <a href='https://dashboard.fingerprintjs.com/signup' className='nav__link'>
+            <a href='https://dashboard.fingerprintjs.com/signup' className={styles.link}>
               Sign Up
             </a>
           </Container>
         </div>
-        <div className='contact-social'>
+        <div className={styles.contact}>
           <GithubButton />
-          <div className='social'>
+          <div className={styles.social}>
             <small>Find us on social</small>
-            <ul className='social-links'>
-              <li className='social-links__link'>
-                <a href='https://www.linkedin.com/company/fingerprintjs/' target='_blank' rel='noopener'>
+            <ul className={styles.links}>
+              <li className={styles.link}>
+                <a href='https://www.linkedin.com/company/fingerprintjs/' target='_blank' rel='noreferrer'>
                   <LinkedInSvg />
                 </a>
               </li>
-              <li className='social-links__link'>
-                <a href='https://twitter.com/FingerprintJs' target='_blank' rel='noopener'>
+              <li className={styles.link}>
+                <a href='https://twitter.com/FingerprintJs' target='_blank' rel='noreferrer'>
                   <TwitterSvg />
                 </a>
               </li>
