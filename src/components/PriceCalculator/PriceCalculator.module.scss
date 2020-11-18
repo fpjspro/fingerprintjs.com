@@ -132,3 +132,41 @@
     margin-top: 1rem;
   }
 }
+
+.customInput {
+  input {
+    font-family: v(ff-sans);
+    font-size: 2rem;
+    min-width: 100px;
+
+    height: 6rem;
+    flex: 1;
+    width: 100%;
+    border-radius: 1rem;
+    border: solid 1px adjust-color(c('brand-water'), $alpha: -0.7);
+    padding: 0 2rem;
+
+    &:focus {
+      border: solid 1px adjust-color(c('brand-water'), $alpha: -0.3);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  
+    &::placeholder {
+      color: v('brand-water');
+      opacity: v('extra-faded');
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+}
