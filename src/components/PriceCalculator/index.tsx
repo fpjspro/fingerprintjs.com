@@ -6,42 +6,6 @@ import { PaymentType } from '../../types/PaymentType'
 import Button from '../../components/common/Button'
 import styles from './PriceCalculator.module.scss'
 
-interface ColumnProps {
-  title: string
-  children: React.ReactNode
-}
-
-function Column({ title, children }: ColumnProps) {
-  return (
-    <div className={styles.column}>
-      <div className={classNames(styles.row, styles.header)}>{title}</div>
-      <div className={styles.row}>{children}</div>
-    </div>
-  )
-}
-
-interface PriceProps {
-  value: string
-  description: string
-}
-
-function Price({ value, description }: PriceProps) {
-  return (
-    <>
-      <div className={styles.price}>
-        <div className={styles.value}>{value}</div>
-        <div className={styles.subtitle}>per month</div>
-      </div>
-      <div className={styles.description}>{description}</div>
-    </>
-  )
-}
-
-interface ValuePreset {
-  label: string
-  value: number
-}
-
 const labelFormat = new Intl.NumberFormat('en-US')
 
 export default function PriceCalculator() {
@@ -50,13 +14,7 @@ export default function PriceCalculator() {
     value: entry.value,
   }))
 
-  /** The currently selected price preset. */
   const [selectedPreset, setSelectedPreset] = useState(selectOptions[0])
-
-  /**
-   * The number of identifications for doing custom price calculations.
-   * undefined when using a preset.
-   */
   const [customCount, setCustomCount] = useState<number | undefined>(undefined)
 
   function onPresetSelected(newPreset: ValuePreset): void {
@@ -127,10 +85,46 @@ export default function PriceCalculator() {
       <Column title='Enterprise License'>
         <div className={styles.description}>Enterprise support license with SLA</div>
 
-        <Button variant='outline'>
-          <a href='mailto:sales@fingerprintjs.com'>Contact Sales</a>
+        <Button variant='outline' small href='mailto:sales@fingerprintjs.com'>
+          Contact Sales
         </Button>
       </Column>
     </div>
   )
+}
+
+interface ColumnProps {
+  title: string
+  children: React.ReactNode
+}
+
+function Column({ title, children }: ColumnProps) {
+  return (
+    <div className={styles.column}>
+      <div className={classNames(styles.row, styles.header)}>{title}</div>
+      <div className={styles.row}>{children}</div>
+    </div>
+  )
+}
+
+interface PriceProps {
+  value: string
+  description: string
+}
+
+function Price({ value, description }: PriceProps) {
+  return (
+    <>
+      <div className={styles.price}>
+        <div className={styles.value}>{value}</div>
+        <div className={styles.subtitle}>per month</div>
+      </div>
+      <div className={styles.description}>{description}</div>
+    </>
+  )
+}
+
+interface ValuePreset {
+  label: string
+  value: number
 }

@@ -4,6 +4,7 @@ import classNames from 'classnames'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'outline' | 'clear'
+  small?: boolean
   href?: string
   mobileIcon?: React.ReactNode
   children?: React.ReactNode
@@ -12,6 +13,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function Button({
   variant = 'primary',
+  small,
   href,
   className = '',
   mobileIcon,
@@ -23,6 +25,7 @@ export default function Button({
     styles.button,
     { [styles.outlined]: variant === 'outline' },
     { [styles.clear]: variant === 'clear' },
+    { [styles.small]: small },
     className
   )
 

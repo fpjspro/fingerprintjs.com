@@ -1,0 +1,43 @@
+.section {
+  flex-basis: 50%;
+
+  @media screen and (max-width: 660px) {
+    flex-basis: 100%;
+  }
+
+  .title {
+    font-weight: bold;
+  
+    margin-bottom: 2rem;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .link {
+      border-bottom: 1px solid v('brand-fire');
+      color: v('brand-fire');
+    }
+  }
+
+  &.feature {
+    .list {
+      .item {
+        + .item {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+
+  &.faq {
+    
+  
+    @media screen and (max-width: 660px) {
+      margin-top: 7rem;
+    }
+  }
+}

@@ -67,6 +67,11 @@
   }
 }
 
+.small {
+  height: 32px;
+  padding: 0 1.5rem;
+}
+
 .clear {
   --padding: 0;
   --color: var(--brand-water);
