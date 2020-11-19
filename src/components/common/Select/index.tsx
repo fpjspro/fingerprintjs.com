@@ -1,5 +1,5 @@
 import React from 'react'
-import { isBrowser } from '../../../utils/ssr_detector'
+import { isBrowser } from '../../../utils/detector'
 import Select, { Props } from 'react-select'
 
 const borderColor = 'rgba(13, 16, 43, 1)'

@@ -1,5 +1,5 @@
 import React from 'react'
-import PreviewCompatibleImage, { ImageInfo } from '../../PreviewCompatibleImage'
+import PreviewCompatibleImage, { ImageInfo } from '../../common/PreviewCompatibleImage/PreviewCompatibleImage'
 import TextList from '../../common/TextList'
 
 import styles from './AlternatingImagesTextProps.module.scss'

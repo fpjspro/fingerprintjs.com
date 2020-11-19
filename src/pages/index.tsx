@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Region, GetOptions } from '@fingerprintjs/fingerprintjs-pro'
-import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import ClientsSection from '../components/ClientsSection'
@@ -51,7 +50,7 @@ const config: GetOptions<true, 'full'> = {
   timeout: 30_000,
 }
 
-const IndexPage = () => {
+export default function IndexPage() {
   const dashboardEndpoint = process.env.GATSBY_FPJS_DASHBOARD_ENDPOINT
   const clientToken = process.env.GATSBY_FPJS_TOKEN ?? 'test_client_token'
   const apiToken = process.env.GATSBY_FPJS_API_TOKEN ?? 'test_fpjs_api_token'
@@ -108,29 +107,3 @@ const IndexPage = () => {
     </Layout>
   )
 }
-
-export default IndexPage
-
-export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-      frontmatter {
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            title
-            text
-          }
-          heading
-          description
-        }
-      }
-    }
-  }
-`
