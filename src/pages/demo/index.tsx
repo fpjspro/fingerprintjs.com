@@ -7,9 +7,9 @@ import { ReactComponent as BrowserFingerprintingSvg } from '../../img/browser_fi
 import { ReactComponent as GeolocationSvg } from '../../img/geolocation.svg'
 import { ReactComponent as IncognitoDetectionSvg } from '../../img/incognito_detection.svg'
 import Section from '../../components/common/Section'
-import DemoCard from './Card'
-import { FeatureSection, FAQSection } from './Info'
-import SignupSection from './Signup'
+import DemoCard from '../../components/demo/Card'
+import { FeatureSection, FAQSection } from '../../components/demo/Info'
+import SignupSection from '../../components/demo/Signup'
 import styles from './Demo.module.scss'
 
 export default function DemoPage() {

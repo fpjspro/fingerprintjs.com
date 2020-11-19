@@ -4,7 +4,7 @@ import PriceCalculator from '../../components/PriceCalculator'
 import Section from '../../components/common/Section'
 import classNames from 'classnames'
 import Container from '../../components/common/Container'
-import PricingCard from './Card'
+import PricingCard from '../../components/pricing/Card'
 import styles from './Pricing.module.scss'
 
 export default function PricingPage() {
