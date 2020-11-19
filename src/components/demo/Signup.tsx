@@ -1,37 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import GetStartedForm from '../../components/GetStartedForm'
 import { FormState } from '../../types/FormState'
-import * as FP from '@fingerprintjs/fingerprintjs-pro'
 import Container from '../../components/common/Container'
 import signupImage from '../../img/TEMP_signup_image.png'
+import { Region, GetOptions } from '@fingerprintjs/fingerprintjs-pro'
+import { sendEvent } from '../../utils/gtm'
 import styles from './Signup.module.scss'
+
+const config: GetOptions<true, 'full'> = {
+  ipResolution: 'full',
+  extendedResult: true,
+  timeout: 30_000,
+}
 
 export default function SignupSection() {
   const dashboardEndpoint = process.env.GATSBY_FPJS_DASHBOARD_ENDPOINT
 
   // TODO This should be changed to get the visitor ID through a provider when it's available.
-  const clientToken = process.env.GATSBY_FPJS_TOKEN
-  const endpoint = process.env.GATSBY_FPJS_ENDPOINT
-  const region = process.env.GATSBY_FPJS_REGION as FP.Region
-  const config: FP.GetOptions<true, 'full'> = {
-    ipResolution: 'full',
-    extendedResult: true,
-    timeout: 30_000,
-  }
+  const clientToken = process.env.GATSBY_FPJS_TOKEN ?? 'test_client_token'
+  const endpoint = process.env.GATSBY_FPJS_ENDPOINT ?? ''
+  const region = process.env.GATSBY_FPJS_REGION as Region
 
   const [visitorId, setVisitorId] = useState('')
 
   useEffect(() => {
     async function getVisitorId() {
-      const fp = await FP.load({ token: clientToken!, endpoint, region })
+      const FP = await import('@fingerprintjs/fingerprintjs-pro')
+      const fp = await FP.load({ token: clientToken, endpoint, region })
       const result = await fp.get(config)
 
       setVisitorId(result.visitorId)
     }
 
     getVisitorId()
-  })
-  //
+  }, [clientToken, endpoint, region])
 
   const [formState, setFormState] = useState(FormState.default)
   const [errorMessage, setErrorMessage] = useState('')
@@ -53,6 +55,7 @@ export default function SignupSection() {
       }, 2500)
     } else {
       setFormState(FormState.success)
+      sendEvent({ event: 'signupintent.success' })
     }
   }
 
