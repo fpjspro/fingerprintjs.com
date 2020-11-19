@@ -8,6 +8,11 @@
     background-color: v('off-white');
   }
 
+  .header, 
+  .content {
+    flex: 1;
+  }
+
   .header {
     display: flex;
     align-items: center;

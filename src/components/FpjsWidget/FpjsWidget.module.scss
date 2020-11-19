@@ -324,69 +324,67 @@
     }
   }
 
-  .incognito {
-    &.demo {
-      background-color: v('brand-water');
-  
+  &.incognito {
+    background-color: v('brand-water');
+
+    .header {
+      border-bottom: 1px solid adjust-color(c('white'), $alpha: -0.9);
+    }
+
+    .history {
       .header {
-        border-bottom: 1px solid adjust-color(c('white'), $alpha: -0.9);
+        border-right: 1px solid adjust-color(c('white'), $alpha: -0.9);
+        background-color: var(--transparent);
+
+        @media screen and (max-width: 640px) {
+          background-color: v('transparent');
+          color: v('white');
+
+          svg {
+            fill: v('off-white');
+          }
+        }
       }
+
+      .content {
+        border-right: 1px solid adjust-color(c('white'), $alpha: -0.9);
+        --bgcolor: var(--brand-water);
+        background-color: v('transparent');
   
-      .history {
-        .header {
-          border-right: 1px solid adjust-color(c('white'), $alpha: -0.9);
-          background-color: var(--transparent);
+        &:after {
+          background: linear-gradient(to top, v('bgcolor') 2.5rem, adjust-color(c('brand-water'), $alpha: -1));
+        }
   
-          @media screen and (max-width: 640px) {
-            background-color: v('transparent');
-            color: v('white');
+        .visits {
+          .visit {
+            color: v('off-white');
+  
+            &:before {
+              background: v('brand-fire');
+            }
+  
+            &:hover {
+              background-color: adjust-color(c('white'), $alpha: -0.9);
+            }
   
             svg {
               fill: v('off-white');
             }
-          }
-        }
   
-        .content {
-          border-right: 1px solid adjust-color(c('white'), $alpha: -0.9);
-          --bgcolor: var(--brand-water);
-          background-color: v('transparent');
-    
-          &:after {
-            background: linear-gradient(to top, v('bgcolor') 2.5rem, adjust-color(c('brand-water'), $alpha: -1));
-          }
-    
-          .visits {
-            .visit {
-              color: v('off-white');
-    
-              &:before {
-                background: v('brand-fire');
-              }
-    
-              &:hover {
-                background-color: adjust-color(c('white'), $alpha: -0.9);
-              }
-    
-              svg {
-                fill: v('off-white');
-              }
-    
-              &.selected {
-                background-color: adjust-color(c('white'), $alpha: -0.9);
-              }
+            &.selected {
+              background-color: adjust-color(c('white'), $alpha: -0.9);
             }
           }
         }
       }
-  
-      .currentVisit {
-        color: v('white');
-  
-        .location {
-          .user-location {
-            background-color: adjust-color(c('white'), $alpha: -0.9);
-          }
+    }
+
+    .currentVisit {
+      color: v('white');
+
+      .location {
+        .user-location {
+          background-color: adjust-color(c('white'), $alpha: -0.9);
         }
       }
     }

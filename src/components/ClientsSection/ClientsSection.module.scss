@@ -11,6 +11,11 @@
     font-weight: v('normal');
     opacity: v('faded');
   }
+
+  .header, 
+  .content {
+    flex: 1;
+  }
 }
 
 .logo {

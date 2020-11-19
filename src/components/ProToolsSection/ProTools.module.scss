@@ -15,6 +15,11 @@
     }
   }
 
+  .header, 
+  .content {
+    flex: 1;
+  }
+
   .header {
     text-align: center;
     margin-bottom: 5rem;

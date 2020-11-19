@@ -18,12 +18,11 @@ interface MobileWidgetProps extends CurrentVisitProps {
   className?: string | string[]
 }
 
-export default function MobileWidget({ className, isLoaded, currentVisit, visits, visitorId }: MobileWidgetProps) {
+export default function MobileWidget({ className, isLoaded, visits, visitorId }: MobileWidgetProps) {
   return (
     <Swiper
       className={classNames(className, styles.container, {
         [styles.loaded]: isLoaded,
-        [styles.incognito]: !!currentVisit?.incognito,
       })}
       spaceBetween={10}
       slidesPerView={1}
@@ -42,15 +41,16 @@ export default function MobileWidget({ className, isLoaded, currentVisit, visits
       {visits &&
         visits.map((visit) => {
           return (
-            <SwiperSlide key={visit.timestamp} className={`swiper-slide ${styles.item}`}>
+            <SwiperSlide
+              key={visit.timestamp}
+              className={classNames('swiper-slide', styles.item, { [styles.incognito]: visit.incognito })}
+            >
               <header className={styles.header}>
                 <Button className={classNames('btn-prev', styles.button, styles.mobileOnly)} variant='clear'>
                   <ChevronLeftSvg />
                 </Button>
                 <h3 className={styles.title}>
-                  {currentVisit?.requestId === visits[0].requestId
-                    ? 'Current Visit'
-                    : getVisitTitle(currentVisit?.timestamp)}
+                  {visit.requestId === visits[0].requestId ? 'Current Visit' : getVisitTitle(visit.timestamp)}
                 </h3>
                 <Button className={classNames('btn-next', styles.button, styles.mobileOnly)} variant='clear'>
                   <ChevronRightSvg />
@@ -69,9 +69,7 @@ export default function MobileWidget({ className, isLoaded, currentVisit, visits
                 <div className={styles.bot}>
                   <div className={styles.label}>Bot</div>
                   <div className={styles.value}>
-                    {getBotDecision(
-                      currentVisit?.bot?.probability ?? currentVisit?.browserDetails?.botProbability ?? 0
-                    )}{' '}
+                    {getBotDecision(visit.bot?.probability ?? visit.browserDetails?.botProbability ?? 0)}{' '}
                     <Tippy content='Every response will include the botProbability field that you can use to identify bot traffic.'>
                       <InfoSvg tabIndex={0} />
                     </Tippy>
@@ -79,12 +77,12 @@ export default function MobileWidget({ className, isLoaded, currentVisit, visits
                 </div>
                 <div className={styles.ip}>
                   <div className={styles.label}>IP</div>
-                  <div className={styles.value}>{currentVisit?.ip}</div>
+                  <div className={styles.value}>{visit.ip}</div>
                 </div>
                 <div className={styles.incognito}>
                   <div className={styles.label}>Incognito</div>
                   <div className={styles.value}>
-                    {currentVisit?.incognito ? 'Yes' : 'No'}{' '}
+                    {visit.incognito ? 'Yes' : 'No'}{' '}
                     <Tippy content='FingerprintJS Pro analyzes every page view and detects if it was made in incognito mode. Open this page in private mode to see it in action.'>
                       <InfoSvg tabIndex={0} />
                     </Tippy>
@@ -92,19 +90,17 @@ export default function MobileWidget({ className, isLoaded, currentVisit, visits
                 </div>
                 <div className={styles.browser}>
                   <div className={styles.label}>Browser</div>
-                  <div className={styles.value}>
-                    {currentVisit && getBrowserName(currentVisit?.browserDetails || currentVisit)}
-                  </div>
+                  <div className={styles.value}>{visit && getBrowserName(visit.browserDetails || visit)}</div>
                 </div>
                 <div className={styles.location}>
                   <div className={styles.label}>Location</div>
                   <div className={classNames(styles.value, 'user-location')}>
-                    {currentVisit && (
+                    {visit && (
                       <img
                         src={`https://api.mapbox.com/styles/v1/mapbox/${
-                          currentVisit?.incognito ? 'dark-v10' : 'outdoors-v11'
-                        }/static/${currentVisit?.ipLocation?.longitude},${
-                          currentVisit?.ipLocation?.latitude
+                          visit.incognito ? 'dark-v10' : 'outdoors-v11'
+                        }/static/${visit.ipLocation?.longitude},${
+                          visit.ipLocation?.latitude
                         },7.00,0/512x512?access_token=pk.eyJ1IjoidmFsZW50aW52YXNpbHlldiIsImEiOiJja2ZvMGttN2UxanJ1MzNtcXp5YzNhbWxuIn0.BjZhTdjY812J3OdfgRiZ4A`}
                       />
                     )}

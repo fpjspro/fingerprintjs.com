@@ -29,7 +29,13 @@ export default function GithubButton({ className }: GithubButtonProps) {
         <GithubIconSvg className={styles.icon} />
         <span>Star</span>
       </div>
-      <div className={styles.counter}>{data?.stargazers_count}</div>
+      <div className={styles.counter}>
+        {data &&
+          new Intl.NumberFormat('en-US', {
+            notation: 'standard',
+            maximumFractionDigits: 1,
+          }).format(data.stargazers_count)}
+      </div>
     </a>
   )
 }

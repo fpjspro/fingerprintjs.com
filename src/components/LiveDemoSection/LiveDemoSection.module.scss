@@ -27,7 +27,6 @@
 }
 
 .liveDemo {
-  // min-height: 50vh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -51,17 +50,11 @@
     min-height: unset;
     padding-bottom: 3rem;
   }
+}
 
-  
-
-  // .live-demo-mobile-container {
-  //   display: none;
-
-  //   @media screen and (max-width: 640px) {
-  //     display: block;
-  //     min-height: 70vh;
-  //   }
-  // }
+.header, 
+.content {
+  flex: 1;
 }
 
 .content {
@@ -81,8 +74,6 @@
   }
 }
 .header {
-  // position: relative;
-  // z-index: 1;
   max-width: 50rem;
 
   @media screen and (max-width: 1024px) {

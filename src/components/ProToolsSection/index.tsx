@@ -100,8 +100,8 @@ export default function ProToolsSection() {
                 <ApiWebhooksSvg className={styles.icon} />
                 <h3 className={styles.title}>API & Webhooks</h3>
                 <p className={styles.description}>
-                  In addition to browser fingerprinting, FingerprintJS Pro's server-side API processes and analyzes vast
-                  amounts of data, searching for patterns and re-occurrences of fraudulent activity.
+                  In addition to browser fingerprinting, FingerprintJS Pro&apos;s server-side API processes and analyzes
+                  vast amounts of data, searching for patterns and re-occurrences of fraudulent activity.
                 </p>
               </SwiperSlide>
             </div>

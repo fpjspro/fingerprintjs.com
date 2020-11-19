@@ -28,6 +28,11 @@
   }
 }
 
+.header, 
+.content {
+  flex: 1;
+}
+
 .content {
   @media screen and (max-width: 1024px) {
     margin-top: 4rem;
