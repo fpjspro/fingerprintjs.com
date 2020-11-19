@@ -16,11 +16,12 @@
 }
 
 .image {
-  flex: 1;
+  flex: auto;
+  max-width: 50%;
 }
 
 .text {
-  flex: 1;
+  flex: auto;
   margin-left: 5rem;
 
   .blockTitle {

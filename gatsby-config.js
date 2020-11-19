@@ -35,13 +35,6 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         path: `${__dirname}/content/`,
         name: 'pages',
       },
@@ -86,7 +79,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
-        exclude: [`${__dirname}/src/img/sprite.svg`],
         ref: true,
       },
     },

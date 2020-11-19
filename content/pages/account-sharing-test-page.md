@@ -1,4 +1,5 @@
 ---
+templateKey: account-sharing-page
 title: Test
 block1:
   subheader: Subheader

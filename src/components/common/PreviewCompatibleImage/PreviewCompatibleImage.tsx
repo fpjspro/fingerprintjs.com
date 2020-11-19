@@ -8,7 +8,7 @@ export type ImageInfo = GatsbyImageProps & {
 
 interface Props {
   className: string
-  imageInfo?: ImageInfo
+  imageInfo?: ImageInfo | string
 }
 
 const PreviewCompatibleImage = ({ className, imageInfo }: Props) => {
@@ -17,6 +17,11 @@ const PreviewCompatibleImage = ({ className, imageInfo }: Props) => {
   }
 
   const imageStyle = { borderRadius: '5px' }
+
+  if (typeof imageInfo === 'string') {
+    return <img className={className} style={imageStyle} src={imageInfo} alt='' />
+  }
+
   const { alt = '', childImageSharp, image } = imageInfo
 
   if (!!image && typeof image != 'string' && isFluid(image.childImageSharp)) {
