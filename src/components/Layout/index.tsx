@@ -2,7 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../Footer'
 import Header from '../Header'
-import useSiteMetadata from '../SiteMetadata'
+
+import useSiteMetadata from '../../hooks/useSiteMetadata'
 
 export default function TemplateWrapper({ children }: { children: React.ReactNode }) {
   const fpjsEndpoint = process.env.GATSBY_FPJS_ENDPOINT

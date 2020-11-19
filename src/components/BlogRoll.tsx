@@ -53,7 +53,7 @@ class BlogRoll extends React.Component<any> {
 }
 
 export default () => (
-  <StaticQuery
+  <StaticQuery<GatsbyTypes.BlogRollQueryQuery>
     query={graphql`
       query BlogRollQuery {
         allMarkdownRemark(

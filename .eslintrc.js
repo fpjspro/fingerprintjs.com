@@ -29,6 +29,8 @@ module.exports = {
     },
   },
   rules: {
+    'no-console': 'warn',
+    'react/self-closing-comp': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/naming-convention': ['error', { selector: 'enumMember', format: ['PascalCase'] }],
   },

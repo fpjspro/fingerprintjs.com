@@ -42,6 +42,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/img`,
         name: 'images',
       },
@@ -83,6 +90,7 @@ module.exports = {
         ref: true,
       },
     },
+    'gatsby-plugin-typegen',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-netlify-cms',

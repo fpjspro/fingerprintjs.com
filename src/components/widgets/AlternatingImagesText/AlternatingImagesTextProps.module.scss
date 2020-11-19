@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 10rem;
+}
+
+.block {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10rem;
+}
+
+.image {
+  flex: 1;
+}
+
+.text {
+  flex: 1;
+  margin-left: 5rem;
+
+  .blockTitle {
+    margin-bottom: 3rem;
+  }
+}

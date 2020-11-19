@@ -1,31 +1,40 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
+import Img, { GatsbyImageFluidProps, GatsbyImageProps } from 'gatsby-image'
 
-const PreviewCompatibleImage = ({ imageInfo }) => {
+export type ImageInfo = GatsbyImageProps & {
+  childImageSharp?: GatsbyImageProps
+  image?: string | { childImageSharp: GatsbyImageProps }
+}
+
+interface Props {
+  className: string
+  imageInfo?: ImageInfo
+}
+
+const PreviewCompatibleImage = ({ className, imageInfo }: Props) => {
+  if (!imageInfo) {
+    return <p>PreviewCompatibleImage can not be rendered (no imageInfo)</p>
+  }
+
   const imageStyle = { borderRadius: '5px' }
   const { alt = '', childImageSharp, image } = imageInfo
 
-  if (!!image && !!image.childImageSharp) {
-    return <Img style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
+  if (!!image && typeof image != 'string' && isFluid(image.childImageSharp)) {
+    return <Img className={className} style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
   }
 
-  if (childImageSharp) {
-    return <Img style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />
+  if (childImageSharp && isFluid(childImageSharp)) {
+    return <Img className={className} style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />
   }
 
-  if (!!image && typeof image === 'string') return <img style={imageStyle} src={image} alt={alt} />
+  if (!!image && typeof image === 'string')
+    return <img className={className} style={imageStyle} src={image} alt={alt} />
 
   return null
 }
 
-PreviewCompatibleImage.propTypes = {
-  imageInfo: PropTypes.shape({
-    alt: PropTypes.string,
-    childImageSharp: PropTypes.object,
-    image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
-    style: PropTypes.object,
-  }).isRequired,
+function isFluid(imageInfo: ImageInfo): imageInfo is GatsbyImageFluidProps {
+  return (imageInfo as GatsbyImageFluidProps).fluid !== undefined
 }
 
 export default PreviewCompatibleImage
