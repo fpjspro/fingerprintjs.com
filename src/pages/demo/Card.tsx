@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Section from '../../components/common/Section'
-import FpjsWidget from '../../components/FpjsWidget/FpjsWidget'
+import FpjsWidget from '../../components/FpjsWidget'
 import * as FP from '@fingerprintjs/fingerprintjs-pro'
 import styles from './Card.module.scss'
 

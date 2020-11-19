@@ -705,6 +705,7 @@ enum FileFieldsEnum {
   childMarkdownRemark___id = 'childMarkdownRemark.id',
   childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
   childMarkdownRemark___frontmatter___templateKey = 'childMarkdownRemark.frontmatter.templateKey',
+  childMarkdownRemark___frontmatter___path = 'childMarkdownRemark.frontmatter.path',
   childMarkdownRemark___frontmatter___image___sourceInstanceName = 'childMarkdownRemark.frontmatter.image.sourceInstanceName',
   childMarkdownRemark___frontmatter___image___absolutePath = 'childMarkdownRemark.frontmatter.image.absolutePath',
   childMarkdownRemark___frontmatter___image___relativePath = 'childMarkdownRemark.frontmatter.image.relativePath',
@@ -742,16 +743,12 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___image___id = 'childMarkdownRemark.frontmatter.image.id',
   childMarkdownRemark___frontmatter___image___children = 'childMarkdownRemark.frontmatter.image.children',
   childMarkdownRemark___frontmatter___heading = 'childMarkdownRemark.frontmatter.heading',
-  childMarkdownRemark___frontmatter___subheading = 'childMarkdownRemark.frontmatter.subheading',
-  childMarkdownRemark___frontmatter___mainpitch___title = 'childMarkdownRemark.frontmatter.mainpitch.title',
-  childMarkdownRemark___frontmatter___mainpitch___description = 'childMarkdownRemark.frontmatter.mainpitch.description',
   childMarkdownRemark___frontmatter___description = 'childMarkdownRemark.frontmatter.description',
   childMarkdownRemark___frontmatter___intro___blurbs = 'childMarkdownRemark.frontmatter.intro.blurbs',
   childMarkdownRemark___frontmatter___intro___heading = 'childMarkdownRemark.frontmatter.intro.heading',
   childMarkdownRemark___frontmatter___intro___description = 'childMarkdownRemark.frontmatter.intro.description',
   childMarkdownRemark___frontmatter___main___heading = 'childMarkdownRemark.frontmatter.main.heading',
   childMarkdownRemark___frontmatter___main___description = 'childMarkdownRemark.frontmatter.main.description',
-  childMarkdownRemark___frontmatter___path = 'childMarkdownRemark.frontmatter.path',
   childMarkdownRemark___frontmatter___testimonials = 'childMarkdownRemark.frontmatter.testimonials',
   childMarkdownRemark___frontmatter___testimonials___author = 'childMarkdownRemark.frontmatter.testimonials.author',
   childMarkdownRemark___frontmatter___testimonials___quote = 'childMarkdownRemark.frontmatter.testimonials.quote',
@@ -794,6 +791,9 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___pricing___heading = 'childMarkdownRemark.frontmatter.pricing.heading',
   childMarkdownRemark___frontmatter___pricing___description = 'childMarkdownRemark.frontmatter.pricing.description',
   childMarkdownRemark___frontmatter___pricing___plans = 'childMarkdownRemark.frontmatter.pricing.plans',
+  childMarkdownRemark___frontmatter___subheading = 'childMarkdownRemark.frontmatter.subheading',
+  childMarkdownRemark___frontmatter___mainpitch___title = 'childMarkdownRemark.frontmatter.mainpitch.title',
+  childMarkdownRemark___frontmatter___mainpitch___description = 'childMarkdownRemark.frontmatter.mainpitch.description',
   childMarkdownRemark___frontmatter___date = 'childMarkdownRemark.frontmatter.date',
   childMarkdownRemark___frontmatter___featuredpost = 'childMarkdownRemark.frontmatter.featuredpost',
   childMarkdownRemark___frontmatter___featuredimage___sourceInstanceName = 'childMarkdownRemark.frontmatter.featuredimage.sourceInstanceName',
@@ -1656,6 +1656,7 @@ enum MarkdownRemarkFieldsEnum {
   id = 'id',
   frontmatter___title = 'frontmatter.title',
   frontmatter___templateKey = 'frontmatter.templateKey',
+  frontmatter___path = 'frontmatter.path',
   frontmatter___image___sourceInstanceName = 'frontmatter.image.sourceInstanceName',
   frontmatter___image___absolutePath = 'frontmatter.image.absolutePath',
   frontmatter___image___relativePath = 'frontmatter.image.relativePath',
@@ -1719,9 +1720,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___image___childMarkdownRemark___tableOfContents = 'frontmatter.image.childMarkdownRemark.tableOfContents',
   frontmatter___image___childMarkdownRemark___children = 'frontmatter.image.childMarkdownRemark.children',
   frontmatter___heading = 'frontmatter.heading',
-  frontmatter___subheading = 'frontmatter.subheading',
-  frontmatter___mainpitch___title = 'frontmatter.mainpitch.title',
-  frontmatter___mainpitch___description = 'frontmatter.mainpitch.description',
   frontmatter___description = 'frontmatter.description',
   frontmatter___intro___blurbs = 'frontmatter.intro.blurbs',
   frontmatter___intro___blurbs___title = 'frontmatter.intro.blurbs.title',
@@ -1733,7 +1731,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___main___image1___alt = 'frontmatter.main.image1.alt',
   frontmatter___main___image2___alt = 'frontmatter.main.image2.alt',
   frontmatter___main___image3___alt = 'frontmatter.main.image3.alt',
-  frontmatter___path = 'frontmatter.path',
   frontmatter___testimonials = 'frontmatter.testimonials',
   frontmatter___testimonials___author = 'frontmatter.testimonials.author',
   frontmatter___testimonials___quote = 'frontmatter.testimonials.quote',
@@ -1806,6 +1803,9 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___pricing___plans___items = 'frontmatter.pricing.plans.items',
   frontmatter___pricing___plans___plan = 'frontmatter.pricing.plans.plan',
   frontmatter___pricing___plans___price = 'frontmatter.pricing.plans.price',
+  frontmatter___subheading = 'frontmatter.subheading',
+  frontmatter___mainpitch___title = 'frontmatter.mainpitch.title',
+  frontmatter___mainpitch___description = 'frontmatter.mainpitch.description',
   frontmatter___date = 'frontmatter.date',
   frontmatter___featuredpost = 'frontmatter.featuredpost',
   frontmatter___featuredimage___sourceInstanceName = 'frontmatter.featuredimage.sourceInstanceName',
@@ -2038,17 +2038,17 @@ type MarkdownRemarkFilterInput = {
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly templateKey: Maybe<Scalars['String']>;
+  readonly path: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
   readonly heading: Maybe<Scalars['String']>;
-  readonly subheading: Maybe<Scalars['String']>;
-  readonly mainpitch: Maybe<MarkdownRemarkFrontmatterMainpitch>;
   readonly description: Maybe<Scalars['String']>;
   readonly intro: Maybe<MarkdownRemarkFrontmatterIntro>;
   readonly main: Maybe<MarkdownRemarkFrontmatterMain>;
-  readonly path: Maybe<Scalars['String']>;
   readonly testimonials: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterTestimonials>>>;
   readonly full_image: Maybe<File>;
   readonly pricing: Maybe<MarkdownRemarkFrontmatterPricing>;
+  readonly subheading: Maybe<Scalars['String']>;
+  readonly mainpitch: Maybe<MarkdownRemarkFrontmatterMainpitch>;
   readonly date: Maybe<Scalars['Date']>;
   readonly featuredpost: Maybe<Scalars['Boolean']>;
   readonly featuredimage: Maybe<File>;
@@ -2079,17 +2079,17 @@ type MarkdownRemarkFrontmatterBlock1FilterInput = {
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly templateKey: Maybe<StringQueryOperatorInput>;
+  readonly path: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
   readonly heading: Maybe<StringQueryOperatorInput>;
-  readonly subheading: Maybe<StringQueryOperatorInput>;
-  readonly mainpitch: Maybe<MarkdownRemarkFrontmatterMainpitchFilterInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
   readonly intro: Maybe<MarkdownRemarkFrontmatterIntroFilterInput>;
   readonly main: Maybe<MarkdownRemarkFrontmatterMainFilterInput>;
-  readonly path: Maybe<StringQueryOperatorInput>;
   readonly testimonials: Maybe<MarkdownRemarkFrontmatterTestimonialsFilterListInput>;
   readonly full_image: Maybe<FileFilterInput>;
   readonly pricing: Maybe<MarkdownRemarkFrontmatterPricingFilterInput>;
+  readonly subheading: Maybe<StringQueryOperatorInput>;
+  readonly mainpitch: Maybe<MarkdownRemarkFrontmatterMainpitchFilterInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly featuredpost: Maybe<BooleanQueryOperatorInput>;
   readonly featuredimage: Maybe<FileFilterInput>;
@@ -2774,6 +2774,8 @@ enum SiteFieldsEnum {
   buildTime = 'buildTime',
   siteMetadata___title = 'siteMetadata.title',
   siteMetadata___description = 'siteMetadata.description',
+  siteMetadata___url = 'siteMetadata.url',
+  siteMetadata___image = 'siteMetadata.image',
   port = 'port',
   host = 'host',
   polyfill = 'polyfill',
@@ -3627,11 +3629,15 @@ type SitePluginSortInput = {
 type SiteSiteMetadata = {
   readonly title: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly image: Maybe<Scalars['String']>;
 };
 
 type SiteSiteMetadataFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
+  readonly url: Maybe<StringQueryOperatorInput>;
+  readonly image: Maybe<StringQueryOperatorInput>;
 };
 
 type SiteSortInput = {
@@ -3668,17 +3674,6 @@ type WebPOptions = {
 
 type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-type IndexPageTemplateQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type IndexPageTemplateQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<{ readonly intro: Maybe<(
-        Pick<MarkdownRemarkFrontmatterIntro, 'heading' | 'description'>
-        & { readonly blurbs: Maybe<ReadonlyArray<Maybe<(
-          Pick<MarkdownRemarkFrontmatterIntroBlurbs, 'title' | 'text'>
-          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-        )>>> }
-      )> }> }> };
-
 type ProductPageQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
@@ -3709,6 +3704,17 @@ type ProductPageQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter:
         & { readonly plans: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterPricingPlans, 'description' | 'items' | 'plan' | 'price'>>>> }
       )> }
     )> }> };
+
+type IndexPageTemplateQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageTemplateQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<{ readonly intro: Maybe<(
+        Pick<MarkdownRemarkFrontmatterIntro, 'heading' | 'description'>
+        & { readonly blurbs: Maybe<ReadonlyArray<Maybe<(
+          Pick<MarkdownRemarkFrontmatterIntroBlurbs, 'title' | 'text'>
+          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+        )>>> }
+      )> }> }> };
 
 type BlogPostByIDQueryVariables = Exact<{
   id: Scalars['String'];
