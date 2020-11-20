@@ -19,16 +19,16 @@
 .header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-areas: "sub sub" "title description";
+  grid-template-areas: 'sub sub' 'title description';
   margin-bottom: 4rem;
 
   &.inverted {
-    grid-template-areas: "title description" "sub sub";
+    grid-template-areas: 'title description' 'sub sub';
   }
 
   @media screen and (max-width: 640px) {
     grid-template-columns: 1fr;
-    grid-template-areas: "sub" "title" "description";
+    grid-template-areas: 'sub' 'title' 'description';
   }
 
   .title {
@@ -39,7 +39,7 @@
   .subtitle,
   .description {
     font-size: 2.25rem;
-    opacity: v("faded");
+    opacity: v('faded');
   }
 
   .subtitle {
@@ -61,18 +61,17 @@
   }
 }
 
-
 .onDemand {
   aside {
-    background-color: adjust-color(c("brand-water"), $saturation: -32%, $lightness: +24%);
-    background-image: url("../../img/on-demand.png");
+    background-color: adjust-color(c('brand-water'), $saturation: -32%, $lightness: +24%);
+    background-image: url('../../img/on-demand.png');
   }
 }
 
 .reserved {
   aside {
-    background-color: v("brand-water");
-    background-image: url("../../img/reserved.png");
+    background-color: v('brand-water');
+    background-image: url('../../img/reserved.png');
   }
 }
 
@@ -158,8 +157,9 @@
   .row {
     &.header {
       font-family: var(--ff-mono);
-      font-weight: v("bold");
+      font-weight: v('bold');
       font-size: 1.75rem;
+      margin-bottom: 0;
     }
   }
 
