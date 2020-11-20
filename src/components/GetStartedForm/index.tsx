@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ReactComponent as ChevronRightSvg } from '../../img/chevron-right.svg'
 import { ReactComponent as CheckSvg } from '../../img/check.svg'
 import { ReactComponent as CloseSvg } from '../../img/close.svg'
@@ -6,21 +6,42 @@ import styles from './GetStartedForm.module.scss'
 import classNames from 'classnames'
 import Button from '../common/Button'
 import { FormState } from '../../types/FormState'
+import { GATSBY_FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
+import { useVisitorData } from '../../context/FpjsContext'
+import { sendEvent } from '../../utils/gtm'
+import FormContext from '../../context/FormContext'
 
-export interface FormProps {
-  formState: FormState
-  onSubmit: (email: string) => void
-  errorMessage?: string
-}
-interface GetStartedFormProps extends FormProps {
+interface GetStartedFormProps {
   className?: string | string[]
 }
 
-export default function GetStartedForm({ className, formState, onSubmit, errorMessage }: GetStartedFormProps) {
+export default function GetStartedForm({ className }: GetStartedFormProps) {
+  const { visitorData } = useVisitorData()
+  const visitorId = visitorData?.visitorId
+  const dashboardEndpoint = GATSBY_FPJS_DASHBOARD_ENDPOINT
   const [email, setEmail] = useState('')
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { formState, errorMessage, updateFormState, updateErrorMessage } = useContext(FormContext)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    onSubmit(email)
+    updateFormState(FormState.loading)
+
+    const { ok, error } = await fetch(`${dashboardEndpoint}/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, fpjsVisitorId: visitorId }),
+    }).then((response) => response.json())
+
+    if (!ok) {
+      updateErrorMessage(error.message || 'Something gone wrong. Please try again later.')
+      updateFormState(FormState.failed)
+      setTimeout(() => {
+        updateFormState(FormState.default)
+      }, 2500)
+    } else {
+      updateFormState(FormState.success)
+      sendEvent({ event: 'signupintent.success' })
+    }
   }
 
   return (

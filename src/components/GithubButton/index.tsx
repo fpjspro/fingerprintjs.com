@@ -3,6 +3,7 @@ import { useFetch } from '../../hooks/useFetch'
 import { ReactComponent as GithubIconSvg } from './github_icon.svg'
 import styles from './GithubButton.module.scss'
 import classNames from 'classnames'
+import { GATSBY_GITHUB_API_TOKEN } from '../../constants/env'
 
 interface GithubReposResponse {
   stargazers_count: number
@@ -13,7 +14,7 @@ interface GithubButtonProps {
 }
 
 export default function GithubButton({ className }: GithubButtonProps) {
-  const githubToken = process.env.GATSBY_GITHUB_API_TOKEN
+  const githubToken = GATSBY_GITHUB_API_TOKEN
   const url = 'https://api.github.com/repos/fingerprintjs/fingerprintjs'
   const options = {
     headers: {

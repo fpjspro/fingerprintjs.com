@@ -1,6 +1,6 @@
 import React from 'react'
 import AlternatingImagesText, { BlockWithImage } from '../components/widgets/AlternatingImagesText'
-import Layout from '../components/Layout'
+import { LayoutTemplate } from '../components/Layout'
 import Container from '../components/common/Container'
 import { graphql } from 'gatsby'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
@@ -43,17 +43,17 @@ interface TemplateProps {
 }
 export function AccountSharingPageTemplate({ title, block }: TemplateProps) {
   return (
-    <Layout>
+    <LayoutTemplate siteMetadata={{ title: 'preview', description: 'desc', image: 'none', url: 'url' }}>
       <Container>
         <AlternatingImagesText title={title} blocks={[block]} />
       </Container>
-    </Layout>
+    </LayoutTemplate>
   )
 }
 
 export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentProps) {
   const title = entry.getIn(['data', 'title']) as string
-  const block = entry.getIn(['data', 'block1']).toObject() as QueryBlock
+  const block = entry.getIn(['data', 'block1'])?.toObject() as QueryBlock
 
   return <AccountSharingPageTemplate title={title} block={mapToBlockWithImage(block)} />
 }

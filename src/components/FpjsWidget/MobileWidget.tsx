@@ -94,7 +94,11 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
                 </div>
                 <div className={styles.location}>
                   <div className={styles.label}>Location</div>
-                  <div className={classNames(styles.value, 'user-location')}>
+                  <div
+                    className={classNames(styles.value, {
+                      [styles.unavailable]: visit?.ipLocation?.latitude && visit?.ipLocation?.longitude,
+                    })}
+                  >
                     {visit && (
                       <img
                         src={`https://api.mapbox.com/styles/v1/mapbox/${
@@ -110,7 +114,7 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
             </SwiperSlide>
           )
         })}
-      <div className='swiper-pagination'></div>
+      <div className='swiper-pagination' />
     </Swiper>
   )
 }
