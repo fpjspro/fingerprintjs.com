@@ -35,7 +35,7 @@
 
   .title {
     font-weight: bold;
-  
+
     margin-bottom: 2rem;
   }
 
@@ -54,6 +54,8 @@
   &.feature {
     .list {
       .item {
+        font-size: 1.75rem;
+
         + .item {
           margin-top: 2rem;
         }
@@ -62,8 +64,8 @@
   }
 
   &.faq {
-    
-  
+
+
     @media screen and (max-width: 660px) {
       margin-top: 7rem;
     }

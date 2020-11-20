@@ -39,8 +39,8 @@ function CalculatorSection() {
   return (
     <Section className={styles.calculator}>
       <SectionHeader
-        title='Pro Pricing'
-        subtitle='Calculator'
+        title='Calculator'
+        subtitle='Pro Pricing'
         description="If you don't know how many identifications you need, use monthly user sessions"
       />
       <PriceCalculator />

@@ -6,7 +6,7 @@ const borderColor = 'rgba(13, 16, 43, 1)'
 const borderColorFaded = 'rgba(13, 16, 43, 0.3)'
 const backgroundColor = 'rgb(242, 242, 247)'
 
-export default function CustomSelect(props: Props) {
+export default function CustomSelect<P>(props: Props<P>) {
   const reactSelectStyle = {
     control: (provided, state) => ({
       ...provided,
@@ -23,7 +23,7 @@ export default function CustomSelect(props: Props) {
       ...provided,
       color: 'black',
       backgroundColor: state.isSelected ? backgroundColor : 'transparent',
-      fontWeight: state.isSelected ? 'bold' : provided.fontWeight,
+      fontWeight: state.isSelected ? 'bold' : 300,
       borderRadius: 8,
       '&:active': {
         backgroundColor: backgroundColor,
@@ -35,7 +35,11 @@ export default function CustomSelect(props: Props) {
         fontWeight: 'bold',
       },
     }),
+    singleValue: (provided) => ({
+      ...provided,
+      fontWeight: 'bold',
+    }),
   }
 
-  return <Select {...props} styles={reactSelectStyle} menuPortalTarget={isBrowser() ? document.body : undefined} />
+  return <Select<P> {...props} styles={reactSelectStyle} menuPortalTarget={isBrowser() ? document.body : undefined} />
 }

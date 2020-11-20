@@ -90,6 +90,8 @@
         --lines: 2;
         --lh: 1.57;
         --font-size: 1.75rem;
+        font-size: var(--font-size);
+        font-family: var(--ff-mono);
         font-weight: v('bold');
         border-left: 0;
         min-height: calc(5px + (var(--font-size) * var(--lh)) * var(--lines) + (var(--cellpadding) * 2));
@@ -153,7 +155,7 @@
     &:focus {
       outline: none;
     }
-  
+
     &::placeholder {
       color: v('brand-water');
       opacity: v('extra-faded');
