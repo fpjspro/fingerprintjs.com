@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { isBrowser } from '../../../utils/ssr_detector'
+import { isBrowser } from '../../../utils/detector'
 import { ReactComponent as CloseSvg } from '../../../img/close.svg'
 import styles from './Modal.module.scss'
 
