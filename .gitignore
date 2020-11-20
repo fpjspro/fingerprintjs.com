@@ -1,14 +1,12 @@
-.DS_Store
-npm-debug.log
-lib
+# Project dependencies
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
-.cache
-dist
-generated
-build
+.cache/
+.vscode
+# Build directory
+public/
+static/admin/*.bundle.*
+.DS_Store
+yarn-error.log
 .env
-.now
-.zip
-
-
-!legacy/dist/
+.env.*

@@ -1,8 +1,0 @@
-.container {
-  --contentWidth: 920px;
-  padding: 0 Max(2rem, 50vw - var(--contentWidth) / 2);
-}
-
-.container--large {
-  --contentWidth: 1232px;
-}

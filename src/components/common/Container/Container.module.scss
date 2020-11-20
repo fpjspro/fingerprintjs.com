@@ -1,0 +1,8 @@
+.container {
+  --contentWidth: 920px;
+  padding: 0 unquote('max(3rem, 50vw - var(--contentWidth) / 2)');
+}
+
+.container.large {
+  --contentWidth: 1232px;
+}
