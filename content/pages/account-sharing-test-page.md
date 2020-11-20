@@ -1,10 +1,11 @@
 ---
 templateKey: account-sharing-page
-title: Test on RC!!!
+title: Cats are great!
 block1:
-  subheader: Subheader on RC!
+  subheader: Cat's parts
   bullets:
-    - one
-    - two
-  image: /img/uploads/blog-index.jpg
+    - paws
+    - whiskers
+    - tail
+  image: /img/uploads/cat.jpg
 ---
