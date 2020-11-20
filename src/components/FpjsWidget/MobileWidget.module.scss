@@ -27,7 +27,7 @@
     .live-demo {
       width: 100%;
 
-      &__title {
+      .title {
         font-size: 2rem;
         white-space: nowrap;
         overflow: hidden;
@@ -35,7 +35,7 @@
         max-width: 100%;
       }
 
-      &__header {
+      .header {
         color: v('white');
         border-bottom: 1px solid adjust-color(c('white'), $alpha: -0.9);
       }
@@ -45,8 +45,8 @@
       color: v('white');
 
       // Location
-      &__location {
-        .visit__value {
+      .location {
+        .value {
           background-color: adjust-color(c('white'), $alpha: -0.9);
         }
       }

@@ -1,4 +1,32 @@
-.section {
+.infoSection {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  
+  @media screen and (max-width: 660px) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media screen and (max-width: 660px) {
+    flex-direction: column;
+  }
+}
+
+.icon {
+  width: 3rem;
+  height: auto;
+
+  margin-right: 3rem;
+  fill: v('brand-fire');
+}
+
+.block {
   flex-basis: 50%;
 
   @media screen and (max-width: 660px) {

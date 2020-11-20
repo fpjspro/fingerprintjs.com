@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import { ReactComponent as ChevronRightSvg } from '../../img/chevron-right.svg'
 import { ReactComponent as CheckSvg } from './check.svg'
 import { ReactComponent as CloseSvg } from './close.svg'
-import styles from './GetStartedForm.module.scss'
 import classNames from 'classnames'
 import Button from '../common/Button'
 import { FormState } from '../../types/FormState'
@@ -10,6 +9,7 @@ import { GATSBY_FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
 import { sendEvent } from '../../utils/gtm'
 import FormContext from '../../context/FormContext'
+import styles from './GetStartedForm.module.scss'
 
 interface GetStartedFormProps {
   className?: string | string[]

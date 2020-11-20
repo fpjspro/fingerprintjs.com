@@ -1,12 +1,6 @@
 $side-padding: 2rem;
 
 .collapsible {
-  height: 55rem;
-
-  @media screen and (max-width: 660px) {
-    height: 65rem;
-  }
-
   .item {
     border-radius: 1rem;
     background-color: v('off-white');
@@ -59,8 +53,8 @@ $side-padding: 2rem;
       max-height: 100rem;
       opacity: 1;
 
-      transition-duration: 0.5s;
-      transition-timing-function: ease-in-out;
+      transition-duration: 0.2s;
+      transition-timing-function: ease;
     }
   }
 }

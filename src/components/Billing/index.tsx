@@ -5,9 +5,9 @@ import { PaymentType } from '../../types/PaymentType'
 import { handlePriceChange, pricingTable } from '../../utils/pricing'
 import Container from '../common/Container'
 import Section from '../common/Section'
-import styles from './Billing.module.scss'
 import RangeSlider, { SliderValue } from '../common/RangeSlider'
 import Button from '../common/Button'
+import styles from './Billing.module.scss'
 
 const sliderConfig = {
   min: 0,

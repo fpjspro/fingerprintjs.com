@@ -4,12 +4,12 @@ import { ReactComponent as ChevronLeftSvg } from '../../img/chevron-left.svg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import classNames from 'classnames'
-import styles from './MobileWidget.module.scss'
 import Button from '../common/Button'
 import { CurrentVisitProps } from './currentVisitProps'
 import { getBotDecision, getBrowserName, getVisitTitle } from '../../utils/fpjs-widget'
 import { ReactComponent as InfoSvg } from './info.svg'
 import Tippy from '@tippyjs/react'
+import styles from './MobileWidget.module.scss'
 
 SwiperCore.use([Navigation])
 

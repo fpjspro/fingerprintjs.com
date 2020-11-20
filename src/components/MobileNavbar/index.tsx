@@ -4,8 +4,8 @@ import { ReactComponent as LinkedInSvg } from '../../img/linkedin.svg'
 import { ReactComponent as TwitterSvg } from '../../img/twitter.svg'
 import GithubButton from '../GithubButton'
 import Container from '../common/Container'
-import styles from './MobileNavbar.module.scss'
 import Button from '../common/Button'
+import styles from './MobileNavbar.module.scss'
 import classNames from 'classnames'
 
 export default function MobileNavbar() {

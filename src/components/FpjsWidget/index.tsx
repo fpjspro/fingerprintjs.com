@@ -3,13 +3,13 @@ import { getVisitTitle, getBrowserName, getBotDecision } from '../../utils/fpjs-
 import { ReactComponent as InfoSvg } from './info.svg'
 import { ReactComponent as IncognitoSvg } from './incognito.svg'
 import Tippy from '@tippyjs/react'
-import styles from './FpjsWidget.module.scss'
 import classNames from 'classnames'
 import { VisitorResponse } from './visitorResponse'
 import { CurrentVisitProps } from './currentVisitProps'
 import MobileWidget from './MobileWidget'
 import { useVisitorData } from '../../context/FpjsContext'
 import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT } from '../../constants/env'
+import styles from './FpjsWidget.module.scss'
 
 const apiToken = GATSBY_FPJS_API_TOKEN ?? 'test_fpjs_api_token'
 const endpoint = GATSBY_FPJS_ENDPOINT ?? ''
@@ -96,7 +96,7 @@ export default function FpjsWidget() {
         </div>
         {visitorId && <CurrentVisit currentVisit={currentVisit} visits={visits} visitorId={visitorId} />}
       </div>
-      {!isLoading && visitorId && (
+      {visitorId && (
         <MobileWidget isLoaded={isLoaded} visitorId={visitorId} visits={visits} currentVisit={currentVisit} />
       )}
     </>

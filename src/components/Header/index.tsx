@@ -16,12 +16,16 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+    const clazz = 'isMobileMenuOpen'
+    isBrowser && isMobileMenuOpen ? document.body.classList.add(clazz) : document.body.classList.remove(clazz)
+  }, [isMobileMenuOpen])
+
+  useEffect(() => {
     Prism.highlightAll()
   }, [])
 
-  const handleOpenMobileMenu = () => {
+  const handleToggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
-    isBrowser() && document.body.classList.toggle('isMobileMenuOpen')
   }
 
   return (
@@ -41,7 +45,7 @@ export default function Header() {
                 Contact Sales
               </Button>
               <Button href='https://dashboard.fingerprintjs.com/signup'>Free Trial</Button>
-              <Button className={styles.mobileToggler} variant='clear' onClick={handleOpenMobileMenu}>
+              <Button className={styles.mobileToggler} variant='clear' onClick={handleToggleMobileMenu}>
                 <BurgerSvg className={styles.buttonIcon} />
               </Button>
             </div>

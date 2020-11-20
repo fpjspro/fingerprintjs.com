@@ -1,13 +1,15 @@
-.signup {
+.section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 
   background-color: v('off-white');
-
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 
   @media screen and (max-width: 660px) {
     flex-direction: column;
@@ -40,7 +42,7 @@
   .image {
     background-repeat: no-repeat;
     background-size: 512px auto;
-    background-image: url('../../img/bg-full.png');
+    background-image: url('../../../img/bg-full.png');
     background-position: center 50%;
 
     object-fit: contain;
