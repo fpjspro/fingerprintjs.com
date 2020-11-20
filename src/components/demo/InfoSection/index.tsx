@@ -9,6 +9,7 @@ import { ReactComponent as GeolocationSvg } from '../../../img/geolocation.svg'
 import { ReactComponent as IncognitoDetectionSvg } from '../../../img/incognito_detection.svg'
 import Section from '../../../components/common/Section'
 import styles from './InfoSection.module.scss'
+import { Link } from '@reach/router'
 
 interface FeaturesBlockProps {
   features: { icon: React.ReactNode; title: string }[]
@@ -76,8 +77,22 @@ const faq = [
     question: 'What is FingerprintJS?',
     answer: (
       <>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus tortor a magna eleifend, non venenatis
-        sapien convallis.
+        FingerprintJS is a 99.5% accurate browser fingerprinting service used to uniquely identify visitors and
+        associate sessions in order to identify fraudulent actors on your website. The technology works by analyzing
+        data passed by the visitor&apos;s browser, device, patterns of use and more to generate a unique visitorID,
+        which can be used to associate patterns of fraud with specific visitors.
+        <br />
+        <br />
+        As opposed to enterprise-focused fraud prevention platforms, FingerprintJS was designed to solve digital fraud
+        by empowering technical teams to build fraud prevention into their applications with our API, webhooks, and
+        unparalleled identification accuracy. <br />
+        <br />
+        You can try FingerprintJS Pro with all features and no usage limits for 10 days. Simply{' '}
+        <a href='https://dashboard.fingerprintjs.com/signup' className={styles.link}>
+          sign up for our trial
+        </a>
+        , install our Javascript snippet on your website, and begin collecting unique VisitorIDs, geolocation data and
+        more immediately.
       </>
     ),
   },
@@ -85,17 +100,39 @@ const faq = [
     question: 'How does FingerprintJS work?',
     answer: (
       <>
-        A browser fingerprint is a set of information related to a user&apos;s device from the hardware to the operating
-        system to the browser and its configuration.
+        FingerprintJS is built with our open source browser fingerprinting library and made more accurate with
+        additional identification measures, machine learning algorithms and a probability engine to generate 99.5%
+        accurate visitorIDs for traffic to your website. <br />
+        <br />
+        Browser fingerprinting is the backbone of many major fraud detection solutions. Fingerprinting can identify
+        unique visitors and associate sessions through incognito browsing, VPNs, cookie blockers and other technologies
+        used to anonymize fraudulent actors online. The technology works by analyzing data passed by the visitor&apos;s
+        browser, device, patterns of use and more to generate a unique fingerprint, which can be used to associate
+        patterns of fraud. <br />
+        <br />
+        In addition to browser fingerprinting, FingerprintJS Pro&apos;s server-side API processes and analyzes vast
+        amounts of data, searching for patterns and re-occurrences of fraudulent activity, and associates fingerprints
+        that are likely the same user together under the visitorID identifier.
       </>
     ),
   },
   {
-    question: 'Is FingerprintJS a fit for my business?',
+    question: 'Is FingerprintJS GDPR compliant?',
     answer: (
       <>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus tortor a magna eleifend, non venenatis
-        sapien convallis.
+        Yes - FingerprintJS is GDPR compliant.
+        <ul className={styles.bulletList}>
+          <li>
+            Our technology is intended to be used for fraud detection only - for this use case, no user consent is
+            required
+          </li>
+          <li>Any use outside of fraud detection would need to comply with GDPR user consent rules</li>
+          <li>
+            We never automatically track traffic - our customers can configure under what conditions visitors are
+            tracked
+          </li>
+          <li>We never do cross-domain tracking</li>
+        </ul>
       </>
     ),
   },
@@ -103,8 +140,12 @@ const faq = [
     question: 'Which pricing plan is the best for me?',
     answer: (
       <>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus tortor a magna eleifend, non venenatis
-        sapien convallis.
+        FingerprintJS costs $100/month for the first 100,000 API calls, and $1 per 1,000 API calls after that. Please
+        see our{' '}
+        <Link to={'/pricing'} className={styles.link}>
+          pricing
+        </Link>{' '}
+        page for full details.
       </>
     ),
   },

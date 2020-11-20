@@ -44,11 +44,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+  }
 
-    .link {
-      border-bottom: 1px solid v('brand-fire');
-      color: v('brand-fire');
-    }
+  .link {
+    border-bottom: 1px solid v('brand-fire');
+    color: v('brand-fire');
   }
 
   &.feature {
@@ -62,10 +62,13 @@
   }
 
   &.faq {
-    
-  
     @media screen and (max-width: 660px) {
       margin-top: 7rem;
     }
   }
+}
+
+.bulletList {
+  padding-left: 20px;
+  list-style-type: disc;
 }
