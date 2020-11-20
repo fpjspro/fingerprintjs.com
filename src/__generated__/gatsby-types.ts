@@ -3156,6 +3156,29 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type AccountSharingPageQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type AccountSharingPageQuery = { readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'id'>
+    & { readonly frontmatter: Maybe<(
+      Pick<MarkdownRemarkFrontmatter, 'title'>
+      & { readonly block1: Maybe<(
+        Pick<MarkdownRemarkFrontmatterBlock1, 'bullets' | 'subheader'>
+        & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+      )> }
+    )> }
+  )> };
+
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
 type SITE_METADATA_QUERYQueryVariables = Exact<{ [key: string]: never; }>;
 
 

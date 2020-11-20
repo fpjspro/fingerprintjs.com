@@ -1,6 +1,6 @@
 import React from 'react'
 import { ReactComponent as ToolsSvg } from './tools.svg'
-import { ReactComponent as IntegrationsSvg } from './integrations.svg'
+import { ReactComponent as IntegrationsSvg } from '../../img/api_webhooks.svg'
 import Container from '../common/Container'
 import Section from '../common/Section'
 import ToolsTextBlock from '../common/ToolsTextBlock'

@@ -1,8 +1,7 @@
 import React from 'react'
-import { CommonProps } from 'types/prop-types'
 import classNames from 'classnames'
-
 import styles from './TestList.module.scss'
+import { CommonProps } from '../../../types/prop-types'
 
 interface TextListProps {
   ordered?: boolean

@@ -105,7 +105,7 @@ export default function ProToolsSection() {
                 </p>
               </SwiperSlide>
             </div>
-            <div className='swiper-pagination'></div>
+            <div className='swiper-pagination' />
           </Swiper>
         </div>
       </Container>
