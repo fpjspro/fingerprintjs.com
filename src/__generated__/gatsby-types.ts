@@ -1921,6 +1921,11 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+<<<<<<< HEAD
+=======
+  port: Maybe<IntQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
+>>>>>>> 2be38322bc42e15ae56838d3c4bd7b03f4621682
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -2059,6 +2064,11 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
+<<<<<<< HEAD
+=======
+  readonly port: Maybe<Scalars['Int']>;
+  readonly host: Maybe<Scalars['String']>;
+>>>>>>> 2be38322bc42e15ae56838d3c4bd7b03f4621682
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -2263,6 +2273,11 @@ enum SiteFieldsEnum {
   siteMetadata___description = 'siteMetadata.description',
   siteMetadata___url = 'siteMetadata.url',
   siteMetadata___image = 'siteMetadata.image',
+<<<<<<< HEAD
+=======
+  port = 'port',
+  host = 'host',
+>>>>>>> 2be38322bc42e15ae56838d3c4bd7b03f4621682
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -2356,6 +2371,11 @@ enum SiteFieldsEnum {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+<<<<<<< HEAD
+=======
+  readonly port: Maybe<IntQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
+>>>>>>> 2be38322bc42e15ae56838d3c4bd7b03f4621682
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -3153,6 +3173,7 @@ type SITE_METADATA_QUERYQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SITE_METADATA_QUERYQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'url' | 'image'>> }> };
 
+<<<<<<< HEAD
 type AccountSharingPageQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
@@ -3219,4 +3240,6 @@ type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
+=======
+>>>>>>> 2be38322bc42e15ae56838d3c4bd7b03f4621682
 }
