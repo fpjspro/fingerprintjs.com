@@ -1,0 +1,53 @@
+.signup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: v('off-white');
+
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  @media screen and (max-width: 660px) {
+    flex-direction: column;
+
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .form,
+  .image {
+    flex-basis: 50%;
+
+    @media screen and (max-width: 660px) {
+      flex-basis: 100%;
+    }
+  }
+
+  .form {
+    .header {
+      font-weight: v('normal');
+
+      margin-bottom: 2rem;
+
+      .strong {
+        font-weight: v('bold');
+      }
+    }
+  }
+
+  .image {
+    background-repeat: no-repeat;
+    background-size: 512px auto;
+    background-image: url('../../img/bg-full.png');
+    background-position: center 50%;
+
+    object-fit: contain;
+    max-height: 30rem;
+
+    @media screen and (max-width: 660px) {
+      display: none;
+    }
+  }
+}

@@ -35,7 +35,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/content/`,
         name: 'pages',
       },
     },
@@ -79,10 +79,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
-        exclude: [`${__dirname}/src/img/sprite.svg`],
         ref: true,
       },
     },
+    'gatsby-plugin-typegen',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-netlify-cms',
@@ -90,13 +90,6 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
-    //   options: {
-    //     develop: true, // Activates purging in npm run develop
-    //     purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
-    //   },
-    // }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 }

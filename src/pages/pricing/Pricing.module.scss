@@ -1,4 +1,5 @@
-.pricingSection {
+.calculator,
+.pricing {
   background-repeat: no-repeat;
   background-size: 1400px auto;
   background-image: url('../../img/bg-full.png');
@@ -15,91 +16,13 @@
   }
 }
 
-.pricingCard {
-  display: grid;
-  grid-template-columns: Min(33%, 300px) 2fr;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 3rem 7rem 0 transparentize(c("brand-water"), 0.9);
-  background-color: v("white");
-  counter-increment: pricing-card;
-
-  @media screen and (max-width: 931px) {
-    grid-template-columns: 1fr;
-  }
-
-  aside,
-  .cardContent {
-    padding: 5rem 6rem;
-  }
-
-  aside {
-    color: v("white");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 50% bottom;
-
-    @media screen and (max-width: 860px) {
-      background-image: none;
-    }
-
-    @media screen and (max-width: 768px) {
-      padding: 3rem 3rem 3rem 6rem;
-    }
-
-    header {
-      .cardTitle {
-        font-size: 5rem;
-        font-family: var(--ff-mono);
-        font-weight: v("bold");
-        line-height: 1.1;
-        line-break: pre-line;
-        margin-bottom: 2rem;
-        position: relative;
-
-        @media screen and (max-width: 768px) {
-          font-size: 4rem;
-        }
-
-        &:before {
-          content: counter(pricing-card);
-          position: absolute;
-          top: 0;
-          font-size: 2.25rem;
-          line-height: 5rem;
-          left: -3rem;
-
-          @media screen and (max-width: 768px) {
-            line-height: 4rem;
-          }
-        }
-      }
-
-      .cardDescription {
-        font-size: 1.75rem;
-        opacity: v("faded");
-      }
-    }
-  }
-
-  .cardContent {
-    @media screen and (max-width: 768px) {
-      padding: 3rem;
-    }
-  }
-
-  + .pricingCard {
-    margin-top: 4rem;
-  }
-}
-
-.sectionHeader {
+.header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-areas: "sub sub" "title description";
   margin-bottom: 4rem;
 
-  &.sectionInverted {
+  &.inverted {
     grid-template-areas: "title description" "sub sub";
   }
 
@@ -108,22 +31,22 @@
     grid-template-areas: "sub" "title" "description";
   }
 
-  .sectionTitle {
+  .title {
     font-size: 4rem;
     grid-area: title;
   }
 
-  .sectionSubtitle,
-  .sectionDescription {
+  .subtitle,
+  .description {
     font-size: 2.25rem;
     opacity: v("faded");
   }
 
-  .sectionSubtitle {
+  .subtitle {
     grid-area: sub;
   }
 
-  .sectionDescription {
+  .description {
     font-size: 1.75rem;
     text-align: right;
     grid-area: description;
@@ -139,14 +62,14 @@
 }
 
 
-.pricingCardOnDemand {
+.onDemand {
   aside {
     background-color: adjust-color(c("brand-water"), $saturation: -32%, $lightness: +24%);
     background-image: url("../../img/on-demand.png");
   }
 }
 
-.pricingCardReserved {
+.reserved {
   aside {
     background-color: v("brand-water");
     background-image: url("../../img/reserved.png");

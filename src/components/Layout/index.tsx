@@ -2,12 +2,28 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../Footer'
 import Header from '../Header'
-import useSiteMetadata from '../SiteMetadata'
 
-export default function TemplateWrapper({ children }: { children: React.ReactNode }) {
+import useSiteMetadata from '../../hooks/useSiteMetadata'
+
+interface LayoutProps {
+  children: React.ReactNode
+}
+export default function Layout({ children }: LayoutProps) {
+  const siteMetadata = useSiteMetadata()
+
+  return <LayoutTemplate siteMetadata={siteMetadata}>{children}</LayoutTemplate>
+}
+
+interface LayoutTemplateProps extends LayoutProps {
+  siteMetadata: GatsbyTypes.SiteSiteMetadata
+}
+
+// We need this to not use static GraphQL queries in order use it in CMS preview (it runs it in browser directly)
+export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) {
+  const { title, description, url, image } = siteMetadata
   const fpjsEndpoint = process.env.GATSBY_FPJS_ENDPOINT
   const rollbarAccessToken = process.env.GATSBY_ROLLBAR_ACCESS_TOKEN
-  const { title, description, url, image } = useSiteMetadata()
+
   return (
     <>
       <Helmet>

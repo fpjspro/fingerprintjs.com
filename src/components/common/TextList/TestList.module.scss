@@ -1,0 +1,15 @@
+.rootOrdered {
+  counter-reset: number;
+
+  .item {
+    counter-increment: number;
+
+    &:before {
+      content: counter(number) '.';
+      font-size: 2rem;
+      font-weight: v('semi');
+      color: v('brand-fire');
+      margin-right: 1rem;
+    }
+  }
+}

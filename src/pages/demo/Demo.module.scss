@@ -1,0 +1,23 @@
+.infoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding-top: 0;
+  padding-bottom: 0;
+  
+  @media screen and (max-width: 660px) {
+    flex-direction: column;
+    
+    padding-top: 7rem;
+    padding-bottom: 0;
+  }
+}
+
+.icon {
+  width: 3rem;
+  height: auto;
+
+  margin-right: 3rem;
+  fill: v('brand-fire');
+}

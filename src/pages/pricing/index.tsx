@@ -4,7 +4,19 @@ import PriceCalculator from '../../components/PriceCalculator'
 import Section from '../../components/common/Section'
 import classNames from 'classnames'
 import Container from '../../components/common/Container'
+import PricingCard from '../../components/pricing/Card'
 import styles from './Pricing.module.scss'
+
+export default function PricingPage() {
+  return (
+    <Layout>
+      <Container size='large'>
+        <CalculatorSection />
+        <PricingModelsSection />
+      </Container>
+    </Layout>
+  )
+}
 
 interface SectionHeaderProps {
   title: string
@@ -15,38 +27,17 @@ interface SectionHeaderProps {
 
 function SectionHeader({ title, subtitle, description, invertOrder = false }: SectionHeaderProps) {
   return (
-    <header className={classNames(styles.sectionHeader, { [styles.sectionInverted]: invertOrder })}>
-      <p className={styles.sectionSubtitle}>{subtitle}</p>
-      <h2 className={styles.sectionTitle}>{title}</h2>
-      <p className={styles.sectionDescription}>{description}</p>
+    <header className={classNames(styles.header, { [styles.inverted]: invertOrder })}>
+      <p className={styles.subtitle}>{subtitle}</p>
+      <h2 className={styles.title}>{title}</h2>
+      <p className={styles.description}>{description}</p>
     </header>
-  )
-}
-
-interface PricingCardProps {
-  title: string
-  description: string
-  sectionClasses: string | string[]
-  children: React.ReactNode
-}
-
-function PricingCard({ title, description, sectionClasses, children }: PricingCardProps) {
-  return (
-    <section className={classNames(styles.pricingCard, sectionClasses)}>
-      <aside>
-        <header>
-          <h3 className={styles.cardTitle}>{title}</h3>
-          <p className={styles.cardDescription}>{description}</p>
-        </header>
-      </aside>
-      <div className={styles.cardContent}>{children}</div>
-    </section>
   )
 }
 
 function CalculatorSection() {
   return (
-    <Section className={styles.pricingSection}>
+    <Section className={styles.calculator}>
       <SectionHeader
         title='Pro Pricing'
         subtitle='Calculator'
@@ -59,12 +50,12 @@ function CalculatorSection() {
 
 function PricingModelsSection() {
   return (
-    <Section className={styles.pricingSection}>
+    <Section className={styles.pricing}>
       <SectionHeader title='Pricing Models' subtitle='We support 2 models of pricing' invertOrder />
       <PricingCard
         title='On-Demand'
         description='For on-demand pricing, you pay monthly per API call. This plan is recommended for users with unpredictable or low traffic volumes.'
-        sectionClasses={styles.pricingCardOnDemand}
+        sectionClasses={styles.onDemand}
       >
         <ul className={styles.arrowList}>
           <li>On-demand is a metered model, where we count your API calls and bill you accordingly every month.</li>
@@ -95,7 +86,7 @@ function PricingModelsSection() {
       <PricingCard
         title='Reserved'
         description='Reserved is a 1 year prepaid plan that has several advantages compared to the on-demand model.'
-        sectionClasses={styles.pricingCardReserved}
+        sectionClasses={styles.reserved}
       >
         <ul className={classNames(styles.numberList, styles.horizontal)}>
           <li>You lock in your price for 1 year and get a 20% discount.</li>
@@ -107,16 +98,5 @@ function PricingModelsSection() {
         </div>
       </PricingCard>
     </Section>
-  )
-}
-
-export default function PricingPage() {
-  return (
-    <Layout>
-      <Container size='large'>
-        <CalculatorSection />
-        <PricingModelsSection />
-      </Container>
-    </Layout>
   )
 }
