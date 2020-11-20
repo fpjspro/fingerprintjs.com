@@ -1,6 +1,6 @@
 import React from 'react'
-import GetStartedForm from '../../components/GetStartedForm'
-import Container from '../../components/common/Container'
+import GetStartedForm from '../GetStartedForm'
+import Container from '../common/Container'
 import signupImage from '../../img/TEMP_signup_image.png'
 import styles from './Signup.module.scss'
 
