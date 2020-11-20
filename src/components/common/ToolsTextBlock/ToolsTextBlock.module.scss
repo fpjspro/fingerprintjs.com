@@ -1,0 +1,30 @@
+.item {
+  display: block;
+
+  .iconContainer {
+    background-color: adjust-color(c('brand-water'), $saturation: -10%, $lightness: 25%);
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+    @include transition((background-color));
+  }
+
+  .icon {
+    width: 7rem;
+    height: 7rem;
+    fill: v('white');
+  }
+
+  .title {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+    padding-right: 3rem;
+  }
+
+  .description {
+    opacity: v('muted');
+    font-size: 1.75rem;
+    padding-right: 3rem;
+  }
+}

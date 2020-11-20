@@ -1,0 +1,104 @@
+.nav {
+  padding: 3rem 0 0;
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 0;
+    padding-top: 2rem;
+  }
+}
+
+.navLeft,
+.navRight,
+.navMain,
+.navSecondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navMain {
+  flex-wrap: wrap;
+}
+
+.navSecondary {
+  justify-content: flex-end;
+
+  > * + * {
+    margin-left: 4rem;
+  }
+}
+
+.navLeft {
+  .link {
+    padding: 1.5rem 0;
+  }
+
+  >* {
+    &:not(.linkLogo) {
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
+    }
+
+    +* {
+      margin-left: 3rem;
+    }
+  }
+}
+
+.navRight {
+  > * + * {
+    @media screen and (min-width: 1024px) {
+      margin-left: 3rem;
+    }
+  }
+
+  >span {
+    height: 28px;
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+}
+
+:global(.isMobileMenuOpen) {
+  .navRight {
+    a {
+      display: none;
+    }
+  }
+}
+
+.logo {
+  object-fit: contain;
+
+  @media screen and (min-width: 761px) {
+    height: 40px;
+    width: 220px;
+  }
+  @media screen and (max-width: 760px) {
+    width: 150px;
+  }
+  @media screen and (max-width: 360px) {
+    width: 100px;
+  }
+}
+
+.desktopOnly {
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.mobileToggler {
+  @media screen and (min-width: 1025px) {
+    display: none;
+  }
+}
+
+.buttonIcon {
+  width: 2rem;
+  height: 2rem;
+  fill: v('color');
+}

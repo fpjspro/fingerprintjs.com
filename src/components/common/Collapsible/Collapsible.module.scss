@@ -1,0 +1,60 @@
+$side-padding: 2rem;
+
+.collapsible {
+  .item {
+    border-radius: 1rem;
+    background-color: v('off-white');
+  
+    font-family: v(ff-mono);
+
+    + .item {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .header {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1.5rem $side-padding 1.5rem $side-padding;
+
+    font-weight: bold;
+
+    .icon {
+      margin-left: 1rem;
+      margin-right: 0.5rem;
+
+      transition-duration: 0.5s;
+
+      &.rotated {
+        transform: rotate(180deg);
+
+        transition-duration: 0.5s;
+      }
+    }
+  }
+
+  .content {
+    overflow: hidden;    
+    padding: 0 $side-padding 0 $side-padding;
+
+    max-height: 0;
+    opacity: 0;
+    
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    
+    &.open {
+      padding: 0 $side-padding 2.5rem $side-padding;
+
+      max-height: 125rem;
+      opacity: 1;
+
+      transition-duration: 0.2s;
+      transition-timing-function: ease;
+    }
+  }
+}

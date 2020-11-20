@@ -1,0 +1,83 @@
+.demoSection {
+  background-repeat: no-repeat;
+  background-size: 1024px auto;
+  background-image: url('../../../img/bg-full.png');
+  background-position: center 65%;
+  overflow: hidden;
+
+  padding-bottom: 20rem;
+
+  @media (max-width: 1024px) {
+    padding-bottom: 7rem;
+  }
+
+  @media screen and (max-width: 660px) {
+    padding-bottom: 3rem;
+  }
+}
+
+.demoContainer {
+  padding: 0;
+}
+
+.widgetContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: 660px) {
+    display: block;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    width: 660px;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media screen and (max-width: 660px) {
+      width: 100%;
+      flex-direction: column;
+      max-width: 50rem;
+      padding: 0 3rem;
+      text-align: center;
+    }
+
+    .title {
+      font-weight: bold;
+
+      @media screen and (max-width: 660px) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .description {
+      text-align: right;
+
+      @media screen and (max-width: 660px) {
+        font-size: 2.5rem;
+        text-align: center;
+      }
+    }
+
+    .strong {
+      color: v('brand-fire');
+    }
+  }
+
+  .content {
+    max-width: 660px;
+  }
+
+  @media screen and (max-width: 660px) {
+    display: block;
+  }
+}
