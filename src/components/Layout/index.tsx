@@ -4,6 +4,7 @@ import Footer from '../Footer'
 import Header from '../Header'
 
 import useSiteMetadata from '../../hooks/useSiteMetadata'
+import { GATSBY_FPJS_ENDPOINT, GATSBY_ROLLBAR_ACCESS_TOKEN } from '../../constants/env'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -21,8 +22,8 @@ interface LayoutTemplateProps extends LayoutProps {
 // We need this to not use static GraphQL queries in order use it in CMS preview (it runs it in browser directly)
 export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) {
   const { title, description, url, image } = siteMetadata
-  const fpjsEndpoint = process.env.GATSBY_FPJS_ENDPOINT
-  const rollbarAccessToken = process.env.GATSBY_ROLLBAR_ACCESS_TOKEN
+  const fpjsEndpoint = GATSBY_FPJS_ENDPOINT
+  const rollbarAccessToken = GATSBY_ROLLBAR_ACCESS_TOKEN
 
   return (
     <>

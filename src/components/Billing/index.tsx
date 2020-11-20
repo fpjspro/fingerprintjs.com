@@ -19,7 +19,7 @@ export default function Billing() {
   const sliderTable = pricingTable.map(({ label, value }) => {
     return { label, value } as SliderValue
   })
-  const defaultValue = Math.floor(pricingTable.length / 2)
+  const defaultValue = 0
   const [sliderValue, setSliderValue] = useState(defaultValue)
   const [monthlyPayment, setMonthlyPayment] = useState(pricingTable[sliderValue].label)
   const [paymentType, setPaymentType] = useState<PaymentType>(PaymentType.monthly)
@@ -29,7 +29,7 @@ export default function Billing() {
     recalculatePricing(sliderTable[newValue].value, paymentType)
   }
 
-  const handlePaymentTypeChange = (type: PaymentType) => (_) => {
+  const handlePaymentTypeChange = (type: PaymentType) => () => {
     setPaymentType(type)
     recalculatePricing(sliderTable[sliderValue].value, type)
   }

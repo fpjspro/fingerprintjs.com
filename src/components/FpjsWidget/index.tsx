@@ -4,14 +4,17 @@ import { ReactComponent as InfoSvg } from './info.svg'
 import { ReactComponent as IncognitoSvg } from './incognito.svg'
 import Tippy from '@tippyjs/react'
 import styles from './FpjsWidget.module.scss'
-import { FpjsWidgetProps } from './widgetProps'
 import classNames from 'classnames'
 import { VisitorResponse } from './visitorResponse'
 import { CurrentVisitProps } from './currentVisitProps'
 import MobileWidget from './MobileWidget'
 import { useVisitorData } from '../../context/FpjsContext'
+import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT } from '../../constants/env'
 
-export default function FpjsWidget({ endpoint, apiToken }: FpjsWidgetProps) {
+const apiToken = GATSBY_FPJS_API_TOKEN ?? 'test_fpjs_api_token'
+const endpoint = GATSBY_FPJS_ENDPOINT ?? ''
+
+export default function FpjsWidget() {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>()
   const [visits, setVisits] = useState<VisitorResponse[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -49,11 +52,11 @@ export default function FpjsWidget({ endpoint, apiToken }: FpjsWidgetProps) {
     return () => {
       isCancelled = true
     }
-  }, [endpoint, visitorId, apiToken])
+  }, [visitorId])
 
   return (
     <>
-      {isLoading && <div className={styles.loader}></div>}
+      {isLoading && <div className={styles.loader} />}
       <div
         className={classNames(styles.demo, styles.desktopOnly, {
           [styles.loaded]: isLoaded,
@@ -152,7 +155,11 @@ function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
               <InfoSvg style={{ marginLeft: '10px' }} tabIndex={0} />
             </Tippy>
           </span>
-          <div className={styles.value}>
+          <div
+            className={classNames(styles.value, {
+              [styles.unavailable]: currentVisit?.ipLocation?.latitude && currentVisit?.ipLocation?.longitude,
+            })}
+          >
             {currentVisit && (
               <img
                 src={`https://api.mapbox.com/styles/v1/mapbox/${

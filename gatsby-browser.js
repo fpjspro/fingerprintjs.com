@@ -6,5 +6,5 @@ import './src/styles/global-styles.scss'
 import './src/styles/custom-properties.scss'
 
 import React from 'react'
-import { FpjsProvider } from './src/context/FpjsContext'
-export const wrapRootElement = ({ element }) => <FpjsProvider>{element}</FpjsProvider>
+import AppProviders from './src/AppProviders'
+export const wrapRootElement = ({ element }) => <AppProviders>{element}</AppProviders>
