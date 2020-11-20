@@ -6,6 +6,5 @@ block1:
   bullets:
     - one
     - two
-    - three
-  image: /img/uploads/chemex.jpg
+  image: /img/uploads/blog-index.jpg
 ---
