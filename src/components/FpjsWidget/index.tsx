@@ -9,22 +9,25 @@ import classNames from 'classnames'
 import { VisitorResponse } from './visitorResponse'
 import { CurrentVisitProps } from './currentVisitProps'
 import MobileWidget from './MobileWidget'
+import { useVisitorData } from '../../context/FpjsContext'
 
-export default function FpjsWidget({ endpoint, visitorId, apiToken }: FpjsWidgetProps) {
+export default function FpjsWidget({ endpoint, apiToken }: FpjsWidgetProps) {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>()
   const [visits, setVisits] = useState<VisitorResponse[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
 
-  useEffect(() => {
-    if (!visitorId) {
-      return
-    }
+  const { visitorData } = useVisitorData()
+  const visitorId = visitorData?.visitorId
 
+  useEffect(() => {
     let isCancelled = false
     setIsLoading(true)
 
     async function fetchVisits() {
+      if (!visitorId) {
+        return
+      }
       try {
         const { visits } = await loadFpjsHistory(endpoint, visitorId, apiToken)
 
@@ -88,9 +91,9 @@ export default function FpjsWidget({ endpoint, visitorId, apiToken }: FpjsWidget
             </ul>
           </div>
         </div>
-        <CurrentVisit currentVisit={currentVisit} visits={visits} visitorId={visitorId} />
+        {visitorId && <CurrentVisit currentVisit={currentVisit} visits={visits} visitorId={visitorId} />}
       </div>
-      {!isLoading && (
+      {!isLoading && visitorId && (
         <MobileWidget isLoaded={isLoaded} visitorId={visitorId} visits={visits} currentVisit={currentVisit} />
       )}
     </>

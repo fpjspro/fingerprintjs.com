@@ -13,7 +13,6 @@ export default function LiveDemoSection({
   onSubmit,
   errorMessage,
   endpoint,
-  visitorId,
   apiToken,
 }: LiveDemoSectionProps) {
   return (
@@ -29,7 +28,7 @@ export default function LiveDemoSection({
           <GetStartedForm formState={formState} onSubmit={onSubmit} errorMessage={errorMessage} />
         </header>
         <div className={styles.content} style={{ position: 'relative' }}>
-          <FpjsWidget endpoint={endpoint} visitorId={visitorId} apiToken={apiToken} />
+          <FpjsWidget endpoint={endpoint} apiToken={apiToken} />
         </div>
       </Container>
     </Section>

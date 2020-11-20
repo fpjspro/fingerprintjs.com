@@ -19,7 +19,6 @@ import { FpjsWidgetProps } from '../components/FpjsWidget/widgetProps'
 export const IndexPageTemplate = ({
   apiToken,
   endpoint,
-  visitorId,
   errorMessage,
   onSubmit,
   formState,
@@ -27,7 +26,6 @@ export const IndexPageTemplate = ({
   <div>
     <LiveDemoSection
       endpoint={endpoint}
-      visitorId={visitorId}
       apiToken={apiToken}
       errorMessage={errorMessage}
       onSubmit={onSubmit}
@@ -99,7 +97,6 @@ const IndexPage = () => {
     <Layout>
       <IndexPageTemplate
         endpoint={endpoint}
-        visitorId={visitorId!}
         apiToken={apiToken}
         errorMessage={errorMessage}
         onSubmit={onSubmit}
