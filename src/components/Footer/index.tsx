@@ -71,10 +71,6 @@ const footerLinks: FooterLinkSection[] = [
         url: 'https://dev.fingerprintjs.com/docs/incognito-private-mode-detection',
       },
       {
-        title: 'Bot Detection',
-        url: 'https://dev.fingerprintjs.com/docs/bot-detection',
-      },
-      {
         title: 'Server API',
         url: 'https://dev.fingerprintjs.com/docs/server-api',
       },

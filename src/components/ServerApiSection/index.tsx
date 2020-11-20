@@ -17,7 +17,7 @@ export default function ServerApiSection() {
             <ToolsTextBlock
               icon={<ToolsSvg />}
               title={'Server-side visitor history API'}
-              text={`Access suspicious visitor activity, bot probability and geolocation at lightspeed.
+              text={`Access suspicious visitor activity and geolocation at lightspeed.
               Integrate our API into your server-side business rules or signup process.`}
             />
             <ToolsTextBlock
@@ -40,7 +40,6 @@ export default function ServerApiSection() {
   "visits": [
     {
       "incognito": true,
-      "botProbability": 0,
       "ip": "61.127.217.15",
       "ipLocation": { ... },
       "browserDetails": { ... }

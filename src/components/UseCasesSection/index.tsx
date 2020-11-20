@@ -30,9 +30,6 @@ export default function UseCasesSection() {
               <div className={styles.info}>
                 <h3 className={styles.title}>Account Fraud</h3>
                 <p className={styles.description}>
-                  Confirm that every visitor on your website is real and not an advanced bot using multiple techniques
-                  to create fake accounts.
-                  <br />
                   You can mitigate account takeover attempts, prevent password sharing and significantly reduce the
                   number of fake accounts.
                 </p>
