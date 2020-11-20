@@ -1,0 +1,38 @@
+.stayProtected {
+  .header {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 4.5rem;
+    line-height: 1.17;
+    font-weight: v(light);
+
+    @media screen and (max-width: 425px) {
+      font-size: 3rem;
+    }
+  }
+
+  .subtitle {
+    margin: 2rem 0 4rem 0;
+    font-weight: v(semi);
+    opacity: v('faded');
+  }
+
+  .form {
+    max-width: 50%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 768px) {
+      max-width: 80vw;
+    }
+
+    .formDescription {
+      justify-content: center;
+
+      @media screen and (max-width: 425px) {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
