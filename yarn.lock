@@ -739,10 +739,10 @@
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
 
-"@fingerprintjs/fingerprintjs-pro@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@fingerprintjs/fingerprintjs-pro/-/fingerprintjs-pro-3.0.1.tgz#c7ea41f4c3ac7fa72c45542f7aa2ba793e8a72f0"
-  integrity sha512-N+bkFhnwONk9ti3uD0jotxGmXKXKpxavhVAslPE63LZBFOCEFy965CvDELZ4N9X5fsdcz2FNPLk7BkI1wZOr4g==
+"@fingerprintjs/fingerprintjs-pro@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@fingerprintjs/fingerprintjs-pro/-/fingerprintjs-pro-3.0.3.tgz#ced38dc2bef24ace6752c7e88878bbcd0cf895cf"
+  integrity sha512-GuQB6lqmoq7uwRVbaxaJXfZMg59oYkFYmJoMjVf5TUz17zpXENmJDvdud+ZfleO8l6gNHtdt2IZ7cBoIB+nX9Q==
   dependencies:
     "@fingerprintjs/fingerprintjs" "3.0.1"
     tslib "^2.0.1"

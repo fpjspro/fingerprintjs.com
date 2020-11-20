@@ -15,7 +15,7 @@
         </h3>
         <div class='slider'>
           <span class='slider-output'>
-            1M
+            100K
           </span>
           <label for='billingSlider' class='slider-label'>
             <span class='slider-label__text'>
@@ -46,6 +46,7 @@
               type='range'
               min='0'
               max='6'
+              value='0'
               name='billing-slider'
             />
           </div>
@@ -61,22 +62,22 @@
       <div class='payment'>
         <div class='payment-per-month'>
           <span class='price'>
-            $800
+            $100
           </span>
           per month
         </div>
         <div class='billed' id='billed_annual_text'>
-          billed yearly
+          billed monthly
         </div>
-        <div class='payment-switcher' data-type='annually'>
+        <div class='payment-switcher' data-type='monthly'>
           <button
-            class='payment-switcher__button payment-switcher__button--annually payment-switcher__button--active'
+            class='payment-switcher__button payment-switcher__button--annually'
             data-type='annually'
           >
             Pay Annually
           </button>
           <button
-            class='payment-switcher__button payment-switcher__button--monthly'
+            class='payment-switcher__button payment-switcher__button--monthly payment-switcher__button--active'
             data-type='monthly'
           >
             Pay Monthly

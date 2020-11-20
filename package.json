@@ -18,7 +18,7 @@
     "IE 11"
   ],
   "dependencies": {
-    "@fingerprintjs/fingerprintjs-pro": "^3.0.1",
+    "@fingerprintjs/fingerprintjs-pro": "^3.0.3",
     "favicons-webpack-plugin": "2.1.0",
     "jquery": "^3.5.1",
     "prismjs": "^1.21.0",

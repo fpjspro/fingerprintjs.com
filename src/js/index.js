@@ -41,6 +41,9 @@ const pricingTable = [
   { label: '20M', value: 20000000 },
 ];
 
+// Minimum number of identifications for custom pricing
+const minimumIdentifications = 100000;
+
 document.addEventListener('DOMContentLoaded', () => {
   // FPJS widget
   initFpjsWidget();
@@ -57,8 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let json = await response.json();
         starCounter.forEach((counter) => {
           counter.innerHTML = new Intl.NumberFormat('en-US', {
-            notation: 'compact',
-            compactDisplay: 'short',
+            notation: 'standard',
             maximumFractionDigits: 1,
           }).format(json.stargazers_count);
         });
@@ -177,7 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     userInputIdentifications.on('input', (e) => {
-      const identifications = e.target.value;
+      let identifications = parseInt(e.target.value, 10);
+      // Don't allow the number of identifications to go below the minimum.
+      identifications = (identifications >= minimumIdentifications) ? identifications : minimumIdentifications;
+
       $('.preset__select').val('').trigger('change.select2');
 
       const onDemandPriceValue = calculatePrice(identifications, 'monthly');
