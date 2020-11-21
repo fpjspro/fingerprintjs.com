@@ -21,6 +21,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
+        implementation: require('sass'),
         data: `@import "${resolvePath(__dirname, '/src/styles/common')}";`,
       },
     },
