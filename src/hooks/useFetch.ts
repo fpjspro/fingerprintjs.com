@@ -16,7 +16,6 @@ type Action<T> = { type: 'request' } | { type: 'success'; payload: T } | { type:
 
 export function useFetch<T = unknown>(url?: string, options?: AxiosRequestConfig): State<T> {
   const cache = useRef<Cache<T>>({})
-  let cancelRequest = false
   const initialState: State<T> = {
     status: 'init',
     error: undefined,
@@ -38,6 +37,9 @@ export function useFetch<T = unknown>(url?: string, options?: AxiosRequestConfig
   const [state, dispatch] = useReducer(fetchReducer, initialState)
   useEffect(() => {
     if (!url) return
+
+    let cancelRequest = false
+
     const fetchData = async () => {
       dispatch({ type: 'request' })
       if (cache.current[url]) {
@@ -61,6 +63,6 @@ export function useFetch<T = unknown>(url?: string, options?: AxiosRequestConfig
     return () => {
       cancelRequest = true
     }
-  }, [url])
+  }, [url]) //TODO: [DI]: Fix deps
   return state
 }

@@ -24,7 +24,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    updateFormState(FormState.loading)
+    updateFormState(FormState.Loading)
 
     const { ok, error } = await fetch(`${dashboardEndpoint}/signup`, {
       method: 'POST',
@@ -34,12 +34,12 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
 
     if (!ok) {
       updateErrorMessage(error.message || 'Something gone wrong. Please try again later.')
-      updateFormState(FormState.failed)
+      updateFormState(FormState.Failed)
       setTimeout(() => {
-        updateFormState(FormState.default)
+        updateFormState(FormState.Default)
       }, 2500)
     } else {
-      updateFormState(FormState.success)
+      updateFormState(FormState.Success)
       sendEvent({ event: 'signupintent.success' })
     }
   }
@@ -50,13 +50,13 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
         className,
         styles.form,
         styles.getStarted,
-        { [styles.success]: formState === FormState.success },
-        { [styles.failed]: formState === FormState.failed },
-        { [styles.loading]: formState === FormState.loading }
+        { [styles.success]: formState === FormState.Success },
+        { [styles.failed]: formState === FormState.Failed },
+        { [styles.loading]: formState === FormState.Loading }
       )}
       onSubmit={handleSubmit}
     >
-      {(formState === FormState.default || formState === FormState.loading) && (
+      {(formState === FormState.Default || formState === FormState.Loading) && (
         <div className={classNames(styles.field, styles.withButton)}>
           <label htmlFor='email' className={styles.label}>
             <input
@@ -78,13 +78,13 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
           </Button>
         </div>
       )}
-      {formState === FormState.success && (
+      {formState === FormState.Success && (
         <div className={classNames(styles.state, styles.success)}>
           <CheckSvg className={styles.icon} />
           <div className={styles.label}>We sent you a link to start your trial</div>
         </div>
       )}
-      {formState === FormState.failed && (
+      {formState === FormState.Failed && (
         <div className={classNames(styles.state, styles.failed)}>
           <CloseSvg className={styles.icon} />
           <div className={styles.label}>{errorMessage}</div>

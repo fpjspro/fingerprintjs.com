@@ -60,10 +60,10 @@ export default function PriceCalculator() {
         <Price
           value={
             customCount === undefined
-              ? calculatePrice(selectedPreset.value, PaymentType.monthly)
+              ? calculatePrice(selectedPreset.value, PaymentType.Monthly)
               : calculatePrice(
                   customCount >= minimumIdentifications ? customCount : minimumIdentifications,
-                  PaymentType.monthly
+                  PaymentType.Monthly
                 )
           }
           description='Pay as you go, cancel any time'
@@ -73,10 +73,10 @@ export default function PriceCalculator() {
         <Price
           value={
             customCount === undefined
-              ? calculatePrice(selectedPreset.value, PaymentType.annually)
+              ? calculatePrice(selectedPreset.value, PaymentType.Annually)
               : calculatePrice(
                   customCount >= minimumIdentifications ? customCount : minimumIdentifications,
-                  PaymentType.annually
+                  PaymentType.Annually
                 )
           }
           description='Requires a 12 month prepay'

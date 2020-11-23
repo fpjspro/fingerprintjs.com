@@ -40,6 +40,8 @@ export default function FpjsWidget() {
           setCurrentVisit(visits[0])
         }
       } catch (e) {
+        //TODO: [DI]: Add Rollbar report
+        // eslint-disable-next-line no-console
         console.error(`Fingerprint loading failed: ${e.message}`)
       } finally {
         if (!isCancelled) {

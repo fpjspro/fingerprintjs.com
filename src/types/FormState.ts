@@ -1,6 +1,6 @@
 export enum FormState {
-  default,
-  loading,
-  success,
-  failed,
+  Default,
+  Loading,
+  Success,
+  Failed,
 }

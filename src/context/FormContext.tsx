@@ -13,13 +13,13 @@ const noop = () => {
 }
 
 const FormContext = createContext<GetStartedFormData>({
-  formState: FormState.default,
+  formState: FormState.Default,
   updateFormState: noop,
   updateErrorMessage: noop,
 })
 
 export function FormProvider({ children }: { children: React.ReactNode }) {
-  const [formState, setFormState] = useState(FormState.default)
+  const [formState, setFormState] = useState(FormState.Default)
   const [errorMessage, setErrorMessage] = useState<string>()
 
   const updateFormState = (newState: FormState) => {

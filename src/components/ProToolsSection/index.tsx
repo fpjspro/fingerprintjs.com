@@ -100,8 +100,8 @@ export default function ProToolsSection() {
                 <IntegrationsSvg className={styles.icon} />
                 <h3 className={styles.title}>Machine Learning</h3>
                 <p className={styles.description}>
-                  In addition to browser fingerprinting, FingerprintJS Pro's server-side API processes and analyzes vast
-                  amounts of data, searching for patterns and re-occurrences of fraudulent activity.
+                  In addition to browser fingerprinting, FingerprintJS Pro&#39;s server-side API processes and analyzes
+                  vast amounts of data, searching for patterns and re-occurrences of fraudulent activity.
                 </p>
               </SwiperSlide>
             </div>

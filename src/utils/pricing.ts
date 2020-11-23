@@ -28,10 +28,10 @@ export function calculatePrice(price: number, type: PaymentType): string {
     notation: 'standard',
   }
 
-  if (type === PaymentType.monthly) {
+  if (type === PaymentType.Monthly) {
     return new Intl.NumberFormat('en-US', currencyFormatOptions).format(price / 1000)
   }
-  if (type === PaymentType.annually) {
+  if (type === PaymentType.Annually) {
     return new Intl.NumberFormat('en-US', currencyFormatOptions).format((price / 1000) * 0.8)
   } else {
     throw new Error('Payment type is required')

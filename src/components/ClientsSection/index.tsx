@@ -38,7 +38,7 @@ export default function ClientsSection() {
               </SwiperSlide>
             )
           })}
-          <div className={classNames('swiper-pagination', styles.pagination)}></div>
+          <div className={classNames('swiper-pagination', styles.pagination)} />
         </Swiper>
       </Container>
     </Section>

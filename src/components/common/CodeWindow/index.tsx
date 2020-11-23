@@ -19,9 +19,9 @@ export default function CodeWindow({
     <div className={styles.window}>
       {hasControls && (
         <div className={styles.header}>
-          <div className={classNames(styles.button, styles.close)}></div>
-          <div className={classNames(styles.button, styles.minimize)}></div>
-          <div className={classNames(styles.button, styles.expand)}></div>
+          <div className={classNames(styles.button, styles.close)} />
+          <div className={classNames(styles.button, styles.minimize)} />
+          <div className={classNames(styles.button, styles.expand)} />
         </div>
       )}
       <div className={styles.content}>

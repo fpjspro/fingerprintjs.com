@@ -22,7 +22,7 @@ export default function Billing() {
   const defaultValue = 0
   const [sliderValue, setSliderValue] = useState(defaultValue)
   const [monthlyPayment, setMonthlyPayment] = useState(pricingTable[sliderValue].label)
-  const [paymentType, setPaymentType] = useState<PaymentType>(PaymentType.monthly)
+  const [paymentType, setPaymentType] = useState<PaymentType>(PaymentType.Monthly)
 
   const handleSliderChange = (newValue: number) => {
     setSliderValue(newValue)
@@ -41,7 +41,7 @@ export default function Billing() {
 
   useEffect(() => {
     recalculatePricing(sliderTable[sliderValue].value, paymentType)
-  }, [])
+  }, [paymentType, sliderTable, sliderValue])
 
   return (
     <Section className={styles.section}>
@@ -79,15 +79,15 @@ export default function Billing() {
             <div className={styles.billed}>billed yearly</div>
             <div className={styles.switcher} data-type='annually'>
               <button
-                className={classNames(styles.button, { [styles.active]: paymentType === PaymentType.annually })}
-                onClick={handlePaymentTypeChange(PaymentType.annually)}
+                className={classNames(styles.button, { [styles.active]: paymentType === PaymentType.Annually })}
+                onClick={handlePaymentTypeChange(PaymentType.Annually)}
                 data-type='annually'
               >
                 Pay Annually
               </button>
               <button
-                className={classNames(styles.button, { [styles.active]: paymentType === PaymentType.monthly })}
-                onClick={handlePaymentTypeChange(PaymentType.monthly)}
+                className={classNames(styles.button, { [styles.active]: paymentType === PaymentType.Monthly })}
+                onClick={handlePaymentTypeChange(PaymentType.Monthly)}
                 data-type='monthly'
               >
                 Pay Monthly
