@@ -24,7 +24,7 @@
   width: 100%;
   object-fit: contain;
 
-  @include media("<=phoneLandscape") {
+  @media screen and (max-width: 640px) {
     height: 58px;
     max-width: 180px;
   }
@@ -39,7 +39,7 @@
   align-items: center;
   justify-content: center;
 
-  @include media(">desktop") {
+  @media screen and (min-width: 1024px) {
     &:first-child {
       justify-content: flex-start;
     }

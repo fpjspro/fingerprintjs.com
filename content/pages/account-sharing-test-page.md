@@ -1,11 +1,11 @@
 ---
 templateKey: account-sharing-page
-title: Cats are great!
+title: Dogs are great!
 block1:
-  subheader: Cat's parts
+  subheader: Dog's parts (old)
   bullets:
     - paws
-    - whiskers
     - tail
-  image: /img/uploads/cat.jpg
+    - boop
+  image: /img/uploads/dog.jpg
 ---

@@ -9,7 +9,7 @@
     position: relative;
     z-index: 20;
 
-    @include media("<=phoneLandscape") {
+    @media screen and (max-width: 640px) {
       padding: 0;
       overflow: hidden;
     }
@@ -29,7 +29,7 @@
     font-weight: v(light);
     font-size: 5rem;
 
-    @include media("<=phone") {
+    @media screen and (max-width: 425px) {
       font-size: 3rem;
     }
   }
@@ -42,22 +42,22 @@
     background-color: v('white');
     // margin-bottom: 3rem;
 
-    @include media("<=tablet") {
+    @media screen and (max-width: 767px) {
       margin: 0 3rem;
       width: calc(100% - 6rem) !important;
       height: 240px;
     }
 
-    @include media("<=phone") {
+    @media screen and (max-width: 374px) {
       height: 270px;
     }
 
-    @include media(">tablet", "<=desktop") {
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
       height: 220px;
     }
 
     // dirty hack for slider
-    @include media(">desktop") {
+    @media screen and (min-width: 1024px) {
       height: 280px;
     }
 
@@ -103,13 +103,13 @@
 
 // dirty hack for swiper
 #swiper--pro-tools {
-  @include media("<=tablet") {
+  @media screen and (max-width: 767px) {
     & > .swiper-wrapper {
       width: 100% !important;
     }
   }
 
-  @include media(">tablet") {
+  @media screen and (min-width: 768px) {
     overflow: visible;
   }
 }
