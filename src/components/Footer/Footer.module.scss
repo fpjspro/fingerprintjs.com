@@ -3,7 +3,7 @@
   color: v('white');
   padding: 10rem 0 5rem 0;
 
-  @media screen and (max-width: 640px) {
+  @include media("<=phoneLandscape") {
     padding: 40px 0;
   }
 
@@ -13,7 +13,7 @@
     opacity: v('faded');
     text-align: right;
 
-    @media screen and (max-width: 640px) {
+    @include media("<=phoneLandscape") {
       text-align: left;
     }
 
@@ -34,12 +34,12 @@
       margin-right: 4rem;
   
       .docs {
-        @media screen and (max-width: 647px) {
+        @include media("<=phoneLandscape") {
           margin-top: 4rem;
         }
       }
   
-      @media screen and (max-width: 647px) {
+      @include media("<=phoneLandscape") {
         margin-right: 0;
       }
     }
@@ -47,7 +47,7 @@
     .wrapper {
       display: flex;
       margin-right: 24px;
-      @media screen and (max-width: 931px) {
+      @include media("<=tabletWide") {
         margin-bottom: 40px;
       }
       > div {
@@ -59,7 +59,7 @@
     }
   
     .contact {
-      @media screen and (max-width: 931px) {
+      @include media("<=tabletWide") {
         margin-right: 0;
       }
     }

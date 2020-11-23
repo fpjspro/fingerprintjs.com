@@ -8,11 +8,12 @@ import { VisitorResponse } from './visitorResponse'
 import { CurrentVisitProps } from './currentVisitProps'
 import MobileWidget from './MobileWidget'
 import { useVisitorData } from '../../context/FpjsContext'
-import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT } from '../../constants/env'
+import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT, GATSBY_MAPBOX_ACCESS_TOKEN } from '../../constants/env'
 import styles from './FpjsWidget.module.scss'
 
 const apiToken = GATSBY_FPJS_API_TOKEN ?? 'test_fpjs_api_token'
 const endpoint = GATSBY_FPJS_ENDPOINT ?? ''
+const mapboxToken = GATSBY_MAPBOX_ACCESS_TOKEN
 
 export default function FpjsWidget() {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>()
@@ -57,7 +58,7 @@ export default function FpjsWidget() {
   }, [visitorId])
 
   return (
-    <>
+    <div className={styles.container}>
       {isLoading && <div className={styles.loader} />}
       <div
         className={classNames(styles.demo, styles.desktopOnly, {
@@ -98,10 +99,10 @@ export default function FpjsWidget() {
         </div>
         {visitorId && <CurrentVisit currentVisit={currentVisit} visits={visits} visitorId={visitorId} />}
       </div>
-      {visitorId && (
+      {!isLoading && visitorId && (
         <MobileWidget isLoaded={isLoaded} visitorId={visitorId} visits={visits} currentVisit={currentVisit} />
       )}
-    </>
+    </div>
   )
 }
 
@@ -168,7 +169,7 @@ function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
                   currentVisit?.incognito ? 'dark-v10' : 'outdoors-v11'
                 }/static/${currentVisit?.ipLocation?.longitude},${
                   currentVisit?.ipLocation?.latitude
-                },7.00,0/512x512?access_token=pk.eyJ1IjoidmFsZW50aW52YXNpbHlldiIsImEiOiJja2ZvMGttN2UxanJ1MzNtcXp5YzNhbWxuIn0.BjZhTdjY812J3OdfgRiZ4A`}
+                },7.00,0/512x512?access_token=${mapboxToken}`}
               />
             )}
           </div>

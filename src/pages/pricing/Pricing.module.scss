@@ -5,11 +5,11 @@
   background-image: url('../../img/bg-full.png');
   background-position: center 75%;
 
-  @media screen and (max-width: 1024px) {
+  @include media("<=desktop") {
     background-position: center 120%;
   }
 
-  @media (max-width: 860px) {
+  @include media("<=tabletWide") {
     background-image: url('../../img/hero-768+.png');
     background-position: center 55%;
     background-size: 100vw auto;
@@ -30,7 +30,7 @@
     grid-template-areas: 'title description' 'sub sub';
   }
 
-  @media screen and (max-width: 640px) {
+  @include media("<=phoneLandscape") {
     grid-template-columns: 1fr;
     grid-template-areas: 'sub' 'title' 'description';
   }
@@ -57,7 +57,7 @@
     max-width: 35ch;
     justify-self: flex-end;
 
-    @media screen and (max-width: 640px) {
+    @include media("<=phoneLandscape") {
       justify-self: unset;
       text-align: left;
       margin-top: 2rem;
@@ -91,7 +91,7 @@
     flex-direction: row;
     justify-content: space-between;
 
-    @media screen and (max-width: 640px) {
+    @include media("<=phoneLandscape") {
       flex-direction: column;
     }
   }

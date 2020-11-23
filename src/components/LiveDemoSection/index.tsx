@@ -18,7 +18,7 @@ export default function LiveDemoSection() {
           </p>
           <GetStartedForm />
         </header>
-        <div className={styles.content} style={{ position: 'relative' }}>
+        <div className={styles.content}>
           <FpjsWidget />
         </div>
       </Container>

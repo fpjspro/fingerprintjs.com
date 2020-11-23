@@ -7454,6 +7454,11 @@ gatsby-plugin-react-helmet@^3.3.14:
   dependencies:
     "@babel/runtime" "^7.11.2"
 
+gatsby-plugin-rollbar@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-rollbar/-/gatsby-plugin-rollbar-1.1.0.tgz#dd296adff4925a371e7708ea71b71f1fc9fa406c"
+  integrity sha512-ccLTUCfj7s5/yhmufvQXzQOMLyfDBbSsYNYKE9yZIHFlJpJvz1DEoYQI08zIFuPdsb5pFZgttF4HIlUAk4cmtA==
+
 gatsby-plugin-sass@^2.4.2:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.5.1.tgz#e4de5c9b3239e466e6e7c73c2c7df115307489de"
@@ -9121,6 +9126,11 @@ in-publish@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/in-publish/-/in-publish-2.0.1.tgz#948b1a535c8030561cea522f73f78f4be357e00c"
   integrity sha512-oDM0kUSNFC31ShNxHKUyfZKy8ZeXZBWMjMdZHKLOk13uvT27VTL/QzRGfRUcevJhpkZAvlhPYuXkF7eNWrtyxQ==
+
+include-media@^1.4.9:
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/include-media/-/include-media-1.4.9.tgz#d0020b7be3eb2d54868a20943595ce380e0bc43b"
+  integrity sha1-0AILe+PrLVSGiiCUNZXOOA4LxDs=
 
 indent-string@^2.1.0:
   version "2.1.0"

@@ -10,6 +10,9 @@ import { getBotDecision, getBrowserName, getVisitTitle } from '../../utils/fpjs-
 import { ReactComponent as InfoSvg } from './info.svg'
 import Tippy from '@tippyjs/react'
 import styles from './MobileWidget.module.scss'
+import { GATSBY_MAPBOX_ACCESS_TOKEN } from '../../constants/env'
+
+const mapboxToken = GATSBY_MAPBOX_ACCESS_TOKEN
 
 SwiperCore.use([Navigation])
 
@@ -105,7 +108,7 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
                           visit.incognito ? 'dark-v10' : 'outdoors-v11'
                         }/static/${visit.ipLocation?.longitude},${
                           visit.ipLocation?.latitude
-                        },7.00,0/512x512?access_token=pk.eyJ1IjoidmFsZW50aW52YXNpbHlldiIsImEiOiJja2ZvMGttN2UxanJ1MzNtcXp5YzNhbWxuIn0.BjZhTdjY812J3OdfgRiZ4A`}
+                        },7.00,0/512x512?access_token=${mapboxToken}`}
                       />
                     )}
                   </div>

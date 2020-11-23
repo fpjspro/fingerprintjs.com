@@ -5,7 +5,7 @@
   --div-dash-size: 25px;
   padding-bottom: 7rem;
 
-  @media screen and (max-width: 640px) {
+  @include media("<=phoneLandscape") {
     padding-bottom: 3.5rem;
   }
 }
@@ -18,12 +18,12 @@
   position: relative;
 
   > * + * {
-    @media screen and (min-width: 1025px) {
+    @include media(">desktop") {
       margin-left: 2rem;
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @include media("<=desktop") {
     display: block;
   }
 }
@@ -34,7 +34,7 @@
 }
 
 .content {
-  @media screen and (max-width: 1024px) {
+  @include media("<=desktop") {
     margin-top: 4rem;
   }
 }
@@ -48,7 +48,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, .08);
   margin-right: 4rem;
 
-  @media screen and (max-width: 425px) {
+  @include media("<=phone") {
     font-size: 3rem;
   }
 }
@@ -66,13 +66,13 @@
   > * + * {
     margin-top: 2rem;
 
-    @media screen and (min-width: 641px) {
+    @include media(">phoneLandscape") {
       margin-top: 0;
       margin-left: 2rem;
     }
   }
 
-  @media screen and (max-width: 640px) {
+  @include media("<=phoneLandscape") {
     flex-wrap: wrap;
   }
 }

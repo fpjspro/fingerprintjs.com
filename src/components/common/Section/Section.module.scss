@@ -2,7 +2,7 @@
   padding: 14rem 0;
   z-index: v(z-sections);
 
-  @media screen and (max-width: 1024px) {
+  @include media("<=desktop") {
     padding: 7rem 0;
   }
 

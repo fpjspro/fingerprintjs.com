@@ -2,7 +2,7 @@
   padding-top: 7rem;
   padding-bottom: 7rem;
   
-  @media screen and (max-width: 660px) {
+  @include media("<=phoneLandscape") {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
@@ -13,7 +13,7 @@
   flex-direction: row;
   justify-content: space-between;
 
-  @media screen and (max-width: 660px) {
+  @include media("<=phoneLandscape") {
     flex-direction: column;
   }
 }
@@ -29,7 +29,7 @@
 .block {
   flex-basis: 50%;
 
-  @media screen and (max-width: 660px) {
+  @include media("<=phoneLandscape") {
     flex-basis: 100%;
   }
 
@@ -64,7 +64,7 @@
   }
 
   &.faq {
-    @media screen and (max-width: 660px) {
+    @include media("<=phoneLandscape") {
       margin-top: 7rem;
     }
   }

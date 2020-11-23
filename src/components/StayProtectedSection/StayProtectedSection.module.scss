@@ -8,7 +8,7 @@
     line-height: 1.17;
     font-weight: v(light);
 
-    @media screen and (max-width: 425px) {
+    @include media("<=phone") {
       font-size: 3rem;
     }
   }
@@ -23,14 +23,14 @@
     max-width: 50%;
     margin: 0 auto;
 
-    @media screen and (max-width: 768px) {
+    @include media("<=tablet") {
       max-width: 80vw;
     }
 
     .formDescription {
       justify-content: center;
 
-      @media screen and (max-width: 425px) {
+      @include media("<=phone") {
         justify-content: flex-start;
       }
     }
