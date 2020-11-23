@@ -9,7 +9,9 @@ export type Props = {
 export default function AppProviders({ children }: Props) {
   return (
     <FpjsProvider>
-      <FormProvider>{children}</FormProvider>
+      <FormProvider>
+        <React.StrictMode>{children}</React.StrictMode>
+      </FormProvider>
     </FpjsProvider>
   )
 }
