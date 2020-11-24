@@ -1,5 +1,5 @@
 import React from 'react'
-import { isBrowser } from '../../../utils/detector'
+import { isBrowser } from '../../../helpers/detector'
 import Select, { Props } from 'react-select'
 
 const borderColor = 'rgba(13, 16, 43, 1)'
@@ -34,12 +34,19 @@ export default function CustomSelect<P>(props: Props<P>) {
         borderRadius: 8,
         fontWeight: 'bold',
       },
+      paddingLeft: '2rem',
+    }),
+    valueContainer: (provided) => ({
+      ...provided,
+      paddingLeft: '2rem',
     }),
     singleValue: (provided) => ({
       ...provided,
       fontSize: '20px', //TODO: [DI]: Make customizable by props
       fontWeight: 'bold',
+      margin: 0,
     }),
+    indicatorSeparator: () => ({}),
   }
 
   return <Select<P> {...props} styles={reactSelectStyle} menuPortalTarget={isBrowser() ? document.body : undefined} />

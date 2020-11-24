@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Select from '../common/Select'
 import classNames from 'classnames'
-import { minimumIdentifications, pricingTable, calculatePrice } from '../../utils/pricing'
+import { minimumIdentifications, pricingTable, calculatePrice } from '../../helpers/pricing'
 import { PaymentType } from '../../types/PaymentType'
 import Button from '../../components/common/Button'
 import styles from './PriceCalculator.module.scss'

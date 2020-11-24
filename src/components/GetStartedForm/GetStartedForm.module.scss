@@ -58,10 +58,7 @@
       align-items: center;
       font-size: 1.75rem;
       margin-top: 2rem;
-
-      @include media(">tablet", "<=desktop") {
-        justify-content: center;
-      }
+      justify-content: center;
 
       li {
         display: inline-flex;

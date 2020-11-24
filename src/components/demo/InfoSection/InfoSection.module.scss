@@ -1,9 +1,8 @@
 .infoSection {
-  padding-top: 7rem;
+  padding-top: 3rem;
   padding-bottom: 7rem;
   
   @include media("<=phoneLandscape") {
-    padding-top: 3rem;
     padding-bottom: 3rem;
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getVisitTitle, getBrowserName, getBotDecision } from '../../utils/fpjs-widget'
+import { getVisitTitle, getBrowserName, getBotDecision } from '../../helpers/fpjs-widget'
 import { ReactComponent as InfoSvg } from './info.svg'
 import { ReactComponent as IncognitoSvg } from './incognito.svg'
 import Tippy from '@tippyjs/react'
@@ -8,6 +8,7 @@ import { VisitorResponse } from './visitorResponse'
 import { CurrentVisitProps } from './currentVisitProps'
 import MobileWidget from './MobileWidget'
 import { useVisitorData } from '../../context/FpjsContext'
+import useRollbar from '../../helpers/rollbar'
 import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT, GATSBY_MAPBOX_ACCESS_TOKEN } from '../../constants/env'
 import styles from './FpjsWidget.module.scss'
 
@@ -23,6 +24,7 @@ export default function FpjsWidget() {
 
   const { visitorData } = useVisitorData()
   const visitorId = visitorData?.visitorId
+  const rollbar = useRollbar()
 
   useEffect(() => {
     let isCancelled = false
@@ -41,9 +43,7 @@ export default function FpjsWidget() {
           setCurrentVisit(visits[0])
         }
       } catch (e) {
-        //TODO: [DI]: Add Rollbar report
-        // eslint-disable-next-line no-console
-        console.error(`Fingerprint loading failed: ${e.message}`)
+        rollbar.error('Unable to initialize FingerprintJS Pro', e)
       } finally {
         if (!isCancelled) {
           setIsLoading(false)
@@ -55,7 +55,7 @@ export default function FpjsWidget() {
     return () => {
       isCancelled = true
     }
-  }, [visitorId])
+  }, [visitorId, rollbar])
 
   return (
     <div className={styles.container}>
@@ -126,7 +126,7 @@ function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
           </Tippy>
         </div>
         <div className={classNames(styles.info, styles.bot)}>
-          <span className={styles.label}>Bot</span>
+          <span className={styles.label}>Headless Browser</span>
           <span className={styles.value}>
             {getBotDecision(currentVisit?.bot?.probability ?? currentVisit?.browserDetails?.botProbability ?? 0)}
           </span>

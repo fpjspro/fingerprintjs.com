@@ -19,17 +19,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-rollbar',
-      options: {
-        accessToken: process.env.GATSBY_ROLLBAR_ACCESS_TOKEN,
-        captureUncaught: true,
-        captureUnhandledRejections: true,
-        payload: {
-          environment: 'production',
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-sass',
       options: {
         implementation: require('sass'),

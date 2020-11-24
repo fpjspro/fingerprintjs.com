@@ -16,7 +16,7 @@ export default function LiveDemoSection() {
             <em> 99.5% accurate </em>
             browser fingerprinting as a service.
           </p>
-          <GetStartedForm />
+          <GetStartedForm className={styles.form} />
         </header>
         <div className={styles.content}>
           <FpjsWidget />

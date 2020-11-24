@@ -10,7 +10,7 @@ import Button from '../common/Button'
 import Container from '../common/Container'
 
 import styles from './Header.module.scss'
-import { isBrowser } from '../../utils/detector'
+import { isBrowser } from '../../helpers/detector'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)

@@ -63,6 +63,6 @@ export function useFetch<T = unknown>(url?: string, options?: AxiosRequestConfig
     return () => {
       cancelRequest = true
     }
-  }, [url]) //TODO: [DI]: Fix deps
+  }, [url, options])
   return state
 }

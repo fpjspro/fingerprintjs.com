@@ -5,11 +5,7 @@
   background-position: center 65%;
   overflow: hidden;
 
-  padding-bottom: 20rem;
-
-  @include media("<=desktop") {
-    padding-bottom: 7rem;
-  }
+  padding: 6rem 0;
 
   @include media("<=phoneLandscape") {
     padding-bottom: 3rem;
