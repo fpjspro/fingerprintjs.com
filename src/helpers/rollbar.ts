@@ -1,18 +1,21 @@
-import { useState } from 'react'
 import { GATSBY_ROLLBAR_ACCESS_TOKEN } from './../constants/env'
 import Rollbar from 'rollbar'
 
+let rollbar: Rollbar
+
 export default function useRollbar(): Rollbar {
-  const [rollbar] = useState(
-    new Rollbar({
-      accessToken: GATSBY_ROLLBAR_ACCESS_TOKEN,
-      captureUncaught: true,
-      captureUnhandledRejections: true,
-      payload: {
-        environment: 'production',
-      },
-    })
-  )
+  if (rollbar) {
+    return rollbar
+  }
+
+  rollbar = new Rollbar({
+    accessToken: GATSBY_ROLLBAR_ACCESS_TOKEN,
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+    payload: {
+      environment: 'production',
+    },
+  })
 
   return rollbar
 }

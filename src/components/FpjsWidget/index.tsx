@@ -130,9 +130,6 @@ function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
           <span className={styles.value}>
             {getBotDecision(currentVisit?.bot?.probability ?? currentVisit?.browserDetails?.botProbability ?? 0)}
           </span>
-          <Tippy content='Every response will include the botProbability field that you can use to identify bot traffic.'>
-            <InfoSvg tabIndex={0} />
-          </Tippy>
         </div>
         <div className={classNames(styles.info, styles.ip)}>
           <span className={styles.label}>IP</span>

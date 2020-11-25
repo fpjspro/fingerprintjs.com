@@ -70,12 +70,9 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
                   </div>
                 </div>
                 <div className={styles.bot}>
-                  <div className={styles.label}>Bot</div>
+                  <div className={styles.label}>Headless Browser</div>
                   <div className={styles.value}>
                     {getBotDecision(visit.bot?.probability ?? visit.browserDetails?.botProbability ?? 0)}{' '}
-                    <Tippy content='Every response will include the botProbability field that you can use to identify bot traffic.'>
-                      <InfoSvg tabIndex={0} />
-                    </Tippy>
                   </div>
                 </div>
                 <div className={styles.ip}>
