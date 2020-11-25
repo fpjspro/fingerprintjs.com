@@ -101,6 +101,7 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
                   >
                     {visit && (
                       <img
+                        alt='Location map'
                         src={`https://api.mapbox.com/styles/v1/mapbox/${
                           visit.incognito ? 'dark-v10' : 'outdoors-v11'
                         }/static/${visit.ipLocation?.longitude},${

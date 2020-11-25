@@ -57,6 +57,7 @@ export default function RangeSlider({
           max={max}
           value={currentValue}
           name='billing-slider'
+          aria-label='Price slider'
           onChange={handleSliderValueChange}
         />
       </div>

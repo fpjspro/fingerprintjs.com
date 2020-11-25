@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styles from './CodeWindow.module.scss'
 import classNames from 'classnames'
 
@@ -9,7 +9,7 @@ interface CodeWindowProps {
   hasControls?: boolean
 }
 
-export default function CodeWindow({
+export default memo(function CodeWindow({
   code,
   language = 'javascript',
   hasLineNumbers = true,
@@ -31,4 +31,4 @@ export default function CodeWindow({
       </div>
     </div>
   )
-}
+})

@@ -17,6 +17,11 @@
     "device fingerprint",
     "privacy"
   ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE 11"
+  ],
   "dependencies": {
     "@fingerprintjs/fingerprintjs-pro": "^3.0.1",
     "@loadable/component": "^5.14.1",
