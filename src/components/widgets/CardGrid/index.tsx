@@ -30,7 +30,6 @@ export function CardComponent({ icon, title, content }: Card) {
     <div className={styles.card}>
       {icon && <PreviewCompatibleImage className={styles.icon} imageInfo={icon} />}
       <header className={styles.title}>{title}</header>
-
       <div className={styles.content}>{content}</div>
     </div>
   )
