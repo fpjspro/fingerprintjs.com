@@ -32,3 +32,14 @@ collections:
                   { label: Bullets, name: bullets, widget: list },
                 ],
             }
+          - {
+              label: Card Grid,
+              name: cards,
+              widget: list,
+              fields:
+                [
+                  { label: Icon, name: icon, widget: image, required: false },
+                  { label: Title, name: title, widget: string },
+                  { label: Content, name: content, widget: string },
+                ],
+            }
