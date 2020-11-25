@@ -6,10 +6,13 @@ import SwiperCore, { Navigation } from 'swiper'
 import classNames from 'classnames'
 import Button from '../common/Button'
 import { CurrentVisitProps } from './currentVisitProps'
-import { getBotDecision, getBrowserName, getVisitTitle } from '../../utils/fpjs-widget'
+import { getBotDecision, getBrowserName, getVisitTitle } from '../../helpers/fpjs-widget'
 import { ReactComponent as InfoSvg } from './info.svg'
 import Tippy from '@tippyjs/react'
 import styles from './MobileWidget.module.scss'
+import { GATSBY_MAPBOX_ACCESS_TOKEN } from '../../constants/env'
+
+const mapboxToken = GATSBY_MAPBOX_ACCESS_TOKEN
 
 SwiperCore.use([Navigation])
 
@@ -67,12 +70,9 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
                   </div>
                 </div>
                 <div className={styles.bot}>
-                  <div className={styles.label}>Bot</div>
+                  <div className={styles.label}>Headless Browser</div>
                   <div className={styles.value}>
                     {getBotDecision(visit.bot?.probability ?? visit.browserDetails?.botProbability ?? 0)}{' '}
-                    <Tippy content='Every response will include the botProbability field that you can use to identify bot traffic.'>
-                      <InfoSvg tabIndex={0} />
-                    </Tippy>
                   </div>
                 </div>
                 <div className={styles.ip}>
@@ -105,7 +105,7 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
                           visit.incognito ? 'dark-v10' : 'outdoors-v11'
                         }/static/${visit.ipLocation?.longitude},${
                           visit.ipLocation?.latitude
-                        },7.00,0/512x512?access_token=pk.eyJ1IjoidmFsZW50aW52YXNpbHlldiIsImEiOiJja2ZvMGttN2UxanJ1MzNtcXp5YzNhbWxuIn0.BjZhTdjY812J3OdfgRiZ4A`}
+                        },7.00,0/512x512?access_token=${mapboxToken}`}
                       />
                     )}
                   </div>

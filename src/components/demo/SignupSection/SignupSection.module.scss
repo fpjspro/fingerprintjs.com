@@ -11,7 +11,7 @@
 
   background-color: v('off-white');
 
-  @media screen and (max-width: 660px) {
+  @include media("<=phoneLandscape") {
     flex-direction: column;
 
     padding-top: 5rem;
@@ -22,7 +22,7 @@
   .image {
     flex-basis: 50%;
 
-    @media screen and (max-width: 660px) {
+    @include media("<=phoneLandscape") {
       flex-basis: 100%;
     }
   }
@@ -48,7 +48,7 @@
     object-fit: contain;
     max-height: 30rem;
 
-    @media screen and (max-width: 660px) {
+    @include media("<=phoneLandscape") {
       display: none;
     }
   }

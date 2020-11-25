@@ -21,7 +21,7 @@ export default function MadeForDevelopersSection() {
             <ToolsTextBlock
               title={'Use our Pro agent for serious accuracy'}
               text={
-                'Get to 99.5% identification accuracy with custom domains, CNAME integration and additional identification methods beyond fingerprinting.'
+                'Get to 99.5% identification accuracy with subdomain integration and additional identification methods beyond fingerprinting.'
               }
             />
           </div>

@@ -63,7 +63,7 @@ pre {
   font-size: 2rem;
   font-weight: 500;
 
-  @media screen and (max-width: 768px) {
+  @include media("<=tablet") {
     font-size: 1.5rem;
   }
 }

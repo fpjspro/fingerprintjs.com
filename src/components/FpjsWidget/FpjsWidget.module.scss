@@ -1,3 +1,12 @@
+.container {
+  position: relative;
+
+  @include media("<=phoneLandscape") {
+    min-height: 75rem;
+  }
+}
+
+
 .demo {
   display: flex;
   align-items: stretch;
@@ -27,7 +36,7 @@
       opacity: 1;
     }
   }
-  
+
   .header {
     display: flex;
     font-family: v(ff-mono);
@@ -37,42 +46,42 @@
     height: 5rem;
     background-color: v('brand-water');
     color: v('white');
-  
+
     svg {
       fill: v('white');
       margin-left: 1rem;
     }
   }
-  
+
   .history,
   .currentVisit {
     flex: 2;
     display: flex;
     flex-direction: column;
   }
-  
+
   .content {
     padding: 2rem 2rem;
     flex: 1;
   }
-  
+
   .history {
     flex: 1;
-  
+
     .header {
       background-color: adjust-color(c('brand-water'), $saturation: -25%, $lightness: 25%);
-  
-      @media screen and (max-width: 640px) {
+
+      @include media("<=phoneLandscape") {
         padding-top: 2rem;
         background-color: v('off-white');
         color: v('brand-water');
-  
+
         svg {
           fill: v('brand-water');
         }
       }
     }
-  
+
     .content {
       border-right: 1px solid v('off-white');
       --bgcolor: var(--white);
@@ -80,12 +89,12 @@
       padding: 2rem;
       @include scrollbox(300px, 20px, 0);
       position: relative;
-  
-      @media screen and (max-width: 640px) {
+
+      @include media("<=phoneLandscape") {
         // padding-top: 0;
         @include scrollbox(150px, 20px, 0);
       }
-  
+
       &:after {
         content: '';
         pointer-events: none;
@@ -96,7 +105,7 @@
         height: 5rem;
         background: linear-gradient(to top, v('bgcolor') 2.5rem, adjust-color(c('white'), $alpha: -1));
       }
-  
+
       .visits {
         .visit {
           border-radius: 1rem;
@@ -113,7 +122,7 @@
           display: block;
           line-height: 32px;
           white-space: nowrap;
-  
+
           &:before {
             content: none;
             width: 0.5rem;
@@ -122,30 +131,30 @@
             background: v('brand-fire');
             margin-right: 1rem;
           }
-  
+
           &:hover {
             background-color: v('off-white');
           }
-  
+
           +.visit {
             margin-top: 0.5rem;
           }
-  
+
           svg {
             display: none;
             margin-left: 1rem;
           }
-  
+
           &.incognito {
             svg {
               display: inline-block;
             }
           }
-  
+
           &.selected {
             background-color: v('off-white');
           }
-  
+
           &.now {
             display: flex;
             &:before {
@@ -156,12 +165,12 @@
       }
     }
   }
-    
+
   .currentVisit {
-    @media screen and (max-width: 640px) {
+    @include media("<=phoneLandscape") {
       order: -1;
     }
-  
+
     .content {
       font-weight: v(bold);
       font-family: v(ff-mono);
@@ -170,12 +179,12 @@
       grid-template-areas: 'id id''bot location''ip location''incognito location''browser location';
       column-gap: 2rem;
       row-gap: 3rem;
-  
-      @media screen and (max-width: 640px) {
+
+      @include media("<=phoneLandscape") {
         grid-template-columns: 1fr;
         grid-template-areas: 'id''bot''ip''incognito''browser''location';
       }
-  
+
       .info:not(.location) {
         .value {
           font-weight: v('normal');
@@ -183,16 +192,16 @@
           opacity: v('faded');
         }
       }
-  
+
       svg {
         fill: v('brand-fire');
         vertical-align: -webkit-baseline-middle;
-  
-        @media screen and (max-width: 425px) {
+
+        @include media("<=phone") {
           order: 2;
         }
       }
-  
+
       .visitId,
       .label,
       .location,
@@ -203,47 +212,47 @@
             align-items: center;
             flex-wrap: wrap;
             height: 3rem;
-  
+
             > * + * {
               margin-left: 1rem;
             }
           }
         }
       }
-  
+
       .value {
-        @media screen and (max-width: 425px) {
+        @include media("<=phone") {
           order: 3;
         }
       }
-  
+
       .visitId {
         display: flex;
         align-items: center;
         font-size: 2.5rem;
         grid-area: id;
-  
+
         .label {
           height: 4rem !important;
         }
-  
-        @media screen and (max-width: 425px) {
+
+        @include media("<=phone") {
           font-size: 2rem;
         }
-  
+
         .value {
           font-family: v(ff-mono);
           color: v('brand-fire');
           font-weight: v('bold');
           opacity: 1;
-  
-          @media screen and (max-width: 355px) {
+
+          @include media("<=phone") {
             flex-basis: 100%;
             margin-left: 0 !important;
           }
         }
       }
-  
+
       .bot {
         grid-area: bot;
       }
@@ -251,25 +260,25 @@
       .ip {
         grid-area: ip;
       }
-  
+
       .incognito {
         grid-area: incognito;
       }
-  
+
       .browser {
         grid-area: browser;
-  
+
         .value {
           margin-left: 0;
         }
       }
-  
+
       .location {
         grid-area: location;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-  
+
         .value {
           @include ar(1, 1, true);
           background-color: v('off-white');
@@ -277,11 +286,11 @@
           overflow: hidden;
           position: relative;
           cursor: pointer;
-      
-          @media screen and (max-width: 1024px) {
+
+          @include media("<=desktop") {
             margin-top: 1rem;
           }
-  
+
           &::after {
             position: absolute;
             content: '';
@@ -292,18 +301,18 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%) scale(1);
-            @media screen and (min-width: 1024px) {
+            @include media(">desktop") {
               animation: pulse 2s infinite;
             }
           }
-  
+
           &.unvailable {
             padding-top: 100%;
-  
+
             > img {
               display: none;
             }
-  
+
             &::before {
               content: 'Not available';
               position: absolute;
@@ -314,7 +323,7 @@
               padding-top: 0;
               opacity: 0.5;
             }
-  
+
             &::after {
               display: none;
             }
@@ -336,7 +345,7 @@
         border-right: 1px solid adjust-color(c('white'), $alpha: -0.9);
         background-color: var(--transparent);
 
-        @media screen and (max-width: 640px) {
+        @include media("<=phoneLandscape") {
           background-color: v('transparent');
           color: v('white');
 
@@ -350,27 +359,27 @@
         border-right: 1px solid adjust-color(c('white'), $alpha: -0.9);
         --bgcolor: var(--brand-water);
         background-color: v('transparent');
-  
+
         &:after {
           background: linear-gradient(to top, v('bgcolor') 2.5rem, adjust-color(c('brand-water'), $alpha: -1));
         }
-  
+
         .visits {
           .visit {
             color: v('off-white');
-  
+
             &:before {
               background: v('brand-fire');
             }
-  
+
             &:hover {
               background-color: adjust-color(c('white'), $alpha: -0.9);
             }
-  
+
             svg {
               fill: v('off-white');
             }
-  
+
             &.selected {
               background-color: adjust-color(c('white'), $alpha: -0.9);
             }
@@ -399,12 +408,12 @@
       transform: translate(-50%, -50%) scale(0.95);
       box-shadow: 0 0 0 0 rgba(240, 68, 5, 0.7);
   }
-  
+
   70% {
       transform: translate(-50%, -50%) scale(1);
       box-shadow: 0 0 0 10px rgba(240, 68, 5, 0);
   }
-  
+
   100% {
       transform: translate(-50%, -50%) scale(0.95);
       box-shadow: 0 0 0 0 rgba(240, 68, 5, 0);
@@ -425,16 +434,20 @@
   position: absolute;
   left: 0;
   top: 0;
+
+  @include media(">phoneLandscape") {
+    height: 75rem;
+  }
 }
 
 .desktopOnly {
-  @media screen and (max-width: 641px) {
+  @include media("<=phoneLandscape") {
     display: none;
   }
 }
 
 .mobileOnly {
-  @media screen and (min-width: 641px) {
+  @include media(">phoneLandscape") {
     display: none;
   }
 }

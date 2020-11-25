@@ -30,6 +30,10 @@ export default function UseCasesSection() {
               <div className={styles.info}>
                 <h3 className={styles.title}>Account Fraud</h3>
                 <p className={styles.description}>
+                  Confirm that every visitor on your website is real and not an advanced bot using multiple techniques
+                  to create fake accounts.
+                  <br />
+                  <br />
                   You can mitigate account takeover attempts, prevent password sharing and significantly reduce the
                   number of fake accounts.
                 </p>
@@ -44,6 +48,7 @@ export default function UseCasesSection() {
                 <p className={styles.description}>
                   Identify anonymous visitors behind every transaction. Instantly recognize repeated card testing
                   activity and link it to specific users.
+                  <br />
                   <br />
                   Significantly reduce chargebacks and fraudulent payments just one month after integrating
                   FingerprintJS on your website.

@@ -4,7 +4,7 @@
   padding-bottom: 1.5rem;
   font-size: 1.75rem;
 
-  @media screen and (max-width: 1024px) {
+  @include media("<=desktop") {
     display: none;
   }
 }

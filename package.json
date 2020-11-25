@@ -39,12 +39,14 @@
     "gatsby-source-filesystem": "^2.2.5",
     "gatsby-transformer-remark": "^2.9.2",
     "gatsby-transformer-sharp": "^2.5.21",
+    "include-media": "^1.4.9",
     "netlify-cms-app": "^2.9.6",
     "prismjs": "^1.22.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.0.0",
     "react-select": "^3.1.0",
+    "rollbar": "^2.19.4",
     "swiper": "^6.3.5"
   },
   "devDependencies": {
