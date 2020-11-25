@@ -14,3 +14,5 @@ $brand-colors: (
 );
 
 $grid-base: 8px;
+
+$breakpoints: (phone: 420px, phoneLandscape: 640px, tablet: 768px, tabletWide: 860px, desktop: 1024px);

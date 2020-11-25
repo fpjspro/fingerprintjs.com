@@ -36,7 +36,7 @@
     &.mobileOnly {
       display: inline-block;
 
-      @media screen and (min-width: 641px) {
+      @include media(">phoneLandscape") {
         display: none;
       }
     }
@@ -87,13 +87,13 @@
 }
 
 .desktopOnly {
-  @media screen and (max-width: 641px) {
+  @include media("<=phoneLandscape") {
     display: none;
   }
 }
 
 .mobileOnly {
-  @media screen and (min-width: 641px) {
+  @include media(">phoneLandscape") {
     display: none;
   }
 }

@@ -28,11 +28,11 @@
     .label {
       font-weight: v('semi');
 
-      @media screen and (max-width: 760px) {
+      @include media("<=tablet") {
         font-size: 1.8rem;
       }
 
-      @media screen and (max-width: 374px) {
+      @include media("<=phone") {
         font-size: 1.5rem;
       }
     }
@@ -41,7 +41,7 @@
   &.getStarted {
     position: relative;
 
-    @media screen and (max-width: 768px) {
+    @include media("<=tablet") {
       width: 100%;
     }
 
@@ -58,10 +58,7 @@
       align-items: center;
       font-size: 1.75rem;
       margin-top: 2rem;
-
-      @media screen and (max-width: 1024px) {
-        justify-content: center;
-      }
+      justify-content: center;
 
       li {
         display: inline-flex;
@@ -79,7 +76,7 @@
         height: 1.25rem;
         margin-right: 1rem;
 
-        @media screen and (max-width: 425px) {
+        @include media("<=phone") {
           margin-right: 0.5rem;
         }
       }
@@ -113,7 +110,7 @@
       content: '';
     }
   }
-  
+
   input {
     &[type='text'],
     &[type='number'],
@@ -124,7 +121,7 @@
       font-family: v(ff-sans);
       font-size: 2rem;
       min-width: 100px;
-  
+
       &.input {
         --height: 6rem;
         height: v('height');
@@ -133,23 +130,23 @@
         border-radius: 1rem;
         border: solid 1px adjust-color(c('brand-water'), $alpha: -0.7);
         padding: 0 2rem;
-  
+
         &:focus {
           border: solid 1px adjust-color(c('brand-water'), $alpha: -0.3);
         }
       }
-  
+
       &::-webkit-inner-spin-button,
       &::-webkit-outer-spin-button {
         display: none;
       }
     }
-  
+
     &:focus {
       outline: none;
       border: 0;
     }
-  
+
     &::placeholder {
       color: v('brand-water');
       opacity: v('extra-faded');
@@ -184,7 +181,7 @@
       height: 100%;
       border-radius: 7px;
 
-      @media screen and (max-width: 425px) {
+      @include media("<=phone") {
         padding: 0 1rem;
       }
     }
@@ -194,7 +191,7 @@
       --height: var(--height);
       border-radius: 0 1rem 1rem 0;
 
-      @media screen and (max-width: 425px) {
+      @include media("<=phone") {
         padding: 0 2rem;
       }
     }

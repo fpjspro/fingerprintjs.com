@@ -1,7 +1,7 @@
 .nav {
   padding: 3rem 0 0;
 
-  @media screen and (max-width: 1024px) {
+  @include media("<=desktop") {
     margin-top: 0;
     padding-top: 2rem;
   }
@@ -35,7 +35,7 @@
 
   >* {
     &:not(.linkLogo) {
-      @media screen and (max-width: 1024px) {
+      @include media(">tablet", "<=desktop") {
         display: none;
       }
     }
@@ -48,7 +48,7 @@
 
 .navRight {
   > * + * {
-    @media screen and (min-width: 1024px) {
+    @include media(">desktop") {
       margin-left: 3rem;
     }
   }
@@ -56,7 +56,7 @@
   >span {
     height: 28px;
 
-    @media screen and (max-width: 1024px) {
+    @include media(">tablet", "<=desktop") {
       display: none;
     }
   }
@@ -73,26 +73,26 @@
 .logo {
   object-fit: contain;
 
-  @media screen and (min-width: 761px) {
+  @include media(">tablet") {
     height: 40px;
     width: 220px;
   }
-  @media screen and (max-width: 760px) {
+  @include media("<=tablet") {
     width: 150px;
   }
-  @media screen and (max-width: 360px) {
+  @include media("<=phone") {
     width: 100px;
   }
 }
 
 .desktopOnly {
-  @media screen and (max-width: 1024px) {
+  @include media("<=desktop") {
     display: none;
   }
 }
 
 .mobileToggler {
-  @media screen and (min-width: 1025px) {
+  @include media(">desktop") {
     display: none;
   }
 }

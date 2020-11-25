@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import classNames from 'classnames'
 import { PaymentType } from '../../types/PaymentType'
-import { handlePriceChange, pricingTable } from '../../utils/pricing'
+import { handlePriceChange, pricingTable } from '../../helpers/pricing'
 import Container from '../common/Container'
 import Section from '../common/Section'
 import RangeSlider, { SliderValue } from '../common/RangeSlider'
@@ -83,7 +83,7 @@ export default function Billing() {
                 <span className={styles.price}>{monthlyPayment} </span>
                 per month
               </div>
-              <div className={styles.billed}>billed yearly</div>
+              <div className={styles.billed}>billed {paymentType === PaymentType.Annually ? 'yearly' : 'monthly'}</div>
               <div className={styles.switcher} data-type='annually'>
                 <button
                   className={classNames(styles.button, { [styles.active]: paymentType === PaymentType.Annually })}

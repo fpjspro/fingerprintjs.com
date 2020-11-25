@@ -7,7 +7,7 @@
     background-color: v("white");
     counter-increment: pricing-card;
   
-    @media screen and (max-width: 931px) {
+    @include media("<=tabletWide") {
       grid-template-columns: 1fr;
     }
   
@@ -22,11 +22,11 @@
       background-size: contain;
       background-position: 50% bottom;
   
-      @media screen and (max-width: 860px) {
+      @include media("<=tabletWide") {
         background-image: none;
       }
   
-      @media screen and (max-width: 768px) {
+      @include media("<=tablet") {
         padding: 3rem 3rem 3rem 6rem;
       }
   
@@ -40,7 +40,7 @@
           margin-bottom: 2rem;
           position: relative;
   
-          @media screen and (max-width: 768px) {
+          @include media("<=tablet") {
             font-size: 4rem;
           }
   
@@ -52,7 +52,7 @@
             line-height: 5rem;
             left: -3rem;
   
-            @media screen and (max-width: 768px) {
+            @include media("<=tablet") {
               line-height: 4rem;
             }
           }
@@ -66,7 +66,7 @@
     }
   
     .content {
-      @media screen and (max-width: 768px) {
+      @include media("<=tablet") {
         padding: 3rem;
       }
     }

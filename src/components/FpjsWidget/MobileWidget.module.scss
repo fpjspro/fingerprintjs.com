@@ -2,7 +2,7 @@
 .container {
   display: none;
 
-  @media screen and (max-width: 640px) {
+  @include media("<=phoneLandscape") {
     display: block;
     min-height: 70vh;
     overflow: visible;
@@ -75,7 +75,7 @@
 
     .button {
       opacity: v('faded');
-      
+
 
       svg {
         fill: v('white');
@@ -131,11 +131,11 @@
         color: v('brand-fire');
         font-size: 2rem;
 
-        @media screen and (max-width: 760px) {
+        @include media("<=tablet") {
           font-size: 2.5rem;
         }
 
-        @media screen and (max-width: 374px) {
+        @include media("<=phone") {
           font-size: 2rem;
         }
       }

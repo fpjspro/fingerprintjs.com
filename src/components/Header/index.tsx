@@ -8,7 +8,7 @@ import { ReactComponent as BurgerSvg } from './burger.svg'
 import MobileNavbar from '../MobileNavbar'
 import Button from '../common/Button'
 import Container from '../common/Container'
-import { isBrowser } from '../../utils/detector'
+import { isBrowser } from '../../helpers/detector'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
 

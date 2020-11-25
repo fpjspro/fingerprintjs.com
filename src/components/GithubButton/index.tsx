@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useFetch } from '../../hooks/useFetch'
 import { ReactComponent as GithubIconSvg } from './github_icon.svg'
 import styles from './GithubButton.module.scss'
@@ -13,14 +13,17 @@ interface GithubButtonProps {
   className?: string | string[]
 }
 
+const githubToken = GATSBY_GITHUB_API_TOKEN
+
 export default function GithubButton({ className }: GithubButtonProps) {
-  const githubToken = GATSBY_GITHUB_API_TOKEN
   const url = 'https://api.github.com/repos/fingerprintjs/fingerprintjs'
-  const options = {
-    headers: {
-      Authorization: `token ${githubToken}`,
-    },
-  }
+  const options = useMemo(() => {
+    return {
+      headers: {
+        Authorization: `token ${githubToken}`,
+      },
+    }
+  }, [])
 
   const { data } = useFetch<GithubReposResponse>(url, options)
 

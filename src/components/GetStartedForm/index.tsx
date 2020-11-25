@@ -7,7 +7,7 @@ import Button from '../common/Button'
 import { FormState } from '../../types/FormState'
 import { GATSBY_FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
-import { sendEvent } from '../../utils/gtm'
+import { sendEvent } from '../../helpers/gtm'
 import FormContext from '../../context/FormContext'
 import styles from './GetStartedForm.module.scss'
 

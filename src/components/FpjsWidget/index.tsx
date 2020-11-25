@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getVisitTitle, getBrowserName, getBotDecision } from '../../utils/fpjs-widget'
+import { getVisitTitle, getBrowserName, getBotDecision } from '../../helpers/fpjs-widget'
 import { ReactComponent as InfoSvg } from './info.svg'
 import { ReactComponent as IncognitoSvg } from './incognito.svg'
 import Tippy from '@tippyjs/react'
@@ -8,11 +8,13 @@ import { VisitorResponse } from './visitorResponse'
 import { CurrentVisitProps } from './currentVisitProps'
 import MobileWidget from './MobileWidget'
 import { useVisitorData } from '../../context/FpjsContext'
-import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT } from '../../constants/env'
+import useRollbar from '../../hooks/useRollbar'
+import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT, GATSBY_MAPBOX_ACCESS_TOKEN } from '../../constants/env'
 import styles from './FpjsWidget.module.scss'
 
 const apiToken = GATSBY_FPJS_API_TOKEN ?? 'test_fpjs_api_token'
 const endpoint = GATSBY_FPJS_ENDPOINT ?? ''
+const mapboxToken = GATSBY_MAPBOX_ACCESS_TOKEN
 
 export default function FpjsWidget() {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>()
@@ -22,6 +24,7 @@ export default function FpjsWidget() {
 
   const { visitorData } = useVisitorData()
   const visitorId = visitorData?.visitorId
+  const rollbar = useRollbar()
 
   useEffect(() => {
     let isCancelled = false
@@ -40,9 +43,7 @@ export default function FpjsWidget() {
           setCurrentVisit(visits[0])
         }
       } catch (e) {
-        //TODO: [DI]: Add Rollbar report
-        // eslint-disable-next-line no-console
-        console.error(`Fingerprint loading failed: ${e.message}`)
+        rollbar.error('Unable to initialize FingerprintJS Pro', e)
       } finally {
         if (!isCancelled) {
           setIsLoading(false)
@@ -54,10 +55,10 @@ export default function FpjsWidget() {
     return () => {
       isCancelled = true
     }
-  }, [visitorId])
+  }, [visitorId, rollbar])
 
   return (
-    <>
+    <div className={styles.container}>
       {isLoading && <div className={styles.loader} />}
       <div
         className={classNames(styles.demo, styles.desktopOnly, {
@@ -98,10 +99,10 @@ export default function FpjsWidget() {
         </div>
         {visitorId && <CurrentVisit currentVisit={currentVisit} visits={visits} visitorId={visitorId} />}
       </div>
-      {visitorId && (
+      {!isLoading && visitorId && (
         <MobileWidget isLoaded={isLoaded} visitorId={visitorId} visits={visits} currentVisit={currentVisit} />
       )}
-    </>
+    </div>
   )
 }
 
@@ -125,13 +126,10 @@ function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
           </Tippy>
         </div>
         <div className={classNames(styles.info, styles.bot)}>
-          <span className={styles.label}>Bot</span>
+          <span className={styles.label}>Headless Browser</span>
           <span className={styles.value}>
             {getBotDecision(currentVisit?.bot?.probability ?? currentVisit?.browserDetails?.botProbability ?? 0)}
           </span>
-          <Tippy content='Every response will include the botProbability field that you can use to identify bot traffic.'>
-            <InfoSvg tabIndex={0} />
-          </Tippy>
         </div>
         <div className={classNames(styles.info, styles.ip)}>
           <span className={styles.label}>IP</span>
@@ -168,7 +166,7 @@ function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
                   currentVisit?.incognito ? 'dark-v10' : 'outdoors-v11'
                 }/static/${currentVisit?.ipLocation?.longitude},${
                   currentVisit?.ipLocation?.latitude
-                },7.00,0/512x512?access_token=pk.eyJ1IjoidmFsZW50aW52YXNpbHlldiIsImEiOiJja2ZvMGttN2UxanJ1MzNtcXp5YzNhbWxuIn0.BjZhTdjY812J3OdfgRiZ4A`}
+                },7.00,0/512x512?access_token=${mapboxToken}`}
               />
             )}
           </div>
