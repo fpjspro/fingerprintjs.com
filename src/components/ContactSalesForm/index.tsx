@@ -6,7 +6,7 @@ import { FormState } from '../../types/FormState'
 import { sendEvent } from '../../utils/gtm'
 import classNames from 'classnames'
 import FormContext from '../../context/FormContext'
-import { createNewLead } from '../../utils/api'
+import { createNewLead } from '../../helpers/api'
 import styles from './ContactSalesForm.module.scss'
 
 interface ContactSalesFormProps {
