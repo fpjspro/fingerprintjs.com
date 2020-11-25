@@ -8,7 +8,7 @@ import { VisitorResponse } from './visitorResponse'
 import { CurrentVisitProps } from './currentVisitProps'
 import MobileWidget from './MobileWidget'
 import { useVisitorData } from '../../context/FpjsContext'
-import useRollbar from '../../helpers/rollbar'
+import useRollbar from '../../hooks/useRollbar'
 import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT, GATSBY_MAPBOX_ACCESS_TOKEN } from '../../constants/env'
 import styles from './FpjsWidget.module.scss'
 

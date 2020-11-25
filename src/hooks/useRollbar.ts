@@ -1,4 +1,4 @@
-import { GATSBY_ROLLBAR_ACCESS_TOKEN } from './../constants/env'
+import { GATSBY_ROLLBAR_ACCESS_TOKEN } from '../constants/env'
 import Rollbar from 'rollbar'
 
 let rollbar: Rollbar
