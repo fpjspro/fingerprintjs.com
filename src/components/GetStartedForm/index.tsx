@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { ReactComponent as ChevronRightSvg } from '../../img/chevron-right.svg'
 import { ReactComponent as CheckSvg } from '../../img/check.svg'
 import { ReactComponent as CloseSvg } from '../../img/close.svg'
@@ -8,8 +8,9 @@ import { FormState } from '../../types/FormState'
 import { GATSBY_FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
 import { sendEvent } from '../../helpers/gtm'
-import FormContext from '../../context/FormContext'
+import { Forms } from '../../context/FormContext'
 import styles from './GetStartedForm.module.scss'
+import useForm from '../../hooks/useForm'
 
 interface GetStartedFormProps {
   className?: string | string[]
@@ -20,7 +21,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
   const visitorId = visitorData?.visitorId
   const dashboardEndpoint = GATSBY_FPJS_DASHBOARD_ENDPOINT
   const [email, setEmail] = useState('')
-  const { formState, errorMessage, updateFormState, updateErrorMessage } = useContext(FormContext)
+  const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.Signup)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

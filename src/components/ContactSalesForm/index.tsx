@@ -1,13 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import Button from '../../components/common/Button'
 import { ReactComponent as CheckSvg } from '../../img/check.svg'
 import { ReactComponent as CloseSvg } from '../../img/close.svg'
 import { FormState } from '../../types/FormState'
 import { sendEvent } from '../../utils/gtm'
 import classNames from 'classnames'
-import FormContext from '../../context/FormContext'
+import { Forms } from '../../context/FormContext'
 import { createNewLead } from '../../helpers/api'
 import styles from './ContactSalesForm.module.scss'
+import useForm from '../../hooks/useForm'
 
 interface ContactSalesFormProps {
   className?: string | string[]
@@ -15,7 +16,7 @@ interface ContactSalesFormProps {
 export default function ContactSalesForm({ className }: ContactSalesFormProps) {
   const [email, setEmail] = useState('')
   const [website, setWebsite] = useState('')
-  const { formState, errorMessage, updateFormState, updateErrorMessage } = useContext(FormContext)
+  const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.ContactSales)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -89,7 +90,7 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
 
       {formState === FormState.Success && (
         <div className={classNames(styles.state, styles.success)}>
-          <div className={styles.message}>Thanks, we received your request. We'll get back to you soon.</div>
+          <div className={styles.message}>Thanks, we received your request. We&#39;ll get back to you soon.</div>
           <CheckSvg className={styles.icon} />
         </div>
       )}
