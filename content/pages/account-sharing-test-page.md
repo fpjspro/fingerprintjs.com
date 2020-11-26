@@ -8,4 +8,9 @@ block1:
     - tail
     - boop
   image: /img/uploads/dog.jpg
+inlineCta:
+  title: Call to action
+  subtitle: It's calling you to action
+  buttonText: Action!
+  buttonHref: /
 ---
