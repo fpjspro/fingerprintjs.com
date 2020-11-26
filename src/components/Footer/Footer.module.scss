@@ -29,21 +29,20 @@
   .nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
- 
+
     .menu {
       margin-right: 4rem;
-  
+
       .docs {
         @include media("<=phoneLandscape") {
           margin-top: 4rem;
         }
       }
-  
       @include media("<=phoneLandscape") {
         margin-right: 0;
       }
     }
-  
+
     .wrapper {
       display: flex;
       margin-right: 24px;
@@ -57,7 +56,7 @@
         }
       }
     }
-  
+
     .contact {
       @include media("<=tabletWide") {
         margin-right: 0;
@@ -67,7 +66,7 @@
     .contact,
     .menu {
       font-size: 1.75rem;
-  
+
       .title {
         margin-bottom: 1.5rem;
       }
@@ -78,32 +77,32 @@
         display: block;
         padding: 0.5rem 0;
         @include transition((opacity));
-  
+
         opacity: 0.8;
-  
+
         &:hover {
           opacity: v('extra-faded');
         }
-  
+
         + .link {
           margin-top: 0.5rem;
         }
       }
     }
-  
+
     .contact {
       .address {
         font-style: normal;
         margin-bottom: 5rem;
-  
+
         a {
           text-decoration: none;
           color: inherit;
-        
+
           &.link {
           position: relative;
           font-weight: v('semi');
-        
+
             &:before {
               content: '';
               position: absolute;
@@ -115,7 +114,7 @@
               opacity: 1;
               @include transition((opacity));
             }
-        
+
             &:hover {
               &:before {
                 opacity: 0;
@@ -124,19 +123,19 @@
           }
         }
       }
-  
+
       .social {
         display: flex;
         align-items: flex-end;
-  
+
         > * + * {
           margin-left: 2rem;
         }
-  
+
         > span {
           height: 28px;
         }
-  
+
         .links {
           display: flex;
           align-items: center;
@@ -168,5 +167,5 @@
         }
       }
     }
-  }  
+  }
 }

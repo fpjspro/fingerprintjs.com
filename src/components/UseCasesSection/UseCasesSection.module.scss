@@ -90,7 +90,6 @@
         margin-bottom: 2rem;
         @include transition((color));
       }
-
       .description {
         font-size: 1.75rem;
         opacity: v('faded');
