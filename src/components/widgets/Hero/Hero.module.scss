@@ -2,6 +2,14 @@
   padding: 20rem 0;
   position: relative;
 
+  @include media("<=tabletWide") {
+    padding: 14rem 0;
+  }
+
+  @include media("<=phoneLandscape") {
+    padding: 7rem 0;
+  }
+
   &::before {
     content: '';
     opacity: 0.2;
@@ -16,12 +24,12 @@
 
     @include media("<=tabletWide") {
       background-image: url('../../../img/hero-768+.png');
-      background-position: center 55%;
-      background-size: 100vw auto;
+      background-size: 80vw auto;
     }
 
-    @include media("<=phoneLandscape") {
-      padding-bottom: 3rem;
+    @include media("<=phone") {
+      background-image: url('../../../img/hero-320+.png');
+      background-size: 80vw auto;
     }
   }
 }
@@ -30,6 +38,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .title {
