@@ -21,21 +21,28 @@
 
   .state {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
 
     border-radius: 1rem;
-    padding: 0 2rem;
+    padding: 0;
+    margin-top: 5rem;
     width: 100%;
 
-    text-align: center;
+    text-align: left;
 
     @media screen and (max-width: 640px) {
       margin-top: 3rem;
     }
 
+    @media screen and (max-width: 425px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
     .icon {
+      flex: none;
       $icon-size: 6rem;
 
       width: $icon-size;
@@ -43,16 +50,24 @@
 
       border: solid 2px var(--state-color);
       border-radius: $icon-size;
-      margin-top: 4rem;
       padding: 1rem;
 
       fill: v('state-color');
+
+      @media screen and (max-width: 425px) {
+        margin-top: 4rem;
+      }
     }
 
     .message {
-      margin-top: 5rem;
+      margin-left: 5rem;
+
       color: c('white');
       font-family: v('ff-mono');
+
+      @media screen and (max-width: 425px) {
+        margin-left: 0;
+      }
     }
   }
 

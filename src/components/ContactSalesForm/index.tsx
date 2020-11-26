@@ -23,7 +23,7 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
     updateFormState(FormState.Loading)
 
     function onError() {
-      updateErrorMessage('Something went wrong. Please try again later.')
+      updateErrorMessage('An\xa0error\xa0occurred. Contact\xa0us\xa0at: support@fingerprintjs.com')
       updateFormState(FormState.Failed)
       setTimeout(() => {
         updateFormState(FormState.Default)
@@ -89,7 +89,7 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
 
       {formState === FormState.Success && (
         <div className={classNames(styles.state, styles.success)}>
-          <div className={styles.message}>Thank you! Our sales team will be in contact with you shortly.</div>
+          <div className={styles.message}>Thanks, we received your request. We'll get back to you soon.</div>
           <CheckSvg className={styles.icon} />
         </div>
       )}
