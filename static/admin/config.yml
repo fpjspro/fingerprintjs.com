@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: feature/hero-component
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -30,6 +30,7 @@ collections:
                   { label: Image, name: image, widget: image },
                   { label: Subheader, name: subheader, widget: string },
                   { label: Bullets, name: bullets, widget: list },
+                  { label: Image after text, name: imageAfterText, widget: boolean },
                 ],
             }
       - file: 'content/pages/hero-page.md'

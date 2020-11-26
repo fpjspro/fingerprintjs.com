@@ -1,7 +1,6 @@
 import React from 'react'
 import AlternatingImagesText, { BlockWithImage } from '../components/widgets/AlternatingImagesText'
 import { LayoutTemplate } from '../components/Layout'
-import Container from '../components/common/Container'
 import { graphql } from 'gatsby'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 
@@ -11,9 +10,10 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
   }
 
   const title = data.markdownRemark.frontmatter.title ?? 'Default Title'
-  const block = mapToBlockWithImage(data.markdownRemark.frontmatter.block1)
+  const block1 = mapToBlockWithImage(data.markdownRemark.frontmatter.block1)
+  const block2 = mapToBlockWithImage(data.markdownRemark.frontmatter.block2)
 
-  return <AccountSharingPageTemplate title={title} block={block} />
+  return <AccountSharingPageTemplate title={title} blocks={[block1, block2]} />
 }
 
 export const pageQuery = graphql`
@@ -32,6 +32,19 @@ export const pageQuery = graphql`
               }
             }
           }
+          imageAfterText
+        }
+        block2 {
+          bullets
+          subheader
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          imageAfterText
         }
       }
     }
@@ -39,32 +52,32 @@ export const pageQuery = graphql`
 `
 interface TemplateProps {
   title: string
-  block: BlockWithImage
+  blocks: BlockWithImage[]
 }
-export function AccountSharingPageTemplate({ title, block }: TemplateProps) {
+export function AccountSharingPageTemplate({ title, blocks }: TemplateProps) {
   return (
     <LayoutTemplate siteMetadata={{ title: 'preview', description: 'desc', image: 'none', url: 'url' }}>
-      <Container>
-        <AlternatingImagesText title={title} blocks={[block]} />
-      </Container>
+      <AlternatingImagesText title={title} blocks={blocks} />
     </LayoutTemplate>
   )
 }
 
 export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentProps) {
   const title = entry.getIn(['data', 'title']) as string
-  const block = entry.getIn(['data', 'block1'])?.toObject() as QueryBlock
+  const block1 = entry.getIn(['data', 'block1'])?.toObject() as QueryBlock
+  const block2 = entry.getIn(['data', 'block2'])?.toObject() as QueryBlock
 
-  return <AccountSharingPageTemplate title={title} block={mapToBlockWithImage(block)} />
+  return <AccountSharingPageTemplate title={title} blocks={[block1, block2].map(mapToBlockWithImage)} />
 }
 
 type QueryBlock = NonNullable<
   NonNullable<GatsbyTypes.AccountSharingPageQuery['markdownRemark']>['frontmatter']
 >['block1']
-function mapToBlockWithImage(queryBlocK: QueryBlock): BlockWithImage {
+function mapToBlockWithImage(queryBlock: QueryBlock): BlockWithImage {
   return {
-    bullets: queryBlocK?.bullets ?? [],
-    image: queryBlocK?.image,
-    subTitle: queryBlocK?.subheader ?? 'Default',
+    bullets: queryBlock?.bullets ?? [],
+    image: queryBlock?.image,
+    subTitle: queryBlock?.subheader ?? 'Default',
+    imageAfterText: queryBlock?.imageAfterText ?? false,
   } as BlockWithImage
 }

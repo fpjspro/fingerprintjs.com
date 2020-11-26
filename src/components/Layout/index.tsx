@@ -67,7 +67,7 @@ export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) 
         </script>
       </Helmet>
       <Header />
-      <div>{children}</div>
+      {children}
       <Footer />
     </>
   )
