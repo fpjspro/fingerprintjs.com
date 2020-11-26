@@ -4,7 +4,7 @@ import Footer from '../Footer'
 import Header from '../Header'
 
 import useSiteMetadata from '../../hooks/useSiteMetadata'
-import { GATSBY_FPJS_ENDPOINT, GATSBY_GTM_TOKEN, GATSBY_OPTIMIZE_TOKEN } from '../../constants/env'
+import { FPJS_ENDPOINT, GTM_TOKEN, OPTIMIZE_TOKEN } from '../../constants/env'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -22,9 +22,9 @@ interface LayoutTemplateProps extends LayoutProps {
 // We need this to not use static GraphQL queries in order use it in CMS preview (it runs it in browser directly)
 export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) {
   const { title, description, url, image } = siteMetadata
-  const fpjsEndpoint = GATSBY_FPJS_ENDPOINT
-  const gtmToken = GATSBY_GTM_TOKEN
-  const optimizeToken = GATSBY_OPTIMIZE_TOKEN
+  const fpjsEndpoint = FPJS_ENDPOINT
+  const gtmToken = GTM_TOKEN
+  const optimizeToken = OPTIMIZE_TOKEN
 
   return (
     <>

@@ -5,7 +5,7 @@ import { ReactComponent as CloseSvg } from '../../img/close.svg'
 import classNames from 'classnames'
 import Button from '../common/Button'
 import { FormState } from '../../types/FormState'
-import { GATSBY_FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
+import { FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
 import { sendEvent } from '../../helpers/gtm'
 import { Forms } from '../../context/FormContext'
@@ -19,7 +19,7 @@ interface GetStartedFormProps {
 export default function GetStartedForm({ className }: GetStartedFormProps) {
   const { visitorData } = useVisitorData()
   const visitorId = visitorData?.visitorId
-  const dashboardEndpoint = GATSBY_FPJS_DASHBOARD_ENDPOINT
+  const dashboardEndpoint = FPJS_DASHBOARD_ENDPOINT
   const [email, setEmail] = useState('')
   const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.Signup)
 

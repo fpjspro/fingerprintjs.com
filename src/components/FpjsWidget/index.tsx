@@ -9,12 +9,12 @@ import { CurrentVisitProps } from './currentVisitProps'
 import MobileWidget from './MobileWidget'
 import { useVisitorData } from '../../context/FpjsContext'
 import useRollbar from '../../hooks/useRollbar'
-import { GATSBY_FPJS_API_TOKEN, GATSBY_FPJS_ENDPOINT, GATSBY_MAPBOX_ACCESS_TOKEN } from '../../constants/env'
+import { FPJS_API_TOKEN, FPJS_ENDPOINT, MAPBOX_ACCESS_TOKEN } from '../../constants/env'
 import styles from './FpjsWidget.module.scss'
 
-const apiToken = GATSBY_FPJS_API_TOKEN ?? 'test_fpjs_api_token'
-const endpoint = GATSBY_FPJS_ENDPOINT ?? ''
-const mapboxToken = GATSBY_MAPBOX_ACCESS_TOKEN
+const apiToken = FPJS_API_TOKEN ?? 'test_fpjs_api_token'
+const endpoint = FPJS_ENDPOINT ?? ''
+const mapboxToken = MAPBOX_ACCESS_TOKEN
 
 export default function FpjsWidget() {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>()
