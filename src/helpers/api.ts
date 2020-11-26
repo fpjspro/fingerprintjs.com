@@ -9,5 +9,5 @@ export async function createNewLead(email: string, website: string) {
       website,
       name: email,
     }),
-  }).then((response) => response.json())
+  })
 }

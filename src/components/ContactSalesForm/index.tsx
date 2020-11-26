@@ -22,18 +22,28 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
 
     updateFormState(FormState.Loading)
 
-    const { ok, error } = await createNewLead(email, website)
-
-    if (ok) {
-      updateFormState(FormState.Success)
-      sendEvent({ event: 'leadSubmit.success' })
-    } else {
-      updateErrorMessage(error.message || 'Something went wrong. Please try again later.')
+    function onError() {
+      updateErrorMessage('Something went wrong. Please try again later.')
       updateFormState(FormState.Failed)
       setTimeout(() => {
         updateFormState(FormState.Default)
       }, 2500)
       sendEvent({ event: 'leadSubmit.error' })
+    }
+
+    try {
+      const response = await createNewLead(email, website)
+      const status = response.status
+      const data = await response.json()
+
+      if (status !== 200 || data?.errors?.length > 0) {
+        onError()
+      } else {
+        updateFormState(FormState.Success)
+        sendEvent({ event: 'leadSubmit.success' })
+      }
+    } catch (error) {
+      onError()
     }
   }
 
