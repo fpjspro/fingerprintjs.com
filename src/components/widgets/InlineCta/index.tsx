@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from '../../common/Button'
-import backgroundImage from '../../../img/bg-full.png'
 
 import styles from './InlineCta.module.scss'
 

@@ -12,7 +12,7 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
     !data.markdownRemark?.frontmatter?.block1 ||
     data.markdownRemark?.frontmatter?.inlineCta
   ) {
-    return
+    return <></>
   }
 
   const title = data.markdownRemark.frontmatter.title ?? 'Default Title'
