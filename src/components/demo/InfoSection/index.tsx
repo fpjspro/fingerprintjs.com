@@ -9,7 +9,7 @@ import { ReactComponent as GeolocationSvg } from '../../../img/geolocation.svg'
 import { ReactComponent as IncognitoDetectionSvg } from '../../../img/incognito_detection.svg'
 import Section from '../../../components/common/Section'
 import styles from './InfoSection.module.scss'
-import { Link } from '@reach/router'
+import { Link } from 'gatsby'
 
 interface FeaturesBlockProps {
   features: { icon: React.ReactNode; title: string }[]

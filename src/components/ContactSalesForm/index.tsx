@@ -72,7 +72,6 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
             disabled={formState === FormState.Loading}
           />
           <input
-            type='url'
             name='website'
             required
             className={styles.input}

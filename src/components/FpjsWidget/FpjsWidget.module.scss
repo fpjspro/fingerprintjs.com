@@ -70,7 +70,6 @@
 
     .header {
       background-color: adjust-color(c('brand-water'), $saturation: -25%, $lightness: 25%);
-
       @include media("<=phoneLandscape") {
         padding-top: 2rem;
         background-color: v('off-white');
@@ -89,7 +88,6 @@
       padding: 2rem;
       @include scrollbox(300px, 20px, 0);
       position: relative;
-
       @include media("<=phoneLandscape") {
         // padding-top: 0;
         @include scrollbox(150px, 20px, 0);
@@ -179,7 +177,6 @@
       grid-template-areas: 'id id''bot location''ip location''incognito location''browser location';
       column-gap: 2rem;
       row-gap: 3rem;
-
       @include media("<=phoneLandscape") {
         grid-template-columns: 1fr;
         grid-template-areas: 'id''bot''ip''incognito''browser''location';
@@ -196,7 +193,6 @@
       svg {
         fill: v('brand-fire');
         vertical-align: -webkit-baseline-middle;
-
         @include media("<=phone") {
           order: 2;
         }
@@ -235,7 +231,6 @@
         .label {
           height: 4rem !important;
         }
-
         @include media("<=phone") {
           font-size: 2rem;
         }
@@ -245,7 +240,6 @@
           color: v('brand-fire');
           font-weight: v('bold');
           opacity: 1;
-
           @include media("<=phone") {
             flex-basis: 100%;
             margin-left: 0 !important;
@@ -256,7 +250,7 @@
       .bot {
         grid-area: bot;
       }
-  
+
       .ip {
         grid-area: ip;
       }
@@ -286,7 +280,6 @@
           overflow: hidden;
           position: relative;
           cursor: pointer;
-
           @include media("<=desktop") {
             margin-top: 1rem;
           }
