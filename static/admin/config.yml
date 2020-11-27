@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: feature/hero-component
+  branch: feature/alternating-image-component
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
