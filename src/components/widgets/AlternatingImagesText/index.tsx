@@ -5,12 +5,17 @@ import Container from '../../common/Container'
 import Section from '../../common/Section'
 import classNames from 'classnames'
 import styles from './AlternatingImagesText.module.scss'
+import Button from '../../common/Button'
+import { Link } from 'gatsby'
 
 export interface BlockWithImage {
   image: ImageInfo
   subTitle: string
   bullets: string[]
-  imageAfterText: boolean
+  isImageAfterText: boolean
+  ctaText: string
+  ctaUrl: string
+  isCtaButton: boolean
 }
 
 export interface AlternatingImagesTextProps {
@@ -34,9 +39,17 @@ function Block({ block }: { block: BlockWithImage }) {
     <Container className={styles.container}>
       <PreviewCompatibleImage className={styles.image} imageInfo={block.image} />
 
-      <div className={classNames(styles.text, { [styles.left]: block.imageAfterText })}>
+      <div className={classNames(styles.text, { [styles.left]: block.isImageAfterText })}>
         <h3 className={styles.blockTitle}>{block.subTitle}</h3>
-        <TextList items={block.bullets} ordered />
+        <TextList className={styles.list} items={block.bullets} ordered />
+        {block.ctaText &&
+          (block.isCtaButton ? (
+            <Button href={block.ctaUrl}>{block.ctaText}</Button>
+          ) : (
+            <Link className={styles.link} to={block.ctaUrl}>
+              {block.ctaText}
+            </Link>
+          ))}
       </div>
     </Container>
   )

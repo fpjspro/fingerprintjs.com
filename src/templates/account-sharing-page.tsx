@@ -32,7 +32,10 @@ export const pageQuery = graphql`
               }
             }
           }
-          imageAfterText
+          isImageAfterText
+          ctaText
+          ctaUrl
+          isCtaButton
         }
         block2 {
           bullets
@@ -44,7 +47,10 @@ export const pageQuery = graphql`
               }
             }
           }
-          imageAfterText
+          isImageAfterText
+          ctaText
+          ctaUrl
+          isCtaButton
         }
       }
     }
@@ -78,6 +84,9 @@ function mapToBlockWithImage(queryBlock: QueryBlock): BlockWithImage {
     bullets: queryBlock?.bullets ?? [],
     image: queryBlock?.image,
     subTitle: queryBlock?.subheader ?? 'Default',
-    imageAfterText: queryBlock?.imageAfterText ?? false,
+    isImageAfterText: queryBlock?.isImageAfterText ?? false,
+    ctaText: queryBlock?.ctaText ?? 'Learn more',
+    ctaUrl: queryBlock?.ctaUrl ?? 'https://fingerprintjs.com',
+    isCtaButton: queryBlock?.isCtaButton ?? false,
   } as BlockWithImage
 }
