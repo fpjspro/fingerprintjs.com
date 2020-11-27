@@ -63,5 +63,3 @@ function CtaComponent({ ctaUrl, ctaText, isCtaButton }: CtaComponentProps) {
     </Link>
   )
 }
-
-//TODO: [DI]: Final fixes for styles, add ability to switch picture side in block
