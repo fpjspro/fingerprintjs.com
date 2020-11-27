@@ -42,16 +42,25 @@ function Block({ block }: { block: BlockWithImage }) {
       <div className={classNames(styles.text, { [styles.left]: block.isImageAfterText })}>
         <h3 className={styles.blockTitle}>{block.subTitle}</h3>
         <TextList className={styles.list} items={block.bullets} ordered />
-        {block.ctaText &&
-          (block.isCtaButton ? (
-            <Button href={block.ctaUrl}>{block.ctaText}</Button>
-          ) : (
-            <Link className={styles.link} to={block.ctaUrl}>
-              {block.ctaText}
-            </Link>
-          ))}
+        {block.ctaText && <CtaComponent {...block} />}
       </div>
     </Container>
+  )
+}
+
+interface CtaComponentProps {
+  ctaText: string
+  ctaUrl: string
+  isCtaButton: boolean
+}
+
+function CtaComponent({ ctaUrl, ctaText, isCtaButton }: CtaComponentProps) {
+  return isCtaButton ? (
+    <Button href={ctaUrl}>{ctaText}</Button>
+  ) : (
+    <Link className={styles.link} to={ctaUrl}>
+      {ctaText}
+    </Link>
   )
 }
 

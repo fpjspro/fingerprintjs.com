@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import styles from './TestList.module.scss'
+import styles from './TextList.module.scss'
 import { CommonProps } from '../../../types/prop-types'
 
 interface TextListProps {
