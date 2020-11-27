@@ -10,7 +10,7 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
   if (
     !data.markdownRemark?.frontmatter ||
     !data.markdownRemark?.frontmatter?.block1 ||
-    data.markdownRemark?.frontmatter?.inlineCta
+    !data.markdownRemark?.frontmatter?.inlineCta
   ) {
     return <></>
   }
