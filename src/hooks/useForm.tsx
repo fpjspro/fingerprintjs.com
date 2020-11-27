@@ -1,12 +1,31 @@
-import React, { createContext, Dispatch, Reducer, ReducerAction, useReducer } from 'react'
+import React, { createContext, Dispatch, Reducer, ReducerAction, useReducer, useContext, useCallback } from 'react'
 import { FormState } from '../types/FormState'
+
+export default function useForm(formId: Forms) {
+  const { state, dispatch } = useContext(FormContext)
+
+  const updateFormState = (formState: FormState) => {
+    dispatch({ type: UPDATE_FORM_STATE, payload: { formId, formState } })
+  }
+
+  const updateErrorMessage = (errorMessage: string) => {
+    dispatch({ type: UPDATE_ERROR_MESSAGE, payload: { formId, errorMessage } })
+  }
+
+  return {
+    formState: state[formId]?.formState ?? FormState.Default,
+    errorMessage: state[formId]?.errorMessage,
+    updateFormState,
+    updateErrorMessage,
+  }
+}
 
 export const UPDATE_FORM_STATE = 'UPDATE_FORM_STATE'
 export const UPDATE_ERROR_MESSAGE = 'UPDATE_ERROR_MESSAGE'
 
 export enum Forms {
-  Signup = 'Signup',
-  ContactSales = 'ContactSales',
+  Signup,
+  ContactSales,
 }
 
 interface GetStartedFormData {
@@ -46,14 +65,7 @@ const reducer: FormsReducer = (state: FormsState, action: Action) => {
 }
 
 export function FormProvider({ children }: { children: React.ReactNode }) {
-  const initialState = {}
-
-  Object.keys(Forms).forEach((form) => {
-    initialState[form] = {
-      formState: FormState.Default,
-    }
-  })
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, {})
   const contextValue = {
     state,
     dispatch,
@@ -68,5 +80,3 @@ const FormContext = createContext<FormContextType>({
     // noop
   },
 })
-
-export default FormContext

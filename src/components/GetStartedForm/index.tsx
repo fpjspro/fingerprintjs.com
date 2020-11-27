@@ -8,7 +8,7 @@ import { FormState } from '../../types/FormState'
 import { FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
 import { sendEvent } from '../../helpers/gtm'
-import { Forms } from '../../context/FormContext'
+import { Forms } from '../../hooks/useForm'
 import styles from './GetStartedForm.module.scss'
 import useForm from '../../hooks/useForm'
 
