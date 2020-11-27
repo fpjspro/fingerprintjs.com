@@ -32,11 +32,3 @@ collections:
                   { label: Bullets, name: bullets, widget: list },
                 ],
             }
-      - file: 'content/pages/hero-page.md'
-        label: 'Hero test layout'
-        name: 'hero-page'
-        fields:
-          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'hero-page' }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
-          - { label: CTA Text, name: ctaText, widget: string }
