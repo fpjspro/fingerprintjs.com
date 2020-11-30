@@ -48,7 +48,7 @@ export default function PriceCalculator() {
         <div className={styles.customInput}>
           <div className={styles.description}>Or type a specific number</div>
           <input
-            value={customCount || ''}
+            value={customCount ?? ''}
             onChange={(e) => onCustomCountChanged(e.target.value)}
             type='number'
             name='identification-user-input'

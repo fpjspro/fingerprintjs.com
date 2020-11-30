@@ -1,0 +1,13 @@
+.cardSection {
+  background-color: #f2f3f7;
+  padding: 8rem;
+  padding-bottom: 0;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  @include media('<=desktop') {
+    padding: 4rem;
+    padding-bottom: 0;
+  }
+}

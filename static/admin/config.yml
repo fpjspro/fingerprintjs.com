@@ -33,6 +33,16 @@ collections:
                 ],
             }
           - {
+              label: Sub Header,
+              name: subHeader,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Subtitle, name: subtitle, widget: string, required: false },
+                ],
+            }
+          - {
               label: Card Grid,
               name: cards,
               widget: list,
@@ -41,5 +51,26 @@ collections:
                   { label: Icon, name: icon, widget: image, required: false },
                   { label: Title, name: title, widget: string },
                   { label: Content, name: content, widget: string },
+                ],
+            }
+          - {
+              label: CardSection,
+              name: cardSection,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Subtitle, name: subtitle, widget: string, required: false },
+                  {
+                    label: Cards,
+                    name: cards,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Icon, name: icon, widget: image, required: false },
+                        { label: Title, name: title, widget: string },
+                        { label: Content, name: content, widget: string },
+                      ],
+                  },
                 ],
             }
