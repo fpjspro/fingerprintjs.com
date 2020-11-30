@@ -1,0 +1,123 @@
+.contactSalesForm {
+  width: 100%;
+
+  &.failed {
+    --state-color: var(--error);
+  }
+
+  &.success {
+    --state-color: var(--success);
+  }
+
+  &.loading::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: adjust-color($color: c(brand-water), $saturation: -30%, $alpha: -0.2);
+    content: '';
+  }
+
+  .state {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1rem;
+    padding: 0;
+    margin-top: 5rem;
+    width: 100%;
+
+    text-align: left;
+
+    @media screen and (max-width: 640px) {
+      margin-top: 3rem;
+    }
+
+    @media screen and (max-width: 425px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .icon {
+      flex: none;
+      $icon-size: 6rem;
+
+      width: $icon-size;
+      height: $icon-size;
+
+      border: solid 2px var(--state-color);
+      border-radius: $icon-size;
+      padding: 1rem;
+
+      fill: v('state-color');
+
+      @media screen and (max-width: 425px) {
+        margin-top: 4rem;
+      }
+    }
+
+    .message {
+      margin-left: 5rem;
+
+      color: c('white');
+      font-family: v('ff-mono');
+
+      @media screen and (max-width: 425px) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: flex-end;
+  }
+
+  .input {
+    align-self: stretch;
+    border: 0;
+    box-shadow: 0 0 0 1px #c4cdd5;
+
+    -webkit-appearance: none;
+    background-color: c('white');
+    font-family: v(ff-sans);
+    font-size: 2rem;
+
+    width: 100%;
+    min-width: 260px;
+    height: 5rem;
+    padding: 1.5rem;
+
+    flex: 1;
+    border-radius: 1rem;
+
+    @media screen and (max-width: 640px) {
+      min-width: 200px;
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 2px #393e9e;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: v('black');
+    }
+
+    & + .input {
+      margin-top: 1.75rem;
+    }
+  }
+
+  .button {
+    align-self: flex-end;
+    height: 5rem;
+    margin-top: 1.75rem;
+  }
+}

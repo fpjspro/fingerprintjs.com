@@ -7,9 +7,12 @@
     &:before {
       content: counter(number) '.';
       font-size: 2rem;
-      font-weight: v('semi');
       color: v('brand-fire');
       margin-right: 1rem;
+    }
+
+    + .item {
+      margin-top: 1.5rem;
     }
   }
 }

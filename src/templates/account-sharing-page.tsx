@@ -4,15 +4,16 @@ import CardGrid, { Card } from '../components/widgets/CardGrid'
 import SubHeaderComponent, { SubHeader } from '../components/widgets/SubHeader'
 import CardSectionComponent, { CardSection } from '../components/widgets/CardSection'
 import { LayoutTemplate } from '../components/Layout'
-import Container from '../components/common/Container'
 import { graphql } from 'gatsby'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import { ArrayElement } from '../helpers/types'
+import Container from '../components/common/Container'
 
 export default function AccountSharingPage({ data }: { data: GatsbyTypes.AccountSharingPageQuery }) {
   if (
     !data.markdownRemark?.frontmatter ||
     !data.markdownRemark?.frontmatter?.block1 ||
+    !data.markdownRemark?.frontmatter?.block2 ||
     !data.markdownRemark?.frontmatter?.subHeader ||
     !data.markdownRemark?.frontmatter?.cards ||
     !data.markdownRemark?.frontmatter?.cardSection
@@ -21,7 +22,8 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
   }
 
   const title = data.markdownRemark.frontmatter.title ?? 'Default Title'
-  const block = mapToBlockWithImage(data.markdownRemark.frontmatter.block1)
+  const block1 = mapToBlockWithImage(data.markdownRemark.frontmatter.block1)
+  const block2 = mapToBlockWithImage(data.markdownRemark.frontmatter.block2)
   const subHeader = mapToSubHeader(data.markdownRemark.frontmatter.subHeader)
   const cards = mapToCards(data.markdownRemark.frontmatter.cards as QueryCard[])
   const cardSection = mapToCardSection(data.markdownRemark.frontmatter.cardSection)
@@ -29,7 +31,7 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
   return (
     <AccountSharingPageTemplate
       title={title}
-      block={block}
+      blocks={[block1, block2]}
       subHeader={subHeader}
       cards={cards}
       cardSection={cardSection}
@@ -53,6 +55,25 @@ export const pageQuery = graphql`
               }
             }
           }
+          isImageAfterText
+          ctaText
+          ctaUrl
+          isCtaButton
+        }
+        block2 {
+          bullets
+          subheader
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          isImageAfterText
+          ctaText
+          ctaUrl
+          isCtaButton
         }
         subHeader {
           title
@@ -90,19 +111,18 @@ export const pageQuery = graphql`
 `
 interface TemplateProps {
   title: string
-  block: BlockWithImage
+  blocks: BlockWithImage[]
   subHeader: SubHeader
   cards: Card[]
   cardSection: CardSection
 }
-export function AccountSharingPageTemplate({ title, block, subHeader, cards, cardSection }: TemplateProps) {
+export function AccountSharingPageTemplate({ title, blocks, subHeader, cards, cardSection }: TemplateProps) {
   return (
     <LayoutTemplate siteMetadata={{ title: 'preview', description: 'desc', image: 'none', url: 'url' }}>
       <Container>
-        <AlternatingImagesText title={title} blocks={[block]} />
+        <AlternatingImagesText title={title} blocks={blocks} />
         <SubHeaderComponent title={subHeader.title} subtitle={subHeader.subtitle} />
         <CardGrid cards={cards} />
-        {/* TODO Maybe change to {...cardSection}? */}
         <CardSectionComponent title={cardSection.title} subtitle={cardSection.subtitle} cards={cardSection.cards} />
       </Container>
     </LayoutTemplate>
@@ -111,7 +131,8 @@ export function AccountSharingPageTemplate({ title, block, subHeader, cards, car
 
 export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentProps) {
   const title = entry.getIn(['data', 'title']) as string
-  const block = entry.getIn(['data', 'block1'])?.toObject() as QueryBlock
+  const block1 = entry.getIn(['data', 'block1'])?.toObject() as QueryBlock
+  const block2 = entry.getIn(['data', 'block2'])?.toObject() as QueryBlock
   const subHeader = entry.getIn(['data', 'subHeader'])?.toObject() as QuerySubHeader
   const cards = entry.getIn(['data', 'cards'])?.toJS() as QueryCard[]
 
@@ -124,7 +145,7 @@ export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentPro
   return (
     <AccountSharingPageTemplate
       title={title}
-      block={mapToBlockWithImage(block)}
+      blocks={[block1, block2].map(mapToBlockWithImage)}
       subHeader={mapToSubHeader(subHeader)}
       cards={mapToCards(cards)}
       cardSection={mapToCardSection(cardSection)}
@@ -135,17 +156,21 @@ export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentPro
 type QueryBlock = NonNullable<
   NonNullable<GatsbyTypes.AccountSharingPageQuery['markdownRemark']>['frontmatter']
 >['block1']
-function mapToBlockWithImage(queryBlocK: QueryBlock): BlockWithImage {
+function mapToBlockWithImage(queryBlock: QueryBlock): BlockWithImage {
   return {
-    bullets: queryBlocK?.bullets ?? [],
-    image: queryBlocK?.image,
-    subTitle: queryBlocK?.subheader ?? 'Default',
+    bullets: queryBlock?.bullets ?? [],
+    image: queryBlock?.image,
+    subTitle: queryBlock?.subheader ?? 'Default',
+    isImageAfterText: queryBlock?.isImageAfterText ?? false,
+    ctaText: queryBlock?.ctaText ?? 'Learn more',
+    ctaUrl: queryBlock?.ctaUrl ?? 'https://fingerprintjs.com',
+    isCtaButton: queryBlock?.isCtaButton ?? false,
   } as BlockWithImage
 }
 
 type QuerySubHeader = NonNullable<
   NonNullable<GatsbyTypes.AccountSharingPageQuery['markdownRemark']>['frontmatter']
->['header']
+>['subHeader']
 function mapToSubHeader(queryHeader: QuerySubHeader): SubHeader {
   return {
     title: queryHeader?.title ?? '',

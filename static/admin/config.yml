@@ -30,6 +30,25 @@ collections:
                   { label: Image, name: image, widget: image },
                   { label: Subheader, name: subheader, widget: string },
                   { label: Bullets, name: bullets, widget: list },
+                  { label: Is image after text?, name: isImageAfterText, widget: boolean },
+                  { label: CTA text, name: ctaText, widget: string },
+                  { label: CTA url, name: ctaUrl, widget: string },
+                  { label: Is CTA a primary button?, name: isCtaButton, widget: boolean },
+                ],
+            }
+          - {
+              label: Image block 2,
+              name: block2,
+              widget: object,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Subheader, name: subheader, widget: string },
+                  { label: Bullets, name: bullets, widget: list },
+                  { label: Is image after text, name: isImageAfterText, widget: boolean },
+                  { label: CTA text, name: ctaText, widget: string },
+                  { label: CTA url, name: ctaUrl, widget: string },
+                  { label: Is CTA a primary button, name: isCtaButton, widget: boolean },
                 ],
             }
           - {

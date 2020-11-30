@@ -8,12 +8,15 @@ import { ReactComponent as BurgerSvg } from './burger.svg'
 import MobileNavbar from '../MobileNavbar'
 import Button from '../common/Button'
 import Container from '../common/Container'
+import { isBrowser } from '../../helpers/detector'
+import Modal from '../../components/common/Modal'
+import ContactSalesForm from '../../components/ContactSalesForm'
 
 import styles from './Header.module.scss'
-import { isBrowser } from '../../helpers/detector'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
   useEffect(() => {
     const clazz = 'isMobileMenuOpen'
@@ -29,30 +32,40 @@ export default function Header() {
   }
 
   return (
-    <header>
-      <Navbar />
-      <div className={styles.nav}>
-        <Container size='large'>
-          <nav className={styles.navMain}>
-            <div className={styles.navLeft}>
-              <Link to='/' className={`${styles.link} ${styles.linkLogo}`} title='Logo'>
-                <img src='/img/company-logos/fpjs.svg' alt='FingerprintJS' className={styles.logo} />
-              </Link>
-            </div>
-            <div className={styles.navRight}>
-              <GithubButton className={styles.desktopOnly} />
-              <Button href='mailto:sales@fingerprintjs.com' variant='outline' className={styles.desktopOnly}>
-                Contact Sales
-              </Button>
-              <Button href='https://dashboard.fingerprintjs.com/signup'>Free Trial</Button>
-              <Button className={styles.mobileToggler} variant='clear' onClick={handleToggleMobileMenu}>
-                <BurgerSvg className={styles.buttonIcon} />
-              </Button>
-            </div>
-          </nav>
-        </Container>
-      </div>
-      {isMobileMenuOpen && <MobileNavbar />}
-    </header>
+    <>
+      <header>
+        <Navbar />
+        <div className={styles.nav}>
+          <Container size='large'>
+            <nav className={styles.navMain}>
+              <div className={styles.navLeft}>
+                <Link to='/' className={`${styles.link} ${styles.linkLogo}`} title='Logo'>
+                  <img src='/img/company-logos/fpjs.svg' alt='FingerprintJS' className={styles.logo} />
+                </Link>
+              </div>
+              <div className={styles.navRight}>
+                <GithubButton className={styles.desktopOnly} />
+                <Button
+                  onClick={() => setIsContactSalesModalOpen(true)}
+                  variant='outline'
+                  className={styles.desktopOnly}
+                >
+                  Contact Sales
+                </Button>
+                <Button href='https://dashboard.fingerprintjs.com/signup'>Free Trial</Button>
+                <Button className={styles.mobileToggler} variant='clear' onClick={handleToggleMobileMenu}>
+                  <BurgerSvg className={styles.buttonIcon} />
+                </Button>
+              </div>
+            </nav>
+          </Container>
+        </div>
+        {isMobileMenuOpen && <MobileNavbar />}
+      </header>
+
+      <Modal title='Contact Sales' open={isContactSalesModalOpen} onClose={() => setIsContactSalesModalOpen(false)}>
+        <ContactSalesForm />
+      </Modal>
+    </>
   )
 }
