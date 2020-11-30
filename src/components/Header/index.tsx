@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../Navbar'
 import { Link } from 'gatsby'
 import Prism from 'prismjs'
-import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import GithubButton from '../GithubButton'
 import { ReactComponent as BurgerSvg } from './burger.svg'
 import MobileNavbar from '../MobileNavbar'
@@ -16,8 +15,10 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    const clazz = 'isMobileMenuOpen'
-    isBrowser && isMobileMenuOpen ? document.body.classList.add(clazz) : document.body.classList.remove(clazz)
+    const mobileBodyClass = 'isMobileMenuOpen'
+    isBrowser && isMobileMenuOpen
+      ? document.body.classList.add(mobileBodyClass)
+      : document.body.classList.remove(mobileBodyClass)
   }, [isMobileMenuOpen])
 
   useEffect(() => {
