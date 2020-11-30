@@ -1,5 +1,5 @@
 .cardSection {
-  background-color: #f2f3f7;
+  background-color: rgb(242, 243, 247);
   padding: 8rem;
   padding-top: 4rem;
   padding-bottom: 0;
@@ -7,8 +7,15 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
 
-  @include media('<=desktop') {
+  background-image: url('./CardSectionBackground.png');
+  background-repeat: no-repeat;
+  background-size: 600px auto;
+  background-position: right bottom;
+
+  @include media('<=phoneLandscape') {
     padding: 4rem;
     padding-bottom: 0;
+
+    background-position: center bottom;
   }
 }
