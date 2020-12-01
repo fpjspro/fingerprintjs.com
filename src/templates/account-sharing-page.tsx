@@ -2,9 +2,9 @@ import React from 'react'
 import AlternatingImagesText, { BlockWithImage } from '../components/widgets/AlternatingImagesText'
 import InlineCtaComponent, { InlineCta } from '../components/widgets/InlineCta'
 import { LayoutTemplate } from '../components/Layout'
-import Container from '../components/common/Container'
 import { graphql } from 'gatsby'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
+import Container from '../components/common/Container'
 
 export default function AccountSharingPage({ data }: { data: GatsbyTypes.AccountSharingPageQuery }) {
   if (
@@ -16,10 +16,11 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
   }
 
   const title = data.markdownRemark.frontmatter.title ?? 'Default Title'
-  const block = mapToBlockWithImage(data.markdownRemark.frontmatter.block1)
+  const block1 = mapToBlockWithImage(data.markdownRemark.frontmatter.block1)
+  const block2 = mapToBlockWithImage(data.markdownRemark.frontmatter.block2)
   const inlineCta = mapToInlineCta(data.markdownRemark.frontmatter.inlineCta)
 
-  return <AccountSharingPageTemplate title={title} block={block} inlineCta={inlineCta} />
+  return <AccountSharingPageTemplate title={title} blocks={[block1, block2]} inlineCta={inlineCta} />
 }
 
 export const pageQuery = graphql`
@@ -38,6 +39,25 @@ export const pageQuery = graphql`
               }
             }
           }
+          isImageAfterText
+          ctaText
+          ctaUrl
+          isCtaButton
+        }
+        block2 {
+          bullets
+          subheader
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          isImageAfterText
+          ctaText
+          ctaUrl
+          isCtaButton
         }
         inlineCta {
           title
@@ -51,20 +71,15 @@ export const pageQuery = graphql`
 `
 interface TemplateProps {
   title: string
-  block: BlockWithImage
+  blocks: BlockWithImage[]
   inlineCta: InlineCta
 }
-export function AccountSharingPageTemplate({ title, block, inlineCta }: TemplateProps) {
+export function AccountSharingPageTemplate({ title, blocks, inlineCta }: TemplateProps) {
   return (
     <LayoutTemplate siteMetadata={{ title: 'preview', description: 'desc', image: 'none', url: 'url' }}>
       <Container>
-        <AlternatingImagesText title={title} blocks={[block]} />
-        <InlineCtaComponent
-          title={inlineCta.title}
-          subtitle={inlineCta.subtitle}
-          buttonText={inlineCta.buttonText}
-          buttonHref={inlineCta.buttonHref}
-        />
+        <AlternatingImagesText title={title} blocks={blocks} />
+        <InlineCtaComponent {...inlineCta} />
       </Container>
     </LayoutTemplate>
   )
@@ -72,13 +87,14 @@ export function AccountSharingPageTemplate({ title, block, inlineCta }: Template
 
 export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentProps) {
   const title = entry.getIn(['data', 'title']) as string
-  const block = entry.getIn(['data', 'block1'])?.toObject() as QueryBlock
+  const block1 = entry.getIn(['data', 'block1'])?.toObject() as QueryBlock
+  const block2 = entry.getIn(['data', 'block2'])?.toObject() as QueryBlock
   const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
 
   return (
     <AccountSharingPageTemplate
       title={title}
-      block={mapToBlockWithImage(block)}
+      blocks={[block1, block2].map(mapToBlockWithImage)}
       inlineCta={mapToInlineCta(inlineCta)}
     />
   )
@@ -87,11 +103,15 @@ export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentPro
 type QueryBlock = NonNullable<
   NonNullable<GatsbyTypes.AccountSharingPageQuery['markdownRemark']>['frontmatter']
 >['block1']
-function mapToBlockWithImage(queryBlocK: QueryBlock): BlockWithImage {
+function mapToBlockWithImage(queryBlock: QueryBlock): BlockWithImage {
   return {
-    bullets: queryBlocK?.bullets ?? [],
-    image: queryBlocK?.image,
-    subTitle: queryBlocK?.subheader ?? 'Default',
+    bullets: queryBlock?.bullets ?? [],
+    image: queryBlock?.image,
+    subTitle: queryBlock?.subheader ?? 'Default',
+    isImageAfterText: queryBlock?.isImageAfterText ?? false,
+    ctaText: queryBlock?.ctaText ?? 'Learn more',
+    ctaUrl: queryBlock?.ctaUrl ?? 'https://fingerprintjs.com',
+    isCtaButton: queryBlock?.isCtaButton ?? false,
   } as BlockWithImage
 }
 
