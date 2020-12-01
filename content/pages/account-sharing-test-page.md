@@ -43,4 +43,9 @@ cardSection:
   cards:
     - { icon: /img/uploads/dog.jpg, title: Section cards, content: The grid works the same as the simple card grid }
     - { icon: /img/uploads/dog.jpg, title: It's a list of cards, content: You can add as many cards as you need }
+inlineCta:
+  title: Call to action
+  subtitle: It's calling you to action
+  buttonText: Action!
+  buttonHref: /
 ---

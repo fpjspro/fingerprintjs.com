@@ -93,3 +93,15 @@ collections:
                   },
                 ],
             }
+          - {
+              label: Inline CTA,
+              name: inlineCta,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Subtitle, name: subtitle, widget: string },
+                  { label: Button text, name: buttonText, widget: string },
+                  { label: Button href, name: buttonHref, widget: string },
+                ],
+            }

@@ -7,6 +7,7 @@ import { LayoutTemplate } from '../components/Layout'
 import { graphql } from 'gatsby'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import { ArrayElement } from '../helpers/types'
+import InlineCtaComponent, { InlineCta } from '../components/widgets/InlineCta'
 import Container from '../components/common/Container'
 
 export default function AccountSharingPage({ data }: { data: GatsbyTypes.AccountSharingPageQuery }) {
@@ -16,9 +17,10 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
     !data.markdownRemark?.frontmatter?.block2 ||
     !data.markdownRemark?.frontmatter?.subHeader ||
     !data.markdownRemark?.frontmatter?.cards ||
-    !data.markdownRemark?.frontmatter?.cardSection
+    !data.markdownRemark?.frontmatter?.cardSection ||
+    !data.markdownRemark?.frontmatter?.inlineCta
   ) {
-    return
+    return <></>
   }
 
   const title = data.markdownRemark.frontmatter.title ?? 'Default Title'
@@ -27,6 +29,7 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
   const subHeader = mapToSubHeader(data.markdownRemark.frontmatter.subHeader)
   const cards = mapToCards(data.markdownRemark.frontmatter.cards as QueryCard[])
   const cardSection = mapToCardSection(data.markdownRemark.frontmatter.cardSection)
+  const inlineCta = mapToInlineCta(data.markdownRemark.frontmatter.inlineCta)
 
   return (
     <AccountSharingPageTemplate
@@ -35,6 +38,7 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
       subHeader={subHeader}
       cards={cards}
       cardSection={cardSection}
+      inlineCta={inlineCta}
     />
   )
 }
@@ -105,6 +109,12 @@ export const pageQuery = graphql`
             content
           }
         }
+        inlineCta {
+          title
+          subtitle
+          buttonText
+          buttonHref
+        }
       }
     }
   }
@@ -115,15 +125,17 @@ interface TemplateProps {
   subHeader: SubHeader
   cards: Card[]
   cardSection: CardSection
+  inlineCta: InlineCta
 }
-export function AccountSharingPageTemplate({ title, blocks, subHeader, cards, cardSection }: TemplateProps) {
+export function AccountSharingPageTemplate({ title, blocks, subHeader, cards, cardSection, inlineCta }: TemplateProps) {
   return (
     <LayoutTemplate siteMetadata={{ title: 'preview', description: 'desc', image: 'none', url: 'url' }}>
       <Container>
         <AlternatingImagesText title={title} blocks={blocks} />
-        <SubHeaderComponent title={subHeader.title} subtitle={subHeader.subtitle} />
+        <SubHeaderComponent {...subHeader} />
         <CardGrid cards={cards} />
-        <CardSectionComponent title={cardSection.title} subtitle={cardSection.subtitle} cards={cardSection.cards} />
+        <CardSectionComponent {...cardSection} />
+        <InlineCtaComponent {...inlineCta} />
       </Container>
     </LayoutTemplate>
   )
@@ -141,6 +153,7 @@ export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentPro
     cardSection.cards = entry.getIn(['data', 'cardSection', 'cards'])?.toJS()
   }
   cardSection = cardSection as QueryCardSection
+  const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
 
   return (
     <AccountSharingPageTemplate
@@ -149,6 +162,7 @@ export function AccountSharingPagePreview({ entry }: PreviewTemplateComponentPro
       subHeader={mapToSubHeader(subHeader)}
       cards={mapToCards(cards)}
       cardSection={mapToCardSection(cardSection)}
+      inlineCta={mapToInlineCta(inlineCta)}
     />
   )
 }
@@ -203,4 +217,16 @@ function mapToCardSection(queryCardSection: QueryCardSection): CardSection {
     subtitle: queryCardSection?.subtitle ?? '',
     cards: mapToCards(queryCardSection?.cards as QueryCard[]),
   } as CardSection
+}
+
+type QueryInlineCta = NonNullable<
+  NonNullable<GatsbyTypes.AccountSharingPageQuery['markdownRemark']>['frontmatter']
+>['inlineCta']
+function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCta {
+  return {
+    title: queryInlineCta?.title || '',
+    subtitle: queryInlineCta?.subtitle || '',
+    buttonText: queryInlineCta?.buttonText || '',
+    buttonHref: queryInlineCta?.buttonHref || '',
+  } as InlineCta
 }

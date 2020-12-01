@@ -1,6 +1,6 @@
 .section {
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 0;
 }
 
 .container {
@@ -11,7 +11,7 @@
 
   background-color: v('off-white');
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     flex-direction: column;
 
     padding-top: 5rem;
@@ -22,7 +22,7 @@
   .image {
     flex-basis: 50%;
 
-    @include media("<=phoneLandscape") {
+    @include media('<=phoneLandscape') {
       flex-basis: 100%;
     }
   }
@@ -48,7 +48,7 @@
     object-fit: contain;
     max-height: 30rem;
 
-    @include media("<=phoneLandscape") {
+    @include media('<=phoneLandscape') {
       display: none;
     }
   }

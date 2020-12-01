@@ -1,0 +1,70 @@
+.inlineCta {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: hidden;
+
+  margin: 2rem 0 2rem 0;
+
+  padding: 4rem 0 4rem 0;
+
+  &::before {
+    content: '';
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+
+    background-repeat: no-repeat;
+    background-size: 1400px auto;
+    background-image: url('../../../img/bg-full.png');
+    background-position: 5% 40%;
+
+    @include media('<=phoneLandscape') {
+      background-position: 5% -25%;
+    }
+  }
+
+  @include media('<=phoneLandscape') {
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 4rem 3rem 4rem 3rem;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-weight: v('normal');
+      font-family: v(ff-mono);
+      font-size: 4rem;
+    }
+    .subtitle {
+      font-weight: v('normal');
+      font-family: v(ff-sans);
+      font-size: 1.75rem;
+
+      margin-top: 2rem;
+    }
+  }
+}
+
+.button {
+  margin-right: 2rem;
+  margin-left: 28rem;
+
+  @include media('<=desktop') {
+    margin-left: 12rem;
+  }
+
+  @include media('<=phoneLandscape') {
+    margin-top: 5rem;
+    margin-left: 0;
+    align-self: flex-end;
+  }
+}
