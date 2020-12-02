@@ -21,7 +21,7 @@ export default function CmsStaticPage({ data }: { data: GatsbyTypes.CmsStaticPag
     !data.markdownRemark?.frontmatter?.blocks ||
     !data.markdownRemark?.frontmatter?.hero
   ) {
-    return <></>
+    return null
   }
 
   const invertContent = data.markdownRemark.frontmatter.invertContent
