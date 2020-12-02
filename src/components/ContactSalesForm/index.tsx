@@ -5,10 +5,9 @@ import { ReactComponent as CloseSvg } from '../../img/close.svg'
 import { FormState } from '../../types/FormState'
 import { sendEvent } from '../../helpers/gtm'
 import classNames from 'classnames'
-import { Forms } from '../../hooks/useForm'
+import { Forms, useForm } from '../../hooks/useForm'
 import { createNewLead } from '../../helpers/api'
 import styles from './ContactSalesForm.module.scss'
-import useForm from '../../hooks/useForm'
 
 interface ContactSalesFormProps {
   className?: string | string[]

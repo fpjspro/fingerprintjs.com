@@ -1,5 +1,9 @@
 import React from 'react'
 import Button from '../../common/Button'
+import Container from '../../common/Container'
+import Section from '../../common/Section'
+import SubHeaderComponent from '../SubHeader'
+import classNames from 'classnames'
 
 import styles from './InlineCta.module.scss'
 
@@ -8,21 +12,19 @@ export interface InlineCta {
   subtitle: string
   buttonText: string
   buttonHref: string
+  className?: string | string[]
 }
 
-export default function InlineCtaComponent({ title, subtitle, buttonText, buttonHref }: InlineCta) {
+export default function InlineCtaComponent({ title, subtitle, buttonText, buttonHref, className }: InlineCta) {
   return (
-    <section className={styles.inlineCta}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{title}</h1>
-        <h2 className={styles.subtitle}>{subtitle}</h2>
-      </header>
+    <Section className={classNames(styles.root, className)}>
+      <Container size='large' className={styles.container}>
+        <SubHeaderComponent title={title} titleSize='large' subtitle={subtitle} subtitleSize='small' align='left' />
 
-      {buttonText && buttonHref && (
         <Button small={true} href={buttonHref} className={styles.button}>
           {buttonText}
         </Button>
-      )}
-    </section>
+      </Container>
+    </Section>
   )
 }

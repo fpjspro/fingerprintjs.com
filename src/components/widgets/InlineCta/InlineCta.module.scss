@@ -1,13 +1,6 @@
-.inlineCta {
+.root {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   overflow-y: hidden;
-
-  margin: 2rem 0 2rem 0;
-
-  padding: 4rem 0 4rem 0;
 
   &::before {
     content: '';
@@ -23,33 +16,21 @@
     background-image: url('../../../img/bg-full.png');
     background-position: 5% 40%;
 
+    z-index: -1;
+
     @include media('<=phoneLandscape') {
       background-position: 5% -25%;
     }
   }
 
-  @include media('<=phoneLandscape') {
-    flex-direction: column;
-    justify-content: flex-start;
-
-    padding: 4rem 3rem 4rem 3rem;
-  }
-
-  .header {
+  .container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
-    .title {
-      font-weight: v('normal');
-      font-family: v(ff-mono);
-      font-size: 4rem;
-    }
-    .subtitle {
-      font-weight: v('normal');
-      font-family: v(ff-sans);
-      font-size: 1.75rem;
-
-      margin-top: 2rem;
+    @include media('<=phoneLandscape') {
+      flex-direction: column;
+      justify-content: flex-start;
     }
   }
 }

@@ -12,8 +12,6 @@ import Tippy from '@tippyjs/react'
 import styles from './MobileWidget.module.scss'
 import { MAPBOX_ACCESS_TOKEN } from '../../constants/env'
 
-const mapboxToken = MAPBOX_ACCESS_TOKEN
-
 SwiperCore.use([Navigation])
 
 interface MobileWidgetProps extends CurrentVisitProps {
@@ -105,7 +103,7 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
                           visit.incognito ? 'dark-v10' : 'outdoors-v11'
                         }/static/${visit.ipLocation?.longitude},${
                           visit.ipLocation?.latitude
-                        },7.00,0/512x512?access_token=${mapboxToken}`}
+                        },7.00,0/512x512?access_token=${MAPBOX_ACCESS_TOKEN}`}
                       />
                     )}
                   </div>

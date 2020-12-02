@@ -3,10 +3,7 @@ templateKey: account-sharing-page
 title: Dogs are great!
 block1:
   subheader: All of our plans include 24/7 emailing and our full suite of features
-  bullets:
-    - First feature
-    - Second feature with a longer name
-    - Third feature
+  content: Some features
   image: /img/uploads/dog.jpg
   isImageAfterText: false
   ctaText: Learn more
@@ -14,10 +11,7 @@ block1:
   isCtaButton: true
 block2:
   subheader: Some other header about how great we are
-  bullets:
-    - First feature
-    - Second feature with a longer name
-    - Third feature
+  content: This is now a string
   image: /img/uploads/cat.jpg
   isImageAfterText: true
   ctaText: Learn more
@@ -25,7 +19,10 @@ block2:
   isCtaButton: false
 subHeader:
   title: Standalone header component
+  titleSize: large
   subtitle: Supports an optional subtitle
+  subtitleSize: medium
+  align: center
 cards:
   - { icon: /img/uploads/dog.jpg, title: This is a card not a cat, content: But it has a cat icon }
   - { icon: /img/uploads/dog.jpg, title: Cats or dogs?, content: We should love them both equally }

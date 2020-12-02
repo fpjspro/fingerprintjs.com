@@ -58,7 +58,41 @@ collections:
               fields:
                 [
                   { label: Title, name: title, widget: string },
+                  {
+                    label: Title Size,
+                    name: titleSize,
+                    widget: select,
+                    options:
+                      [
+                        { label: Small, value: small },
+                        { label: Normal, value: normal },
+                        { label: Medium, value: medium },
+                        { label: Large, value: large },
+                      ],
+                    default: large,
+                  },
                   { label: Subtitle, name: subtitle, widget: string, required: false },
+                  {
+                    label: Subtitle Size,
+                    name: subtitleSize,
+                    widget: select,
+                    options:
+                      [
+                        { label: Small, value: small },
+                        { label: Normal, value: normal },
+                        { label: Medium, value: medium },
+                        { label: Large, value: large },
+                      ],
+                    default: medium,
+                  },
+                  {
+                    label: Alignment,
+                    name: align,
+                    widget: select,
+                    options:
+                      [{ label: Left, value: left }, { label: Right, value: right }, { label: Center, value: center }],
+                    default: center,
+                  },
                 ],
             }
           - {
@@ -91,6 +125,71 @@ collections:
                         { label: Content, name: content, widget: string },
                       ],
                   },
+                ],
+            }
+          - {
+              label: Inline CTA,
+              name: inlineCta,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Subtitle, name: subtitle, widget: string },
+                  { label: Button text, name: buttonText, widget: string },
+                  { label: Button href, name: buttonHref, widget: string },
+                ],
+            }
+      - file: 'content/pages/cms-static-page.md'
+        label: 'CMS Static Page'
+        name: 'cms-static-page'
+        fields:
+          - { label: Invert content order, name: invertContent, widget: boolean, default: false }
+          - {
+              label: Hero,
+              name: hero,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: string },
+                  { label: CTA Text, name: ctaText, widget: string },
+                  { label: CTA Href, name: ctaHref, widget: string },
+                ],
+            }
+          - {
+              label: CardSection,
+              name: cardSection,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Subtitle, name: subtitle, widget: string, required: false },
+                  {
+                    label: Cards,
+                    name: cards,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Icon, name: icon, widget: image, required: false },
+                        { label: Title, name: title, widget: string },
+                        { label: Content, name: content, widget: string },
+                      ],
+                  },
+                ],
+            }
+          - {
+              label: Blocks,
+              name: blocks,
+              widget: list,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Subheader, name: subheader, widget: string },
+                  { label: Content, name: content, widget: string },
+                  { label: Is image after text, name: isImageAfterText, widget: boolean },
+                  { label: CTA text, name: ctaText, widget: string },
+                  { label: CTA url, name: ctaUrl, widget: string },
+                  { label: Is CTA a primary button, name: isCtaButton, widget: boolean },
                 ],
             }
           - {

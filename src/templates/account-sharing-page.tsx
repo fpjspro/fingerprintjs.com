@@ -9,6 +9,7 @@ import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import { ArrayElement } from '../helpers/types'
 import InlineCtaComponent, { InlineCta } from '../components/widgets/InlineCta'
 import Container from '../components/common/Container'
+import Hero from '../components/widgets/Hero'
 
 export default function AccountSharingPage({ data }: { data: GatsbyTypes.AccountSharingPageQuery }) {
   if (
@@ -50,7 +51,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         block1 {
-          bullets
+          content
           subheader
           image {
             childImageSharp {
@@ -65,7 +66,7 @@ export const pageQuery = graphql`
           isCtaButton
         }
         block2 {
-          bullets
+          content
           subheader
           image {
             childImageSharp {
@@ -81,7 +82,10 @@ export const pageQuery = graphql`
         }
         subHeader {
           title
+          titleSize
           subtitle
+          subtitleSize
+          align
         }
         cards {
           icon {
@@ -131,6 +135,12 @@ export function AccountSharingPageTemplate({ title, blocks, subHeader, cards, ca
   return (
     <LayoutTemplate siteMetadata={{ title: 'preview', description: 'desc', image: 'none', url: 'url' }}>
       <Container>
+        <Hero
+          title='Some title for the hero component'
+          description='Can also have a description'
+          ctaText='Button!'
+          ctaHref='/'
+        />
         <AlternatingImagesText title={title} blocks={blocks} />
         <SubHeaderComponent {...subHeader} />
         <CardGrid cards={cards} />
@@ -172,7 +182,7 @@ type QueryBlock = NonNullable<
 >['block1']
 function mapToBlockWithImage(queryBlock: QueryBlock): BlockWithImage {
   return {
-    bullets: queryBlock?.bullets ?? [],
+    content: queryBlock?.content ?? [],
     image: queryBlock?.image,
     subTitle: queryBlock?.subheader ?? 'Default',
     isImageAfterText: queryBlock?.isImageAfterText ?? false,
@@ -188,7 +198,10 @@ type QuerySubHeader = NonNullable<
 function mapToSubHeader(queryHeader: QuerySubHeader): SubHeader {
   return {
     title: queryHeader?.title ?? '',
+    titleSize: queryHeader?.titleSize ?? 'large',
     subtitle: queryHeader?.subtitle ?? '',
+    subtitleSize: queryHeader?.subtitleSize ?? 'medium',
+    align: queryHeader?.align ?? 'center',
   } as SubHeader
 }
 
@@ -224,9 +237,9 @@ type QueryInlineCta = NonNullable<
 >['inlineCta']
 function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCta {
   return {
-    title: queryInlineCta?.title || '',
-    subtitle: queryInlineCta?.subtitle || '',
-    buttonText: queryInlineCta?.buttonText || '',
-    buttonHref: queryInlineCta?.buttonHref || '',
+    title: queryInlineCta?.title ?? '',
+    subtitle: queryInlineCta?.subtitle ?? '',
+    buttonText: queryInlineCta?.buttonText ?? '',
+    buttonHref: queryInlineCta?.buttonHref ?? '',
   } as InlineCta
 }
