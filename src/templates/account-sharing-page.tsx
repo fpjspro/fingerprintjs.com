@@ -21,7 +21,7 @@ export default function AccountSharingPage({ data }: { data: GatsbyTypes.Account
     !data.markdownRemark?.frontmatter?.cardSection ||
     !data.markdownRemark?.frontmatter?.inlineCta
   ) {
-    return <></>
+    return null
   }
 
   const title = data.markdownRemark.frontmatter.title ?? 'Default Title'
