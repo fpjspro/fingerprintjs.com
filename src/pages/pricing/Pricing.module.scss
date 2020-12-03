@@ -1,15 +1,13 @@
-.calculator,
-.pricing {
+// We use mixin and not @extend with placeholder % because gatsby background image plugin doesn't work with multiple classes
+@mixin bgMainimage {
   background-repeat: no-repeat;
   background-size: 1400px auto;
-  background-image: url('../../img/bg-full.png');
-  background-position: center 75%;
 
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     background-position: center 120%;
   }
 
-  @include media("<=tabletWide") {
+  @include media('<=tabletWide') {
     background-image: url('../../img/hero-768+.png');
     background-position: center 55%;
     background-size: 100vw auto;
@@ -17,7 +15,13 @@
 }
 
 .pricing {
+  @include bgMainimage;
   background-position: 50%;
+}
+
+.calculator {
+  @include bgMainimage;
+  background-position: center 75%;
 }
 
 .header {
@@ -30,7 +34,7 @@
     grid-template-areas: 'title description' 'sub sub';
   }
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     grid-template-columns: 1fr;
     grid-template-areas: 'sub' 'title' 'description';
   }
@@ -57,7 +61,7 @@
     max-width: 35ch;
     justify-self: flex-end;
 
-    @include media("<=phoneLandscape") {
+    @include media('<=phoneLandscape') {
       justify-self: unset;
       text-align: left;
       margin-top: 2rem;
@@ -91,7 +95,7 @@
     flex-direction: row;
     justify-content: space-between;
 
-    @include media("<=phoneLandscape") {
+    @include media('<=phoneLandscape') {
       flex-direction: column;
     }
   }

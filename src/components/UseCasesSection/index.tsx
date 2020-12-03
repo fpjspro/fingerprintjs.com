@@ -1,4 +1,6 @@
 import React from 'react'
+
+import classNames from 'classnames'
 import { ReactComponent as AccountFraudSvg } from './account_fraud.svg'
 import { ReactComponent as PaymentProcessingSvg } from './payment_processing.svg'
 import { ReactComponent as ECommerceSvg } from './e_commerce.svg'
@@ -7,12 +9,15 @@ import { ReactComponent as GamingSvg } from './gaming.svg'
 import { ReactComponent as CustomSolutionSvg } from './custom_solution.svg'
 import Container from '../common/Container'
 import Section from '../common/Section'
+import { useBackgroundImage } from '../../hooks/useBackgroundImage'
+
 import styles from './UseCasesSection.module.scss'
-import classNames from 'classnames'
 
 export default function UseCasesSection() {
+  const { mainBackground } = useBackgroundImage()
+
   return (
-    <Section className={styles.section}>
+    <Section className={styles.section} backgroundImageFluid={mainBackground}>
       <Container>
         <header className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>

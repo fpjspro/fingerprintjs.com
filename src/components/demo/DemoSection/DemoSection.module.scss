@@ -1,13 +1,12 @@
 .demoSection {
   background-repeat: no-repeat;
   background-size: 1024px auto;
-  background-image: url('../../../img/bg-full.png');
   background-position: center 65%;
   overflow: hidden;
 
   padding: 6rem 0;
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     padding-bottom: 3rem;
   }
 }
@@ -21,7 +20,7 @@
   display: flex;
   justify-content: center;
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     display: block;
   }
 }
@@ -39,7 +38,7 @@
     flex-direction: row;
     justify-content: space-between;
 
-    @include media("<=phoneLandscape") {
+    @include media('<=phoneLandscape') {
       width: 100%;
       flex-direction: column;
       max-width: 50rem;
@@ -50,7 +49,7 @@
     .title {
       font-weight: bold;
 
-      @include media("<=phoneLandscape") {
+      @include media('<=phoneLandscape') {
         margin-bottom: 2rem;
       }
     }
@@ -58,7 +57,7 @@
     .description {
       text-align: right;
 
-      @include media("<=phoneLandscape") {
+      @include media('<=phoneLandscape') {
         font-size: 2.5rem;
         text-align: center;
       }
@@ -73,7 +72,7 @@
     max-width: 660px;
   }
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     display: block;
   }
 }
