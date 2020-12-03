@@ -1,5 +1,10 @@
 ---
 templateKey: cms-static-page
+metadata:
+  title: Static CMS Page
+  description: A test page
+  url: https://fingerprintjs.com/pages/cms-static-page/
+  image: /img/uploads/dog.jpg
 invertContent: false
 hero:
   title: Quite heroic

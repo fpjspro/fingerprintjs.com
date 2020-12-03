@@ -143,6 +143,18 @@ collections:
         label: 'CMS Static Page'
         name: 'cms-static-page'
         fields:
+          - {
+              label: Metadata,
+              name: metadata,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: string },
+                  { label: URL, name: url, widget: string },
+                  { label: Image, name: image, widget: image },
+                ],
+            }
           - { label: Invert content order, name: invertContent, widget: boolean, default: false }
           - {
               label: Hero,
