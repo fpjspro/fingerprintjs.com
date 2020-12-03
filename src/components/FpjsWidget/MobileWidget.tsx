@@ -10,9 +10,9 @@ import { getBotDecision, getBrowserName, getVisitTitle } from '../../helpers/fpj
 import { ReactComponent as InfoSvg } from './info.svg'
 import Tippy from '@tippyjs/react'
 import styles from './MobileWidget.module.scss'
-import { GATSBY_MAPBOX_ACCESS_TOKEN } from '../../constants/env'
+import { MAPBOX_ACCESS_TOKEN } from '../../constants/env'
 
-const mapboxToken = GATSBY_MAPBOX_ACCESS_TOKEN
+const mapboxToken = MAPBOX_ACCESS_TOKEN
 
 SwiperCore.use([Navigation])
 

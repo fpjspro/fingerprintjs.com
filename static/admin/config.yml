@@ -30,5 +30,78 @@ collections:
                   { label: Image, name: image, widget: image },
                   { label: Subheader, name: subheader, widget: string },
                   { label: Bullets, name: bullets, widget: list },
+                  { label: Is image after text?, name: isImageAfterText, widget: boolean },
+                  { label: CTA text, name: ctaText, widget: string },
+                  { label: CTA url, name: ctaUrl, widget: string },
+                  { label: Is CTA a primary button?, name: isCtaButton, widget: boolean },
+                ],
+            }
+          - {
+              label: Image block 2,
+              name: block2,
+              widget: object,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Subheader, name: subheader, widget: string },
+                  { label: Bullets, name: bullets, widget: list },
+                  { label: Is image after text, name: isImageAfterText, widget: boolean },
+                  { label: CTA text, name: ctaText, widget: string },
+                  { label: CTA url, name: ctaUrl, widget: string },
+                  { label: Is CTA a primary button, name: isCtaButton, widget: boolean },
+                ],
+            }
+          - {
+              label: Sub Header,
+              name: subHeader,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Subtitle, name: subtitle, widget: string, required: false },
+                ],
+            }
+          - {
+              label: Card Grid,
+              name: cards,
+              widget: list,
+              fields:
+                [
+                  { label: Icon, name: icon, widget: image, required: false },
+                  { label: Title, name: title, widget: string },
+                  { label: Content, name: content, widget: string },
+                ],
+            }
+          - {
+              label: CardSection,
+              name: cardSection,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Subtitle, name: subtitle, widget: string, required: false },
+                  {
+                    label: Cards,
+                    name: cards,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Icon, name: icon, widget: image, required: false },
+                        { label: Title, name: title, widget: string },
+                        { label: Content, name: content, widget: string },
+                      ],
+                  },
+                ],
+            }
+          - {
+              label: Inline CTA,
+              name: inlineCta,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Subtitle, name: subtitle, widget: string },
+                  { label: Button text, name: buttonText, widget: string },
+                  { label: Button href, name: buttonHref, widget: string },
                 ],
             }

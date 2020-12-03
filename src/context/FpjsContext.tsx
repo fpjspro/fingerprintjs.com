@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { FullIpExtendedGetResult, GetOptions, Region } from '@fingerprintjs/fingerprintjs-pro'
-import { GATSBY_FPJS_TOKEN, GATSBY_FPJS_ENDPOINT, GATSBY_FPJS_REGION } from '../constants/env'
+import { FPJS_TOKEN, FPJS_ENDPOINT, FPJS_REGION } from '../constants/env'
 
 const FpjsContext = React.createContext<{ visitorData?: FullIpExtendedGetResult }>({})
 const config: GetOptions<true, 'full'> = {
@@ -12,9 +12,9 @@ const config: GetOptions<true, 'full'> = {
 export const useVisitorData = () => useContext(FpjsContext)
 
 export function FpjsProvider({ children }: { children: React.ReactNode }) {
-  const clientToken = GATSBY_FPJS_TOKEN ?? 'test_client_token'
-  const endpoint = GATSBY_FPJS_ENDPOINT ?? ''
-  const region = GATSBY_FPJS_REGION as Region
+  const clientToken = FPJS_TOKEN ?? 'test_client_token'
+  const endpoint = FPJS_ENDPOINT ?? ''
+  const region = FPJS_REGION as Region
   const [visitorData, setVisitorData] = useState<FullIpExtendedGetResult>()
 
   useEffect(() => {

@@ -41,5 +41,15 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
       },
     },
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+      },
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+    },
   ],
 }

@@ -1,0 +1,50 @@
+.root {
+  display: grid;
+  gap: 5rem;
+}
+
+.title, .blockTitle {
+  font-weight: v(--normal);
+}
+
+.title {
+  justify-self: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+
+  @include media('<tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image {
+  flex: auto;
+}
+
+.text {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &.left {
+    order: -1;
+  }
+
+  .blockTitle {
+    margin-bottom: 3rem;
+  }
+}
+
+.list {
+  margin-bottom: 3rem;
+}
+
+.link {
+  border-bottom: 1px solid v('brand-fire');
+  color: v('brand-fire');
+}
