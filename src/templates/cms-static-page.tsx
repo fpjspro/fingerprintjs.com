@@ -10,12 +10,14 @@ import AlternatingImagesText, { BlockWithImage } from '../components/widgets/Alt
 import CardSectionComponent, { CardSection } from '../components/widgets/CardSection'
 import { Card } from '../components/widgets/CardGrid'
 import { baseUrl } from '../helpers/content'
+import { Helmet } from 'react-helmet'
 
 import styles from './cms-static-page.module.scss'
 
 export default function CmsStaticPage({ data }: { data: GatsbyTypes.CmsStaticPageQuery }) {
   if (
     !data.markdownRemark?.frontmatter ||
+    !data.markdownRemark?.frontmatter?.enableIndexing ||
     !data.markdownRemark?.frontmatter?.metadata ||
     !data.markdownRemark?.frontmatter?.invertContent ||
     !data.markdownRemark?.frontmatter?.inlineCta ||
@@ -26,6 +28,7 @@ export default function CmsStaticPage({ data }: { data: GatsbyTypes.CmsStaticPag
     return null
   }
 
+  const enableIndexing = data.markdownRemark.frontmatter.enableIndexing
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
   const invertContent = data.markdownRemark.frontmatter.invertContent
   const inlineCta = mapToInlineCta(data.markdownRemark.frontmatter.inlineCta)
@@ -35,6 +38,7 @@ export default function CmsStaticPage({ data }: { data: GatsbyTypes.CmsStaticPag
 
   return (
     <CmsStaticPageTemplate
+      enableIndexing={enableIndexing}
       metadata={metadata}
       invertContent={invertContent}
       inlineCta={inlineCta}
@@ -50,6 +54,7 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       frontmatter {
+        enableIndexing
         metadata {
           title
           description
@@ -107,6 +112,7 @@ export const pageQuery = graphql`
 `
 
 export interface CmsStaticPageProps {
+  enableIndexing: boolean
   metadata: GatsbyTypes.SiteSiteMetadata
   invertContent: boolean
   inlineCta: InlineCta
@@ -115,6 +121,7 @@ export interface CmsStaticPageProps {
   hero: HeroProps
 }
 export function CmsStaticPageTemplate({
+  enableIndexing = false,
   metadata,
   invertContent = false,
   inlineCta,
@@ -124,6 +131,12 @@ export function CmsStaticPageTemplate({
 }: CmsStaticPageProps) {
   return (
     <LayoutTemplate siteMetadata={metadata}>
+      {!enableIndexing && (
+        <Helmet>
+          <meta name='robots' content='noindex' />
+        </Helmet>
+      )}
+
       <Container>
         <Hero {...hero} className={styles.widget} />
         {invertContent ? (
@@ -144,6 +157,7 @@ export function CmsStaticPageTemplate({
 }
 
 export function CmsStaticPagePreview({ entry }: PreviewTemplateComponentProps) {
+  const enableIndexing = entry.getIn(['data', 'enableIndexing'])
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const invertContent = entry.getIn(['data', 'invertContent'])
   const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
@@ -159,6 +173,7 @@ export function CmsStaticPagePreview({ entry }: PreviewTemplateComponentProps) {
 
   return (
     <CmsStaticPageTemplate
+      enableIndexing={enableIndexing}
       metadata={mapToMetadata(metadata)}
       invertContent={invertContent}
       inlineCta={mapToInlineCta(inlineCta)}

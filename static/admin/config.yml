@@ -143,6 +143,7 @@ collections:
         label: 'CMS Static Page'
         name: 'cms-static-page'
         fields:
+          - { label: Enable Indexing, name: enableIndexing, widget: boolean, default: false }
           - {
               label: Metadata,
               name: metadata,
