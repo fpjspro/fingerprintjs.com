@@ -1,5 +1,5 @@
 import CMS from 'netlify-cms-app'
 
-import { CmsStaticPagePreview } from '../templates/cms-static-page'
+import { StaticPageContentPreview } from '../templates/static-page-content'
 
-CMS.registerPreviewTemplate('cms-static-page', CmsStaticPagePreview)
+CMS.registerPreviewTemplate('static-page-content', StaticPageContentPreview)

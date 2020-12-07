@@ -1,9 +1,10 @@
 ---
-templateKey: cms-static-page
+title: ecommerce
+templateKey: static-page-content
 metadata:
   title: Static CMS Page
   description: A test page
-  url: https://fingerprintjs.com/pages/cms-static-page/
+  url: https://fingerprintjs.com/ecommerce
   image: /img/uploads/dog.jpg
 invertContent: false
 hero:

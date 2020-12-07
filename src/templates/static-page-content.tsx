@@ -11,9 +11,9 @@ import CardSectionComponent, { CardSection } from '../components/widgets/CardSec
 import { Card } from '../components/widgets/CardGrid'
 import { baseUrl } from '../constants/content'
 
-import styles from './cms-static-page.module.scss'
+import styles from './static-page-content.module.scss'
 
-export default function CmsStaticPage({ data }: { data: GatsbyTypes.CmsStaticPageQuery }) {
+export default function StaticPageContent({ data }: { data: GatsbyTypes.StaticPageContentQuery }) {
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
@@ -34,7 +34,7 @@ export default function CmsStaticPage({ data }: { data: GatsbyTypes.CmsStaticPag
   const hero = mapToHero(data.markdownRemark.frontmatter.hero)
 
   return (
-    <CmsStaticPageTemplate
+    <StaticPageContentTemplate
       metadata={metadata}
       invertContent={invertContent}
       inlineCta={inlineCta}
@@ -46,7 +46,7 @@ export default function CmsStaticPage({ data }: { data: GatsbyTypes.CmsStaticPag
 }
 
 export const pageQuery = graphql`
-  query CmsStaticPage($id: String!) {
+  query StaticPageContent($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       frontmatter {
@@ -106,7 +106,7 @@ export const pageQuery = graphql`
   }
 `
 
-export interface CmsStaticPageProps {
+export interface StaticPageContentProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   invertContent: boolean
   inlineCta: InlineCta
@@ -114,14 +114,14 @@ export interface CmsStaticPageProps {
   blocks: BlockWithImage[]
   hero: HeroProps
 }
-export function CmsStaticPageTemplate({
+export function StaticPageContentTemplate({
   metadata,
   invertContent = false,
   inlineCta,
   cardSection,
   blocks,
   hero,
-}: CmsStaticPageProps) {
+}: StaticPageContentProps) {
   return (
     <LayoutTemplate siteMetadata={metadata}>
       <Container>
@@ -143,7 +143,8 @@ export function CmsStaticPageTemplate({
   )
 }
 
-export function CmsStaticPagePreview({ entry }: PreviewTemplateComponentProps) {
+export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProps) {
+  alert('rendering preview')
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const invertContent = entry.getIn(['data', 'invertContent'])
   const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
@@ -158,7 +159,7 @@ export function CmsStaticPagePreview({ entry }: PreviewTemplateComponentProps) {
   const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
 
   return (
-    <CmsStaticPageTemplate
+    <StaticPageContentTemplate
       metadata={mapToMetadata(metadata)}
       invertContent={invertContent}
       inlineCta={mapToInlineCta(inlineCta)}
@@ -170,7 +171,7 @@ export function CmsStaticPagePreview({ entry }: PreviewTemplateComponentProps) {
 }
 
 type QueryMetadata = NonNullable<
-  NonNullable<GatsbyTypes.CmsStaticPageQuery['markdownRemark']>['frontmatter']
+  NonNullable<GatsbyTypes.StaticPageContentQuery['markdownRemark']>['frontmatter']
 >['metadata']
 function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetadata {
   return {
@@ -181,7 +182,7 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
   } as GatsbyTypes.SiteSiteMetadata
 }
 
-type QueryHero = NonNullable<NonNullable<GatsbyTypes.CmsStaticPageQuery['markdownRemark']>['frontmatter']>['hero']
+type QueryHero = NonNullable<NonNullable<GatsbyTypes.StaticPageContentQuery['markdownRemark']>['frontmatter']>['hero']
 function mapToHero(queryHero: QueryHero): HeroProps {
   return {
     title: queryHero?.title ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -194,7 +195,7 @@ function mapToHero(queryHero: QueryHero): HeroProps {
 }
 
 type QueryCardSection = NonNullable<
-  NonNullable<GatsbyTypes.CmsStaticPageQuery['markdownRemark']>['frontmatter']
+  NonNullable<GatsbyTypes.StaticPageContentQuery['markdownRemark']>['frontmatter']
 >['cardSection']
 function mapToCardSection(queryCardSection: QueryCardSection): CardSection {
   return {
@@ -215,7 +216,7 @@ function mapToCardSection(queryCardSection: QueryCardSection): CardSection {
 }
 
 type QueryBlock = ArrayElement<
-  NonNullable<NonNullable<GatsbyTypes.CmsStaticPageQuery['markdownRemark']>['frontmatter']>['blocks']
+  NonNullable<NonNullable<GatsbyTypes.StaticPageContentQuery['markdownRemark']>['frontmatter']>['blocks']
 >
 function mapToBlocks(queryBlocks: QueryBlock[]): BlockWithImage[] {
   return (
@@ -238,7 +239,7 @@ function mapToBlocks(queryBlocks: QueryBlock[]): BlockWithImage[] {
 }
 
 type QueryInlineCta = NonNullable<
-  NonNullable<GatsbyTypes.CmsStaticPageQuery['markdownRemark']>['frontmatter']
+  NonNullable<GatsbyTypes.StaticPageContentQuery['markdownRemark']>['frontmatter']
 >['inlineCta']
 function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCta {
   return {
