@@ -144,7 +144,6 @@ export function StaticPageContentTemplate({
 }
 
 export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProps) {
-  alert('rendering preview')
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const invertContent = entry.getIn(['data', 'invertContent'])
   const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
