@@ -12,7 +12,7 @@ export interface HeroProps {
   description: string
   ctaText: string
   ctaHref: string
-  className?: string | string[]
+  className?: string
 }
 export default function Hero({ title, description, ctaText, ctaHref, className }: HeroProps) {
   return (

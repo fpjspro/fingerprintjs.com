@@ -12,7 +12,7 @@ export interface Card {
 
 export interface CardGridProps {
   cards: Card[]
-  className?: string | string[]
+  className?: string
 }
 
 export default function CardGrid({ cards, className }: CardGridProps) {

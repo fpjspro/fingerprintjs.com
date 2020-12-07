@@ -14,7 +14,7 @@ export interface SubHeader {
   subtitle?: string
   subtitleSize?: SubHeaderTextSize
   align?: SubHeaderAlign
-  className?: string | string[]
+  className?: string
 }
 
 export default function SubHeaderComponent({

@@ -20,7 +20,7 @@ export interface BlockWithImage {
 export interface AlternatingImagesTextProps {
   title: string
   blocks: BlockWithImage[]
-  className?: string | string[]
+  className?: string
 }
 export default function AlternatingImagesText({ title, blocks, className }: AlternatingImagesTextProps) {
   return (

@@ -9,21 +9,21 @@ import { ArrayElement } from '../helpers/types'
 import AlternatingImagesText, { BlockWithImage } from '../components/widgets/AlternatingImagesText'
 import CardSectionComponent, { CardSection } from '../components/widgets/CardSection'
 import { Card } from '../components/widgets/CardGrid'
-import { baseUrl } from '../helpers/content'
+import { baseUrl } from '../constants/content'
 import { Helmet } from 'react-helmet'
 
 import styles from './cms-static-page.module.scss'
 
 export default function CmsStaticPage({ data }: { data: GatsbyTypes.CmsStaticPageQuery }) {
   if (
-    !data.markdownRemark?.frontmatter ||
-    !data.markdownRemark?.frontmatter?.enableIndexing ||
-    !data.markdownRemark?.frontmatter?.metadata ||
-    !data.markdownRemark?.frontmatter?.invertContent ||
-    !data.markdownRemark?.frontmatter?.inlineCta ||
-    !data.markdownRemark?.frontmatter?.cardSection ||
-    !data.markdownRemark?.frontmatter?.blocks ||
-    !data.markdownRemark?.frontmatter?.hero
+    data.markdownRemark?.frontmatter === undefined ||
+    data.markdownRemark?.frontmatter?.enableIndexing === undefined ||
+    data.markdownRemark?.frontmatter?.metadata === undefined ||
+    data.markdownRemark?.frontmatter?.invertContent === undefined ||
+    data.markdownRemark?.frontmatter?.inlineCta === undefined ||
+    data.markdownRemark?.frontmatter?.cardSection === undefined ||
+    data.markdownRemark?.frontmatter?.blocks === undefined ||
+    data.markdownRemark?.frontmatter?.hero === undefined
   ) {
     return null
   }
@@ -77,7 +77,7 @@ export const pageQuery = graphql`
             icon {
               childImageSharp {
                 fixed(width: 28, quality: 100) {
-                  ...GatsbyImageSharpFixed
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
@@ -91,7 +91,7 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

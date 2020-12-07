@@ -12,7 +12,7 @@ export interface InlineCta {
   subtitle: string
   buttonText: string
   buttonHref: string
-  className?: string | string[]
+  className?: string
 }
 
 export default function InlineCtaComponent({ title, subtitle, buttonText, buttonHref, className }: InlineCta) {

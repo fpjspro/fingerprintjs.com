@@ -11,13 +11,13 @@ export interface CardSection {
   title: string
   subtitle?: string
   cards: Card[]
-  className?: string | string[]
+  className?: string
 }
 
 export default function CardSectionComponent({ title, subtitle, cards, className }: CardSection) {
   return (
-    <Section className={classNames(styles.root, className)}>
-      <Container size='large' className={styles.container}>
+    <Section className={classNames(className)}>
+      <Container size='large'>
         <div className={styles.cardSection}>
           <SubHeaderComponent title={title} subtitle={subtitle} />
           <CardGrid cards={cards} />
