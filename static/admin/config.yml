@@ -20,7 +20,6 @@ collections:
         name: 'cms-static-page'
         fields:
           - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'cms-static-page' }
-          - { label: Enable Indexing, name: enableIndexing, widget: boolean, default: false }
           - {
               label: Metadata,
               name: metadata,

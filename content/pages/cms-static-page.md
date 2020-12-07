@@ -1,6 +1,5 @@
 ---
 templateKey: cms-static-page
-enableIndexing: false
 metadata:
   title: Static CMS Page
   description: A test page
