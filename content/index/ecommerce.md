@@ -6,7 +6,7 @@ metadata:
   description: "Prevent ecommerce fraud with our browser fingerprinting API for
     user identification "
   url: https://fingerprintjs.com/ecommerce
-  image: /img/uploads/dog.jpg
+  image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
   title: Take ecommerce fraud prevention seriously with the most accurate browser
@@ -46,17 +46,17 @@ blocks:
       anti-fraud solution that works for yours.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
-    ctaText: Learn More
-    ctaUrl: https://fingerprintjs.com/
+    ctaText: Read our documentation
+    ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: Stay protected throughout the purchase process, from customer login
-      to payment.
+      to payment
     content: FingerprintJS helps developer teams identify their ecommerce site's
       most vulnerable interactions and build authentication flows that won't
       overburden visitors. Uniquely identifying users at the login stage will
       reduce account takeovers that can often result in fraudulent purchases and
       disputed payments.
-    image: /img/uploads/fpjs-flowchart-small.png
+    image: /img/uploads/fpjs-flowchart-smaller.png
     isImageAfterText: false
     ctaText: Learn More
     ctaUrl: https://fingerprintjs.com/
