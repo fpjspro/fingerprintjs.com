@@ -61,8 +61,7 @@ blocks:
     ctaUrl: https://fingerprintjs.com/
     isCtaButton: false
 inlineCta:
-  title: Significantly reduce chargebacks just one month after integrating
-    FingerprintJS on your website.
+  title: Reduce chargebacks one month after integrating FingerprintJS on your website.
   subtitle: "Every dollar of ecommerce fraud can cost retailers between 3 to 4
     times as much - a loss mitigated with our 99.5% accurate browser
     fingerprinting and e-commerce fraud detection solution. With FingerprintJS,
