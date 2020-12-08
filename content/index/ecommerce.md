@@ -22,16 +22,16 @@ cardSection:
   subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
-      title: "Identify Malicious Users Out to Steal Customer PII "
-      content: "Put an end to account takeovers by attaching a unique identity to all
-        visitors on your website, even if they are browsing in incognito mode. "
+      title: "Identify Malicious Users Out to Steal PII "
+      content: "End account takeovers by attaching a unique identity to all visitors
+        on your website, even if they are browsing in incognito mode. "
     - icon: /img/uploads/payment_processing.png
       title: Reduce Chargebacks Linked to CNP Fraud
       content: "Reduce your chargeback rates by detecting and preventing purchases
         from stolen cards before they hurt your bottom line. "
     - title: Prevent Gift Card & Coupon Abuse
       content: Detect visitors using stolen or fake identities to ensure that your
-        coupons and promotions are used legitimately by real customers only.
+        coupons and promotions are used legitimately by real customers.
       icon: /img/uploads/anonymous_user_identification.png
     - title: Avoid Merchant Penalties
       content: Stay within chargeback limits and avoid merchant penalties imposed by
@@ -44,18 +44,19 @@ blocks:
       activity and geolocation at lightspeed from our API.  Every business is
       different - minimize disruption to your customers by building an
       anti-fraud solution that works for yours.
-    image: /img/uploads/cat.jpg
+    image: /img/uploads/fpjs-dashboard.png
     isImageAfterText: true
     ctaText: Learn More
     ctaUrl: https://fingerprintjs.com/
     isCtaButton: false
   - subheader: Stay protected throughout the purchase process, from customer login
       to payment.
-    content: Account Fraud - Account Takeovers - PII & Identity Theft - Digital
-      Wallet Fraud - Bot Attacks  Payment Processing - Chargebacks  - Disputed &
-      Reversed Payments - Gift Card & Coupon Abuse - Stolen Credit Card
-      Purchases
-    image: /img/uploads/fpjs-dashboard.png
+    content: FingerprintJS helps developer teams identify their ecommerce site's
+      most vulnerable interactions and build authentication flows that won't
+      overburden visitors. Uniquely identifying users at the login stage will
+      reduce account takeovers that can often result in fraudulent purchases and
+      disputed payments.
+    image: /img/uploads/fpjs-flowchart-small.png
     isImageAfterText: false
     ctaText: Learn More
     ctaUrl: https://fingerprintjs.com/
