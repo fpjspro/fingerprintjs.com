@@ -46,8 +46,8 @@ blocks:
       anti-fraud solution that works for yours.
     image: /img/uploads/cat.jpg
     isImageAfterText: true
-    ctaText: Learn more
-    ctaUrl: https://fingerprintjs.com/pricing
+    ctaText: Learn More
+    ctaUrl: https://fingerprintjs.com/
     isCtaButton: false
   - subheader: Stay protected throughout the purchase process, from customer login
       to payment.
@@ -55,10 +55,10 @@ blocks:
       Wallet Fraud - Bot Attacks  Payment Processing - Chargebacks  - Disputed &
       Reversed Payments - Gift Card & Coupon Abuse - Stolen Credit Card
       Purchases
-    image: /img/uploads/cat.jpg
+    image: /img/uploads/fpjs-dashboard.png
     isImageAfterText: false
-    ctaText: Learn more
-    ctaUrl: https://fingerprintjs.com/pricing
+    ctaText: Learn More
+    ctaUrl: https://fingerprintjs.com/
     isCtaButton: false
 inlineCta:
   title: Significantly reduce chargebacks just one month after integrating
@@ -70,5 +70,5 @@ inlineCta:
     tremendous financial waste on labor, shipping, products, chargebacks, fines
     and more . "
   buttonText: Get Started
-  buttonHref: /
+  buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
