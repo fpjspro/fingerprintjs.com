@@ -1,0 +1,9 @@
+.section {
+  padding: 2rem 0;
+}
+
+.widget {
+  + .widget {
+    padding-top: 0;
+  }
+}

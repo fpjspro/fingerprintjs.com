@@ -12,96 +12,84 @@ media_folder: static/img/uploads
 public_folder: /img/uploads
 
 collections:
-  - name: 'pages'
-    label: 'Pages'
-    files:
-      - file: 'content/pages/account-sharing-test-page.md'
-        label: 'Account sharing test layout'
-        name: 'account-sharing-page'
-        fields:
-          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'account-sharing-page' }
-          - { label: Title, name: title, widget: string }
-          - {
-              label: Image block 1,
-              name: block1,
-              widget: object,
-              fields:
-                [
-                  { label: Image, name: image, widget: image },
-                  { label: Subheader, name: subheader, widget: string },
-                  { label: Bullets, name: bullets, widget: list },
-                  { label: Is image after text?, name: isImageAfterText, widget: boolean },
-                  { label: CTA text, name: ctaText, widget: string },
-                  { label: CTA url, name: ctaUrl, widget: string },
-                  { label: Is CTA a primary button?, name: isCtaButton, widget: boolean },
-                ],
-            }
-          - {
-              label: Image block 2,
-              name: block2,
-              widget: object,
-              fields:
-                [
-                  { label: Image, name: image, widget: image },
-                  { label: Subheader, name: subheader, widget: string },
-                  { label: Bullets, name: bullets, widget: list },
-                  { label: Is image after text, name: isImageAfterText, widget: boolean },
-                  { label: CTA text, name: ctaText, widget: string },
-                  { label: CTA url, name: ctaUrl, widget: string },
-                  { label: Is CTA a primary button, name: isCtaButton, widget: boolean },
-                ],
-            }
-          - {
-              label: Sub Header,
-              name: subHeader,
-              widget: object,
-              fields:
-                [
-                  { label: Title, name: title, widget: string },
-                  { label: Subtitle, name: subtitle, widget: string, required: false },
-                ],
-            }
-          - {
-              label: Card Grid,
-              name: cards,
-              widget: list,
-              fields:
-                [
-                  { label: Icon, name: icon, widget: image, required: false },
-                  { label: Title, name: title, widget: string },
-                  { label: Content, name: content, widget: string },
-                ],
-            }
-          - {
-              label: CardSection,
-              name: cardSection,
-              widget: object,
-              fields:
-                [
-                  { label: Title, name: title, widget: string },
-                  { label: Subtitle, name: subtitle, widget: string, required: false },
-                  {
-                    label: Cards,
-                    name: cards,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Icon, name: icon, widget: image, required: false },
-                        { label: Title, name: title, widget: string },
-                        { label: Content, name: content, widget: string },
-                      ],
-                  },
-                ],
-            }
-          - {
-              label: Inline CTA,
-              name: inlineCta,
-              widget: object,
-              fields:
-                [
-                  { label: Title, name: title, widget: string },
-                  { label: Subtitle, name: subtitle, widget: string },
-                  { label: Button text, name: buttonText, widget: string },
-                  { label: Button href, name: buttonHref, widget: string },
-                ],
-            }
+  - name: 'index'
+    label: 'Root pages'
+    folder: 'content/index'
+    create: false
+    delete: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'static-page-content' }
+      - {
+          label: Metadata,
+          name: metadata,
+          widget: object,
+          fields:
+            [
+              { label: Title, name: title, widget: string },
+              { label: Description, name: description, widget: string },
+              { label: URL, name: url, widget: string },
+              { label: Image, name: image, widget: image },
+            ],
+        }
+      - { label: Invert content order, name: invertContent, widget: boolean, default: false }
+      - {
+          label: Hero,
+          name: hero,
+          widget: object,
+          fields:
+            [
+              { label: Title, name: title, widget: string },
+              { label: Description, name: description, widget: string },
+              { label: CTA Text, name: ctaText, widget: string },
+              { label: CTA Href, name: ctaHref, widget: string },
+            ],
+        }
+      - {
+          label: CardSection,
+          name: cardSection,
+          widget: object,
+          fields:
+            [
+              { label: Title, name: title, widget: string },
+              { label: Subtitle, name: subtitle, widget: string, required: false },
+              {
+                label: Cards,
+                name: cards,
+                widget: list,
+                fields:
+                  [
+                    { label: Icon, name: icon, widget: image, required: false },
+                    { label: Title, name: title, widget: string },
+                    { label: Content, name: content, widget: string },
+                  ],
+              },
+            ],
+        }
+      - {
+          label: Blocks,
+          name: blocks,
+          widget: list,
+          fields:
+            [
+              { label: Image, name: image, widget: image },
+              { label: Subheader, name: subheader, widget: string },
+              { label: Content, name: content, widget: string },
+              { label: Is image after text, name: isImageAfterText, widget: boolean },
+              { label: CTA text, name: ctaText, widget: string },
+              { label: CTA url, name: ctaUrl, widget: string },
+              { label: Is CTA a primary button, name: isCtaButton, widget: boolean },
+            ],
+        }
+      - {
+          label: Inline CTA,
+          name: inlineCta,
+          widget: object,
+          fields:
+            [
+              { label: Title, name: title, widget: string },
+              { label: Subtitle, name: subtitle, widget: string },
+              { label: Button text, name: buttonText, widget: string },
+              { label: Button href, name: buttonHref, widget: string },
+            ],
+        }

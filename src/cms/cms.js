@@ -1,5 +1,5 @@
 import CMS from 'netlify-cms-app'
 
-import { AccountSharingPagePreview } from '../templates/account-sharing-page'
+import { StaticPageContentPreview } from '../templates/static-page-content'
 
-CMS.registerPreviewTemplate('account-sharing-page', AccountSharingPagePreview)
+CMS.registerPreviewTemplate('static-page-content', StaticPageContentPreview)

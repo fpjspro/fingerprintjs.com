@@ -1,5 +1,6 @@
 import React from 'react'
 import PreviewCompatibleImage, { ImageInfo } from '../../common/PreviewCompatibleImage/PreviewCompatibleImage'
+import classNames from 'classnames'
 
 import styles from './CardGrid.module.scss'
 
@@ -11,11 +12,12 @@ export interface Card {
 
 export interface CardGridProps {
   cards: Card[]
+  className?: string
 }
 
-export default function CardGrid({ cards }: CardGridProps) {
+export default function CardGrid({ cards, className }: CardGridProps) {
   return (
-    <section className={styles.grid}>
+    <section className={classNames(styles.grid, className)}>
       {cards.map((card) => (
         <div key={card.title} className={styles.item}>
           <CardComponent icon={card.icon} title={card.title} content={card.content} />

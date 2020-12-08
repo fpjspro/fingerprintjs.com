@@ -2,6 +2,8 @@ import React from 'react'
 import Button from '../../common/Button'
 import Container from '../../common/Container'
 import Section from '../../common/Section'
+import SubHeaderComponent from '../SubHeader'
+import classNames from 'classnames'
 
 import styles from './Hero.module.scss'
 
@@ -9,14 +11,25 @@ export interface HeroProps {
   title: string
   description: string
   ctaText: string
+  ctaHref: string
+  className?: string
 }
-export default function Hero({ title, description, ctaText }: HeroProps) {
+export default function Hero({ title, description, ctaText, ctaHref, className }: HeroProps) {
   return (
-    <Section className={styles.section}>
+    <Section className={classNames(styles.section, className)}>
       <Container size='large' className={styles.container}>
-        <h1 className={styles.title}>{title}</h1>
-        <p className={styles.description}>{description}</p>
-        <Button className={styles.button}>{ctaText}</Button>
+        <SubHeaderComponent
+          title={title}
+          titleSize='large'
+          titleWeight='bold'
+          subtitle={description}
+          subtitleSize='normal'
+          align='center'
+        />
+
+        <Button href={ctaHref} className={styles.button}>
+          {ctaText}
+        </Button>
       </Container>
     </Section>
   )
