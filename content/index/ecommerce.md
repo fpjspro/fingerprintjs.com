@@ -19,7 +19,7 @@ hero:
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: "Add FingerprintJS to your tech stack to:"
-  subtitle: texttexttext
+  subtitle: ""
   cards:
     - icon: /img/uploads/cat.jpg
       title: "Identify Malicious Users Out to Steal Customer PII "
