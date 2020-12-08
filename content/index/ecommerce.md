@@ -6,7 +6,7 @@ metadata:
   description: "Prevent ecommerce fraud with our browser fingerprinting API for
     user identification "
   url: https://fingerprintjs.com/ecommerce
-  image: /img/uploads/dog.jpg
+  image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
   title: Take ecommerce fraud prevention seriously with the most accurate browser
