@@ -56,7 +56,7 @@ blocks:
       overburden visitors. Uniquely identifying users at the login stage will
       reduce account takeovers that can often result in fraudulent purchases and
       disputed payments.
-    image: /img/uploads/fpjs-flowchart-small.png
+    image: /img/uploads/fpjs-flowchart-smaller.png
     isImageAfterText: false
     ctaText: Learn More
     ctaUrl: https://fingerprintjs.com/
