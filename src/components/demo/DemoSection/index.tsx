@@ -2,11 +2,15 @@ import React from 'react'
 import Container from '../../common/Container'
 import Section from '../../common/Section'
 import FpjsWidget from '../../../components/FpjsWidget'
+import { useMainBackgroundImage } from '../../../hooks/useBackgroundImage'
+
 import styles from './DemoSection.module.scss'
 
 export default function DemoSection() {
+  const { mainBackground } = useMainBackgroundImage()
+
   return (
-    <Section className={styles.demoSection}>
+    <Section className={styles.demoSection} backgroundImageFluid={mainBackground}>
       <Container size='large' className={styles.demoContainer}>
         <div className={styles.card}>
           <CardHeader title='Technical demo'>

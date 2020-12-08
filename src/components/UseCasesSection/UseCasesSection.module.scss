@@ -2,7 +2,6 @@
   background-color: v('off-white');
   background-repeat: no-repeat;
   background-size: 1400px auto;
-  background-image: url('../../img/bg-full.png');
   background-position: center center;
 
   .sectionHeader {
@@ -14,7 +13,7 @@
     font-weight: v(light);
     font-size: 5rem;
 
-    @include media("<=phone") {
+    @include media('<=phone') {
       font-size: 3rem;
     }
   }
@@ -37,7 +36,7 @@
         margin-left: 2rem;
       }
 
-      @include media("<=phone") {
+      @include media('<=phone') {
         padding: 2rem;
       }
 
@@ -112,7 +111,7 @@
           margin-left: 0rem;
         }
 
-        @include media("<=phone") {
+        @include media('<=phone') {
           padding: 2rem;
         }
 

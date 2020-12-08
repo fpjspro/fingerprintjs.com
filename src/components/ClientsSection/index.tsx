@@ -34,7 +34,7 @@ export default function ClientsSection() {
           {clients.map((client) => {
             return (
               <SwiperSlide key={`slide_${client}`} className={styles.slide}>
-                <img className={styles.logo} src={`/img/company-logos/${client}.svg`} />
+                <img alt={`${client} logo`} className={styles.logo} src={`/img/company-logos/${client}.svg`} />
               </SwiperSlide>
             )
           })}

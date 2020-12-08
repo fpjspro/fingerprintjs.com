@@ -1,17 +1,21 @@
 import React from 'react'
 import Layout from '../../components/Layout'
 import PriceCalculator from '../../components/PriceCalculator'
-import Section from '../../components/common/Section'
+import Section, { SectionProps } from '../../components/common/Section'
 import classNames from 'classnames'
 import Container from '../../components/common/Container'
 import PricingCard from '../../components/pricing/Card'
+import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
+
 import styles from './Pricing.module.scss'
 
 export default function PricingPage() {
+  const { mainBackground } = useMainBackgroundImage()
+
   return (
     <Layout>
-      <CalculatorSection />
-      <PricingModelsSection />
+      <CalculatorSection mainBackground={mainBackground} />
+      <PricingModelsSection mainBackground={mainBackground} />
     </Layout>
   )
 }
@@ -33,9 +37,9 @@ function SectionHeader({ title, subtitle, description, invertOrder = false }: Se
   )
 }
 
-function CalculatorSection() {
+function CalculatorSection({ mainBackground }: { mainBackground: SectionProps['backgroundImageFluid'] }) {
   return (
-    <Section className={styles.calculator}>
+    <Section className={styles.calculator} backgroundImageFluid={mainBackground}>
       <Container>
         <SectionHeader
           title='Calculator'
@@ -48,9 +52,9 @@ function CalculatorSection() {
   )
 }
 
-function PricingModelsSection() {
+function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps['backgroundImageFluid'] }) {
   return (
-    <Section className={styles.pricing}>
+    <Section className={styles.pricing} backgroundImageFluid={mainBackground}>
       <Container>
         <SectionHeader title='Pricing Models' subtitle='We support 2 models of pricing' invertOrder />
         <PricingCard
