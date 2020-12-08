@@ -50,8 +50,8 @@ function createNodePath({ node, getNode }) {
   const filename = path.basename(node.fileAbsolutePath, path.extname(node.fileAbsolutePath))
 
   switch (directory) {
-    case 'pages':
-      // For nodes inside the pages directory, the path is the filename.
+    case 'index':
+      // For nodes inside the index directory, the path is the filename.
       return filename
     default:
       // For other nodes, the path is directory/filename.

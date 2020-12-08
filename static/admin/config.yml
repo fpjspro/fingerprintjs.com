@@ -12,9 +12,9 @@ media_folder: static/img/uploads
 public_folder: /img/uploads
 
 collections:
-  - name: 'pages'
-    label: 'Pages'
-    folder: 'content/pages'
+  - name: 'index'
+    label: 'Root pages'
+    folder: 'content/index'
     create: false
     delete: false
     fields:
