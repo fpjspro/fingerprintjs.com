@@ -23,8 +23,8 @@ cardSection:
   cards:
     - icon: /img/uploads/account_fraud.png
       title: "Identify Malicious Users Out to Steal PII "
-      content: "End account takeovers by attaching a unique identity to all visitors
-        on your website, even if they are browsing in incognito mode. "
+      content: "End account takeovers by attaching a unique identity to visitors to
+        your website, even if they are browsing in incognito mode. "
     - icon: /img/uploads/payment_processing.png
       title: Reduce Chargebacks Linked to CNP Fraud
       content: "Reduce your chargeback rates by detecting and preventing purchases
@@ -44,7 +44,7 @@ blocks:
       activity and geolocation at lightspeed from our API.  Every business is
       different - minimize disruption to your customers by building an
       anti-fraud solution that works for yours.
-    image: /img/uploads/fpjs-dashboard.png
+    image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Learn More
     ctaUrl: https://fingerprintjs.com/
