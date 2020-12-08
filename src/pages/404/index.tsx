@@ -13,7 +13,7 @@ const NotFoundPage = () => (
         <p>
           The page you&#39;ve tried to load doesn&#39;t seem to exist. Perhaps there is a typo.
           <br />
-          Go to the
+          Go to the{' '}
           <Link to='/' className={styles.link}>
             homepage
           </Link>
