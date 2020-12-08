@@ -46,8 +46,8 @@ blocks:
       anti-fraud solution that works for yours.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
-    ctaText: Learn More
-    ctaUrl: https://fingerprintjs.com/
+    ctaText: Read our documentation
+    ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: Stay protected throughout the purchase process, from customer login
       to payment.
