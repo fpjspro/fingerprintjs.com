@@ -9,6 +9,7 @@ import Container from '../common/Container'
 import Section from '../common/Section'
 import styles from './UseCasesSection.module.scss'
 import classNames from 'classnames'
+import { Link } from 'gatsby'
 
 export default function UseCasesSection() {
   return (
@@ -55,7 +56,7 @@ export default function UseCasesSection() {
                 </p>
               </div>
             </div>
-            <div className={styles.useCase}>
+            <Link to='ecommerce' className={styles.useCase}>
               <div className={styles.iconContainer}>
                 <ECommerceSvg className={styles.icon} />
               </div>
@@ -66,7 +67,7 @@ export default function UseCasesSection() {
                   malicious users before they cost you real money.
                 </p>
               </div>
-            </div>
+            </Link>
             <div className={styles.useCase}>
               <div className={styles.iconContainer}>
                 <CryptoCurrencySvg className={styles.icon} />

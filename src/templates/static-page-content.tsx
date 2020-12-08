@@ -4,12 +4,12 @@ import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import InlineCtaComponent, { InlineCta } from '../components/widgets/InlineCta'
 import Hero, { HeroProps } from '../components/widgets/Hero'
 import { LayoutTemplate } from '../components/Layout'
-import Container from '../components/common/Container'
 import { ArrayElement } from '../helpers/types'
 import AlternatingImagesText, { BlockWithImage } from '../components/widgets/AlternatingImagesText'
 import CardSectionComponent, { CardSection } from '../components/widgets/CardSection'
 import { Card } from '../components/widgets/CardGrid'
 import { baseUrl } from '../constants/content'
+import Section from '../components/common/Section'
 
 import styles from './static-page-content.module.scss'
 
@@ -124,7 +124,7 @@ export function StaticPageContentTemplate({
 }: StaticPageContentProps) {
   return (
     <LayoutTemplate siteMetadata={metadata}>
-      <Container>
+      <Section className={styles.section}>
         <Hero {...hero} className={styles.widget} />
         {invertContent ? (
           <>
@@ -137,8 +137,8 @@ export function StaticPageContentTemplate({
             <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />
           </>
         )}
-        <InlineCtaComponent {...inlineCta} className={styles.widget} />
-      </Container>
+        <InlineCtaComponent {...inlineCta} />
+      </Section>
     </LayoutTemplate>
   )
 }

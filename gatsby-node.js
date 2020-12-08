@@ -45,11 +45,25 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 }
 
+function createNodePath({ node, getNode }) {
+  const directory = getNode(node.parent).relativeDirectory
+  const filename = path.basename(node.fileAbsolutePath, path.extname(node.fileAbsolutePath))
+
+  switch (directory) {
+    case 'pages':
+      // For nodes inside the pages directory, the path is the filename.
+      return filename
+    default:
+      // For other nodes, the path is directory/filename.
+      return createFilePath({ node, getNode })
+  }
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createNodePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
