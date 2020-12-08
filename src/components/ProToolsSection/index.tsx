@@ -8,7 +8,7 @@ import { ReactComponent as AnonymousUserIdentificationSvg } from '../../img/anon
 import { ReactComponent as IncognitoDetectionSvg } from '../../img/incognito_detection.svg'
 import { ReactComponent as ApiWebhooksSvg } from '../../img/api_webhooks.svg'
 import { ReactComponent as IntegrationsSvg } from '../../img/integrations.svg'
-import { useBackgroundImage } from '../../hooks/useBackgroundImage'
+import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import Container from '../common/Container'
 import Section from '../common/Section'
 import styles from './ProTools.module.scss'
@@ -16,7 +16,7 @@ import styles from './ProTools.module.scss'
 SwiperCore.use([Pagination])
 
 export default function ProToolsSection() {
-  const { mainBackground } = useBackgroundImage()
+  const { mainBackground } = useMainBackgroundImage()
 
   return (
     <Section className={styles.proTools} backgroundImageFluid={mainBackground}>

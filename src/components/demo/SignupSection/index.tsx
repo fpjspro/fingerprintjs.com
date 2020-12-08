@@ -4,12 +4,12 @@ import Container from '../../common/Container'
 import Section from '../../common/Section'
 import signupImage from '../../../img/TEMP_signup_image.png'
 import BackgroundImage from 'gatsby-background-image'
-import { useBackgroundImage } from '../../../hooks/useBackgroundImage'
+import { useMainBackgroundImage } from '../../../hooks/useBackgroundImage'
 
 import styles from './SignupSection.module.scss'
 
 export default function SignupSection() {
-  const { mainBackground } = useBackgroundImage()
+  const { mainBackground } = useMainBackgroundImage()
 
   return (
     <Section className={styles.section}>

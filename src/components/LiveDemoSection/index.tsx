@@ -3,12 +3,12 @@ import FpjsWidget from '../FpjsWidget'
 import GetStartedForm from '../GetStartedForm'
 import Container from '../common/Container'
 import Section from '../common/Section'
-import { useBackgroundImage } from '../../hooks/useBackgroundImage'
+import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 
 import styles from './LiveDemoSection.module.scss'
 
 export default function LiveDemoSection() {
-  const { mainBackground } = useBackgroundImage()
+  const { mainBackground } = useMainBackgroundImage()
 
   return (
     <Section className={styles.liveDemo} backgroundImageFluid={mainBackground}>

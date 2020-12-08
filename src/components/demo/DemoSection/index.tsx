@@ -2,12 +2,12 @@ import React from 'react'
 import Container from '../../common/Container'
 import Section from '../../common/Section'
 import FpjsWidget from '../../../components/FpjsWidget'
-import { useBackgroundImage } from '../../../hooks/useBackgroundImage'
+import { useMainBackgroundImage } from '../../../hooks/useBackgroundImage'
 
 import styles from './DemoSection.module.scss'
 
 export default function DemoSection() {
-  const { mainBackground } = useBackgroundImage()
+  const { mainBackground } = useMainBackgroundImage()
 
   return (
     <Section className={styles.demoSection} backgroundImageFluid={mainBackground}>

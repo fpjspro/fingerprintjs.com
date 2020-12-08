@@ -9,12 +9,12 @@ import { ReactComponent as GamingSvg } from './gaming.svg'
 import { ReactComponent as CustomSolutionSvg } from './custom_solution.svg'
 import Container from '../common/Container'
 import Section from '../common/Section'
-import { useBackgroundImage } from '../../hooks/useBackgroundImage'
+import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 
 import styles from './UseCasesSection.module.scss'
 
 export default function UseCasesSection() {
-  const { mainBackground } = useBackgroundImage()
+  const { mainBackground } = useMainBackgroundImage()
 
   return (
     <Section className={styles.section} backgroundImageFluid={mainBackground}>

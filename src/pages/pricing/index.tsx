@@ -5,12 +5,12 @@ import Section, { SectionProps } from '../../components/common/Section'
 import classNames from 'classnames'
 import Container from '../../components/common/Container'
 import PricingCard from '../../components/pricing/Card'
-import { useBackgroundImage } from '../../hooks/useBackgroundImage'
+import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 
 import styles from './Pricing.module.scss'
 
 export default function PricingPage() {
-  const { mainBackground } = useBackgroundImage()
+  const { mainBackground } = useMainBackgroundImage()
 
   return (
     <Layout>

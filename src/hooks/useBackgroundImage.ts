@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-export function useBackgroundImage() {
+export function useMainBackgroundImage() {
   const data = useStaticQuery(
     graphql`
       query {
