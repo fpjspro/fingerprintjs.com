@@ -2,8 +2,9 @@
 title: ecommerce
 templateKey: static-page-content
 metadata:
-  title: Static CMS Page
-  description: A test page
+  title: Ecommerce Fraud Prevention
+  description: "Prevent ecommerce fraud with our browser fingerprinting API for
+    user identification "
   url: https://fingerprintjs.com/ecommerce
   image: /img/uploads/dog.jpg
 invertContent: false
@@ -46,16 +47,26 @@ blocks:
     ctaText: Learn more
     ctaUrl: https://fingerprintjs.com/pricing
     isCtaButton: false
-  - subheader: Some other header
-    content: You can write text content instead of lists now
+  - subheader: Stay protected throughout the purchase process, from customer login
+      to payment.
+    content: Account Fraud - Account Takeovers - PII & Identity Theft - Digital
+      Wallet Fraud - Bot Attacks  Payment Processing - Chargebacks  - Disputed &
+      Reversed Payments - Gift Card & Coupon Abuse - Stolen Credit Card
+      Purchases
     image: /img/uploads/cat.jpg
-    isImageAfterText: true
+    isImageAfterText: false
     ctaText: Learn more
     ctaUrl: https://fingerprintjs.com/pricing
     isCtaButton: false
 inlineCta:
-  title: Call to action
-  subtitle: It's calling you to action
-  buttonText: Action!
+  title: Significantly reduce chargebacks just one month after integrating
+    FingerprintJS on your website.
+  subtitle: "Every dollar of ecommerce fraud can cost retailers between 3 to 4
+    times as much - a loss mitigated with our 99.5% accurate browser
+    fingerprinting and e-commerce fraud detection solution. With FingerprintJS,
+    you can protect your bottom line against fraudulent orders that incur
+    tremendous financial waste on labor, shipping, products, chargebacks, fines
+    and more . "
+  buttonText: Get Started
   buttonHref: /
 ---
