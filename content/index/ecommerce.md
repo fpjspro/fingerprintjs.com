@@ -50,7 +50,7 @@ blocks:
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: Stay protected throughout the purchase process, from customer login
-      to payment.
+      to payment
     content: FingerprintJS helps developer teams identify their ecommerce site's
       most vulnerable interactions and build authentication flows that won't
       overburden visitors. Uniquely identifying users at the login stage will
