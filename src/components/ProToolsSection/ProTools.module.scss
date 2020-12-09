@@ -2,7 +2,6 @@
   background-color: v('off-white');
   background-repeat: no-repeat;
   background-size: 1400px auto;
-  background-image: url('../../img/bg-full.png');
   background-position: center center;
 
   .container {
@@ -15,7 +14,7 @@
     }
   }
 
-  .header, 
+  .header,
   .content {
     flex: 1;
   }

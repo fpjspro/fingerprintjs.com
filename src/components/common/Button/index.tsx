@@ -8,6 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string
   mobileIcon?: React.ReactNode
   children?: React.ReactNode
+  label?: string
   onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
@@ -19,6 +20,7 @@ export default function Button({
   mobileIcon,
   children,
   type,
+  label = '',
   onClick,
 }: ButtonProps) {
   const classes = classNames(
@@ -30,12 +32,12 @@ export default function Button({
   )
 
   return href ? (
-    <a href={href} className={classes} onClick={onClick}>
+    <a href={href} className={classes} onClick={onClick} aria-label={label}>
       {mobileIcon && <span className={styles.mobileOnly}>{mobileIcon}</span>}
       <span className={classNames({ [styles.desktopOnly]: mobileIcon })}>{children}</span>
     </a>
   ) : (
-    <button type={type} className={classes} onClick={onClick}>
+    <button type={type} className={classes} onClick={onClick} aria-label={label}>
       {mobileIcon && <span className={classNames(styles.icon, styles.mobileOnly)}>{mobileIcon}</span>}
       <span className={classNames({ [styles.desktopOnly]: mobileIcon })}>{children}</span>
     </button>

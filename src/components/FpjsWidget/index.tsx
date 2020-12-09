@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { getVisitTitle, getBrowserName, getBotDecision } from '../../helpers/fpjs-widget'
 import { ReactComponent as InfoSvg } from './info.svg'
 import { ReactComponent as IncognitoSvg } from './incognito.svg'
@@ -16,7 +16,7 @@ const apiToken = FPJS_API_TOKEN ?? 'test_fpjs_api_token'
 const endpoint = FPJS_ENDPOINT ?? ''
 const mapboxToken = MAPBOX_ACCESS_TOKEN
 
-export default function FpjsWidget() {
+export default memo(function FpjsWidget() {
   const [currentVisit, setCurrentVisit] = useState<VisitorResponse>()
   const [visits, setVisits] = useState<VisitorResponse[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -104,7 +104,7 @@ export default function FpjsWidget() {
       )}
     </div>
   )
-}
+})
 
 function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
   return (
@@ -162,6 +162,7 @@ function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
           >
             {currentVisit && (
               <img
+                alt='Location map'
                 src={`https://api.mapbox.com/styles/v1/mapbox/${
                   currentVisit?.incognito ? 'dark-v10' : 'outdoors-v11'
                 }/static/${currentVisit?.ipLocation?.longitude},${

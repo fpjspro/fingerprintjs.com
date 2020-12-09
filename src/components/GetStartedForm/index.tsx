@@ -59,7 +59,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
     >
       {(formState === FormState.Default || formState === FormState.Loading) && (
         <div className={classNames(styles.field, styles.withButton)}>
-          <label htmlFor='email' className={styles.label}>
+          <label htmlFor='email' className={styles.label} aria-label='Enter your email'>
             <input
               type='email'
               name='email'

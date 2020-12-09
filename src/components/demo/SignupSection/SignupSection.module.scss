@@ -18,8 +18,7 @@
     padding-bottom: 5rem;
   }
 
-  .form,
-  .image {
+  .form {
     flex-basis: 50%;
 
     @include media('<=phoneLandscape') {
@@ -40,16 +39,19 @@
   }
 
   .image {
-    background-repeat: no-repeat;
-    background-size: 512px auto;
-    background-image: url('../../../img/bg-full.png');
-    background-position: center 50%;
-
     object-fit: contain;
     max-height: 30rem;
+  }
+}
 
-    @include media('<=phoneLandscape') {
-      display: none;
-    }
+.background {
+  background-position: center 50%;
+  background-size: 512px auto;
+  background-repeat: no-repeat;
+
+  flex-basis: 50%;
+
+  @include media('<=phoneLandscape') {
+    display: none;
   }
 }
