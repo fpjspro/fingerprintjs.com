@@ -1226,10 +1226,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fingerprintjs/fingerprintjs-pro@^3.0.1":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@fingerprintjs/fingerprintjs-pro/-/fingerprintjs-pro-3.1.0.tgz#f3ce5dc00cea0d489bb6dbfebb5198debb0b9a9a"
-  integrity sha512-TmuAitod5JRBVg7wBkUk3a5eIEMvKdUExbqtEzkjmi8mQfgdhPSaCchQYZOBMRoJcTdtK1IBzpjbL0I65MyilQ==
+"@fingerprintjs/fingerprintjs-pro@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@fingerprintjs/fingerprintjs-pro/-/fingerprintjs-pro-3.2.0.tgz#74fda12a8ebf1847370615c8e39a3af3b34d90ba"
+  integrity sha512-szjEIlsGm88HtEVwZcacNmd3Ar48C6Z4y7Dh2xjGhp/f4Lfwy4uWyWunTWGcMyougsilParZX30u9ZJzX5Czxg==
   dependencies:
     "@fingerprintjs/fingerprintjs" "3.0.3"
     tslib "^2.0.1"
