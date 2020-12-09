@@ -71,3 +71,19 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+
+  const typeDefs = `
+    type MarkdownRemarkFrontmatterCardSection implements Node {
+      subtitle: String
+    }
+
+    type MarkdownRemarkFrontmatterCardSectionCards implements Node {
+      icon: File
+    }
+  `
+
+  createTypes(typeDefs)
+}
