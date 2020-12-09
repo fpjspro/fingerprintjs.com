@@ -34,7 +34,9 @@ export function FpjsProvider({ children }: { children: React.ReactNode }) {
         region,
 
         // It may break after a @fingerprintjs/fingerprintjs-pro update. Please check when updating.
-        debug: FP.makeRemoteDebugger({ clientId: monitoringClientId, token: monitoringToken }),
+        debug: monitoringToken
+          ? FP.makeRemoteDebugger({ clientId: monitoringClientId, token: monitoringToken })
+          : undefined,
       })
       const result = await fp.get(config)
 
