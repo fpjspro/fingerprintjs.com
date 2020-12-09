@@ -25,6 +25,7 @@ export default function Hero({ title, description, ctaText, ctaHref, className }
           subtitle={description}
           subtitleSize='normal'
           align='center'
+          className={styles.subHeader}
         />
 
         <Button href={ctaHref} className={styles.button}>
