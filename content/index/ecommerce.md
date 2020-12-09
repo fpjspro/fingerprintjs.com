@@ -58,8 +58,8 @@ blocks:
       disputed payments.
     image: /img/uploads/fpjs-flowchart-smaller.png
     isImageAfterText: false
-    ctaText: Learn More
-    ctaUrl: https://fingerprintjs.com/
+    ctaText: See our technical demo
+    ctaUrl: https://fingerprintjs.com/demo/
     isCtaButton: false
 inlineCta:
   title: Reduce chargebacks one month after integrating FingerprintJS on your website.
