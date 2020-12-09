@@ -123,5 +123,5 @@ collections:
               { label: Image, name: image, widget: image },
             ],
         }
-      - { label: Title, name: title, widget: string }
+      - { label: Publish date, name: publishDate, widget: datetime, date_format: 'MM.DD.YYYY' }
       - { label: Body, name: body, widget: markdown }

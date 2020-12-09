@@ -20,17 +20,15 @@ export default function LongFormContent({ data }: { data: GatsbyTypes.LongFormCo
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
-    data.markdownRemark?.frontmatter?.title === undefined ||
     data.markdownRemark?.html === undefined
   ) {
     return null
   }
 
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
-  const title = data.markdownRemark.frontmatter.title
   const body = data.markdownRemark.html
 
-  return <LongFormContentTemplate contentComponent={HtmlContent} metadata={metadata} title={title} body={body} />
+  return <LongFormContentTemplate contentComponent={HtmlContent} metadata={metadata} body={body} />
 }
 
 export const pageQuery = graphql`
@@ -47,7 +45,6 @@ export const pageQuery = graphql`
             publicURL
           }
         }
-        title
       }
     }
   }
@@ -55,18 +52,17 @@ export const pageQuery = graphql`
 
 interface TemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
-  title: string
   body: string | JSX.Element
   contentComponent?: (props) => JSX.Element
 }
-export function LongFormContentTemplate({ metadata, title, body, contentComponent }: TemplateProps) {
+export function LongFormContentTemplate({ metadata, body, contentComponent }: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
   return (
     <LayoutTemplate siteMetadata={metadata}>
       <Section className={styles.root}>
         <Container className={styles.container}>
-          <h1 className={styles.title}>{title}</h1>
+          <h1 className={styles.title}>{metadata.title}</h1>
 
           <ContentComponent content={body} className={styles.content} />
         </Container>
@@ -77,9 +73,8 @@ export function LongFormContentTemplate({ metadata, title, body, contentComponen
 
 export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
-  const title = entry.getIn(['data', 'title']) as string
 
-  return <LongFormContentTemplate metadata={mapToMetadata(metadata)} title={title} body={widgetFor('body') ?? <></>} />
+  return <LongFormContentTemplate metadata={mapToMetadata(metadata)} body={widgetFor('body') ?? <></>} />
 }
 
 type QueryMetadata = NonNullable<

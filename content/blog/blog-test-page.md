@@ -1,11 +1,11 @@
 ---
 templateKey: long-form-content
 metadata:
-  title: A blog page
-  description: Rendered from markdown
+  title: A test page for the blog system
+  description: Rendered from markdown that is created by the CMS and automagically published to GitHub. It just works! (except when it doesn't)
   url: https://fingerprintjs.com/blog/test
   image: /img/uploads/dog.jpg
-title: A test page for the blog system
+publishDate: 12.08.2020 4:18 PM
 ---
 
 Lorem markdownum capiat quae umorque vidi qui accessit volenti sumptaque Laurens
