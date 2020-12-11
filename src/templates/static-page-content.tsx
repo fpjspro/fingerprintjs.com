@@ -75,6 +75,8 @@ export const pageQuery = graphql`
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
+              extension
+              publicURL
             }
             title
             content

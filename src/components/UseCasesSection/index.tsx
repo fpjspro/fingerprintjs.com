@@ -37,7 +37,7 @@ export default function UseCasesSection() {
               You can mitigate account takeover attempts, prevent password sharing and significantly reduce the number
               of fake accounts.
             </UseCase>
-            <UseCase link='payment-fraud' iconComponent={PaymentProcessingSvg} title='Payment Processing' large>
+            <UseCase link='/payment-fraud' iconComponent={PaymentProcessingSvg} title='Payment Processing' large>
               Identify anonymous visitors behind every transaction. Instantly recognize repeated card testing activity
               and link it to specific users.
               <br />
@@ -45,15 +45,15 @@ export default function UseCasesSection() {
               Significantly reduce chargebacks and fraudulent payments just one month after integrating FingerprintJS on
               your website.
             </UseCase>
-            <UseCase link='ecommerce' iconComponent={ECommerceSvg} title='E-Commerce'>
+            <UseCase link='/ecommerce' iconComponent={ECommerceSvg} title='E-Commerce'>
               Every fraudulent order is money directly out of your pocket. With our best in class tools you can stop
               malicious users before they cost you real money.
             </UseCase>
-            <UseCase link='cryptocurrency' iconComponent={CryptoCurrencySvg} title='Cryptocurrency'>
+            <UseCase link='/cryptocurrency' iconComponent={CryptoCurrencySvg} title='Cryptocurrency'>
               Ensure that your trading, exchange and transfer operations are safe from malicious activity or account
               fraud.
             </UseCase>
-            <UseCase link='gaming' iconComponent={GamingSvg} title='Gaming'>
+            <UseCase link='/gaming' iconComponent={GamingSvg} title='Gaming'>
               Catch users trying to break your system via multiple accounts, devices, and IP addresses to unjustly
               enrich themselves.
             </UseCase>
