@@ -45,7 +45,7 @@ blocks:
       tellus, viverra dictum nibh id, ornare euismod purus. Etiam lobortis
       consequat scelerisque. Maecenas luctus dui eget leo congue, quis pretium
       nunc rutrum.
-    image: /img/uploads/dashboard-tight.png
+    image: /img/uploads/on-demand.png
     isImageAfterText: true
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
