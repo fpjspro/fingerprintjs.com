@@ -14,7 +14,7 @@ module.exports = {
     title: 'FingerprintJS Pro - browser fingerprinting & fraud detection API',
     description: 'Stop fraud, spam, and account takeovers with 99.5% accurate browser fingerprinting as a service.',
     url: 'https://fingerprintjs.com',
-    image: 'https://fingerprintjs.com/img/fpjs_preview.png',
+    image: 'https://fingerprintjs.com/img/fpjs-preview.png',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -37,7 +37,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/`,
-        name: 'pages',
+        name: 'index',
       },
     },
     {

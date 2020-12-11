@@ -1,7 +1,7 @@
-import React, { createContext, Dispatch, Reducer, ReducerAction, useReducer, useContext, useCallback } from 'react'
+import React, { createContext, Dispatch, Reducer, ReducerAction, useReducer, useContext } from 'react'
 import { FormState } from '../types/FormState'
 
-export default function useForm(formId: Forms) {
+export function useForm(formId: Forms) {
   const { state, dispatch } = useContext(FormContext)
 
   const updateFormState = (formState: FormState) => {

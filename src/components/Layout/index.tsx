@@ -38,10 +38,7 @@ export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) 
 
         <meta property='og:url' content={url} />
         <meta property='og:title' content={title} />
-        <meta
-          property='og:description'
-          content='Stop fraud, spam, and account takeovers with 99.5% accurate browser fingerprinting as a service.'
-        />
+        <meta property='og:description' content={description} />
         <meta property='og:image' content={image} />
 
         <meta property='twitter:card' content='summary_large_image' />

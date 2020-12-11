@@ -10,6 +10,7 @@ import { ReactComponent as CustomSolutionSvg } from './custom_solution.svg'
 import Container from '../common/Container'
 import Section from '../common/Section'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
+import { Link } from 'gatsby'
 
 import styles from './UseCasesSection.module.scss'
 
@@ -60,7 +61,7 @@ export default function UseCasesSection() {
                 </p>
               </div>
             </div>
-            <div className={styles.useCase}>
+            <Link to='ecommerce' className={styles.useCase}>
               <div className={styles.iconContainer}>
                 <ECommerceSvg className={styles.icon} />
               </div>
@@ -71,7 +72,7 @@ export default function UseCasesSection() {
                   malicious users before they cost you real money.
                 </p>
               </div>
-            </div>
+            </Link>
             <div className={styles.useCase}>
               <div className={styles.iconContainer}>
                 <CryptoCurrencySvg className={styles.icon} />

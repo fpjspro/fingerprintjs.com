@@ -1,16 +1,47 @@
-.subHeader {
-  .title {
+.root {
+  &.left {
+    text-align: left;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  &.center {
     text-align: center;
+  }
+
+  .small {
+    font-size: 1.75rem;
+  }
+
+  .normal {
+    font-size: 2rem;
+  }
+
+  .medium {
     font-size: 2.75rem;
+  }
+
+  .large {
+    font-size: 4rem;
+  }
+
+  .weightNormal {
     font-weight: v('normal');
+  }
+
+  .weightBold {
+    font-weight: v('bold');
+  }
+
+  .title {
     margin-bottom: 2rem;
   }
 
   .subtitle {
-    text-align: center;
-    font-size: 1.75rem;
-    font-family: v('ff-sans');
     font-weight: v('normal');
+    font-family: v('ff-sans');
     margin-bottom: 2rem;
   }
 }

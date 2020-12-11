@@ -12,8 +12,8 @@ import useRollbar from '../../hooks/useRollbar'
 import { FPJS_API_TOKEN, FPJS_ENDPOINT, MAPBOX_ACCESS_TOKEN } from '../../constants/env'
 import styles from './FpjsWidget.module.scss'
 
-const apiToken = FPJS_API_TOKEN ?? 'test_fpjs_api_token'
-const endpoint = FPJS_ENDPOINT ?? ''
+const apiToken = FPJS_API_TOKEN
+const endpoint = FPJS_ENDPOINT
 const mapboxToken = MAPBOX_ACCESS_TOKEN
 
 export default memo(function FpjsWidget() {

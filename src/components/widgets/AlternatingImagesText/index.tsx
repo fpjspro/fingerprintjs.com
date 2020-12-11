@@ -1,6 +1,5 @@
 import React from 'react'
 import PreviewCompatibleImage, { ImageInfo } from '../../common/PreviewCompatibleImage/PreviewCompatibleImage'
-import TextList from '../../common/TextList'
 import Container from '../../common/Container'
 import Section from '../../common/Section'
 import classNames from 'classnames'
@@ -11,7 +10,7 @@ import { Link } from 'gatsby'
 export interface BlockWithImage {
   image: ImageInfo
   subTitle: string
-  bullets: string[]
+  content: string
   isImageAfterText: boolean
   ctaText: string
   ctaUrl: string
@@ -21,10 +20,11 @@ export interface BlockWithImage {
 export interface AlternatingImagesTextProps {
   title: string
   blocks: BlockWithImage[]
+  className?: string
 }
-export default function AlternatingImagesText({ title, blocks }: AlternatingImagesTextProps) {
+export default function AlternatingImagesText({ title, blocks, className }: AlternatingImagesTextProps) {
   return (
-    <Section className={styles.root}>
+    <Section className={classNames(styles.root, className)}>
       <h2 className={styles.title}>{title}</h2>
 
       {blocks.map((block) => (
@@ -36,12 +36,12 @@ export default function AlternatingImagesText({ title, blocks }: AlternatingImag
 
 function Block({ block }: { block: BlockWithImage }) {
   return (
-    <Container className={styles.container}>
+    <Container size='large' className={styles.container}>
       <PreviewCompatibleImage className={styles.image} imageInfo={block.image} />
 
       <div className={classNames(styles.text, { [styles.left]: block.isImageAfterText })}>
         <h3 className={styles.blockTitle}>{block.subTitle}</h3>
-        <TextList className={styles.list} items={block.bullets} ordered />
+        <p className={styles.content}>{block.content}</p>
         {block.ctaText && <CtaComponent {...block} />}
       </div>
     </Container>

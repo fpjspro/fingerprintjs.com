@@ -2,11 +2,11 @@
   padding: 20rem 0;
   position: relative;
 
-  @include media("<=tabletWide") {
+  @include media('<=tabletWide') {
     padding: 14rem 0;
   }
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     padding: 7rem 0;
   }
 
@@ -22,12 +22,12 @@
     background-image: url('../../../img/hero-1366+.png');
     background-position: center 75%;
 
-    @include media("<=tabletWide") {
+    @include media('<=tabletWide') {
       background-image: url('../../../img/hero-768+.png');
       background-size: 80vw auto;
     }
 
-    @include media("<=phone") {
+    @include media('<=phone') {
       background-image: url('../../../img/hero-320+.png');
       background-size: 80vw auto;
     }
@@ -41,19 +41,11 @@
   position: relative;
 }
 
-.title {
-  text-align: center;
-  font-size: 4rem;
-  font-weight: v('normal');
-  margin-bottom: 2rem;
-}
-
-.description {
-  text-align: center;
-  margin-bottom: 2.5rem;
+.subHeader {
+  background-color: c('white');
 }
 
 .button {
   margin: 0 auto;
+  margin-top: 0.5rem;
 }
-

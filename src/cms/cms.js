@@ -1,7 +1,7 @@
 import CMS from 'netlify-cms-app'
 
-import { AccountSharingPagePreview } from '../templates/account-sharing-page'
 import { LongFormContentPreview } from '../templates/long-form-content'
+import { StaticPageContentPreview } from '../templates/static-page-content'
 
-CMS.registerPreviewTemplate('account-sharing-page', AccountSharingPagePreview)
 CMS.registerPreviewTemplate('blog', LongFormContentPreview)
+CMS.registerPreviewTemplate('index', StaticPageContentPreview)
