@@ -109,6 +109,7 @@ collections:
     label: 'Blog'
     folder: content/blog
     create: true
+    delete: true
     fields:
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'long-form-content' }
       - {

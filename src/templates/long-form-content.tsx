@@ -12,7 +12,7 @@ const HtmlContent = ({ content, className }: { content: string; className?: stri
   <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
 )
 
-const Content = ({ content, className }: { content: string | JSX.Element; className?: string }) => (
+const Content = ({ content, className }: { content: string | React.ReactNode; className?: string }) => (
   <div className={className}>{content}</div>
 )
 
@@ -52,8 +52,8 @@ export const pageQuery = graphql`
 
 interface TemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
-  body: string | JSX.Element
-  contentComponent?: (props) => JSX.Element
+  body: string | React.ReactNode
+  contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
 }
 export function LongFormContentTemplate({ metadata, body, contentComponent }: TemplateProps) {
   const ContentComponent = contentComponent ?? Content

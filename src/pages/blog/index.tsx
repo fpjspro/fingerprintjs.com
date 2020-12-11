@@ -16,19 +16,28 @@ export default function Blog({ data }: { data: GatsbyTypes.BlogQuery }) {
         <Container size='large'>
           <h1 className={styles.header}>Blog landing page</h1>
 
-          <Section className={styles.grid}>
-            {posts.map(({ node: post }) => (
-              <div key={post.id} className={styles.item}>
+          <div className={styles.grid}>
+            {posts.map(({ node: post }) => {
+              if (!post.fields || !post.frontmatter || !post.frontmatter.metadata) {
+                return null
+              }
+
+              const { slug = '/' } = post.fields
+              const { publishDate = '' } = post.frontmatter
+              const { title = '', description = '', image } = post.frontmatter.metadata
+
+              return (
                 <Post
-                  title={post.frontmatter?.metadata?.title ?? ''}
-                  description={post.frontmatter?.metadata?.description ?? ''}
-                  publishDate={post.frontmatter?.publishDate ?? ''}
-                  image={post.frontmatter?.metadata?.image}
-                  path={post.fields?.slug ?? '/'}
+                  key={post.id}
+                  title={title}
+                  description={description}
+                  publishDate={publishDate}
+                  image={image as GatsbyTypes.File}
+                  path={slug}
                 />
-              </div>
-            ))}
-          </Section>
+              )
+            })}
+          </div>
         </Container>
       </Section>
     </Layout>
@@ -68,13 +77,15 @@ interface PostProps {
   title: string
   description: string
   publishDate: string
-  image?: any
+  image?: GatsbyTypes.File
   path: string
 }
 function Post({ title, description, image, publishDate, path }: PostProps) {
+  const imageFluid = image?.childImageSharp?.fluid
+
   return (
     <Link to={path} className={styles.post}>
-      {image && <Img fluid={image.childImageSharp.fluid} className={styles.image} />}
+      {imageFluid && <Img fluid={imageFluid} className={styles.image} />}
 
       <div className={styles.content}>
         <span className={styles.publishDate}>{publishDate}</span>
