@@ -50,6 +50,6 @@ inlineCta:
     Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit
     mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales.
     Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
-  buttonText: Lipsum
-  buttonHref: https://dashboard.fingerprintjs.com
+  buttonText: Get Started
+  buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
