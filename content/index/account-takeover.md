@@ -2,39 +2,65 @@
 title: account-takeover
 templateKey: static-page-content
 metadata:
-  title: account-takeover
-  description: Ut fermentum, nulla ac condimentum bibendum, nibh turpis vestibulum neque, sit amet tempus dui risus quis dui.
+  title: Prevent account takeover with the most accurate browser fingerprinting API
+  description: Keep your customers' accounts safe by accurately identifying
+    threats before they can cause any damage. Powerful account fraud protection
+    for any web application.
   url: https://fingerprintjs.com/account-takeover
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Curabitur dapibus tristique finibus. Vivamus vitae lorem tincidunt, fringilla purus vitae, viverra eros.
-  description:
-    Cras fermentum risus sollicitudin commodo molestie. Praesent a efficitur tortor, at aliquet metus. Suspendisse eros ante, ornare et ornare eget, aliquam at elit. Quisque ultrices odio id nulla varius, faucibus lacinia mauris sollicitudin. Cras mi lacus, auctor nec aliquam mattis, convallis at ligula. Sed in tempor augue. Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu nisl fermentum neque, vitae dignissim mi leo nec odio. Morbi consectetur lorem ut tellus interdum ornare. Ut finibus faucibus augue sit amet hendrerit.
-    safe with our flexible, developer-friendly API. "
-  ctaText: Lipsum
-  ctaHref: https://dashboard.fingerprintjs.com
+  title: Prevent account takeover with the most accurate browser fingerprinting API
+  description: Keep your customers' accounts safe by accurately identifying
+    threats before they can cause any damage. Powerful account fraud protection
+    for any web application.
+  ctaText: Start Free Trial
+  ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
-  title: Cras aliquam nulla eget est finibus iaculis.
-  subtitle: ''
+  title: FingerprintJS helps to identify malicious actors - whatever form they take
+  subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
-      title: Morbi et feugiat augue.
-      content: Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu nisl fermentum neque, vitae dignissim mi leo nec odio.
-    - icon: /img/uploads/payment_processing.png
-      title: Praesent a efficitur tortor, at aliquet metus.
-      content: Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales. Aliquam et ligula eu erat laoreet accumsan ultricies id eros. Etiam in sapien in felis elementum commodo.
+      title: Credential Stuffing
+      content: Users that re-use passwords across multiple services are at risk of
+        having their accounts accessed by fraudsters who purchased or hacked
+        their account information from elsewhere. Catch these attempts by
+        associating multiple login attempts from bot networks.
+    - icon: /img/uploads/incognito.svg
+      title: Phishing and identity theft
+      content: Social engineering is still one of the most reliable methods for
+        fraudsters to access accounts. Require new visitors to provide
+        additional authentication to stop phished accounts from being accessed
+        easily.
 blocks:
-  - subheader: Vivamus vitae lorem tincidunt, fringilla purus vitae, viverra eros.
-    content: Morbi consectetur lorem ut tellus interdum ornare. Ut finibus faucibus augue sit amet hendrerit. Pellentesque nec orci venenatis, tincidunt leo at, tincidunt ante. Curabitur facilisis fringilla nisi. Phasellus eros tellus, viverra dictum nibh id, ornare euismod purus. Etiam lobortis consequat scelerisque. Maecenas luctus dui eget leo congue, quis pretium nunc rutrum.
+  - subheader: Stop Account Takeover At The Source
+    content: Account fraud can take many forms. Whether by brute force or individual
+      actors testing purchased credentials, uniquely identifying your website
+      visitors will provide the best defense against account
+      takeovers.  FingerprintJS is designed to be incorporated into your tech
+      stack and used in conjunction with existing authentication workflows to
+      improve the accruacy of threat detection, and allow technical teams to
+      customize their account login flows to be as safe and seamless as
+      possible.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
+  - subheader: Strong Account Protection means fewer chargebacks
+    content: Protecting your users' logins is the best way to mitigate chargebacks
+      from fraudulent purchases without compromising on experience. Try
+      FingerprintJS and see the difference accurate user detection can make for
+      your user's account security, merchant reputation, and more.
+    isImageAfterText: false
+    ctaText: Start free trial
+    ctaUrl: https://dashboard.fingerprintjs.com/signup
+    image: /img/uploads/dog.jpg
+    isCtaButton: false
 inlineCta:
-  title: Aliquam erat volutpat. Nunc tempor enim sollicitudin nulla faucibus mattis.
-  subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero. Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales. Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
-  buttonText: Lipsum
-  buttonHref: https://dashboard.fingerprintjs.com
+  title: FingerprintJS for account takeover protection
+  subtitle: "Start your free 10-day trial and get 100% of features with no usage
+    limits. "
+  buttonText: Get Started
+  buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
