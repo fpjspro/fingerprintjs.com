@@ -43,24 +43,39 @@ cardSection:
         core fingerprinting libraries open-source and free.
       icon: /img/uploads/browser_fingerprinting.png
 blocks:
-  - subheader: Vivamus vitae lorem tincidunt, fringilla purus vitae, viverra eros.
-    content: Morbi consectetur lorem ut tellus interdum ornare. Ut finibus faucibus
-      augue sit amet hendrerit. Pellentesque nec orci venenatis, tincidunt leo
-      at, tincidunt ante. Curabitur facilisis fringilla nisi. Phasellus eros
-      tellus, viverra dictum nibh id, ornare euismod purus. Etiam lobortis
-      consequat scelerisque. Maecenas luctus dui eget leo congue, quis pretium
-      nunc rutrum.
+  - subheader: The Power of Fingerprinting
+    content: Fingerprinting technology is the backbone of most major fraud detection
+      solutions. Fingerprinting can identify unique visitors and associate
+      sessions through incognito browsing, VPNs, cookie blockers and other
+      technologies used to anonymize fraudulent actors online.  The technology
+      works by analyzing data passed by the visitor's browser, device, patterns
+      of use and more to generate a unique visitorID, which can be used to
+      associate patterns of fraud with specific visitors.   In addition to
+      browser fingerprinting, FingerprintJS uses an innovative combination
+      of  browser fingerprinting, IP/URL analysis, device analysis, and machine
+      learning to accurately identify up to 99.5% of unique visitors.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
-    ctaText: Read our documentation
+    ctaText: Read our beginner's guide to fingerprinting >
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
+  - subheader: Future-proof your anti-fraud strategy
+    content: As spoofing and cloaking technologies improve, so too must your
+      solution to identify these actors before they can do damage to your
+      business. Our service provides access to the most sophisticated
+      identification techniques as browsers change their privacy settings and
+      signals become restricted or added.
+    isImageAfterText: false
+    image: /img/uploads/blog-index.jpg
+    ctaUrl: https://dashboard.fingerprintjs.com/signup
+    ctaText: Start Free Trial >
+    isCtaButton: false
 inlineCta:
-  title: Aliquam erat volutpat. Nunc tempor enim sollicitudin nulla faucibus mattis.
-  subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero.
-    Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit
-    mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales.
-    Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
-  buttonText: Lipsum
-  buttonHref: https://dashboard.fingerprintjs.com
+  title: Get FingerprintJS free and unlimited
+  subtitle: Teams can try FingerprintJS free for 10 days. Install our Javascript
+    snippet on your website and begin collecting unique VisitorIDs, geolocation
+    data and more immediately. This information can then be incorporated into
+    your authentication workflows easily using our API and webhooks.
+  buttonText: Get Started
+  buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
