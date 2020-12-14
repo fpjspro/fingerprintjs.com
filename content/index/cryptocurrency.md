@@ -2,39 +2,62 @@
 title: cryptocurrency
 templateKey: static-page-content
 metadata:
-  title: cryptocurrency
-  description: Ut fermentum, nulla ac condimentum bibendum, nibh turpis vestibulum neque, sit amet tempus dui risus quis dui.
+  title: Stop cryptocurrency fraud in its tracks
+  description: Crypto exchanges are highly appealing fraud targets. With our 99.5%
+    accurate browser fingerprinting API, identify fraudsters aiming to steal
+    account credentials and transfer coins into their own wallets.
   url: https://fingerprintjs.com/cryptocurrency
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Curabitur dapibus tristique finibus. Vivamus vitae lorem tincidunt, fringilla purus vitae, viverra eros.
-  description:
-    Cras fermentum risus sollicitudin commodo molestie. Praesent a efficitur tortor, at aliquet metus. Suspendisse eros ante, ornare et ornare eget, aliquam at elit. Quisque ultrices odio id nulla varius, faucibus lacinia mauris sollicitudin. Cras mi lacus, auctor nec aliquam mattis, convallis at ligula. Sed in tempor augue. Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu nisl fermentum neque, vitae dignissim mi leo nec odio. Morbi consectetur lorem ut tellus interdum ornare. Ut finibus faucibus augue sit amet hendrerit.
-    safe with our flexible, developer-friendly API. "
-  ctaText: Lipsum
-  ctaHref: https://dashboard.fingerprintjs.com
+  title: Stop cryptocurrency fraud in its tracks
+  description: Crypto exchanges are highly appealing fraud targets. With our 99.5%
+    accurate browser fingerprinting API, identify fraudsters aiming to steal
+    account credentials and transfer coins into their own wallets.
+  ctaText: Start Free Trial
+  ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: Cras aliquam nulla eget est finibus iaculis.
-  subtitle: ''
+  subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Morbi et feugiat augue.
-      content: Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu nisl fermentum neque, vitae dignissim mi leo nec odio.
+      content: Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero
+        tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu
+        nisl fermentum neque, vitae dignissim mi leo nec odio.
     - icon: /img/uploads/payment_processing.png
       title: Praesent a efficitur tortor, at aliquet metus.
-      content: Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales. Aliquam et ligula eu erat laoreet accumsan ultricies id eros. Etiam in sapien in felis elementum commodo.
+      content: Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus
+        condimentum sodales. Aliquam et ligula eu erat laoreet accumsan
+        ultricies id eros. Etiam in sapien in felis elementum commodo.
 blocks:
-  - subheader: Vivamus vitae lorem tincidunt, fringilla purus vitae, viverra eros.
-    content: Morbi consectetur lorem ut tellus interdum ornare. Ut finibus faucibus augue sit amet hendrerit. Pellentesque nec orci venenatis, tincidunt leo at, tincidunt ante. Curabitur facilisis fringilla nisi. Phasellus eros tellus, viverra dictum nibh id, ornare euismod purus. Etiam lobortis consequat scelerisque. Maecenas luctus dui eget leo congue, quis pretium nunc rutrum.
+  - subheader: Secure your user's accounts without sacrificing anonymity
+    content: Crypto customers value their privacy, and will abandon your exchange if
+      you introduce too much friction in the pursuit of security. FingerprintJS'
+      highly accurate VisitorID allows developer teams to implement additional
+      authentication for only the most suspicious logins, purchases and
+      transfers, and requires no additional information from your users.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
+  - ctaText: Start free trial
+    subheader: Reduce chargebacks with payment authentication
+    content: "The best way to protect your merchant reputation is to identify
+      purchases with a high likelihood of fraud before they can be processed.
+      Build additional checks and balances into your payment flows with our easy
+      to use API. "
+    image: /img/uploads/cat.jpg
+    ctaUrl: https://dashboard.fingerprintjs.com/signup
+    isCtaButton: false
+    isImageAfterText: false
 inlineCta:
   title: Aliquam erat volutpat. Nunc tempor enim sollicitudin nulla faucibus mattis.
-  subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero. Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales. Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
+  subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero.
+    Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit
+    mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales.
+    Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
   buttonText: Lipsum
   buttonHref: https://dashboard.fingerprintjs.com
 ---
