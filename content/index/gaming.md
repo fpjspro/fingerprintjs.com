@@ -41,12 +41,12 @@ cardSection:
       icon: /img/uploads/anonymous_user_identification.png
 blocks:
   - subheader: Powerful fingerprinting prevents gaming fraud
-    content: Cheating and scamming in online gaming can ruin the fun for your good
-      players, and can be notoriously difficult to stop.   Prevent fraud at its
-      source by creating a unique ID for your visitors, associating their
-      activity across browsers, incognito mode and other cloaking methods. By
-      understanding your visitors' browsing behavior, you can identify common
-      patterns of fraud and require additional authentication as needed.
+    content: Cheating in online gaming can ruin the fun for your good players, and
+      can be notoriously difficult to stop.   Prevent fraud at its source by
+      creating a unique ID for your visitors, associating their activity across
+      browsers, incognito mode and other cloaking methods. By understanding your
+      visitors' browsing behavior, you can identify common patterns of fraud and
+      require additional authentication as needed.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Read our documentation
@@ -55,9 +55,10 @@ blocks:
   - isImageAfterText: false
     subheader: Protect your players accounts and your bottom-line with anti-fraud
       protection from login to payment.
-    content: Account Fraud - Account Takeovers - Fake Sites - Promo & bonus abuse -
-      Bot Attacks  Payment Processing - CNP Fraud - Friendly Fraud - Arbitrage -
-      Card testing
+    content: Use FingerprintJS for your site's unique fraud needs. Our API and
+      webhooks make it easy to build custom authentication workflows to stop
+      common sources of fraud for gaming and gambling sites, including account
+      takeover, promo and bonus abuse, card testing and more.
     image: /img/uploads/fpjs-subscriptions.png
     ctaText: Sign up now
     ctaUrl: https://dashboard.fingerprintjs.com/signup
