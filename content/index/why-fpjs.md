@@ -24,8 +24,11 @@ cardSection:
   cards:
     - icon: /img/uploads/accuracy.svg
       title: Unparalleled Accuracy
-      content: "Address fraudulent behavior at the source rather than through complex
-        mitigation strategies later with a highly accurate visitorID. "
+      content: Address fraudulent behavior at the source rather than through complex
+        mitigation strategies later with a highly accurate visitorID.
+        FingerprintJS uses an innovative combination of  browser fingerprinting,
+        IP/URL analysis, device analysis, and machine learning to accurately
+        identify up to 99.5% of unique visitors.
     - icon: /img/uploads/apiwebhooks.png
       title: Targeted authentication
       content: Introducing unnecessary hurdles to account login and payment can be
@@ -44,16 +47,13 @@ cardSection:
       icon: /img/uploads/browser_fingerprinting.png
 blocks:
   - subheader: The Power of Fingerprinting
-    content: Fingerprinting technology is the backbone of most major fraud detection
-      solutions. Fingerprinting can identify unique visitors and associate
-      sessions through incognito browsing, VPNs, cookie blockers and other
-      technologies used to anonymize fraudulent actors online.  The technology
-      works by analyzing data passed by the visitor's browser, device, patterns
-      of use and more to generate a unique visitorID, which can be used to
-      associate patterns of fraud with specific visitors.   In addition to
-      browser fingerprinting, FingerprintJS uses an innovative combination
-      of  browser fingerprinting, IP/URL analysis, device analysis, and machine
-      learning to accurately identify up to 99.5% of unique visitors.
+    content: "Fingerprinting technology is the backbone of most major fraud
+      detection solutions. Fingerprinting can identify unique visitors and
+      associate sessions through incognito browsing, VPNs, cookie blockers and
+      other technologies used to anonymize fraudulent actors online.  The
+      technology works by analyzing data passed by the visitor's browser,
+      device, patterns of use and more to generate a unique visitorID, which can
+      be used to associate patterns of fraud with specific visitors. "
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Read our beginner's guide to fingerprinting >
