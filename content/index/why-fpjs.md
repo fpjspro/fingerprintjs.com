@@ -2,41 +2,46 @@
 title: why-fpjs
 templateKey: static-page-content
 metadata:
-  title: why-fpjs
-  description: Ut fermentum, nulla ac condimentum bibendum, nibh turpis vestibulum
-    neque, sit amet tempus dui risus quis dui.
+  title: Why FingerprintJS - Empowering Developers To Solve Fraud At The Source
+  description: As opposed to top-down, enterprise-focused fraud prevention
+    platforms, FingerprintJS was designed to solve digital fraud by uniquely and
+    accurately identifying users, and empowering technical teams to use that
+    data to in a way that works for their applications.
   url: https://fingerprintjs.com/why-fpjs
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Curabitur dapibus tristique finibus. Vivamus vitae lorem tincidunt,
-    fringilla purus vitae, viverra eros.
-  description: Cras fermentum risus sollicitudin commodo molestie. Praesent a
-    efficitur tortor, at aliquet metus. Suspendisse eros ante, ornare et ornare
-    eget, aliquam at elit. Quisque ultrices odio id nulla varius, faucibus
-    lacinia mauris sollicitudin. Cras mi lacus, auctor nec aliquam mattis,
-    convallis at ligula. Sed in tempor augue. Nulla sodales fringilla ex ac
-    viverra. Nam maximus leo nec libero tincidunt dignissim. Praesent gravida,
-    velit eget finibus eleifend, arcu nisl fermentum neque, vitae dignissim mi
-    leo nec odio. Morbi consectetur lorem ut tellus interdum ornare. Ut finibus
-    faucibus augue sit amet hendrerit. safe with our flexible,
-    developer-friendly API. "
-  ctaText: Lipsum
+  title: Empowering Developers To Solve Fraud At The Source
+  description: As opposed to top-down, enterprise-focused fraud prevention
+    platforms, FingerprintJS was designed to solve digital fraud by uniquely and
+    accurately identifying users, and empowering technical teams to use that
+    data to in a way that works for their applications.
+  ctaText: Start Free Trial
   ctaHref: https://dashboard.fingerprintjs.com
 cardSection:
-  title: Cras aliquam nulla eget est finibus iaculis.
+  title: Why FingerprintJS is different
   subtitle: ""
   cards:
-    - icon: /img/uploads/api_webhooks.svg
-      title: Morbi et feugiat augue.
-      content: Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero
-        tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu
-        nisl fermentum neque, vitae dignissim mi leo nec odio.
-    - icon: /img/uploads/payment_processing.png
-      title: Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn
-      content: Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus
-        condimentum sodales. Aliquam et ligula eu erat laoreet accumsan
-        ultricies id eros. Etiam in sapien in felis elementum commodo.
+    - icon: /img/uploads/accuracy.svg
+      title: Unparalleled Accuracy
+      content: "Address fraudulent behavior at the source rather than through complex
+        mitigation strategies later with a highly accurate visitorID. "
+    - icon: /img/uploads/apiwebhooks.png
+      title: Targeted authentication
+      content: Introducing unnecessary hurdles to account login and payment can be
+        detrimental to user experience. Using our API, you can identify when you
+        need to introduce additional authentication, keeping your trusted
+        customers' experience streamlined.
+    - title: GDPR and CGPA compliant
+      content: We take online privacy seriously. FingerprintJS is intended to be used
+        for fraud detection only - for this use case, no user consent is
+        required for compliancy with GDPR and CGPA.We never automatically track
+        traffic, and never do cross-domain tracking.
+      icon: /img/uploads/shield.svg
+    - title: Committed to Open Source
+      content: Our team is committed to democratizing fraud prevention by keeping our
+        core fingerprinting libraries open-source and free.
+      icon: /img/uploads/browser_fingerprinting.png
 blocks:
   - subheader: Vivamus vitae lorem tincidunt, fringilla purus vitae, viverra eros.
     content: Morbi consectetur lorem ut tellus interdum ornare. Ut finibus faucibus
