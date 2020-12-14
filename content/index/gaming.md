@@ -25,8 +25,8 @@ cardSection:
       content: Protect your loyal customers' accounts from thieves looking to sell
         their in-game wallets, inventories or characters. Catch brute force bot
         attacks and logins comprimised through phishing or fake sites.
-    - icon: /img/uploads/bot_detection.png
-      title: Identify suspicious account activity in all its forms
+    - icon: /img/uploads/gaming.png
+      title: Identify suspicious activity in all its forms
       content: "Catch accounts created via proxies and VPNs, arbitrage attempts,
         player collusion, in-app purchase brokers and more. "
     - title: Avoid merchant penalties
