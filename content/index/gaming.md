@@ -2,39 +2,70 @@
 title: gaming
 templateKey: static-page-content
 metadata:
-  title: gaming
-  description: Ut fermentum, nulla ac condimentum bibendum, nibh turpis vestibulum neque, sit amet tempus dui risus quis dui.
+  title: Gaming fraud prevention built for developer teams
+  description: Uniquely identify fraudulent players to prevent the most common
+    forms of gaming and gambling fraud, including credential stuffing, cheating
+    schemes, arbitrage and more.
   url: https://fingerprintjs.com/gaming
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Curabitur dapibus tristique finibus. Vivamus vitae lorem tincidunt, fringilla purus vitae, viverra eros.
-  description:
-    Cras fermentum risus sollicitudin commodo molestie. Praesent a efficitur tortor, at aliquet metus. Suspendisse eros ante, ornare et ornare eget, aliquam at elit. Quisque ultrices odio id nulla varius, faucibus lacinia mauris sollicitudin. Cras mi lacus, auctor nec aliquam mattis, convallis at ligula. Sed in tempor augue. Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu nisl fermentum neque, vitae dignissim mi leo nec odio. Morbi consectetur lorem ut tellus interdum ornare. Ut finibus faucibus augue sit amet hendrerit.
-    safe with our flexible, developer-friendly API. "
-  ctaText: Lipsum
-  ctaHref: https://dashboard.fingerprintjs.com
+  title: Gaming fraud prevention built for developer teams
+  description: Uniquely identify fraudulent players to prevent the most common
+    forms of gaming and gambling fraud, including credential stuffing, cheating
+    schemes, arbitrage and more.
+  ctaText: Start Free Trial
+  ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
-  title: Cras aliquam nulla eget est finibus iaculis.
-  subtitle: ''
+  title: "Stop fraud by adding fingerprinting to your tech stack:"
+  subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
-      title: Morbi et feugiat augue.
-      content: Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu nisl fermentum neque, vitae dignissim mi leo nec odio.
-    - icon: /img/uploads/payment_processing.png
-      title: Praesent a efficitur tortor, at aliquet metus.
-      content: Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales. Aliquam et ligula eu erat laoreet accumsan ultricies id eros. Etiam in sapien in felis elementum commodo.
+      title: Eliminate Account Takeover Attempts
+      content: Protect your loyal customers' accounts from thieves looking to sell
+        their in-game wallets, inventories or characters. Catch brute force bot
+        attacks and logins comprimised through phishing or fake sites.
+    - icon: /img/uploads/bot_detection.png
+      title: Identify suspicious account activity in all its forms
+      content: "Catch accounts created via proxies and VPNs, arbitrage attempts,
+        player collusion, in-app purchase brokers and more. "
+    - title: Avoid merchant penalties
+      content: Only require additional authentication for suspicious or new players
+        while allowing micro-transactions and quick payments to proceed with
+        ease for everyone else.
+      icon: /img/uploads/commerce.png
+    - title: Reduce manual checks
+      content: Having to manually screen purchases for signs of fraud isn't scalable.
+        Supercharge your automated fraud fighting efforts with the most accurate
+        fingerprinting technology available.
+      icon: /img/uploads/anonymous_user_identification.png
 blocks:
-  - subheader: Vivamus vitae lorem tincidunt, fringilla purus vitae, viverra eros.
-    content: Morbi consectetur lorem ut tellus interdum ornare. Ut finibus faucibus augue sit amet hendrerit. Pellentesque nec orci venenatis, tincidunt leo at, tincidunt ante. Curabitur facilisis fringilla nisi. Phasellus eros tellus, viverra dictum nibh id, ornare euismod purus. Etiam lobortis consequat scelerisque. Maecenas luctus dui eget leo congue, quis pretium nunc rutrum.
+  - subheader: Powerful fingerprinting prevents gaming fraud
+    content: Cheating and scamming in online gaming can ruin the fun for your good
+      players, and can be notoriously difficult to stop.   Prevent fraud at its
+      source by creating a unique ID for your visitors, associating their
+      activity across browsers, incognito mode and other cloaking methods. By
+      understanding your visitors' browsing behavior, you can identify common
+      patterns of fraud and require additional authentication as needed.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
+  - isImageAfterText: false
+    subheader: Protect your players accounts and your bottom-line with anti-fraud
+      protection from login to payment.
+    content: Account Fraud - Account Takeovers - Fake Sites - Promo & bonus abuse -
+      Bot Attacks  Payment Processing - CNP Fraud - Friendly Fraud - Arbitrage -
+      Card testing
+    image: /img/uploads/fpjs-subscriptions.png
+    ctaText: Sign up now
+    ctaUrl: https://dashboard.fingerprintjs.com/signup
+    isCtaButton: false
 inlineCta:
-  title: Aliquam erat volutpat. Nunc tempor enim sollicitudin nulla faucibus mattis.
-  subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero. Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales. Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
-  buttonText: Lipsum
-  buttonHref: https://dashboard.fingerprintjs.com
+  title: Try FingerprintJS for gaming fraud prevention
+  subtitle: Install our Javascript snippet on your site to start collecting unique
+    VisitorIDs, geolocation data, visit history and more immediately.
+  buttonText: Get Started
+  buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
