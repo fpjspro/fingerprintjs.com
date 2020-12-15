@@ -55,7 +55,7 @@ blocks:
       accurate fingerprinting service wherever it is needed.   "
     image: /img/uploads/fpjs-snippet-code.png
     isImageAfterText: false
-    ctaText: Test our snippet
+    ctaText: Try it out
     ctaUrl: https://dashboard.fingerprintjs.com/signup
     isCtaButton: false
 inlineCta:
