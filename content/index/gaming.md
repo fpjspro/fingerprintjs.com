@@ -21,7 +21,7 @@ cardSection:
   subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
-      title: Eliminate Account Takeover Attempts
+      title: Eliminate account takeover attempts
       content: Protect your loyal customers' accounts from thieves looking to sell
         their in-game wallets, inventories or characters. Catch brute force bot
         attacks and logins comprimised through phishing or fake sites.
