@@ -2,18 +2,18 @@
 title: account-sharing
 templateKey: static-page-content
 metadata:
-  title: 99.5% accurate account sharing prevention for SaaS
-  description: "FingerprintJS helps SaaS businesses identify and prevent account
+  title: "Account sharing prevention for SaaS businesses "
+  description: "FingerprintJS helps SaaS companies identify and prevent account
     sharing, providing a path forward to convert shared accounts into individual
     paid subscribers. "
   url: https://fingerprintjs.com/account-sharing
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: 99.5% accurate account sharing prevention for SaaS
-  description: "FingerprintJS helps SaaS businesses identify and prevent account
-    sharing, providing a path forward to convert shared accounts into individual
-    paid subscribers. "
+  title: "Account sharing prevention for SaaS businesses "
+  description: FingerprintJS helps SaaS companies identify and prevent account
+    sharing, providing a path to convert shared accounts into individual paid
+    subscribers and increase total revenue.
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
@@ -24,7 +24,8 @@ cardSection:
       title: Increase revenue for your business
       content: Account sharers already know the value of your service. By enforcing
         subscription limits via user identification, you can convert "free"
-        account-sharing users to paying customers.
+        account-sharing users to paying customers without negatively impacting
+        the rest of your users' experience.
     - icon: /img/uploads/payment_processing.png
       title: Increase security for your customers
       content: Password sharing increases the risks for account takeover, and makes it
@@ -56,7 +57,7 @@ blocks:
 inlineCta:
   title: Try FingerprintJS - 10 days, no limits
   subtitle: Signing up only takes a few minutes. Start collecting visitorIDs for
-    your traffic right awa.
+    your traffic right away.
   buttonText: Start Free Trial
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
