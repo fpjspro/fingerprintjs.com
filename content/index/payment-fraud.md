@@ -52,7 +52,7 @@ blocks:
     content: "FingerprintJS' API and webhooks are designed to be integrated with
       your existing website architecture and payment processing platform.
       Whether you have a Shopify store or a custom build, incorporate our highly
-      accurate fingerprinting service where it is needed.   "
+      accurate fingerprinting service wherever it is needed.   "
     image: /img/uploads/fpjs-snippet-code.png
     isImageAfterText: false
     ctaText: Test our snippet
