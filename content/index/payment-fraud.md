@@ -3,25 +3,25 @@ title: payment-fraud
 templateKey: static-page-content
 metadata:
   title: Reduce payment fraud in all its forms with accurate user identification
-  description: Keep chargebacks to a minimum to protect your business' bottom line
-    and seller reputation.
+  description: Use FingerprintJS to keep chargebacks to a minimum, protecting your
+    bottom line and seller reputation.
   url: https://fingerprintjs.com/payment-fraud
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Reduce payment fraud in all its forms with accurate user identification
-  description: Keep chargebacks to a minimum to protect your business' bottom line
-    and seller reputation with FingerprintJS.
-  ctaText: Lipsum
-  ctaHref: https://dashboard.fingerprintjs.com
+  title: Stop payment fraud in all its forms with accurate user identification
+  description: Use FingerprintJS to keep chargebacks to a minimum, protecting your
+    bottom line and seller reputation.
+  ctaText: Create Account
+  ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
-  title: Cras aliquam nulla eget est finibus iaculis.
+  title: "Add FingerprintJS to your tech stack to prevent:"
   subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Coupon and promo abuse
-      content: "Ensure your promotions are being used fairly and not used multiple
-        times. "
+      content: Ensure your promotions are being used fairly and not used multiple
+        times or stacked to remove all profit from your sales.
     - icon: /img/uploads/payment_processing.png
       title: Card Testing
       content: Prevent fraudsters from using your site to test stolen credit cards
