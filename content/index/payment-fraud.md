@@ -34,15 +34,27 @@ cardSection:
         product or service. Flag these users easily to prevent future
         chargebacks.
 blocks:
-  - subheader: Chargebacks
-    content: At the end of the day, any method of payment fraud can result in a
-      chargeback, which impacts revenue and your merchant reputation. No matter
-      the case, accurate identification can help reduce this incredibly
-      important indicator of fraudulent activity.
+  - subheader: Stop chargebacks in their tracks
+    content: Any form of payment fraud can result in a chargeback for your website,
+      which may result in lost revenue, stolen goods or services, and damage to
+      your merchant reputation. No matter the cause, accurate user
+      identification can help reduce this incredibly important indicator of
+      fraudulent activity by authenticating or stopping at-risk purchases before
+      they occur.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
+    isCtaButton: false
+  - subheader: Developer-friendly integrations
+    content: "FingerprintJS' API and webhooks is designed to be integrated with your
+      existing website architecture, and payment processing platform. Whether
+      you have a Shopify store or a custom build, incorporate our highly
+      accurate fingerprinting service where it is needed.   "
+    image: /img/uploads/fpjs-snippet-code.png
+    isImageAfterText: false
+    ctaText: Start Free Trial
+    ctaUrl: https://dashboard.fingerprintjs.com/signup
     isCtaButton: false
 inlineCta:
   title: Aliquam erat volutpat. Nunc tempor enim sollicitudin nulla faucibus mattis.
