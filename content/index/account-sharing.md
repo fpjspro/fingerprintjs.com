@@ -14,7 +14,7 @@ hero:
   description: "FingerprintJS helps SaaS businesses identify and prevent account
     sharing, providing a path forward to convert shared accounts into individual
     paid subscribers. "
-  ctaText: Lipsum
+  ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: "Use FingerprintJS for account sharing prevention to:"
@@ -33,26 +33,30 @@ cardSection:
         security for all users.
 blocks:
   - subheader: Account sharing prevention built for your business
-    content: Our team has worked with top SaaS providers to implement best-in-class
-      account sharing solutions
+    content: Our team has worked with top SaaS providers to implement custom account
+      sharing solutions with the customer experience in mind. With our highly
+      accurate visitor identifier, we will work with your team to ensure your
+      non-sharing customers' experience is unhindered, and users breaking their
+      terms of service are caught.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
-    ctaText: Read our case study
+    ctaText: Talk to sales
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: For when limiting sessions and IPs isn't enough
-    image: /img/uploads/blog-index.jpg
+    image: /img/uploads/fpjs-subscriptions.png
     isCtaButton: false
-    isImageAfterText: true
+    isImageAfterText: false
     ctaText: Start Trial
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    content: xxxxx
+    content: "Mobile traffic, infrequent sign-ins and shared networks can cause
+      other methods to prevent account sharing to fail. FingerprintJS provides
+      an accurate ID for 99.5% of traffic, and is able to identify visitors
+      where IP and session tracking fails. "
 inlineCta:
-  title: Aliquam erat volutpat. Nunc tempor enim sollicitudin nulla faucibus mattis.
-  subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero.
-    Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit
-    mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales.
-    Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
-  buttonText: Lipsum
-  buttonHref: https://dashboard.fingerprintjs.com
+  title: Try FingerprintJS - 10 days, no limits
+  subtitle: Signing up only takes a few minutes. Start collecting visitorIDs for
+    your traffic right awa.
+  buttonText: Start Free Trial
+  buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
