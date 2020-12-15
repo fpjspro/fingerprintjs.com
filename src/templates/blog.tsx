@@ -69,7 +69,7 @@ export default function Blog({ data, pageContext }: { data: GatsbyTypes.BlogQuer
 export const pageQuery = graphql`
   query Blog($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(blog)/" } }
+      filter: { fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" } }
       sort: { order: DESC, fields: frontmatter___publishDate }
       limit: $limit
       skip: $skip
