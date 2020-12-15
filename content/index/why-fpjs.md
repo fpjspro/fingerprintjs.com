@@ -54,7 +54,7 @@ blocks:
       technology works by analyzing data passed by the visitor's browser,
       device, patterns of use and more to generate a unique visitorID, which can
       be used to associate patterns of fraud with specific visitors. "
-    image: /img/uploads/dashboard-tight.png
+    image: /img/uploads/fpjs-diagram-2.png
     isImageAfterText: true
     ctaText: Read our beginner's guide to fingerprinting >
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
@@ -66,7 +66,7 @@ blocks:
       identification techniques as browsers change their privacy settings and
       signals become restricted or added.
     isImageAfterText: false
-    image: /img/uploads/blog-index.jpg
+    image: /img/uploads/dashboard-tight.png
     ctaUrl: https://dashboard.fingerprintjs.com/signup
     ctaText: Start Free Trial >
     isCtaButton: false
