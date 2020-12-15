@@ -17,19 +17,17 @@ hero:
   ctaText: Start Free Trial
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
-  title: Cras aliquam nulla eget est finibus iaculis.
+  title: Prevent online fraud from putting your exchange at risk
   subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
-      title: Morbi et feugiat augue.
-      content: Nulla sodales fringilla ex ac viverra. Nam maximus leo nec libero
-        tincidunt dignissim. Praesent gravida, velit eget finibus eleifend, arcu
-        nisl fermentum neque, vitae dignissim mi leo nec odio.
+      title: Secure your customers' wallets
+      content: Require additional authentication for suspicious visitors on log in
+        while keeping your trusted cryptocurrency users unhindered and safe.
     - icon: /img/uploads/payment_processing.png
-      title: Praesent a efficitur tortor, at aliquet metus.
-      content: Ut elit mi, semper et mollis in, sodales vel sem. Donec maximus
-        condimentum sodales. Aliquam et ligula eu erat laoreet accumsan
-        ultricies id eros. Etiam in sapien in felis elementum commodo.
+      title: Stop fraudulent purchases
+      content: Blacklist users that are card testing, card cracking or have a history
+        of fraudulent activity on your services.
 blocks:
   - subheader: Secure your user's accounts without sacrificing anonymity
     content: Crypto customers value their privacy, and will abandon your exchange if
@@ -48,16 +46,14 @@ blocks:
       purchases with a high likelihood of fraud before they can be processed.
       Build additional checks and balances into your payment flows with our easy
       to use API. "
-    image: /img/uploads/cat.jpg
+    image: /img/uploads/fpjs-subscriptions.png
     ctaUrl: https://dashboard.fingerprintjs.com/signup
     isCtaButton: false
     isImageAfterText: false
 inlineCta:
-  title: Aliquam erat volutpat. Nunc tempor enim sollicitudin nulla faucibus mattis.
-  subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero.
-    Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit
-    mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales.
-    Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
-  buttonText: Lipsum
-  buttonHref: https://dashboard.fingerprintjs.com
+  title: Try FingerprintJS free
+  subtitle: Installation of FingerprintJS' Javascript agent is easy. Start
+    collecting unique VisitorIDs in minutes with our 10-day free trial.
+  buttonText: Get Started
+  buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
