@@ -18,7 +18,7 @@ cardSection:
   title: "Add FingerprintJS to your tech stack to prevent:"
   subtitle: ""
   cards:
-    - icon: /img/uploads/account_fraud.png
+    - icon: /img/uploads/anonymous_user_identification.png
       title: Coupon and promo abuse
       content: Ensure your promotions are being used fairly and not used multiple
         times or stacked to remove all profit from your sales.
@@ -29,10 +29,12 @@ cardSection:
     - title: Card Cracking
       content: Stop malicious actors from testing combinations of expiry dates, postal
         codes and CVVs with lists of purchased PANs.
+      icon: /img/uploads/bot_detection.png
     - title: Friendly Fraud
       content: Sometimes a real user will dispute payments even though they received a
         product or service. Flag these users easily to prevent future
         chargebacks.
+      icon: /img/uploads/account_fraud.png
 blocks:
   - subheader: Stop chargebacks in their tracks
     content: Any form of payment fraud can result in a chargeback for your website,
