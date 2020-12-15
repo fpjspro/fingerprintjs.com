@@ -47,7 +47,7 @@ blocks:
       browsers, incognito mode and other cloaking methods. By understanding your
       visitors' browsing behavior, you can identify common patterns of fraud and
       require additional authentication as needed.
-    image: /img/uploads/dashboard-tight.png
+    image: /img/uploads/fpjs-flowchart-smaller.png
     isImageAfterText: true
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
@@ -59,7 +59,7 @@ blocks:
       webhooks make it easy to build custom authentication workflows to stop
       common sources of fraud for gaming and gambling sites, including account
       takeover, promo and bonus abuse, card testing and more.
-    image: /img/uploads/fpjs-subscriptions.png
+    image: /img/uploads/dashboard-tight.png
     ctaText: Sign up now
     ctaUrl: https://dashboard.fingerprintjs.com/signup
     isCtaButton: false
