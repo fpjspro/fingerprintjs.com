@@ -37,11 +37,9 @@ blocks:
     content: Account fraud can take many forms. Whether by brute force or individual
       actors testing purchased credentials, uniquely identifying your website
       visitors will provide the best defense against account
-      takeovers.  FingerprintJS is designed to be incorporated into your tech
-      stack and used in conjunction with existing authentication workflows to
-      improve the accruacy of threat detection, and allow technical teams to
-      customize their account login flows to be as safe and seamless as
-      possible.
+      takeovers.  FingerprintJS is designed to be seamlessly incorporated into
+      your tech stack and used in conjunction with existing authentication
+      workflows using our API and webhooks.
     image: /img/uploads/account-spider.png
     isImageAfterText: true
     ctaText: Read our documentation
