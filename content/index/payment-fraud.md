@@ -53,15 +53,13 @@ blocks:
       accurate fingerprinting service where it is needed.   "
     image: /img/uploads/fpjs-snippet-code.png
     isImageAfterText: false
-    ctaText: Start Free Trial
+    ctaText: Test our snippet
     ctaUrl: https://dashboard.fingerprintjs.com/signup
     isCtaButton: false
 inlineCta:
-  title: Aliquam erat volutpat. Nunc tempor enim sollicitudin nulla faucibus mattis.
-  subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero.
-    Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit
-    mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales.
-    Aliquam et ligula eu erat laoreet accumsan ultricies id eros.
+  title: Start your free trial today
+  subtitle: "Install our Javascript snippet on your website and start collecting
+    visitorIDs free for 10 days. "
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
