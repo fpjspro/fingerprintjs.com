@@ -42,7 +42,7 @@ blocks:
       improve the accruacy of threat detection, and allow technical teams to
       customize their account login flows to be as safe and seamless as
       possible.
-    image: /img/uploads/dashboard-tight.png
+    image: /img/uploads/account-spider.png
     isImageAfterText: true
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
@@ -55,7 +55,7 @@ blocks:
     isImageAfterText: false
     ctaText: Start free trial
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    image: /img/uploads/dog.jpg
+    image: /img/uploads/dashboard-tight.png
     isCtaButton: false
 inlineCta:
   title: FingerprintJS for account takeover protection
