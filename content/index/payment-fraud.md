@@ -49,9 +49,9 @@ blocks:
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: Developer-friendly integrations
-    content: "FingerprintJS' API and webhooks is designed to be integrated with your
-      existing website architecture, and payment processing platform. Whether
-      you have a Shopify store or a custom build, incorporate our highly
+    content: "FingerprintJS' API and webhooks are designed to be integrated with
+      your existing website architecture, and payment processing platform.
+      Whether you have a Shopify store or a custom build, incorporate our highly
       accurate fingerprinting service where it is needed.   "
     image: /img/uploads/fpjs-snippet-code.png
     isImageAfterText: false
