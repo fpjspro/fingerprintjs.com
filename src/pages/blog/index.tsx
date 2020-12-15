@@ -22,9 +22,9 @@ export default function Blog({ data }: { data: GatsbyTypes.BlogQuery }) {
                 return null
               }
 
-              const { slug } = post.fields
-              const { publishDate, title, metadata } = post.frontmatter
-              const { description, image } = metadata
+              const { slug = '' } = post.fields
+              const { publishDate = Date.now(), title = '', metadata } = post.frontmatter
+              const { description = '', image } = metadata
 
               return (
                 <Post
