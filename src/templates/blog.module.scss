@@ -1,5 +1,5 @@
 .grid {
-  padding-top: 4rem;
+  padding-top: 10rem;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -83,4 +83,25 @@
 
   width: 100%;
   height: auto;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding-top: 6rem;
+}
+
+.first {
+  justify-content: flex-end;
+}
+
+.last {
+  justify-content: flex-start;
+}
+
+.link {
+  color: c('brand-fire');
+  border-bottom: 1px solid v('brand-fire');
 }
