@@ -2,10 +2,10 @@
 title: gaming
 templateKey: static-page-content
 metadata:
-  title: Gaming fraud prevention built for developer teams
-  description: Uniquely identify fraudulent players to prevent the most common
-    forms of gaming and gambling fraud, including credential stuffing, cheating
-    schemes, arbitrage and more.
+  title: "Gaming Fraud Prevention For Websites - FingerprintJS "
+  description: Prevent gaming and gambling fraud, including credential stuffing,
+    cheating schemes, arbitrage and more with our 99.5% accurate browser
+    fingerprinting API.
   url: https://fingerprintjs.com/gaming
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
