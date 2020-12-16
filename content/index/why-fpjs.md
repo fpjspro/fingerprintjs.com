@@ -3,10 +3,9 @@ title: why-fpjs
 templateKey: static-page-content
 metadata:
   title: Why FingerprintJS - Empowering Developers To Solve Fraud At The Source
-  description: As opposed to top-down, enterprise-focused fraud prevention
-    platforms, FingerprintJS was designed to solve digital fraud by uniquely and
-    accurately identifying users, and empowering technical teams to use that
-    data to in a way that works for their applications.
+  description: Our browser fingerprinting API fights fraud by uniquely identifying
+    99.5% of visits to a website, empowering developer teams to pinpoint
+    fraudulent actors and build custom authentication workflows.
   url: https://fingerprintjs.com/why-fpjs
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
