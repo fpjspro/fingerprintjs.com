@@ -34,7 +34,7 @@ cardSection:
         detrimental to user experience. Using our API, you can identify when you
         need to introduce additional authentication, keeping your trusted
         customers' experience streamlined.
-    - title: GDPR and CGPA compliant
+    - title: GDPR and CCPA compliant
       content: We take online privacy seriously. FingerprintJS is intended to be used
         for fraud detection only - for this use case, no user consent is
         required for compliancy with GDPR and CGPA.We never automatically track
