@@ -55,7 +55,7 @@ blocks:
       be used to associate patterns of fraud with specific visitors. "
     image: /img/uploads/fpjs-diagram-2.png
     isImageAfterText: true
-    ctaText: Read our beginner's guide to fingerprinting >
+    ctaText: Read Our Documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: Future-proof your anti-fraud strategy
@@ -67,7 +67,7 @@ blocks:
     isImageAfterText: false
     image: /img/uploads/dashboard-tight.png
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    ctaText: Start Free Trial >
+    ctaText: Start Free Trial
     isCtaButton: false
 inlineCta:
   title: Get FingerprintJS free and unlimited
