@@ -2,10 +2,10 @@
 title: cryptocurrency
 templateKey: static-page-content
 metadata:
-  title: Stop cryptocurrency fraud in its tracks
-  description: Crypto exchanges are highly appealing fraud targets. With our 99.5%
-    accurate browser fingerprinting API, identify fraudsters aiming to steal
-    account credentials and transfer coins into their own wallets.
+  title: Cryptocurrency Fraud Prevention For Websites - FingerprintJS
+  description: Our 99.5% accurate browser fingerprinting API helps cryptocurrency
+    websites identify fraudsters aiming to steal account credentials and make
+    fraudulent purchases.
   url: https://fingerprintjs.com/cryptocurrency
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
