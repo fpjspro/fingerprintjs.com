@@ -10,6 +10,7 @@ import { ReactComponent as IncognitoDetectionSvg } from '../../../img/incognito_
 import Section from '../../../components/common/Section'
 import styles from './InfoSection.module.scss'
 import { Link } from 'gatsby'
+import { signupUrl, pricingUrl } from '../../../constants/content'
 
 interface FeaturesBlockProps {
   features: { icon: React.ReactNode; title: string }[]
@@ -88,7 +89,7 @@ const faq = [
         unparalleled identification accuracy. <br />
         <br />
         You can try FingerprintJS Pro with all features and no usage limits for 10 days. Simply{' '}
-        <a href='https://dashboard.fingerprintjs.com/signup' className={styles.link}>
+        <a href={signupUrl} className={styles.link}>
           sign up for our trial
         </a>
         , install our Javascript snippet on your website, and begin collecting unique VisitorIDs, geolocation data and
@@ -142,7 +143,7 @@ const faq = [
       <>
         FingerprintJS costs $100/month for the first 100,000 API calls, and $1 per 1,000 API calls after that. Please
         see our{' '}
-        <Link to={'/pricing'} className={styles.link}>
+        <Link to={pricingUrl} className={styles.link}>
           pricing
         </Link>{' '}
         page for full details.

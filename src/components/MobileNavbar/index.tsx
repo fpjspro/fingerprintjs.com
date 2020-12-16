@@ -9,6 +9,17 @@ import classNames from 'classnames'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
 import styles from './MobileNavbar.module.scss'
+import {
+  demoUrl,
+  pricingUrl,
+  githubRepoUrl,
+  documentationUrl,
+  mailToUrl,
+  dashboardLoginUrl,
+  linkedinUrl,
+  twitterUrl,
+  signupUrl,
+} from '../../constants/content'
 
 export default function MobileNavbar() {
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
@@ -21,35 +32,30 @@ export default function MobileNavbar() {
             <Button onClick={() => setIsContactSalesModalOpen(true)} variant='outline'>
               Contact Sales
             </Button>
-            <Button href='https://dashboard.fingerprintjs.com/signup'>Free Trial</Button>
+            <Button href={signupUrl}>Free Trial</Button>
           </div>
           <div className={classNames(styles.links, styles.main)}>
             <Container size='large' className={styles.container}>
               {' '}
-              <Link to='/demo' className={styles.link}>
+              <Link to={demoUrl} className={styles.link}>
                 Technical Demo
               </Link>
-              <a
-                href='https://github.com/fingerprintjs/fingerprintjs'
-                target='_blank'
-                rel='noreferrer'
-                className={styles.link}
-              >
+              <a href={githubRepoUrl} target='_blank' rel='noreferrer' className={styles.link}>
                 Open Source
               </a>
-              <Link to='/pricing' className={styles.link}>
+              <Link to={pricingUrl} className={styles.link}>
                 Pricing
               </Link>
-              <a href='https://dev.fingerprintjs.com' className={styles.link}>
+              <a href={documentationUrl} className={styles.link}>
                 Documentation
               </a>
-              <a href='mailto:support@fingerprintjs.com' className={styles.link}>
+              <a href={mailToUrl} className={styles.link}>
                 Support
               </a>
-              <a href='https://dashboard.fingerprintjs.com/login' className={styles.link}>
+              <a href={dashboardLoginUrl} className={styles.link}>
                 Log In
               </a>
-              <a href='https://dashboard.fingerprintjs.com/signup' className={styles.link}>
+              <a href={signupUrl} className={styles.link}>
                 Sign Up
               </a>
             </Container>
@@ -60,22 +66,12 @@ export default function MobileNavbar() {
               <small>Find us on social</small>
               <ul className={styles.links}>
                 <li className={styles.link}>
-                  <a
-                    href='https://www.linkedin.com/company/fingerprintjs/'
-                    target='_blank'
-                    rel='noreferrer'
-                    aria-label='LinkedIn link'
-                  >
+                  <a href={linkedinUrl} target='_blank' rel='noreferrer' aria-label='LinkedIn link'>
                     <LinkedInSvg />
                   </a>
                 </li>
                 <li className={styles.link}>
-                  <a
-                    href='https://twitter.com/FingerprintJs'
-                    target='_blank'
-                    rel='noreferrer'
-                    aria-label='Twitter link'
-                  >
+                  <a href={twitterUrl} target='_blank' rel='noreferrer' aria-label='Twitter link'>
                     <TwitterSvg />
                   </a>
                 </li>

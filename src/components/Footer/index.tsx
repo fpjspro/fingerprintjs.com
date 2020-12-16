@@ -5,6 +5,24 @@ import { ReactComponent as LinkedInSvg } from '../../img/linkedin.svg'
 import { ReactComponent as TwitterSvg } from '../../img/twitter.svg'
 import Container from '../common/Container'
 import styles from './Footer.module.scss'
+import {
+  demoUrl,
+  pricingUrl,
+  githubRepoUrl,
+  mailToUrl,
+  dashboardLoginUrl,
+  termOfUseUrl,
+  privacyPolicyUrl,
+  careersUrl,
+  getStartedUrl,
+  proVsFreeUrl,
+  browserFingerprintUrl,
+  incognitoUrl,
+  serverApiUrl,
+  legalUrl,
+  linkedinUrl,
+  twitterUrl,
+} from '../../constants/content'
 
 interface FooterLinkSection {
   title: string
@@ -17,37 +35,37 @@ const footerLinks: FooterLinkSection[] = [
     links: [
       {
         title: 'Technical Demo',
-        url: '/demo',
+        url: `${demoUrl}`,
         isLocal: true,
       },
       {
         title: 'Open Source',
-        url: 'https://github.com/fingerprintjs/fingerprintjs',
+        url: `${githubRepoUrl}`,
       },
       {
         title: 'Pricing',
-        url: '/pricing',
+        url: `${pricingUrl}`,
         isLocal: true,
       },
       {
         title: 'Support',
-        url: 'mailto:support@fingerprintjs.com',
+        url: `${mailToUrl}`,
       },
       {
         title: 'Terms of Use',
-        url: 'https://dev.fingerprintjs.com/docs/terms-of-service',
+        url: `${termOfUseUrl}`,
       },
       {
         title: 'Privacy Policy',
-        url: 'https://dev.fingerprintjs.com/docs/privacy-policy',
+        url: `${privacyPolicyUrl}`,
       },
       {
         title: 'Careers',
-        url: 'https://fingerprintjs.breezy.hr/',
+        url: `${careersUrl}`,
       },
       {
         title: 'Log In',
-        url: 'https://dashboard.fingerprintjs.com/login',
+        url: `${dashboardLoginUrl}`,
       },
     ],
   },
@@ -56,27 +74,27 @@ const footerLinks: FooterLinkSection[] = [
     links: [
       {
         title: 'Get Started',
-        url: 'https://dev.fingerprintjs.com/docs/introduction',
+        url: `${getStartedUrl}`,
       },
       {
         title: 'Pro vs Free Version',
-        url: 'https://dev.fingerprintjs.com/docs/pro-vs-free',
+        url: `${proVsFreeUrl}`,
       },
       {
         title: 'Browser Fingerprinting',
-        url: 'https://dev.fingerprintjs.com/docs/browser-fingerprinting',
+        url: `${browserFingerprintUrl}`,
       },
       {
         title: 'Incognito Mode Detection',
-        url: 'https://dev.fingerprintjs.com/docs/incognito-private-mode-detection',
+        url: `${incognitoUrl}`,
       },
       {
         title: 'Server API',
-        url: 'https://dev.fingerprintjs.com/docs/server-api',
+        url: `${serverApiUrl}`,
       },
       {
         title: 'Legal',
-        url: 'https://dev.fingerprintjs.com/docs/dpa-gdpr',
+        url: `${legalUrl}`,
       },
     ],
   },
@@ -127,22 +145,12 @@ export default function Footer() {
                 <small>Find us on social</small>
                 <ul className={styles.links}>
                   <li className={styles.link}>
-                    <a
-                      href='https://www.linkedin.com/company/fingerprintjs/'
-                      target='_blank'
-                      rel='noreferrer'
-                      aria-label='LinkedIn link'
-                    >
+                    <a href={linkedinUrl} target='_blank' rel='noreferrer' aria-label='LinkedIn link'>
                       <LinkedInSvg />
                     </a>
                   </li>
                   <li className={styles.link}>
-                    <a
-                      href='https://twitter.com/FingerprintJs'
-                      target='_blank'
-                      rel='noreferrer'
-                      aria-label='Twitter link'
-                    >
+                    <a href={twitterUrl} target='_blank' rel='noreferrer' aria-label='Twitter link'>
                       <TwitterSvg />
                     </a>
                   </li>
