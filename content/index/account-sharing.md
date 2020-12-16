@@ -2,15 +2,14 @@
 title: account-sharing
 templateKey: static-page-content
 metadata:
-  title: "Account sharing prevention for SaaS businesses "
-  description: "FingerprintJS helps SaaS companies identify and prevent account
-    sharing, providing a path forward to convert shared accounts into individual
-    paid subscribers. "
+  title: Account Sharing Prevention For SaaS Companies | FingerprintJS
+  description: Accurately identify users sharing their account details with our
+    browser fingerprinting API built for developer teams
   url: https://fingerprintjs.com/account-sharing
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: "Account sharing prevention for SaaS businesses "
+  title: Stop account sharing with browser fingerprinting
   description: FingerprintJS helps SaaS companies identify and prevent account
     sharing, providing a path to convert shared accounts into individual paid
     subscribers and increase total revenue.
