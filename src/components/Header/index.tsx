@@ -10,6 +10,9 @@ import Container from '../common/Container'
 import { isBrowser } from '../../helpers/detector'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
+import { useCaseLinks } from '../../constants/content'
+import classNames from 'classnames'
+import { ReactComponent as ExpandMoreSvg } from '../../img/expand-more.svg'
 
 import styles from './Header.module.scss'
 
@@ -43,17 +46,29 @@ export default function Header() {
                 <Link to='/' className={`${styles.link} ${styles.linkLogo}`} title='Logo'>
                   <img src='/img/company-logos/fpjs.svg' alt='FingerprintJS' className={styles.logo} />
                 </Link>
+                <Link className={classNames(styles.link, styles.desktopOnly)} to='/why-fpjs/'>
+                  Why FPJS
+                </Link>
+                <DropdownList name='Use Cases' list={useCaseLinks} />
+                <Link className={classNames(styles.link, styles.desktopOnly)} to='/demo/'>
+                  Demo
+                </Link>
+                <Link className={classNames(styles.link, styles.desktopOnly)} to='/pricing/'>
+                  Pricing
+                </Link>
               </div>
               <div className={styles.navRight}>
                 <GithubButton className={styles.desktopOnly} />
                 <Button
                   onClick={() => setIsContactSalesModalOpen(true)}
                   variant='outline'
-                  className={styles.desktopOnly}
+                  className={classNames(styles.desktopOnly, styles.button)}
                 >
                   Contact Sales
                 </Button>
-                <Button href='https://dashboard.fingerprintjs.com/signup'>Free Trial</Button>
+                <Button href='https://dashboard.fingerprintjs.com/signup' className={styles.button}>
+                  Free Trial
+                </Button>
                 <Button
                   label='Mobile Menu'
                   className={styles.mobileToggler}
@@ -73,5 +88,34 @@ export default function Header() {
         <ContactSalesForm />
       </Modal>
     </>
+  )
+}
+
+interface DropdownListProps {
+  name: string
+  list: Array<{ title: string; url: string; isLocal?: boolean }>
+}
+function DropdownList({ name, list }: DropdownListProps) {
+  return (
+    <div className={classNames(styles.dropdown)}>
+      <span className={styles.link}>
+        {name}
+        <ExpandMoreSvg className={styles.icon} />
+      </span>
+
+      <div className={styles.list}>
+        {list.map(({ title, url, isLocal = true }) =>
+          isLocal ? (
+            <Link to={url} key={title} className={classNames(styles.item, styles.link)}>
+              {title}
+            </Link>
+          ) : (
+            <a href={url} key={title} className={classNames(styles.item, styles.link)}>
+              {title}
+            </a>
+          )
+        )}
+      </div>
+    </div>
   )
 }

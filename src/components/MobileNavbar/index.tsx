@@ -9,6 +9,7 @@ import classNames from 'classnames'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
 import styles from './MobileNavbar.module.scss'
+import { useCaseLinks } from '../../constants/content'
 
 export default function MobileNavbar() {
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
@@ -25,23 +26,18 @@ export default function MobileNavbar() {
           </div>
           <div className={classNames(styles.links, styles.main)}>
             <Container size='large' className={styles.container}>
-              {' '}
+              <Link to='/why-fpjs/' className={styles.link}>
+                Why FPJS
+              </Link>
+              <DropdownMenu name='Use Cases' list={useCaseLinks} />
               <Link to='/demo' className={styles.link}>
                 Technical Demo
               </Link>
-              <a
-                href='https://github.com/fingerprintjs/fingerprintjs'
-                target='_blank'
-                rel='noreferrer'
-                className={styles.link}
-              >
-                Open Source
-              </a>
               <Link to='/pricing' className={styles.link}>
                 Pricing
               </Link>
               <a href='https://dev.fingerprintjs.com' className={styles.link}>
-                Documentation
+                Docs
               </a>
               <a href='mailto:support@fingerprintjs.com' className={styles.link}>
                 Support
@@ -54,6 +50,7 @@ export default function MobileNavbar() {
               </a>
             </Container>
           </div>
+
           <div className={styles.contact}>
             <GithubButton />
             <div className={styles.social}>
@@ -89,5 +86,37 @@ export default function MobileNavbar() {
         <ContactSalesForm />
       </Modal>
     </>
+  )
+}
+
+interface DropdownMenuProps {
+  name: string
+  list: Array<{ title: string; url: string; isLocal?: boolean }>
+}
+function DropdownMenu({ name, list }: DropdownMenuProps) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div>
+      <span onClick={() => setIsOpen(!isOpen)} className={styles.link}>
+        {name}
+      </span>
+
+      <ul className={classNames(styles.list, { [styles.open]: isOpen })}>
+        {list.map(({ title, url, isLocal = true }) => (
+          <li key={name}>
+            {isLocal ? (
+              <Link to={url} className={styles.link}>
+                {title}
+              </Link>
+            ) : (
+              <a href={url} className={styles.link}>
+                {title}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
