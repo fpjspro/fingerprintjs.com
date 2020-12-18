@@ -16,7 +16,7 @@ export const MAILTO = { mailToUrl: 'mailto:support@fingerprintjs.com' } as const
 
 export const DOC_URL = {
   documentationUrl: 'https://dev.fingerprintjs.com',
-  getStartedUrl: 'https://dev.fingerprintjs.com/docs/introduction',
+  getStartedUrl: 'https://dev.fingerprintjs.com/docs/quick-start-guide',
   proVsFreeUrl: 'https://dev.fingerprintjs.com/docs/pro-vs-free',
   browserFingerprintUrl: 'https://dev.fingerprintjs.com/docs/browser-fingerprinting',
   incognitoUrl: 'https://dev.fingerprintjs.com/docs/incognito-private-mode-detection',
