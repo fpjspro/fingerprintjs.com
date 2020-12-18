@@ -1,20 +1,27 @@
-export const baseUrl = 'https://fingerprintjs.com'
-export const demoUrl = '/demo/'
-export const pricingUrl = '/pricing/'
-export const githubRepoUrl = 'https://github.com/fingerprintjs/fingerprintjs'
-export const githubApiUrl = 'https://api.github.com/repos/fingerprintjs/fingerprintjs'
-export const documentationUrl = 'https://dev.fingerprintjs.com'
-export const mailToUrl = 'mailto:support@fingerprintjs.com'
-export const dashboardLoginUrl = 'https://dashboard.fingerprintjs.com/login'
-export const termOfUseUrl = 'https://dev.fingerprintjs.com/docs/terms-of-service'
-export const privacyPolicyUrl = 'https://dev.fingerprintjs.com/docs/privacy-policy'
-export const careersUrl = 'https://fingerprintjs.breezy.hr/'
-export const getStartedUrl = 'https://dev.fingerprintjs.com/docs/introduction'
-export const proVsFreeUrl = 'https://dev.fingerprintjs.com/docs/pro-vs-free'
-export const browserFingerprintUrl = 'https://dev.fingerprintjs.com/docs/browser-fingerprinting'
-export const incognitoUrl = 'https://dev.fingerprintjs.com/docs/incognito-private-mode-detection'
-export const serverApiUrl = 'https://dev.fingerprintjs.com/docs/server-api'
-export const legalUrl = 'https://dev.fingerprintjs.com/docs/dpa-gdpr'
-export const linkedinUrl = 'https://www.linkedin.com/company/fingerprintjs/'
-export const twitterUrl = 'https://twitter.com/FingerprintJs'
-export const signupUrl = 'https://dashboard.fingerprintjs.com/signup'
+export const BASE_URL = { baseUrl: 'https://fingerprintjs.com' } as const
+
+export const PATH = { demoUrl: '/demo/', pricingUrl: '/pricing/' } as const
+
+export const URL = {
+  githubRepoUrl: 'https://github.com/fingerprintjs/fingerprintjs',
+  githubApiUrl: 'https://api.github.com/repos/fingerprintjs/fingerprintjs',
+  dashboardLoginUrl: 'https://dashboard.fingerprintjs.com/login',
+  careersUrl: 'https://fingerprintjs.breezy.hr/',
+  linkedinUrl: 'https://www.linkedin.com/company/fingerprintjs/',
+  twitterUrl: 'https://twitter.com/FingerprintJs',
+  signupUrl: 'https://dashboard.fingerprintjs.com/signup',
+} as const
+
+export const MAILTO = { mailToUrl: 'mailto:support@fingerprintjs.com' } as const
+
+export const DOC_URL = {
+  documentationUrl: 'https://dev.fingerprintjs.com',
+  getStartedUrl: 'https://dev.fingerprintjs.com/docs/introduction',
+  proVsFreeUrl: 'https://dev.fingerprintjs.com/docs/pro-vs-free',
+  browserFingerprintUrl: 'https://dev.fingerprintjs.com/docs/browser-fingerprinting',
+  incognitoUrl: 'https://dev.fingerprintjs.com/docs/incognito-private-mode-detection',
+  serverApiUrl: 'https://dev.fingerprintjs.com/docs/server-api',
+  legalUrl: 'https://dev.fingerprintjs.com/docs/dpa-gdpr',
+  termOfUseUrl: 'https://dev.fingerprintjs.com/docs/terms-of-service',
+  privacyPolicyUrl: 'https://dev.fingerprintjs.com/docs/privacy-policy',
+} as const

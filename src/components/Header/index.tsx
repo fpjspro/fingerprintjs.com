@@ -10,7 +10,7 @@ import Container from '../common/Container'
 import { isBrowser } from '../../helpers/detector'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
-import { signupUrl } from '../../constants/content'
+import { URL } from '../../constants/content'
 
 import styles from './Header.module.scss'
 
@@ -54,7 +54,7 @@ export default function Header() {
                 >
                   Contact Sales
                 </Button>
-                <Button href={signupUrl}>Free Trial</Button>
+                <Button href={URL.signupUrl}>Free Trial</Button>
                 <Button
                   label='Mobile Menu'
                   className={styles.mobileToggler}

@@ -5,24 +5,7 @@ import { ReactComponent as LinkedInSvg } from '../../img/linkedin.svg'
 import { ReactComponent as TwitterSvg } from '../../img/twitter.svg'
 import Container from '../common/Container'
 import styles from './Footer.module.scss'
-import {
-  demoUrl,
-  pricingUrl,
-  githubRepoUrl,
-  mailToUrl,
-  dashboardLoginUrl,
-  termOfUseUrl,
-  privacyPolicyUrl,
-  careersUrl,
-  getStartedUrl,
-  proVsFreeUrl,
-  browserFingerprintUrl,
-  incognitoUrl,
-  serverApiUrl,
-  legalUrl,
-  linkedinUrl,
-  twitterUrl,
-} from '../../constants/content'
+import { PATH, URL, DOC_URL, MAILTO } from '../../constants/content'
 
 interface FooterLinkSection {
   title: string
@@ -35,37 +18,37 @@ const footerLinks: FooterLinkSection[] = [
     links: [
       {
         title: 'Technical Demo',
-        url: `${demoUrl}`,
+        url: `${PATH.demoUrl}`,
         isLocal: true,
       },
       {
         title: 'Open Source',
-        url: `${githubRepoUrl}`,
+        url: `${URL.githubRepoUrl}`,
       },
       {
         title: 'Pricing',
-        url: `${pricingUrl}`,
+        url: `${PATH.pricingUrl}`,
         isLocal: true,
       },
       {
         title: 'Support',
-        url: `${mailToUrl}`,
+        url: `${MAILTO.mailToUrl}`,
       },
       {
         title: 'Terms of Use',
-        url: `${termOfUseUrl}`,
+        url: `${DOC_URL.termOfUseUrl}`,
       },
       {
         title: 'Privacy Policy',
-        url: `${privacyPolicyUrl}`,
+        url: `${DOC_URL.privacyPolicyUrl}`,
       },
       {
         title: 'Careers',
-        url: `${careersUrl}`,
+        url: `${URL.careersUrl}`,
       },
       {
         title: 'Log In',
-        url: `${dashboardLoginUrl}`,
+        url: `${URL.dashboardLoginUrl}`,
       },
     ],
   },
@@ -74,27 +57,27 @@ const footerLinks: FooterLinkSection[] = [
     links: [
       {
         title: 'Get Started',
-        url: `${getStartedUrl}`,
+        url: `${DOC_URL.getStartedUrl}`,
       },
       {
         title: 'Pro vs Free Version',
-        url: `${proVsFreeUrl}`,
+        url: `${DOC_URL.proVsFreeUrl}`,
       },
       {
         title: 'Browser Fingerprinting',
-        url: `${browserFingerprintUrl}`,
+        url: `${DOC_URL.browserFingerprintUrl}`,
       },
       {
         title: 'Incognito Mode Detection',
-        url: `${incognitoUrl}`,
+        url: `${DOC_URL.incognitoUrl}`,
       },
       {
         title: 'Server API',
-        url: `${serverApiUrl}`,
+        url: `${DOC_URL.serverApiUrl}`,
       },
       {
         title: 'Legal',
-        url: `${legalUrl}`,
+        url: `${DOC_URL.legalUrl}`,
       },
     ],
   },
@@ -145,12 +128,12 @@ export default function Footer() {
                 <small>Find us on social</small>
                 <ul className={styles.links}>
                   <li className={styles.link}>
-                    <a href={linkedinUrl} target='_blank' rel='noreferrer' aria-label='LinkedIn link'>
+                    <a href={URL.linkedinUrl} target='_blank' rel='noreferrer' aria-label='LinkedIn link'>
                       <LinkedInSvg />
                     </a>
                   </li>
                   <li className={styles.link}>
-                    <a href={twitterUrl} target='_blank' rel='noreferrer' aria-label='Twitter link'>
+                    <a href={URL.twitterUrl} target='_blank' rel='noreferrer' aria-label='Twitter link'>
                       <TwitterSvg />
                     </a>
                   </li>

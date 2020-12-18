@@ -9,17 +9,7 @@ import classNames from 'classnames'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
 import styles from './MobileNavbar.module.scss'
-import {
-  demoUrl,
-  pricingUrl,
-  githubRepoUrl,
-  documentationUrl,
-  mailToUrl,
-  dashboardLoginUrl,
-  linkedinUrl,
-  twitterUrl,
-  signupUrl,
-} from '../../constants/content'
+import { URL, DOC_URL, PATH, MAILTO } from '../../constants/content'
 
 export default function MobileNavbar() {
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
@@ -32,30 +22,30 @@ export default function MobileNavbar() {
             <Button onClick={() => setIsContactSalesModalOpen(true)} variant='outline'>
               Contact Sales
             </Button>
-            <Button href={signupUrl}>Free Trial</Button>
+            <Button href={URL.signupUrl}>Free Trial</Button>
           </div>
           <div className={classNames(styles.links, styles.main)}>
             <Container size='large' className={styles.container}>
               {' '}
-              <Link to={demoUrl} className={styles.link}>
+              <Link to={PATH.demoUrl} className={styles.link}>
                 Technical Demo
               </Link>
-              <a href={githubRepoUrl} target='_blank' rel='noreferrer' className={styles.link}>
+              <a href={URL.githubRepoUrl} target='_blank' rel='noreferrer' className={styles.link}>
                 Open Source
               </a>
-              <Link to={pricingUrl} className={styles.link}>
+              <Link to={PATH.pricingUrl} className={styles.link}>
                 Pricing
               </Link>
-              <a href={documentationUrl} className={styles.link}>
+              <a href={DOC_URL.documentationUrl} className={styles.link}>
                 Documentation
               </a>
-              <a href={mailToUrl} className={styles.link}>
+              <a href={MAILTO.mailToUrl} className={styles.link}>
                 Support
               </a>
-              <a href={dashboardLoginUrl} className={styles.link}>
+              <a href={URL.dashboardLoginUrl} className={styles.link}>
                 Log In
               </a>
-              <a href={signupUrl} className={styles.link}>
+              <a href={URL.signupUrl} className={styles.link}>
                 Sign Up
               </a>
             </Container>
@@ -66,12 +56,12 @@ export default function MobileNavbar() {
               <small>Find us on social</small>
               <ul className={styles.links}>
                 <li className={styles.link}>
-                  <a href={linkedinUrl} target='_blank' rel='noreferrer' aria-label='LinkedIn link'>
+                  <a href={URL.linkedinUrl} target='_blank' rel='noreferrer' aria-label='LinkedIn link'>
                     <LinkedInSvg />
                   </a>
                 </li>
                 <li className={styles.link}>
-                  <a href={twitterUrl} target='_blank' rel='noreferrer' aria-label='Twitter link'>
+                  <a href={URL.twitterUrl} target='_blank' rel='noreferrer' aria-label='Twitter link'>
                     <TwitterSvg />
                   </a>
                 </li>

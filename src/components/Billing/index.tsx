@@ -10,7 +10,7 @@ import Button from '../common/Button'
 import Modal from '../common/Modal'
 import ContactSalesForm from '../ContactSalesForm'
 import styles from './Billing.module.scss'
-import { pricingUrl } from '../../constants/content'
+import { PATH } from '../../constants/content'
 
 const sliderConfig = {
   min: 0,
@@ -53,7 +53,7 @@ export default function Billing() {
         <Container size='large'>
           <header className={styles.header}>
             <h2 className={styles.title}>Predictable &amp; Transparent Billing</h2>
-            <Link to={pricingUrl}>
+            <Link to={PATH.pricingUrl}>
               <Button variant='outline'>Detailed Pricing</Button>
             </Link>
           </header>
@@ -108,7 +108,7 @@ export default function Billing() {
             </div>
           </div>
           <div className={styles.link}>
-            <Link to={pricingUrl}>
+            <Link to={PATH.pricingUrl}>
               <Button variant='outline'>Detailed Pricing</Button>
             </Link>
           </div>

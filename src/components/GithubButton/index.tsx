@@ -4,7 +4,7 @@ import { ReactComponent as GithubIconSvg } from './github_icon.svg'
 import styles from './GithubButton.module.scss'
 import classNames from 'classnames'
 import { GITHUB_API_TOKEN } from '../../constants/env'
-import { githubRepoUrl, githubApiUrl } from '../../constants/content'
+import { URL } from '../../constants/content'
 
 interface GithubReposResponse {
   stargazers_count: number
@@ -17,7 +17,6 @@ interface GithubButtonProps {
 const githubToken = GITHUB_API_TOKEN
 
 export default function GithubButton({ className }: GithubButtonProps) {
-  const url = githubApiUrl
   const options = useMemo(() => {
     return {
       headers: {
@@ -26,10 +25,10 @@ export default function GithubButton({ className }: GithubButtonProps) {
     }
   }, [])
 
-  const { data } = useFetch<GithubReposResponse>(url, options)
+  const { data } = useFetch<GithubReposResponse>(URL.githubApiUrl, options)
 
   return (
-    <a className={classNames(styles.button, className)} href={githubRepoUrl}>
+    <a className={classNames(styles.button, className)} href={URL.githubRepoUrl}>
       <div className={styles.label}>
         <GithubIconSvg className={styles.icon} />
         <span>Star</span>
