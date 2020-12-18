@@ -8,7 +8,11 @@ import classNames from 'classnames'
 
 import styles from './blog.module.scss'
 
-export default function Blog({ data, pageContext }: { data: GatsbyTypes.BlogQuery; pageContext: BlogContext }) {
+interface BlogProps {
+  data: GatsbyTypes.BlogQuery
+  pageContext: BlogContext
+}
+export default function Blog({ data, pageContext }: BlogProps) {
   const { edges: posts } = data.allMarkdownRemark
 
   const { currentPage, numPages } = pageContext
