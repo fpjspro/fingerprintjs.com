@@ -58,7 +58,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const postsPerPage = 12
   const numPages = Math.ceil(blogPosts.length / postsPerPage)
 
-  Array.from({ length: numPages }).forEach((_, i) => {
+  for (let i = 0; i < numPages; ++i) {
     createPage({
       // The first page doesn't need a number.
       path: `blog${i === 0 ? '/' : `/${i + 1}/`}`,
@@ -70,7 +70,7 @@ exports.createPages = async ({ actions, graphql }) => {
         currentPage: i + 1,
       },
     })
-  })
+  }
 }
 
 function createNodePath({ node, getNode }) {
