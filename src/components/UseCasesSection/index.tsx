@@ -11,6 +11,7 @@ import Container from '../common/Container'
 import Section from '../common/Section'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import { Link } from 'gatsby'
+import { PATH } from '../../constants/content'
 
 import styles from './UseCasesSection.module.scss'
 
@@ -61,7 +62,7 @@ export default function UseCasesSection() {
                 </p>
               </div>
             </div>
-            <Link to='ecommerce' className={styles.useCase}>
+            <Link to={PATH.ecommerce} className={styles.useCase}>
               <div className={styles.iconContainer}>
                 <ECommerceSvg className={styles.icon} />
               </div>

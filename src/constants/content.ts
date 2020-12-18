@@ -1,6 +1,6 @@
 export const BASE_URL = { baseUrl: 'https://fingerprintjs.com' } as const
 
-export const PATH = { demoUrl: '/demo/', pricingUrl: '/pricing/' } as const
+export const PATH = { demoUrl: '/demo/', pricingUrl: '/pricing/', ecommerce: 'ecommerce' } as const
 
 export const URL = {
   githubRepoUrl: 'https://github.com/fingerprintjs/fingerprintjs',
