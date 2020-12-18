@@ -10,7 +10,7 @@ metadata:
 invertContent: false
 hero:
   title: Take ecommerce fraud prevention seriously with the most accurate browser
-    fingerprinting API.
+    fingerprinting API
   description: "FingerprintJS is a 99.5% accurate browser fingerprinting tool used
     to uniquely identify fraudsters on your ecommerce website. Stop fraudulent
     purchases, reduce coupon and promo abuse, and keep your customers' accounts
