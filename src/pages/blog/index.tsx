@@ -4,14 +4,23 @@ import Section from '../../components/common/Section'
 import Layout from '../../components/Layout'
 import Img from 'gatsby-image'
 import Container from '../../components/common/Container'
+import { BreadcrumbsSEO } from '../../components/Breadcrumbs'
+import { GeneratedPageContext } from '../../helpers/types'
 
 import styles from './blog.module.scss'
 
-export default function Blog({ data }: { data: GatsbyTypes.BlogQuery }) {
+interface BlogProps {
+  data: GatsbyTypes.BlogQuery
+  pageContext: GeneratedPageContext
+}
+export default function Blog({ data, pageContext }: BlogProps) {
   const { edges: posts } = data.allMarkdownRemark
+  const breadcrumbs = pageContext.breadcrumb.crumbs
 
   return (
     <Layout>
+      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
+
       <Section>
         <Container size='large'>
           <h1 className={styles.header}>Blog Articles</h1>

@@ -17,6 +17,12 @@ module.exports = {
     image: 'https://fingerprintjs.com/img/fpjs-preview.png',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        useAutoGen: true,
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-sass',

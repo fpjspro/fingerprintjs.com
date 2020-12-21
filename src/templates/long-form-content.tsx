@@ -5,6 +5,8 @@ import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import Section from '../components/common/Section'
 import Container from '../components/common/Container'
 import { baseUrl } from '../constants/content'
+import Breadcrumbs, { Breadcrumb, BreadcrumbsSEO } from '../components/Breadcrumbs'
+import { GeneratedPageContext } from '../helpers/types'
 
 import styles from './long-form-content.module.scss'
 
@@ -16,7 +18,11 @@ const Content = ({ content, className }: { content: string | React.ReactNode; cl
   <div className={className}>{content}</div>
 )
 
-export default function LongFormContent({ data }: { data: GatsbyTypes.LongFormContentQuery }) {
+interface LongFormContentProps {
+  data: GatsbyTypes.LongFormContentQuery
+  pageContext: GeneratedPageContext
+}
+export default function LongFormContent({ data, pageContext }: LongFormContentProps) {
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
@@ -30,7 +36,15 @@ export default function LongFormContent({ data }: { data: GatsbyTypes.LongFormCo
   const title = data.markdownRemark.frontmatter.title
   const body = data.markdownRemark.html
 
-  return <LongFormContentTemplate contentComponent={HtmlContent} metadata={metadata} title={title} body={body} />
+  return (
+    <LongFormContentTemplate
+      contentComponent={HtmlContent}
+      metadata={metadata}
+      title={title}
+      body={body}
+      breadcrumbs={pageContext.breadcrumb.crumbs}
+    />
+  )
 }
 
 export const pageQuery = graphql`
@@ -58,12 +72,19 @@ interface TemplateProps {
   title: string
   body: string | React.ReactNode
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
+  breadcrumbs?: Array<Breadcrumb>
 }
-export function LongFormContentTemplate({ metadata, title, body, contentComponent }: TemplateProps) {
+export function LongFormContentTemplate({ metadata, title, body, contentComponent, breadcrumbs }: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
   return (
     <LayoutTemplate siteMetadata={metadata}>
+      {breadcrumbs && (
+        <>
+          <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
+        </>
+      )}
       <Section className={styles.root}>
         <Container className={styles.container}>
           <h1 className={styles.title}>{title}</h1>

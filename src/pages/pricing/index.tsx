@@ -6,14 +6,19 @@ import classNames from 'classnames'
 import Container from '../../components/common/Container'
 import PricingCard from '../../components/pricing/Card'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
+import { BreadcrumbsSEO } from '../../components/Breadcrumbs'
+import { GeneratedPageContext } from '../../helpers/types'
 
 import styles from './Pricing.module.scss'
 
-export default function PricingPage() {
+export default function PricingPage({ pageContext }: { pageContext: GeneratedPageContext }) {
   const { mainBackground } = useMainBackgroundImage()
+  const breadcrumbs = pageContext.breadcrumb.crumbs
 
   return (
     <Layout>
+      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
+
       <CalculatorSection mainBackground={mainBackground} />
       <PricingModelsSection mainBackground={mainBackground} />
     </Layout>

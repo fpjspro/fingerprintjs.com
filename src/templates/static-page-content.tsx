@@ -4,16 +4,21 @@ import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import InlineCtaComponent, { InlineCta } from '../components/widgets/InlineCta'
 import Hero, { HeroProps } from '../components/widgets/Hero'
 import { LayoutTemplate } from '../components/Layout'
-import { ArrayElement } from '../helpers/types'
+import { ArrayElement, GeneratedPageContext } from '../helpers/types'
 import AlternatingImagesText, { BlockWithImage } from '../components/widgets/AlternatingImagesText'
 import CardSectionComponent, { CardSection } from '../components/widgets/CardSection'
 import { Card } from '../components/widgets/CardGrid'
 import { baseUrl } from '../constants/content'
 import Section from '../components/common/Section'
+import { BreadcrumbsSEO, Breadcrumb } from '../components/Breadcrumbs'
 
 import styles from './static-page-content.module.scss'
 
-export default function StaticPageContent({ data }: { data: GatsbyTypes.StaticPageContentQuery }) {
+interface StaticPageContentProps {
+  data: GatsbyTypes.StaticPageContentQuery
+  pageContext: GeneratedPageContext
+}
+export default function StaticPageContent({ data, pageContext }: StaticPageContentProps) {
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
@@ -41,6 +46,7 @@ export default function StaticPageContent({ data }: { data: GatsbyTypes.StaticPa
       cardSection={cardSection}
       blocks={blocks}
       hero={hero}
+      breadcrumbs={pageContext.breadcrumb.crumbs}
     />
   )
 }
@@ -106,13 +112,14 @@ export const pageQuery = graphql`
   }
 `
 
-export interface StaticPageContentProps {
+export interface StaticPageContentTemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   invertContent: boolean
   inlineCta: InlineCta
   cardSection: CardSection
   blocks: BlockWithImage[]
   hero: HeroProps
+  breadcrumbs?: Array<Breadcrumb>
 }
 export function StaticPageContentTemplate({
   metadata,
@@ -121,9 +128,11 @@ export function StaticPageContentTemplate({
   cardSection,
   blocks,
   hero,
-}: StaticPageContentProps) {
+  breadcrumbs,
+}: StaticPageContentTemplateProps) {
   return (
     <LayoutTemplate siteMetadata={metadata}>
+      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
       <Section className={styles.section}>
         <Hero {...hero} className={styles.widget} />
         {invertContent ? (
