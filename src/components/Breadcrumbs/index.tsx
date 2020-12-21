@@ -70,5 +70,5 @@ function withTrailingSlash(path: string) {
 }
 
 function getDisplayLabel(label: string) {
-  return label[0].toUpperCase() + label.replaceAll('-', ' ').substring(1)
+  return label[0].toUpperCase() + label.split('-').join(' ').substring(1)
 }
