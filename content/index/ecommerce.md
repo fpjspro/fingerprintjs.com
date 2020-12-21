@@ -1,5 +1,5 @@
 ---
-title: e-commerce
+title: ecommerce
 templateKey: static-page-content
 metadata:
   title: Ecommerce Fraud Prevention API - FingerprintJS
@@ -10,10 +10,10 @@ metadata:
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Take e-commerce fraud prevention seriously with the most accurate browser
+  title: Take ecommerce fraud prevention seriously with the most accurate browser
     fingerprinting API
   description: "FingerprintJS is a 99.5% accurate browser fingerprinting tool used
-    to uniquely identify fraudsters on your e-commerce website. Stop fraudulent
+    to uniquely identify fraudsters on your ecommerce website. Stop fraudulent
     purchases, reduce coupon and promo abuse, and keep your customers' accounts
     safe with our flexible, developer-friendly API. "
   ctaText: Start Free Trial
@@ -39,9 +39,9 @@ cardSection:
         payment service providers.
       icon: /img/uploads/commerce.png
 blocks:
-  - subheader: Stop e-commerce fraud with our flexible developer tools
+  - subheader: Stop ecommerce fraud with our flexible developer tools
     content: Incorporate browser fingerprinting and bot detection into your
-      e-commerce website's existing workflows, and access suspicious visitor
+      ecommerce website's existing workflows, and access suspicious visitor
       activity and geolocation at lightspeed from our API.  Every business is
       different - minimize disruption to your customers by building an
       anti-fraud solution that works for yours.
@@ -52,7 +52,7 @@ blocks:
     isCtaButton: false
   - subheader: Stay protected throughout the purchase process, from customer login
       to payment
-    content: FingerprintJS helps developer teams identify their e-commerce site's
+    content: FingerprintJS helps developer teams identify their ecommerce site's
       most vulnerable interactions and build authentication flows that won't
       overburden visitors. Uniquely identifying users at the login stage will
       reduce account takeovers that can result in fraudulent purchases and
@@ -64,9 +64,9 @@ blocks:
     isCtaButton: false
 inlineCta:
   title: Reduce chargebacks one month after integrating FingerprintJS on your website.
-  subtitle: "Every dollar of e-commerce fraud can cost retailers between 3 to 4
+  subtitle: "Every dollar of ecommerce fraud can cost retailers between 3 to 4
     times as much - a loss mitigated with our 99.5% accurate browser
-    fingerprinting and e-commerce fraud detection solution. With FingerprintJS,
+    fingerprinting and ecommerce fraud detection solution. With FingerprintJS,
     you can protect your income against fraudulent orders that waste resources
     ƒon labor, shipping, products, chargebacks, fines and more . "
   buttonText: Get Started
