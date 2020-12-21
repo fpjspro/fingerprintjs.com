@@ -11,6 +11,7 @@ import Container from '../common/Container'
 import Section from '../common/Section'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import { Link } from 'gatsby'
+import { PATH } from '../../constants/content'
 
 import styles from './UseCasesSection.module.scss'
 

@@ -10,6 +10,7 @@ import Container from '../common/Container'
 import { isBrowser } from '../../helpers/detector'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
+import { URL } from '../../constants/content'
 
 import styles from './Header.module.scss'
 
@@ -53,7 +54,7 @@ export default function Header() {
                 >
                   Contact Sales
                 </Button>
-                <Button href='https://dashboard.fingerprintjs.com/signup'>Free Trial</Button>
+                <Button href={URL.signupUrl}>Free Trial</Button>
                 <Button
                   label='Mobile Menu'
                   className={styles.mobileToggler}
