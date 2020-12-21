@@ -43,7 +43,7 @@ export default function MobileNavbar() {
                 Support
               </a>
               <a href='https://dashboard.fingerprintjs.com/login' className={styles.link}>
-                Log In
+                Login
               </a>
               <a href='https://dashboard.fingerprintjs.com/signup' className={styles.link}>
                 Sign Up

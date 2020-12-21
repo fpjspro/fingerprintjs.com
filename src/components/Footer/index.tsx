@@ -52,7 +52,7 @@ const footerLinks: FooterLinkSection[] = [
         url: 'https://fingerprintjs.breezy.hr/',
       },
       {
-        title: 'Log In',
+        title: 'Login',
         url: 'https://dashboard.fingerprintjs.com/login',
       },
     ],
