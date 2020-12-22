@@ -2,7 +2,7 @@
 title: why-fpjs
 templateKey: static-page-content
 metadata:
-  title: Why FingerprintJS - Empowering Developers To Solve Fraud At The Source
+  title: Why FingerprintJS - empowering developers to solve fraud at the source
   description: Our browser fingerprinting API fights fraud by uniquely identifying
     99.5% of visits to a website, empowering developer teams to pinpoint
     fraudulent actors and build custom authentication workflows.
