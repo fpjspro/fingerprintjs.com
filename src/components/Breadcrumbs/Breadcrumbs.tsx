@@ -12,11 +12,10 @@ export interface Breadcrumb {
 export interface BreadcrumbsProps {
   breadcrumbs: Array<Breadcrumb>
   separator?: string | React.ReactNode
-  containerSize?: 'regular' | 'large'
 }
-export default function Breadcrumbs({ breadcrumbs, separator = <>&raquo;</>, containerSize }: BreadcrumbsProps) {
+export default function Breadcrumbs({ breadcrumbs, separator = <>&raquo;</> }: BreadcrumbsProps) {
   return (
-    <Container size={containerSize}>
+    <Container size='large'>
       <nav className={styles.root}>
         {breadcrumbs.map(({ pathname: path, crumbLabel: label }, index) => {
           const isCurrent = index === breadcrumbs.length - 1
