@@ -11,7 +11,7 @@ invertContent: false
 hero:
   title: Stop payment fraud in all its forms with accurate user identification
   description: Use FingerprintJS to keep chargebacks to a minimum, protecting your
-    bottom line and seller reputation.
+    bottom-line and seller reputation.
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
@@ -20,15 +20,15 @@ cardSection:
   cards:
     - icon: /img/uploads/anonymous_user_identification.png
       title: Coupon and promo abuse
-      content: Ensure your promotions are being used fairly and not used multiple
-        times or stacked to remove all profit from your sales.
+      content: Ensure your promotions are used fairly and not repeated or stacked to
+        remove all profit from your sales.
     - icon: /img/uploads/payment_processing.png
       title: Card Testing
       content: Prevent fraudsters from using your site to test stolen credit cards
         through multiple small purchases.
     - title: Card Cracking
       content: Stop malicious actors from testing combinations of expiry dates, postal
-        codes and CVVs with lists of purchased PANs.
+        codes, and CVVs with lists of purchased PANs.
       icon: /img/uploads/bot_detection.png
     - title: Friendly Fraud
       content: Sometimes a real user will dispute payments even though they received a
@@ -40,7 +40,7 @@ blocks:
     content: Any form of payment fraud can result in a chargeback for your website,
       which may result in lost revenue, stolen goods or services, and damage to
       your merchant reputation. No matter the cause, accurate user
-      identification can help reduce this incredibly important indicator of
+      identification helps reduce this incredibly important indicator of
       fraudulent activity by authenticating or stopping at-risk purchases before
       they occur.
     image: /img/uploads/dashboard-tight.png
@@ -49,7 +49,7 @@ blocks:
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: Developer-friendly integrations
-    content: "FingerprintJS' API and webhooks are designed to be integrated with
+    content: "FingerprintJS' API and webhooks are designed to easily integrate with
       your existing website architecture and payment processing platform.
       Whether you have a Shopify store or a custom build, incorporate our highly
       accurate fingerprinting service wherever it is needed.   "
