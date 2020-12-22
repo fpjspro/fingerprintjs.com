@@ -12,8 +12,8 @@ invertContent: false
 hero:
   title: Stop cryptocurrency fraud in its tracks
   description: Crypto exchanges are highly appealing fraud targets. With our 99.5%
-    accurate browser fingerprinting API, identify fraudsters aiming to steal
-    account credentials and transfer coins into their own wallets.
+    accurate browser fingerprinting API, it's easy to identify fraudsters aiming
+    to steal account credentials and transfer coins into their own wallets.
   ctaText: Start Free Trial
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
@@ -22,19 +22,19 @@ cardSection:
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Secure your customers' wallets
-      content: Require additional authentication for suspicious visitors on login
+      content: Require additional authentication for suspicious visitors during login
         while keeping your trusted cryptocurrency users unhindered and safe.
     - icon: /img/uploads/payment_processing.png
       title: Stop fraudulent purchases
-      content: Blacklist users that are card testing, card cracking or have a history
+      content: Blacklist users that are card testing, card cracking, or have a history
         of fraudulent activity on your services.
 blocks:
   - subheader: Secure your user's accounts without sacrificing anonymity
-    content: Crypto customers value their privacy, and will abandon your exchange if
+    content: Crypto customers value their privacy and will abandon your exchange if
       you introduce too much friction in the pursuit of security. FingerprintJS'
       highly accurate VisitorID allows developer teams to implement additional
-      authentication for only the most suspicious logins, purchases and
-      transfers, and requires no additional information from your users.
+      authentication for only the most suspicious logins, purchases, and
+      transfers - and requires no additional information from your users.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Read our documentation

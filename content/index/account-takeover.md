@@ -12,8 +12,8 @@ invertContent: false
 hero:
   title: Prevent account takeover with the most accurate browser fingerprinting API
   description: Keep your customers' accounts safe by accurately identifying
-    threats before they can cause any damage. Powerful account fraud protection
-    for any web application.
+    threats before they cause damage. Powerful account fraud protection for any
+    web application.
   ctaText: Start Free Trial
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
@@ -33,13 +33,13 @@ cardSection:
         additional authentication to stop phished accounts from being accessed
         easily.
 blocks:
-  - subheader: Stop Account Takeover At The Source
+  - subheader: Stop account takeover at the source
     content: Account fraud can take many forms. Whether by brute force or individual
       actors testing purchased credentials, uniquely identifying your website
       visitors will provide the best defense against account
-      takeovers.  FingerprintJS is designed to be seamlessly incorporated into
-      your tech stack and used in conjunction with existing authentication
-      workflows using our API and webhooks.
+      takeovers.  FingerprintJS seamlessly meshes into your tech stack to run in
+      conjunction with existing authentication workflows, using our API and
+      webhooks.
     image: /img/uploads/account-spider.png
     isImageAfterText: true
     ctaText: Read our documentation
@@ -48,8 +48,8 @@ blocks:
   - subheader: Strong Account Protection means fewer chargebacks
     content: Protecting your users' logins is the best way to mitigate chargebacks
       from fraudulent purchases without compromising on experience. Try
-      FingerprintJS and see the difference accurate user detection can make for
-      your user's account security, merchant reputation, and more.
+      FingerprintJS and see the difference that accurate user detection can make
+      for your user's account security, merchant reputation, and more.
     isImageAfterText: false
     ctaText: Start free trial
     ctaUrl: https://dashboard.fingerprintjs.com/signup

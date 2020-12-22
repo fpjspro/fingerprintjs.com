@@ -13,6 +13,7 @@ import ContactSalesForm from '../../components/ContactSalesForm'
 import { useCaseLinks } from '../../constants/content'
 import classNames from 'classnames'
 import { ReactComponent as ExpandMoreSvg } from '../../img/expand-more.svg'
+import { URL } from '../../constants/content'
 
 import styles from './Header.module.scss'
 
@@ -66,9 +67,7 @@ export default function Header() {
                 >
                   Contact Sales
                 </Button>
-                <Button href='https://dashboard.fingerprintjs.com/signup' className={styles.button}>
-                  Free Trial
-                </Button>
+                <Button href={URL.signupUrl}>Free Trial</Button>
                 <Button
                   label='Mobile Menu'
                   className={styles.mobileToggler}

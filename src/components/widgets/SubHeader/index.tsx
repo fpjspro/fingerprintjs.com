@@ -28,7 +28,7 @@ export default function SubHeaderComponent({
 }: SubHeader) {
   return (
     <header className={classNames(styles.root, className, alignmentClasses(align))}>
-      <h2 className={classNames(styles.title, sizeClasses(titleSize), weightClasses(titleWeight))}>{title}</h2>
+      <h1 className={classNames(styles.title, sizeClasses(titleSize), weightClasses(titleWeight))}>{title}</h1>
       {subtitle && <h3 className={classNames(styles.subtitle, sizeClasses(subtitleSize))}>{subtitle}</h3>}
     </header>
   )
