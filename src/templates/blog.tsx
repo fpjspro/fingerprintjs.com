@@ -1,21 +1,28 @@
 import { graphql, Link } from 'gatsby'
 import React from 'react'
-import Section from '../../components/common/Section'
-import Layout from '../../components/Layout'
+import Section from '../components/common/Section'
+import Layout from '../components/Layout'
 import Img from 'gatsby-image'
-import Container from '../../components/common/Container'
-import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
-import { GeneratedPageContext } from '../../helpers/types'
+import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
+import { GeneratedPageContext } from '../helpers/types'
+import Container from '../components/common/Container'
+import classNames from 'classnames'
 
 import styles from './blog.module.scss'
 
 interface BlogProps {
   data: GatsbyTypes.BlogQuery
-  pageContext: GeneratedPageContext
+  pageContext: BlogContext
 }
 export default function Blog({ data, pageContext }: BlogProps) {
   const { edges: posts } = data.allMarkdownRemark
   const breadcrumbs = pageContext.breadcrumb.crumbs
+
+  const { currentPage, numPages } = pageContext
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const prevPage = currentPage - 1 === 1 ? '/blog/' : `/blog/${currentPage - 1}/`
+  const nextPage = `/blog/${currentPage + 1}/`
 
   return (
     <Layout>
@@ -47,6 +54,21 @@ export default function Blog({ data, pageContext }: BlogProps) {
               )
             })}
           </div>
+
+          {numPages > 1 && (
+            <div className={classNames(styles.navigation, { [styles.first]: isFirst }, { [styles.last]: isLast })}>
+              {!isFirst && (
+                <Link to={prevPage} className={styles.link}>
+                  ← Previous Page
+                </Link>
+              )}
+              {!isLast && (
+                <Link to={nextPage} className={styles.link}>
+                  Next Page →
+                </Link>
+              )}
+            </div>
+          )}
         </Container>
       </Section>
     </Layout>
@@ -54,10 +76,12 @@ export default function Blog({ data, pageContext }: BlogProps) {
 }
 
 export const pageQuery = graphql`
-  query Blog {
+  query Blog($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(blog)/" } }
+      filter: { fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" } }
       sort: { order: DESC, fields: frontmatter___publishDate }
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {
@@ -85,6 +109,11 @@ export const pageQuery = graphql`
     }
   }
 `
+
+interface BlogContext extends GeneratedPageContext {
+  currentPage: number
+  numPages: number
+}
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 

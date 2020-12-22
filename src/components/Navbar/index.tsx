@@ -12,6 +12,9 @@ export default function Navbar() {
           <Link className={nav.link} to={PATH.demoUrl}>
             Technical Demo
           </Link>
+          <Link className={nav.link} to='/blog/'>
+            Blog
+          </Link>
           <a className={nav.link} href={URL.githubRepoUrl} target='_blank' rel='noreferrer'>
             Open Source
           </a>

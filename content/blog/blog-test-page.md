@@ -4,7 +4,7 @@ metadata:
   title: A test page for the blog system
   description: Rendered from markdown that is created by the CMS and automagically published to GitHub. It just works! (except when it doesn't)
   url: https://fingerprintjs.com/blog/test
-  image: /img/uploads/dog.jpg
+  image: /img/uploads/blog-index.jpg
 title: A test page for the blog system
 publishDate: 12.08.2020 4:18 PM
 ---
