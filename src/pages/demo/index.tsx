@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../components/Layout'
-import { BreadcrumbsSEO } from '../../components/Breadcrumbs'
+import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
 
 import DemoSection from '../../components/demo/DemoSection'

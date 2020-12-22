@@ -10,7 +10,8 @@ import CardSectionComponent, { CardSection } from '../components/widgets/CardSec
 import { Card } from '../components/widgets/CardGrid'
 import { BASE_URL } from '../constants/content'
 import Section from '../components/common/Section'
-import { BreadcrumbsSEO, Breadcrumb } from '../components/Breadcrumbs'
+import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
+import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 
 import styles from './static-page-content.module.scss'
 

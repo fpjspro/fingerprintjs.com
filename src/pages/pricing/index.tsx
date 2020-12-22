@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import Container from '../../components/common/Container'
 import PricingCard from '../../components/pricing/Card'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
-import { BreadcrumbsSEO } from '../../components/Breadcrumbs'
+import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
 
 import styles from './Pricing.module.scss'

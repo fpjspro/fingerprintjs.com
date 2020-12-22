@@ -4,8 +4,9 @@ import { LayoutTemplate } from '../components/Layout'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import Section from '../components/common/Section'
 import Container from '../components/common/Container'
-import { baseUrl } from '../constants/content'
-import Breadcrumbs, { Breadcrumb, BreadcrumbsSEO } from '../components/Breadcrumbs'
+import { BASE_URL } from '../constants/content'
+import Breadcrumbs, { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
+import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../helpers/types'
 
 import styles from './long-form-content.module.scss'
@@ -82,7 +83,7 @@ export function LongFormContentTemplate({ metadata, title, body, contentComponen
       {breadcrumbs && (
         <>
           <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
-          <Breadcrumbs breadcrumbs={breadcrumbs} />
+          <Breadcrumbs breadcrumbs={breadcrumbs.slice(1)} />
         </>
       )}
       <Section className={styles.root}>
@@ -111,6 +112,6 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
     title: queryMetadata?.title ?? '',
     description: queryMetadata?.description ?? '',
     url: queryMetadata?.url ?? '',
-    image: `${baseUrl}${queryMetadata?.image}` ?? '',
+    image: `${BASE_URL}${queryMetadata?.image}` ?? '',
   } as GatsbyTypes.SiteSiteMetadata
 }

@@ -4,7 +4,7 @@ import Section from '../../components/common/Section'
 import Layout from '../../components/Layout'
 import Img from 'gatsby-image'
 import Container from '../../components/common/Container'
-import { BreadcrumbsSEO } from '../../components/Breadcrumbs'
+import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
 
 import styles from './blog.module.scss'
