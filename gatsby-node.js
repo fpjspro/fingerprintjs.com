@@ -1,12 +1,15 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-async function getFolderEdges(folder, graphql) {
+async function getFolderEdges(folder, graphql, filter = '') {
   const { data, errors } = await graphql(`
     {
       allMarkdownRemark(
         limit: 1000
-        filter: {fileAbsolutePath: {regex: "/(${folder})/.*\.md$/"}}
+        filter: {
+          fileAbsolutePath: {regex: "/(${folder})/.*\.md$/"}
+          ${filter}
+        }
       ) {
         edges {
           node {
@@ -46,6 +49,22 @@ function createPageFromEdge(edge, createPage) {
   })
 }
 
+function createPaginatedPages(numPages, itemsPerPage, pathname, template, createPage) {
+  for (let i = 0; i < numPages; ++i) {
+    createPage({
+      // The first page doesn't need a number.
+      path: `${pathname}${i === 0 ? '/' : `/${i + 1}/`}`,
+      component: path.resolve(template),
+      context: {
+        limit: itemsPerPage,
+        skip: i * itemsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  }
+}
+
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -55,22 +74,15 @@ exports.createPages = async ({ actions, graphql }) => {
   const blogPosts = await getFolderEdges('blog', graphql)
   blogPosts.forEach((edge) => createPageFromEdge(edge, createPage))
 
-  const postsPerPage = 12
-  const numPages = Math.ceil(blogPosts.length / postsPerPage)
+  const featuredPosts = await getFolderEdges('blog', graphql, 'frontmatter: { featured: { eq: true } }')
 
-  for (let i = 0; i < numPages; ++i) {
-    createPage({
-      // The first page doesn't need a number.
-      path: `blog${i === 0 ? '/' : `/${i + 1}/`}`,
-      component: path.resolve(`src/templates/blog.tsx`),
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
-    })
-  }
+  const postsPerPage = 12
+
+  const numBlogPages = Math.ceil(blogPosts.length / postsPerPage)
+  createPaginatedPages(numBlogPages, postsPerPage, 'blog', 'src/templates/blog.tsx', createPage)
+
+  const numFeaturedPages = Math.ceil(featuredPosts.length / postsPerPage)
+  createPaginatedPages(numFeaturedPages, postsPerPage, 'blog/featured', 'src/templates/blog-featured.tsx', createPage)
 }
 
 function createNodePath({ node, getNode }) {

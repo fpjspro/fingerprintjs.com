@@ -4,7 +4,7 @@ import { LayoutTemplate } from '../components/Layout'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import Section from '../components/common/Section'
 import Container from '../components/common/Container'
-import { baseUrl } from '../constants/content'
+import { BASE_URL } from '../constants/content'
 
 import styles from './long-form-content.module.scss'
 
@@ -90,6 +90,6 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
     title: queryMetadata?.title ?? '',
     description: queryMetadata?.description ?? '',
     url: queryMetadata?.url ?? '',
-    image: `${baseUrl}${queryMetadata?.image}` ?? '',
+    image: `${BASE_URL}${queryMetadata?.image}` ?? '',
   } as GatsbyTypes.SiteSiteMetadata
 }

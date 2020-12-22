@@ -1,0 +1,137 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px 20px rgba(72, 76, 108, 0.044116);
+  background-color: v('white');
+
+  transition-duration: 0.5s;
+
+  &:hover {
+    box-shadow: 0px 0px 30px 25px rgba(72, 76, 108, 0.1);
+
+    position: relative;
+    transform: translateY(-0.5rem);
+
+    .title {
+      color: c('brand-fire');
+    }
+  }
+}
+
+.featuredPost {
+  margin-top: 2rem;
+
+  .content {
+    &:before {
+      content: 'FEATURED ARTICLE';
+      position: relative;
+      display: block;
+      margin-bottom: 3rem;
+
+      font-family: v('ff-mono');
+      font-weight: v('bold');
+
+      color: c('brand-fire');
+    }
+  }
+
+  .publishDate {
+    display: none;
+  }
+
+  @include media('>tabletWide') {
+    display: grid;
+    gap: 3rem;
+
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 'content image';
+
+    justify-content: space-around;
+
+    min-height: 35rem;
+
+    @include media('<=desktop') {
+      grid-template-columns: 2fr 2fr;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      grid-area: content;
+
+      padding: 4rem;
+    }
+
+    .title {
+      font-size: 3rem;
+    }
+
+    .description {
+      font-size: 2rem;
+    }
+
+    .wrapper {
+      height: 100%;
+      padding: 0;
+    }
+
+    .image {
+      grid-area: image;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+
+  height: 0;
+  padding-bottom: 3 / 4 * 100%;
+}
+
+.image {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  padding: 4rem;
+  padding-top: 1rem;
+}
+
+.publishDate {
+  font-family: v('ff-sans');
+  font-size: 1.5rem;
+}
+
+.title {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+
+  font-family: v('ff-mono');
+  font-weight: v('bold');
+  font-size: 2.25rem;
+
+  transition-duration: 0.5s;
+}
+
+.description {
+  font-family: v('ff-sans');
+  font-size: 1.75rem;
+}
