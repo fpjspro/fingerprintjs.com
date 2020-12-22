@@ -11,6 +11,7 @@ import Container from '../common/Container'
 import Section from '../common/Section'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import { Link } from 'gatsby'
+import { MAILTO } from '../../constants/content'
 
 import styles from './UseCasesSection.module.scss'
 
@@ -28,7 +29,7 @@ export default function UseCasesSection() {
           </h2>
         </header>
         <div className={styles.useCases}>
-          <UseCase icon={AccountFraudSvg} title='Account Fraud' large>
+          <UseCase link='/account-takeover/' icon={AccountFraudSvg} title='Account Fraud' large>
             Confirm that every visitor on your website is real and not an advanced bot using multiple techniques to
             create fake accounts.
             <br />
@@ -56,7 +57,7 @@ export default function UseCasesSection() {
             Catch users trying to break your system via multiple accounts, devices, and IP addresses to unjustly enrich
             themselves.
           </UseCase>
-          <UseCase icon={CustomSolutionSvg} title='Custom Solution'>
+          <UseCase link={MAILTO.mailToUrl} local={false} icon={CustomSolutionSvg} title='Custom Solution'>
             We can build a custom solution that works for your industry.
           </UseCase>
         </div>
@@ -67,12 +68,13 @@ export default function UseCasesSection() {
 
 interface UseCaseProps {
   link?: string
+  local?: boolean
   icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
   title: string
   children: React.ReactNode
   large?: boolean
 }
-function UseCase({ link, icon: Icon, title, children, large }: UseCaseProps) {
+function UseCase({ link, local = true, icon: Icon, title, children, large }: UseCaseProps) {
   const content = (
     <>
       <div className={styles.iconContainer}>
@@ -86,9 +88,15 @@ function UseCase({ link, icon: Icon, title, children, large }: UseCaseProps) {
   )
 
   return link ? (
-    <Link to={link} className={classNames(styles.useCase, { [styles.large]: large })}>
-      {content}
-    </Link>
+    local ? (
+      <Link to={link} className={classNames(styles.useCase, { [styles.large]: large })}>
+        {content}
+      </Link>
+    ) : (
+      <a href={link} className={classNames(styles.useCase, { [styles.large]: large })}>
+        {content}
+      </a>
+    )
   ) : (
     <div className={classNames(styles.useCase, { [styles.large]: large })}>{content}</div>
   )
