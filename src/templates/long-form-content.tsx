@@ -80,13 +80,14 @@ export function LongFormContentTemplate({ metadata, title, body, contentComponen
 
   return (
     <LayoutTemplate siteMetadata={metadata}>
-      {breadcrumbs && (
-        <>
-          <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
-          <Breadcrumbs breadcrumbs={breadcrumbs.slice(1)} />
-        </>
-      )}
       <Section className={styles.root}>
+        {breadcrumbs && (
+          <>
+            <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
+            <Breadcrumbs breadcrumbs={breadcrumbs.slice(1)} />
+          </>
+        )}
+
         <Container className={styles.container}>
           <h1 className={styles.title}>{title}</h1>
 
