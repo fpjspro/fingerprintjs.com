@@ -11,6 +11,7 @@ import ContactSalesForm from '../../components/ContactSalesForm'
 import styles from './MobileNavbar.module.scss'
 import { useCaseLinks } from '../../constants/content'
 import { URL, DOC_URL, PATH, MAILTO } from '../../constants/content'
+import DropdownMenu from './DropdownMenu'
 
 export default function MobileNavbar() {
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
@@ -80,37 +81,5 @@ export default function MobileNavbar() {
         <ContactSalesForm />
       </Modal>
     </>
-  )
-}
-
-interface DropdownMenuProps {
-  name: string
-  list: Array<{ title: string; url: string; isLocal?: boolean }>
-}
-function DropdownMenu({ name, list }: DropdownMenuProps) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  return (
-    <div>
-      <span onClick={() => setIsOpen(!isOpen)} className={styles.link}>
-        {name}
-      </span>
-
-      <ul className={classNames(styles.list, { [styles.open]: isOpen })}>
-        {list.map(({ title, url, isLocal = true }) => (
-          <li key={name}>
-            {isLocal ? (
-              <Link to={url} className={styles.link}>
-                {title}
-              </Link>
-            ) : (
-              <a href={url} className={styles.link}>
-                {title}
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
   )
 }

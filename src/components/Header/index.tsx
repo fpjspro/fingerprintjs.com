@@ -12,8 +12,8 @@ import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
 import { useCaseLinks } from '../../constants/content'
 import classNames from 'classnames'
-import { ReactComponent as ExpandMoreSvg } from '../../img/expand-more.svg'
 import { URL } from '../../constants/content'
+import DropdownList from './DropdownList'
 
 import styles from './Header.module.scss'
 
@@ -87,34 +87,5 @@ export default function Header() {
         <ContactSalesForm />
       </Modal>
     </>
-  )
-}
-
-interface DropdownListProps {
-  name: string
-  list: Array<{ title: string; url: string; isLocal?: boolean }>
-}
-function DropdownList({ name, list }: DropdownListProps) {
-  return (
-    <div className={classNames(styles.dropdown)}>
-      <span className={styles.link}>
-        {name}
-        <ExpandMoreSvg className={styles.icon} />
-      </span>
-
-      <div className={styles.list}>
-        {list.map(({ title, url, isLocal = true }) =>
-          isLocal ? (
-            <Link to={url} key={title} className={classNames(styles.item, styles.link)}>
-              {title}
-            </Link>
-          ) : (
-            <a href={url} key={title} className={classNames(styles.item, styles.link)}>
-              {title}
-            </a>
-          )
-        )}
-      </div>
-    </div>
   )
 }
