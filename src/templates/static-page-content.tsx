@@ -8,7 +8,7 @@ import { ArrayElement, GeneratedPageContext } from '../helpers/types'
 import AlternatingImagesText, { BlockWithImage } from '../components/widgets/AlternatingImagesText'
 import CardSectionComponent, { CardSection } from '../components/widgets/CardSection'
 import { Card } from '../components/widgets/CardGrid'
-import { baseUrl } from '../constants/content'
+import { BASE_URL } from '../constants/content'
 import Section from '../components/common/Section'
 import { BreadcrumbsSEO, Breadcrumb } from '../components/Breadcrumbs'
 
@@ -186,7 +186,7 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
     title: queryMetadata?.title ?? '',
     description: queryMetadata?.description ?? '',
     url: queryMetadata?.url ?? '',
-    image: `${baseUrl}${queryMetadata?.image}` ?? '',
+    image: `${BASE_URL}${queryMetadata?.image}` ?? '',
   } as GatsbyTypes.SiteSiteMetadata
 }
 
