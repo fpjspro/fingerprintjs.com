@@ -29,6 +29,9 @@ export default function MobileNavbar() {
               <Link to='/demo' className={styles.link}>
                 Technical Demo
               </Link>
+              <Link to='/blog/' className={styles.link}>
+                Blog
+              </Link>
               <a
                 href='https://github.com/fingerprintjs/fingerprintjs'
                 target='_blank'

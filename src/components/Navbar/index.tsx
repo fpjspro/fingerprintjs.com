@@ -11,6 +11,9 @@ export default function Navbar() {
           <Link className={nav.link} to='/demo'>
             Technical Demo
           </Link>
+          <Link className={nav.link} to='/blog/'>
+            Blog
+          </Link>
           <a
             className={nav.link}
             href='https://github.com/fingerprintjs/fingerprintjs'
