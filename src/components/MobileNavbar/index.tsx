@@ -9,7 +9,9 @@ import classNames from 'classnames'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
 import styles from './MobileNavbar.module.scss'
+import { useCaseLinks } from '../../constants/content'
 import { URL, DOC_URL, PATH, MAILTO } from '../../constants/content'
+import DropdownMenu from './DropdownMenu'
 
 export default function MobileNavbar() {
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
@@ -26,7 +28,10 @@ export default function MobileNavbar() {
           </div>
           <div className={classNames(styles.links, styles.main)}>
             <Container size='large' className={styles.container}>
-              {' '}
+              <Link to={PATH.whyFpjs} className={styles.link}>
+                Why FPJS
+              </Link>
+              <DropdownMenu name='Use Cases' list={useCaseLinks} />
               <Link to={PATH.demoUrl} className={styles.link}>
                 Technical Demo
               </Link>
@@ -37,19 +42,20 @@ export default function MobileNavbar() {
                 Pricing
               </Link>
               <a href={DOC_URL.documentationUrl} className={styles.link}>
-                Documentation
+                Docs
               </a>
               <a href={MAILTO.mailToUrl} className={styles.link}>
                 Support
               </a>
               <a href={URL.dashboardLoginUrl} className={styles.link}>
-                Log In
+                Login
               </a>
               <a href={URL.signupUrl} className={styles.link}>
                 Sign Up
               </a>
             </Container>
           </div>
+
           <div className={styles.contact}>
             <GithubButton />
             <div className={styles.social}>

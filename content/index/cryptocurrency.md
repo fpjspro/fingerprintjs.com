@@ -18,7 +18,7 @@ hero:
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: Prevent online fraud from putting your exchange at risk
-  subtitle: ""
+  subtitle: ''
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Secure your customers' wallets
@@ -42,10 +42,10 @@ blocks:
     isCtaButton: false
   - ctaText: Start free trial
     subheader: Reduce chargebacks with payment authentication
-    content: "The best way to protect your merchant reputation is to identify
+    content: 'The best way to protect your merchant reputation is to identify
       purchases with a high likelihood of fraud before they can be processed.
-      Build additional checks and balances into your payment flows with our
-      easy-to-use API. "
+      Build additional checks and balances into your payment flows with our easy
+      to use API. '
     image: /img/uploads/fpjs-subscriptions.png
     ctaUrl: https://dashboard.fingerprintjs.com/signup
     isCtaButton: false

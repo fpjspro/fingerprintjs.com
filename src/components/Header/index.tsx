@@ -10,7 +10,10 @@ import Container from '../common/Container'
 import { isBrowser } from '../../helpers/detector'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
+import { useCaseLinks } from '../../constants/content'
+import classNames from 'classnames'
 import { URL } from '../../constants/content'
+import DropdownList from './DropdownList'
 
 import styles from './Header.module.scss'
 
@@ -44,13 +47,23 @@ export default function Header() {
                 <Link to='/' className={`${styles.link} ${styles.linkLogo}`} title='Logo'>
                   <img src='/img/company-logos/fpjs.svg' alt='FingerprintJS' className={styles.logo} />
                 </Link>
+                <Link className={classNames(styles.link, styles.desktopOnly)} to='/why-fpjs/'>
+                  Why FPJS
+                </Link>
+                <DropdownList name='Use Cases' list={useCaseLinks} />
+                <Link className={classNames(styles.link, styles.desktopOnly)} to='/demo/'>
+                  Demo
+                </Link>
+                <Link className={classNames(styles.link, styles.desktopOnly)} to='/pricing/'>
+                  Pricing
+                </Link>
               </div>
               <div className={styles.navRight}>
                 <GithubButton className={styles.desktopOnly} />
                 <Button
                   onClick={() => setIsContactSalesModalOpen(true)}
                   variant='outline'
-                  className={styles.desktopOnly}
+                  className={classNames(styles.desktopOnly, styles.button)}
                 >
                   Contact Sales
                 </Button>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import { ReactComponent as ExpandMoreSvg } from './expand_more.svg'
+import { ReactComponent as ExpandMoreSvg } from '../../../img/expand-more.svg'
 import styles from './Collapsible.module.scss'
 
 interface AccordionProps {
