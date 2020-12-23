@@ -10,6 +10,8 @@ metadata:
 publishDate: 2020-12-24T16:11:04.040Z
 title: The Beginner’s Guide to Browser Fingerprinting for Fraud Detection
 ---
+![Fingerprint icon on map background](/img/uploads/3.png "Browser Fingerprinting")
+
 ## Introduction
 
 Fraud looms on the minds of development teams for any website, but fraud prevention doesn’t have to be all-consuming, or even expensive. With a highly accurate identifier it becomes much easier for developers to triage suspicious traffic and restrict access to users attempting to hack into accounts, make fraudulent purchases or simply spam your website. The key to identifying those most likely to commit fraud is either by past activity, or by associating specific patterns of use with a higher likelihood of fraudulence.
