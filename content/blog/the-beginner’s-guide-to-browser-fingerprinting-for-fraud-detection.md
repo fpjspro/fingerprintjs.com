@@ -12,9 +12,7 @@ title: The Beginner’s Guide to Browser Fingerprinting for Fraud Detection
 ---
 ![Fingerprint icon on map background](/img/uploads/3.png "Browser Fingerprinting")
 
-## Introduction
-
-Fraud looms on the minds of development teams for any website, but fraud prevention doesn’t have to be all-consuming, or even expensive. With a highly accurate identifier it becomes much easier for developers to triage suspicious traffic and restrict access to users attempting to hack into accounts, make fraudulent purchases or simply spam your website. The key to identifying those most likely to commit fraud is either by past activity, or by associating specific patterns of use with a higher likelihood of fraudulence.
+**Fraud looms on the minds of development teams for any website, but fraud prevention doesn’t have to be all-consuming, or even expensive.** With a highly accurate identifier it becomes much easier for developers to triage suspicious traffic and restrict access to users attempting to hack into accounts, make fraudulent purchases or simply spam your website. The key to identifying those most likely to commit fraud is either by past activity, or by associating specific patterns of use with a higher likelihood of fraudulence.
 
 Browser fingerprinting technologies are a cornerstone technology for developer-led fraud prevention that cuts through spoofing attempts to accurately identify users, and it can do this without requiring additional permissions from the user. Our open source [browser fingerprinting library](https://github.com/fingerprintjs/fingerprintjs) has over 12K stars on Github and is used by 8,000+ websites. Fingerprinting techniques on their own have been found to be over [90% accurate](https://arstechnica.com/information-technology/2017/02/now-sites-can-fingerprint-you-online-even-when-you-use-multiple-browsers/) in correctly identifying a unique user in the browser, and when used in conjunction with usage history, fuzzy matching, and probability engines, this accuracy can be further improved.
 
@@ -98,7 +96,7 @@ One of the main advantages of fingerprinting is that it is stateless. A well-imp
 
 ## Fraud Applications For Fingerprinting
 
-An important first principle for dealing with fraud is that only a small percentage of visitors are responsible for the majority of fraud cases. A developer team aiming to reduce fraud on their website will need to find ways to isolate these visitors, verify their identity through authentication, and blacklist them as needed. However, you will want to avoid putting up these roadblocks for the rest of your ‘trusted’ traffic, as additional authentication can be detrimental to the user experience, slowing your users’ ability to access their account, make purchases, and engage with your website.
+An important first principle for dealing with fraud is that only a small percentage of visitors are responsible for the [majority of fraud cases](https://www.f5.com/labs/articles/threat-intelligence/2020-phishing-and-fraud-report#_fig19). A developer team aiming to reduce fraud on their website will need to find ways to isolate these visitors, verify their identity through authentication, and blacklist them as needed. However, you will want to avoid putting up these roadblocks for the rest of your ‘trusted’ traffic, as additional authentication can be detrimental to the user experience, slowing your users’ ability to access their account, make purchases, and engage with your website.
 
 Account takeover is a common form of fraud where malicious users try to log in to other users’ accounts, and is an excellent use-case for fingerprinting technology. Additional security at login can make account takeover much more difficult, though the type of authentication used may depend on the suspicious behavior your website experiences most often:
 
