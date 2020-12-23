@@ -71,7 +71,7 @@ False negative: one visitor over multiple visits are given different fingerprint
 
 To reduce false positives and false negatives, your fingerprint should combine not only many signals, but the right combination of signals that balance both uniqueness and stability. If a signal is highly unique, it will reduce your chances of a false negative, whereas stable signals will reduce your chances of a false positive.
 
-IMAGE
+![Graphic of signals by stability and uniqueness](/img/uploads/stability-uniqueness.png "Stability vs uniqueness")
 
 This framework can also be used to remove signals from your fingerprinting function altogether. If a signal has both low uniqueness and low stability, it is likely to change or be spoofed frequently, and doesn’t contribute meaningfully to uniqueness. To our car example, this might be whether a car has a dirty windshield - you cannot count on this signal to improve your chances of finding the correct car. In the world of browser fingerprinting, current battery level is a poor signal, and so while it is accessible, we remove it from our fingerprinting function.
 
