@@ -1,7 +1,6 @@
 backend:
   name: git-gateway
-  # TODO Change this back before merge to develop
-  branch: feature/static-pages
+  branch: master
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
