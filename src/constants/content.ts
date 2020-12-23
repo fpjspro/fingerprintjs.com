@@ -33,6 +33,7 @@ export const DOC_URL = {
 
 export const useCaseLinks = [
   { title: 'Account Takeover', url: '/account-takeover/', isLocal: true },
+  { title: 'Ecommerce', url: '/ecommerce/', isLocal: true },
   { title: 'Gaming', url: '/gaming/', isLocal: true },
   { title: 'Cryptocurrency', url: '/cryptocurrency/', isLocal: true },
   { title: 'Payment Fraud', url: '/payment-fraud/', isLocal: true },
