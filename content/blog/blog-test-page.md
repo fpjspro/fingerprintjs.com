@@ -10,7 +10,7 @@ metadata:
 publishDate: 12.08.2020 4:18 PM
 title: "Life after ANDROID_ID: Android Identification via Device Fingerprinting"
 ---
-![Device Fingerprinting For Android](/img/uploads/4.png)
+![Device Fingerprinting For Android](/img/uploads/4.png "Fingerprint Android")
 
 **Last week, our team launched Fingerprint Android, an open-source library for accurately identifying Android devices using all available signals.** 
 
