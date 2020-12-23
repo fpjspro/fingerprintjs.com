@@ -1,7 +1,7 @@
 .nav {
   padding: 3rem 0 0;
 
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     margin-top: 0;
     padding-top: 2rem;
   }
@@ -30,33 +30,35 @@
 
 .navLeft {
   .link {
-    padding: 1.5rem 0;
+    &:not(.item) {
+      padding: 1.5rem 0;
+    }
   }
 
-  >* {
+  > * {
     &:not(.linkLogo) {
-      @include media(">tablet", "<=desktop") {
+      @include media('>tablet', '<=desktop') {
         display: none;
       }
     }
 
-    +* {
-      margin-left: 3rem;
+    + * {
+      margin-left: 3.75rem;
     }
   }
 }
 
 .navRight {
   > * + * {
-    @include media(">desktop") {
-      margin-left: 3rem;
+    @include media('>desktop') {
+      margin-left: 1.5rem;
     }
   }
 
-  >span {
+  > span {
     height: 28px;
 
-    @include media(">tablet", "<=desktop") {
+    @include media('>tablet', '<=desktop') {
       display: none;
     }
   }
@@ -73,26 +75,26 @@
 .logo {
   object-fit: contain;
 
-  @include media(">tablet") {
-    height: 40px;
-    width: 220px;
+  @include media('>tablet') {
+    height: auto;
+    width: 200px;
   }
-  @include media("<=tablet") {
+  @include media('<=tablet') {
     width: 150px;
   }
-  @include media("<=phone") {
+  @include media('<=phone') {
     width: 100px;
   }
 }
 
 .desktopOnly {
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     display: none;
   }
 }
 
 .mobileToggler {
-  @include media(">desktop") {
+  @include media('>desktop') {
     display: none;
   }
 }
@@ -101,4 +103,29 @@
   width: 2rem;
   height: 2rem;
   fill: v('color');
+}
+
+.link {
+  @include transition((opacity));
+  opacity: 1;
+
+  font-size: 1.75rem;
+
+  cursor: pointer;
+
+  &:not(.item) {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  &:not(.has-submenu) {
+    &:hover {
+      opacity: v('faded');
+    }
+  }
+}
+
+.button {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }

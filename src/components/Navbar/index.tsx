@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import nav from './Navbar.module.scss'
 import Container from '../common/Container'
-import { PATH, DOC_URL, URL, MAILTO } from '../../constants/content'
+import { DOC_URL, URL, MAILTO, PATH } from '../../constants/content'
 
 export default function Navbar() {
   return (
@@ -12,7 +11,7 @@ export default function Navbar() {
           <Link className={nav.link} to={PATH.demoUrl}>
             Technical Demo
           </Link>
-          <Link className={nav.link} to='/blog/'>
+          <Link className={nav.link} to={PATH.blog}>
             Blog
           </Link>
           <a className={nav.link} href={URL.githubRepoUrl} target='_blank' rel='noreferrer'>
@@ -22,13 +21,13 @@ export default function Navbar() {
             Pricing
           </Link>
           <a className={nav.link} href={DOC_URL.documentationUrl}>
-            Documentation
+            Docs
           </a>
           <a className={nav.link} href={MAILTO.mailToUrl}>
             Support
           </a>
           <a className={nav.link} href={URL.dashboardLoginUrl} target='_blank' rel='noreferrer'>
-            Log In
+            Login
           </a>
         </nav>
       </Container>
