@@ -5,7 +5,7 @@ metadata:
   description: Device fingerprinting is a powerful tool for Android developers to
     accurately identify their users. Learn how you can use the Fingerprint
     Android library to future-proof your application security.
-  url: https://fingerprintjs.com/blog/test
+  url: https://fingerprintjs.com/blog/device-fingerprinting-android
   image: /img/uploads/4.png
 publishDate: 12.08.2020 4:18 PM
 title: "Life after ANDROID_ID: Android Identification via Device Fingerprinting"
