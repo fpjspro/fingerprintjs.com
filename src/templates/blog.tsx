@@ -3,6 +3,8 @@ import React from 'react'
 import Section from '../components/common/Section'
 import Layout from '../components/Layout'
 import Img from 'gatsby-image'
+import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
+import { GeneratedPageContext } from '../helpers/types'
 import Container from '../components/common/Container'
 import classNames from 'classnames'
 
@@ -14,6 +16,7 @@ interface BlogProps {
 }
 export default function Blog({ data, pageContext }: BlogProps) {
   const { edges: posts } = data.allMarkdownRemark
+  const breadcrumbs = pageContext.breadcrumb.crumbs
 
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
@@ -23,6 +26,8 @@ export default function Blog({ data, pageContext }: BlogProps) {
 
   return (
     <Layout>
+      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
+
       <Section>
         <Container size='large'>
           <h1 className={styles.header}>Blog Articles</h1>
@@ -105,7 +110,7 @@ export const pageQuery = graphql`
   }
 `
 
-interface BlogContext {
+interface BlogContext extends GeneratedPageContext {
   currentPage: number
   numPages: number
 }
