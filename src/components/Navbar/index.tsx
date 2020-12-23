@@ -2,6 +2,7 @@ import React from 'react'
 import nav from './Navbar.module.scss'
 import Container from '../common/Container'
 import { DOC_URL, URL, MAILTO, PATH } from '../../constants/content'
+import { Link } from 'gatsby'
 
 export default function Navbar() {
   return (
