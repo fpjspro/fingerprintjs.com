@@ -1,7 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { BASE_URL } from '../../constants/content'
-import { Breadcrumb, withTrailingSlash, getDisplayLabel } from './Breadcrumbs'
+import { Breadcrumb, getDisplayLabel } from './Breadcrumbs'
+import { withTrailingSlash } from '../../helpers/url'
 
 export default function BreadcrumbsSEO({ breadcrumbs }: { breadcrumbs: Array<Breadcrumb> }) {
   return (
