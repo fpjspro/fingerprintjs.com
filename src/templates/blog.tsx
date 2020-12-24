@@ -8,7 +8,7 @@ import PostGrid from '../components/PostGrid/PostGrid'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
 
 import styles from './blog.module.scss'
-import { ArrayElement } from '../helpers/types'
+import { ArrayElement, GeneratedPageContext } from '../helpers/types'
 
 interface BlogProps {
   data: GatsbyTypes.BlogQuery
@@ -87,7 +87,7 @@ export const pageQuery = graphql`
   }
 `
 
-interface BlogContext {
+interface BlogContext extends GeneratedPageContext {
   currentPage: number
   numPages: number
 }

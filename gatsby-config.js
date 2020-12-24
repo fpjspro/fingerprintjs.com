@@ -1,4 +1,5 @@
 var path = require('path')
+const baseUrl = 'https://fingerprintjs.com'
 
 const resolvePath = (directoryName, pathName) => {
   const result = path.join(directoryName, pathName)
@@ -13,10 +14,19 @@ module.exports = {
   siteMetadata: {
     title: 'FingerprintJS Pro - browser fingerprinting & fraud detection API',
     description: 'Stop fraud, spam, and account takeovers with 99.5% accurate browser fingerprinting as a service.',
-    url: 'https://fingerprintjs.com',
+    siteUrl: baseUrl,
+    url: baseUrl,
     image: 'https://fingerprintjs.com/img/fpjs-preview.png',
   },
   plugins: [
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-robots-txt',
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        useAutoGen: true,
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-sass',

@@ -1,10 +1,8 @@
 .top {
   background-color: v('off-white');
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
   font-size: 1.75rem;
 
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     display: none;
   }
 }
@@ -16,7 +14,7 @@
   justify-content: flex-end;
 
   > * + * {
-    margin-left: 4rem;
+    margin-left: 3.75rem;
   }
 }
 
@@ -24,6 +22,10 @@
   @include transition((opacity));
   opacity: 1;
 
+  cursor: pointer;
+
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 
   &:not(.has-submenu) {
     &:hover {

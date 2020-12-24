@@ -2,9 +2,10 @@
 title: ecommerce
 templateKey: static-page-content
 metadata:
-  title: Ecommerce Fraud Prevention
-  description: "Prevent ecommerce fraud with our browser fingerprinting API for
-    user identification "
+  title: Ecommerce Fraud Prevention API - FingerprintJS
+  description: "Detect and prevent ecommerce fraud with our browser fingerprinting
+    API for user identification. Catch account and payment fraud before it costs
+    your business money. "
   url: https://fingerprintjs.com/ecommerce
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
@@ -22,18 +23,18 @@ cardSection:
   subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
-      title: "Identify Malicious Users Out to Steal PII "
-      content: "End account takeovers by attaching a unique identity to visitors to
-        your website, even if they are browsing in incognito mode. "
+      title: "Identify malicious users out to steal PII "
+      content: "End account takeovers by attaching a unique identity to your website's
+        visitors, even if they are browsing in incognito mode. "
     - icon: /img/uploads/payment_processing.png
-      title: Reduce Chargebacks Linked to CNP Fraud
+      title: Reduce chargebacks linked to CNP fraud
       content: "Reduce your chargeback rates by detecting and preventing purchases
         from stolen cards before they hurt your bottom line. "
-    - title: Prevent Gift Card & Coupon Abuse
+    - title: Prevent gift card & coupon abuse
       content: Detect visitors using stolen or fake identities to ensure that your
         coupons and promotions are used legitimately by real customers.
       icon: /img/uploads/anonymous_user_identification.png
-    - title: Avoid Merchant Penalties
+    - title: Avoid merchant penalties
       content: Stay within chargeback limits and avoid merchant penalties imposed by
         payment service providers.
       icon: /img/uploads/commerce.png
@@ -54,7 +55,7 @@ blocks:
     content: FingerprintJS helps developer teams identify their ecommerce site's
       most vulnerable interactions and build authentication flows that won't
       overburden visitors. Uniquely identifying users at the login stage will
-      reduce account takeovers that can often result in fraudulent purchases and
+      reduce account takeovers that can result in fraudulent purchases and
       disputed payments.
     image: /img/uploads/fpjs-flowchart-smaller.png
     isImageAfterText: false
@@ -65,10 +66,9 @@ inlineCta:
   title: Reduce chargebacks one month after integrating FingerprintJS on your website.
   subtitle: "Every dollar of ecommerce fraud can cost retailers between 3 to 4
     times as much - a loss mitigated with our 99.5% accurate browser
-    fingerprinting and e-commerce fraud detection solution. With FingerprintJS,
-    you can protect your bottom line against fraudulent orders that incur
-    tremendous financial waste on labor, shipping, products, chargebacks, fines
-    and more . "
+    fingerprinting and ecommerce fraud detection solution. With FingerprintJS,
+    you can protect your income against fraudulent orders that waste resources
+    ƒon labor, shipping, products, chargebacks, fines and more . "
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
