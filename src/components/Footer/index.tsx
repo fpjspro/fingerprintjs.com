@@ -5,6 +5,7 @@ import { ReactComponent as LinkedInSvg } from '../../img/linkedin.svg'
 import { ReactComponent as TwitterSvg } from '../../img/twitter.svg'
 import Container from '../common/Container'
 import styles from './Footer.module.scss'
+import { useCaseLinks } from '../../constants/content'
 import { PATH, URL, DOC_URL, MAILTO } from '../../constants/content'
 
 interface FooterLinkSection {
@@ -19,6 +20,11 @@ const footerLinks: FooterLinkSection[] = [
       {
         title: 'Technical Demo',
         url: `${PATH.demoUrl}`,
+        isLocal: true,
+      },
+      {
+        title: 'Why FPJS',
+        url: '/why-fpjs/',
         isLocal: true,
       },
       {
@@ -47,10 +53,14 @@ const footerLinks: FooterLinkSection[] = [
         url: `${URL.careersUrl}`,
       },
       {
-        title: 'Log In',
+        title: 'Login',
         url: `${URL.dashboardLoginUrl}`,
       },
     ],
+  },
+  {
+    title: 'Use Cases',
+    links: useCaseLinks,
   },
   {
     title: 'Docs',

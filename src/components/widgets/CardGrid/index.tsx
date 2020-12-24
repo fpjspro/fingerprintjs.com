@@ -39,7 +39,11 @@ export default function CardGrid({ cards, className, perRow = 2 }: CardGridProps
 export function CardComponent({ icon, title, content }: Card) {
   return (
     <div className={styles.card}>
-      {icon && <PreviewCompatibleImage className={styles.icon} imageInfo={icon} />}
+      {icon && (
+        <span className={styles.row}>
+          <PreviewCompatibleImage className={styles.icon} imageInfo={icon} />
+        </span>
+      )}
       <header className={styles.title}>{title}</header>
       <div className={styles.content}>{content}</div>
     </div>

@@ -1,0 +1,22 @@
+.root {
+  padding-top: 1rem;
+}
+
+.link {
+  opacity: v('faded');
+
+  &:hover {
+    opacity: 1;
+
+    color: c('brand-fire');
+    border-bottom: 1px solid c('brand-fire');
+  }
+}
+
+.current {
+  opacity: v('muted');
+}
+
+.separator {
+  margin: 0 0.5rem;
+}

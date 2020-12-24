@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="accuracy.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   version="1.1"
+   id="svg5296"
+   viewBox="0 0 1062.9921 425.19684"
+   height="120mm"
+   width="300mm">
+  <defs
+     id="defs5298" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     showguides="false"
+     inkscape:window-maximized="1"
+     inkscape:window-y="1102"
+     inkscape:window-x="-8"
+     inkscape:window-height="1027"
+     inkscape:window-width="2560"
+     showgrid="false"
+     inkscape:current-layer="text5844-3-4"
+     inkscape:document-units="px"
+     inkscape:cy="315.05387"
+     inkscape:cx="612.46238"
+     inkscape:zoom="0.7"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base">
+    <sodipodi:guide
+       id="guide5848"
+       orientation="-0.70710678,0.70710678"
+       position="-2091.4286,1782.8572" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5301">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-627.16536)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434875;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text5844-0"
+       aria-label="5%">
+      <path
+         id="path869"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:345.916px;line-height:2.19;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';letter-spacing:-20.881px;fill:#434875;fill-opacity:1"
+         d="m 839.59249,687.76881 h -87.51675 v 51.8874 q 16.94988,-7.95607 35.28343,-7.95607 18.67947,0 33.89977,9.68565 15.56622,9.33973 24.56003,26.98145 8.99382,17.64171 8.99382,41.164 0,24.21412 -11.76114,43.58541 -11.76115,19.3713 -33.20794,30.44061 -21.44679,10.7234 -49.12007,10.7234 -25.25187,0 -45.66091,-9.33973 -20.06313,-9.68565 -33.89977,-26.63554 l 31.47836,-28.71102 q 8.6479,11.06931 19.71721,16.94988 11.41523,5.88057 24.21412,5.88057 19.02538,0 30.44061,-11.41522 11.41522,-11.76115 11.41522,-30.44061 0,-41.164 -32.5161,-41.164 -14.87439,0 -29.05694,7.95606 H 699.84243 V 648.68031 h 145.97654 z" />
+      <path
+         id="path871"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:345.916px;line-height:2.19;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';letter-spacing:-20.881px;fill:#434875;fill-opacity:1"
+         d="M 1030.277,652.8313 912.3196,898.43165 883.60858,886.32459 1001.22,640.72424 Z M 905.05537,642.45382 q 22.83045,0 35.97526,14.87439 13.14481,14.87438 13.14481,39.43442 0,24.90595 -13.14481,39.78034 -13.14481,14.52847 -35.97526,14.52847 -23.52229,0 -36.6671,-14.52847 -13.1448,-14.87439 -13.1448,-39.78034 0,-24.21412 13.1448,-39.08851 13.49073,-15.2203 36.6671,-15.2203 z m 0,26.98145 q -8.30198,0 -11.06931,6.5724 -2.76733,6.5724 -2.76733,20.75496 0,13.49072 2.76733,20.40904 3.11324,6.91832 11.06931,6.91832 7.95607,0 10.72339,-6.5724 2.76733,-6.5724 2.76733,-20.75496 0,-14.87439 -2.76733,-21.10088 -2.76732,-6.22648 -10.72339,-6.22648 z m 106.19623,112.76861 q 22.8304,0 35.9752,14.87439 13.1448,14.52847 13.1448,39.43442 0,24.90595 -13.1448,39.43442 -13.1448,14.52847 -35.9752,14.52847 -23.52231,0 -36.66712,-14.52847 -13.14481,-14.52847 -13.14481,-39.43442 0,-24.21412 13.14481,-39.08851 13.49073,-15.2203 36.66712,-15.2203 z m 0,26.63553 q -8.302,0 -11.0693,6.91832 -2.76736,6.5724 -2.76736,20.75496 0,13.14481 2.76736,20.06312 3.1132,6.91832 11.0693,6.91832 7.956,0 10.7234,-6.5724 2.7673,-6.5724 2.7673,-20.40904 0,-14.87439 -2.7673,-21.10088 -2.7674,-6.5724 -10.7234,-6.5724 z" />
+    </g>
+    <g
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434875;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text5844-3-4"
+       aria-label="99">
+      <path
+         id="path874"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:541.184px;line-height:2.19;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';letter-spacing:-32.6683px;fill:#434875;fill-opacity:1"
+         d="m 138.86429,640.86233 q 67.10682,0 102.28378,40.5888 35.71814,40.5888 35.71814,109.31917 0,71.97747 -24.35328,121.7664 -24.35328,49.78893 -74.68339,81.17761 -49.78893,31.38869 -129.342983,48.16539 L 30.627485,981.80826 Q 97.734303,965.03155 135.076,937.43117 q 37.3417,-28.14157 49.78893,-71.97748 -17.31789,15.15316 -35.71814,23.27092 -18.40026,7.57657 -40.58881,7.57657 -29.223934,0 -53.577214,-15.15315 Q 30.627485,865.99488 16.5567,838.93568 2.4859155,811.33529 2.4859155,776.15833 q 0,-40.04762 17.8590725,-70.35392 17.859073,-30.84749 48.706562,-47.6242 30.847489,-17.31788 69.81274,-17.31788 z M 88.534175,773.45241 q 0,32.47104 12.447235,47.6242 12.98841,15.15315 34.09459,15.15315 27.60039,0 53.57722,-21.64736 0.54118,-40.5888 -3.78829,-64.4009 -3.78829,-23.8121 -14.61197,-35.71815 -10.82368,-12.44723 -31.92986,-12.44723 -23.81209,0 -36.80051,17.85907 -12.988415,17.31789 -12.988415,53.57722 z" />
+      <path
+         id="path876"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:541.184px;line-height:2.19;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';letter-spacing:-32.6683px;fill:#434875;fill-opacity:1"
+         d="m 430.69501,640.86233 q 67.10682,0 102.28378,40.5888 35.71814,40.5888 35.71814,109.31917 0,71.97747 -24.35328,121.7664 -24.35328,49.78893 -74.68339,81.17761 -49.78893,31.38869 -129.34298,48.16539 L 322.4582,981.80826 q 67.10682,-16.77671 104.44852,-44.37709 37.3417,-28.14157 49.78893,-71.97748 -17.31789,15.15316 -35.71815,23.27092 -18.40025,7.57657 -40.5888,7.57657 -29.22393,0 -53.57722,-15.15315 -24.35328,-15.15315 -38.42406,-42.21235 -14.07079,-27.60039 -14.07079,-62.77735 0,-40.04762 17.85908,-70.35392 17.85907,-30.84749 48.70656,-47.6242 30.84749,-17.31788 69.81274,-17.31788 z m -50.33012,132.59008 q 0,32.47104 12.44724,47.6242 12.98841,15.15315 34.09459,15.15315 27.60038,0 53.57722,-21.64736 0.54118,-40.5888 -3.78829,-64.4009 -3.78829,-23.8121 -14.61197,-35.71815 -10.82368,-12.44723 -31.92986,-12.44723 -23.81209,0 -36.80051,17.85907 -12.98842,17.31789 -12.98842,53.57722 z" />
+    </g>
+    <g
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434875;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text5844-2-6"
+       aria-label=".">
+      <path
+         id="path879"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:255.431px;line-height:2.19;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';letter-spacing:-15.419px;fill:#434875;fill-opacity:1"
+         d="m 601.07303,869.82329 q 0,-11.4944 8.17379,-19.92362 8.42922,-8.42922 20.17905,-8.42922 11.74983,0 19.92362,8.42922 8.42922,8.42922 8.42922,19.92362 0,11.74982 -8.42922,20.17905 -8.17379,8.42922 -19.92362,8.42922 -11.74983,0 -20.17905,-8.42922 -8.17379,-8.42923 -8.17379,-20.17905 z" />
+    </g>
+  </g>
+</svg>

@@ -1,6 +1,12 @@
 export const BASE_URL = 'https://fingerprintjs.com'
 
-export const PATH = { demoUrl: '/demo/', pricingUrl: '/pricing/', ecommerce: 'ecommerce/' } as const
+export const PATH = {
+  demoUrl: '/demo/',
+  pricingUrl: '/pricing/',
+  ecommerce: 'ecommerce/',
+  whyFpjs: '/why-fpjs/',
+  blog: '/blog/',
+} as const
 
 export const URL = {
   githubRepoUrl: 'https://github.com/fingerprintjs/fingerprintjs',
@@ -25,3 +31,12 @@ export const DOC_URL = {
   termOfUseUrl: 'https://dev.fingerprintjs.com/docs/terms-of-service',
   privacyPolicyUrl: 'https://dev.fingerprintjs.com/docs/privacy-policy',
 } as const
+
+export const useCaseLinks = [
+  { title: 'Account Takeover', url: '/account-takeover/', isLocal: true },
+  { title: 'Ecommerce', url: '/ecommerce/', isLocal: true },
+  { title: 'Gaming', url: '/gaming/', isLocal: true },
+  { title: 'Cryptocurrency', url: '/cryptocurrency/', isLocal: true },
+  { title: 'Payment Fraud', url: '/payment-fraud/', isLocal: true },
+  { title: 'Account Sharing', url: '/account-sharing/', isLocal: true },
+]

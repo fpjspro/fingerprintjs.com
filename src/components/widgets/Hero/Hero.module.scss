@@ -19,16 +19,16 @@
     right: 0;
     position: absolute;
     background-repeat: no-repeat;
-    background-image: url('../../../img/hero-1366+.png');
+    background-image: url('../../../img/hero-1920+.png');
     background-position: center 75%;
 
     @include media('<=tabletWide') {
-      background-image: url('../../../img/hero-768+.png');
+      background-image: url('../../../img/hero-1366+.png');
       background-size: 80vw auto;
     }
 
     @include media('<=phone') {
-      background-image: url('../../../img/hero-320+.png');
+      background-image: url('../../../img/hero-768+.png');
       background-size: 80vw auto;
     }
   }

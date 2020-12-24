@@ -3,7 +3,7 @@
   color: v('white');
   padding: 10rem 0 5rem 0;
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     padding: 40px 0;
   }
 
@@ -13,7 +13,7 @@
     opacity: v('faded');
     text-align: right;
 
-    @include media("<=phoneLandscape") {
+    @include media('<=phoneLandscape') {
       text-align: left;
     }
 
@@ -30,35 +30,43 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
+    @include media('<=tabletWide') {
+      grid-template-columns: 1fr;
+    }
+
     .menu {
       margin-right: 4rem;
 
       .docs {
-        @include media("<=phoneLandscape") {
+        @include media('<=phoneLandscape') {
           margin-top: 4rem;
         }
       }
-      @include media("<=phoneLandscape") {
+      @include media('<=phoneLandscape') {
         margin-right: 0;
       }
     }
 
     .wrapper {
-      display: flex;
-      margin-right: 24px;
-      @include media("<=tabletWide") {
-        margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      row-gap: 4rem;
+
+      @include media('<=phone') {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
-      > div {
-        flex: 1;
-        &:first-child {
-          padding-right: 40px;
-        }
+
+      margin-right: 24px;
+
+      @include media('<=tabletWide') {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        margin-bottom: 40px;
       }
     }
 
     .contact {
-      @include media("<=tabletWide") {
+      @include media('<=tabletWide') {
         margin-right: 0;
       }
     }
@@ -100,8 +108,8 @@
           color: inherit;
 
           &.link {
-          position: relative;
-          font-weight: v('semi');
+            position: relative;
+            font-weight: v('semi');
 
             &:before {
               content: '';
