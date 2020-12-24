@@ -4,6 +4,8 @@ import Img, { GatsbyImageFluidProps, GatsbyImageFixedProps, GatsbyImageProps } f
 export type ImageInfo = GatsbyImageProps & {
   childImageSharp?: GatsbyImageProps
   image?: string | { childImageSharp: GatsbyImageProps }
+  extension?: string
+  publicURL?: string
 }
 
 interface Props {
@@ -22,7 +24,7 @@ const PreviewCompatibleImage = ({ className, imageInfo }: Props) => {
     return <img className={className} style={imageStyle} src={imageInfo} alt='' />
   }
 
-  const { alt = '', childImageSharp, image } = imageInfo
+  const { alt = '', childImageSharp, image, extension, publicURL } = imageInfo
 
   if (!!image && typeof image != 'string' && isFluid(image.childImageSharp)) {
     return <Img className={className} style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
@@ -38,6 +40,10 @@ const PreviewCompatibleImage = ({ className, imageInfo }: Props) => {
 
   if (!!image && typeof image === 'string')
     return <img className={className} style={imageStyle} src={image} alt={alt} />
+
+  if (!childImageSharp && extension === 'svg') {
+    return <img className={className} src={publicURL} alt={alt} />
+  }
 
   return null
 }

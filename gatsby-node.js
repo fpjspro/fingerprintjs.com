@@ -1,12 +1,13 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions
-
+async function getFolderEdges(folder, graphql) {
   const { data, errors } = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(
+        limit: 1000
+        filter: {fileAbsolutePath: {regex: "/(${folder})/.*\.md$/"}}
+      ) {
         edges {
           node {
             id
@@ -28,21 +29,48 @@ exports.createPages = async ({ actions, graphql }) => {
     return Promise.reject(errors)
   }
 
-  const posts = data.allMarkdownRemark.edges
+  return data.allMarkdownRemark.edges
+}
 
-  posts.forEach((edge) => {
-    const id = edge.node.id
+function createPageFromEdge(edge, createPage) {
+  const id = edge.node.id
 
+  createPage({
+    path: edge.node.fields.slug,
+    tags: edge.node.frontmatter.tags,
+    component: path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`),
+    // additional data can be passed via context
+    context: {
+      id,
+    },
+  })
+}
+
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions
+
+  const pages = await getFolderEdges('index', graphql)
+  pages.forEach((edge) => createPageFromEdge(edge, createPage))
+
+  const blogPosts = await getFolderEdges('blog', graphql)
+  blogPosts.forEach((edge) => createPageFromEdge(edge, createPage))
+
+  const postsPerPage = 12
+  const numPages = Math.ceil(blogPosts.length / postsPerPage)
+
+  for (let i = 0; i < numPages; ++i) {
     createPage({
-      path: edge.node.fields.slug,
-      tags: edge.node.frontmatter.tags,
-      component: path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`),
-      // additional data can be passed via context
+      // The first page doesn't need a number.
+      path: `blog${i === 0 ? '/' : `/${i + 1}/`}`,
+      component: path.resolve(`src/templates/blog.tsx`),
       context: {
-        id,
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
       },
     })
-  })
+  }
 }
 
 function createNodePath({ node, getNode }) {

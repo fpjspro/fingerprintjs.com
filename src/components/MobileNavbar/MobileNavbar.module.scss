@@ -37,10 +37,10 @@
       display: flex;
       justify-content: space-between;
 
-      >* {
+      > * {
         flex: 1;
 
-        +* {
+        + * {
           margin-left: 1rem;
         }
       }
@@ -71,6 +71,7 @@
         @include transition((opacity));
         opacity: 1;
 
+        cursor: pointer;
 
         &:hover {
           opacity: v('faded');
@@ -85,7 +86,7 @@
     align-items: flex-end;
     flex-direction: row-reverse;
 
-    >span {
+    > span {
       height: 28px;
       display: block;
       margin-bottom: 3rem;
