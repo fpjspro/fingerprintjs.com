@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Layout from '../../components/Layout'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
@@ -12,6 +13,9 @@ export default function DemoPage({ pageContext }: { pageContext: GeneratedPageCo
 
   return (
     <Layout>
+      <Helmet>
+        <title>Technical Demo - FingerprintJS Pro</title>
+      </Helmet>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
 
       <DemoSection />
