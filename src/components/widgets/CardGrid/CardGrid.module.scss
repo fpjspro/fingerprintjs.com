@@ -36,12 +36,33 @@
   .item {
     display: flex;
     flex-direction: column;
-    flex: 0 50%;
 
     box-sizing: border-box;
     padding: 1.5rem;
+  }
 
-    @media screen and (max-width: 660px) {
+  .twoPerRow {
+    flex: 0 50%;
+
+    @include media('<=tablet') {
+      flex: 0 100%;
+    }
+  }
+  .threePerRow {
+    flex: 0 33%;
+
+    @include media('<=desktop') {
+      flex: 0 100%;
+    }
+  }
+  .fourPerRow {
+    flex: 0 25%;
+
+    @include media('<=desktop') {
+      flex: 0 50%;
+    }
+
+    @include media('<=tablet') {
       flex: 0 100%;
     }
   }

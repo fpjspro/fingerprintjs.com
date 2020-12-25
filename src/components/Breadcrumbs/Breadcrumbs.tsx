@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Container from '../common/Container'
+import { withTrailingSlash } from '../../helpers/url'
 
 import styles from './Breadcrumbs.module.scss'
 
@@ -37,10 +38,6 @@ export default function Breadcrumbs({ breadcrumbs, separator = <>&raquo;</> }: B
       </nav>
     </Container>
   )
-}
-
-export function withTrailingSlash(path: string) {
-  return path.endsWith('/') ? path : `${path}/`
 }
 
 export function getDisplayLabel(label: string) {

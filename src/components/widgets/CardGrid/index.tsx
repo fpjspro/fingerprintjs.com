@@ -12,14 +12,23 @@ export interface Card {
 
 export interface CardGridProps {
   cards: Card[]
+  perRow?: 2 | 3 | 4
   className?: string
 }
 
-export default function CardGrid({ cards, className }: CardGridProps) {
+export default function CardGrid({ cards, className, perRow = 2 }: CardGridProps) {
   return (
     <section className={classNames(styles.grid, className)}>
       {cards.map((card) => (
-        <div key={card.title} className={styles.item}>
+        <div
+          key={card.title}
+          className={classNames(
+            styles.item,
+            { [styles.twoPerRow]: perRow === 2 },
+            { [styles.threePerRow]: perRow === 3 },
+            { [styles.fourPerRow]: perRow === 4 }
+          )}
+        >
           <CardComponent icon={card.icon} title={card.title} content={card.content} />
         </div>
       ))}
