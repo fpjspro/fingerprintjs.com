@@ -7,6 +7,7 @@ import { PostProps } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
 import { ArrayElement } from '../helpers/types'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
+import { dateFormatter } from '../helpers/format'
 
 interface BlogFeaturedProps {
   data: GatsbyTypes.BlogFeaturedQuery
@@ -74,8 +75,6 @@ interface BlogFeaturedContext {
   currentPage: number
   numPages: number
 }
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 
 type PostQuery = NonNullable<
   ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogFeaturedQuery['allMarkdownRemark']>['edges']>>['node']

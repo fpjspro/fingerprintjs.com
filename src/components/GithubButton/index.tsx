@@ -5,6 +5,7 @@ import styles from './GithubButton.module.scss'
 import classNames from 'classnames'
 import { GITHUB_API_TOKEN } from '../../constants/env'
 import { URL } from '../../constants/content'
+import { numberFormatter } from '../../helpers/format'
 
 interface GithubReposResponse {
   stargazers_count: number
@@ -33,13 +34,7 @@ export default function GithubButton({ className }: GithubButtonProps) {
         <GithubIconSvg className={styles.icon} />
         <span>Star</span>
       </div>
-      <div className={styles.counter}>
-        {data &&
-          new Intl.NumberFormat('en-US', {
-            notation: 'standard',
-            maximumFractionDigits: 1,
-          }).format(data.stargazers_count)}
-      </div>
+      <div className={styles.counter}>{data && numberFormatter.format(data.stargazers_count)}</div>
     </a>
   )
 }

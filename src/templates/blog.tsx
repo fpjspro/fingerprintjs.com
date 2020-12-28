@@ -6,9 +6,10 @@ import Container from '../components/common/Container'
 import Post, { PostProps } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
+import { ArrayElement, GeneratedPageContext } from '../helpers/types'
+import { dateFormatter } from '../helpers/format'
 
 import styles from './blog.module.scss'
-import { ArrayElement, GeneratedPageContext } from '../helpers/types'
 
 interface BlogProps {
   data: GatsbyTypes.BlogQuery
@@ -113,8 +114,6 @@ function Featured({ featuredPosts }: { featuredPosts: Array<PostProps> }) {
     </>
   )
 }
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 
 type PostQuery =
   | NonNullable<ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogQuery['featuredPosts']>['edges']>>['node']>
