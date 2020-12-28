@@ -8,8 +8,19 @@ export default function Container({
   className,
 }: {
   children: React.ReactNode
-  size?: 'regular' | 'large'
+  size?: 'small' | 'regular' | 'large'
   className?: string | string[]
 }) {
-  return <div className={classNames(styles.container, { [styles.large]: size === 'large' }, className)}>{children}</div>
+  return (
+    <div
+      className={classNames(
+        styles.container,
+        { [styles.small]: size === 'small' },
+        { [styles.large]: size === 'large' },
+        className
+      )}
+    >
+      {children}
+    </div>
+  )
 }
