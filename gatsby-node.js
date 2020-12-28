@@ -19,6 +19,9 @@ async function getFolderEdges(folder, graphql, filter = '') {
             }
             frontmatter {
               templateKey
+              metadata {
+                url
+              }
             }
           }
         }
@@ -35,11 +38,21 @@ async function getFolderEdges(folder, graphql, filter = '') {
   return data.allMarkdownRemark.edges
 }
 
+function withTrailingSlash(path) {
+  return path.endsWith('/') ? path : `${path}/`
+}
+
+function getRelativeUrl(url) {
+  const relativeUrl = url.match(/fingerprintjs.com(\/.*)$/)
+  return relativeUrl ? withTrailingSlash(relativeUrl[1]) : '/'
+}
+
 function createPageFromEdge(edge, createPage) {
   const id = edge.node.id
+  const url = edge.node.frontmatter.metadata?.url
 
   createPage({
-    path: edge.node.fields.slug,
+    path: url ? getRelativeUrl(url) : edge.node.fields.slug,
     tags: edge.node.frontmatter.tags,
     component: path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`),
     // additional data can be passed via context

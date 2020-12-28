@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Layout from '../../components/Layout'
 import PriceCalculator from '../../components/PriceCalculator'
 import Section, { SectionProps } from '../../components/common/Section'
@@ -17,6 +18,9 @@ export default function PricingPage({ pageContext }: { pageContext: GeneratedPag
 
   return (
     <Layout>
+      <Helmet>
+        <title>Pricing - FingerprintJS Pro</title>
+      </Helmet>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
 
       <CalculatorSection mainBackground={mainBackground} />
