@@ -2,7 +2,7 @@
 title: account-sharing
 templateKey: static-page-content
 metadata:
-  title: Account Sharing Prevention For SaaS Companies - FingerprintJS
+  title: Account Sharing Prevention For SaaS - FingerprintJS
   description: Accurately identify users sharing their account details with our
     browser fingerprinting API built for developer teams
   url: https://fingerprintjs.com/account-sharing
@@ -41,7 +41,7 @@ blocks:
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Talk to sales
-    ctaUrl: https://dev.fingerprintjs.com/docs/introduction
+    ctaUrl: mailto:sales@fingerprintjs.com
     isCtaButton: false
   - subheader: For when limiting sessions and IPs isn't enough
     image: /img/uploads/fpjs-subscriptions.png

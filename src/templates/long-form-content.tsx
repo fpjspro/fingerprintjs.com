@@ -87,7 +87,7 @@ export function LongFormContentTemplate({ metadata, title, body, contentComponen
         </>
       )}
       <Section className={styles.root}>
-        <Container className={styles.container}>
+        <Container size='small' className={styles.container}>
           <h1 className={styles.title}>{title}</h1>
 
           <ContentComponent content={body} className={styles.content} />
