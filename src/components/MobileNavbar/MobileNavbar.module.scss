@@ -36,6 +36,7 @@
     &.top {
       display: flex;
       justify-content: space-between;
+      flex: none;
 
       > * {
         flex: 1;
