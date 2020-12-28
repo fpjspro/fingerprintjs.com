@@ -87,7 +87,7 @@ A combination of these signals is unique for the vast majority of devices, and c
 
 The Fingerprint Android library combines all the techniques mentioned above to provide two stable and unique identifiers. 
 
-The first identifier provided is the DeviceID, which relies on "GSF_ID" and "ANDROID_ID". They are stable but it is possible to spoof them with the Xposed framework (as mentioned above).
+The first identifier provided is the DeviceID, which relies on GSF_ID and ANDROID_ID. They are stable but it is possible to spoof them with the Xposed framework (as mentioned above).
 
 For instances where you want to mitigate the risk of users spoofing their DeviceID, the library also generates a Device Fingerprint. Our fingerprinting process collects over 50 platform signals and calculates a unique hash for each user. You can easily see all the signals that are collected and the resulting Device Fingerprint in our playground app.
 

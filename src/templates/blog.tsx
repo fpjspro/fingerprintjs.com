@@ -7,6 +7,7 @@ import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../helpers/types'
 import Container from '../components/common/Container'
 import classNames from 'classnames'
+import { getRelativeUrl } from '../helpers/url'
 
 import styles from './blog.module.scss'
 
@@ -38,7 +39,6 @@ export default function Blog({ data, pageContext }: BlogProps) {
                 return null
               }
 
-              const { slug = '' } = post.fields
               const { publishDate = Date.now(), title = '', metadata } = post.frontmatter
               const { description = '', image } = metadata
 
@@ -49,7 +49,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
                   description={description}
                   publishDate={dateFormatter.format(new Date(publishDate))}
                   image={image as GatsbyTypes.File}
-                  path={slug}
+                  path={getRelativeUrl(metadata.url)}
                 />
               )
             })}
@@ -92,6 +92,7 @@ export const pageQuery = graphql`
           frontmatter {
             metadata {
               title
+              url
               description
               image {
                 childImageSharp {
