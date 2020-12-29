@@ -35,7 +35,7 @@ body {
   min-height: 100vh;
 
   &.isMobileMenuOpen {
-    overflow: hidden !important;
+    overflow: hidden ;
   }
 }
 
