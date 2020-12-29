@@ -1,0 +1,28 @@
+.root {
+  margin-top: 2rem;
+}
+
+.item {
+  display: inline-block;
+
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  padding: 0.5rem;
+  border: 1px solid c('brand-fire');
+  border-radius: 0.5rem;
+
+  font-size: 1.75rem;
+
+  @include transition((color));
+
+  &:hover {
+    color: c('brand-fire');
+  }
+}
+
+.highlight {
+  color: c('brand-fire');
+}

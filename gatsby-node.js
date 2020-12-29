@@ -38,6 +38,27 @@ async function getFolderEdges(folder, graphql, filter = '') {
   return data.allMarkdownRemark.edges
 }
 
+async function getTags(graphql) {
+  const { data, errors } = await graphql(`
+    {
+      allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          tag: fieldValue
+          totalCount
+        }
+      }
+    }
+  `)
+
+  if (errors) {
+    // eslint-disable-next-line no-console
+    errors.forEach((e) => console.error(e.toString()))
+    return Promise.reject(errors)
+  }
+
+  return data.allMarkdownRemark.group
+}
+
 function withTrailingSlash(path) {
   return path.endsWith('/') ? path : `${path}/`
 }
@@ -62,7 +83,7 @@ function createPageFromEdge(edge, createPage) {
   })
 }
 
-function createPaginatedPages(numPages, itemsPerPage, pathname, template, createPage) {
+function createPaginatedPages(numPages, itemsPerPage, pathname, template, createPage, additionalContext = {}) {
   for (let i = 0; i < numPages; ++i) {
     createPage({
       // The first page doesn't need a number.
@@ -73,6 +94,7 @@ function createPaginatedPages(numPages, itemsPerPage, pathname, template, create
         skip: i * itemsPerPage,
         numPages,
         currentPage: i + 1,
+        ...additionalContext,
       },
     })
   }
@@ -96,6 +118,21 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const numFeaturedPages = Math.ceil(featuredPosts.length / postsPerPage)
   createPaginatedPages(numFeaturedPages, postsPerPage, 'blog/featured', 'src/templates/blog-featured.tsx', createPage)
+
+  const tags = await getTags(graphql)
+  tags.forEach(({ tag, totalCount }) => {
+    const numTagPages = Math.ceil(totalCount / postsPerPage)
+    const additionalContext = { tag }
+
+    createPaginatedPages(
+      numTagPages,
+      postsPerPage,
+      `blog/tag/${tag}`,
+      'src/templates/blog-tag.tsx',
+      createPage,
+      additionalContext
+    )
+  })
 }
 
 function createNodePath({ node, getNode }) {

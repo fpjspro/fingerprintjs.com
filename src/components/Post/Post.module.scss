@@ -111,6 +111,11 @@
 }
 
 .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   padding: 4rem;
   padding-top: 1rem;
 }

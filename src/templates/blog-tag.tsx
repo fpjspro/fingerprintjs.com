@@ -8,18 +8,19 @@ import PostGrid from '../components/PostGrid/PostGrid'
 import { ArrayElement, GeneratedPageContext } from '../helpers/types'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
 import { dateFormatter } from '../helpers/format'
+import { kebabToTitle } from '../helpers/case'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
 
-interface BlogFeaturedProps {
-  data: GatsbyTypes.BlogFeaturedQuery
-  pageContext: BlogFeaturedContext
+interface BlogTagProps {
+  data: GatsbyTypes.BlogTagQuery
+  pageContext: BlogTagContext
 }
-export default function BlogFeatured({ data, pageContext }: BlogFeaturedProps) {
+export default function BlogTag({ data, pageContext }: BlogTagProps) {
   const { edges: posts } = data.allMarkdownRemark
 
-  const { currentPage, numPages } = pageContext
-  const breadcrumbs = pageContext.breadcrumb.crumbs
+  const { currentPage, numPages, tag } = pageContext
+  const breadcrumbs = pageContext.breadcrumb.crumbs.filter(({ pathname }) => pathname !== '/blog/tag')
 
   return (
     <Layout>
@@ -34,11 +35,16 @@ export default function BlogFeatured({ data, pageContext }: BlogFeaturedProps) {
 
       <Section>
         <Container size='large'>
-          <h1>Featured Articles</h1>
+          <h1>{`${kebabToTitle(tag)}`} Articles</h1>
 
-          <PostGrid posts={posts.map(({ node }) => node).map(mapToPost)} />
+          <PostGrid
+            posts={posts
+              .map(({ node }) => node)
+              .map(mapToPost)
+              .map((post) => ({ ...post, activeTag: tag }))}
+          />
 
-          <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/blog/featured/' />
+          <PaginationNav currentPage={currentPage} numPages={numPages} basePath={`/blog/tag/${tag}`} />
         </Container>
       </Section>
     </Layout>
@@ -46,11 +52,11 @@ export default function BlogFeatured({ data, pageContext }: BlogFeaturedProps) {
 }
 
 export const pageQuery = graphql`
-  query BlogFeatured($skip: Int!, $limit: Int!) {
+  query BlogTag($skip: Int!, $limit: Int!, $tag: String) {
     allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" }
-        frontmatter: { featured: { eq: true } }
+        frontmatter: { tags: { in: [$tag] } }
       }
       sort: { order: DESC, fields: frontmatter___publishDate }
       limit: $limit
@@ -85,13 +91,14 @@ export const pageQuery = graphql`
   }
 `
 
-interface BlogFeaturedContext extends GeneratedPageContext {
+interface BlogTagContext extends GeneratedPageContext {
   currentPage: number
   numPages: number
+  tag: string
 }
 
 type PostQuery = NonNullable<
-  ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogFeaturedQuery['allMarkdownRemark']>['edges']>>['node']
+  ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogTagQuery['allMarkdownRemark']>['edges']>>['node']
 >
 function mapToPost(data: PostQuery): PostProps {
   if (!data.fields || !data.frontmatter || !data.frontmatter.metadata) {

@@ -18,6 +18,7 @@ interface BlogProps {
 export default function Blog({ data, pageContext }: BlogProps) {
   const { edges: posts } = data.posts
   const { edges: featuredPosts } = data.featuredPosts
+  const tags = data.tags.group.map(({ tag }) => tag)
 
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
@@ -29,7 +30,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
           <h1>Blog Articles</h1>
 
           {isFirst && <Featured featuredPosts={featuredPosts.map(({ node }) => node).map(mapToPost)} />}
-          <PostGrid name='All Articles' posts={posts.map(({ node }) => node).map(mapToPost)} />
+          <PostGrid name='All Articles' posts={posts.map(({ node }) => node).map(mapToPost)} tags={tags} />
 
           <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/blog/' />
         </Container>
@@ -61,6 +62,7 @@ export const pageQuery = graphql`
           }
           title
           publishDate
+          tags
         }
       }
     }
@@ -86,6 +88,12 @@ export const pageQuery = graphql`
     ) {
       ...PostData
     }
+
+    tags: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          tag: fieldValue
+        }
+      }
   }
 `
 
@@ -124,14 +132,15 @@ function mapToPost(data: PostQuery): PostProps {
     throw new Error('Posts should always have fields, frontmatter and metadata.')
   }
 
-  const { publishDate = Date.now(), title = '', metadata } = data.frontmatter
+  const { publishDate = Date.now(), title = '', metadata, tags } = data.frontmatter
   const { description = '', image, url } = metadata
 
   return {
-    title: title,
-    description: description,
+    title,
+    description,
     publishDate: dateFormatter.format(new Date(publishDate)),
     image: image as GatsbyTypes.File,
     path: url,
+    tags,
   } as PostProps
 }

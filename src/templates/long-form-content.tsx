@@ -83,7 +83,9 @@ export function LongFormContentTemplate({ metadata, title, body, contentComponen
       {breadcrumbs && (
         <>
           <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
-          <Breadcrumbs breadcrumbs={breadcrumbs.slice(1)} />
+          <Container size='large'>
+            <Breadcrumbs breadcrumbs={breadcrumbs.slice(1)} />
+          </Container>
         </>
       )}
       <Section className={styles.root}>

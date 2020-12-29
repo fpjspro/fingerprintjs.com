@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Container from '../common/Container'
 import { withTrailingSlash } from '../../helpers/url'
+import { kebabToStart } from '../../helpers/case'
 
 import styles from './Breadcrumbs.module.scss'
 
@@ -16,30 +16,24 @@ export interface BreadcrumbsProps {
 }
 export default function Breadcrumbs({ breadcrumbs, separator = <>&raquo;</> }: BreadcrumbsProps) {
   return (
-    <Container size='large'>
-      <nav className={styles.root}>
-        {breadcrumbs.map(({ pathname: path, crumbLabel: label }, index) => {
-          const isCurrent = index === breadcrumbs.length - 1
+    <nav className={styles.root}>
+      {breadcrumbs.map(({ pathname: path, crumbLabel: label }, index) => {
+        const isCurrent = index === breadcrumbs.length - 1
 
-          return (
-            <span key={path}>
-              {index > 0 && <span className={styles.separator}>{separator}</span>}
+        return (
+          <span key={path}>
+            {index > 0 && <span className={styles.separator}>{separator}</span>}
 
-              {isCurrent ? (
-                <span className={styles.current}>{getDisplayLabel(label)}</span>
-              ) : (
-                <Link to={withTrailingSlash(path)} className={styles.link}>
-                  {getDisplayLabel(label)}
-                </Link>
-              )}
-            </span>
-          )
-        })}
-      </nav>
-    </Container>
+            {isCurrent ? (
+              <span className={styles.current}>{kebabToStart(label)}</span>
+            ) : (
+              <Link to={withTrailingSlash(path)} className={styles.link}>
+                {kebabToStart(label)}
+              </Link>
+            )}
+          </span>
+        )
+      })}
+    </nav>
   )
-}
-
-export function getDisplayLabel(label: string) {
-  return label[0].toUpperCase() + label.split('-').join(' ').substring(1)
 }

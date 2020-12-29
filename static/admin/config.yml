@@ -115,4 +115,23 @@ collections:
       - { label: Featured, name: featured, widget: boolean }
       - { label: Publish date, name: publishDate, widget: datetime, date_format: 'MM.DD.YYYY' }
       - { label: Title, name: title, widget: string }
+      - name: tags
+        label: Tags
+        widget: relation
+        collection: 'tag'
+        searchFields: ['name']
+        valueField: 'name'
+        displayFields: ['name']
+        multiple: true
       - { label: Body, name: body, widget: markdown }
+  - name: 'tag'
+    label: 'Tag'
+    folder: content/tag
+    create: true
+    fields:
+      - {
+          label: 'Name',
+          name: 'name',
+          widget: string,
+          pattern: ['[a-z]+[a-z\-]*', 'Must be all lowercase words, optionally separated by a "-".'],
+        }

@@ -1,5 +1,11 @@
 .root {
-  margin-top: 10rem;
+  margin-top: 4rem;
+
+  display: flex;
+
+  @include media('<=tabletWide') {
+    flex-direction: column-reverse;
+  }
 }
 
 .row {
@@ -21,5 +27,25 @@
 
   @include media('<=tabletWide') {
     grid-template-columns: 1fr;
+  }
+}
+
+.narrow {
+  grid-template-columns: repeat(3, 1fr);
+
+  @include media('<=desktop') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media('<=tabletWide') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tags {
+  margin-right: 4rem;
+
+  @include media('<=tabletWide') {
+    margin-top: 4rem;
   }
 }

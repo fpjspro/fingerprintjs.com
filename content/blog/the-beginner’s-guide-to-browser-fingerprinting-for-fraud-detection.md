@@ -8,8 +8,9 @@ metadata:
   url: https://fingerprintjs.com/blog/what-is-browser-fingerprinting
   image: /img/uploads/3.png
 featured: false
-publishDate: 2020-12-24T16:11:04.040Z
+publishDate: 12.24.2020 4:11 PM
 title: The Beginner’s Guide to Browser Fingerprinting for Fraud Detection
+tags: ['fingerprinting', 'web']
 ---
 
 ![Fingerprint icon on map background](/img/uploads/3.png 'Browser Fingerprinting')
