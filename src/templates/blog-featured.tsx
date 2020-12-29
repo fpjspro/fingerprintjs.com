@@ -61,6 +61,7 @@ export const pageQuery = graphql`
                   }
                 }
               }
+              url
             }
             title
             publishDate
@@ -84,15 +85,14 @@ function mapToPost(data: PostQuery): PostProps {
     throw new Error('Posts should always have fields, frontmatter and metadata.')
   }
 
-  const { slug = '' } = data.fields
   const { publishDate = Date.now(), title = '', metadata } = data.frontmatter
-  const { description = '', image } = metadata
+  const { description = '', image, url } = metadata
 
   return {
     title: title,
     description: description,
     publishDate: dateFormatter.format(new Date(publishDate)),
     image: image as GatsbyTypes.File,
-    path: slug,
+    path: url,
   } as PostProps
 }
