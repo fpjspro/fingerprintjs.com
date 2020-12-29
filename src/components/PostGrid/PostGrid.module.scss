@@ -43,6 +43,7 @@
 }
 
 .tags {
+  min-width: 20rem;
   margin-right: 4rem;
 
   @include media('<=tabletWide') {

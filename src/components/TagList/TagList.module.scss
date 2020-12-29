@@ -11,18 +11,21 @@
 
 .tag {
   padding: 0.5rem;
-  border: 1px solid c('brand-fire');
   border-radius: 0.5rem;
+  background-color: c('off-white');
+  border: 1px solid c('off-white');
 
   font-size: 1.75rem;
 
-  @include transition((color));
+  @include transition((color, border));
 
   &:hover {
+    border: 1px solid c('brand-fire');
     color: c('brand-fire');
   }
 }
 
 .highlight {
+  border: 1px solid c('brand-fire');
   color: c('brand-fire');
 }
