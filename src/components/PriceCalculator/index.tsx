@@ -6,13 +6,12 @@ import { PaymentType } from '../../types/PaymentType'
 import Button from '../../components/common/Button'
 import Modal from '../../components/common/Modal'
 import ContactSalesForm from '../../components/ContactSalesForm'
+import { numberFormatter } from '../../helpers/format'
 import styles from './PriceCalculator.module.scss'
-
-const labelFormat = new Intl.NumberFormat('en-US')
 
 export default function PriceCalculator() {
   const selectOptions = pricingTable.map((entry) => ({
-    label: labelFormat.format(entry.value),
+    label: numberFormatter.format(entry.value),
     value: entry.value,
   }))
 

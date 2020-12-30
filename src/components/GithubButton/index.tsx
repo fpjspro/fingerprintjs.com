@@ -3,6 +3,8 @@ import { ReactComponent as GithubIconSvg } from './github_icon.svg'
 import styles from './GithubButton.module.scss'
 import classNames from 'classnames'
 import { URL } from '../../constants/content'
+import { numberFormatter } from '../../helpers/format'
+
 import { useGithub } from '../../context/GithubContext'
 
 interface GithubButtonProps {
@@ -21,8 +23,3 @@ export default function GithubButton({ className }: GithubButtonProps) {
     </a>
   )
 }
-
-const numberFormatter = new Intl.NumberFormat('en-US', {
-  notation: 'standard',
-  maximumFractionDigits: 1,
-})

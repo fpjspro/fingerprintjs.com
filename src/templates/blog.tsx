@@ -2,12 +2,12 @@ import { graphql, Link } from 'gatsby'
 import React from 'react'
 import Section from '../components/common/Section'
 import Layout from '../components/Layout'
-import Img from 'gatsby-image'
-import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
-import { GeneratedPageContext } from '../helpers/types'
 import Container from '../components/common/Container'
-import classNames from 'classnames'
-import { getRelativeUrl } from '../helpers/url'
+import Post, { PostProps } from '../components/Post/Post'
+import PostGrid from '../components/PostGrid/PostGrid'
+import PaginationNav from '../components/PaginationNav/PaginationNav'
+import { ArrayElement, GeneratedPageContext } from '../helpers/types'
+import { dateFormatter } from '../helpers/format'
 
 import styles from './blog.module.scss'
 
@@ -16,59 +16,22 @@ interface BlogProps {
   pageContext: BlogContext
 }
 export default function Blog({ data, pageContext }: BlogProps) {
-  const { edges: posts } = data.allMarkdownRemark
-  const breadcrumbs = pageContext.breadcrumb.crumbs
+  const { edges: posts } = data.posts
+  const { edges: featuredPosts } = data.featuredPosts
 
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 ? '/blog/' : `/blog/${currentPage - 1}/`
-  const nextPage = `/blog/${currentPage + 1}/`
 
   return (
     <Layout>
-      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
-
       <Section>
         <Container size='large'>
-          <h1 className={styles.header}>Blog Articles</h1>
+          <h1>Blog Articles</h1>
 
-          <div className={styles.grid}>
-            {posts.map(({ node: post }) => {
-              if (!post.fields || !post.frontmatter || !post.frontmatter.metadata) {
-                return null
-              }
+          {isFirst && <Featured featuredPosts={featuredPosts.map(({ node }) => node).map(mapToPost)} />}
+          <PostGrid name='All Articles' posts={posts.map(({ node }) => node).map(mapToPost)} />
 
-              const { publishDate = Date.now(), title = '', metadata } = post.frontmatter
-              const { description = '', image } = metadata
-
-              return (
-                <Post
-                  key={post.id}
-                  title={title}
-                  description={description}
-                  publishDate={dateFormatter.format(new Date(publishDate))}
-                  image={image as GatsbyTypes.File}
-                  path={getRelativeUrl(metadata.url)}
-                />
-              )
-            })}
-          </div>
-
-          {numPages > 1 && (
-            <div className={classNames(styles.navigation, { [styles.first]: isFirst }, { [styles.last]: isLast })}>
-              {!isFirst && (
-                <Link to={prevPage} className={styles.link}>
-                  ← Previous Page
-                </Link>
-              )}
-              {!isLast && (
-                <Link to={nextPage} className={styles.link}>
-                  Next Page →
-                </Link>
-              )}
-            </div>
-          )}
+          <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/blog/' />
         </Container>
       </Section>
     </Layout>
@@ -76,37 +39,52 @@ export default function Blog({ data, pageContext }: BlogProps) {
 }
 
 export const pageQuery = graphql`
+  fragment PostData on MarkdownRemarkConnection {
+    edges {
+      node {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          metadata {
+            title
+            description
+            image {
+              childImageSharp {
+                fluid(maxWidth: 512, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            url
+          }
+          title
+          publishDate
+        }
+      }
+    }
+  }
+
   query Blog($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" } }
       sort: { order: DESC, fields: frontmatter___publishDate }
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            metadata {
-              title
-              url
-              description
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 512, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
-            title
-            publishDate
-          }
-        }
+      ...PostData
+    }
+
+    featuredPosts: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" }
+        frontmatter: { featured: { eq: true } }
       }
+      sort: { order: DESC, fields: frontmatter___publishDate }
+      limit: 5
+    ) {
+      ...PostData
     }
   }
 `
@@ -116,31 +94,44 @@ interface BlogContext extends GeneratedPageContext {
   numPages: number
 }
 
-const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-
-interface PostProps {
-  title: string
-  description: string
-  publishDate: string
-  image?: GatsbyTypes.File
-  path: string
-}
-function Post({ title, description, image, publishDate, path }: PostProps) {
-  const imageFluid = image?.childImageSharp?.fluid
+function Featured({ featuredPosts }: { featuredPosts: Array<PostProps> }) {
+  const hasMainFeaturedPost = featuredPosts.length > 0
+  const hasFeaturedPosts = featuredPosts.length - 1 > 0
 
   return (
-    <Link to={path} className={styles.post}>
-      {imageFluid && (
-        <div className={styles.wrapper}>
-          <Img fluid={imageFluid} className={styles.image} />
-        </div>
+    <>
+      {hasMainFeaturedPost && <Post {...featuredPosts[0]} featured />}
+      {hasFeaturedPosts && (
+        <PostGrid
+          name='Featured'
+          posts={featuredPosts.slice(1)}
+          link={
+            <Link to='/blog/featured/' className={styles.link}>
+              See all →
+            </Link>
+          }
+        />
       )}
-
-      <div className={styles.content}>
-        <span className={styles.publishDate}>{publishDate}</span>
-        <h1 className={styles.title}>{title}</h1>
-        <p className={styles.description}>{description}</p>
-      </div>
-    </Link>
+    </>
   )
+}
+
+type PostQuery =
+  | NonNullable<ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogQuery['featuredPosts']>['edges']>>['node']>
+  | NonNullable<ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogQuery['posts']>['edges']>>['node']>
+function mapToPost(data: PostQuery): PostProps {
+  if (!data.fields || !data.frontmatter || !data.frontmatter.metadata) {
+    throw new Error('Posts should always have fields, frontmatter and metadata.')
+  }
+
+  const { publishDate = Date.now(), title = '', metadata } = data.frontmatter
+  const { description = '', image, url } = metadata
+
+  return {
+    title: title,
+    description: description,
+    publishDate: dateFormatter.format(new Date(publishDate)),
+    image: image as GatsbyTypes.File,
+    path: url,
+  } as PostProps
 }

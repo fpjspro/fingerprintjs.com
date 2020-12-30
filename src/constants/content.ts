@@ -3,7 +3,12 @@ export const BASE_URL = 'https://fingerprintjs.com'
 export const PATH = {
   demoUrl: '/demo/',
   pricingUrl: '/pricing/',
+  accountTakeover: '/account-takeover/',
   ecommerce: 'ecommerce/',
+  gaming: '/gaming/',
+  cryptocurrency: '/cryptocurrency/',
+  paymentFraud: '/payment-fraud/',
+  accountSharing: '/account-sharing/',
   whyFpjs: '/why-fpjs/',
   blog: '/blog/',
 } as const
@@ -33,10 +38,10 @@ export const DOC_URL = {
 } as const
 
 export const useCaseLinks = [
-  { title: 'Account Takeover', url: '/account-takeover/', isLocal: true },
-  { title: 'Ecommerce', url: '/ecommerce/', isLocal: true },
-  { title: 'Gaming', url: '/gaming/', isLocal: true },
-  { title: 'Cryptocurrency', url: '/cryptocurrency/', isLocal: true },
-  { title: 'Payment Fraud', url: '/payment-fraud/', isLocal: true },
-  { title: 'Account Sharing', url: '/account-sharing/', isLocal: true },
+  { title: 'Account Takeover', url: PATH.accountTakeover, isLocal: true },
+  { title: 'Ecommerce', url: PATH.ecommerce, isLocal: true },
+  { title: 'Gaming', url: PATH.gaming, isLocal: true },
+  { title: 'Cryptocurrency', url: PATH.cryptocurrency, isLocal: true },
+  { title: 'Payment Fraud', url: PATH.paymentFraud, isLocal: true },
+  { title: 'Account Sharing', url: PATH.accountSharing, isLocal: true },
 ]

@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding-top: 6rem;
+}
+
+.first {
+  justify-content: flex-end;
+}
+
+.last {
+  justify-content: flex-start;
+}
+
+.link {
+  color: c('brand-fire');
+  border-bottom: 1px solid v('brand-fire');
+}
