@@ -23,13 +23,9 @@ export default function Header() {
 
   useEffect(() => {
     const mobileBodyClass = 'isMobileMenuOpen'
-    if (isBrowser && isMobileMenuOpen) {
-      document.body.classList.add(mobileBodyClass)
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.classList.remove(mobileBodyClass)
-      document.body.style.overflow = 'unset'
-    }
+    isBrowser && isMobileMenuOpen
+      ? document.body.classList.add(mobileBodyClass)
+      : document.body.classList.remove(mobileBodyClass)
   }, [isMobileMenuOpen])
 
   useEffect(() => {

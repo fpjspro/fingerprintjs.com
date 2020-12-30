@@ -11,6 +11,8 @@ interface ModalProps {
 }
 export default function Modal({ title, open, children, onClose }: ModalProps) {
   const wrapperRef = useRef(null)
+  const overflowRef = useRef<string | null>(null)
+
   useEffect(() => {
     function onWrapperClicked(event) {
       if (wrapperRef.current && wrapperRef.current === event.target) {
@@ -25,7 +27,12 @@ export default function Modal({ title, open, children, onClose }: ModalProps) {
   }, [onClose, wrapperRef])
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : 'unset'
+    if (open) {
+      overflowRef.current = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = overflowRef.current ?? ''
+    }
   }, [open])
 
   return open
