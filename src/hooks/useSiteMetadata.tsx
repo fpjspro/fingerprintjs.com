@@ -7,6 +7,8 @@ const defaultMeta = {
   image: 'default',
 } as const
 
+//TODO: [DI]: Use 'siteUrl' instead of 'url' here
+
 const useSiteMetadata = () => {
   // It's an exception for CMS integration
   // eslint-disable-next-line react-hooks/rules-of-hooks

@@ -7,6 +7,8 @@ declare global {
   }
 }
 
+window.dataLayer = window.dataLayer ?? []
+
 export function sendEvent({ event }: { event: string }) {
   window.dataLayer.push({ event })
 }
