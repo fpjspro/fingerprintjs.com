@@ -13,6 +13,7 @@ title: The Beginner’s Guide to Browser Fingerprinting for Fraud Detection
 tags:
   - js
   - web
+  - fingerprinting
 ---
 
 ![Fingerprint icon on map background](/img/uploads/3.png 'Browser Fingerprinting')
