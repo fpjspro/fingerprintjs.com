@@ -23,9 +23,11 @@ export default function Header() {
 
   useEffect(() => {
     const mobileBodyClass = 'isMobileMenuOpen'
-    isBrowser && isMobileMenuOpen
-      ? document.body.classList.add(mobileBodyClass)
-      : document.body.classList.remove(mobileBodyClass)
+    if (isBrowser && isMobileMenuOpen) {
+      document.body.classList.add(mobileBodyClass)
+    } else {
+      document.body.classList.remove(mobileBodyClass)
+    }
   }, [isMobileMenuOpen])
 
   useEffect(() => {
