@@ -18,7 +18,7 @@ interface BlogProps {
 export default function Blog({ data, pageContext }: BlogProps) {
   const { edges: posts } = data.posts
   const { edges: featuredPosts } = data.featuredPosts
-  const tags = data.tags.group.map(({ tag }) => tag)
+  const tags = data.tags.group.map(({ tag }) => tag) as string[]
 
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
