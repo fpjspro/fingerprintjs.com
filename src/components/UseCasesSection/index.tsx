@@ -92,6 +92,7 @@ function UseCase({ link, local = true, icon: Icon, title, children, large, onCli
       <div className={styles.info}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{children}</p>
+        <footer className={styles.learnMore}>Learn More &gt;</footer>
       </div>
     </>
   )
