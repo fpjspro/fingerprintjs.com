@@ -10,8 +10,9 @@ export interface PostGridProps {
   name?: string
   link?: React.ReactNode
   tags?: string[]
+  narrow?: boolean
 }
-export default function PostGrid({ posts, name, link, tags }: PostGridProps) {
+export default function PostGrid({ posts, name, link, tags, narrow }: PostGridProps) {
   return (
     <div className={styles.root}>
       {tags && (
@@ -28,7 +29,7 @@ export default function PostGrid({ posts, name, link, tags }: PostGridProps) {
             {link}
           </div>
         )}
-        <div className={classNames(styles.grid, { [styles.narrow]: !!tags })}>
+        <div className={classNames(styles.grid, { [styles.narrow]: narrow })}>
           {posts.map((post) => {
             return <Post key={post.path} {...post} />
           })}

@@ -3,11 +3,10 @@ import React from 'react'
 import Section from '../components/common/Section'
 import Layout from '../components/Layout'
 import Container from '../components/common/Container'
-import Post, { PostProps } from '../components/Post/Post'
+import Post, { mapToPost, PostProps } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
-import { ArrayElement, GeneratedPageContext } from '../helpers/types'
-import { dateFormatter } from '../helpers/format'
+import { GeneratedPageContext } from '../helpers/types'
 
 import styles from './blog.module.scss'
 
@@ -18,7 +17,7 @@ interface BlogProps {
 export default function Blog({ data, pageContext }: BlogProps) {
   const { edges: posts } = data.posts
   const { edges: featuredPosts } = data.featuredPosts
-  const tags = data.tags.group.map(({ tag }) => tag)
+  const tags = data.tags.group.map(({ tag }) => tag) as string[]
 
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
@@ -30,7 +29,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
           <h1>Blog Articles</h1>
 
           {isFirst && <Featured featuredPosts={featuredPosts.map(({ node }) => node).map(mapToPost)} />}
-          <PostGrid name='All Articles' posts={posts.map(({ node }) => node).map(mapToPost)} tags={tags} />
+          <PostGrid name='All Articles' posts={posts.map(({ node }) => node).map(mapToPost)} tags={tags} narrow />
 
           <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/blog/' />
         </Container>
@@ -122,25 +121,4 @@ function Featured({ featuredPosts }: { featuredPosts: Array<PostProps> }) {
       )}
     </>
   )
-}
-
-type PostQuery =
-  | NonNullable<ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogQuery['featuredPosts']>['edges']>>['node']>
-  | NonNullable<ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogQuery['posts']>['edges']>>['node']>
-function mapToPost(data: PostQuery): PostProps {
-  if (!data.fields || !data.frontmatter || !data.frontmatter.metadata) {
-    throw new Error('Posts should always have fields, frontmatter and metadata.')
-  }
-
-  const { publishDate = Date.now(), title = '', metadata, tags } = data.frontmatter
-  const { description = '', image, url } = metadata
-
-  return {
-    title,
-    description,
-    publishDate: dateFormatter.format(new Date(publishDate)),
-    image: image as GatsbyTypes.File,
-    path: url,
-    tags,
-  } as PostProps
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import classNames from 'classnames'
 import { withTrailingSlash } from '../../helpers/url'
 import TagList from '../TagList/TagList'
 
 import styles from './Post.module.scss'
+import { dateFormatter } from '../../helpers/format'
 
 export interface PostProps {
   title: string
@@ -21,7 +21,7 @@ export default function Post({ title, description, image, publishDate, path, fea
   const imageFluid = image?.childImageSharp?.fluid
 
   return (
-    <Link to={withTrailingSlash(path)} className={classNames(styles.post, { [styles.featuredPost]: featured })}>
+    <a href={withTrailingSlash(path)} className={classNames(styles.post, { [styles.featuredPost]: featured })}>
       {imageFluid && (
         <div className={styles.wrapper}>
           <Img fluid={imageFluid} className={styles.image} />
@@ -37,6 +37,25 @@ export default function Post({ title, description, image, publishDate, path, fea
 
         {tags && <TagList tags={tags} activeTag={activeTag} format='upper' />}
       </div>
-    </Link>
+    </a>
   )
+}
+
+export function mapToPost(data: any): PostProps {
+  if (!data.frontmatter || !data.frontmatter.metadata) {
+    throw new Error('Posts should always have frontmatter and metadata.')
+  }
+
+  const { publishDate = Date.now(), title = '', metadata, tags, featured } = data.frontmatter
+  const { description = '', image, url } = metadata
+
+  return {
+    title,
+    description,
+    publishDate: dateFormatter.format(new Date(publishDate)),
+    image: image as GatsbyTypes.File,
+    path: url,
+    featured,
+    tags,
+  } as PostProps
 }

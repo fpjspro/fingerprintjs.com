@@ -10,6 +10,8 @@ metadata:
 featured: false
 publishDate: 12.08.2020 4:18 PM
 title: 'Life after ANDROID_ID: Android Identification via Device Fingerprinting'
+tags:
+  - js
 ---
 
 ![Device Fingerprinting For Android](/img/uploads/4.png 'Fingerprint Android')
