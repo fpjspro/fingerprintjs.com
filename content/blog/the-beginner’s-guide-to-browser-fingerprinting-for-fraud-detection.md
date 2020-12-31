@@ -12,6 +12,7 @@ publishDate: 12.24.2020 4:11 PM
 title: The Beginner’s Guide to Browser Fingerprinting for Fraud Detection
 tags:
   - js
+  - web
 ---
 
 ![Fingerprint icon on map background](/img/uploads/3.png 'Browser Fingerprinting')
