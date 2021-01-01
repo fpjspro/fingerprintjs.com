@@ -7,14 +7,16 @@ metadata:
     technique works with a real-life example.
   url: https://fingerprintjs.com/blog/what-is-browser-fingerprinting
   image: /img/uploads/3.png
-featured: false
+featured: true
 publishDate: 12.24.2020 4:11 PM
 title: The Beginner’s Guide to Browser Fingerprinting for Fraud Detection
 tags:
   - js
+  - web
+  - fingerprinting
 ---
 
-![Fingerprint icon on map background](/img/uploads/3.png 'Browser Fingerprinting')
+![Fingerprint icon on map background](/img/uploads/3.png 'Fingerprint Icon')
 
 **Fraud looms on the minds of development teams for any website, but fraud prevention doesn’t have to be all-consuming, or even expensive.** With a highly accurate identifier it becomes much easier for developers to triage suspicious traffic and restrict access to users attempting to hack into accounts, make fraudulent purchases or simply spam your website. The key to identifying those most likely to commit fraud is either by past activity, or by associating specific patterns of use with a higher likelihood of fraudulence.
 
@@ -70,12 +72,12 @@ For a fingerprint to be useful as a method of identifying visitors, it needs to 
 
 For the 5 out of 1,000 that are not correctly identified, they can be described as either false positives or false negatives:
 
-False positive: multiple unique visitors are given the same fingerprint
-False negative: one visitor over multiple visits are given different fingerprints
+- False positive: multiple unique visitors are given the same fingerprint
+- False negative: one visitor over multiple visits are given different fingerprints
 
 To reduce false positives and false negatives, your fingerprint should combine not only many signals, but the right combination of signals that balance both uniqueness and stability. If a signal is highly unique, it will reduce your chances of a false negative, whereas stable signals will reduce your chances of a false positive.
 
-![Graphic of signals by stability and uniqueness](/img/uploads/stability-uniqueness.png 'Stability vs uniqueness')
+![Graphic of signals by stability and uniqueness](/img/uploads/stability-uniqueness.png 'Browser fingerprint signals')
 
 This framework can also be used to remove signals from your fingerprinting function altogether. If a signal has both low uniqueness and low stability, it is likely to change or be spoofed frequently, and doesn’t contribute meaningfully to uniqueness. To our car example, this might be whether a car has a dirty windshield - you cannot count on this signal to improve your chances of finding the correct car. In the world of browser fingerprinting, current battery level is a poor signal, and so while it is accessible, we remove it from our fingerprinting function.
 

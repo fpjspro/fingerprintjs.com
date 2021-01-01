@@ -9,8 +9,9 @@ export interface TagListProps {
   tags: string[]
   activeTag?: string
   format?: 'upper' | 'title'
+  direction?: 'horizontal' | 'vertical'
 }
-export default function TagList({ tags, activeTag, format = 'upper' }: TagListProps) {
+export default function TagList({ tags, activeTag, format = 'upper', direction = 'horizontal' }: TagListProps) {
   function formatTag(tag: string) {
     switch (format) {
       case 'upper':
@@ -23,7 +24,14 @@ export default function TagList({ tags, activeTag, format = 'upper' }: TagListPr
   return (
     <ul className={styles.root}>
       {tags?.map((tag) => (
-        <li key={tag} className={styles.item}>
+        <li
+          key={tag}
+          className={classNames(
+            styles.item,
+            { [styles.horizontal]: direction === 'horizontal' },
+            { [styles.vertical]: direction === 'vertical' }
+          )}
+        >
           {tag === activeTag ? (
             <span className={classNames(styles.tag, styles.highlight)}>{formatTag(tag)}</span>
           ) : (

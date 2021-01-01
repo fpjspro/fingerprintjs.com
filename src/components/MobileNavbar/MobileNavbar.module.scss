@@ -36,6 +36,7 @@
     &.top {
       display: flex;
       justify-content: space-between;
+      flex: none;
 
       > * {
         flex: 1;
@@ -85,6 +86,7 @@
     justify-content: space-between;
     align-items: flex-end;
     flex-direction: row-reverse;
+    flex: none;
 
     > span {
       height: 28px;

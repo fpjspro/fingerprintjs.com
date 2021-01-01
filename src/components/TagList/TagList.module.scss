@@ -2,9 +2,15 @@
   margin-top: 2rem;
 }
 
-.item {
+.horizontal {
   display: inline-block;
+}
 
+.vertical {
+  display: block;
+}
+
+.item {
   margin-right: 1rem;
   margin-top: 1rem;
 }

@@ -152,7 +152,7 @@ export default function Footer() {
             </div>
           </div>
         </nav>
-        <div className={styles.copyrights}>&copy; 2020 FingerprintJS, Inc</div>
+        <div className={styles.copyrights}>&copy; 2021 FingerprintJS, Inc</div>
       </Container>
     </footer>
   )

@@ -1,8 +1,9 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import classNames from 'classnames'
-import { withTrailingSlash } from '../../helpers/url'
+import { getRelativeUrl } from '../../helpers/url'
 import TagList from '../TagList/TagList'
+import { Link } from 'gatsby'
 
 import styles from './Post.module.scss'
 import { dateFormatter } from '../../helpers/format'
@@ -21,7 +22,7 @@ export default function Post({ title, description, image, publishDate, path, fea
   const imageFluid = image?.childImageSharp?.fluid
 
   return (
-    <a href={withTrailingSlash(path)} className={classNames(styles.post, { [styles.featuredPost]: featured })}>
+    <Link to={getRelativeUrl(path)} className={classNames(styles.post, { [styles.featuredPost]: featured })}>
       {imageFluid && (
         <div className={styles.wrapper}>
           <Img fluid={imageFluid} className={styles.image} />
@@ -37,7 +38,7 @@ export default function Post({ title, description, image, publishDate, path, fea
 
         {tags && <TagList tags={tags} activeTag={activeTag} format='upper' />}
       </div>
-    </a>
+    </Link>
   )
 }
 

@@ -106,7 +106,7 @@ function Featured({ featuredPosts }: { featuredPosts: Array<PostProps> }) {
   const hasFeaturedPosts = featuredPosts.length - 1 > 0
 
   return (
-    <>
+    <div>
       {hasMainFeaturedPost && <Post {...featuredPosts[0]} featured />}
       {hasFeaturedPosts && (
         <PostGrid
@@ -119,6 +119,6 @@ function Featured({ featuredPosts }: { featuredPosts: Array<PostProps> }) {
           }
         />
       )}
-    </>
+    </div>
   )
 }
