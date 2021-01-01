@@ -107,7 +107,7 @@ function Featured({ featuredPosts }: { featuredPosts: Array<PostProps> }) {
 
   return (
     <div>
-      {hasMainFeaturedPost && <Post {...featuredPosts[0]} featured />}
+      {hasMainFeaturedPost && <Post {...featuredPosts[0]} wide />}
       {hasFeaturedPosts && (
         <PostGrid
           name='Featured'

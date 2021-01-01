@@ -17,12 +17,13 @@ export interface PostProps {
   featured?: boolean
   tags?: string[]
   activeTag?: string
+  wide?: boolean
 }
-export default function Post({ title, description, image, publishDate, path, featured, tags, activeTag }: PostProps) {
+export default function Post({ title, description, image, publishDate, path, tags, activeTag, wide }: PostProps) {
   const imageFluid = image?.childImageSharp?.fluid
 
   return (
-    <Link to={getRelativeUrl(path)} className={classNames(styles.post, { [styles.featuredPost]: featured })}>
+    <Link to={getRelativeUrl(path)} className={classNames(styles.post, { [styles.wide]: wide })}>
       {imageFluid && (
         <div className={styles.wrapper}>
           <Img fluid={imageFluid} className={styles.image} />
