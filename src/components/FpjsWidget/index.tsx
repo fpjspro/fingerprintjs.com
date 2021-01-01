@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo } from 'react'
 import { getVisitTitle, getBrowserName, getBotDecision } from '../../helpers/fpjs-widget'
-import { ReactComponent as InfoSvg } from './info.svg'
+import { ReactComponent as InfoSvg } from '../../img/info.svg'
 import { ReactComponent as IncognitoSvg } from './incognito.svg'
 import Tippy from '@tippyjs/react'
 import classNames from 'classnames'
