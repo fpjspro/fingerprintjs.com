@@ -140,13 +140,13 @@ export function StaticPageContentTemplate({
         <Hero {...hero} className={styles.widget} />
         {invertContent ? (
           <>
-            <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />
+            {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
             <CardSectionComponent {...cardSection} className={styles.widget} />
           </>
         ) : (
           <>
             <CardSectionComponent {...cardSection} className={styles.widget} />
-            <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />
+            {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
           </>
         )}
         <InlineCtaComponent {...inlineCta} />

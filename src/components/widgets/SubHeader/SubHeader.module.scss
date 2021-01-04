@@ -21,10 +21,18 @@
 
   .medium {
     font-size: 2.75rem;
+
+    @include media('<=phoneLandscape') {
+      font-size: 2.25rem;
+    }
   }
 
   .large {
     font-size: 4rem;
+
+    @include media('<=phoneLandscape') {
+      font-size: 3.25rem;
+    }
   }
 
   .weightNormal {

@@ -39,16 +39,16 @@
 }
 
 .button {
-  margin-right: 2rem;
-  margin-left: 28rem;
+  margin-right: 10rem;
+  margin-left: 20rem;
 
   @include media('<=desktop') {
     margin-left: 12rem;
   }
 
   @include media('<=phoneLandscape') {
+    margin: 0;
     margin-top: 5rem;
-    margin-left: 0;
-    align-self: flex-end;
+    align-self: center;
   }
 }
