@@ -4,6 +4,7 @@ const defaultMeta = {
   title: 'Default title',
   description: 'Default Description',
   url: 'default',
+  siteUrl: 'default',
   image: 'default',
 } as const
 
@@ -20,6 +21,7 @@ const useSiteMetadata = () => {
             title
             description
             url
+            siteUrl
             image
           }
         }

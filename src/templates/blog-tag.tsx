@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import Section from '../components/common/Section'
-import Layout from '../components/Layout'
+import { LayoutTemplate } from '../components/Layout'
 import Container from '../components/common/Container'
 import { PostProps } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
@@ -11,6 +11,7 @@ import { dateFormatter } from '../helpers/format'
 import { kebabToTitle } from '../helpers/case'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 
 interface BlogTagProps {
   data: GatsbyTypes.BlogTagQuery
@@ -21,9 +22,17 @@ export default function BlogTag({ data, pageContext }: BlogTagProps) {
 
   const { currentPage, numPages, tag } = pageContext
   const breadcrumbs = pageContext.breadcrumb.crumbs.filter(({ pathname }) => pathname !== '/blog/tag')
+  const siteMetadata = {
+    ...useSiteMetadata(),
+    title: `${kebabToTitle(tag)} Articles - FingerprintJS Blog | FingerprintJS`,
+    description: `We are an open source powered company working to prevent online fraud for websites of all sizes. Read our articles on ${kebabToTitle(
+      tag
+    )} on our blog.`,
+    url: location.href,
+  }
 
   return (
-    <Layout>
+    <LayoutTemplate siteMetadata={siteMetadata}>
       {breadcrumbs && (
         <>
           <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
@@ -47,7 +56,7 @@ export default function BlogTag({ data, pageContext }: BlogTagProps) {
           <PaginationNav currentPage={currentPage} numPages={numPages} basePath={`/blog/tag/${tag}`} />
         </Container>
       </Section>
-    </Layout>
+    </LayoutTemplate>
   )
 }
 

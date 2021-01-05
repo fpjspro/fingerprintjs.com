@@ -1,6 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import Layout from '../../components/Layout'
+import { LayoutTemplate } from '../../components/Layout'
 import PriceCalculator from '../../components/PriceCalculator'
 import Section, { SectionProps } from '../../components/common/Section'
 import classNames from 'classnames'
@@ -8,24 +7,31 @@ import Container from '../../components/common/Container'
 import PricingCard from '../../components/pricing/Card'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
-import { GeneratedPageContext } from '../../helpers/types'
+import { GeneratedPageContext, PageLocation } from '../../helpers/types'
+import useSiteMetadata from '../../hooks/useSiteMetadata'
 
 import styles from './Pricing.module.scss'
 
-export default function PricingPage({ pageContext }: { pageContext: GeneratedPageContext }) {
+interface PricingPageProps {
+  pageContext: GeneratedPageContext
+  location: PageLocation
+}
+export default function PricingPage({ pageContext, location }: PricingPageProps) {
   const { mainBackground } = useMainBackgroundImage()
   const breadcrumbs = pageContext.breadcrumb.crumbs
+  const siteMetadata = {
+    ...useSiteMetadata(),
+    title: 'Pricing - FingerprintJS Pro',
+    url: location.href,
+  }
 
   return (
-    <Layout>
-      <Helmet>
-        <title>Pricing - FingerprintJS Pro</title>
-      </Helmet>
+    <LayoutTemplate siteMetadata={siteMetadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
 
       <CalculatorSection mainBackground={mainBackground} />
       <PricingModelsSection mainBackground={mainBackground} />
-    </Layout>
+    </LayoutTemplate>
   )
 }
 

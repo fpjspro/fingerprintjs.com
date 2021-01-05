@@ -12,7 +12,7 @@ const resolvePath = (directoryName, pathName) => {
 
 module.exports = {
   siteMetadata: {
-    title: 'FingerprintJS Pro - browser fingerprinting & fraud detection API',
+    title: 'FingerprintJS Pro - Browser fingerprinting and fraud detection API',
     description: 'Stop fraud, spam, and account takeovers with 99.5% accurate browser fingerprinting as a service.',
     siteUrl: baseUrl,
     url: baseUrl,

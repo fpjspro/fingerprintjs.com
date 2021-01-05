@@ -1,30 +1,39 @@
 import { graphql, Link } from 'gatsby'
 import React from 'react'
 import Section from '../components/common/Section'
-import Layout from '../components/Layout'
+import { LayoutTemplate } from '../components/Layout'
 import Container from '../components/common/Container'
 import Post, { PostProps } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
-import { ArrayElement, GeneratedPageContext } from '../helpers/types'
+import { ArrayElement, GeneratedPageContext, PageLocation } from '../helpers/types'
 import { dateFormatter } from '../helpers/format'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 
 import styles from './blog.module.scss'
 
 interface BlogProps {
   data: GatsbyTypes.BlogQuery
   pageContext: BlogContext
+  location: PageLocation
 }
-export default function Blog({ data, pageContext }: BlogProps) {
+export default function Blog({ data, pageContext, location }: BlogProps) {
   const { edges: posts } = data.posts
   const { edges: featuredPosts } = data.featuredPosts
   const tags = data.tags.group.map(({ tag }) => tag) as string[]
+  const siteMetadata = {
+    ...useSiteMetadata(),
+    title: 'FingerprintJS Blog | FingerprintJS',
+    description:
+      'We are an open source powered company working to prevent online fraud for websites of all sizes. Learn about our browser fingerprinting API and more on our blog.',
+    url: location.href,
+  }
 
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
 
   return (
-    <Layout>
+    <LayoutTemplate siteMetadata={siteMetadata}>
       <Section>
         <Container size='large'>
           <h1>Blog Articles</h1>
@@ -35,7 +44,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
           <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/blog/' />
         </Container>
       </Section>
-    </Layout>
+    </LayoutTemplate>
   )
 }
 
