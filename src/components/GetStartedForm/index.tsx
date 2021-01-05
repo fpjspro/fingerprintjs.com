@@ -77,7 +77,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
             type='submit'
             mobileIcon={<ChevronRightSvg className='gtm-get-started-btn' />}
           >
-            Get Started
+            Start Free Trial
           </Button>
         </div>
       )}
