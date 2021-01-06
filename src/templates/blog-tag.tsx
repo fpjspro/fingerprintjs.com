@@ -12,6 +12,7 @@ import { kebabToTitle } from '../helpers/case'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
 import useSiteMetadata from '../hooks/useSiteMetadata'
+import { useLocation } from '@reach/router'
 
 interface BlogTagProps {
   data: GatsbyTypes.BlogTagQuery
@@ -22,13 +23,15 @@ export default function BlogTag({ data, pageContext }: BlogTagProps) {
 
   const { currentPage, numPages, tag } = pageContext
   const breadcrumbs = pageContext.breadcrumb.crumbs.filter(({ pathname }) => pathname !== '/blog/tag')
-  const siteMetadata = {
-    ...useSiteMetadata(),
+  const { pathname } = useLocation()
+  let siteMetadata = useSiteMetadata()
+  siteMetadata = {
+    ...siteMetadata,
     title: `${kebabToTitle(tag)} Articles - FingerprintJS Blog | FingerprintJS`,
     description: `We are an open source powered company working to prevent online fraud for websites of all sizes. Read our articles on ${kebabToTitle(
       tag
     )} on our blog.`,
-    url: location.href,
+    url: `${siteMetadata.url}${pathname}`,
   }
 
   return (

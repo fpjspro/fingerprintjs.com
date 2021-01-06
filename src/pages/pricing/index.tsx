@@ -7,22 +7,24 @@ import Container from '../../components/common/Container'
 import PricingCard from '../../components/pricing/Card'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
-import { GeneratedPageContext, PageLocation } from '../../helpers/types'
+import { GeneratedPageContext } from '../../helpers/types'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
+import { useLocation } from '@reach/router'
 
 import styles from './Pricing.module.scss'
 
 interface PricingPageProps {
   pageContext: GeneratedPageContext
-  location: PageLocation
 }
-export default function PricingPage({ pageContext, location }: PricingPageProps) {
+export default function PricingPage({ pageContext }: PricingPageProps) {
   const { mainBackground } = useMainBackgroundImage()
   const breadcrumbs = pageContext.breadcrumb.crumbs
-  const siteMetadata = {
-    ...useSiteMetadata(),
+  const { pathname } = useLocation()
+  let siteMetadata = useSiteMetadata()
+  siteMetadata = {
+    ...siteMetadata,
     title: 'Pricing - FingerprintJS Pro',
-    url: location.href,
+    url: `${siteMetadata.url}${pathname}`,
   }
 
   return (

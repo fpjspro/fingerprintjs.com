@@ -5,29 +5,31 @@ import { LayoutTemplate } from '../components/Layout'
 import Container from '../components/common/Container'
 import { PostProps } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
-import { ArrayElement, GeneratedPageContext, PageLocation } from '../helpers/types'
+import { ArrayElement, GeneratedPageContext } from '../helpers/types'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
 import { dateFormatter } from '../helpers/format'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
 import useSiteMetadata from '../hooks/useSiteMetadata'
+import { useLocation } from '@reach/router'
 
 interface BlogFeaturedProps {
   data: GatsbyTypes.BlogFeaturedQuery
   pageContext: BlogFeaturedContext
-  location: PageLocation
 }
-export default function BlogFeatured({ data, pageContext, location }: BlogFeaturedProps) {
+export default function BlogFeatured({ data, pageContext }: BlogFeaturedProps) {
   const { edges: posts } = data.allMarkdownRemark
 
   const { currentPage, numPages } = pageContext
   const breadcrumbs = pageContext.breadcrumb.crumbs
-  const siteMetadata = {
-    ...useSiteMetadata(),
+  const { pathname } = useLocation()
+  let siteMetadata = useSiteMetadata()
+  siteMetadata = {
+    ...siteMetadata,
     title: 'Featured Articles - FingerprintJS Blog | FingerprintJS',
     description:
       'We are an open source powered company working to prevent online fraud for websites of all sizes. Read our latest and greatest featured articles on our blog.',
-    url: location.href,
+    url: `${siteMetadata.url}${pathname}`,
   }
 
   return (
