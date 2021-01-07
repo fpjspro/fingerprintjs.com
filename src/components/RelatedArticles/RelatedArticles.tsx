@@ -14,7 +14,10 @@ export default function RelatedArticles({ article, count = 3 }: RelatedArticlesP
       query={relatedArticlesQuery}
       render={(data) => {
         const allArticles = data.allMarkdownRemark.edges.map(({ node }) => node)
-        return <PostGrid posts={getRelatedArticles(article, allArticles, count)} name='Related Articles' narrow />
+        const relatedArticles = getRelatedArticles(article, allArticles, count)
+        return relatedArticles.length > 0 ? (
+          <PostGrid posts={relatedArticles} name='Related Articles' perRow='three' />
+        ) : null
       }}
     />
   )
@@ -29,32 +32,7 @@ const relatedArticlesQuery = graphql`
       sort: { order: DESC, fields: frontmatter___publishDate }
       limit: 1000
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            metadata {
-              title
-              description
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 512, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-              url
-            }
-            title
-            publishDate
-            tags
-            featured
-          }
-        }
-      }
+      ...PostData
     }
   }
 `
@@ -70,8 +48,10 @@ function getRelatedArticles(referenceArticle: PostProps, allArticles: PostQuery[
   relatedArticles.forEach((article) => {
     const { path, tags = [], featured } = article
 
+    // Check the number of tags the current article has in common with the reference article.
     similarity[path] = tags.filter((tag) => referenceTags.includes(tag)).length
 
+    // Featured posts that have at least one tag in common should have a very high priority.
     if (featured && similarity[path] > 0) {
       similarity[path] += 50
     }

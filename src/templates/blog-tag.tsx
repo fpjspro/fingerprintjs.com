@@ -61,31 +61,7 @@ export const pageQuery = graphql`
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            metadata {
-              title
-              description
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 512, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-              url
-            }
-            title
-            publishDate
-            tags
-          }
-        }
-      }
+      ...PostData
     }
   }
 `

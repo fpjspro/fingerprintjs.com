@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import classNames from 'classnames'
 import { getRelativeUrl } from '../../helpers/url'
 import TagList from '../TagList/TagList'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import styles from './Post.module.scss'
 import { dateFormatter } from '../../helpers/format'
@@ -17,13 +17,22 @@ export interface PostProps {
   featured?: boolean
   tags?: string[]
   activeTag?: string
-  wide?: boolean
+  variant?: 'card' | 'wide'
 }
-export default function Post({ title, description, image, publishDate, path, tags, activeTag, wide }: PostProps) {
+export default function Post({
+  title,
+  description,
+  image,
+  publishDate,
+  path,
+  tags,
+  activeTag,
+  variant = 'card',
+}: PostProps) {
   const imageFluid = image?.childImageSharp?.fluid
 
   return (
-    <Link to={getRelativeUrl(path)} className={classNames(styles.post, { [styles.wide]: wide })}>
+    <Link to={getRelativeUrl(path)} className={classNames(styles.post, { [styles.wide]: variant === 'wide' })}>
       {imageFluid && (
         <div className={styles.wrapper}>
           <Img fluid={imageFluid} className={styles.image} />
@@ -61,3 +70,34 @@ export function mapToPost(data: any): PostProps {
     tags,
   } as PostProps
 }
+
+export const query = graphql`
+  fragment PostData on MarkdownRemarkConnection {
+    edges {
+      node {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          metadata {
+            title
+            description
+            image {
+              childImageSharp {
+                fluid(maxWidth: 512, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            url
+          }
+          title
+          publishDate
+          tags
+          featured
+        }
+      }
+    }
+  }
+`
