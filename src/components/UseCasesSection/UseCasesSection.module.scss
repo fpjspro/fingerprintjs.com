@@ -64,7 +64,8 @@
         }
 
         .link,
-        .title {
+        .title,
+        .learnMore {
           color: c('brand-fire');
         }
       }
@@ -99,6 +100,14 @@
         font-size: 1.75rem;
         margin-top: 3rem;
         text-decoration: underline;
+        @include transition((color));
+      }
+
+      .learnMore {
+        color: v('white');
+        text-align: right;
+        font-size: 1.50rem;
+        margin-top: 3rem;
         @include transition((color));
       }
 

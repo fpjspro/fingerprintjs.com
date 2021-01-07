@@ -28,11 +28,11 @@
     .label {
       font-weight: v('semi');
 
-      @include media("<=tablet") {
+      @include media('<=tablet') {
         font-size: 1.8rem;
       }
 
-      @include media("<=phone") {
+      @include media('<=phone') {
         font-size: 1.5rem;
       }
     }
@@ -41,7 +41,7 @@
   &.getStarted {
     position: relative;
 
-    @include media("<=tablet") {
+    @include media('<=tablet') {
       width: 100%;
     }
 
@@ -67,16 +67,16 @@
         opacity: v('faded');
 
         + li {
-          margin-left: 2rem;
+          margin-left: 1rem;
         }
       }
 
-      svg {
+      .check {
         width: 1.25rem;
         height: 1.25rem;
         margin-right: 1rem;
 
-        @include media("<=phone") {
+        @include media('<=phone') {
           margin-right: 0.5rem;
         }
       }
@@ -181,7 +181,7 @@
       height: 100%;
       border-radius: 7px;
 
-      @include media("<=phone") {
+      @include media('<=phone') {
         padding: 0 1rem;
       }
     }
@@ -191,9 +191,17 @@
       --height: var(--height);
       border-radius: 0 1rem 1rem 0;
 
-      @include media("<=phone") {
+      @include media('<=phone') {
         padding: 0 2rem;
       }
     }
   }
+}
+
+.infoIcon {
+  cursor: pointer;
+  margin-left: 1rem;
+  width: 1.5rem;
+  height: auto;
+  fill: c('brand-fire');
 }
