@@ -4,7 +4,7 @@ export const PATH = {
   demoUrl: '/demo/',
   pricingUrl: '/pricing/',
   accountTakeover: '/account-takeover/',
-  ecommerce: 'ecommerce/',
+  ecommerce: '/ecommerce/',
   gaming: '/gaming/',
   cryptocurrency: '/cryptocurrency/',
   paymentFraud: '/payment-fraud/',
