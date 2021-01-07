@@ -12,6 +12,7 @@ import { BASE_URL } from '../constants/content'
 import Section from '../components/common/Section'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
+import { withTrailingSlash } from '../helpers/url'
 
 import styles from './static-page-content.module.scss'
 
@@ -188,8 +189,8 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
   return {
     title: queryMetadata?.title ?? '',
     description: queryMetadata?.description ?? '',
-    url: queryMetadata?.url ?? '',
-    image: `${BASE_URL}${queryMetadata?.image}` ?? '',
+    siteUrl: withTrailingSlash(queryMetadata?.url ?? ''),
+    image: `${BASE_URL}${queryMetadata?.image?.publicURL}` ?? '',
   } as GatsbyTypes.SiteSiteMetadata
 }
 

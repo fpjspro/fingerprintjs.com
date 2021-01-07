@@ -3,12 +3,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 const defaultMeta = {
   title: 'Default title',
   description: 'Default Description',
-  url: 'default',
   siteUrl: 'default',
   image: 'default',
 } as const
-
-//TODO: [DI]: Use 'siteUrl' instead of 'url' here
 
 const useSiteMetadata = () => {
   // It's an exception for CMS integration
@@ -20,7 +17,6 @@ const useSiteMetadata = () => {
           siteMetadata {
             title
             description
-            url
             siteUrl
             image
           }

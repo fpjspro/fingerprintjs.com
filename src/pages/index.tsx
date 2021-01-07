@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/Layout'
+import { Layout } from '../components/Layout'
 import ClientsSection from '../components/ClientsSection'
 import LiveDemoSection from '../components/LiveDemoSection'
 import MadeForDevelopersSection from '../components/MadeForDevelopersSection'

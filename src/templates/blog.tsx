@@ -28,7 +28,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
     title: 'FingerprintJS Blog | FingerprintJS',
     description:
       'We are an open source powered company working to prevent online fraud for websites of all sizes. Learn about our browser fingerprinting API and more on our blog.',
-    url: `${siteMetadata.url}${pathname}`,
+    siteUrl: `${siteMetadata.siteUrl}${pathname}`,
   }
 
   const { currentPage, numPages } = pageContext

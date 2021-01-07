@@ -29,7 +29,7 @@ export default function BlogFeatured({ data, pageContext }: BlogFeaturedProps) {
     title: 'Featured Articles - FingerprintJS Blog | FingerprintJS',
     description:
       'We are an open source powered company working to prevent online fraud for websites of all sizes. Read our latest and greatest featured articles on our blog.',
-    url: `${siteMetadata.url}${pathname}`,
+    siteUrl: `${siteMetadata.siteUrl}${pathname}`,
   }
 
   return (

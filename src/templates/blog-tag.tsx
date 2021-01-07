@@ -31,7 +31,7 @@ export default function BlogTag({ data, pageContext }: BlogTagProps) {
     description: `We are an open source powered company working to prevent online fraud for websites of all sizes. Read our articles on ${kebabToTitle(
       tag
     )} on our blog.`,
-    url: `${siteMetadata.url}${pathname}`,
+    siteUrl: `${siteMetadata.siteUrl}${pathname}`,
   }
 
   return (

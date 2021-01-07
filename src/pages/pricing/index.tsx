@@ -24,7 +24,7 @@ export default function PricingPage({ pageContext }: PricingPageProps) {
   siteMetadata = {
     ...siteMetadata,
     title: 'Pricing - FingerprintJS Pro',
-    url: `${siteMetadata.url}${pathname}`,
+    siteUrl: `${siteMetadata.siteUrl}${pathname}`,
   }
 
   return (

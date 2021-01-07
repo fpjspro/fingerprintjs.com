@@ -15,7 +15,6 @@ module.exports = {
     title: 'FingerprintJS Pro - Browser fingerprinting and fraud detection API',
     description: 'Stop fraud, spam, and account takeovers with 99.5% accurate browser fingerprinting as a service.',
     siteUrl: baseUrl,
-    url: baseUrl,
     image: 'https://fingerprintjs.com/img/fpjs-preview.png',
   },
   plugins: [

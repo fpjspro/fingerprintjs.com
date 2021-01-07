@@ -19,7 +19,7 @@ export default function DemoPage({ pageContext }: DemoPageProps) {
   siteMetadata = {
     ...siteMetadata,
     title: 'Technical Demo - FingerprintJS Pro',
-    url: `${siteMetadata.url}${pathname}`,
+    siteUrl: `${siteMetadata.siteUrl}${pathname}`,
   }
 
   return (
