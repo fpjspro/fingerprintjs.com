@@ -22,7 +22,7 @@ export default function InlineCtaComponent({ title, subtitle, buttonText, button
         <SubHeaderComponent
           title={title}
           titleSize='large'
-          titleWeight='bold'
+          titleWeight='primary'
           subtitle={subtitle}
           subtitleSize='small'
           align='left'
