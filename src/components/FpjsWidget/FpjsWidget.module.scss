@@ -206,6 +206,7 @@
           &:not(.browser) {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
             height: 3rem;
 
@@ -225,11 +226,15 @@
       .visitId {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         font-size: 2.5rem;
         grid-area: id;
 
         .label {
           height: 4rem !important;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
         @include media("<=phone") {
           font-size: 2rem;
@@ -240,9 +245,9 @@
           color: v('brand-fire');
           font-weight: v('bold');
           opacity: 1;
+          margin-left: 0 !important;
           @include media("<=phone") {
             flex-basis: 100%;
-            margin-left: 0 !important;
           }
         }
       }
