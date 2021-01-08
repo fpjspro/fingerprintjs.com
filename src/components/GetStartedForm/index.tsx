@@ -9,6 +9,9 @@ import { FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
 import { sendEvent } from '../../helpers/gtm'
 import { Forms, useForm } from '../../hooks/useForm'
+import Tippy from '@tippyjs/react'
+import { ReactComponent as InfoSvg } from '../../img/info.svg'
+
 import styles from './GetStartedForm.module.scss'
 
 interface GetStartedFormProps {
@@ -74,7 +77,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
             type='submit'
             mobileIcon={<ChevronRightSvg className='gtm-get-started-btn' />}
           >
-            Get Started
+            Start Free Trial
           </Button>
         </div>
       )}
@@ -92,16 +95,29 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
       )}
       <ul className={styles.description}>
         <li>
-          <CheckSvg />
+          <CheckSvg className={styles.check} />
           10 Day Trial
         </li>
         <li>
-          <CheckSvg />
-          Cancel Any Time
+          <CheckSvg className={styles.check} />
+          API &amp; Webhooks
         </li>
         <li>
-          <CheckSvg />
-          API &amp; Webhooks
+          <CheckSvg className={styles.check} />
+          GDPR/CCPA Compliant
+          <Tippy
+            content={
+              <span>
+                FingerprintJS is GDPR/CCPA compliant. Our technology is intended to be used for fraud detection only -
+                for this use case, no user consent is required.
+                <br />
+                Any use outside of fraud detection would need to comply with GDPR/CCPA user consent rules. We never
+                automatically track traffic, and never do cross-domain tracking.
+              </span>
+            }
+          >
+            <InfoSvg tabIndex={0} className={styles.infoIcon} />
+          </Tippy>
         </li>
       </ul>
     </form>

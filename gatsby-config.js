@@ -19,6 +19,12 @@ module.exports = {
     image: 'https://fingerprintjs.com/img/fpjs-preview.png',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ['BRANCH'],
+      },
+    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-robots-txt',
     {
