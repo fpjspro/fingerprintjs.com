@@ -1,3 +1,5 @@
+import { BRANCH } from './env'
+
 export const BASE_URL = 'https://fingerprintjs.com'
 
 export const PATH = {
@@ -45,3 +47,5 @@ export const useCaseLinks = [
   { title: 'Payment Fraud', url: PATH.paymentFraud, isLocal: true },
   { title: 'Account Sharing', url: PATH.accountSharing, isLocal: true },
 ]
+
+export const defaultDataLayer = [{ branch: BRANCH }]
