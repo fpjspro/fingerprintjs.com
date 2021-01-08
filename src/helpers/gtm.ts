@@ -10,6 +10,7 @@ declare global {
 }
 
 export function sendEvent({ event }: { event: string }) {
+  // Required for development since without SSR sendEvent will be called before Helmet has a chance to inject the script that initializes dataLayer.
   window.dataLayer = window.dataLayer ?? defaultDataLayer
 
   window.dataLayer.push({ event })
