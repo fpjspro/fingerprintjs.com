@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-position: 110% 200%;
 
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     background-position: 120% 80%;
     background-color: v('off-white');
   }
@@ -21,13 +21,13 @@
     margin-bottom: 4rem;
 
     > * + * {
-      @include media(">desktop") {
+      @include media('>desktop') {
         margin-left: 3rem;
       }
     }
 
-    >a {
-      @include media("<=desktop") {
+    > a {
+      @include media('<=desktop') {
         display: none;
       }
     }
@@ -37,7 +37,7 @@
     text-align: center;
     margin-top: 5rem;
 
-    @include media(">desktop") {
+    @include media('>desktop') {
       display: none;
     }
   }
@@ -49,12 +49,12 @@
     // @include gap(3rem);
 
     > * + * {
-      @include media(">desktop") {
+      @include media('>desktop') {
         margin-left: 3rem;
       }
     }
 
-    @include media("<=desktop") {
+    @include media('<=desktop') {
       display: block;
       padding: 3rem;
       background-color: v('white');
@@ -69,7 +69,7 @@
     border-radius: 1rem;
     border: 2px solid adjust-color(c('off-white'), $lightness: -5%);
 
-    @include media("<=desktop") {
+    @include media('<=desktop') {
       padding: 0 0 5rem 0;
       background-color: transparent;
       border: none;
@@ -101,7 +101,7 @@
     border-radius: 1rem;
     box-shadow: 0 20px 50px 0 adjust-color(c('brand-water'), $alpha: -0.9);
 
-    @include media("<=desktop") {
+    @include media('<=desktop') {
       padding: 0;
       background-color: transparent;
       box-shadow: none;
@@ -119,6 +119,7 @@
 
     .description {
       opacity: v('faded');
+      min-height: 12rem;
     }
 
     .switcher {
@@ -168,8 +169,12 @@
     text-align: center;
     margin-top: 5rem;
 
-    @include media(">desktop") {
+    @include media('>desktop') {
       display: none;
     }
   }
+}
+
+.contactSales {
+  width: 100%;
 }

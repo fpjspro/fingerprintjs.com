@@ -22,6 +22,8 @@ export default function RangeSlider({
   config: { min, max },
   handleValueChange,
 }: RangeSliderProps) {
+  const thumbSize = 18
+
   const handleSliderValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = Number(e.target.value)
     handleValueChange(newValue)
@@ -29,8 +31,9 @@ export default function RangeSlider({
   }
 
   const calculateSliderOffset = (min: number, max: number, value: number) => {
-    const magicNumber = ((value - min) * 100) / (max - min)
-    const leftOffsetCss = `calc(${magicNumber}% + (${15 - magicNumber * 0.3}px))`
+    const ratio = ((value - min) * 100) / (max - min)
+    // Input thumb offset: https://stackoverflow.com/a/49122957
+    const leftOffsetCss = `calc(${ratio}% + ${thumbSize / 2}px - ${(thumbSize * ratio) / 100}px)`
 
     return leftOffsetCss
   }
@@ -38,7 +41,10 @@ export default function RangeSlider({
   const [sliderOffsetCss, setSliderOffsetCss] = useState(calculateSliderOffset(min, max, currentValue))
 
   return (
-    <div className={styles.slider} style={{ '--left': sliderOffsetCss } as React.CSSProperties}>
+    <div
+      className={styles.slider}
+      style={{ '--left': sliderOffsetCss, '--thumb-size': `${thumbSize}px` } as React.CSSProperties}
+    >
       <span className={styles.output}>{values[currentValue].label}</span>
       <label htmlFor='billingSlider' className={styles.label}>
         {values.map(({ label }) => {
