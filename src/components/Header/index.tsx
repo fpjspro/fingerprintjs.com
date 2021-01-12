@@ -50,7 +50,7 @@ export default function Header() {
                   <img src='/img/company-logos/fpjs.svg' alt='FingerprintJS' className={styles.logo} />
                 </Link>
                 <Link className={classNames(styles.link, styles.desktopOnly)} to='/why-fpjs/'>
-                  Why us
+                  Why Us
                 </Link>
                 <DropdownList name='Use Cases' list={useCaseLinks} />
                 <Link className={classNames(styles.link, styles.desktopOnly)} to='/demo/'>
