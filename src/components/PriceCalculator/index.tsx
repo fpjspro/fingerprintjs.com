@@ -10,7 +10,7 @@ import { numberFormatter } from '../../helpers/format'
 import styles from './PriceCalculator.module.scss'
 
 export default function PriceCalculator() {
-  const selectOptions = pricingTable.slice(0, 5).map((entry) => ({
+  const selectOptions = pricingTable.map((entry) => ({
     label: numberFormatter.format(entry.value),
     value: entry.value,
   }))
@@ -20,7 +20,7 @@ export default function PriceCalculator() {
   const [customCount, setCustomCount] = useState<number | undefined>(undefined)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
-  function shouldUseSpecialModel() {
+  function isCustomPricing() {
     return (!customCount && selectedPreset.value === Infinity) || (customCount && customCount >= 10000000)
   }
 
@@ -39,22 +39,10 @@ export default function PriceCalculator() {
     }
   }
 
-  function getOnDemandPrice() {
+  function getPrice(paymentType: PaymentType) {
     return customCount === undefined
-      ? calculatePrice(selectedPreset.value, PaymentType.Monthly)
-      : calculatePrice(
-          customCount >= minimumIdentifications ? customCount : minimumIdentifications,
-          PaymentType.Monthly
-        )
-  }
-
-  function getReservedPrice() {
-    return customCount === undefined
-      ? calculatePrice(selectedPreset.value, PaymentType.Annually)
-      : calculatePrice(
-          customCount >= minimumIdentifications ? customCount : minimumIdentifications,
-          PaymentType.Annually
-        )
+      ? calculatePrice(selectedPreset.value, paymentType)
+      : calculatePrice(customCount >= minimumIdentifications ? customCount : minimumIdentifications, paymentType)
   }
 
   return (
@@ -84,18 +72,18 @@ export default function PriceCalculator() {
         </Column>
         <Column title={'On-Demand'}>
           <Price
-            value={shouldUseSpecialModel() ? 'Custom' : getOnDemandPrice()}
+            value={isCustomPricing() ? 'Custom' : getPrice(PaymentType.Monthly)}
             description='Pay as you go, cancel any time'
           />
         </Column>
         <Column title='Reserved'>
           <Price
-            value={shouldUseSpecialModel() ? 'Custom' : getReservedPrice()}
+            value={isCustomPricing() ? 'Custom' : getPrice(PaymentType.Annually)}
             description='Requires a 12 month prepay'
           />
         </Column>
         <Column title='Enterprise License'>
-          {shouldUseSpecialModel() ? (
+          {isCustomPricing() ? (
             <div className={styles.description}>Custom pricing for high traffic websites</div>
           ) : (
             <div className={styles.description}>Enterprise support license with SLA</div>

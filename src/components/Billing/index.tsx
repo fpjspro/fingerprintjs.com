@@ -19,14 +19,14 @@ const sliderConfig = {
 }
 
 export default function Billing() {
-  const sliderTable = pricingTable.slice(0, 5).map(({ label, value }) => {
+  const sliderTable = pricingTable.map(({ label, value }) => {
     return { label, value } as SliderValue
   })
   sliderTable.push({ label: '10M+', value: Infinity })
 
   const defaultValue = 0
   const [sliderValue, setSliderValue] = useState(defaultValue)
-  const [monthlyPayment, setMonthlyPayment] = useState(pricingTable[sliderValue].label)
+  const [monthlyPaymentLabel, setMonthlyPaymentLabel] = useState(pricingTable[defaultValue].label)
   const [paymentType, setPaymentType] = useState<PaymentType>(PaymentType.Monthly)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
@@ -42,12 +42,12 @@ export default function Billing() {
 
   const recalculatePricing = (value: number, paymentType: PaymentType) => {
     if (value === Infinity) {
-      setMonthlyPayment('Custom pricing')
+      setMonthlyPaymentLabel('Custom pricing')
       return
     }
 
     const newPrice = handlePriceChange(value, paymentType)
-    setMonthlyPayment(newPrice)
+    setMonthlyPaymentLabel(newPrice)
   }
 
   useEffect(() => {
@@ -88,7 +88,7 @@ export default function Billing() {
             </div>
             <div className={styles.payment}>
               <div>
-                <span className={styles.price}>{monthlyPayment} </span>
+                <span className={styles.price}>{monthlyPaymentLabel} </span>
                 {sliderValue !== sliderConfig.max && 'per month'}
               </div>
               {sliderValue !== sliderConfig.max ? (

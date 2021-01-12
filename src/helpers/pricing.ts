@@ -8,8 +8,6 @@ export const pricingTable = [
   { label: '500K', value: 500000 },
   { label: '1M', value: 1000000 },
   { label: '5M', value: 5000000 },
-  { label: '10M', value: 10000000 },
-  { label: '20M', value: 20000000 },
 ]
 
 export function handlePriceChange(currentValue: number, type: PaymentType): string {
