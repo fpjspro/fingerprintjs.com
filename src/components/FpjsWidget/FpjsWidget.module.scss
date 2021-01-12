@@ -206,7 +206,6 @@
           &:not(.browser) {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             flex-wrap: wrap;
             height: 3rem;
 
@@ -229,15 +228,26 @@
         justify-content: space-between;
         font-size: 2.5rem;
         grid-area: id;
+        height: auto !important;
 
         .label {
           height: 4rem !important;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          margin-right: 1rem;
         }
         @include media("<=phone") {
           font-size: 2rem;
+        }
+
+        .noWrap {
+          white-space: nowrap;
+          flex: 1;
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-left: 0 !important;
         }
 
         .value {
@@ -245,7 +255,7 @@
           color: v('brand-fire');
           font-weight: v('bold');
           opacity: 1;
-          margin-left: 0 !important;
+      
           @include media("<=phone") {
             flex-basis: 100%;
           }
