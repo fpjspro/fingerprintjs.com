@@ -23,7 +23,7 @@ const footerLinks: FooterLinkSection[] = [
         isLocal: true,
       },
       {
-        title: 'Why FPJS',
+        title: 'Why us',
         url: '/why-fpjs/',
         isLocal: true,
       },

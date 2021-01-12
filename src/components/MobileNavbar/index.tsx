@@ -29,7 +29,7 @@ export default function MobileNavbar() {
           <div className={classNames(styles.links, styles.main)}>
             <Container size='large' className={styles.container}>
               <Link to={PATH.whyFpjs} className={styles.link}>
-                Why FPJS
+                Why us
               </Link>
               <DropdownMenu name='Use Cases' list={useCaseLinks} />
               <Link to={PATH.demoUrl} className={styles.link}>
