@@ -3,13 +3,12 @@ import React from 'react'
 import Section from '../components/common/Section'
 import { LayoutTemplate } from '../components/Layout'
 import Container from '../components/common/Container'
-import Post, { PostProps } from '../components/Post/Post'
+import Post, { mapToPost, PostProps } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
-import { ArrayElement, GeneratedPageContext } from '../helpers/types'
-import { dateFormatter } from '../helpers/format'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import { useLocation } from '@reach/router'
+import { GeneratedPageContext } from '../helpers/types'
 
 import styles from './blog.module.scss'
 
@@ -41,7 +40,12 @@ export default function Blog({ data, pageContext }: BlogProps) {
           <h1>Blog Articles</h1>
 
           {isFirst && <Featured featuredPosts={featuredPosts.map(({ node }) => node).map(mapToPost)} />}
-          <PostGrid name='All Articles' posts={posts.map(({ node }) => node).map(mapToPost)} tags={tags} />
+          <PostGrid
+            name='All Articles'
+            posts={posts.map(({ node }) => node).map(mapToPost)}
+            tags={tags}
+            perRow='three'
+          />
 
           <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/blog/' />
         </Container>
@@ -51,34 +55,6 @@ export default function Blog({ data, pageContext }: BlogProps) {
 }
 
 export const pageQuery = graphql`
-  fragment PostData on MarkdownRemarkConnection {
-    edges {
-      node {
-        id
-        fields {
-          slug
-        }
-        frontmatter {
-          metadata {
-            title
-            description
-            image {
-              childImageSharp {
-                fluid(maxWidth: 512, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-            url
-          }
-          title
-          publishDate
-          tags
-        }
-      }
-    }
-  }
-
   query Blog($skip: Int!, $limit: Int!) {
     posts: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" } }
@@ -119,7 +95,7 @@ function Featured({ featuredPosts }: { featuredPosts: Array<PostProps> }) {
 
   return (
     <div>
-      {hasMainFeaturedPost && <Post {...featuredPosts[0]} featured />}
+      {hasMainFeaturedPost && <Post {...featuredPosts[0]} variant='wide' />}
       {hasFeaturedPosts && (
         <PostGrid
           name='Featured'
@@ -133,25 +109,4 @@ function Featured({ featuredPosts }: { featuredPosts: Array<PostProps> }) {
       )}
     </div>
   )
-}
-
-type PostQuery =
-  | NonNullable<ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogQuery['featuredPosts']>['edges']>>['node']>
-  | NonNullable<ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogQuery['posts']>['edges']>>['node']>
-function mapToPost(data: PostQuery): PostProps {
-  if (!data.fields || !data.frontmatter || !data.frontmatter.metadata) {
-    throw new Error('Posts should always have fields, frontmatter and metadata.')
-  }
-
-  const { publishDate = Date.now(), title = '', metadata, tags } = data.frontmatter
-  const { description = '', image, url } = metadata
-
-  return {
-    title,
-    description,
-    publishDate: dateFormatter.format(new Date(publishDate)),
-    image: image as GatsbyTypes.File,
-    path: url,
-    tags,
-  } as PostProps
 }

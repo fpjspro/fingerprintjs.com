@@ -3,11 +3,10 @@ import React from 'react'
 import Section from '../components/common/Section'
 import { LayoutTemplate } from '../components/Layout'
 import Container from '../components/common/Container'
-import { PostProps } from '../components/Post/Post'
+import { mapToPost } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
-import { ArrayElement, GeneratedPageContext } from '../helpers/types'
+import { GeneratedPageContext } from '../helpers/types'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
-import { dateFormatter } from '../helpers/format'
 import { kebabToTitle } from '../helpers/case'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
@@ -74,31 +73,7 @@ export const pageQuery = graphql`
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            metadata {
-              title
-              description
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 512, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-              url
-            }
-            title
-            publishDate
-            tags
-          }
-        }
-      }
+      ...PostData
     }
   }
 `
@@ -107,25 +82,4 @@ interface BlogTagContext extends GeneratedPageContext {
   currentPage: number
   numPages: number
   tag: string
-}
-
-type PostQuery = NonNullable<
-  ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogTagQuery['allMarkdownRemark']>['edges']>>['node']
->
-function mapToPost(data: PostQuery): PostProps {
-  if (!data.fields || !data.frontmatter || !data.frontmatter.metadata) {
-    throw new Error('Posts should always have fields, frontmatter and metadata.')
-  }
-
-  const { publishDate = Date.now(), title = '', metadata, tags } = data.frontmatter
-  const { description = '', image, url } = metadata
-
-  return {
-    title,
-    description,
-    publishDate: dateFormatter.format(new Date(publishDate)),
-    image: image as GatsbyTypes.File,
-    path: url,
-    tags,
-  } as PostProps
 }

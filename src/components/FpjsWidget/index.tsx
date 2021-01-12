@@ -120,10 +120,12 @@ function CurrentVisit({ currentVisit, visits, visitorId }: CurrentVisitProps) {
       <div className={styles.content}>
         <div className={styles.visitId}>
           <span className={styles.label}>Your ID: </span>
-          <span className={styles.value}>{visitorId}</span>
-          <Tippy content='Every visitor to your website is assigned a unique & permanent identifier.'>
-            <InfoSvg tabIndex={0} />
-          </Tippy>
+          <span className={styles.noWrap}>
+            <span className={styles.value}>{visitorId}</span>
+            <Tippy content='Every visitor to your website is assigned a unique & permanent identifier.'>
+              <InfoSvg tabIndex={0} />
+            </Tippy>
+          </span>
         </div>
         <div className={classNames(styles.info, styles.bot)}>
           <span className={styles.label}>Headless Browser</span>

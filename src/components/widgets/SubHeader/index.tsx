@@ -5,7 +5,7 @@ import styles from './SubHeader.module.scss'
 
 type SubHeaderTextSize = 'small' | 'normal' | 'medium' | 'large'
 type SubHeaderAlign = 'left' | 'right' | 'center'
-type SubHeaderWeight = 'normal' | 'bold'
+type SubHeaderWeight = 'secondary' | 'primary'
 
 export interface SubHeader {
   title: string
@@ -20,7 +20,7 @@ export interface SubHeader {
 export default function SubHeaderComponent({
   title,
   titleSize = 'medium',
-  titleWeight = 'normal',
+  titleWeight = 'secondary',
   subtitle,
   subtitleSize = 'small',
   align = 'center',
@@ -64,10 +64,10 @@ function sizeClasses(size: SubHeaderTextSize): string {
 
 function weightClasses(weight: SubHeaderWeight): string {
   switch (weight) {
-    case 'normal':
-      return styles.weightNormal
-    case 'bold':
-      return styles.weightBold
+    case 'primary':
+      return styles.weightPrimary
+    case 'secondary':
+      return styles.weightSecondary
     default:
       return ''
   }

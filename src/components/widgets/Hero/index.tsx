@@ -21,7 +21,7 @@ export default function Hero({ title, description, ctaText, ctaHref, className }
         <SubHeaderComponent
           title={title}
           titleSize='large'
-          titleWeight='bold'
+          titleWeight='primary'
           subtitle={description}
           subtitleSize='normal'
           align='center'
