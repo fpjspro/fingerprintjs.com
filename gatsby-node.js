@@ -1,3 +1,6 @@
+// eslint can't know something inside a query is a regex and complains about escaping.
+/* eslint no-useless-escape: 0 */
+
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 

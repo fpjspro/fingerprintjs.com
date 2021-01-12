@@ -1,15 +1,16 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import Section from '../components/common/Section'
-import Layout from '../components/Layout'
+import { LayoutTemplate } from '../components/Layout'
 import Container from '../components/common/Container'
-import { PostProps } from '../components/Post/Post'
+import { mapToPost } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
-import { ArrayElement, GeneratedPageContext } from '../helpers/types'
+import { GeneratedPageContext } from '../helpers/types'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
-import { dateFormatter } from '../helpers/format'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
+import useSiteMetadata from '../hooks/useSiteMetadata'
+import { useLocation } from '@reach/router'
 
 interface BlogFeaturedProps {
   data: GatsbyTypes.BlogFeaturedQuery
@@ -20,9 +21,18 @@ export default function BlogFeatured({ data, pageContext }: BlogFeaturedProps) {
 
   const { currentPage, numPages } = pageContext
   const breadcrumbs = pageContext.breadcrumb.crumbs
+  const { pathname } = useLocation()
+  let siteMetadata = useSiteMetadata()
+  siteMetadata = {
+    ...siteMetadata,
+    title: 'Featured Articles - FingerprintJS Blog | FingerprintJS',
+    description:
+      'We are an open source powered company working to prevent online fraud for websites of all sizes. Read our latest and greatest featured articles on our blog.',
+    siteUrl: `${siteMetadata.siteUrl}${pathname}`,
+  }
 
   return (
-    <Layout>
+    <LayoutTemplate siteMetadata={siteMetadata}>
       {breadcrumbs && (
         <>
           <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
@@ -41,7 +51,7 @@ export default function BlogFeatured({ data, pageContext }: BlogFeaturedProps) {
           <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/blog/featured/' />
         </Container>
       </Section>
-    </Layout>
+    </LayoutTemplate>
   )
 }
 
@@ -56,31 +66,7 @@ export const pageQuery = graphql`
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            metadata {
-              title
-              description
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 512, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-              url
-            }
-            title
-            publishDate
-            tags
-          }
-        }
-      }
+      ...PostData
     }
   }
 `
@@ -88,25 +74,4 @@ export const pageQuery = graphql`
 interface BlogFeaturedContext extends GeneratedPageContext {
   currentPage: number
   numPages: number
-}
-
-type PostQuery = NonNullable<
-  ArrayElement<NonNullable<NonNullable<GatsbyTypes.BlogFeaturedQuery['allMarkdownRemark']>['edges']>>['node']
->
-function mapToPost(data: PostQuery): PostProps {
-  if (!data.fields || !data.frontmatter || !data.frontmatter.metadata) {
-    throw new Error('Posts should always have fields, frontmatter and metadata.')
-  }
-
-  const { publishDate = Date.now(), title = '', metadata, tags } = data.frontmatter
-  const { description = '', image, url } = metadata
-
-  return {
-    title,
-    description,
-    publishDate: dateFormatter.format(new Date(publishDate)),
-    image: image as GatsbyTypes.File,
-    path: url,
-    tags,
-  } as PostProps
 }

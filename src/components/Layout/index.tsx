@@ -6,12 +6,14 @@ import Header from '../Header'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { FPJS_ENDPOINT, GTM_TOKEN, OPTIMIZE_TOKEN } from '../../constants/env'
 import { sendEvent } from '../../helpers/gtm'
+import { withTrailingSlash } from '../../helpers/url'
+import { BASE_URL } from '../../constants/content'
 import { defaultDataLayer } from '../../constants/content'
 
 interface LayoutProps {
   children: React.ReactNode
 }
-export default function Layout({ children }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
   const siteMetadata = useSiteMetadata()
 
   return <LayoutTemplate siteMetadata={siteMetadata}>{children}</LayoutTemplate>
@@ -23,7 +25,7 @@ interface LayoutTemplateProps extends LayoutProps {
 
 // We need this to not use static GraphQL queries in order use it in CMS preview (it runs it in browser directly)
 export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) {
-  const { title, description, url, image } = siteMetadata
+  const { title, description, siteUrl, image } = siteMetadata
   const fpjsEndpoint = FPJS_ENDPOINT
   const gtmToken = GTM_TOKEN
   const optimizeToken = OPTIMIZE_TOKEN
@@ -43,13 +45,13 @@ export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) 
         <link rel='icon' type='image/x-icon' href='/img/favicon.ico' />
         <meta name='description' content={description} />
 
-        <meta property='og:url' content={url} />
+        <meta property='og:url' content={withTrailingSlash(siteUrl ?? BASE_URL)} />
         <meta property='og:title' content={title} />
         <meta property='og:description' content={description} />
         <meta property='og:image' content={image} />
 
         <meta property='twitter:card' content='summary_large_image' />
-        <meta property='twitter:url' content={url} />
+        <meta property='twitter:url' content={withTrailingSlash(siteUrl ?? BASE_URL)} />
         <meta property='twitter:title' content={title} />
         <meta property='twitter:description' content={description} />
         <meta property='twitter:image' content={image} />

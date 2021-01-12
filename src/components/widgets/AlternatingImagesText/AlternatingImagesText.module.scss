@@ -5,7 +5,7 @@
 
 .title,
 .blockTitle {
-  font-weight: v(--normal);
+  font-weight: v('bold');
 }
 
 .title {
@@ -48,4 +48,11 @@
 .link {
   border-bottom: 1px solid v('brand-fire');
   color: v('brand-fire');
+
+  &:hover {
+    $hoverColor: adjust-color(c('brand-fire'), $lightness: -20%);
+
+    color: $hoverColor;
+    border-bottom: 1px solid $hoverColor;
+  }
 }

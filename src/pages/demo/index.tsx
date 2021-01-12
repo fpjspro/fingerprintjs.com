@@ -1,26 +1,34 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import Layout from '../../components/Layout'
+import { LayoutTemplate } from '../../components/Layout'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
 
 import DemoSection from '../../components/demo/DemoSection'
 import InfoSection from '../../components/demo/InfoSection'
 import SignupSection from '../../components/demo/SignupSection'
+import useSiteMetadata from '../../hooks/useSiteMetadata'
+import { useLocation } from '@reach/router'
 
-export default function DemoPage({ pageContext }: { pageContext: GeneratedPageContext }) {
+interface DemoPageProps {
+  pageContext: GeneratedPageContext
+}
+export default function DemoPage({ pageContext }: DemoPageProps) {
   const breadcrumbs = pageContext.breadcrumb.crumbs
+  const { pathname } = useLocation()
+  let siteMetadata = useSiteMetadata()
+  siteMetadata = {
+    ...siteMetadata,
+    title: 'Technical Demo - FingerprintJS Pro',
+    siteUrl: `${siteMetadata.siteUrl}${pathname}`,
+  }
 
   return (
-    <Layout>
-      <Helmet>
-        <title>Technical Demo - FingerprintJS Pro</title>
-      </Helmet>
+    <LayoutTemplate siteMetadata={siteMetadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
 
       <DemoSection />
       <InfoSection />
       <SignupSection />
-    </Layout>
+    </LayoutTemplate>
   )
 }

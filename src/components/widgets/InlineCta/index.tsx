@@ -19,9 +19,16 @@ export default function InlineCtaComponent({ title, subtitle, buttonText, button
   return (
     <Section className={classNames(styles.root, className)}>
       <Container size='large' className={styles.container}>
-        <SubHeaderComponent title={title} titleSize='large' subtitle={subtitle} subtitleSize='small' align='left' />
+        <SubHeaderComponent
+          title={title}
+          titleSize='large'
+          titleWeight='primary'
+          subtitle={subtitle}
+          subtitleSize='small'
+          align='left'
+        />
 
-        <Button small={true} href={buttonHref} className={styles.button}>
+        <Button href={buttonHref} className={styles.button}>
           {buttonText}
         </Button>
       </Container>

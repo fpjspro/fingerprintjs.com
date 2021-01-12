@@ -8,8 +8,11 @@ import { BASE_URL } from '../constants/content'
 import Breadcrumbs, { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../helpers/types'
+import { withTrailingSlash } from '../helpers/url'
 
 import styles from './long-form-content.module.scss'
+import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
+import { mapToPost, PostProps } from '../components/Post/Post'
 
 const HtmlContent = ({ content, className }: { content: string; className?: string }) => (
   <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
@@ -27,21 +30,20 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
-    data.markdownRemark?.frontmatter?.title === undefined ||
     data.markdownRemark?.html === undefined
   ) {
     return null
   }
 
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
-  const title = data.markdownRemark.frontmatter.title
+  const post = mapToPost(data.markdownRemark)
   const body = data.markdownRemark.html
 
   return (
     <LongFormContentTemplate
       contentComponent={HtmlContent}
       metadata={metadata}
-      title={title}
+      post={post}
       body={body}
       breadcrumbs={pageContext.breadcrumb.crumbs}
     />
@@ -53,6 +55,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         metadata {
           title
@@ -63,6 +68,8 @@ export const pageQuery = graphql`
           }
         }
         title
+        tags
+        featured
       }
     }
   }
@@ -70,12 +77,12 @@ export const pageQuery = graphql`
 
 interface TemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
-  title: string
+  post: PostProps
   body: string | React.ReactNode
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
   breadcrumbs?: Array<Breadcrumb>
 }
-export function LongFormContentTemplate({ metadata, title, body, contentComponent, breadcrumbs }: TemplateProps) {
+export function LongFormContentTemplate({ metadata, post, body, contentComponent, breadcrumbs }: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
   return (
@@ -90,9 +97,13 @@ export function LongFormContentTemplate({ metadata, title, body, contentComponen
       )}
       <Section className={styles.root}>
         <Container size='small' className={styles.container}>
-          <h1 className={styles.title}>{title}</h1>
+          <h1 className={styles.title}>{post.title}</h1>
 
           <ContentComponent content={body} className={styles.content} />
+        </Container>
+
+        <Container>
+          <RelatedArticles article={post} />
         </Container>
       </Section>
     </LayoutTemplate>
@@ -101,9 +112,14 @@ export function LongFormContentTemplate({ metadata, title, body, contentComponen
 
 export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
-  const title = entry.getIn(['data', 'title'])
 
-  return <LongFormContentTemplate metadata={mapToMetadata(metadata)} title={title} body={widgetFor('body') ?? <></>} />
+  return (
+    <LongFormContentTemplate
+      metadata={mapToMetadata(metadata)}
+      post={mapToPost({ frontmatter: entry.get('data').toObject() })}
+      body={widgetFor('body') ?? <></>}
+    />
+  )
 }
 
 type QueryMetadata = NonNullable<
@@ -113,7 +129,7 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
   return {
     title: queryMetadata?.title ?? '',
     description: queryMetadata?.description ?? '',
-    url: queryMetadata?.url ?? '',
-    image: `${BASE_URL}${queryMetadata?.image}` ?? '',
+    siteUrl: withTrailingSlash(queryMetadata?.url ?? ''),
+    image: `${BASE_URL}${queryMetadata?.image?.publicURL}` ?? '',
   } as GatsbyTypes.SiteSiteMetadata
 }

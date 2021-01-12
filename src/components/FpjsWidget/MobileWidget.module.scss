@@ -93,6 +93,10 @@
   .visit {
     padding: 2rem 3rem;
 
+    @include media("<=320px") {
+      padding: 2rem 2rem;
+    }
+
     > * + * {
       margin-top: 2rem;
     }
