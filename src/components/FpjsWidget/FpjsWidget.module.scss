@@ -1,11 +1,14 @@
 .container {
   position: relative;
 
-  @include media("<=phoneLandscape") {
+  @include media('>phoneLandscape') {
+    min-width: 620px;
+  }
+
+  @include media('<=phoneLandscape') {
     min-height: 75rem;
   }
 }
-
 
 .demo {
   display: flex;
@@ -28,7 +31,7 @@
   }
 
   &.loaded {
-    transition: opacity .3s ease-out, transform .3s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     opacity: 1;
     transform: translateY(0px);
 
@@ -60,6 +63,10 @@
     flex-direction: column;
   }
 
+  .history {
+    max-width: 24rem;
+  }
+
   .content {
     padding: 2rem 2rem;
     flex: 1;
@@ -70,7 +77,7 @@
 
     .header {
       background-color: adjust-color(c('brand-water'), $saturation: -25%, $lightness: 25%);
-      @include media("<=phoneLandscape") {
+      @include media('<=phoneLandscape') {
         padding-top: 2rem;
         background-color: v('off-white');
         color: v('brand-water');
@@ -88,7 +95,7 @@
       padding: 2rem;
       @include scrollbox(300px, 20px, 0);
       position: relative;
-      @include media("<=phoneLandscape") {
+      @include media('<=phoneLandscape') {
         // padding-top: 0;
         @include scrollbox(150px, 20px, 0);
       }
@@ -134,7 +141,7 @@
             background-color: v('off-white');
           }
 
-          +.visit {
+          + .visit {
             margin-top: 0.5rem;
           }
 
@@ -165,7 +172,7 @@
   }
 
   .currentVisit {
-    @include media("<=phoneLandscape") {
+    @include media('<=phoneLandscape') {
       order: -1;
     }
 
@@ -174,12 +181,12 @@
       font-family: v(ff-mono);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-areas: 'id id''bot location''ip location''incognito location''browser location';
+      grid-template-areas: 'id id' 'bot location' 'ip location' 'incognito location' 'browser location';
       column-gap: 2rem;
       row-gap: 3rem;
-      @include media("<=phoneLandscape") {
+      @include media('<=phoneLandscape') {
         grid-template-columns: 1fr;
-        grid-template-areas: 'id''bot''ip''incognito''browser''location';
+        grid-template-areas: 'id' 'bot' 'ip' 'incognito' 'browser' 'location';
       }
 
       .info:not(.location) {
@@ -193,7 +200,7 @@
       svg {
         fill: v('brand-fire');
         vertical-align: -webkit-baseline-middle;
-        @include media("<=phone") {
+        @include media('<=phone') {
           order: 2;
         }
       }
@@ -217,7 +224,7 @@
       }
 
       .value {
-        @include media("<=phone") {
+        @include media('<=phone') {
           order: 3;
         }
       }
@@ -237,7 +244,7 @@
           white-space: nowrap;
           margin-right: 1rem;
         }
-        @include media("<=phone") {
+        @include media('<=phone') {
           font-size: 2rem;
         }
 
@@ -255,8 +262,8 @@
           color: v('brand-fire');
           font-weight: v('bold');
           opacity: 1;
-      
-          @include media("<=phone") {
+
+          @include media('<=phone') {
             flex-basis: 100%;
           }
         }
@@ -295,7 +302,7 @@
           overflow: hidden;
           position: relative;
           cursor: pointer;
-          @include media("<=desktop") {
+          @include media('<=desktop') {
             margin-top: 1rem;
           }
 
@@ -309,7 +316,7 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%) scale(1);
-            @include media(">desktop") {
+            @include media('>desktop') {
               animation: pulse 2s infinite;
             }
           }
@@ -353,7 +360,7 @@
         border-right: 1px solid adjust-color(c('white'), $alpha: -0.9);
         background-color: var(--transparent);
 
-        @include media("<=phoneLandscape") {
+        @include media('<=phoneLandscape') {
           background-color: v('transparent');
           color: v('white');
 
@@ -408,23 +415,20 @@
   }
 }
 
-
-
-
 @keyframes pulse {
   0% {
-      transform: translate(-50%, -50%) scale(0.95);
-      box-shadow: 0 0 0 0 rgba(240, 68, 5, 0.7);
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow: 0 0 0 0 rgba(240, 68, 5, 0.7);
   }
 
   70% {
-      transform: translate(-50%, -50%) scale(1);
-      box-shadow: 0 0 0 10px rgba(240, 68, 5, 0);
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 10px rgba(240, 68, 5, 0);
   }
 
   100% {
-      transform: translate(-50%, -50%) scale(0.95);
-      box-shadow: 0 0 0 0 rgba(240, 68, 5, 0);
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow: 0 0 0 0 rgba(240, 68, 5, 0);
   }
 }
 
@@ -443,19 +447,19 @@
   left: 0;
   top: 0;
 
-  @include media(">phoneLandscape") {
+  @include media('>phoneLandscape') {
     height: 75rem;
   }
 }
 
 .desktopOnly {
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     display: none;
   }
 }
 
 .mobileOnly {
-  @include media(">phoneLandscape") {
+  @include media('>phoneLandscape') {
     display: none;
   }
 }
