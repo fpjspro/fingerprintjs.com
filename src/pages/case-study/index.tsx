@@ -72,7 +72,7 @@ function Summary() {
       title: 'New revenue from sign-ups',
       children: (
         <>
-          <p>
+          <p className={styles.result}>
             Chegg noticed increased revenue within weeks of implementing FingerprintJS Pro from new sign-ups spun off
             from shared accounts.
           </p>
@@ -87,7 +87,7 @@ function Summary() {
       icon: SecondPlaceholderSvg,
       title: 'No impact to customer success',
       children: (
-        <p>
+        <p className={styles.result}>
           Chegg maintained the same level of cancellations and customer support calls after implementation, clearly
           demonstrating that there were no significant drawbacks for customers or the business.
         </p>
@@ -97,7 +97,7 @@ function Summary() {
       icon: ThirdPlaceholderSvg,
       title: 'FingerprintJS feedback loop',
       children: (
-        <p>
+        <p className={styles.result}>
           Chegg continues to work closely with the FingerprintJS technical team to adjust algorithms to changes in user
           behavior to maintain high accuracy and a positive student experience.
         </p>
@@ -187,8 +187,8 @@ function Body() {
 
               <h2>Why FingerprintJS</h2>
               <p>
-                From Chegg's investigation, they found that FingerprintJS Pro provided the best solution out of all the
-                alternatives they considered for account sharing prevention.
+                From Chegg&apos;s investigation, they found that FingerprintJS Pro provided the best solution out of all
+                the alternatives they considered for account sharing prevention.
               </p>
 
               <h3>Higher accuracy vs. cookies, IP addresses, and other device identification services</h3>
@@ -214,10 +214,10 @@ function Body() {
 
               <h3>GDPR and CCPA compliant</h3>
               <p>
-                Due to Chegg's 'Student First' philosophy, it was essential to maintain their users' rights to online
-                privacy. FingerprintJS Pro is fully compliant with GDPR and CCPA for fraud detection. All FingerprintJS
-                customers can also choose between US and EU hosted data centers to comply with their data residency and
-                localization requirements.
+                Due to Chegg&apos;s &apos;Student First&apos; philosophy, it was essential to maintain their users&apos;
+                rights to online privacy. FingerprintJS Pro is fully compliant with GDPR and CCPA for fraud detection.
+                All FingerprintJS customers can also choose between US and EU hosted data centers to comply with their
+                data residency and localization requirements.
               </p>
             </>
           }

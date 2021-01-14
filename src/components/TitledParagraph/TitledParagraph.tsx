@@ -19,7 +19,7 @@ export default function TitledParagraph({ icon: IconComponent, title, children }
         <h4 className={styles.title}>{title}</h4>
       </header>
 
-      <div className={styles.content}>{children}</div>
+      <div>{children}</div>
     </div>
   )
 }
