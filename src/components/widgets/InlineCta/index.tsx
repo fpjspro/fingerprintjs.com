@@ -10,15 +10,31 @@ import styles from './InlineCta.module.scss'
 export interface InlineCta {
   title: string
   subtitle: string
+  primaryAction?: string
   buttonText: string
   buttonHref: string
+  secondaryAction?: string
+  secondaryLink?: string
+  secondaryHref?: string
+  size?: 'small' | 'regular' | 'large'
   className?: string
 }
 
-export default function InlineCtaComponent({ title, subtitle, buttonText, buttonHref, className }: InlineCta) {
+export default function InlineCtaComponent({
+  title,
+  subtitle,
+  primaryAction,
+  buttonText,
+  buttonHref,
+  secondaryAction,
+  secondaryLink,
+  secondaryHref,
+  size = 'large',
+  className,
+}: InlineCta) {
   return (
     <Section className={classNames(styles.root, className)}>
-      <Container size='large' className={styles.container}>
+      <Container size={size} className={styles.container}>
         <SubHeaderComponent
           title={title}
           titleSize='large'
@@ -28,9 +44,17 @@ export default function InlineCtaComponent({ title, subtitle, buttonText, button
           align='left'
         />
 
-        <Button href={buttonHref} className={styles.button}>
-          {buttonText}
-        </Button>
+        <div className={styles.actions}>
+          <span className={styles.label}>{secondaryAction}</span>
+          <a href={secondaryHref} className={styles.link}>
+            {secondaryLink}
+          </a>
+
+          <span className={styles.label}>{primaryAction}</span>
+          <Button href={buttonHref} className={styles.button}>
+            {buttonText}
+          </Button>
+        </div>
       </Container>
     </Section>
   )

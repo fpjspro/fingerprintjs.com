@@ -1,0 +1,38 @@
+.root {
+  margin-top: 4rem;
+
+  & + .root {
+    margin-top: 5rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+}
+
+.icon {
+  margin-right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  opacity: v('extra-faded');
+  @include transition((opacity));
+}
+
+.title {
+  font-size: 2.75rem;
+  margin-bottom: 2rem;
+}
+
+.content {
+  p {
+    font-size: 2.25rem;
+  }
+}

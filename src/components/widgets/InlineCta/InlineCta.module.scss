@@ -38,10 +38,31 @@
   }
 }
 
-.button {
+.actions {
+  display: flex;
+  flex-direction: column;
   margin-right: 10rem;
   margin-left: 20rem;
+}
 
+.label {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.link {
+  color: c('brand-fire');
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.button {
   @include media('<=desktop') {
     margin-left: 12rem;
   }

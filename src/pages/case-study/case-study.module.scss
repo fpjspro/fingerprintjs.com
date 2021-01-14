@@ -1,0 +1,53 @@
+.section {
+  &:not(:last-child) {
+    padding-bottom: 0;
+  }
+}
+
+.titleWrapper,
+.descriptionWrapper {
+  background-color: c('brand-water');
+
+  padding: 2rem 0;
+
+  * {
+    color: c('white');
+  }
+}
+
+.descriptionWrapper {
+  background: adjust-color(c('brand-water'), $lightness: +5%);
+}
+
+.description {
+  font-size: 2.25rem;
+}
+
+.summaryWrapper {
+  background-color: c('off-white');
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+
+  padding-bottom: 8rem;
+
+  @include media('<=tabletWide') {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.summaryTitle {
+  font-size: 4rem;
+}
+
+.reference {
+  font-size: 1.75rem;
+
+  span {
+    margin-right: 1rem;
+  }
+}

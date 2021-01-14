@@ -9,18 +9,11 @@ import Breadcrumbs, { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../helpers/types'
 import { withTrailingSlash } from '../helpers/url'
+import { Content, HtmlContent } from '../components/Content/Content'
 
 import styles from './long-form-content.module.scss'
 import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
 import { mapToPost, PostProps } from '../components/Post/Post'
-
-const HtmlContent = ({ content, className }: { content: string; className?: string }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
-)
-
-const Content = ({ content, className }: { content: string | React.ReactNode; className?: string }) => (
-  <div className={className}>{content}</div>
-)
 
 interface LongFormContentProps {
   data: GatsbyTypes.LongFormContentQuery
