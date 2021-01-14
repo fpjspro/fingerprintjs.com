@@ -12,8 +12,16 @@ export const FPJS_TOKEN =
     [NetlifyContext.Production]: process.env.GATSBY_FPJS_TOKEN,
     [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_FPJS_TOKEN,
   }) ?? 'test_client_token'
-export const FPJS_API_TOKEN = process.env.GATSBY_FPJS_API_TOKEN ?? 'test_fpjs_api_token'
-export const FPJS_ENDPOINT = process.env.GATSBY_FPJS_ENDPOINT ?? ''
+export const FPJS_API_TOKEN =
+  getContextEnv({
+    [NetlifyContext.Production]: process.env.GATSBY_FPJS_API_TOKEN,
+    [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_API_TOKEN,
+  }) ?? 'test_fpjs_api_token'
+export const FPJS_ENDPOINT =
+  getContextEnv({
+    [NetlifyContext.Production]: process.env.GATSBY_FPJS_ENDPOINT,
+    [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_API_TOKEN,
+  }) ?? ''
 export const FPJS_REGION = process.env.GATSBY_FPJS_REGION
 export const FPJS_DASHBOARD_ENDPOINT = process.env.GATSBY_FPJS_DASHBOARD_ENDPOINT
 export const FPJS_MONITORING_CLIENT_ID = process.env.GATSBY_FPJS_MONITORING_CLIENT_ID
