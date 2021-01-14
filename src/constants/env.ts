@@ -20,7 +20,7 @@ export const FPJS_API_TOKEN =
 export const FPJS_ENDPOINT =
   getContextEnv({
     [NetlifyContext.Production]: process.env.GATSBY_FPJS_ENDPOINT,
-    [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_API_TOKEN,
+    [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_FPJS_ENDPOINT,
   }) ?? ''
 export const FPJS_REGION = process.env.GATSBY_FPJS_REGION
 export const FPJS_DASHBOARD_ENDPOINT = process.env.GATSBY_FPJS_DASHBOARD_ENDPOINT
