@@ -18,7 +18,6 @@ module.exports = {
     image: 'https://fingerprintjs.com/img/fpjs-preview.png',
   },
   plugins: [
-    'gatsby-plugin-netlify-cache',
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
