@@ -21,7 +21,6 @@ export default function CardSectionComponent({ title, subtitle, cards, className
         <div className={styles.cardSection}>
           <SubHeaderComponent title={title} subtitle={subtitle} titleWeight='primary' />
           <CardGrid cards={cards} />
-          <span>Testing netlify build cache.</span>
         </div>
       </Container>
     </Section>
