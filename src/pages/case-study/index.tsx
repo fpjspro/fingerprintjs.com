@@ -17,6 +17,7 @@ import TitledParagraph from '../../components/TitledParagraph/TitledParagraph'
 import { Content } from '../../components/Content/Content'
 
 import styles from './case-study.module.scss'
+import Button from '../../components/common/Button'
 
 export default function CaseStudyPage() {
   const { pathname } = useLocation()
@@ -40,27 +41,28 @@ export default function CaseStudyPage() {
 function Header() {
   return (
     <Section className={styles.section}>
-      <div className={styles.titleWrapper}>
-        <Container>
-          <SubHeaderComponent
-            title='Case Study'
-            titleSize='medium'
-            subtitle='How Chegg Solved Account Sharing with FingerprintJS Pro'
-            subtitleSize='large'
-            subtitleWeight='primary'
-            align='left'
-          />
-        </Container>
-      </div>
+      <Container>
+        <SubHeaderComponent
+          title='How Chegg Solved Account Sharing with FingerprintJS Pro'
+          titleSize='large'
+          subtitle='Case Study'
+          subtitleSize='medium'
+          titleWeight='primary'
+          align='left'
+          labeled
+          className={styles.header}
+        />
 
-      <div className={styles.descriptionWrapper}>
-        <Container>
-          <p className={styles.description}>
+        <div className={styles.subHeader}>
+          <p>
             Using FingerprintJS&apos; browser fingerprinting service, Chegg was able to significantly reduce account
             sharing, resulting in an immediate increase in new sign-ups while keeping their legitimate users happy.
           </p>
-        </Container>
-      </div>
+          <Button variant='outline' className={styles.downloadPdf}>
+            Download the PDF
+          </Button>
+        </div>
+      </Container>
     </Section>
   )
 }
@@ -106,31 +108,33 @@ function Summary() {
   ]
 
   return (
-    <Section className={classNames(styles.section, styles.summaryWrapper)}>
-      <Container className={styles.summary}>
-        <div>
-          <h3 className={styles.summaryTitle}>Results</h3>
-          {results.map(({ icon, title, children }) => (
-            <TitledParagraph key={title} icon={icon} title={title}>
-              {children}
-            </TitledParagraph>
-          ))}
-        </div>
+    <Section className={classNames(styles.section, styles.adjacent)}>
+      <Container>
+        <div className={styles.summaryWrapper}>
+          <div>
+            <h2 className={styles.summaryTitle}>Results</h2>
+            {results.map(({ icon, title, children }) => (
+              <TitledParagraph key={title} icon={icon} title={title}>
+                {children}
+              </TitledParagraph>
+            ))}
+          </div>
 
-        <div>
-          <CustomerOverview
-            logo={companyLogo}
-            description='Chegg is an education company that provides a suite of services including digital and physical textbooks, homework solutions, tutoring, and internship placement.'
-            bullets={[
-              { value: '3.7', description: 'Million Students' },
-              { value: '190', description: 'Countries' },
-              { value: '#275', description: 'Global site rank (2)' },
-            ]}
-          />
-          <BlockQuote author='Augie Kennady, Manager of Consumer Operations & Analytics'>
-            FingerPrintJS helped us solve our account sharing problem in a manner that was both datadriven and, most
-            importantly, Student First!
-          </BlockQuote>
+          <div>
+            <CustomerOverview
+              logo={companyLogo}
+              description='Chegg is an education company that provides a suite of services including digital and physical textbooks, homework solutions, tutoring, and internship placement.'
+              bullets={[
+                { value: '3.7', description: 'Million Students' },
+                { value: '190', description: 'Countries' },
+                { value: '#275', description: 'Global site rank (2)' },
+              ]}
+            />
+            <BlockQuote author='Augie Kennady, Manager of Consumer Operations & Analytics'>
+              FingerPrintJS helped us solve our account sharing problem in a manner that was both datadriven and, most
+              importantly, Student First!
+            </BlockQuote>
+          </div>
         </div>
       </Container>
     </Section>
@@ -140,12 +144,13 @@ function Summary() {
 function Body() {
   return (
     <Section className={styles.section}>
-      <Container className={styles.body}>
+      <Container>
         <Content
+          className={styles.body}
           content={
             <>
               <h2>The problem</h2>
-              <BlockQuote author='Andy Brown, CFO, during investor call (3)'>
+              <BlockQuote author='Andy Brown, CFO, during investor call (3)' className={styles.problemQuote}>
                 I don’t think we comprehended, as a company, how big account sharing has been...
               </BlockQuote>
 

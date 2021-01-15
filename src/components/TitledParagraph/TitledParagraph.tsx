@@ -16,7 +16,7 @@ export default function TitledParagraph({ icon: IconComponent, title, children }
             <IconComponent className={styles.icon} />
           </div>
         )}
-        <h4 className={styles.title}>{title}</h4>
+        <h3 className={styles.title}>{title}</h3>
       </header>
 
       <div>{children}</div>

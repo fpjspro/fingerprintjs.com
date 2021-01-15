@@ -15,6 +15,7 @@ export interface SubHeader {
   subtitleSize?: SubHeaderTextSize
   subtitleWeight?: SubHeaderWeight
   align?: SubHeaderAlign
+  labeled?: boolean
   className?: string
 }
 
@@ -26,15 +27,45 @@ export default function SubHeaderComponent({
   subtitleSize = 'small',
   subtitleWeight = 'secondary',
   align = 'center',
+  labeled,
   className,
 }: SubHeader) {
   return (
     <header className={classNames(styles.root, className, alignmentClasses(align))}>
-      <h1 className={classNames(styles.title, sizeClasses(titleSize), weightClasses(titleWeight))}>{title}</h1>
-      {subtitle && (
-        <h2 className={classNames(styles.subtitle, sizeClasses(subtitleSize), weightClasses(subtitleWeight))}>
-          {subtitle}
-        </h2>
+      {labeled ? (
+        <>
+          {subtitle && (
+            <span
+              className={classNames(
+                styles.subtitle,
+                styles.label,
+                sizeClasses(subtitleSize),
+                weightClasses(subtitleWeight)
+              )}
+            >
+              {subtitle}
+            </span>
+          )}
+          <h1 className={classNames(styles.title, styles.adjacent, sizeClasses(titleSize), weightClasses(titleWeight))}>
+            {title}
+          </h1>
+        </>
+      ) : (
+        <>
+          <h1 className={classNames(styles.title, sizeClasses(titleSize), weightClasses(titleWeight))}>{title}</h1>
+          {subtitle && (
+            <h2
+              className={classNames(
+                styles.subtitle,
+                styles.adjacent,
+                sizeClasses(subtitleSize),
+                weightClasses(subtitleWeight)
+              )}
+            >
+              {subtitle}
+            </h2>
+          )}
+        </>
       )}
     </header>
   )
