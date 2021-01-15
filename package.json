@@ -87,7 +87,7 @@
   "scripts": {
     "clean": "gatsby clean",
     "start": "yarn develop",
-    "build": "yarn clean && gatsby build",
+    "build": "gatsby build",
     "develop": "yarn clean && gatsby develop",
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx,.js",
     "lint:fix": "eslint . --ext .ts,.tsx,.js --quiet --fix",
