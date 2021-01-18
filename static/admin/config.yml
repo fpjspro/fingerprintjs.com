@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
-  branch: master
+  # Testing only, don't merge this.
+  branch: cms-test
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -113,7 +114,7 @@ collections:
             ],
         }
       - { label: Featured, name: featured, widget: boolean }
-      - { label: Publish date, name: publishDate, widget: datetime, date_format: 'MM.DD.YYYY' }
+      - { label: Publish date, name: publishDate, widget: datetime }
       - { label: Title, name: title, widget: string }
       - name: tags
         label: Tags
