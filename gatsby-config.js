@@ -21,7 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ['BRANCH'],
+        allowList: ['BRANCH', 'CONTEXT'],
       },
     },
     'gatsby-plugin-sitemap',

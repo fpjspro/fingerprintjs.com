@@ -8,7 +8,7 @@ metadata:
   url: https://fingerprintjs.com/blog/device-fingerprinting-android
   image: /img/uploads/4.png
 featured: false
-publishDate: 12.08.2020 4:18 PM
+publishDate: 2020-12-08T16:18
 title: 'Life after ANDROID_ID: Android Identification via Device Fingerprinting'
 tags:
   - java
