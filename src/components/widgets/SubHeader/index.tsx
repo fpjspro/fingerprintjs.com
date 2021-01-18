@@ -7,67 +7,57 @@ type SubHeaderTextSize = 'small' | 'normal' | 'medium' | 'large'
 type SubHeaderAlign = 'left' | 'right' | 'center'
 type SubHeaderWeight = 'secondary' | 'primary'
 
+export interface SubHeaderElement {
+  text: string
+  size?: SubHeaderTextSize
+  weight?: SubHeaderWeight
+}
 export interface SubHeader {
-  title: string
-  titleSize?: SubHeaderTextSize
-  titleWeight?: SubHeaderWeight
-  subtitle?: string
-  subtitleSize?: SubHeaderTextSize
-  subtitleWeight?: SubHeaderWeight
+  title: SubHeaderElement
+  subtitle?: SubHeaderElement
+  label?: SubHeaderElement
   align?: SubHeaderAlign
-  labeled?: boolean
   className?: string
 }
 
-export default function SubHeaderComponent({
-  title,
-  titleSize = 'medium',
-  titleWeight = 'secondary',
-  subtitle,
-  subtitleSize = 'small',
-  subtitleWeight = 'secondary',
-  align = 'center',
-  labeled,
-  className,
-}: SubHeader) {
+export default function SubHeaderComponent({ title, subtitle, label, align = 'center', className }: SubHeader) {
   return (
-    <header className={classNames(styles.root, className, alignmentClasses(align))}>
-      {labeled ? (
-        <>
-          {subtitle && (
-            <span
-              className={classNames(
-                styles.subtitle,
-                styles.label,
-                sizeClasses(subtitleSize),
-                weightClasses(subtitleWeight)
-              )}
-            >
-              {subtitle}
-            </span>
+    <section className={classNames(styles.root, className, alignmentClasses(align))}>
+      {label && (
+        <span
+          className={classNames(
+            styles.label,
+            sizeClasses(label.size ?? 'small'),
+            weightClasses(label.weight ?? 'secondary')
           )}
-          <h1 className={classNames(styles.title, styles.adjacent, sizeClasses(titleSize), weightClasses(titleWeight))}>
-            {title}
-          </h1>
-        </>
-      ) : (
-        <>
-          <h1 className={classNames(styles.title, sizeClasses(titleSize), weightClasses(titleWeight))}>{title}</h1>
-          {subtitle && (
-            <h2
-              className={classNames(
-                styles.subtitle,
-                styles.adjacent,
-                sizeClasses(subtitleSize),
-                weightClasses(subtitleWeight)
-              )}
-            >
-              {subtitle}
-            </h2>
-          )}
-        </>
+        >
+          {label.text}
+        </span>
       )}
-    </header>
+
+      <h1
+        className={classNames(
+          styles.title,
+          { [styles.adjacent]: !!label },
+          sizeClasses(title.size ?? 'medium'),
+          weightClasses(title.weight ?? 'secondary')
+        )}
+      >
+        {title.text}
+      </h1>
+
+      {subtitle && (
+        <h2
+          className={classNames(
+            styles.subtitle,
+            sizeClasses(subtitle.size ?? 'small'),
+            weightClasses(subtitle.weight ?? 'secondary')
+          )}
+        >
+          {subtitle.text}
+        </h2>
+      )}
+    </section>
   )
 }
 

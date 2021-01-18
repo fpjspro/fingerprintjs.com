@@ -57,9 +57,15 @@
 }
 
 .link {
+  cursor: pointer;
+
   color: c('brand-fire');
   font-size: 1.8rem;
   font-weight: bold;
+
+  &:hover {
+    color: adjust-color(c('brand-fire'), $lightness: -20%);
+  }
 }
 
 .button {

@@ -19,7 +19,10 @@ export default function CardSectionComponent({ title, subtitle, cards, className
     <Section className={classNames(className, styles.root)}>
       <Container size='large'>
         <div className={styles.cardSection}>
-          <SubHeaderComponent title={title} subtitle={subtitle} titleWeight='primary' />
+          <SubHeaderComponent
+            title={{ text: title, weight: 'primary' }}
+            subtitle={subtitle ? { text: subtitle } : undefined}
+          />
           <CardGrid cards={cards} />
         </div>
       </Container>

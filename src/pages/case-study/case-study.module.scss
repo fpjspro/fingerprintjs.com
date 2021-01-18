@@ -5,6 +5,12 @@
   }
 }
 
+.container {
+  @include media('<=tablet') {
+    padding: 0;
+  }
+}
+
 .adjacent {
   padding-top: 0;
 }
@@ -12,10 +18,7 @@
 .header,
 .subHeader {
   padding: 4rem 6rem;
-  &,
-  * {
-    color: c('white');
-  }
+  color: c('white');
 }
 
 .header {
@@ -34,19 +37,6 @@
 .downloadPdf {
   margin-top: 2rem;
   max-width: 30rem;
-
-  $color: adjust-color(c('off-white'), $lightness: -20%);
-  box-shadow: inset 0 0 0 2px $color;
-  * {
-    color: $color;
-  }
-
-  &:hover {
-    box-shadow: inset 0 0 0 2px c('off-white');
-    * {
-      color: c('off-white');
-    }
-  }
 }
 
 .summaryWrapper {

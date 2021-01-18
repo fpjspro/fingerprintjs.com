@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LayoutTemplate } from '../../components/Layout'
 import { useLocation } from '@reach/router'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
@@ -15,9 +15,12 @@ import companyLogo from '../../img/logo.svg'
 import CustomerOverview from '../../components/CustomerOverview/CustomerOverview'
 import TitledParagraph from '../../components/TitledParagraph/TitledParagraph'
 import { Content } from '../../components/Content/Content'
+import Button from '../../components/common/Button'
+import Modal from '../../components/common/Modal'
+import ContactSalesForm from '../../components/ContactSalesForm'
+import { URL } from '../../constants/content'
 
 import styles from './case-study.module.scss'
-import Button from '../../components/common/Button'
 
 export default function CaseStudyPage() {
   const { pathname } = useLocation()
@@ -41,15 +44,11 @@ export default function CaseStudyPage() {
 function Header() {
   return (
     <Section className={styles.section}>
-      <Container>
+      <Container size='large' className={styles.container}>
         <SubHeaderComponent
-          title='How Chegg Solved Account Sharing with FingerprintJS Pro'
-          titleSize='large'
-          subtitle='Case Study'
-          subtitleSize='medium'
-          titleWeight='primary'
+          label={{ text: 'Case Study', size: 'medium' }}
+          title={{ text: 'How Chegg Solved Account Sharing with FingerprintJS Pro', size: 'large', weight: 'primary' }}
           align='left'
-          labeled
           className={styles.header}
         />
 
@@ -58,7 +57,7 @@ function Header() {
             Using FingerprintJS&apos; browser fingerprinting service, Chegg was able to significantly reduce account
             sharing, resulting in an immediate increase in new sign-ups while keeping their legitimate users happy.
           </p>
-          <Button variant='outline' className={styles.downloadPdf}>
+          <Button href={'/pdf/case-study/chegg.pdf'} variant='faded' className={styles.downloadPdf} download>
             Download the PDF
           </Button>
         </div>
@@ -109,7 +108,7 @@ function Summary() {
 
   return (
     <Section className={classNames(styles.section, styles.adjacent)}>
-      <Container>
+      <Container size='large' className={styles.container}>
         <div className={styles.summaryWrapper}>
           <div>
             <h2 className={styles.summaryTitle}>Results</h2>
@@ -131,7 +130,7 @@ function Summary() {
               ]}
             />
             <BlockQuote author='Augie Kennady, Manager of Consumer Operations & Analytics'>
-              FingerPrintJS helped us solve our account sharing problem in a manner that was both datadriven and, most
+              FingerprintJS helped us solve our account sharing problem in a manner that was both data-driven and, most
               importantly, Student First!
             </BlockQuote>
           </div>
@@ -144,7 +143,7 @@ function Summary() {
 function Body() {
   return (
     <Section className={styles.section}>
-      <Container>
+      <Container size='large' className={styles.container}>
         <Content
           className={styles.body}
           content={
@@ -245,23 +244,35 @@ function Footer() {
     },
     { name: 'Jeffries Virtual Consumer Conference - Jun. 24 2020' },
   ]
+  const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
   return (
-    <footer>
-      <ReferenceList references={references} />
+    <>
+      <section>
+        <ReferenceList references={references} />
 
-      <InlineCtaComponent
-        title='Get in Touch'
-        subtitle='Learn how FingerprintJS Pro can help your business build a custom solution to prevent account sharing and increase revenue.'
-        primaryAction='Get Started Today'
-        buttonText='Start 10-Day Trial'
-        buttonHref='/'
-        secondaryAction='Contact Sales'
-        secondaryLink='sales@fingerprintjs.com'
-        secondaryHref='mailto:sales@fingerprintjs.com'
-        size='regular'
-      />
-    </footer>
+        <InlineCtaComponent
+          title='Get in Touch'
+          primaryAction={{
+            label: 'Get Started Today',
+            name: 'Start 10-Day Trial',
+            action: URL.signupUrl,
+          }}
+          secondaryAction={{
+            label: 'Talk to us',
+            name: 'Contact Sales',
+            action: () => setIsContactSalesModalOpen(true),
+            type: 'link',
+          }}
+          subtitle='Learn how FingerprintJS Pro can help your business build a custom solution to prevent account sharing and increase revenue.'
+          size='large'
+        />
+      </section>
+
+      <Modal title='Contact Sales' open={isContactSalesModalOpen} onClose={() => setIsContactSalesModalOpen(false)}>
+        <ContactSalesForm />
+      </Modal>
+    </>
   )
 }
 
@@ -270,7 +281,7 @@ interface ReferenceListProps {
 }
 function ReferenceList({ references }: ReferenceListProps) {
   return (
-    <Container>
+    <Container size='large' className={styles.container}>
       <ol>
         {references.map(({ name, href }, index) => (
           <li key={name} className={styles.reference}>

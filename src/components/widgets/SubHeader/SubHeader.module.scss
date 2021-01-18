@@ -43,11 +43,19 @@
     font-weight: v('normal');
   }
 
-  .adjacent {
-    margin-top: 2rem;
-  }
-
   .subtitle {
     font-family: v('ff-sans');
+
+    margin: 2rem 0;
+  }
+
+  .label {
+    font-family: v('ff-sans');
+
+    margin-bottom: 2rem;
+  }
+
+  .adjacent {
+    margin-top: 2rem;
   }
 }

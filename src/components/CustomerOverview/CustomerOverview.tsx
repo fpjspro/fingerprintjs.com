@@ -2,10 +2,14 @@ import React from 'react'
 
 import styles from './CustomerOverview.module.scss'
 
+interface Bullet {
+  value: string
+  description: string
+}
 export interface CustomerOverviewProps {
   logo: string
   description: string
-  bullets: Array<{ value: string; description: string }>
+  bullets: Bullet[]
 }
 export default function CustomerOverview({ logo, description, bullets }: CustomerOverviewProps) {
   return (

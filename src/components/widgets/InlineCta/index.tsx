@@ -7,15 +7,17 @@ import classNames from 'classnames'
 
 import styles from './InlineCta.module.scss'
 
+export interface Action {
+  label?: string
+  name: string
+  action: string | (() => void)
+  type?: 'link' | 'button'
+}
 export interface InlineCta {
   title: string
   subtitle: string
-  primaryAction?: string
-  buttonText: string
-  buttonHref: string
-  secondaryAction?: string
-  secondaryLink?: string
-  secondaryHref?: string
+  primaryAction: Action
+  secondaryAction?: Action
   size?: 'small' | 'regular' | 'large'
   className?: string
 }
@@ -24,11 +26,7 @@ export default function InlineCtaComponent({
   title,
   subtitle,
   primaryAction,
-  buttonText,
-  buttonHref,
   secondaryAction,
-  secondaryLink,
-  secondaryHref,
   size = 'large',
   className,
 }: InlineCta) {
@@ -36,26 +34,37 @@ export default function InlineCtaComponent({
     <Section className={classNames(styles.root, className)}>
       <Container size={size} className={styles.container}>
         <SubHeaderComponent
-          title={title}
-          titleSize='large'
-          titleWeight='primary'
-          subtitle={subtitle}
-          subtitleSize='small'
+          title={{ text: title, size: 'large', weight: 'primary' }}
+          subtitle={{ text: subtitle, size: 'small' }}
           align='left'
         />
 
         <div className={styles.actions}>
-          <span className={styles.label}>{secondaryAction}</span>
-          <a href={secondaryHref} className={styles.link}>
-            {secondaryLink}
-          </a>
-
-          <span className={styles.label}>{primaryAction}</span>
-          <Button href={buttonHref} className={styles.button}>
-            {buttonText}
-          </Button>
+          {secondaryAction && <ActionComponent action={secondaryAction} />}
+          <ActionComponent action={primaryAction} />
         </div>
       </Container>
     </Section>
+  )
+}
+
+function ActionComponent({ action: { label, name, action, type = 'button' } }: { action: Action }) {
+  const actionProps = typeof action === 'string' ? { href: action } : { onClick: action }
+  const trigger =
+    type === 'button' ? (
+      <Button className={styles.button} {...actionProps}>
+        {name}
+      </Button>
+    ) : (
+      <a className={styles.link} {...actionProps}>
+        {name}
+      </a>
+    )
+
+  return (
+    <>
+      {label && <span className={styles.label}>{label}</span>}
+      {trigger}
+    </>
   )
 }

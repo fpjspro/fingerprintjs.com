@@ -9,7 +9,7 @@ import Breadcrumbs, { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../helpers/types'
 import { withTrailingSlash } from '../helpers/url'
-import { Content, HtmlContent } from '../components/Content/Content'
+import { Content, DangerouslyRenderHtmlContent } from '../components/Content/Content'
 
 import styles from './long-form-content.module.scss'
 import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
@@ -34,7 +34,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
 
   return (
     <LongFormContentTemplate
-      contentComponent={HtmlContent}
+      contentComponent={DangerouslyRenderHtmlContent}
       metadata={metadata}
       post={post}
       body={body}

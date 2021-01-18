@@ -119,7 +119,7 @@ export const pageQuery = graphql`
 export interface StaticPageContentTemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   invertContent: boolean
-  inlineCta: InlineCta
+  inlineCta: { title: string; subtitle: string; buttonText: string; buttonHref: string }
   cardSection: CardSection
   blocks: BlockWithImage[]
   hero: HeroProps
@@ -150,7 +150,11 @@ export function StaticPageContentTemplate({
             {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
           </>
         )}
-        <InlineCtaComponent {...inlineCta} />
+        <InlineCtaComponent
+          title={inlineCta.title}
+          subtitle={inlineCta.subtitle}
+          primaryAction={{ name: inlineCta.buttonText, action: inlineCta.buttonHref }}
+        />
       </Section>
     </LayoutTemplate>
   )
