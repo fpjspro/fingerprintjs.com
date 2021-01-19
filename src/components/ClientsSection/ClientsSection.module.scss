@@ -47,11 +47,6 @@
   width: 100%;
   object-fit: contain;
 
-  @include media('<=phoneLandscape') {
-    height: 58px;
-    max-width: 180px;
-  }
-
   @include media('<=phone') {
     height: 38px;
     max-width: 90px;
