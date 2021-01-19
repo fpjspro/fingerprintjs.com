@@ -282,7 +282,7 @@ interface ReferenceListProps {
 function ReferenceList({ references }: ReferenceListProps) {
   return (
     <Container size='large' className={styles.container}>
-      <ol>
+      <ol className={styles.referenceList}>
         {references.map(({ name, href }, index) => (
           <li key={name} className={styles.reference}>
             <span>({index + 1})</span>

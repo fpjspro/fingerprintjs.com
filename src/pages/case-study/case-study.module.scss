@@ -19,6 +19,10 @@
 .subHeader {
   padding: 4rem 6rem;
   color: c('white');
+
+  @include media('<=tabletWide') {
+    padding: 4rem 3rem;
+  }
 }
 
 .header {
@@ -50,11 +54,19 @@
   @include media('<=tabletWide') {
     display: flex;
     flex-direction: column-reverse;
+
+    padding: 4rem 3rem;
   }
 }
 
 .summaryTitle {
   font-size: 3.75rem;
+}
+
+.referenceList {
+  @include media('<=tabletWide') {
+    padding: 0 3rem;
+  }
 }
 
 .reference {
@@ -75,6 +87,10 @@
 
 .body {
   padding: 0 6rem;
+
+  @include media('<=tabletWide') {
+    padding: 0 3rem;
+  }
 
   // This will be generated from markdown when we use the CMS so we have to use element selectors.
 

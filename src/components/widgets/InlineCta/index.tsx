@@ -62,9 +62,9 @@ function ActionComponent({ action: { label, name, action, type = 'button' } }: {
     )
 
   return (
-    <>
+    <div className={styles.action}>
       {label && <span className={styles.label}>{label}</span>}
       {trigger}
-    </>
+    </div>
   )
 }

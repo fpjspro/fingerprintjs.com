@@ -42,7 +42,36 @@
   display: flex;
   flex-direction: column;
   margin-right: 10rem;
-  margin-left: 20rem;
+  margin-left: 12rem;
+
+  @include media('<=phoneLandscape', '>phone') {
+    flex-direction: row;
+    margin: 0;
+    margin-top: 5rem;
+    align-self: center;
+  }
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & + .action {
+    margin-top: 2rem;
+  }
+
+  @include media('<=phoneLandscape', '>phone') {
+    & + .action {
+      margin-top: 0;
+      margin-left: 6rem;
+    }
+  }
+
+  @include media('<=phone') {
+    margin-top: 4rem;
+    align-items: center;
+  }
 }
 
 .label {
@@ -69,13 +98,4 @@
 }
 
 .button {
-  @include media('<=desktop') {
-    margin-left: 12rem;
-  }
-
-  @include media('<=phoneLandscape') {
-    margin: 0;
-    margin-top: 5rem;
-    align-self: center;
-  }
 }
