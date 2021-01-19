@@ -95,7 +95,8 @@
   &:hover {
     color: adjust-color(c('brand-fire'), $lightness: -20%);
   }
-}
 
-.button {
+  @include media('<=phoneLandscape', '>phone') {
+    padding-bottom: 1rem;
+  }
 }

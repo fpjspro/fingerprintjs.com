@@ -52,9 +52,7 @@ function ActionComponent({ action: { label, name, action, type = 'button' } }: {
   const actionProps = typeof action === 'string' ? { href: action } : { onClick: action }
   const trigger =
     type === 'button' ? (
-      <Button className={styles.button} {...actionProps}>
-        {name}
-      </Button>
+      <Button {...actionProps}>{name}</Button>
     ) : (
       <a className={styles.link} {...actionProps}>
         {name}
