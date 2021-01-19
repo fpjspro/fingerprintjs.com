@@ -6,7 +6,7 @@ export const useUtmParams = () => {
 
   return useMemo(() => {
     return Object.keys(queryParams)
-      .filter((key) => key.startsWith('utm_'))
+      .filter((key) => key.startsWith('utm_') || key === 'referral_url')
       .reduce((acc: Record<string, string>, key) => {
         acc[key] = queryParams[key]
         return acc
