@@ -185,7 +185,13 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
     cardSection.cards = entry
       .getIn(['data', 'cardSection', 'cards'])
       ?.toJS()
-      .map((card) => ({ ...card, markdownContent: parseMarkdown(card.markdownContent) }))
+      .map((card) => ({
+        ...card,
+        markdownContent: parseMarkdown(
+          card.markdownContent ??
+            'Sed ut fermentum dolor. Vivamus pulvinar nisi leo, in accumsan diam pretium id. Vestibulum aliquam posuere enim, sed finibus sapien fringilla pharetra. Ut sollicitudin nunc non dui placerat facilisis. Duis neque turpis, dictum sit amet sagittis ut, finibus ac eros. Cras pulvinar laoreet diam vel lacinia.'
+        ),
+      }))
   }
   cardSection = cardSection as QueryCardSection
 
@@ -194,11 +200,20 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
     ?.toJS()
     .map((block) => ({
       ...block,
-      markdownContent: block?.markdownContent ? parseMarkdown(block?.markdownContent) : undefined,
+      markdownContent: parseMarkdown(
+        block?.markdownContent ??
+          'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.'
+      ),
     })) as QueryBlock[]
 
   let inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject()
-  inlineCta = { ...inlineCta, markdownSubtitle: parseMarkdown(inlineCta.markdownSubtitle) } as QueryInlineCta
+  inlineCta = {
+    ...inlineCta,
+    markdownSubtitle: parseMarkdown(
+      inlineCta.markdownSubtitle ??
+        'Curabitur sollicitudin id mi ac ultrices. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.'
+    ),
+  } as QueryInlineCta
 
   const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
   return (
@@ -250,9 +265,7 @@ function mapToCardSection(queryCardSection: QueryCardSection): CardSection {
           ({
             icon: card?.icon,
             title: card?.title ?? `Nunc rhoncus et eros non lobortis. #${index}`,
-            content:
-              card?.markdownContent ??
-              'Sed ut fermentum dolor. Vivamus pulvinar nisi leo, in accumsan diam pretium id. Vestibulum aliquam posuere enim, sed finibus sapien fringilla pharetra. Ut sollicitudin nunc non dui placerat facilisis. Duis neque turpis, dictum sit amet sagittis ut, finibus ac eros. Cras pulvinar laoreet diam vel lacinia.',
+            content: card?.markdownContent,
           } as Card)
       ) ?? [],
   } as CardSection
@@ -266,9 +279,7 @@ function mapToBlocks(queryBlocks: QueryBlock[]): BlockWithImage[] {
     queryBlocks?.map(
       (block, index) =>
         ({
-          content:
-            block?.markdownContent ??
-            'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.',
+          content: block?.markdownContent,
           image: block?.image,
           subTitle:
             block?.subheader ?? `Vestibulum aliquam posuere enim, sed finibus sapien fringilla pharetra. #${index}`,
@@ -287,9 +298,7 @@ type QueryInlineCta = NonNullable<
 function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCta {
   return {
     title: queryInlineCta?.title ?? 'Quisque arcu urna, tempor aliquet mi eget.',
-    subtitle:
-      queryInlineCta?.markdownSubtitle ??
-      'Curabitur sollicitudin id mi ac ultrices. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.',
+    subtitle: queryInlineCta?.markdownSubtitle,
     buttonText: queryInlineCta?.buttonText ?? 'Lorem ipsum',
     buttonHref: queryInlineCta?.buttonHref ?? '/',
   } as InlineCta
