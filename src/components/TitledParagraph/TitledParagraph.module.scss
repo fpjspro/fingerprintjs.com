@@ -20,9 +20,8 @@
 
 .icon {
   margin-right: 1.5rem;
-  width: 3rem;
-  height: 3rem;
-  opacity: v('extra-faded');
+  width: 4rem;
+  height: 4rem;
   @include transition((opacity));
 }
 

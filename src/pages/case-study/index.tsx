@@ -5,13 +5,13 @@ import useSiteMetadata from '../../hooks/useSiteMetadata'
 import Section from '../../components/common/Section'
 import Container from '../../components/common/Container'
 import SubHeaderComponent from '../../components/widgets/SubHeader'
-import { ReactComponent as FirstPlaceholderSvg } from '../../img/geolocation.svg'
-import { ReactComponent as SecondPlaceholderSvg } from '../../img/bot_detection.svg'
-import { ReactComponent as ThirdPlaceholderSvg } from '../../img/browser_fingerprinting.svg'
+import { ReactComponent as BusinessAndFinance } from './business-and-finance.svg'
+import { ReactComponent as Loop } from './loop.svg'
+import { ReactComponent as Like } from './like.svg'
 import InlineCtaComponent from '../../components/widgets/InlineCta'
 import BlockQuote from '../../components/BlockQuote/BlockQuote'
 import classNames from 'classnames'
-import companyLogo from '../../img/logo.svg'
+import { ReactComponent as LogoSvg } from './chegg.svg'
 import CustomerOverview from '../../components/CustomerOverview/CustomerOverview'
 import TitledParagraph from '../../components/TitledParagraph/TitledParagraph'
 import { Content } from '../../components/Content/Content'
@@ -53,7 +53,7 @@ function Header() {
         />
 
         <div className={styles.subHeader}>
-          <p>
+          <p className={styles.description}>
             Using FingerprintJS&apos; browser fingerprinting service, Chegg was able to significantly reduce account
             sharing, resulting in an immediate increase in new sign-ups while keeping their legitimate users happy.
           </p>
@@ -69,7 +69,7 @@ function Header() {
 function Summary() {
   const results = [
     {
-      icon: FirstPlaceholderSvg,
+      icon: BusinessAndFinance,
       title: 'New revenue from sign-ups',
       children: (
         <>
@@ -85,7 +85,7 @@ function Summary() {
       ),
     },
     {
-      icon: SecondPlaceholderSvg,
+      icon: Like,
       title: 'No impact to customer success',
       children: (
         <p className={styles.result}>
@@ -95,7 +95,7 @@ function Summary() {
       ),
     },
     {
-      icon: ThirdPlaceholderSvg,
+      icon: Loop,
       title: 'FingerprintJS feedback loop',
       children: (
         <p className={styles.result}>
@@ -121,7 +121,7 @@ function Summary() {
 
           <div>
             <CustomerOverview
-              logo={companyLogo}
+              logo={LogoSvg}
               description='Chegg is an education company that provides a suite of services including digital and physical textbooks, homework solutions, tutoring, and internship placement.'
               bullets={[
                 { value: '3.7', description: 'Million Students' },
@@ -262,10 +262,10 @@ function Footer() {
             label: 'Talk to us',
             name: 'Contact Sales',
             action: () => setIsContactSalesModalOpen(true),
-            type: 'link',
           }}
           subtitle='Learn how FingerprintJS Pro can help your business build a custom solution to prevent account sharing and increase revenue.'
           size='large'
+          className={styles.cta}
         />
       </section>
 

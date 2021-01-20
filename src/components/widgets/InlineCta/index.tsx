@@ -35,12 +35,13 @@ export default function InlineCtaComponent({
       <Container size={size} className={styles.container}>
         <SubHeaderComponent
           title={{ text: title, size: 'large', weight: 'primary' }}
-          subtitle={{ text: subtitle, size: 'small' }}
+          subtitle={{ text: subtitle, size: 'normal' }}
           align='left'
+          className={styles.subheader}
         />
 
         <div className={styles.actions}>
-          {secondaryAction && <ActionComponent action={secondaryAction} />}
+          {secondaryAction && <ActionComponent action={secondaryAction} variant='outline' />}
           <ActionComponent action={primaryAction} />
         </div>
       </Container>
@@ -48,11 +49,20 @@ export default function InlineCtaComponent({
   )
 }
 
-function ActionComponent({ action: { label, name, action, type = 'button' } }: { action: Action }) {
+interface ActionComponentProps {
+  action: Action
+  variant?: 'primary' | 'outline'
+}
+function ActionComponent({
+  action: { label, name, action, type = 'button' },
+  variant = 'primary',
+}: ActionComponentProps) {
   const actionProps = typeof action === 'string' ? { href: action } : { onClick: action }
   const trigger =
     type === 'button' ? (
-      <Button {...actionProps}>{name}</Button>
+      <Button {...actionProps} variant={variant}>
+        {name}
+      </Button>
     ) : (
       <a className={styles.link} {...actionProps}>
         {name}

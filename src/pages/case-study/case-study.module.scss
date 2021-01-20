@@ -35,6 +35,9 @@
   align-items: center;
 
   background: adjust-color(c('brand-water'), $lightness: +5%);
+}
+
+.description {
   font-size: 2.25rem;
 }
 
@@ -64,6 +67,8 @@
 }
 
 .referenceList {
+  padding: 4rem 6rem;
+
   @include media('<=tabletWide') {
     padding: 0 3rem;
   }
