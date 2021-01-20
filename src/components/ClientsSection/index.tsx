@@ -1,12 +1,7 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Pagination } from 'swiper'
-
 import Section from '../common/Section'
 import Container from '../common/Container'
 import styles from './ClientsSection.module.scss'
-
-SwiperCore.use([Pagination])
 
 export default function ClientsSection() {
   const clients = [
@@ -28,7 +23,7 @@ export default function ClientsSection() {
 
   return (
     <Section className={styles.clients}>
-      <Container>
+      <Container size='large'>
         <header className={styles.header}>
           <h2 className={styles.title}>
             <strong>FingerprintJS</strong> is trusted by public companies and innovative startups.

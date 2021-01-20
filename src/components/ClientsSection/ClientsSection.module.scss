@@ -3,8 +3,8 @@
   background-color: var(--off-white);
 
   .header {
-    max-width: 60ch;
     margin-bottom: 5rem;
+    text-align: center;
   }
 
   .title {
@@ -61,10 +61,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media screen and (min-width: 1024px) {
-    &:first-child {
-      justify-content: flex-start;
-    }
-  }
 }
