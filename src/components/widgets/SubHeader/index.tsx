@@ -11,7 +11,7 @@ export interface SubHeader {
   title: string
   titleSize?: SubHeaderTextSize
   titleWeight?: SubHeaderWeight
-  subtitle?: string
+  subtitle?: string | React.ReactNode
   subtitleSize?: SubHeaderTextSize
   align?: SubHeaderAlign
   className?: string
@@ -26,10 +26,17 @@ export default function SubHeaderComponent({
   align = 'center',
   className,
 }: SubHeader) {
+  const subtitleComponent =
+    subtitle && typeof subtitle === 'string' ? (
+      <h3 className={classNames(styles.subtitle, sizeClasses(subtitleSize))}>{subtitle}</h3>
+    ) : (
+      subtitle
+    )
+
   return (
     <header className={classNames(styles.root, className, alignmentClasses(align))}>
       <h1 className={classNames(styles.title, sizeClasses(titleSize), weightClasses(titleWeight))}>{title}</h1>
-      {subtitle && <h3 className={classNames(styles.subtitle, sizeClasses(subtitleSize))}>{subtitle}</h3>}
+      {subtitleComponent}
     </header>
   )
 }

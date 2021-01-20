@@ -116,7 +116,7 @@ export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComp
   return (
     <LongFormContentTemplate
       metadata={mapToMetadata(metadata)}
-      post={mapToPost({ frontmatter: entry.get('data').toObject() })}
+      post={mapToPost({ frontmatter: entry.get('data').toObject() }, true)}
       body={widgetFor('body') ?? <></>}
     />
   )

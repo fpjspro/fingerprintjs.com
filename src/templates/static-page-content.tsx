@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import InlineCtaComponent, { InlineCta } from '../components/widgets/InlineCta'
 import Hero, { HeroProps } from '../components/widgets/Hero'
@@ -87,11 +87,11 @@ export const pageQuery = graphql`
               publicURL
             }
             title
-            content
+            markdownContent
           }
         }
         blocks {
-          content
+          markdownContent
           subheader
           image {
             childImageSharp {
@@ -107,7 +107,7 @@ export const pageQuery = graphql`
         }
         inlineCta {
           title
-          subtitle
+          markdownSubtitle
           buttonText
           buttonHref
         }
@@ -159,17 +159,48 @@ export function StaticPageContentTemplate({
 export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const invertContent = entry.getIn(['data', 'invertContent'])
-  const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
+
+  const [remark, setRemark] = useState()
+  const [remarkHTML, setRemarkHTML] = useState()
+
+  useEffect(() => {
+    async function importRemark() {
+      setRemark(await import('remark'))
+      setRemarkHTML(await import('remark-html'))
+    }
+
+    importRemark()
+  }, [])
+
+  function parseMarkdown(markdown: string) {
+    if (!remark || !remarkHTML) {
+      return markdown
+    }
+
+    return remark.default().use(remarkHTML.default).processSync(markdown).toString()
+  }
 
   let cardSection = entry.getIn(['data', 'cardSection'])?.toObject()
   if (cardSection?.cards) {
-    cardSection.cards = entry.getIn(['data', 'cardSection', 'cards'])?.toJS()
+    cardSection.cards = entry
+      .getIn(['data', 'cardSection', 'cards'])
+      ?.toJS()
+      .map((card) => ({ ...card, markdownContent: parseMarkdown(card.markdownContent) }))
   }
   cardSection = cardSection as QueryCardSection
 
-  const blocks = entry.getIn(['data', 'blocks'])?.toJS() as QueryBlock[]
-  const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
+  const blocks = entry
+    .getIn(['data', 'blocks'])
+    ?.toJS()
+    .map((block) => ({
+      ...block,
+      markdownContent: block?.markdownContent ? parseMarkdown(block?.markdownContent) : undefined,
+    })) as QueryBlock[]
 
+  let inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject()
+  inlineCta = { ...inlineCta, markdownSubtitle: parseMarkdown(inlineCta.markdownSubtitle) } as QueryInlineCta
+
+  const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
   return (
     <StaticPageContentTemplate
       metadata={mapToMetadata(metadata)}
@@ -220,7 +251,7 @@ function mapToCardSection(queryCardSection: QueryCardSection): CardSection {
             icon: card?.icon,
             title: card?.title ?? `Nunc rhoncus et eros non lobortis. #${index}`,
             content:
-              card?.content ??
+              card?.markdownContent ??
               'Sed ut fermentum dolor. Vivamus pulvinar nisi leo, in accumsan diam pretium id. Vestibulum aliquam posuere enim, sed finibus sapien fringilla pharetra. Ut sollicitudin nunc non dui placerat facilisis. Duis neque turpis, dictum sit amet sagittis ut, finibus ac eros. Cras pulvinar laoreet diam vel lacinia.',
           } as Card)
       ) ?? [],
@@ -236,7 +267,7 @@ function mapToBlocks(queryBlocks: QueryBlock[]): BlockWithImage[] {
       (block, index) =>
         ({
           content:
-            block?.content ??
+            block?.markdownContent ??
             'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.',
           image: block?.image,
           subTitle:
@@ -257,7 +288,7 @@ function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCta {
   return {
     title: queryInlineCta?.title ?? 'Quisque arcu urna, tempor aliquet mi eget.',
     subtitle:
-      queryInlineCta?.subtitle ??
+      queryInlineCta?.markdownSubtitle ??
       'Curabitur sollicitudin id mi ac ultrices. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.',
     buttonText: queryInlineCta?.buttonText ?? 'Lorem ipsum',
     buttonHref: queryInlineCta?.buttonHref ?? '/',

@@ -24,7 +24,32 @@
   .content {
     margin-top: 1.75rem;
 
-    font-size: 1.75rem;
+    * {
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    @for $index from 3 through 6 {
+      h#{$index} {
+        font-size: 1.75rem;
+      }
+    }
+
+    p {
+      font-size: 1.75rem;
+    }
+
+    ul,
+    ol {
+      li {
+        font-size: 1.75rem;
+      }
+    }
   }
 }
 

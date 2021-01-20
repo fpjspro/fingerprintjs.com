@@ -16,24 +16,24 @@ hero:
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
-  title: "Use FingerprintJS for account sharing prevention to:"
-  subtitle: ""
+  title: 'Use FingerprintJS for account sharing prevention to:'
+  subtitle: ''
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Increase revenue for your business
-      content: Account sharers already know the value of your service. By enforcing
+      markdownContent: Account sharers already know the value of your service. By enforcing
         subscription limits via user identification, you can convert "free"
         account-sharing users to paying customers without negatively impacting
         the rest of your users' experience.
     - icon: /img/uploads/payment_processing.png
       title: Increase security for your customers
-      content: Password sharing increases the likelihood of account takeover, and
+      markdownContent: Password sharing increases the likelihood of account takeover, and
         makes it more difficult for your team to identify real risks. By
         ensuring customers keep their accounts to themselves, you can improve
         account security for all users.
 blocks:
   - subheader: Account sharing prevention built for your business
-    content: Our team works with top SaaS providers to implement custom account
+    markdownContent: Our team works with top SaaS providers to implement custom account
       sharing solutions with the customer experience in mind. With our highly
       accurate visitor identifier, we will work with your team to make sure your
       preferred customers' experience is unhindered, and users breaking their
@@ -49,13 +49,13 @@ blocks:
     isImageAfterText: false
     ctaText: Start Trial
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    content: "Mobile traffic, infrequent sign-ins and shared networks cause other
+    markdownContent: "Mobile traffic, infrequent sign-ins and shared networks cause other
       account sharing prevention methods to fail. FingerprintJS provides an
       accurate ID for 99.5% of traffic, and can identify visitors where IP and
       session tracking can't. "
 inlineCta:
   title: Try FingerprintJS - 10 days, no limits
-  subtitle: Signing up only takes a few minutes. Start collecting visitorIDs for
+  markdownSubtitle: Signing up only takes a few minutes. Start collecting visitorIDs for
     your traffic right away.
   buttonText: Start Free Trial
   buttonHref: https://dashboard.fingerprintjs.com/signup

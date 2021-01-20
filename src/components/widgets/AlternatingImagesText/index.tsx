@@ -6,6 +6,7 @@ import classNames from 'classnames'
 import styles from './AlternatingImagesText.module.scss'
 import Button from '../../common/Button'
 import { Link } from 'gatsby'
+import { DangerouslyRenderHtmlContent } from '../../Content/Content'
 
 export interface BlockWithImage {
   image: ImageInfo
@@ -41,7 +42,7 @@ function Block({ block }: { block: BlockWithImage }) {
 
       <div className={classNames(styles.text, { [styles.left]: block.isImageAfterText })}>
         <h3 className={styles.blockTitle}>{block.subTitle}</h3>
-        <p className={styles.content}>{block.content}</p>
+        <DangerouslyRenderHtmlContent content={block.content} className={styles.content} />
         {block.ctaText && <CtaComponent {...block} />}
       </div>
     </Container>

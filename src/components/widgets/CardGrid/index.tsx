@@ -1,6 +1,7 @@
 import React from 'react'
 import PreviewCompatibleImage, { ImageInfo } from '../../common/PreviewCompatibleImage/PreviewCompatibleImage'
 import classNames from 'classnames'
+import { DangerouslyRenderHtmlContent } from '../../Content/Content'
 
 import styles from './CardGrid.module.scss'
 
@@ -45,7 +46,7 @@ export function CardComponent({ icon, title, content }: Card) {
         </span>
       )}
       <header className={styles.title}>{title}</header>
-      <div className={styles.content}>{content}</div>
+      <DangerouslyRenderHtmlContent className={styles.content} content={content} />
     </div>
   )
 }

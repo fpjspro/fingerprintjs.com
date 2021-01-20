@@ -61,7 +61,7 @@ collections:
                   [
                     { label: Icon, name: icon, widget: image, required: false },
                     { label: Title, name: title, widget: string },
-                    { label: Content, name: content, widget: string },
+                    { label: Content, name: markdownContent, widget: markdown },
                   ],
               },
             ],
@@ -74,7 +74,7 @@ collections:
             [
               { label: Image, name: image, widget: image },
               { label: Subheader, name: subheader, widget: string },
-              { label: Content, name: content, widget: string },
+              { label: Content, name: markdownContent, widget: markdown },
               { label: Is image after text, name: isImageAfterText, widget: boolean },
               { label: CTA text, name: ctaText, widget: string },
               { label: CTA url, name: ctaUrl, widget: string },
@@ -88,7 +88,7 @@ collections:
           fields:
             [
               { label: Title, name: title, widget: string },
-              { label: Subtitle, name: subtitle, widget: string },
+              { label: Subtitle, name: markdownSubtitle, widget: markdown },
               { label: Button text, name: buttonText, widget: string },
               { label: Button href, name: buttonHref, widget: string },
             ],
