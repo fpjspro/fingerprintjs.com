@@ -54,7 +54,11 @@
 }
 
 .content {
-  * {
+  p,
+  ul,
+  ol,
+  img,
+  blockquote {
     margin-bottom: 2rem;
   }
 

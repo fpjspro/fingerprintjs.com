@@ -24,7 +24,11 @@
   .content {
     margin-top: 1.75rem;
 
-    * {
+    p,
+    ul,
+    ol,
+    img,
+    blockquote {
       margin-bottom: 2rem;
     }
 
