@@ -10,7 +10,7 @@ import styles from './InlineCta.module.scss'
 
 export interface InlineCta {
   title: string
-  subtitle: string | React.ReactNode
+  subtitle: string
   buttonText: string
   buttonHref: string
   className?: string
