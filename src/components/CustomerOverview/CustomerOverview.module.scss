@@ -29,20 +29,22 @@
   margin-bottom: 3rem;
 }
 
-.bullet {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 2rem;
+.table {
+  border-spacing: 2rem 1.5rem;
+}
 
-  align-items: baseline;
-
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+.key {
+  text-align: right;
 }
 
 .strong {
-  font-size: 3rem;
+  font-size: 2.25rem;
   color: c('brand-fire');
   justify-self: end;
+}
+
+.value {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
 }

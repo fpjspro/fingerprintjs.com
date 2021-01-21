@@ -9,9 +9,7 @@ import { ReactComponent as BusinessAndFinance } from './business-and-finance.svg
 import { ReactComponent as Loop } from './loop.svg'
 import { ReactComponent as Like } from './like.svg'
 import InlineCtaComponent from '../../components/widgets/InlineCta'
-import BlockQuote from '../../components/BlockQuote/BlockQuote'
 import classNames from 'classnames'
-import { ReactComponent as LogoSvg } from './chegg.svg'
 import CustomerOverview from '../../components/CustomerOverview/CustomerOverview'
 import TitledParagraph from '../../components/TitledParagraph/TitledParagraph'
 import { Content } from '../../components/Content/Content'
@@ -47,17 +45,22 @@ function Header() {
       <Container size='large' className={styles.container}>
         <SubHeaderComponent
           label={{ text: 'Case Study', size: 'medium' }}
-          title={{ text: 'How Chegg Solved Account Sharing with FingerprintJS Pro', size: 'large', weight: 'primary' }}
+          title={{
+            text: 'How One Company Solved Account Sharing with FingerprintJS Pro',
+            size: 'large',
+            weight: 'primary',
+          }}
           align='left'
           className={styles.header}
         />
 
         <div className={styles.subHeader}>
           <p className={styles.description}>
-            Using FingerprintJS&apos; browser fingerprinting service, Chegg was able to significantly reduce account
-            sharing, resulting in an immediate increase in new sign-ups while keeping their legitimate users happy.
+            Using FingerprintJS&apos; browser fingerprinting service, one customer was able to significantly reduce
+            account sharing, resulting in an immediate increase in new sign-ups while keeping their legitimate users
+            happy.
           </p>
-          <Button href={'/pdf/case-study/chegg.pdf'} variant='faded' className={styles.downloadPdf} download>
+          <Button href={'/pdf/case-study/account-sharing.pdf'} variant='faded' className={styles.downloadPdf} download>
             Download the PDF
           </Button>
         </div>
@@ -72,35 +75,35 @@ function Summary() {
       icon: BusinessAndFinance,
       title: 'New revenue from sign-ups',
       children: (
-        <>
-          <p className={styles.result}>
-            Chegg noticed increased revenue within weeks of implementing FingerprintJS Pro from new sign-ups spun off
-            from shared accounts.
-          </p>
-          <BlockQuote author='Dan Rosensweig, CEO, during Q3 earnings call (1)'>
-            There were people sharing accounts, and when we proved that, we saw our (subscriber) growth rates in the
-            first quarter move up to 32%... and then you see we’re at 64% now.
-          </BlockQuote>
-        </>
+        <p className={styles.result}>
+          The company noticed increased revenue within weeks of implementing FingerprintJS Pro from new sign-ups spun
+          off from shared accounts.
+        </p>
       ),
     },
     {
       icon: Like,
       title: 'No impact to customer success',
       children: (
-        <p className={styles.result}>
-          Chegg maintained the same level of cancellations and customer support calls after implementation, clearly
-          demonstrating that there were no significant drawbacks for customers or the business.
-        </p>
+        <>
+          <p className={styles.result}>
+            The company maintained the same level of cancellations and customer support calls after implementation,
+            clearly demonstrating that there were no significant drawbacks for customers or the business.
+          </p>
+          <p className={styles.result}>
+            Customer satisfaction (CSAT) surveys also remained stable, indicating that additional authentication
+            measures were not negatively impacting the user experience.
+          </p>
+        </>
       ),
     },
     {
       icon: Loop,
-      title: 'FingerprintJS feedback loop',
+      title: 'Feedback loop with FingerprintJS',
       children: (
         <p className={styles.result}>
-          Chegg continues to work closely with the FingerprintJS technical team to adjust algorithms to changes in user
-          behavior to maintain high accuracy and a positive student experience.
+          The company continues to work closely with the FingerprintJS technical team to adjust algorithms to changes in
+          user behavior to maintain high accuracy and a positive student experience.
         </p>
       ),
     },
@@ -121,18 +124,13 @@ function Summary() {
 
           <div>
             <CustomerOverview
-              logo={LogoSvg}
-              description='Chegg is an education company that provides a suite of services including digital and physical textbooks, homework solutions, tutoring, and internship placement.'
+              description="FingerprintJS works with an education technology company that provides a suite of online services. The company's customers are millions of high school and college students in 100+ countries around the world."
               bullets={[
-                { value: '3.7', description: 'Million Students' },
-                { value: '190', description: 'Countries' },
-                { value: '#275', description: 'Global site rank (2)' },
+                { value: 'Sector:', description: 'Education' },
+                { value: 'Use Case:', description: 'Account Sharing' },
+                { value: 'Employees:', description: '1,000+' },
               ]}
             />
-            <BlockQuote author='Augie Kennady, Manager of Consumer Operations & Analytics'>
-              FingerprintJS helped us solve our account sharing problem in a manner that was both data-driven and, most
-              importantly, Student First!
-            </BlockQuote>
           </div>
         </div>
       </Container>
@@ -149,22 +147,18 @@ function Body() {
           content={
             <>
               <h2>The problem</h2>
-              <BlockQuote author='Andy Brown, CFO, during investor call (3)' className={styles.problemQuote}>
-                I don’t think we comprehended, as a company, how big account sharing has been...
-              </BlockQuote>
-
               <h3>Account sharing a top business priority</h3>
               <p>
-                From analyzing login attempts across devices and IP addresses, Chegg realized that many students were
-                sharing their account credentials with friends and classmates and even selling accounts online. Account
-                sharing prevention became a top priority in 2020 to stop this fraudulent behavior and recoup lost
-                revenue from shared accounts.
+                From analyzing login attempts across devices and IP addresses, the company realized that many students
+                were sharing their account credentials with friends and classmates and even selling accounts online.
+                Account sharing prevention became a top priority in 2020 to stop this fraudulent behavior and recoup
+                lost revenue from shared accounts.
               </p>
 
               <h3>Technical challenges to accurate detection</h3>
               <p>
-                Chegg found that accurately detecting account sharing was a significant technical challenge that would
-                require a more accurate identifier than using cookies or IP addresses alone.
+                The company found that accurately detecting account sharing was a significant technical challenge that
+                would require a more accurate identifier than using cookies or IP addresses alone.
               </p>
               <p>Students using the platform often had:</p>
               <ul>
@@ -181,18 +175,18 @@ function Body() {
                 </li>
               </ul>
               <p>
-                Chegg started building software to prevent account sharing, but it was not accurate enough to catch many
-                of their shared accounts and risked disturbing too many legitimate users.
+                The customer started building software to prevent account sharing, but it was not accurate enough to
+                catch many of their shared accounts and risked disturbing too many legitimate users.
               </p>
               <p>
-                Chegg did not want to build the in-house expertise needed to generate the highest accuracy identifiers
-                and instead wanted a provider like FingerprintJS that specialized in visitor identification.
+                The company did not want to build the in-house expertise needed to generate the highest accuracy
+                identifiers and instead wanted a provider like FingerprintJS that specialized in visitor identification.
               </p>
 
               <h2>Why FingerprintJS</h2>
               <p>
-                From Chegg&apos;s investigation, they found that FingerprintJS Pro provided the best solution out of all
-                the alternatives they considered for account sharing prevention.
+                From the company&apos;s investigation, they found that FingerprintJS Pro provided the best solution out
+                of all the alternatives they considered for account sharing prevention.
               </p>
 
               <h3>Higher accuracy vs. cookies, IP addresses, and other device identification services</h3>
@@ -203,25 +197,25 @@ function Body() {
                 incognito browsing or other spoofing techniques are used.
               </p>
               <p>
-                Chegg also compared FingerprintJS Pro to a competing device identification service and found that the
-                FingerprintJS Pro API caught many additional account sharing instances with a much lower rate of false
-                positives.
+                The company also compared FingerprintJS Pro to a competing device identification service and found that
+                the FingerprintJS Pro API caught many additional account sharing instances with a much lower rate of
+                false positives.
               </p>
 
               <h3>Future-proofed account sharing prevention</h3>
               <p>
-                To ensure that their solution was effective for years to come, Chegg found it valuable to partner with a
-                team committed to cutting edge identification. As users change their behaviors, browsers change their
-                privacy settings and other signals change, the FingerprintJS Pro API is regularly updated to provide
-                consistently high identification accuracy.
+                To ensure that their solution was effective for years to come, the company found it valuable to partner
+                with a team committed to cutting edge identification. As users change their behaviors, browsers change
+                their privacy settings and other signals change, the FingerprintJS Pro API is regularly updated to
+                provide consistently high identification accuracy.
               </p>
 
               <h3>GDPR and CCPA compliant</h3>
               <p>
-                Due to Chegg&apos;s &apos;Student First&apos; philosophy, it was essential to maintain their users&apos;
-                rights to online privacy. FingerprintJS Pro is fully compliant with GDPR and CCPA for fraud detection.
-                All FingerprintJS customers can also choose between US and EU hosted data centers to comply with their
-                data residency and localization requirements.
+                Due to the company&apos;s philosophy of putting its customers first, it was essential to maintain their
+                users&apos; rights to online privacy. FingerprintJS Pro is compliant with GDPR and CCPA for fraud
+                detection. All FingerprintJS customers can choose between US and EU hosted data centers to comply with
+                their data residency and localization requirements.
               </p>
             </>
           }
@@ -232,25 +226,11 @@ function Body() {
 }
 
 function Footer() {
-  const references = [
-    {
-      name: 'Chegg Q3 earnings call - Oct. 26 2020',
-      href:
-        'https://seekingalpha.com/article/4381484-chegg-inc-chgg-ceo-dan-rosensweig-on-q3-2020-results-earnings-call-transcript',
-    },
-    {
-      name: 'Alexa ranking for global internet engagement - Jan. 7 2020',
-      href: 'https://www.alexa.com/siteinfo/chegg.com',
-    },
-    { name: 'Jeffries Virtual Consumer Conference - Jun. 24 2020' },
-  ]
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
   return (
     <>
       <section>
-        <ReferenceList references={references} />
-
         <InlineCtaComponent
           title='Get in Touch'
           primaryAction={{

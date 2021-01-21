@@ -7,7 +7,7 @@ interface Bullet {
   description: string
 }
 export interface CustomerOverviewProps {
-  logo: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+  logo?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
   description: string
   bullets: Bullet[]
 }
@@ -15,17 +15,19 @@ export default function CustomerOverview({ logo: LogoSvg, description, bullets }
   return (
     <div className={styles.root}>
       <h3 className={styles.header}>Customer Overview</h3>
-      <LogoSvg className={styles.logo} />
+      {LogoSvg && <LogoSvg className={styles.logo} />}
       <p className={styles.description}>{description}</p>
 
-      <ul>
+      <table className={styles.table}>
         {bullets.map(({ value, description }) => (
-          <li key={value} className={styles.bullet}>
-            <strong className={styles.strong}>{value}</strong>
-            {description}
-          </li>
+          <tr key={value}>
+            <td className={styles.key}>
+              <strong className={styles.strong}>{value}</strong>
+            </td>
+            <td className={styles.value}>{description}</td>
+          </tr>
         ))}
-      </ul>
+      </table>
     </div>
   )
 }
