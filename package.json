@@ -60,6 +60,12 @@
     "swiper": "^6.3.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-essentials": "^6.1.14",
+    "@storybook/addon-links": "^6.1.14",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.1.14",
     "@svgr/webpack": "^5.4.0",
     "@types/classnames": "^2.2.11",
     "@types/loadable__component": "^5.13.1",
@@ -69,8 +75,11 @@
     "@types/react-select": "^3.0.26",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
+    "babel-loader": "^8.2.2",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-preset-gatsby": "^0.7.0",
+    "babel-preset-react-app": "^10.0.0",
+    "css-loader": "^5.0.1",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-loader": "^4.0.2",
@@ -81,6 +90,8 @@
     "gatsby-plugin-svg-sprite": "^2.0.1",
     "prettier": "^2.0.5",
     "sass": "^1.29.0",
+    "sass-loader": "^10.1.1",
+    "style-loader": "^2.0.0",
     "typescript": "^4.0.5"
   },
   "scripts": {
@@ -90,6 +101,8 @@
     "develop": "yarn clean && gatsby develop",
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx,.js",
     "lint:fix": "eslint . --ext .ts,.tsx,.js --quiet --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }
