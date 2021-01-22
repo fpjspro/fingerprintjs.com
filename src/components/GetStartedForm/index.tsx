@@ -11,8 +11,9 @@ import { sendEvent } from '../../helpers/gtm'
 import { Forms, useForm } from '../../hooks/useForm'
 import Tippy from '@tippyjs/react'
 import { ReactComponent as InfoSvg } from '../../img/info.svg'
-import { useUtmParams } from '../../hooks/useUtmParams'
 import { isBrowser } from '../../helpers/detector'
+import { useLocation } from '@reach/router'
+import { getUtmParams } from '../../helpers/url'
 
 import styles from './GetStartedForm.module.scss'
 
@@ -28,7 +29,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
   const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.Signup)
 
   const referrer = isBrowser() ? document.referrer : ''
-  const utmInfo = useUtmParams({ referral_url: referrer })
+  const queryString = useLocation().search
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -37,7 +38,11 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
     const { ok, error } = await fetch(`${dashboardEndpoint}/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, fpjsVisitorId: visitorId, utmInfo }),
+      body: JSON.stringify({
+        email,
+        fpjsVisitorId: visitorId,
+        utmInfo: getUtmParams(queryString, { referral_url: referrer }),
+      }),
     }).then((response) => response.json())
 
     if (!ok) {
