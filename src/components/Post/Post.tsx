@@ -53,43 +53,37 @@ export default function Post({
 }
 
 export function mapToPost(data: any, editing?: boolean): PostProps {
-  if (!data.frontmatter || !data.frontmatter.metadata) {
-    // We might not have all the data while editing the post on  the CMS, but we still want the preview to display what we have.
-    if (editing) {
-      const post: PostProps = {
-        title: '',
-        description: '',
-        publishDate: dateFormatter.format(Date.now()),
-        path: '/',
-        featured: false,
-        tags: [],
-      }
+  if ((!data.frontmatter || !data.frontmatter.metadata) && !editing) {
+    throw new Error('Posts should always have frontmatter and metadata.')
+  }
 
-      if (data.frontmatter) {
-        const {
-          publishDate = dateFormatter.format(Date.now()),
-          title = '',
-          metadata,
-          tags,
-          featured,
-        } = data.frontmatter
-        post.publishDate = publishDate
-        post.title = title
-        post.tags = tags
-        post.featured = featured
-
-        if (metadata) {
-          const { description = '', image, url } = metadata
-          post.description = description
-          post.image = image as GatsbyTypes.File
-          post.path = url
-        }
-      }
-
-      return post
+  // We might not have all the data while editing the post on  the CMS, but we still want the preview to display what we have.
+  if (editing) {
+    const post: PostProps = {
+      title: '',
+      description: '',
+      publishDate: dateFormatter.format(Date.now()),
+      path: '/',
+      featured: false,
+      tags: [],
     }
 
-    throw new Error('Posts should always have frontmatter and metadata.')
+    if (data.frontmatter) {
+      const { publishDate = dateFormatter.format(Date.now()), title = '', metadata, tags, featured } = data.frontmatter
+      post.publishDate = publishDate
+      post.title = title
+      post.tags = tags
+      post.featured = featured
+
+      if (metadata) {
+        const { description = '', image, url } = metadata
+        post.description = description
+        post.image = image as GatsbyTypes.File
+        post.path = url
+      }
+    }
+
+    return post
   }
 
   const { publishDate = Date.now(), title = '', metadata, tags, featured } = data.frontmatter

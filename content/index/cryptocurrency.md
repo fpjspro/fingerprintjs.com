@@ -22,15 +22,15 @@ cardSection:
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Secure your customers' wallets
-      markdownContent: Require additional authentication for suspicious visitors during login
+      markdown__Content: Require additional authentication for suspicious visitors during login
         while keeping your trusted cryptocurrency users unhindered and safe.
     - icon: /img/uploads/payment_processing.png
       title: Stop fraudulent purchases
-      markdownContent: Blacklist users that are card testing, card cracking, or have a history
+      markdown__Content: Blacklist users that are card testing, card cracking, or have a history
         of fraudulent activity on your services.
 blocks:
   - subheader: Secure your user's accounts without sacrificing anonymity
-    markdownContent: Crypto customers value their privacy and will abandon your exchange if
+    markdown__Content: Crypto customers value their privacy and will abandon your exchange if
       you introduce too much friction in the pursuit of security. FingerprintJS'
       highly accurate VisitorID allows developer teams to implement additional
       authentication for only the most suspicious logins, purchases, and
@@ -42,7 +42,7 @@ blocks:
     isCtaButton: false
   - ctaText: Start free trial
     subheader: Reduce chargebacks with payment authentication
-    markdownContent: 'The best way to protect your merchant reputation is to identify
+    markdown__Content: 'The best way to protect your merchant reputation is to identify
       purchases with a high likelihood of fraud before they can be processed.
       Build additional checks and balances into your payment flows with our easy
       to use API. '
@@ -52,7 +52,7 @@ blocks:
     isImageAfterText: false
 inlineCta:
   title: Try FingerprintJS free
-  markdownSubtitle: Installation of FingerprintJS' Javascript agent is easy. Start
+  markdown__Subtitle: Installation of FingerprintJS' Javascript agent is easy. Start
     collecting unique VisitorIDs in minutes with our 10-day free trial.
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup

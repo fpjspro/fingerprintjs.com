@@ -1,14 +1,13 @@
 import React from 'react'
 import PreviewCompatibleImage, { ImageInfo } from '../../common/PreviewCompatibleImage/PreviewCompatibleImage'
 import classNames from 'classnames'
-import { DangerouslyRenderHtmlContent } from '../../Content/Content'
 
 import styles from './CardGrid.module.scss'
 
 export interface Card {
   icon?: ImageInfo
   title: string
-  content: string
+  content: React.ReactNode
 }
 
 export interface CardGridProps {
@@ -46,7 +45,7 @@ export function CardComponent({ icon, title, content }: Card) {
         </span>
       )}
       <header className={styles.title}>{title}</header>
-      <DangerouslyRenderHtmlContent className={styles.content} content={content} />
+      {content}
     </div>
   )
 }

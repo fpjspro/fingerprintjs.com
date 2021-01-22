@@ -54,28 +54,5 @@
 }
 
 .content {
-  p,
-  ul,
-  ol,
-  img,
-  blockquote {
-    margin-bottom: 2rem;
-  }
-
-  @for $index from 1 through 6 {
-    h#{$index} {
-      font-size: 2rem;
-    }
-  }
-
-  p {
-    font-size: 2rem;
-  }
-
-  ul,
-  ol {
-    li {
-      font-size: 2rem;
-    }
-  }
+  @include overrideContentStyle;
 }

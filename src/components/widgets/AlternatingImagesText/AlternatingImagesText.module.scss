@@ -44,35 +44,14 @@
 .content {
   margin-bottom: 3rem;
 
-  p,
-  ul,
-  ol,
-  img,
-  blockquote {
-    margin-bottom: 2rem;
-  }
+  @include overrideContentStyle;
 
   h1 {
     font-size: 2.5rem;
   }
+
   h2 {
     font-size: 2.25rem;
-  }
-  @for $index from 3 through 6 {
-    h#{$index} {
-      font-size: 2rem;
-    }
-  }
-
-  p {
-    font-size: 2rem;
-  }
-
-  ul,
-  ol {
-    li {
-      font-size: 2rem;
-    }
   }
 }
 

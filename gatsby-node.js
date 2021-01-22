@@ -157,7 +157,7 @@ function createNodePath({ node, getNode }) {
 function preprocessMarkdown(obj) {
   if (obj && typeof obj === 'object') {
     Object.keys(obj).forEach((key) => {
-      if (key.startsWith('markdown')) {
+      if (key.startsWith('markdown__')) {
         obj[key] = remark().use(remarkHTML).processSync(obj[key]).toString()
       } else {
         // We need to preprocess subobjects as well.

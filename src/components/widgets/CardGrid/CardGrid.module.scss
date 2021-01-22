@@ -24,35 +24,14 @@
   .content {
     margin-top: 1.75rem;
 
-    p,
-    ul,
-    ol,
-    img,
-    blockquote {
-      margin-bottom: 2rem;
-    }
+    @include overrideContentStyle($fontSize: 1.75rem, $headerSize: 1.75rem);
 
     h1 {
       font-size: 2.25rem;
     }
+
     h2 {
       font-size: 2rem;
-    }
-    @for $index from 3 through 6 {
-      h#{$index} {
-        font-size: 1.75rem;
-      }
-    }
-
-    p {
-      font-size: 1.75rem;
-    }
-
-    ul,
-    ol {
-      li {
-        font-size: 1.75rem;
-      }
     }
   }
 }

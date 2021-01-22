@@ -22,26 +22,26 @@ cardSection:
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Eliminate account takeover attempts
-      markdownContent: Protect your loyal customers' accounts from thieves looking to sell
+      markdown__Content: Protect your loyal customers' accounts from thieves looking to sell
         their in-game wallets, inventories, or characters. Catch brute-force bot
         attacks and logins compromised through phishing or fake sites.
     - icon: /img/uploads/gaming.png
       title: Identify suspicious activity in all its forms
-      markdownContent: 'Catch accounts created via proxies and VPNs, arbitrage attempts,
+      markdown__Content: 'Catch accounts created via proxies and VPNs, arbitrage attempts,
         player collusion, in-app purchase brokers, and more. '
     - title: Avoid merchant penalties
-      markdownContent: Only require additional authentication for suspicious or new players
+      markdown__Content: Only require additional authentication for suspicious or new players
         while allowing micro-transactions and quick payments to proceed with
         ease for everyone else.
       icon: /img/uploads/commerce.png
     - title: Reduce manual checks
-      markdownContent: Having to manually screen purchases for signs of fraud isn't scalable.
+      markdown__Content: Having to manually screen purchases for signs of fraud isn't scalable.
         Supercharge your automated fraud fighting efforts with the most accurate
         fingerprinting technology available.
       icon: /img/uploads/anonymous_user_identification.png
 blocks:
   - subheader: Powerful fingerprinting prevents gaming fraud
-    markdownContent: Cheating in online gaming can ruin the fun for your ethical players,
+    markdown__Content: Cheating in online gaming can ruin the fun for your ethical players,
       and can be notoriously difficult to stop.   Prevent fraud at its source by
       creating a unique ID for your visitors, associating their activity across
       browsers, incognito mode, and other cloaking methods. By understanding
@@ -55,7 +55,7 @@ blocks:
   - isImageAfterText: false
     subheader: Protect your players' accounts and your bottom-line with anti-fraud
       protection from login to payment.
-    markdownContent: Use FingerprintJS for your site's unique fraud needs. Our API and
+    markdown__Content: Use FingerprintJS for your site's unique fraud needs. Our API and
       webhooks make it easy to build custom authentication workflows to stop
       common sources of fraud for gaming and gambling sites, including account
       takeover, promo and bonus abuse, card testing, and more.
@@ -65,7 +65,7 @@ blocks:
     isCtaButton: false
 inlineCta:
   title: Try FingerprintJS for gaming fraud prevention
-  markdownSubtitle: Install our Javascript snippet on your site to start collecting unique
+  markdown__Subtitle: Install our Javascript snippet on your site to start collecting unique
     VisitorIDs, geolocation data, visit history, and more immediately.
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
