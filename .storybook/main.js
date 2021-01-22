@@ -58,23 +58,8 @@ module.exports = {
         ],
       },
     })
-    config.resolve.extensions.push('.ts', '.tsx')
 
-    // config.module.rules.push({
-    //   test: /\.scss$/,
-    //   use: [
-    //     'style-loader',
-    //     { loader: 'css-loader', options: { modules: true } },
-    //     {
-    //       loader: 'sass-loader',
-    //       options: {
-    //         implementation: require('sass'),
-    //         additionalData: `@import "${resolvePath(path.resolve(__dirname, '..'), '/src/styles/common')}";`,
-    //       },
-    //     },
-    //   ],
-    //   include: path.resolve(__dirname, '../'),
-    // })
+    config.resolve.extensions.push('.ts', '.tsx')
 
     return config
   },
