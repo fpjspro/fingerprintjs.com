@@ -12,6 +12,7 @@ import { Forms, useForm } from '../../hooks/useForm'
 import Tippy from '@tippyjs/react'
 import { ReactComponent as InfoSvg } from '../../img/info.svg'
 import { useUtmParams } from '../../hooks/useUtmParams'
+import { isBrowser } from '../../helpers/detector'
 
 import styles from './GetStartedForm.module.scss'
 
@@ -26,7 +27,8 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
   const [email, setEmail] = useState('')
   const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.Signup)
 
-  const utmInfo = useUtmParams()
+  const referrer = isBrowser() ? document.referrer : ''
+  const utmInfo = useUtmParams({ referral_url: referrer })
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

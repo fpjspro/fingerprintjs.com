@@ -1,15 +1,17 @@
 import { useMemo } from 'react'
 import { useQueryParams } from './useQueryParams'
 
-export const useUtmParams = () => {
+export const useUtmParams = (overrides?: Record<string, string>) => {
   const queryParams = useQueryParams()
 
   return useMemo(() => {
-    return Object.keys(queryParams)
-      .filter((key) => key.startsWith('utm_') || key === 'referral_url')
+    const utmInfo = Object.keys(queryParams)
+      .filter((key) => key.startsWith('utm_'))
       .reduce((acc: Record<string, string>, key) => {
         acc[key] = queryParams[key]
         return acc
       }, {})
-  }, [queryParams])
+
+    return { ...utmInfo, ...overrides }
+  }, [queryParams, overrides])
 }
