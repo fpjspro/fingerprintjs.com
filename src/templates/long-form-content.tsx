@@ -75,7 +75,7 @@ export const pageQuery = graphql`
   }
 `
 
-interface TemplateProps {
+export interface TemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   post: PostProps
   body: string | React.ReactNode

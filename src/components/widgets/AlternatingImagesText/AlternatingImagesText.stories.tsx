@@ -10,7 +10,7 @@ export default {
 const Template: Story<AlternatingImagesTextProps> = (args) => <AlternatingImagesText {...args} />
 
 export const Default = Template.bind({})
-Default.args = {
+export const defaultArgs: AlternatingImagesTextProps = {
   title: 'In ornare imperdiet nisl, eu tempor massa blandit in.',
   blocks: [
     {
@@ -35,3 +35,4 @@ Default.args = {
     },
   ],
 }
+Default.args = defaultArgs

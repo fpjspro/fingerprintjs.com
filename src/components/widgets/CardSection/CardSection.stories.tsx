@@ -10,7 +10,7 @@ export default {
 const Template: Story<CardSectionProps> = (args) => <CardSection {...args} />
 
 export const Default = Template.bind({})
-Default.args = {
+export const defaultArgs = {
   title: 'Vestibulum id risus non nisl fermentum rhoncus non ut turpis.',
   subtitle:
     'Fusce vitae varius erat. Quisque tellus nulla, tincidunt vel auctor a, commodo ut augue. Nulla sollicitudin fringilla tellus ut pulvinar. Ut et euismod lacus, sit amet fringilla diam.',
@@ -37,3 +37,4 @@ Default.args = {
     },
   ],
 }
+Default.args = defaultArgs
