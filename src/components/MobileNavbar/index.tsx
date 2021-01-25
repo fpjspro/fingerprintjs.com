@@ -12,14 +12,13 @@ import styles from './MobileNavbar.module.scss'
 import { useCaseLinks } from '../../constants/content'
 import { URL, DOC_URL, PATH, MAILTO } from '../../constants/content'
 import DropdownMenu from './DropdownMenu'
+import { useUtmParams } from '../../hooks/useUtmParams'
 import { buildQueryString } from '../../helpers/common'
-import { browserRedirect, getUtmParams } from '../../helpers/url'
-import { useLocation } from '@reach/router'
 
 export default function MobileNavbar() {
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
-  const queryString = useLocation().search
+  const utmInfo = useUtmParams()
 
   return (
     <>
@@ -29,9 +28,7 @@ export default function MobileNavbar() {
             <Button onClick={() => setIsContactSalesModalOpen(true)} variant='outline'>
               Contact Sales
             </Button>
-            <Button onClick={() => browserRedirect(`${URL.signupUrl}${buildQueryString(getUtmParams(queryString))}`)}>
-              Free Trial
-            </Button>
+            <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`}>Free Trial</Button>
           </div>
           <div className={classNames(styles.links, styles.main)}>
             <Container size='large' className={styles.container}>

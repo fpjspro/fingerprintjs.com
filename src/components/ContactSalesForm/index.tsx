@@ -8,9 +8,8 @@ import classNames from 'classnames'
 import { Forms, useForm } from '../../hooks/useForm'
 import { createNewLead } from '../../helpers/api'
 import styles from './ContactSalesForm.module.scss'
+import { useUtmParams } from '../../hooks/useUtmParams'
 import { isBrowser } from '../../helpers/detector'
-import { useLocation } from '@reach/router'
-import { getUtmParams } from '../../helpers/url'
 
 interface ContactSalesFormProps {
   className?: string | string[]
@@ -21,7 +20,7 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
   const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.ContactSales)
 
   const referrer = isBrowser() ? document.referrer : ''
-  const queryString = useLocation().search
+  const utmInfo = useUtmParams({ referral_url: referrer })
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -38,7 +37,7 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
     }
 
     try {
-      const response = await createNewLead(email, website, getUtmParams(queryString, { referral_url: referrer }))
+      const response = await createNewLead(email, website, utmInfo)
       const status = response.status
       const data = await response.json()
 
