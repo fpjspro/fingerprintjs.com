@@ -1,13 +1,16 @@
 import { useLocation } from '@reach/router'
-import { useMemo } from 'react'
+import { useEffect, useState } from 'react'
 import { objectFromEntries } from '../helpers/common'
 
 export const useQueryParams = () => {
   const searchStr = useLocation().search
+  const [queryParams, setQueryParams] = useState<Record<string, string>>({})
 
-  return useMemo(() => {
+  useEffect(() => {
     const urlParamsEntries = new URLSearchParams(searchStr).entries()
 
-    return objectFromEntries(urlParamsEntries)
+    setQueryParams(objectFromEntries(urlParamsEntries))
   }, [searchStr])
+
+  return queryParams
 }
