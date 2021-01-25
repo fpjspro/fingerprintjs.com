@@ -1,12 +1,12 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
-import InlineCtaComponent, { InlineCta } from '../components/widgets/InlineCta'
+import InlineCta, { InlineCtaProps } from '../components/widgets/InlineCta'
 import Hero, { HeroProps } from '../components/widgets/Hero'
 import { LayoutTemplate } from '../components/Layout'
 import { ArrayElement, GeneratedPageContext } from '../helpers/types'
 import AlternatingImagesText, { BlockWithImage } from '../components/widgets/AlternatingImagesText'
-import CardSectionComponent, { CardSection } from '../components/widgets/CardSection'
+import CardSection, { CardSectionProps } from '../components/widgets/CardSection'
 import { Card } from '../components/widgets/CardGrid'
 import { BASE_URL } from '../constants/content'
 import Section from '../components/common/Section'
@@ -119,8 +119,8 @@ export const pageQuery = graphql`
 export interface StaticPageContentTemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   invertContent: boolean
-  inlineCta: InlineCta
-  cardSection: CardSection
+  inlineCta: InlineCtaProps
+  cardSection: CardSectionProps
   blocks: BlockWithImage[]
   hero: HeroProps
   breadcrumbs?: Array<Breadcrumb>
@@ -142,15 +142,15 @@ export function StaticPageContentTemplate({
         {invertContent ? (
           <>
             {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
-            <CardSectionComponent {...cardSection} className={styles.widget} />
+            <CardSection {...cardSection} className={styles.widget} />
           </>
         ) : (
           <>
-            <CardSectionComponent {...cardSection} className={styles.widget} />
+            <CardSection {...cardSection} className={styles.widget} />
             {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
           </>
         )}
-        <InlineCtaComponent {...inlineCta} />
+        <InlineCta {...inlineCta} />
       </Section>
     </LayoutTemplate>
   )
@@ -209,7 +209,7 @@ function mapToHero(queryHero: QueryHero): HeroProps {
 type QueryCardSection = NonNullable<
   NonNullable<GatsbyTypes.StaticPageContentQuery['markdownRemark']>['frontmatter']
 >['cardSection']
-function mapToCardSection(queryCardSection: QueryCardSection): CardSection {
+function mapToCardSection(queryCardSection: QueryCardSection): CardSectionProps {
   return {
     title: queryCardSection?.title ?? 'Vivamus at ex a mi bibendum sollicitudin sit amet laoreet mi.',
     subtitle: queryCardSection?.subtitle ?? '',
@@ -224,7 +224,7 @@ function mapToCardSection(queryCardSection: QueryCardSection): CardSection {
               'Sed ut fermentum dolor. Vivamus pulvinar nisi leo, in accumsan diam pretium id. Vestibulum aliquam posuere enim, sed finibus sapien fringilla pharetra. Ut sollicitudin nunc non dui placerat facilisis. Duis neque turpis, dictum sit amet sagittis ut, finibus ac eros. Cras pulvinar laoreet diam vel lacinia.',
           } as Card)
       ) ?? [],
-  } as CardSection
+  } as CardSectionProps
 }
 
 type QueryBlock = ArrayElement<
@@ -253,7 +253,7 @@ function mapToBlocks(queryBlocks: QueryBlock[]): BlockWithImage[] {
 type QueryInlineCta = NonNullable<
   NonNullable<GatsbyTypes.StaticPageContentQuery['markdownRemark']>['frontmatter']
 >['inlineCta']
-function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCta {
+function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCtaProps {
   return {
     title: queryInlineCta?.title ?? 'Quisque arcu urna, tempor aliquet mi eget.',
     subtitle:
@@ -261,5 +261,5 @@ function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCta {
       'Curabitur sollicitudin id mi ac ultrices. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.',
     buttonText: queryInlineCta?.buttonText ?? 'Lorem ipsum',
     buttonHref: queryInlineCta?.buttonHref ?? '/',
-  } as InlineCta
+  } as InlineCtaProps
 }

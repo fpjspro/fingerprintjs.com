@@ -7,7 +7,7 @@ type SubHeaderTextSize = 'small' | 'normal' | 'medium' | 'large'
 type SubHeaderAlign = 'left' | 'right' | 'center'
 type SubHeaderWeight = 'secondary' | 'primary'
 
-export interface SubHeader {
+export interface SubHeaderProps {
   title: string
   titleSize?: SubHeaderTextSize
   titleWeight?: SubHeaderWeight
@@ -17,7 +17,7 @@ export interface SubHeader {
   className?: string
 }
 
-export default function SubHeaderComponent({
+export default function SubHeader({
   title,
   titleSize = 'medium',
   titleWeight = 'secondary',
@@ -25,7 +25,7 @@ export default function SubHeaderComponent({
   subtitleSize = 'small',
   align = 'center',
   className,
-}: SubHeader) {
+}: SubHeaderProps) {
   return (
     <header className={classNames(styles.root, className, alignmentClasses(align))}>
       <h1 className={classNames(styles.title, sizeClasses(titleSize), weightClasses(titleWeight))}>{title}</h1>

@@ -2,24 +2,24 @@ import React from 'react'
 import Container from '../../common/Container'
 import Section from '../../common/Section'
 import CardGrid, { Card } from '../CardGrid'
-import SubHeaderComponent from '../SubHeader'
+import SubHeader from '../SubHeader'
 import classNames from 'classnames'
 
 import styles from './CardSection.module.scss'
 
-export interface CardSection {
+export interface CardSectionProps {
   title: string
   subtitle?: string
   cards: Card[]
   className?: string
 }
 
-export default function CardSectionComponent({ title, subtitle, cards, className }: CardSection) {
+export default function CardSection({ title, subtitle, cards, className }: CardSectionProps) {
   return (
     <Section className={classNames(className, styles.root)}>
       <Container size='large'>
         <div className={styles.cardSection}>
-          <SubHeaderComponent title={title} subtitle={subtitle} titleWeight='primary' />
+          <SubHeader title={title} subtitle={subtitle} titleWeight='primary' />
           <CardGrid cards={cards} />
         </div>
       </Container>

@@ -28,7 +28,13 @@ window.___navigate = (pathname) => {
 }
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  layout: 'centered',
+  actions: { argTypesRegex: '^on.*' },
+  options: {
+    storySort: {
+      method: 'alphabetical',
+    },
+  },
 }
 
 export const decorators = [

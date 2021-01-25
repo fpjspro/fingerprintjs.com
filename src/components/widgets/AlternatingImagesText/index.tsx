@@ -8,7 +8,7 @@ import Button from '../../common/Button'
 import { Link } from 'gatsby'
 
 export interface BlockWithImage {
-  image: ImageInfo
+  image: ImageInfo | string
   subTitle: string
   content: string
   isImageAfterText: boolean
