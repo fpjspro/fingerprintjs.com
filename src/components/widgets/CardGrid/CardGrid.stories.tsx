@@ -17,7 +17,7 @@ const Template: Story<CardGridProps> = (args) => (
 )
 
 export const Default = Template.bind({})
-export const defaultArgs = {
+export const defaultArgs: CardGridProps = {
   cards: [
     {
       title: 'Sed facilisis interdum congue.',
