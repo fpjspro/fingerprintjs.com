@@ -5,6 +5,8 @@ import InlineCta, { InlineCtaProps } from './index'
 export default {
   title: 'Widgets / InlineCta',
   component: InlineCta,
+
+  excludeStories: /.*Args/,
 }
 
 const Template: Story<InlineCtaProps> = (args) => <InlineCta {...args} />

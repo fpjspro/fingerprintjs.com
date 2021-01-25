@@ -5,6 +5,8 @@ import CardSection, { CardSectionProps } from './index'
 export default {
   title: 'Widgets / CardSection',
   component: CardSection,
+
+  excludeStories: /.*Args/,
 }
 
 const Template: Story<CardSectionProps> = (args) => <CardSection {...args} />

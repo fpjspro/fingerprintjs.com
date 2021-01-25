@@ -5,6 +5,8 @@ import Hero, { HeroProps } from './index'
 export default {
   title: 'Widgets / Hero',
   component: Hero,
+
+  excludeStories: /.*Args/,
 }
 
 const Template: Story<HeroProps> = (args) => <Hero {...args} />

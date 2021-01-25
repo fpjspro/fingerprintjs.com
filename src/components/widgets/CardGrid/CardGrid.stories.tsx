@@ -6,6 +6,8 @@ import CardGrid, { CardGridProps } from './index'
 export default {
   title: 'Widgets / CardGrid',
   component: CardGrid,
+
+  excludeStories: /.*Args/,
 }
 
 const Template: Story<CardGridProps> = (args) => (
@@ -15,7 +17,7 @@ const Template: Story<CardGridProps> = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {
+export const defaultArgs = {
   cards: [
     {
       title: 'Sed facilisis interdum congue.',
@@ -39,3 +41,4 @@ Default.args = {
     },
   ],
 }
+Default.args = defaultArgs
