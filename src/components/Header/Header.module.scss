@@ -76,13 +76,15 @@
   object-fit: contain;
 
   @include media('>tablet') {
-    height: auto;
+    height: 28px;
     width: 200px;
   }
   @include media('<=tablet') {
+    height: 21px;
     width: 150px;
   }
   @include media('<=phone') {
+    height: 14px;
     width: 100px;
   }
 }
