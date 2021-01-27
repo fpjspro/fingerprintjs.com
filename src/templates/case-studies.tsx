@@ -10,12 +10,15 @@ import PaginationNav from '../components/PaginationNav/PaginationNav'
 import PostGrid from '../components/PostGrid/PostGrid'
 // import { PostProps } from '../components/Post/Post'
 import { BASE_URL } from '../constants/content'
+import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 
 interface CaseStudyProps {
   // data: GatsbyTypes.CaseStudiesQuery
   pageContext: CaseStudiesContext
 }
 export default function CaseStudies({ /* data, */ pageContext }: CaseStudyProps) {
+  const breadcrumbs = pageContext.breadcrumb.crumbs
+
   // const { edges: caseStudies } = data.allMarkdownRemark
 
   const { pathname } = useLocation()
@@ -41,6 +44,8 @@ export default function CaseStudies({ /* data, */ pageContext }: CaseStudyProps)
 
   return (
     <LayoutTemplate siteMetadata={siteMetadata}>
+      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
+
       <Section>
         <Container size='large'>
           <h1>Case Studies</h1>
