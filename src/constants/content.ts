@@ -13,6 +13,7 @@ export const PATH = {
   accountSharing: '/account-sharing/',
   whyFpjs: '/why-fpjs/',
   blog: '/blog/',
+  paywall: '/paywall/',
 } as const
 
 export const URL = {
@@ -46,6 +47,7 @@ export const useCaseLinks = [
   { title: 'Cryptocurrency', url: PATH.cryptocurrency, isLocal: true },
   { title: 'Payment Fraud', url: PATH.paymentFraud, isLocal: true },
   { title: 'Account Sharing', url: PATH.accountSharing, isLocal: true },
+  { title: 'Paywall', url: PATH.paywall, isLocal: true },
 ]
 
 export const defaultDataLayer = [{ branch: BRANCH }]
