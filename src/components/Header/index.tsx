@@ -14,7 +14,7 @@ import { useCaseLinks } from '../../constants/content'
 import classNames from 'classnames'
 import { URL } from '../../constants/content'
 import DropdownList from './DropdownList'
-import { ReactComponent as LogoSvg } from '../../img/fpjs.svg'
+import { ReactComponent as LogoSvg } from './fpjs.svg'
 
 import styles from './Header.module.scss'
 
