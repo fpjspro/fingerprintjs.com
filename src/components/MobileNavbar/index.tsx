@@ -35,8 +35,11 @@ export default function MobileNavbar() {
               <Link to={PATH.demoUrl} className={styles.link}>
                 Technical Demo
               </Link>
-              <Link to='/blog/' className={styles.link}>
+              <Link to={PATH.blog} className={styles.link}>
                 Blog
+              </Link>
+              <Link to={PATH.caseStudies} className={styles.link}>
+                Case Studies
               </Link>
               <a href={URL.githubRepoUrl} target='_blank' rel='noreferrer' className={styles.link}>
                 Open Source

@@ -136,6 +136,12 @@ exports.createPages = async ({ actions, graphql }) => {
       additionalContext
     )
   })
+
+  // Manually create the case-study landing page while we don't have a collection.
+  createPage({
+    path: 'case-studies/',
+    component: path.resolve(`src/templates/case-studies.tsx`),
+  })
 }
 
 function createNodePath({ node, getNode }) {
