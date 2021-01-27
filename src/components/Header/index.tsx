@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../Navbar'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import Prism from 'prismjs'
 import GithubButton from '../GithubButton'
 import { ReactComponent as BurgerSvg } from './burger.svg'
@@ -14,10 +14,16 @@ import { useCaseLinks } from '../../constants/content'
 import classNames from 'classnames'
 import { URL } from '../../constants/content'
 import DropdownList from './DropdownList'
+import { useQueryParams } from '../../hooks/useQueryParams'
+import { useLocation } from '@reach/router'
 
 import styles from './Header.module.scss'
+import { buildQueryString } from '../../helpers/common'
 
 export default function Header() {
+  const location = useLocation()
+  const queryParams = useQueryParams()
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
@@ -33,6 +39,12 @@ export default function Header() {
   useEffect(() => {
     Prism.highlightAll()
   }, [])
+
+  useEffect(() => {
+    if (queryParams.contact_sales) {
+      setIsContactSalesModalOpen(true)
+    }
+  }, [queryParams])
 
   const handleToggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -85,7 +97,16 @@ export default function Header() {
         {isMobileMenuOpen && <MobileNavbar />}
       </header>
 
-      <Modal title='Contact Sales' open={isContactSalesModalOpen} onClose={() => setIsContactSalesModalOpen(false)}>
+      <Modal
+        title='Contact Sales'
+        open={isContactSalesModalOpen}
+        onClose={() => {
+          setIsContactSalesModalOpen(false)
+
+          delete queryParams.contact_sales
+          navigate(`${location.pathname}${buildQueryString(queryParams)}`)
+        }}
+      >
         <ContactSalesForm />
       </Modal>
     </>
