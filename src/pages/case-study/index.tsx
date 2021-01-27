@@ -26,7 +26,9 @@ export default function CaseStudyPage() {
   let siteMetadata = useSiteMetadata()
   siteMetadata = {
     ...siteMetadata,
-    title: `Case Study - FingerprintJS Pro`,
+    title: 'Account Sharing Prevention in Edtech | FingerprintJS',
+    description:
+      'Learn how one educational technology company solved their account sharing problem with the FingerprintJS Pro user identification API.',
     siteUrl: `${siteMetadata.siteUrl}${pathname}`,
   }
 
