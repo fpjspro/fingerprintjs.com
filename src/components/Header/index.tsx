@@ -48,7 +48,7 @@ export default function Header() {
             <nav className={styles.navMain}>
               <div className={styles.navLeft}>
                 <Link to='/' className={`${styles.link} ${styles.linkLogo}`} title='Logo'>
-                  <LogoSvg alt='FingerprintJS' className={styles.logo} />
+                  <LogoSvg className={styles.logo} />
                 </Link>
                 <Link className={classNames(styles.link, styles.desktopOnly)} to='/why-fpjs/'>
                   Why Us
