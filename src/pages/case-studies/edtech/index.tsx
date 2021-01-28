@@ -18,10 +18,16 @@ import Modal from '../../../components/common/Modal'
 import ContactSalesForm from '../../../components/ContactSalesForm'
 import { URL } from '../../../constants/content'
 import FeatureList from '../../../components/FeatureList/FeatureList'
+import { GeneratedPageContext } from '../../../helpers/types'
+import BreadcrumbsSEO from '../../../components/Breadcrumbs/BreadcrumbsSEO'
 
 import styles from './case-study.module.scss'
 
-export default function CaseStudyPage() {
+interface CaseStudyPageProps {
+  pageContext: GeneratedPageContext
+}
+export default function CaseStudyPage({ pageContext }: CaseStudyPageProps) {
+  const breadcrumbs = pageContext.breadcrumb.crumbs
   const { pathname } = useLocation()
   let siteMetadata = useSiteMetadata()
   siteMetadata = {
@@ -34,6 +40,8 @@ export default function CaseStudyPage() {
 
   return (
     <LayoutTemplate siteMetadata={siteMetadata}>
+      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
+
       <Header />
       <Summary />
       <Body />
