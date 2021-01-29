@@ -39,17 +39,19 @@ export default function StaticPageContent({ data, pageContext }: StaticPageConte
   const cardSection = mapToCardSection(data.markdownRemark.frontmatter.cardSection)
   const blocks = mapToBlocks(data.markdownRemark.frontmatter.blocks as QueryBlock[])
   const hero = mapToHero(data.markdownRemark.frontmatter.hero)
+  const breadcrumbs = pageContext.breadcrumb.crumbs
 
   return (
-    <StaticPageContentTemplate
-      metadata={metadata}
-      invertContent={invertContent}
-      inlineCta={inlineCta}
-      cardSection={cardSection}
-      blocks={blocks}
-      hero={hero}
-      breadcrumbs={pageContext.breadcrumb.crumbs}
-    />
+    <LayoutTemplate siteMetadata={metadata}>
+      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
+      <StaticPageContentTemplate
+        invertContent={invertContent}
+        inlineCta={inlineCta}
+        cardSection={cardSection}
+        blocks={blocks}
+        hero={hero}
+      />
+    </LayoutTemplate>
   )
 }
 
@@ -117,51 +119,39 @@ export const pageQuery = graphql`
 `
 
 export interface StaticPageContentTemplateProps {
-  metadata: GatsbyTypes.SiteSiteMetadata
   invertContent: boolean
-  inlineCta: { title: string; subtitle: string; buttonText: string; buttonHref: string }
+  inlineCta: InlineCta
   cardSection: CardSection
   blocks: BlockWithImage[]
   hero: HeroProps
-  breadcrumbs?: Array<Breadcrumb>
 }
 export function StaticPageContentTemplate({
-  metadata,
   invertContent = false,
   inlineCta,
   cardSection,
   blocks,
   hero,
-  breadcrumbs,
 }: StaticPageContentTemplateProps) {
   return (
-    <LayoutTemplate siteMetadata={metadata}>
-      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
-      <Section className={styles.section}>
-        <Hero {...hero} className={styles.widget} />
-        {invertContent ? (
-          <>
-            {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
-            <CardSectionComponent {...cardSection} className={styles.widget} />
-          </>
-        ) : (
-          <>
-            <CardSectionComponent {...cardSection} className={styles.widget} />
-            {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
-          </>
-        )}
-        <InlineCtaComponent
-          title={inlineCta.title}
-          subtitle={inlineCta.subtitle}
-          primaryAction={{ name: inlineCta.buttonText, action: inlineCta.buttonHref }}
-        />
-      </Section>
-    </LayoutTemplate>
+    <Section className={styles.section}>
+      <Hero {...hero} className={styles.widget} />
+      {invertContent ? (
+        <>
+          {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
+          <CardSectionComponent {...cardSection} className={styles.widget} />
+        </>
+      ) : (
+        <>
+          <CardSectionComponent {...cardSection} className={styles.widget} />
+          {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
+        </>
+      )}
+      <InlineCtaComponent {...inlineCta} />
+    </Section>
   )
 }
 
 export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProps) {
-  const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const invertContent = entry.getIn(['data', 'invertContent'])
   const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
 
@@ -176,7 +166,6 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
 
   return (
     <StaticPageContentTemplate
-      metadata={mapToMetadata(metadata)}
       invertContent={invertContent}
       inlineCta={mapToInlineCta(inlineCta)}
       cardSection={mapToCardSection(cardSection)}
@@ -263,7 +252,6 @@ function mapToInlineCta(queryInlineCta: QueryInlineCta): InlineCta {
     subtitle:
       queryInlineCta?.subtitle ??
       'Curabitur sollicitudin id mi ac ultrices. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.',
-    buttonText: queryInlineCta?.buttonText ?? 'Lorem ipsum',
-    buttonHref: queryInlineCta?.buttonHref ?? '/',
+    primaryAction: { name: queryInlineCta?.buttonText ?? 'Lorem ipsum', action: queryInlineCta?.buttonHref ?? '/' },
   } as InlineCta
 }
