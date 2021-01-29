@@ -2,6 +2,12 @@
   position: relative;
   overflow-y: hidden;
 
+  .content {
+    margin-top: 1.75rem;
+
+    @include overrideContentStyle;
+  }
+
   &::before {
     content: '';
     opacity: 0.2;
@@ -113,8 +119,4 @@
   @include media('<=phoneLandscape', '>phone') {
     padding-bottom: 1rem;
   }
-}
-
-.content {
-  @include overrideContentStyle;
 }

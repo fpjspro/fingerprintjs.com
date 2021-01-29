@@ -18,9 +18,9 @@ import styles from './static-page-content.module.scss'
 
 // Each widget has different styles and the MarkdownContent component is not aware of that, so we need to pass a widget class to MarkdownContent.
 // TODO [VL] When we have consistent typography, we can create variants for the markdown component instead of overriding styles for each widget.
+import ctaStyles from '../components/widgets/InlineCta/InlineCta.module.scss'
 import cardStyles from '../components/widgets/CardGrid/CardGrid.module.scss'
 import blockStyles from '../components/widgets/AlternatingImagesText/AlternatingImagesText.module.scss'
-import ctaStyles from '../components/widgets/InlineCta/InlineCta.module.scss'
 
 interface StaticPageContentProps {
   data: GatsbyTypes.StaticPageContentQuery
