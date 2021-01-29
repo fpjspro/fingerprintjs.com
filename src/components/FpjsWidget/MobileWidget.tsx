@@ -25,9 +25,8 @@ export default function MobileWidget({ className, isLoaded, visits, visitorId }:
       className={classNames(className, styles.container, {
         [styles.loaded]: isLoaded,
       })}
+      slidesPerView={1.05}
       spaceBetween={10}
-      slidesPerView={1}
-      width={window.innerWidth - 48}
       centeredSlides={true}
       pagination={{
         dynamicBullets: true,
