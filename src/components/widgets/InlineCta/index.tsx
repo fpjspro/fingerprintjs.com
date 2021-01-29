@@ -15,7 +15,7 @@ export interface Action {
 }
 export interface InlineCta {
   title: string
-  subtitle: string
+  subtitle: React.ReactNode
   primaryAction: Action
   secondaryAction?: Action
   size?: 'small' | 'regular' | 'large'

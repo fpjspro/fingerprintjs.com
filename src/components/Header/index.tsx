@@ -14,12 +14,17 @@ import { useCaseLinks } from '../../constants/content'
 import classNames from 'classnames'
 import { URL } from '../../constants/content'
 import DropdownList from './DropdownList'
+import { useUtmParams } from '../../hooks/useUtmParams'
+import { buildQueryString } from '../../helpers/common'
+import { ReactComponent as LogoSvg } from './fpjs.svg'
 
 import styles from './Header.module.scss'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
+
+  const utmInfo = useUtmParams()
 
   useEffect(() => {
     const mobileBodyClass = 'isMobileMenuOpen'
@@ -47,7 +52,7 @@ export default function Header() {
             <nav className={styles.navMain}>
               <div className={styles.navLeft}>
                 <Link to='/' className={`${styles.link} ${styles.linkLogo}`} title='Logo'>
-                  <img src='/img/company-logos/fpjs.svg' alt='FingerprintJS' className={styles.logo} />
+                  <LogoSvg className={styles.logo} />
                 </Link>
                 <Link className={classNames(styles.link, styles.desktopOnly)} to='/why-fpjs/'>
                   Why Us
@@ -69,7 +74,7 @@ export default function Header() {
                 >
                   Contact Sales
                 </Button>
-                <Button href={URL.signupUrl}>Free Trial</Button>
+                <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`}>Free Trial</Button>
                 <Button
                   label='Mobile Menu'
                   className={styles.mobileToggler}

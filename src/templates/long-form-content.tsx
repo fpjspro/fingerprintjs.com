@@ -99,7 +99,7 @@ export function LongFormContentTemplate({ post, body, contentComponent }: Templa
 export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComponentProps) {
   return (
     <LongFormContentTemplate
-      post={mapToPost({ frontmatter: entry.get('data').toObject() })}
+      post={mapToPost({ frontmatter: entry.get('data').toObject() }, true)}
       body={widgetFor('body') ?? <></>}
     />
   )

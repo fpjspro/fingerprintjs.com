@@ -114,3 +114,7 @@
     padding-bottom: 1rem;
   }
 }
+
+.content {
+  @include overrideContentStyle;
+}

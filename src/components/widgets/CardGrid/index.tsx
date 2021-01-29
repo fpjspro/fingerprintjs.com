@@ -7,7 +7,7 @@ import styles from './CardGrid.module.scss'
 export interface Card {
   icon?: ImageInfo
   title: string
-  content: string
+  content: React.ReactNode
 }
 
 export interface CardGridProps {
@@ -45,7 +45,7 @@ export function CardComponent({ icon, title, content }: Card) {
         </span>
       )}
       <header className={styles.title}>{title}</header>
-      <div className={styles.content}>{content}</div>
+      {content}
     </div>
   )
 }

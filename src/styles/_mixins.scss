@@ -208,3 +208,30 @@
 }
 
 /*=====  End of GAP FOR FLEXBOX  ======*/
+
+@mixin overrideContentStyle($fontSize: 2rem, $headerSize: 2rem, $marginBottom: 2rem) {
+  p,
+  ul,
+  ol,
+  img,
+  blockquote {
+    margin-bottom: $marginBottom;
+  }
+
+  p {
+    font-size: $fontSize;
+  }
+
+  ul,
+  ol {
+    li {
+      font-size: $fontSize;
+    }
+  }
+
+  @for $index from 1 through 6 {
+    h#{$index} {
+      font-size: $headerSize;
+    }
+  }
+}

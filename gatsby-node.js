@@ -3,6 +3,8 @@
 
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const remark = require('remark')
+const remarkHTML = require('remark-html')
 
 async function getFolderEdges(folder, graphql, filter = '') {
   const { data, errors } = await graphql(`
@@ -158,6 +160,19 @@ function createNodePath({ node, getNode }) {
   }
 }
 
+function preprocessMarkdown(obj) {
+  if (obj && typeof obj === 'object') {
+    Object.keys(obj).forEach((key) => {
+      if (key.startsWith('markdown__')) {
+        obj[key] = remark().use(remarkHTML).processSync(obj[key]).toString()
+      } else {
+        // We need to preprocess subobjects as well.
+        preprocessMarkdown(obj[key])
+      }
+    })
+  }
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
@@ -169,6 +184,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+
+  // Replace the value of all markdown fields by the parsed HTML.
+  const frontmatter = node.frontmatter
+  preprocessMarkdown(frontmatter)
 }
 
 function getWebpackPlugin(config, name) {
