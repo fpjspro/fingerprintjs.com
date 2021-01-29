@@ -12,9 +12,10 @@ import { useUtmParams } from '../../hooks/useUtmParams'
 import { isBrowser } from '../../helpers/detector'
 
 interface ContactSalesFormProps {
+  variant?: 'dark' | 'light'
   className?: string | string[]
 }
-export default function ContactSalesForm({ className }: ContactSalesFormProps) {
+export default function ContactSalesForm({ variant = 'dark', className }: ContactSalesFormProps) {
   const [email, setEmail] = useState('')
   const [website, setWebsite] = useState('')
   const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.ContactSales)
@@ -93,14 +94,18 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
 
       {formState === FormState.Success && (
         <div className={classNames(styles.state, styles.success)}>
-          <div className={styles.message}>Thanks, we received your request. We&#39;ll get back to you soon.</div>
+          <div className={classNames(styles.message, { [styles.messageLight]: variant === 'light' })}>
+            Thanks, we received your request. We&#39;ll get back to you soon.
+          </div>
           <CheckSvg className={styles.icon} />
         </div>
       )}
 
       {formState === FormState.Failed && (
         <div className={classNames(styles.state, styles.failed)}>
-          <div className={styles.message}>{errorMessage}</div>
+          <div className={classNames(styles.message, { [styles.messageLight]: variant === 'light' })}>
+            {errorMessage}
+          </div>
           <CloseSvg className={styles.icon} />
         </div>
       )}
