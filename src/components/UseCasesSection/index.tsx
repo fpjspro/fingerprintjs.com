@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-
+import React from 'react'
 import classNames from 'classnames'
 import { ReactComponent as AccountFraudSvg } from './account_fraud.svg'
 import { ReactComponent as PaymentProcessingSvg } from './payment_processing.svg'
@@ -11,15 +10,12 @@ import Container from '../common/Container'
 import Section from '../common/Section'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import { Link } from 'gatsby'
-import Modal from '../common/Modal'
-import ContactSalesForm from '../ContactSalesForm'
 import { PATH } from '../../constants/content'
 
 import styles from './UseCasesSection.module.scss'
 
 export default function UseCasesSection() {
   const { mainBackground } = useMainBackgroundImage()
-  const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
   return (
     <>
@@ -68,10 +64,6 @@ export default function UseCasesSection() {
           </div>
         </Container>
       </Section>
-
-      <Modal title='Contact Sales' open={isContactSalesModalOpen} onClose={() => setIsContactSalesModalOpen(false)}>
-        <ContactSalesForm />
-      </Modal>
     </>
   )
 }
