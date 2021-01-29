@@ -15,19 +15,11 @@ export default function FeatureList({ title, features }: FeatureListProps) {
       <ul>
         {features.map((feature) => (
           <li key={feature} className={styles.feature}>
-            <FeatureCheckbox />
+            <DoneSvg className={styles.checkbox} />
             {feature}
           </li>
         ))}
       </ul>
     </div>
-  )
-}
-
-function FeatureCheckbox() {
-  return (
-    <span className={styles.checkbox}>
-      <DoneSvg className={styles.icon} />
-    </span>
   )
 }

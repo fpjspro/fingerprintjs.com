@@ -21,19 +21,17 @@
 }
 
 .checkbox {
+  width: 3rem;
+  height: 3rem;
   margin-right: 2rem;
+  margin-bottom: 3px;
 
   border: 2px solid c('black');
   border-radius: 4px;
 
-  padding: 1px;
-  padding-top: 0;
+  padding: 1px 0;
 
   @include media('<tablet') {
     margin-right: 1.5rem;
   }
-}
-
-.icon {
-  margin-bottom: 3px;
 }

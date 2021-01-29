@@ -1,4 +1,3 @@
-// import { graphql } from 'gatsby'
 import React from 'react'
 import Container from '../components/common/Container'
 import Section from '../components/common/Section'
@@ -8,18 +7,14 @@ import { useLocation } from '@reach/router'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
 import PostGrid from '../components/PostGrid/PostGrid'
-// import { PostProps } from '../components/Post/Post'
 import { BASE_URL } from '../constants/content'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 
 interface CaseStudyProps {
-  // data: GatsbyTypes.CaseStudiesQuery
   pageContext: CaseStudiesContext
 }
-export default function CaseStudies({ /* data, */ pageContext }: CaseStudyProps) {
+export default function CaseStudies({ pageContext }: CaseStudyProps) {
   const breadcrumbs = pageContext.breadcrumb.crumbs
-
-  // const { edges: caseStudies } = data.allMarkdownRemark
 
   const { pathname } = useLocation()
   let siteMetadata = useSiteMetadata()
@@ -32,6 +27,7 @@ export default function CaseStudies({ /* data, */ pageContext }: CaseStudyProps)
 
   const { currentPage, numPages } = pageContext
 
+  // TODO [VL] This will be turned into a page query when integrating with the CMS.
   const caseStudies = [
     {
       title: 'Account sharing prevention in Edtech',
@@ -59,29 +55,7 @@ export default function CaseStudies({ /* data, */ pageContext }: CaseStudyProps)
   )
 }
 
-// export const pageQuery = graphql`
-//   query CaseStudies($skip: Int!, $limit: Int!) {
-//     posts: allMarkdownRemark(
-//       filter: { fileAbsolutePath: { regex: "/(case-studies)/.*\\.md$/" } }
-//       sort: { order: DESC, fields: frontmatter___publishDate }
-//       limit: $limit
-//       skip: $skip
-//     ) {
-
-//     }
-// `
-
 interface CaseStudiesContext extends GeneratedPageContext {
   currentPage: number
   numPages: number
 }
-
-// type CaseStudy = Record<string, string>
-// function makePost(caseStudy: CaseStudy) {
-//   return {
-//     title: '',
-//     description: '',
-//     publishDate: '',
-//     path: '',
-//   } as PostProps
-// }
