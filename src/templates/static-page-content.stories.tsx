@@ -9,13 +9,18 @@ import { InlineCtaProps } from '../components/widgets/InlineCta'
 import { CardSectionProps } from '../components/widgets/CardSection'
 import { BlockWithImage } from '../components/widgets/AlternatingImagesText'
 import { HeroProps } from '../components/widgets/Hero'
+import PreviewProviders from '../cms/PreviewProviders'
 
 export default {
   title: 'Pages / Static Page Content',
   component: StaticPageContentTemplate,
 }
 
-const Template: Story<StaticPageContentTemplateProps> = (args) => <StaticPageContentTemplate {...args} />
+const Template: Story<StaticPageContentTemplateProps> = (args) => (
+  <PreviewProviders>
+    <StaticPageContentTemplate {...args} />
+  </PreviewProviders>
+)
 
 export const Default = Template.bind({})
 Default.args = {

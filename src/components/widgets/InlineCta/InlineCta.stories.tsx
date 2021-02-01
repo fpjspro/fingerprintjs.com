@@ -14,6 +14,5 @@ Default.args = {
   title: 'Duis quis dui vel orci tempus condimentum in a purus.',
   subtitle:
     'Duis ullamcorper, libero porttitor facilisis pretium, urna lacus porttitor tellus, et ullamcorper leo mi et turpis. Curabitur hendrerit sed diam et tempor. Proin porta mattis urna vel sagittis.',
-  buttonText: 'Action',
-  buttonHref: '/',
+  primaryAction: { name: 'Action', action: '/' },
 }

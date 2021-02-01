@@ -11,6 +11,6 @@ const Template: Story<SubHeaderProps> = (args) => <SubHeader {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  title: 'Vestibulum maximus varius vulputate.',
-  subtitle: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+  title: { text: 'Vestibulum maximus varius vulputate.' },
+  subtitle: { text: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' },
 }
