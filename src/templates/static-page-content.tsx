@@ -13,9 +13,8 @@ import { BASE_URL } from '../constants/content'
 import Section from '../components/common/Section'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { withTrailingSlash } from '../helpers/url'
-import { createMemorySource, createHistory, LocationProvider } from '@reach/router'
-import AppProviders from '../AppProviders'
 import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
+import PreviewProviders from '../cms/PreviewProviders'
 
 import styles from './static-page-content.module.scss'
 
@@ -181,22 +180,17 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
 
   const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
 
-  const source = createMemorySource(BASE_URL)
-  const history = createHistory(source)
-
   return (
-    <AppProviders>
-      <LocationProvider history={history}>
-        <StaticPageContentTemplate
-          metadata={mapToMetadata(metadata)}
-          invertContent={invertContent}
-          inlineCta={mapToInlineCta(inlineCta, true)}
-          cardSection={mapToCardSection(cardSection, true)}
-          blocks={mapToBlocks(blocks, true)}
-          hero={mapToHero(hero)}
-        />
-      </LocationProvider>
-    </AppProviders>
+    <PreviewProviders>
+      <StaticPageContentTemplate
+        metadata={mapToMetadata(metadata)}
+        invertContent={invertContent}
+        inlineCta={mapToInlineCta(inlineCta, true)}
+        cardSection={mapToCardSection(cardSection, true)}
+        blocks={mapToBlocks(blocks, true)}
+        hero={mapToHero(hero)}
+      />
+    </PreviewProviders>
   )
 }
 

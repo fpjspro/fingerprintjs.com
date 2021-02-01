@@ -10,10 +10,9 @@ import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../helpers/types'
 import { withTrailingSlash } from '../helpers/url'
 import { Content, DangerouslyRenderHtmlContent } from '../components/Content/Content'
-import { createMemorySource, createHistory, LocationProvider } from '@reach/router'
-import AppProviders from '../AppProviders'
 import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
 import { mapToPost, PostProps } from '../components/Post/Post'
+import PreviewProviders from '../cms/PreviewProviders'
 
 import styles from './long-form-content.module.scss'
 
@@ -108,19 +107,14 @@ export function LongFormContentTemplate({ metadata, post, body, contentComponent
 export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
 
-  const source = createMemorySource(BASE_URL)
-  const history = createHistory(source)
-
   return (
-    <AppProviders>
-      <LocationProvider history={history}>
-        <LongFormContentTemplate
-          metadata={mapToMetadata(metadata)}
-          post={mapToPost({ frontmatter: entry.get('data').toObject() })}
-          body={widgetFor('body') ?? <></>}
-        />
-      </LocationProvider>
-    </AppProviders>
+    <PreviewProviders>
+      <LongFormContentTemplate
+        metadata={mapToMetadata(metadata)}
+        post={mapToPost({ frontmatter: entry.get('data').toObject() })}
+        body={widgetFor('body') ?? <></>}
+      />
+    </PreviewProviders>
   )
 }
 
