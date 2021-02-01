@@ -5,7 +5,7 @@ import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import Section from '../components/common/Section'
 import Container from '../components/common/Container'
 import { BASE_URL } from '../constants/content'
-import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
+import Breadcrumbs, { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../helpers/types'
 import { withTrailingSlash } from '../helpers/url'
@@ -31,20 +31,15 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
   const post = mapToPost(data.markdownRemark)
   const body = data.markdownRemark.html
-  const breadcrumbs = pageContext.breadcrumb.crumbs
 
   return (
-    <LayoutTemplate siteMetadata={metadata}>
-      {breadcrumbs && (
-        <>
-          <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
-          <Container size='large'>
-            <Breadcrumbs breadcrumbs={breadcrumbs.slice(1)} />
-          </Container>
-        </>
-      )}
-      <LongFormContentTemplate contentComponent={DangerouslyRenderHtmlContent} post={post} body={body} />
-    </LayoutTemplate>
+    <LongFormContentTemplate
+      contentComponent={DangerouslyRenderHtmlContent}
+      metadata={metadata}
+      post={post}
+      body={body}
+      breadcrumbs={pageContext.breadcrumb.crumbs}
+    />
   )
 }
 
@@ -74,32 +69,47 @@ export const pageQuery = graphql`
 `
 
 interface TemplateProps {
+  metadata: GatsbyTypes.SiteSiteMetadata
   post: PostProps
   body: string | React.ReactNode
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
+  breadcrumbs?: Array<Breadcrumb>
 }
-export function LongFormContentTemplate({ post, body, contentComponent }: TemplateProps) {
+export function LongFormContentTemplate({ metadata, post, body, contentComponent, breadcrumbs }: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
   return (
-    <Section className={styles.root}>
-      <Container size='small' className={styles.container}>
-        <h1 className={styles.title}>{post.title}</h1>
+    <LayoutTemplate siteMetadata={metadata}>
+      {breadcrumbs && (
+        <>
+          <BreadcrumbsSEO breadcrumbs={breadcrumbs} />
+          <Container size='large'>
+            <Breadcrumbs breadcrumbs={breadcrumbs.slice(1)} />
+          </Container>
+        </>
+      )}
+      <Section className={styles.root}>
+        <Container size='small' className={styles.container}>
+          <h1 className={styles.title}>{post.title}</h1>
 
-        <ContentComponent content={body} className={styles.content} />
-      </Container>
+          <ContentComponent content={body} className={styles.content} />
+        </Container>
 
-      <Container>
-        <RelatedArticles article={post} />
-      </Container>
-    </Section>
+        <Container>
+          <RelatedArticles article={post} />
+        </Container>
+      </Section>
+    </LayoutTemplate>
   )
 }
 
 export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComponentProps) {
+  const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
+
   return (
     <LongFormContentTemplate
-      post={mapToPost({ frontmatter: entry.get('data').toObject() }, true)}
+      metadata={mapToMetadata(metadata)}
+      post={mapToPost({ frontmatter: entry.get('data').toObject() })}
       body={widgetFor('body') ?? <></>}
     />
   )

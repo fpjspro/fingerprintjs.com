@@ -45,19 +45,17 @@ export default function StaticPageContent({ data, pageContext }: StaticPageConte
   const cardSection = mapToCardSection(data.markdownRemark.frontmatter.cardSection)
   const blocks = mapToBlocks(data.markdownRemark.frontmatter.blocks as QueryBlock[])
   const hero = mapToHero(data.markdownRemark.frontmatter.hero)
-  const breadcrumbs = pageContext.breadcrumb.crumbs
 
   return (
-    <LayoutTemplate siteMetadata={metadata}>
-      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
-      <StaticPageContentTemplate
-        invertContent={invertContent}
-        inlineCta={inlineCta}
-        cardSection={cardSection}
-        blocks={blocks}
-        hero={hero}
-      />
-    </LayoutTemplate>
+    <StaticPageContentTemplate
+      metadata={metadata}
+      invertContent={invertContent}
+      inlineCta={inlineCta}
+      cardSection={cardSection}
+      blocks={blocks}
+      hero={hero}
+      breadcrumbs={pageContext.breadcrumb.crumbs}
+    />
   )
 }
 
@@ -125,39 +123,51 @@ export const pageQuery = graphql`
 `
 
 export interface StaticPageContentTemplateProps {
+  metadata: GatsbyTypes.SiteSiteMetadata
   invertContent: boolean
-  inlineCta: InlineCta
+  inlineCta: { title: string; subtitle: string; buttonText: string; buttonHref: string }
   cardSection: CardSection
   blocks: BlockWithImage[]
   hero: HeroProps
+  breadcrumbs?: Array<Breadcrumb>
 }
 export function StaticPageContentTemplate({
+  metadata,
   invertContent = false,
   inlineCta,
   cardSection,
   blocks,
   hero,
+  breadcrumbs,
 }: StaticPageContentTemplateProps) {
   return (
-    <Section className={styles.section}>
-      <Hero {...hero} className={styles.widget} />
-      {invertContent ? (
-        <>
-          {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
-          <CardSectionComponent {...cardSection} className={styles.widget} />
-        </>
-      ) : (
-        <>
-          <CardSectionComponent {...cardSection} className={styles.widget} />
-          {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
-        </>
-      )}
-      <InlineCtaComponent {...inlineCta} />
-    </Section>
+    <LayoutTemplate siteMetadata={metadata}>
+      {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
+      <Section className={styles.section}>
+        <Hero {...hero} className={styles.widget} />
+        {invertContent ? (
+          <>
+            {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
+            <CardSectionComponent {...cardSection} className={styles.widget} />
+          </>
+        ) : (
+          <>
+            <CardSectionComponent {...cardSection} className={styles.widget} />
+            {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
+          </>
+        )}
+        <InlineCtaComponent
+          title={inlineCta.title}
+          subtitle={inlineCta.subtitle}
+          primaryAction={{ name: inlineCta.buttonText, action: inlineCta.buttonHref }}
+        />
+      </Section>
+    </LayoutTemplate>
   )
 }
 
 export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProps) {
+  const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const invertContent = entry.getIn(['data', 'invertContent'])
 
   let cardSection = entry.getIn(['data', 'cardSection'])?.toObject()
@@ -173,6 +183,7 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
   const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
   return (
     <StaticPageContentTemplate
+      metadata={mapToMetadata(metadata)}
       invertContent={invertContent}
       inlineCta={mapToInlineCta(inlineCta, true)}
       cardSection={mapToCardSection(cardSection, true)}
