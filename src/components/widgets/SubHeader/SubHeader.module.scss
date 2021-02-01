@@ -16,7 +16,7 @@
   }
 
   .normal {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 
   .medium {
@@ -43,13 +43,19 @@
     font-weight: v('normal');
   }
 
-  .title {
+  .subtitle {
+    font-family: v('ff-sans');
+
+    margin: 2rem 0;
+  }
+
+  .label {
+    font-family: v('ff-sans');
+
     margin-bottom: 2rem;
   }
 
-  .subtitle {
-    font-weight: v('normal');
-    font-family: v('ff-sans');
-    margin-bottom: 2rem;
+  .adjacent {
+    margin-top: 2rem;
   }
 }

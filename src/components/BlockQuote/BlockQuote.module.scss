@@ -1,0 +1,21 @@
+@import './BlockQuote';
+
+.root {
+  @include blockQuoteContainer;
+}
+
+.quote {
+  @include blockQuoteText;
+}
+
+.author {
+  align-self: flex-end;
+  font-size: 1.55rem;
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+
+  &:before {
+    content: '-';
+    margin-right: 0.25rem;
+  }
+}

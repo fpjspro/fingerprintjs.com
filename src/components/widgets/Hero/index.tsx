@@ -19,11 +19,8 @@ export default function Hero({ title, description, ctaText, ctaHref, className }
     <Section className={classNames(styles.section, className)}>
       <Container size='large' className={styles.container}>
         <SubHeader
-          title={title}
-          titleSize='large'
-          titleWeight='primary'
-          subtitle={description}
-          subtitleSize='normal'
+          title={{ text: title, size: 'large', weight: 'primary' }}
+          subtitle={{ text: description, size: 'normal' }}
           align='center'
           className={styles.subHeader}
         />

@@ -13,6 +13,7 @@ export const PATH = {
   accountSharing: '/account-sharing/',
   whyFpjs: '/why-fpjs/',
   blog: '/blog/',
+  caseStudies: '/case-studies/',
 } as const
 
 export const URL = {

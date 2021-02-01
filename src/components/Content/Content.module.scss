@@ -1,3 +1,5 @@
+@import '../BlockQuote/BlockQuote.scss';
+
 .root {
   p,
   ul,
@@ -88,33 +90,10 @@
   }
 
   blockquote {
-    position: relative;
-    width: 100%;
-
-    padding: 2rem;
-    padding-left: 6rem;
-
-    margin: 0;
-    margin-bottom: 2rem;
-
-    border-radius: 8px;
-    box-shadow: 0px 0px 20px 20px rgba(72, 76, 108, 0.05);
-    background-color: v('white');
-
-    &:after {
-      position: absolute;
-      content: open-quote;
-      font-family: v('ff-sans');
-
-      top: 1.25rem;
-      left: 2rem;
-
-      font-size: 6rem;
-      line-height: 6rem;
-    }
+    @include blockQuoteContainer;
 
     p {
-      font-size: 2.6rem;
+      @include blockQuoteText;
       margin-bottom: 0;
     }
   }

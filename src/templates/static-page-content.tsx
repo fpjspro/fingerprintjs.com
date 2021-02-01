@@ -12,16 +12,17 @@ import { Card } from '../components/widgets/CardGrid'
 import { BASE_URL } from '../constants/content'
 import Section from '../components/common/Section'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
-import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import { withTrailingSlash } from '../helpers/url'
+import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
+import PreviewProviders from '../cms/PreviewProviders'
 
 import styles from './static-page-content.module.scss'
 
 // Each widget has different styles and the MarkdownContent component is not aware of that, so we need to pass a widget class to MarkdownContent.
 // TODO [VL] When we have consistent typography, we can create variants for the markdown component instead of overriding styles for each widget.
+import ctaStyles from '../components/widgets/InlineCta/InlineCta.module.scss'
 import cardStyles from '../components/widgets/CardGrid/CardGrid.module.scss'
 import blockStyles from '../components/widgets/AlternatingImagesText/AlternatingImagesText.module.scss'
-import ctaStyles from '../components/widgets/InlineCta/InlineCta.module.scss'
 
 interface StaticPageContentProps {
   data: GatsbyTypes.StaticPageContentQuery
@@ -178,15 +179,18 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
   const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
 
   const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
+
   return (
-    <StaticPageContentTemplate
-      metadata={mapToMetadata(metadata)}
-      invertContent={invertContent}
-      inlineCta={mapToInlineCta(inlineCta, true)}
-      cardSection={mapToCardSection(cardSection, true)}
-      blocks={mapToBlocks(blocks, true)}
-      hero={mapToHero(hero)}
-    />
+    <PreviewProviders>
+      <StaticPageContentTemplate
+        metadata={mapToMetadata(metadata)}
+        invertContent={invertContent}
+        inlineCta={mapToInlineCta(inlineCta, true)}
+        cardSection={mapToCardSection(cardSection, true)}
+        blocks={mapToBlocks(blocks, true)}
+        hero={mapToHero(hero)}
+      />
+    </PreviewProviders>
   )
 }
 
@@ -291,7 +295,6 @@ function mapToInlineCta(queryInlineCta: QueryInlineCta, preview = false): Inline
     ) : (
       <DangerouslyRenderHtmlContent content={queryInlineCta?.markdown__Subtitle ?? ''} className={ctaStyles.content} />
     ),
-    buttonText: queryInlineCta?.buttonText ?? 'Lorem ipsum',
-    buttonHref: queryInlineCta?.buttonHref ?? '/',
+    primaryAction: { name: queryInlineCta?.buttonText ?? 'Lorem ipsum', action: queryInlineCta?.buttonHref ?? '/' },
   } as InlineCtaProps
 }
