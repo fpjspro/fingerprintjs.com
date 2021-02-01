@@ -124,6 +124,19 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    'gatsby-plugin-netlify', // make sure to keep it last in the array
+    {
+      resolve: 'gatsby-plugin-netlify', // make sure to keep it last in the array
+      options: {
+        mergeSecurityHeaders: false,
+        headers: {
+          '/*': [
+            `X-Frame-Options: DENY`,
+            `X-XSS-Protection: 1; mode=block`,
+            `X-Content-Type-Options: nosniff`,
+            `Referrer-Policy: no-referrer-when-downgrade`,
+          ],
+        },
+      },
+    },
   ],
 }

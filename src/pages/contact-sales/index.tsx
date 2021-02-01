@@ -32,7 +32,7 @@ export default function ContactSalesPage({ pageContext }: ContactSalesPageProps)
         <Container size='small'>
           <h1 className={styles.header}>Contact Sales</h1>
 
-          <ContactSalesForm />
+          <ContactSalesForm variant='light' />
         </Container>
       </Section>
     </LayoutTemplate>
