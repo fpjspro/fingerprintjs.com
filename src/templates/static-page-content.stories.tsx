@@ -1,10 +1,14 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { StaticPageContentTemplate, StaticPageContentTemplateProps } from './static-page-content'
-import { defaultArgs as ctaArgs } from '../components/widgets/InlineCta/InlineCta.stories'
-import { defaultArgs as cardSectionArgs } from '../components/widgets/CardSection/CardSection.stories'
-import { defaultArgs as blocksArgs } from '../components/widgets/AlternatingImagesText/AlternatingImagesText.stories'
-import { defaultArgs as heroArgs } from '../components/widgets/Hero/Hero.stories'
+import { Default as ctaDefault } from '../components/widgets/InlineCta/InlineCta.stories'
+import { Default as cardSectionDefault } from '../components/widgets/CardSection/CardSection.stories'
+import { Default as blocksDefault } from '../components/widgets/AlternatingImagesText/AlternatingImagesText.stories'
+import { Default as heroDefault } from '../components/widgets/Hero/Hero.stories'
+import { InlineCtaProps } from '../components/widgets/InlineCta'
+import { CardSectionProps } from '../components/widgets/CardSection'
+import { BlockWithImage } from '../components/widgets/AlternatingImagesText'
+import { HeroProps } from '../components/widgets/Hero'
 
 export default {
   title: 'Pages / Static Page Content',
@@ -23,8 +27,8 @@ Default.args = {
     siteUrl: 'https://fingerprintjs.com/',
   },
   invertContent: false,
-  inlineCta: ctaArgs,
-  cardSection: cardSectionArgs,
-  blocks: blocksArgs.blocks,
-  hero: heroArgs,
+  inlineCta: ctaDefault.args as InlineCtaProps,
+  cardSection: cardSectionDefault.args as CardSectionProps,
+  blocks: blocksDefault.args?.blocks as BlockWithImage[],
+  hero: heroDefault.args as HeroProps,
 }

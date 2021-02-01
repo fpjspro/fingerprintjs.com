@@ -5,14 +5,12 @@ import CardSection, { CardSectionProps } from './index'
 export default {
   title: 'Widgets / CardSection',
   component: CardSection,
-
-  excludeStories: /.*Args/,
 }
 
 const Template: Story<CardSectionProps> = (args) => <CardSection {...args} />
 
 export const Default = Template.bind({})
-export const defaultArgs: CardSectionProps = {
+Default.args = {
   title: 'Vestibulum id risus non nisl fermentum rhoncus non ut turpis.',
   subtitle:
     'Fusce vitae varius erat. Quisque tellus nulla, tincidunt vel auctor a, commodo ut augue. Nulla sollicitudin fringilla tellus ut pulvinar. Ut et euismod lacus, sit amet fringilla diam.',
@@ -39,4 +37,3 @@ export const defaultArgs: CardSectionProps = {
     },
   ],
 }
-Default.args = defaultArgs

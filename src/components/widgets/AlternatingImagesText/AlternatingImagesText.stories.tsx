@@ -5,14 +5,12 @@ import AlternatingImagesText, { AlternatingImagesTextProps } from './index'
 export default {
   title: 'Widgets / AlternatingImagesText',
   component: AlternatingImagesText,
-
-  excludeStories: /.*Args/,
 }
 
 const Template: Story<AlternatingImagesTextProps> = (args) => <AlternatingImagesText {...args} />
 
 export const Default = Template.bind({})
-export const defaultArgs: AlternatingImagesTextProps = {
+Default.args = {
   title: 'In ornare imperdiet nisl, eu tempor massa blandit in.',
   blocks: [
     {
@@ -37,4 +35,3 @@ export const defaultArgs: AlternatingImagesTextProps = {
     },
   ],
 }
-Default.args = defaultArgs
