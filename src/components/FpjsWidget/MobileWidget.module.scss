@@ -1,8 +1,9 @@
-
 .container {
   display: none;
 
-  @include media("<=phoneLandscape") {
+  max-width: calc(100% - 5rem);
+
+  @include media('<=phoneLandscape') {
     display: block;
     min-height: 70vh;
     overflow: visible;
@@ -15,11 +16,6 @@
   background-color: v('white');
   font-size: 1.75rem;
   box-shadow: 0 20px 50px 0 adjust-color(c('brand-water'), $alpha: -0.9);
-
-  max-width: calc(100% - 6rem);
-  &:first-child {
-    margin-left: 3rem;
-  }
 
   &.incognito {
     background-color: v('brand-water');
@@ -76,7 +72,6 @@
     .button {
       opacity: v('faded');
 
-
       svg {
         fill: v('white');
         margin-left: 0;
@@ -93,7 +88,7 @@
   .visit {
     padding: 2rem 3rem;
 
-    @include media("<=320px") {
+    @include media('<=320px') {
       padding: 2rem 2rem;
     }
 
@@ -135,11 +130,11 @@
         color: v('brand-fire');
         font-size: 2rem;
 
-        @include media("<=tablet") {
+        @include media('<=tablet') {
           font-size: 2.5rem;
         }
 
-        @include media("<=phone") {
+        @include media('<=phone') {
           font-size: 2rem;
         }
       }
@@ -194,4 +189,3 @@
     }
   }
 }
-

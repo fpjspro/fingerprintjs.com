@@ -9,7 +9,7 @@ import styles from './InlineCta.module.scss'
 
 export interface InlineCtaProps {
   title: string
-  subtitle: string
+  subtitle: React.ReactNode
   buttonText: string
   buttonHref: string
   className?: string
@@ -19,14 +19,7 @@ export default function InlineCta({ title, subtitle, buttonText, buttonHref, cla
   return (
     <Section className={classNames(styles.root, className)}>
       <Container size='large' className={styles.container}>
-        <SubHeader
-          title={title}
-          titleSize='large'
-          titleWeight='primary'
-          subtitle={subtitle}
-          subtitleSize='small'
-          align='left'
-        />
+        <SubHeader title={title} titleSize='large' titleWeight='primary' subtitle={subtitle} align='left' />
 
         <Button href={buttonHref} className={styles.button}>
           {buttonText}

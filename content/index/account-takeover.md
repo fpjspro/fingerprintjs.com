@@ -18,23 +18,23 @@ hero:
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: FingerprintJS helps to identify malicious actors - whatever form they take
-  subtitle: ""
+  subtitle: ''
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Credential Stuffing
-      content: Users that re-use passwords across multiple services are at risk of
+      markdown__Content: Users that re-use passwords across multiple services are at risk of
         having their accounts accessed by fraudsters who purchased or hacked
         their account information from elsewhere. Catch these attempts by
         associating multiple login attempts from bot networks.
     - icon: /img/uploads/incognito.svg
       title: Phishing and identity theft
-      content: Social engineering is still one of the most reliable methods for
+      markdown__Content: Social engineering is still one of the most reliable methods for
         fraudsters to access accounts. Require new visitors to provide
         additional authentication to stop phished accounts from being accessed
         easily.
 blocks:
   - subheader: Stop account takeover at the source
-    content: Account fraud can take many forms. Whether by brute force or individual
+    markdown__Content: Account fraud can take many forms. Whether by brute force or individual
       actors testing purchased credentials, uniquely identifying your website
       visitors will provide the best defense against account
       takeovers.  FingerprintJS seamlessly meshes into your tech stack to run in
@@ -46,7 +46,7 @@ blocks:
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: Strong Account Protection means fewer chargebacks
-    content: Protecting your users' logins is the best way to mitigate chargebacks
+    markdown__Content: Protecting your users' logins is the best way to mitigate chargebacks
       from fraudulent purchases without compromising on experience. Try
       FingerprintJS and see the difference that accurate user detection can make
       for your user's account security, merchant reputation, and more.
@@ -57,8 +57,8 @@ blocks:
     isCtaButton: false
 inlineCta:
   title: FingerprintJS for account takeover protection
-  subtitle: "Start your free 10-day trial and get 100% of features with no usage
-    limits. "
+  markdown__Subtitle: 'Start your free 10-day trial and get 100% of features with no usage
+    limits. '
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---

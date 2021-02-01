@@ -1,0 +1,11 @@
+.root {
+  padding: 25rem 0;
+
+  @include media('<tablet') {
+    padding: 14rem 0;
+  }
+}
+
+.header {
+  margin-bottom: 4rem;
+}

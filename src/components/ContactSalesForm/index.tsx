@@ -8,14 +8,20 @@ import classNames from 'classnames'
 import { Forms, useForm } from '../../hooks/useForm'
 import { createNewLead } from '../../helpers/api'
 import styles from './ContactSalesForm.module.scss'
+import { useUtmParams } from '../../hooks/useUtmParams'
+import { isBrowser } from '../../helpers/detector'
 
 interface ContactSalesFormProps {
+  variant?: 'dark' | 'light'
   className?: string | string[]
 }
-export default function ContactSalesForm({ className }: ContactSalesFormProps) {
+export default function ContactSalesForm({ variant = 'dark', className }: ContactSalesFormProps) {
   const [email, setEmail] = useState('')
   const [website, setWebsite] = useState('')
   const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.ContactSales)
+
+  const referrer = isBrowser() ? document.referrer : ''
+  const utmInfo = useUtmParams({ referral_url: referrer })
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -32,7 +38,7 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
     }
 
     try {
-      const response = await createNewLead(email, website)
+      const response = await createNewLead(email, website, utmInfo)
       const status = response.status
       const data = await response.json()
 
@@ -88,14 +94,18 @@ export default function ContactSalesForm({ className }: ContactSalesFormProps) {
 
       {formState === FormState.Success && (
         <div className={classNames(styles.state, styles.success)}>
-          <div className={styles.message}>Thanks, we received your request. We&#39;ll get back to you soon.</div>
+          <div className={classNames(styles.message, { [styles.messageLight]: variant === 'light' })}>
+            Thanks, we received your request. We&#39;ll get back to you soon.
+          </div>
           <CheckSvg className={styles.icon} />
         </div>
       )}
 
       {formState === FormState.Failed && (
         <div className={classNames(styles.state, styles.failed)}>
-          <div className={styles.message}>{errorMessage}</div>
+          <div className={classNames(styles.message, { [styles.messageLight]: variant === 'light' })}>
+            {errorMessage}
+          </div>
           <CloseSvg className={styles.icon} />
         </div>
       )}
