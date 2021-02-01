@@ -23,7 +23,7 @@
     "IE 11"
   ],
   "dependencies": {
-    "@fingerprintjs/fingerprintjs-pro": "^3.2.0",
+    "@fingerprintjs/fingerprintjs-pro": "^3.3.0-dev.1",
     "@loadable/component": "^5.14.1",
     "@tippyjs/react": "^4.2.0",
     "classnames": "^2.2.6",
