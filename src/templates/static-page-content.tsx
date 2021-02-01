@@ -13,6 +13,9 @@ import { BASE_URL } from '../constants/content'
 import Section from '../components/common/Section'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { withTrailingSlash } from '../helpers/url'
+import { createMemorySource, createHistory, LocationProvider } from '@reach/router'
+import AppProviders from '../AppProviders'
+import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 
 import styles from './static-page-content.module.scss'
 
@@ -125,7 +128,7 @@ export const pageQuery = graphql`
 export interface StaticPageContentTemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   invertContent: boolean
-  inlineCta: { title: string; subtitle: string; buttonText: string; buttonHref: string }
+  inlineCta: InlineCta
   cardSection: CardSection
   blocks: BlockWithImage[]
   hero: HeroProps
@@ -156,11 +159,7 @@ export function StaticPageContentTemplate({
             {blocks.length > 0 && <AlternatingImagesText title={''} blocks={blocks} className={styles.widget} />}
           </>
         )}
-        <InlineCtaComponent
-          title={inlineCta.title}
-          subtitle={inlineCta.subtitle}
-          primaryAction={{ name: inlineCta.buttonText, action: inlineCta.buttonHref }}
-        />
+        <InlineCtaComponent {...inlineCta} />
       </Section>
     </LayoutTemplate>
   )
@@ -181,15 +180,23 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
   const inlineCta = entry.getIn(['data', 'inlineCta'])?.toObject() as QueryInlineCta
 
   const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
+
+  const source = createMemorySource(BASE_URL)
+  const history = createHistory(source)
+
   return (
-    <StaticPageContentTemplate
-      metadata={mapToMetadata(metadata)}
-      invertContent={invertContent}
-      inlineCta={mapToInlineCta(inlineCta, true)}
-      cardSection={mapToCardSection(cardSection, true)}
-      blocks={mapToBlocks(blocks, true)}
-      hero={mapToHero(hero)}
-    />
+    <AppProviders>
+      <LocationProvider history={history}>
+        <StaticPageContentTemplate
+          metadata={mapToMetadata(metadata)}
+          invertContent={invertContent}
+          inlineCta={mapToInlineCta(inlineCta, true)}
+          cardSection={mapToCardSection(cardSection, true)}
+          blocks={mapToBlocks(blocks, true)}
+          hero={mapToHero(hero)}
+        />
+      </LocationProvider>
+    </AppProviders>
   )
 }
 
