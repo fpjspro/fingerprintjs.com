@@ -105,7 +105,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
         </li>
         <li>
           <CheckSvg className={styles.check} />
-          API &amp; Webhooks
+          Money back guarantee
         </li>
         <li>
           <CheckSvg className={styles.check} />
