@@ -11,9 +11,9 @@ jobs:
         with:
           node-version: 15.x
       - name: yarn install
-        - uses: bahmutov/npm-install@v1
-          with:
-            install-command: yarn
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn
       - name: yarn build
         run: yarn run build
       - name: run Lighthouse CI
