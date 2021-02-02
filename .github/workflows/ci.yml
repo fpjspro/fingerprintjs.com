@@ -15,7 +15,7 @@ jobs:
           with:
             install-command: yarn
       - name: yarn build
-          run: yarn run build
+        run: yarn run build
       - name: run Lighthouse CI
         run: |
           yarn global add @lhci/cli@0.6.x
