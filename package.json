@@ -22,6 +22,14 @@
     "last 2 versions",
     "IE 11"
   ],
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "public/**/*.js",
+        "maxSize": "2MB"
+      }
+    ]
+  },
   "dependencies": {
     "@fingerprintjs/fingerprintjs-pro": "^3.3.0-dev.1",
     "@loadable/component": "^5.14.1",
@@ -82,6 +90,7 @@
     "babel-preset-gatsby": "^0.7.0",
     "babel-preset-react-app": "^10.0.0",
     "css-loader": "^5.0.1",
+    "bundlewatch": "^0.3.2",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-loader": "^4.0.2",
