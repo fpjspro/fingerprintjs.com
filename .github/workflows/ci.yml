@@ -1,5 +1,5 @@
 name: CI
-on: [push, pull_request]
+on: [push]
 jobs:
   checks:
     name: Code checks
@@ -10,13 +10,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 15.x
-      - name: npm install, build
+      - name: yarn install, build
         run: |
-          npm install
-          npm run build
+          yarn
+          yarn run build
       - name: run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.6.x
+          yarn global add @lhci/cli@0.6.x
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
@@ -27,6 +27,6 @@ jobs:
           eslint: true
           prettier: true
       - name: run bundlewatch
-        run: npm run bundlewatch
+        run: yarn run bundlewatch
         env:
           BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
