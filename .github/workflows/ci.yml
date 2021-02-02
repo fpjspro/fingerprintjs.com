@@ -1,8 +1,8 @@
 name: CI
 on: [push]
 jobs:
-  setup:
-    name: run yarn, build
+  checks:
+    name: Code checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,17 +11,11 @@ jobs:
         with:
           node-version: 15.x
       - name: yarn install
-        uses: bahmutov/npm-install@v1
-        with:
-          install-command: yarn
+        - uses: bahmutov/npm-install@v1
+          with:
+            install-command: yarn
       - name: yarn build
-        run: yarn run build
-
-  lighthouse:
-    name: run Lighthouse CI
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
+          run: yarn run build
       - name: run Lighthouse CI
         run: |
           yarn global add @lhci/cli@0.6.x
@@ -29,24 +23,12 @@ jobs:
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-
-  linters:
-    name: run eslint, prettier
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - name: run linters
         uses: wearerequired/lint-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           eslint: true
           prettier: true
-
-  bundlewatch:
-    name: run bundlewatch
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - name: run bundlewatch
         run: yarn run bundlewatch
         env:
