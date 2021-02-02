@@ -42,12 +42,12 @@ export const DOC_URL = {
 
 export const useCaseLinks = [
   { title: 'Account Takeover', url: PATH.accountTakeover, isLocal: true },
-  { title: 'Ecommerce', url: PATH.ecommerce, isLocal: true },
-  { title: 'Gaming', url: PATH.gaming, isLocal: true },
-  { title: 'Cryptocurrency', url: PATH.cryptocurrency, isLocal: true },
   { title: 'Payment Fraud', url: PATH.paymentFraud, isLocal: true },
   { title: 'Account Sharing', url: PATH.accountSharing, isLocal: true },
   { title: 'Paywall', url: PATH.paywall, isLocal: true },
+  { title: 'Ecommerce', url: PATH.ecommerce, isLocal: true },
+  { title: 'Gaming', url: PATH.gaming, isLocal: true },
+  { title: 'Cryptocurrency', url: PATH.cryptocurrency, isLocal: true },
 ]
 
 export const defaultDataLayer = [{ branch: BRANCH }]
