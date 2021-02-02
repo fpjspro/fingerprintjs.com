@@ -15,7 +15,7 @@ jobs:
         with:
           install-command: yarn
       - name: yarn build
-          run: yarn run build
+        run: yarn run build
 
   lighthouse:
     name: run Lighthouse CI
