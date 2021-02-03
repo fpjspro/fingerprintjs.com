@@ -39,10 +39,10 @@ export default function Blog({ data, pageContext }: BlogProps) {
         <Container size='large'>
           <h1>Blog Articles</h1>
 
-          {isFirst && <Featured featuredPosts={featuredPosts.map(({ node }) => node).map(mapToPost)} />}
+          {isFirst && <Featured featuredPosts={featuredPosts.map(({ node }) => node).map((node) => mapToPost(node))} />}
           <PostGrid
             name='All Articles'
-            posts={posts.map(({ node }) => node).map(mapToPost)}
+            posts={posts.map(({ node }) => node).map((node) => mapToPost(node))}
             tags={tags}
             perRow='three'
           />

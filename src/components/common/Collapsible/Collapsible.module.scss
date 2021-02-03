@@ -4,7 +4,7 @@ $side-padding: 2rem;
   .item {
     border-radius: 1rem;
     background-color: v('off-white');
-  
+
     font-family: v(ff-mono);
 
     + .item {
@@ -38,15 +38,15 @@ $side-padding: 2rem;
   }
 
   .content {
-    overflow: hidden;    
+    overflow: hidden;
     padding: 0 $side-padding 0 $side-padding;
 
     max-height: 0;
     opacity: 0;
-    
+
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
-    
+
     &.open {
       padding: 0 $side-padding 2.5rem $side-padding;
 

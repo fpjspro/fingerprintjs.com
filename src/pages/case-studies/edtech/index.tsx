@@ -280,7 +280,8 @@ function Footer() {
 interface ReferenceListProps {
   references: Array<{ name: string; href?: string }>
 }
-function ReferenceList({ references }: ReferenceListProps) {
+// TODO [VL] Change this to a widget when integrating the page with the CMS.
+export function ReferenceList({ references }: ReferenceListProps) {
   return (
     <Container size='large' className={styles.container}>
       <ol className={styles.referenceList}>

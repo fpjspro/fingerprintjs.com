@@ -7,7 +7,7 @@
   overflow-x: hidden;
   padding-top: 7rem;
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     padding-top: 3.5rem;
   }
 }
@@ -18,12 +18,12 @@
   justify-content: space-between;
 
   > * + * {
-    @include media(">desktop") {
+    @include media('>desktop') {
       margin-right: 7rem;
     }
   }
 
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     display: block;
   }
 }
@@ -33,7 +33,7 @@
   font-weight: v(bold);
   margin-bottom: 3rem;
 
-  @include media("<=phone") {
+  @include media('<=phone') {
     font-size: 3rem;
   }
 }
@@ -47,7 +47,7 @@
   order: -1;
   max-width: 50%;
 
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     margin-top: 4rem;
     max-width: 100%;
   }
@@ -65,13 +65,13 @@
   > * + * {
     margin-top: 2rem;
 
-    @include media(">phoneLandscape") {
+    @include media('>phoneLandscape') {
       margin-top: 0;
       margin-left: 2rem;
     }
   }
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     flex-wrap: wrap;
   }
 }

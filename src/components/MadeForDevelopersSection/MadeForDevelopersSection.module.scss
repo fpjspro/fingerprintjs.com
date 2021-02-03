@@ -5,7 +5,7 @@
   --div-dash-size: 25px;
   padding-bottom: 7rem;
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     padding-bottom: 3.5rem;
   }
 }
@@ -18,12 +18,12 @@
   position: relative;
 
   > * + * {
-    @include media(">desktop") {
+    @include media('>desktop') {
       margin-left: 2rem;
     }
   }
 
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     display: block;
   }
 }
@@ -34,7 +34,7 @@
 }
 
 .content {
-  @include media("<=desktop") {
+  @include media('<=desktop') {
     margin-top: 4rem;
   }
 }
@@ -45,10 +45,10 @@
   color: v('white');
   padding-bottom: 4rem;
   margin-bottom: 6rem;
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-right: 4rem;
 
-  @include media("<=phone") {
+  @include media('<=phone') {
     font-size: 3rem;
   }
 }
@@ -66,13 +66,13 @@
   > * + * {
     margin-top: 2rem;
 
-    @include media(">phoneLandscape") {
+    @include media('>phoneLandscape') {
       margin-top: 0;
       margin-left: 2rem;
     }
   }
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     flex-wrap: wrap;
   }
 }

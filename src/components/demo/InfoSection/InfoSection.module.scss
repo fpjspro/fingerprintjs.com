@@ -1,8 +1,8 @@
 .infoSection {
   padding-top: 3rem;
   padding-bottom: 7rem;
-  
-  @include media("<=phoneLandscape") {
+
+  @include media('<=phoneLandscape') {
     padding-bottom: 3rem;
   }
 }
@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     flex-direction: column;
   }
 }
@@ -28,7 +28,7 @@
 .block {
   flex-basis: 50%;
 
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     flex-basis: 100%;
   }
 
@@ -63,7 +63,7 @@
   }
 
   &.faq {
-    @include media("<=phoneLandscape") {
+    @include media('<=phoneLandscape') {
       margin-top: 7rem;
     }
   }
