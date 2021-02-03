@@ -5,21 +5,48 @@ jobs:
     name: Code checks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: gatsby .cache folder
+        uses: actions/cache@v1
+        id: gatsby-cache-folder
+        with:
+          path: .cache
+          key: ${{ runner.os }}-cache-gatsby
+          restore-keys: |
+            ${{ runner.os }}-cache-gatsby
+
+      - name: gatsby public folder
+        uses: actions/cache@v1
+        id: gatsby-public-folder
+        with:
+          path: public/
+          key: ${{ runner.os }}-public-gatsby
+          restore-keys: |
+            ${{ runner.os }}-public-gatsby
+
       - name: Use Node.js 15.x
         uses: actions/setup-node@v1
         with:
           node-version: 15.x
+
       - name: yarn install
         uses: bahmutov/npm-install@v1
         with:
-          install-command: yarn
-      - name: yarn build
-        run: yarn run build
+          install-command: yarn --frozen-lockfile
+
       - name: run eslint
         run: yarn run lint
+
       - name: run prettier
         run: yarn run prettier
+
+      - name: yarn build
+        run: yarn run build
+        env:
+          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
+
       - name: run Lighthouse CI
         run: |
           yarn global add @lhci/cli@0.6.x
@@ -27,6 +54,7 @@ jobs:
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
       - name: run bundlewatch
         run: yarn run bundlewatch
         env:

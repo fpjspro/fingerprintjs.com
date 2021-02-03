@@ -1,4 +1,11 @@
-.cache
-.github
 node_modules
+
+# Build result
+.cache
 public
+
+# Generated gatsby types
+src/__generated__/gatsby-types.d.ts
+
+# Content managed by the CMS
+content
