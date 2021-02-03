@@ -23,10 +23,11 @@ jobs:
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-      - uses: tinovyatkin/action-eslint@v1
+      - name: run eslint
+        uses: ninosaurus/eslint-check@v5
         with:
+          eslint-config-path: ./.eslintrc.js
           repo-token: ${{secrets.GITHUB_TOKEN}}
-          check-name: eslint
       - name: run bundlewatch
         run: yarn run bundlewatch
         env:
