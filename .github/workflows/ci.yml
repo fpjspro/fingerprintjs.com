@@ -17,11 +17,9 @@ jobs:
       - name: yarn build
         run: yarn run build
       - name: run eslint
-        uses: ninosaurus/eslint-check@v5
-        with:
-          eslint-config-path: './.eslintrc.js'
-          custom-directory: './'
-          repo-token: ${{secrets.GITHUB_TOKEN}}
+        run: yarn run lint
+      - name: run prettier
+        run: yarn run prettier
       - name: run Lighthouse CI
         run: |
           yarn global add @lhci/cli@0.6.x
