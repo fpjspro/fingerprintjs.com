@@ -16,6 +16,12 @@ jobs:
           install-command: yarn
       - name: yarn build
         run: yarn run build
+      - name: run eslint
+        uses: ninosaurus/eslint-check@v5
+        with:
+          eslint-config-path: './.eslintrc.js'
+          custom-directory: './'
+          repo-token: ${{secrets.GITHUB_TOKEN}}
       - name: run Lighthouse CI
         run: |
           yarn global add @lhci/cli@0.6.x
@@ -23,11 +29,6 @@ jobs:
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-      - name: run eslint
-        uses: ninosaurus/eslint-check@v5
-        with:
-          eslint-config-path: ./.eslintrc.js
-          repo-token: ${{secrets.GITHUB_TOKEN}}
       - name: run bundlewatch
         run: yarn run bundlewatch
         env:
