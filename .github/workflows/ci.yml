@@ -23,12 +23,10 @@ jobs:
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-      - name: run linters
-        uses: wearerequired/lint-action@v1
+      - uses: tinovyatkin/action-eslint@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          eslint: true
-          prettier: true
+          repo-token: ${{secrets.GITHUB_TOKEN}}
+          check-name: eslint
       - name: run bundlewatch
         run: yarn run bundlewatch
         env:
