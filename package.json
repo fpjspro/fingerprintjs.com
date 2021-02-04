@@ -111,10 +111,12 @@
     "build": "gatsby build",
     "develop": "yarn clean && gatsby develop",
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx,.js",
+    "lint:ci": "tsc --noEmit && eslint . --ext .ts,.tsx,.js --max-warnings=0",
     "lint:fix": "eslint . --ext .ts,.tsx,.js --quiet --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 -s ./static",
     "build-storybook": "build-storybook",
-    "prettier": "prettier -c ."
+    "prettier": "prettier -c .",
+    "prettier:fix": "prettier --write --loglevel=error ."
   }
 }

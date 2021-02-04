@@ -52,6 +52,8 @@ export default function Post({
   )
 }
 
+// TODO [VL] Write a proper type for this. It's not as straight forward because it has to accept a lot of different generated gatsby types.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function mapToPost(data: any, editing?: boolean): PostProps {
   if ((!data.frontmatter || !data.frontmatter.metadata) && !editing) {
     throw new Error('Posts should always have frontmatter and metadata.')
