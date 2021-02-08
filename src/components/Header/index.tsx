@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <Navbar />
         <div className={styles.nav}>
           <Container size='large'>

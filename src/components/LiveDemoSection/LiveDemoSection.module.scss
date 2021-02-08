@@ -36,10 +36,6 @@
 
   overflow: hidden;
 
-  @include media('>desktop') {
-    margin-top: 120.8px;
-  }
-
   @include media('>phoneLandscape', '<=desktop') {
     background-position: center bottom;
   }
