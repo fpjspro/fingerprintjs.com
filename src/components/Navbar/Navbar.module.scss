@@ -2,6 +2,12 @@
   background-color: v('off-white');
   font-size: 1.75rem;
 
+  @include media('>desktop') {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    top: 0;
+  }
   @include media('<=desktop') {
     display: none;
   }
