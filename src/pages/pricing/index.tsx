@@ -106,16 +106,16 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
           </div>
         </PricingCard>
         <PricingCard
-          title='Reserved'
-          description='Reserved is a 1 year prepaid plan that has several advantages compared to the on-demand model.'
-          sectionClasses={styles.reserved}
+          title='Annual'
+          description='Our 1 year prepaid plan has several advantages compared to the on-demand model.'
+          sectionClasses={styles.annual}
         >
           <ul className={classNames(styles.numberList, styles.horizontal)}>
             <li>You lock in your price for 1 year and get a 20% discount.</li>
             <li>Unused API calls are carried over from month to month</li>
           </ul>
           <div className={styles.quote}>
-            A reserved plan is recommended when you have a high and/or predictable volume and getting a significant
+            An annual plan is recommended when you have a high and/or predictable volume and getting a significant
             discount for your usage is important.
           </div>
         </PricingCard>
