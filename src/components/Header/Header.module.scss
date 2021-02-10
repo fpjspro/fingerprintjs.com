@@ -2,7 +2,7 @@
   @include media('>desktop') {
     position: sticky;
     top: 0;
-    z-index: 9999;
+    z-index: v('z-header');
   }
 }
 
@@ -10,7 +10,7 @@
   padding: 3rem 0 1rem;
 
   @include media('>desktop') {
-    background: white;
+    background: c('white');
   }
   @include media('<=desktop') {
     margin-top: 0;
