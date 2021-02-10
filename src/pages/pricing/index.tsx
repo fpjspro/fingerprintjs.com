@@ -73,7 +73,7 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
   return (
     <Section className={styles.pricing} backgroundImageFluid={mainBackground}>
       <Container>
-        <SectionHeader title='Pricing Models' subtitle='We support 2 models of pricing' invertOrder />
+        <SectionHeader title='Pricing Models' invertOrder />
         <PricingCard
           title='On-Demand'
           description='For on-demand pricing, you pay monthly per API call. This plan is recommended for users with unpredictable or low traffic volumes.'
