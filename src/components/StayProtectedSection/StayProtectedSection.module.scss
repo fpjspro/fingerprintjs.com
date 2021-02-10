@@ -20,11 +20,11 @@
   }
 
   .form {
-    max-width: 50%;
+    max-width: 55%;
     margin: 0 auto;
 
     @include media('<=tablet') {
-      max-width: 80vw;
+      max-width: 85vw;
     }
 
     .formDescription {
