@@ -1,15 +1,20 @@
-import React from 'react'
-import classNames from 'classnames'
-import styles from './Card.module.scss'
+import React from "react";
+import classNames from "classnames";
+import styles from "./Card.module.scss";
 
 interface PricingCardProps {
-  title: string
-  description: string
-  sectionClasses: string | string[]
-  children: React.ReactNode
+  title: string;
+  description: string;
+  sectionClasses: string | string[];
+  children: React.ReactNode;
 }
 
-export default function PricingCard({ title, description, sectionClasses, children }: PricingCardProps) {
+export default function PricingCard({
+  title,
+  description,
+  sectionClasses,
+  children,
+}: PricingCardProps) {
   return (
     <section className={classNames(styles.card, sectionClasses)}>
       <aside className={styles.aside}>
@@ -20,5 +25,5 @@ export default function PricingCard({ title, description, sectionClasses, childr
       </aside>
       <div className={styles.content}>{children}</div>
     </section>
-  )
+  );
 }
