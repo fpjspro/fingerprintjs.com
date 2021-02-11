@@ -20,7 +20,7 @@ export interface SubHeaderProps {
   className?: string
 }
 
-export default function SubHeader({ title, subtitle, label, align = 'center', className }: SubHeader) {
+export default function SubHeader({ title, subtitle, label, align = 'center', className }: SubHeaderProps) {
   const subtitleComponent =
     subtitle &&
     (typeof subtitle.text === 'string' ? (
