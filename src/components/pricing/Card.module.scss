@@ -3,11 +3,11 @@
   grid-template-columns: Min(33%, 300px) 2fr;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 3rem 7rem 0 transparentize(c("brand-water"), 0.9);
-  background-color: v("white");
+  box-shadow: 0 3rem 7rem 0 transparentize(c('brand-water'), 0.9);
+  background-color: v('white');
   counter-increment: pricing-card;
 
-  @include media("<=tabletWide") {
+  @include media('<=tabletWide') {
     grid-template-columns: 1fr;
   }
 
@@ -17,16 +17,16 @@
   }
 
   .aside {
-    color: v("white");
+    color: v('white');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% bottom;
 
-    @include media("<=tabletWide") {
+    @include media('<=tabletWide') {
       background-image: none;
     }
 
-    @include media("<=tablet") {
+    @include media('<=tablet') {
       padding: 3rem 3rem 3rem 6rem;
     }
 
@@ -34,26 +34,26 @@
       .title {
         font-size: 5rem;
         font-family: var(--ff-mono);
-        font-weight: v("bold");
+        font-weight: v('bold');
         line-height: 1.1;
         line-break: pre-line;
         margin-bottom: 2rem;
         position: relative;
 
-        @include media("<=tablet") {
+        @include media('<=tablet') {
           font-size: 4rem;
         }
       }
 
       .description {
         font-size: 1.75rem;
-        opacity: v("faded");
+        opacity: v('faded');
       }
     }
   }
 
   .content {
-    @include media("<=tablet") {
+    @include media('<=tablet') {
       padding: 3rem;
     }
   }
