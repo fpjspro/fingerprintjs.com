@@ -43,19 +43,6 @@
         @include media('<=tablet') {
           font-size: 4rem;
         }
-
-        &:before {
-          content: counter(pricing-card);
-          position: absolute;
-          top: 0;
-          font-size: 2.25rem;
-          line-height: 5rem;
-          left: -3rem;
-
-          @include media('<=tablet') {
-            line-height: 4rem;
-          }
-        }
       }
 
       .description {
