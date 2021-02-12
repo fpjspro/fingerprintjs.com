@@ -1,6 +1,10 @@
 module.exports = {
   ci: {
     collect: {
+      settings: {
+        chromeFlags: '--no-sandbox',
+        emulatedFormFactor: 'desktop',
+      },
       staticDistDir: './public',
       url: [
         'http://localhost/index.html',
