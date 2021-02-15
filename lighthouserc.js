@@ -18,5 +18,8 @@ module.exports = {
     upload: {
       target: 'temporary-public-storage',
     },
+    assert: {
+      preset: 'lighthouse:recommended',
+    },
   },
 }
