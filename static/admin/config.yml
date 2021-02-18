@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: feature/use-case-paywall
+  branch: master
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
