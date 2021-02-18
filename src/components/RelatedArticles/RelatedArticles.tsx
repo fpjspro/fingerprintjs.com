@@ -41,7 +41,7 @@ type PostQuery = NonNullable<
   ArrayElement<NonNullable<NonNullable<GatsbyTypes.RelatedArticlesQuery['allMarkdownRemark']>['edges']>>['node']
 >
 function getRelatedArticles(referenceArticle: PostProps, allArticles: PostQuery[], count: number): PostProps[] {
-  const relatedArticles = allArticles.map(mapToPost)
+  const relatedArticles = allArticles.map((article) => mapToPost(article))
   const { tags: referenceTags = [] } = referenceArticle
   const similarity: Record<string, number> = {}
 

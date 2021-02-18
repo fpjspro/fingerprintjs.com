@@ -1,78 +1,64 @@
 .card {
-    display: grid;
-    grid-template-columns: Min(33%, 300px) 2fr;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 3rem 7rem 0 transparentize(c("brand-water"), 0.9);
-    background-color: v("white");
-    counter-increment: pricing-card;
-  
-    @include media("<=tabletWide") {
-      grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: Min(33%, 300px) 2fr;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 3rem 7rem 0 transparentize(c('brand-water'), 0.9);
+  background-color: v('white');
+  counter-increment: pricing-card;
+
+  @include media('<=tabletWide') {
+    grid-template-columns: 1fr;
+  }
+
+  .aside,
+  .content {
+    padding: 5rem 6rem;
+  }
+
+  .aside {
+    color: v('white');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% bottom;
+
+    @include media('<=tabletWide') {
+      background-image: none;
     }
-  
-    .aside,
-    .content {
-      padding: 5rem 6rem;
+
+    @include media('<=tablet') {
+      padding: 3rem 3rem 3rem 6rem;
     }
-  
-    .aside {
-      color: v("white");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 50% bottom;
-  
-      @include media("<=tabletWide") {
-        background-image: none;
-      }
-  
-      @include media("<=tablet") {
-        padding: 3rem 3rem 3rem 6rem;
-      }
-  
-      .header {
-        .title {
-          font-size: 5rem;
-          font-family: var(--ff-mono);
-          font-weight: v("bold");
-          line-height: 1.1;
-          line-break: pre-line;
-          margin-bottom: 2rem;
-          position: relative;
-  
-          @include media("<=tablet") {
-            font-size: 4rem;
-          }
-  
-          &:before {
-            content: counter(pricing-card);
-            position: absolute;
-            top: 0;
-            font-size: 2.25rem;
-            line-height: 5rem;
-            left: -3rem;
-  
-            @include media("<=tablet") {
-              line-height: 4rem;
-            }
-          }
-        }
-  
-        .description {
-          font-size: 1.75rem;
-          opacity: v("faded");
+
+    .header {
+      .title {
+        font-size: 5rem;
+        font-family: var(--ff-mono);
+        font-weight: v('bold');
+        line-height: 1.1;
+        line-break: pre-line;
+        margin-bottom: 2rem;
+        position: relative;
+
+        @include media('<=tablet') {
+          font-size: 4rem;
         }
       }
-    }
-  
-    .content {
-      @include media("<=tablet") {
-        padding: 3rem;
+
+      .description {
+        font-size: 1.75rem;
+        opacity: v('faded');
       }
-    }
-  
-    + .card {
-      margin-top: 4rem;
     }
   }
-  
+
+  .content {
+    @include media('<=tablet') {
+      padding: 3rem;
+    }
+  }
+
+  + .card {
+    margin-top: 4rem;
+  }
+}

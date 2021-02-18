@@ -12,9 +12,13 @@ import styles from './MobileNavbar.module.scss'
 import { useCaseLinks } from '../../constants/content'
 import { URL, DOC_URL, PATH, MAILTO } from '../../constants/content'
 import DropdownMenu from './DropdownMenu'
+import { useUtmParams } from '../../hooks/useUtmParams'
+import { buildQueryString } from '../../helpers/common'
 
 export default function MobileNavbar() {
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
+
+  const utmInfo = useUtmParams()
 
   return (
     <>
@@ -24,7 +28,7 @@ export default function MobileNavbar() {
             <Button onClick={() => setIsContactSalesModalOpen(true)} variant='outline'>
               Contact Sales
             </Button>
-            <Button href={URL.signupUrl}>Free Trial</Button>
+            <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`}>Free Trial</Button>
           </div>
           <div className={classNames(styles.links, styles.main)}>
             <Container size='large' className={styles.container}>
@@ -35,8 +39,11 @@ export default function MobileNavbar() {
               <Link to={PATH.demoUrl} className={styles.link}>
                 Technical Demo
               </Link>
-              <Link to='/blog/' className={styles.link}>
+              <Link to={PATH.blog} className={styles.link}>
                 Blog
+              </Link>
+              <Link to={PATH.caseStudies} className={styles.link}>
+                Case Studies
               </Link>
               <a href={URL.githubRepoUrl} target='_blank' rel='noreferrer' className={styles.link}>
                 Open Source

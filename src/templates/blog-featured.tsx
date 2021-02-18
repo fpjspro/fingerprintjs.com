@@ -46,7 +46,7 @@ export default function BlogFeatured({ data, pageContext }: BlogFeaturedProps) {
         <Container size='large'>
           <h1>Featured Articles</h1>
 
-          <PostGrid posts={posts.map(({ node }) => node).map(mapToPost)} />
+          <PostGrid posts={posts.map(({ node }) => node).map((node) => mapToPost(node))} />
 
           <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/blog/featured/' />
         </Container>

@@ -6,6 +6,7 @@ import {
   FPJS_REGION,
   FPJS_MONITORING_CLIENT_ID,
   FPJS_MONITORING_TOKEN,
+  TLS_ENDPOINT,
 } from '../constants/env'
 
 const FpjsContext = React.createContext<{ visitorData?: FullIpExtendedGetResult }>({})
@@ -23,6 +24,8 @@ export function FpjsProvider({ children }: { children: React.ReactNode }) {
   const region = FPJS_REGION as Region
   const monitoringClientId = FPJS_MONITORING_CLIENT_ID ?? ''
   const monitoringToken = FPJS_MONITORING_TOKEN ?? ''
+  const tlsEndpoint = TLS_ENDPOINT
+
   const [visitorData, setVisitorData] = useState<FullIpExtendedGetResult>()
 
   useEffect(() => {
@@ -32,6 +35,7 @@ export function FpjsProvider({ children }: { children: React.ReactNode }) {
         token: clientToken,
         endpoint,
         region,
+        tlsEndpoint,
 
         // It may break after a @fingerprintjs/fingerprintjs-pro update. Please check when updating.
         debug: monitoringToken
@@ -44,7 +48,7 @@ export function FpjsProvider({ children }: { children: React.ReactNode }) {
     }
 
     getVisitorData()
-  }, [clientToken, endpoint, region, monitoringClientId, monitoringToken])
+  }, [clientToken, endpoint, tlsEndpoint, region, monitoringClientId, monitoringToken])
 
   return <FpjsContext.Provider value={{ visitorData }}>{children}</FpjsContext.Provider>
 }

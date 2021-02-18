@@ -12,6 +12,9 @@ export default function Navbar() {
           <Link className={nav.link} to={PATH.blog}>
             Blog
           </Link>
+          <Link className={nav.link} to={PATH.caseStudies}>
+            Case Studies
+          </Link>
           <a className={nav.link} href={DOC_URL.documentationUrl}>
             Docs
           </a>

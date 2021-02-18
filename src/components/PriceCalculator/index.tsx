@@ -76,7 +76,7 @@ export default function PriceCalculator() {
             description='Pay as you go, cancel any time'
           />
         </Column>
-        <Column title='Reserved'>
+        <Column title='Annual'>
           <Price
             value={isCustomPricing() ? 'Custom' : getPrice(PaymentType.Annually)}
             description='Requires a 12 month prepay'

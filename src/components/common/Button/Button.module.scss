@@ -36,7 +36,7 @@
     &.mobileOnly {
       display: inline-block;
 
-      @include media(">phoneLandscape") {
+      @include media('>phoneLandscape') {
         display: none;
       }
     }
@@ -86,14 +86,31 @@
   }
 }
 
+.faded {
+  $backgroundColor: var(--transparent);
+  $color: adjust-color(c('off-white'), $lightness: -20%);
+
+  background: $backgroundColor;
+  box-shadow: inset 0 0 0 2px $color;
+  color: $color;
+  @include transition((box-shadow, color));
+
+  &:focus,
+  &:hover {
+    background-color: $backgroundColor;
+    color: c('off-white');
+    box-shadow: inset 0 0 0 2px c('off-white');
+  }
+}
+
 .desktopOnly {
-  @include media("<=phoneLandscape") {
+  @include media('<=phoneLandscape') {
     display: none;
   }
 }
 
 .mobileOnly {
-  @include media(">phoneLandscape") {
+  @include media('>phoneLandscape') {
     display: none;
   }
 }

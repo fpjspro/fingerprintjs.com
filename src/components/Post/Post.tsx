@@ -6,7 +6,7 @@ import TagList from '../TagList/TagList'
 import { graphql, Link } from 'gatsby'
 
 import styles from './Post.module.scss'
-import { dateFormatter } from '../../helpers/format'
+import { dateFormatter, displayDateFormatter } from '../../helpers/format'
 
 export interface PostProps {
   title: string
@@ -52,9 +52,40 @@ export default function Post({
   )
 }
 
-export function mapToPost(data: any): PostProps {
-  if (!data.frontmatter || !data.frontmatter.metadata) {
+// TODO [VL] Write a proper type for this. It's not as straight forward because it has to accept a lot of different generated gatsby types.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function mapToPost(data: any, editing?: boolean): PostProps {
+  if ((!data.frontmatter || !data.frontmatter.metadata) && !editing) {
     throw new Error('Posts should always have frontmatter and metadata.')
+  }
+
+  // We might not have all the data while editing the post on  the CMS, but we still want the preview to display what we have.
+  if (editing) {
+    const post: PostProps = {
+      title: '',
+      description: '',
+      publishDate: dateFormatter.format(Date.now()),
+      path: '/',
+      featured: false,
+      tags: [],
+    }
+
+    if (data.frontmatter) {
+      const { publishDate = dateFormatter.format(Date.now()), title = '', metadata, tags, featured } = data.frontmatter
+      post.publishDate = publishDate
+      post.title = title
+      post.tags = tags
+      post.featured = featured
+
+      if (metadata) {
+        const { description = '', image, url } = metadata
+        post.description = description
+        post.image = image as GatsbyTypes.File
+        post.path = url
+      }
+    }
+
+    return post
   }
 
   const { publishDate = Date.now(), title = '', metadata, tags, featured } = data.frontmatter
@@ -63,7 +94,7 @@ export function mapToPost(data: any): PostProps {
   return {
     title,
     description,
-    publishDate: dateFormatter.format(new Date(publishDate)),
+    publishDate: displayDateFormatter.format(new Date(publishDate)),
     image: image as GatsbyTypes.File,
     path: url,
     featured,

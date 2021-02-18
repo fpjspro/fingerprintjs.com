@@ -2,6 +2,12 @@
   position: relative;
   overflow-y: hidden;
 
+  .content {
+    margin-top: 1.75rem;
+
+    @include overrideContentStyle;
+  }
+
   &::before {
     content: '';
     opacity: 0.2;
@@ -38,17 +44,79 @@
   }
 }
 
-.button {
-  margin-right: 10rem;
-  margin-left: 20rem;
+.subheader {
+  margin-left: 5rem;
 
-  @include media('<=desktop') {
-    margin-left: 12rem;
+  @include media('<=tabletWide') {
+    margin: 0;
+    margin-top: 5rem;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5rem;
+  margin-left: 12rem;
+
+  @include media('<=phoneLandscape', '>phone') {
+    flex-direction: row;
+    align-self: center;
+  }
+  @include media('<=tabletWide') {
+    margin-right: 0;
   }
 
   @include media('<=phoneLandscape') {
     margin: 0;
     margin-top: 5rem;
-    align-self: center;
+  }
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & + .action {
+    margin-top: 2rem;
+  }
+
+  @include media('<=phoneLandscape', '>phone') {
+    & + .action {
+      margin-top: 0;
+      margin-left: 6rem;
+    }
+  }
+
+  @include media('<=phone') {
+    align-items: center;
+  }
+}
+
+.label {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.link {
+  cursor: pointer;
+
+  color: c('brand-fire');
+  font-size: 1.8rem;
+  font-weight: bold;
+
+  &:hover {
+    color: adjust-color(c('brand-fire'), $lightness: -20%);
+  }
+
+  @include media('<=phoneLandscape', '>phone') {
+    padding-bottom: 1rem;
   }
 }

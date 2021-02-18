@@ -1,0 +1,100 @@
+@import '../BlockQuote/BlockQuote.scss';
+
+.root {
+  p,
+  ul,
+  ol,
+  img,
+  blockquote {
+    margin-bottom: 6rem;
+  }
+
+  @for $index from 1 through 6 {
+    h#{$index} {
+      font-family: v('ff-mono');
+      font-weight: v('bold');
+
+      margin-bottom: 2rem;
+    }
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3.75rem;
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  @for $index from 4 through 6 {
+    h#{$index} {
+      font-size: 2.75rem;
+    }
+  }
+
+  p {
+    font-size: 2.6rem;
+  }
+
+  ul,
+  ol {
+    li {
+      margin: 0;
+      padding: 0;
+
+      font-size: 2.6rem;
+
+      + li {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  ul {
+    list-style: '>  ' outside none;
+    padding-left: 4rem;
+
+    li {
+      &::marker {
+        font-size: 2.5rem;
+        font-weight: v('semi');
+        color: v('brand-fire');
+      }
+    }
+  }
+
+  ol {
+    counter-reset: number;
+    @include gap(2rem);
+
+    li {
+      counter-increment: number;
+      display: flex;
+
+      &:before {
+        content: counter(number) '.';
+        font-weight: v('semi');
+        color: v('brand-fire');
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid v('brand-fire');
+    color: v('brand-fire');
+  }
+
+  blockquote {
+    @include blockQuoteContainer;
+
+    p {
+      @include blockQuoteText;
+      margin-bottom: 0;
+    }
+  }
+}

@@ -8,20 +8,28 @@ enum NetlifyContext {
 const context: NetlifyContext = getNetlifyContext()
 
 export const FPJS_TOKEN =
-  getContextEnv({
+  getContextEnv<string>({
     [NetlifyContext.Production]: process.env.GATSBY_FPJS_TOKEN,
     [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_FPJS_TOKEN,
   }) ?? 'test_client_token'
+
 export const FPJS_API_TOKEN =
-  getContextEnv({
+  getContextEnv<string>({
     [NetlifyContext.Production]: process.env.GATSBY_FPJS_API_TOKEN,
     [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_API_TOKEN,
   }) ?? 'test_fpjs_api_token'
+
 export const FPJS_ENDPOINT =
-  getContextEnv({
+  getContextEnv<string>({
     [NetlifyContext.Production]: process.env.GATSBY_FPJS_ENDPOINT,
     [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_FPJS_ENDPOINT,
   }) ?? ''
+
+export const TLS_ENDPOINT = getContextEnv<string>({
+  [NetlifyContext.Production]: process.env.GATSBY_TLS_ENDPOINT,
+  [NetlifyContext.DeployPreview]: process.env.GATSBY_PREVIEW_TLS_ENDPOINT,
+})
+
 export const FPJS_REGION = process.env.GATSBY_FPJS_REGION
 export const FPJS_DASHBOARD_ENDPOINT = process.env.GATSBY_FPJS_DASHBOARD_ENDPOINT
 export const FPJS_MONITORING_CLIENT_ID = process.env.GATSBY_FPJS_MONITORING_CLIENT_ID
@@ -47,6 +55,6 @@ function getNetlifyContext(): NetlifyContext {
   }
 }
 
-function getContextEnv(entries: { [key in NetlifyContext]?: EnvironmentVariable }) {
-  return entries[context] ?? entries[NetlifyContext.Production]
+function getContextEnv<T extends EnvironmentVariable>(entries: { [key in NetlifyContext]?: EnvironmentVariable }) {
+  return (entries[context] ?? entries[NetlifyContext.Production]) as T
 }

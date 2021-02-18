@@ -9,18 +9,12 @@ import Breadcrumbs, { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../helpers/types'
 import { withTrailingSlash } from '../helpers/url'
-
-import styles from './long-form-content.module.scss'
+import { Content, DangerouslyRenderHtmlContent } from '../components/Content/Content'
 import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
 import { mapToPost, PostProps } from '../components/Post/Post'
+import PreviewProviders from '../cms/PreviewProviders'
 
-const HtmlContent = ({ content, className }: { content: string; className?: string }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
-)
-
-const Content = ({ content, className }: { content: string | React.ReactNode; className?: string }) => (
-  <div className={className}>{content}</div>
-)
+import styles from './long-form-content.module.scss'
 
 interface LongFormContentProps {
   data: GatsbyTypes.LongFormContentQuery
@@ -41,7 +35,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
 
   return (
     <LongFormContentTemplate
-      contentComponent={HtmlContent}
+      contentComponent={DangerouslyRenderHtmlContent}
       metadata={metadata}
       post={post}
       body={body}
@@ -75,7 +69,7 @@ export const pageQuery = graphql`
   }
 `
 
-interface TemplateProps {
+export interface TemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   post: PostProps
   body: string | React.ReactNode
@@ -114,11 +108,13 @@ export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComp
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
 
   return (
-    <LongFormContentTemplate
-      metadata={mapToMetadata(metadata)}
-      post={mapToPost({ frontmatter: entry.get('data').toObject() })}
-      body={widgetFor('body') ?? <></>}
-    />
+    <PreviewProviders>
+      <LongFormContentTemplate
+        metadata={mapToMetadata(metadata)}
+        post={mapToPost({ frontmatter: entry.get('data').toObject() })}
+        body={widgetFor('body') ?? <></>}
+      />
+    </PreviewProviders>
   )
 }
 

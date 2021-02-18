@@ -2,7 +2,7 @@
   $borders: 2px solid var(--off-white);
   $cellpadding: 3rem;
 
-  box-shadow: 0 3rem 7rem 0 transparentize(c("brand-water"), 0.9);
+  box-shadow: 0 3rem 7rem 0 transparentize(c('brand-water'), 0.9);
   padding: 0;
 
   background-color: var(--white);
@@ -11,7 +11,7 @@
 
   display: flex;
 
-  @include media("<=tabletWide") {
+  @include media('<=tabletWide') {
     display: block;
   }
 
@@ -20,7 +20,7 @@
     flex-flow: column nowrap;
     flex: 1 0;
 
-    @include media("<=tabletWide") {
+    @include media('<=tabletWide') {
       flex-flow: row wrap;
     }
 
@@ -34,20 +34,20 @@
 
     &:nth-of-type(odd) {
       .header {
-        color: v("white");
-        background: v("brand-water");
+        color: v('white');
+        background: v('brand-water');
       }
     }
     &:nth-of-type(even) {
       .header {
-        color: v("white");
-        background: adjust-color(c("brand-water"), $saturation: -32%, $lightness: +24%);
+        color: v('white');
+        background: adjust-color(c('brand-water'), $saturation: -32%, $lightness: +24%);
       }
     }
     &:nth-of-type(1) {
       flex: 2 0;
 
-      @include media("<=tabletWide") {
+      @include media('<=tabletWide') {
         flex-flow: column nowrap;
       }
 
@@ -69,7 +69,7 @@
 
       text-align: center;
 
-      @include media("<=tabletWide") {
+      @include media('<=tabletWide') {
         align-items: flex-start;
         text-align: left;
       }
@@ -80,7 +80,7 @@
 
       &:not(.header) {
         flex: 1;
-        @include media("<=tabletWide") {
+        @include media('<=tabletWide') {
           flex: 2;
         }
       }
@@ -96,7 +96,7 @@
         border-left: 0;
         min-height: calc(5px + (var(--font-size) * var(--lh)) * var(--lines) + (var(--cellpadding) * 2));
 
-        @include media("<=tabletWide") {
+        @include media('<=tabletWide') {
           min-height: unset;
           flex: 1;
           min-width: 132px;
@@ -167,7 +167,7 @@
       margin: 0;
     }
 
-    &[type=number] {
+    &[type='number'] {
       -moz-appearance: textfield;
     }
   }

@@ -51,7 +51,7 @@ export default function BlogTag({ data, pageContext }: BlogTagProps) {
           <PostGrid
             posts={posts
               .map(({ node }) => node)
-              .map(mapToPost)
+              .map((node) => mapToPost(node))
               .map((post) => ({ ...post, activeTag: tag }))}
           />
 
