@@ -10,14 +10,14 @@ export default function ClientsSection() {
     'us-bank',
     'booking',
     'ameritrade',
-    'dell',
+    'hsn',
     'agoda',
     'b_and_h',
     'coinbase',
     'neiman-marcus',
-    'perimeterx',
+    'rockstart',
     'sift',
-    'ticket-master',
+    'western-union',
     'yahoo',
   ]
 
