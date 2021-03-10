@@ -15,7 +15,7 @@ export default function ClientsSection() {
     'b_and_h',
     'coinbase',
     'neiman-marcus',
-    'rockstart',
+    'rockstar',
     'sift',
     'western-union',
     'yahoo',
