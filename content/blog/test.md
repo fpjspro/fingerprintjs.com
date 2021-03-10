@@ -7,7 +7,7 @@ metadata:
   image: /img/uploads/cat.jpg
 featured: false
 publishDate: 2021-03-10T14:48:54.789Z
-title: Test
+title: Mini Apps Test Blog
 tags:
   - fingerprinting
 ---
@@ -24,9 +24,9 @@ We can add a mini app just by adding the iframe directly to the markdown
 
 # Codesandbox example:
 
-<iframe src="https://codesandbox.io/embed/arc-x-pmndrs-colors-1wh6f?fontsize=14&hidenavigation=1&theme=dark"
+<iframe src="https://codesandbox.io/embed/magical-swirles-g0oxj?fontsize=14&hidenavigation=1&theme=dark"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="arc-x-pmndrs-colors"
+     title="magical-swirles-g0oxj"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
