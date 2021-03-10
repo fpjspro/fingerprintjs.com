@@ -11,4 +11,7 @@ title: Test
 tags:
   - fingerprinting
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jWX9P5_jZn8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe height="265" style="width: 100%;" scrolling="no" title="30,000 Particles" src="https://codepen.io/soulwire/embed/Ffvlo?height=265&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/soulwire/pen/Ffvlo'>30,000 Particles</a> by Justin Windle
+  (<a href='https://codepen.io/soulwire'>@soulwire</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
