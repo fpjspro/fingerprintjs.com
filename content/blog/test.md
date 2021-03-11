@@ -11,6 +11,16 @@ title: Mini Apps Test Blog
 tags:
   - fingerprinting
 ---
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+  }
+</script>
+
+
+
+
+
 We can add a mini app just by adding the iframe directly to the markdown
 
 ## Codepen example:
@@ -24,13 +34,4 @@ We can add a mini app just by adding the iframe directly to the markdown
 
 # Codesandbox example:
 
-<iframe src="https://codesandbox.io/embed/magical-swirles-g0oxj?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="magical-swirles-g0oxj"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-
-<script>
-console.log("test")
-</script>
+<iframe width="560" onload="resizeIframe(this)" src="https://www.youtube.com/embed/pKO9UjSeLew" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
