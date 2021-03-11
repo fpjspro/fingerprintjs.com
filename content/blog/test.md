@@ -30,3 +30,7 @@ We can add a mini app just by adding the iframe directly to the markdown
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
+
+<script>
+console.log("test")
+</script>
