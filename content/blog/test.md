@@ -12,14 +12,17 @@ tags:
   - fingerprinting
 ---
 <script>
- console.log("Testing script")
-
-
+function myFunction() {
+  console.log("hello")
+}
 </script>
 
 
 
 
+
+
+<input type="button" value="Click me" onclick="myFunction()">
 
 
 We can add a mini app just by adding the iframe directly to the markdown
