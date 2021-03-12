@@ -1,0 +1,29 @@
+.root {
+  background-color: v('off-white');
+  background-repeat: no-repeat;
+  background-size: 1150px auto;
+  background-position: center 65%;
+  overflow: hidden;
+
+  padding: 8rem 0 4rem;
+
+  @include media('<=phoneLandscape') {
+    padding-bottom: 3rem;
+  }
+}
+
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  @include media('<=phoneLandscape') {
+    margin-bottom: 2rem;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
