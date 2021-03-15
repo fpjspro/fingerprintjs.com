@@ -1,3 +1,5 @@
+$ossColor: rgb(67, 72, 118);
+
 .root {
   overflow: hidden;
 
@@ -9,7 +11,6 @@
 }
 
 .container {
-  display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
@@ -42,13 +43,23 @@
   //max-height: 55rem;
 }
 
+.proTitle {
+  font-family: v(ff-sans);
+  font-weight: v('semi');
+  color: c('brand-fire');
+  font-style: italic;
+  font-size: 3rem;
+
+  margin-bottom: 1rem;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 8px;
 
   border-radius: 2rem;
-  border: dashed 2px c('brand-fire');
+  border: dashed 4px c('brand-fire');
 
   padding: 1rem;
 }
@@ -56,20 +67,54 @@
 .imageWrapper {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-gap: 16px;
+  grid-gap: 8px;
+  align-items: center;
 
   .aside {
     display: grid;
     grid-template-rows: 3fr 1fr;
+
+    font-style: italic;
     text-align: center;
-    align-items: center;
+
+    .server {
+      color: c('brand-fire');
+    }
+    .browser {
+      color: $ossColor;
+    }
   }
 }
 .textWrapper {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 
+  .layer,
+  .ossLayer {
+    padding: 0.25rem;
+    padding-left: 1rem;
+  }
+
   .layerTitle {
     font-size: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .layerSubtitle {
+    font-size: 1.75rem;
+    font-weight: 500;
+    font-family: v('ff-sans');
+  }
+
+  .ossLayer {
+    border-radius: 2rem;
+    border: dashed 2px $ossColor;
+    .ossTitle {
+      font-size: 2rem;
+      font-family: v(ff-sans);
+      font-weight: v('semi');
+      color: $ossColor;
+      font-style: italic;
+    }
   }
 }

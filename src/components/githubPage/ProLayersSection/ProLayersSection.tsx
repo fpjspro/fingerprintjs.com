@@ -16,26 +16,38 @@ export default function ProLayersSection() {
             learning to generate stable and highly accurate visitorIDs for every web visitor.
           </h2>
         </header>
+        <h1 className={styles.proTitle}>FingerprintJS Pro</h1>
         <div className={styles.wrapper}>
           <div className={styles.imageWrapper}>
             <div className={styles.aside}>
-              <div>Runs on server</div>
-              <div>Runs in browser</div>
+              <div className={styles.server}>Runs on server</div>
+              <div className={styles.browser}>Runs in browser</div>
             </div>
             <img alt='FingerprintJS Pro layers' src={proLayers} className={styles.image} />
           </div>
           <div className={styles.textWrapper}>
-            <div>
+            <div className={styles.layer}>
               <h1 className={styles.layerTitle}>Server-side analysis and machine learning</h1>
+              <h2 className={styles.layerSubtitle}>
+                Holistic view of all attributes and layers below to generate the most stable and accurate visitorID
+              </h2>
             </div>
-            <div>
-              <h3 className={styles.layerTitle}>Storage and deduplication</h3>
+            <div className={styles.layer}>
+              <h1 className={styles.layerTitle}>Storage and deduplication</h1>
+              <h2 className={styles.layerSubtitle}>
+                Stores all attributes collected to do fuzzy matching and handle browser and OS upgrades
+              </h2>
             </div>
-            <div>
-              <h3 className={styles.layerTitle}>Cookie and local storage management</h3>
+            <div className={styles.layer}>
+              <h1 className={styles.layerTitle}>Cookie and local storage management</h1>
+              <h2 className={styles.layerSubtitle}>First party cookies and local storage</h2>
             </div>
-            <div>
-              <h3 className={styles.layerTitle}>Browser Fingerprinting Library</h3>
+            <div className={styles.ossLayer}>
+              <h1 className={styles.ossTitle}>Open Source</h1>
+              <h1 className={styles.layerTitle}>Browser Fingerprinting Library</h1>
+              <h2 className={styles.layerSubtitle}>
+                Generates browser fingerprints from exact matching browser attributes
+              </h2>
             </div>
           </div>
         </div>
