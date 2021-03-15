@@ -8,13 +8,26 @@
   }
 }
 
+.header {
+  margin-bottom: 1rem;
+}
+
+.title,
+.subtitle {
+  text-align: center;
+}
+
 .title {
   margin-bottom: 2rem;
-  text-align: center;
+  font-size: 3.5rem;
+}
 
-  @include media('<=phoneLandscape') {
-    margin-bottom: 2rem;
-  }
+.subtitle {
+  font-size: 2.25rem;
+  font-weight: v('normal');
+  font-family: v('ff-sans');
+
+  margin: 2rem 0;
 }
 
 .container {
@@ -26,5 +39,5 @@
 
 .image {
   object-fit: contain;
-  max-height: 55rem;
+  //max-height: 55rem;
 }
