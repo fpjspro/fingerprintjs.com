@@ -1,0 +1,30 @@
+.root {
+  overflow: hidden;
+
+  padding: 8rem 0 4rem;
+
+  @include media('<=phoneLandscape') {
+    padding-bottom: 3rem;
+  }
+}
+
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  @include media('<=phoneLandscape') {
+    margin-bottom: 2rem;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.image {
+  object-fit: contain;
+  max-height: 55rem;
+}
