@@ -33,6 +33,7 @@ $ossColor: rgb(67, 72, 118);
       font-size: 3rem;
     }
   }
+
   .subtitle {
     font-size: 2.25rem;
     font-weight: v('normal');
@@ -103,6 +104,7 @@ $ossColor: rgb(67, 72, 118);
       color: c('brand-fire');
       align-self: center;
     }
+
     .browser {
       color: $ossColor;
     }
@@ -112,6 +114,7 @@ $ossColor: rgb(67, 72, 118);
     }
   }
 }
+
 .textWrapper {
   display: grid;
   grid-template-rows: auto;
@@ -158,7 +161,7 @@ $ossColor: rgb(67, 72, 118);
       font-weight: v('semi');
       color: $ossColor;
       font-style: italic;
-      
+
       @include media('<=phoneLandscape') {
         font-size: 1rem;
       }
