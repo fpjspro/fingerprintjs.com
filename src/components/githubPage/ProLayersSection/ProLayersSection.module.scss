@@ -5,7 +5,7 @@ $ossColor: rgb(67, 72, 118);
 
   padding: 8rem 0 4rem;
 
-  @include media('<=phoneLandscape') {
+  @include media('<=tabletWide') {
     padding-bottom: 3rem;
   }
 }
@@ -27,20 +27,20 @@ $ossColor: rgb(67, 72, 118);
   .title {
     margin-bottom: 2rem;
     font-size: 3.5rem;
+    @include media('<=phoneLandscape') {
+      font-size: 3rem;
+    }
   }
-
   .subtitle {
     font-size: 2.25rem;
     font-weight: v('normal');
     font-family: v('ff-sans');
 
     margin: 2rem 0;
+    @include media('<=phoneLandscape') {
+      font-size: 1.5rem;
+    }
   }
-}
-
-.image {
-  object-fit: contain;
-  //max-height: 55rem;
 }
 
 .proTitle {
@@ -51,37 +51,60 @@ $ossColor: rgb(67, 72, 118);
   font-size: 3rem;
 
   margin-bottom: 1rem;
+
+  @include media('<tablet') {
+    display: none;
+  }
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
   grid-gap: 8px;
 
-  border-radius: 2rem;
-  border: dashed 4px c('brand-fire');
-
   padding: 1rem;
+
+  @include media('>=tablet') {
+    border-radius: 2rem;
+    border: dashed 4px c('brand-fire');
+  }
 }
 
 .imageWrapper {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-gap: 8px;
   align-items: center;
+  grid-template-columns: 1fr;
+  display: grid;
+
+  .image {
+    @include media('<=tablet') {
+      align-self: stretch;
+      padding: 4rem 0;
+    }
+  }
+
+  @include media('>=tablet') {
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 8px;
+  }
 
   .aside {
     display: grid;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 4fr 1fr;
 
     font-style: italic;
     text-align: center;
+    font-weight: v('semi');
 
     .server {
       color: c('brand-fire');
+      align-self: center;
     }
     .browser {
       color: $ossColor;
+    }
+
+    @include media('<tablet') {
+      display: none;
     }
   }
 }
@@ -98,12 +121,18 @@ $ossColor: rgb(67, 72, 118);
   .layerTitle {
     font-size: 2rem;
     padding-bottom: 0.5rem;
+    @include media('<=phoneLandscape') {
+      font-size: 1rem;
+    }
   }
 
   .layerSubtitle {
     font-size: 1.75rem;
     font-weight: 500;
     font-family: v('ff-sans');
+    @include media('<=phoneLandscape') {
+      font-size: 1rem;
+    }
   }
 
   .ossLayer {
@@ -115,6 +144,9 @@ $ossColor: rgb(67, 72, 118);
       font-weight: v('semi');
       color: $ossColor;
       font-style: italic;
+      @include media('<=phoneLandscape') {
+        font-size: 1rem;
+      }
     }
   }
 }
