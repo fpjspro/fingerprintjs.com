@@ -44,12 +44,12 @@ export default function ProLayersSection() {
   )
 }
 
-interface layerProps {
+interface LayerProps {
   title: string
   children: string
   oss?: boolean
 }
-function Layer({ title, children, oss }: layerProps) {
+function Layer({ title, children, oss }: LayerProps) {
   return (
     <>
       <div className={classNames(styles.layer, { [styles.ossLayer]: oss })}>
