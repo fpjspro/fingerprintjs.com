@@ -76,3 +76,16 @@ And also different on Firefox:
 
 `AudioContext` represents an entire chain, built from audio nodes linked together. 
 It controls the creation of the nodes and execution of the audio processing. You always start by creating an instance of AudioContext before you do anything else. It’s a good practice to create a single AudioContext instance and reuse it for all future processing.
+
+## Tables:
+
+| Device, OS, browser                              | Time to fingerprint |
+| ------------------------------------------------ | ------------------- |
+| MacBook Pro 2015 (Core i7), macOS 11, Safari 14  | 5 ms                |
+| MacBook Pro 2015 (Core i7), macOS 11, Chrome 89  | 7 ms                |
+| Acer Chromebook 314, Chrome OS 89                | 7 ms                |
+| Pixel 5, Android 11, Chrome 89                   | 7 ms                |
+| iPhone SE1, iOS 13, Safari 13                    | 12 ms               |
+| Pixel 1, Android 7.1, Chrome 88                  | 17 ms               |
+| Galaxy S4, Android 4.4, Chrome 80                | 40 ms               |
+| MacBook Pro 2015 (Core i7), macOS 11, Firefox 86 | 50 ms               |
