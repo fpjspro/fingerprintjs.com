@@ -74,7 +74,7 @@ And also different on Firefox:
 
 ## Monospace:
 
-`AudioContext` represents an entire chain, built from audio nodes linked together. 
+<tt>AudioContext</tt> / ```AudioContext``` represents an entire chain, built from audio nodes linked together. 
 It controls the creation of the nodes and execution of the audio processing. You always start by creating an instance of AudioContext before you do anything else. It’s a good practice to create a single AudioContext instance and reuse it for all future processing.
 
 ## Tables:
