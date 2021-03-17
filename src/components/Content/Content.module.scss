@@ -97,4 +97,26 @@
       margin-bottom: 0;
     }
   }
+
+  table {
+    width: 100%;
+  }
+
+  table,
+  th,
+  td {
+    border: 2px solid var(--off-white);
+    box-shadow: 0 3rem 7rem 0 transparentize(c('brand-water'), 0.9);
+    background-color: var(--white);
+  }
+
+  th {
+    color: v('white');
+    font-size: 3rem;
+    background: adjust-color(c('brand-water'), $saturation: -32%, $lightness: +24%);
+  }
+
+  td {
+    background: var(--off-white);
+  }
 }
