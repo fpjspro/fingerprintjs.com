@@ -11,6 +11,10 @@ title: Mini Apps Test Blog
 tags:
   - fingerprinting
 ---
+## Link:
+
+[google.com](google.com)
+
 ## Images:
 
 ![](/img/uploads/sinewave.jpg)
@@ -74,7 +78,7 @@ And also different on Firefox:
 
 ## Monospace:
 
-<tt>AudioContext</tt> / ```AudioContext``` represents an entire chain, built from audio nodes linked together. 
+<tt>AudioContext</tt> / `AudioContext` represents an entire chain, built from audio nodes linked together. 
 It controls the creation of the nodes and execution of the audio processing. You always start by creating an instance of AudioContext before you do anything else. It’s a good practice to create a single AudioContext instance and reuse it for all future processing.
 
 ## Tables:
@@ -93,7 +97,7 @@ It controls the creation of the nodes and execution of the audio processing. You
 Unfortunately, floating point operations lack the required precision to get the original samples exactly. The table below shows restored audio fingerprint in different cases and shows how close they are to the original values:
 
 | OS, browser                                  | Fingerprint                                                                                                                                                  | Absolute difference between the target fingerprint |
-|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
 | macOS 11, Chrome 89 (the target fingerprint) | 1.240.434.806.260.740                                                                                                                                        | n/a                                                |
 | macOS 11, Brave 1.21 (same device and OS)    | Various fingerprints after browser restarts:<br />12.404.347.912.294.400<br />1.240.434.832.855.700<br />12.404.347.889.351.200<br />12.404.348.024.313.600  | 0.00000014% – 0.00000214%                          |
 | Windows 10, Chrome 89                        | 12.404.347.527.516.000                                                                                                                                       | 0.00000431%                                        |
