@@ -89,3 +89,17 @@ It controls the creation of the nodes and execution of the audio processing. You
 | Pixel 1, Android 7.1, Chrome 88                  | 17 ms               |
 | Galaxy S4, Android 4.4, Chrome 80                | 40 ms               |
 | MacBook Pro 2015 (Core i7), macOS 11, Firefox 86 | 50 ms               |
+
+Unfortunately, floating point operations lack the required precision to get the original samples exactly. The table below shows restored audio fingerprint in different cases and shows how close they are to the original values:
+
+| OS, browser                                  | Fingerprint                                                                                                                                                  | Absolute difference between the target fingerprint |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| macOS 11, Chrome 89 (the target fingerprint) | 1.240.434.806.260.740                                                                                                                                        | n/a                                                |
+| macOS 11, Brave 1.21 (same device and OS)    | Various fingerprints after browser restarts:<br />12.404.347.912.294.400<br />1.240.434.832.855.700<br />12.404.347.889.351.200<br />12.404.348.024.313.600  | 0.00000014% – 0.00000214%                          |
+| Windows 10, Chrome 89                        | 12.404.347.527.516.000                                                                                                                                       | 0.00000431%                                        |
+| Windows 10, Brave 1.21                       | Various fingerprints after browser restarts:<br />12.404.347.610.535.500<br />12.404.347.187.270.700<br />12.404.347.220.244.100<br />12.404.347.384.813.700 | 0.00000364% – 0.00000679%                          |
+| Android 11, Chrome 89                        | 12.408.075.528.279.000                                                                                                                                       | 0.03%                                              |
+| Android 9, Chrome 89                         | 12.408.074.500.028.300                                                                                                                                       | 0.03%                                              |
+| ChromeOS 89                                  | 12.404.347.721.464                                                                                                                                           | 0.00000275%                                        |
+| macOS 11, Safari 14                          | 3.510.893.232.002.850                                                                                                                                        | 71.7%                                              |
+| macOS 11, Firefox 86                         | 357.383.295.930.922                                                                                                                                          | 71.2%                                              |
