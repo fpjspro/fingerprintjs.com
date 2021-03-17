@@ -11,36 +11,68 @@ title: Mini Apps Test Blog
 tags:
   - fingerprinting
 ---
-<script>
-function myFunction() {
-  console.log("hello")
-}
-</script>
+## Images:
 
+![](/img/uploads/sinewave.jpg)
 
+It’s also possible to generate other types of waves, such as square, sawtooth, and triangle.
 
+![](/img/uploads/square.jpg)
 
+![](/img/uploads/triangle.jpg)
 
+## Demo:
 
-<input type="button" value="Click me" onclick="myFunction()">
+iframe height="500px" width= "100%" scrolling="no"
 
-
-We can add a mini app just by adding the iframe directly to the markdown
-
-## Codepen example:
-
-<iframe height="500px" style="width: 100%;" scrolling="no" title="30,000 Particles" src="https://codepen.io/soulwire/embed/Ffvlo?height=265&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/soulwire/pen/Ffvlo'>30,000 Particles</a> by Justin Windle
-  (<a href='https://codepen.io/soulwire'>@soulwire</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500px" width= "110%" scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
 </iframe>
 
+## Quotes:
 
+> Farbling is Brave’s term for slightly randomizing the output of semi-identifying browser features, in a way that’s difficult for websites to detect, but doesn’t break benign, user-serving websites. These “farbled” values are deterministically generated using a per-session, per-eTLD+1 seed2 so that a site will get the exact same value each time it tries to fingerprint within the same session, but that different sites will get different values, and the same site will get different values on the next session. This technique has its roots in prior privacy research, including the PriVaricator (Nikiforakis et al, WWW 2015) and FPRandom (Laperdrix et al, ESSoS 2017) projects.
 
-# Codesandbox example:
+## Code:
 
-<iframe src="https://codesandbox.io/embed/magical-swirles-g0oxj?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="magical-swirles-g0oxj"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+Here is how the implementation can look like:
+
+```javascript
+async function getFudgeFactor() {
+  const context = new AudioContext(1, 1, 44100)
+  const inputBuffer = context.createBuffer(1, 1, 44100)
+  inputBuffer.getChannelData(0)[0] = 1
+
+  const inputNode = context.createBufferSource()
+  inputNode.buffer = inputBuffer
+  inputNode.connect(context.destination)
+  inputNode.start()
+
+  // See renderAudio the implementation at 
+  // https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b
+  const outputBuffer = await renderAudio(context)
+  return outputBuffer.getChannelData(0)[0]
+}
+
+const [fingerprint, fudgeFactor] = await Promise.all([
+  // This function is the fingerprint algorithm
+  // described in the “How audio fingerprint is calculated” section
+  getFingerprint(),
+  getFudgeFactor(),
+])
+const restoredFingerprint = fingerprint / fudgeFactor
+```
+
+## Bullet list:
+
+If I try Safari, I get a different number:
+
+* 79.58850509487092
+
+And also different on Firefox:
+
+* 80.95458510611206
+
+## Monospace:
+
+`AudioContext` represents an entire chain, built from audio nodes linked together. 
+It controls the creation of the nodes and execution of the audio processing. You always start by creating an instance of AudioContext before you do anything else. It’s a good practice to create a single AudioContext instance and reuse it for all future processing.
