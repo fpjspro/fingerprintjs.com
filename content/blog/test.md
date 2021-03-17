@@ -79,6 +79,8 @@ It controls the creation of the nodes and execution of the audio processing. You
 
 ## Tables:
 
+The CMS [doesn't support tables](https://github.com/netlify/netlify-cms/issues/2845) yet, they can be added to the markdown but they look like this (without the borders)
+
 | Device, OS, browser                              | Time to fingerprint |
 | ------------------------------------------------ | ------------------- |
 | MacBook Pro 2015 (Core i7), macOS 11, Safari 14  | 5 ms                |
