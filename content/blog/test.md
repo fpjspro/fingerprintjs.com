@@ -13,7 +13,7 @@ tags:
 ---
 ## Link:
 
-[google.com](https://www.google.com)
+<a href="https://www.google.com" target="_blank" rel="noopener"><span>google using anchor tag</span> </a>
 
 ## Images:
 
