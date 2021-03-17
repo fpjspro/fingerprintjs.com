@@ -4,7 +4,7 @@ metadata:
   title: Test
   description: Test Mini Apps
   url: https://fingerprintjs.com/blog/test-mini-apps
-  image: /img/uploads/cat.jpg
+  image: /img/uploads/fpjs_cover2.png
 featured: false
 publishDate: 2021-03-10T14:48:54.789Z
 title: Mini Apps Test Blog
