@@ -82,3 +82,112 @@ The default frequency is 440 Hz, which is a standard A4 note.
 </iframe>
 
 ## Compressor
+
+Web Audio API provides a DynamicsCompressorNode, which lowers the volume of the loudest parts of the signal and helps prevent distortion or clipping. 
+
+<tt>DynamicsCompressorNode</tt> has many interesting properties that we’ll use. These properties will help create more variability between browsers.
+
+<tt>Threshold</tt> - value in decibels above which the compressor will start taking effect.
+Knee - value in decibels representing the range above the threshold where the curve smoothly transitions to the compressed portion.
+
+<tt>Ratio</tt> - amount of input change, in dB, needed for a 1 dB change in the output.
+Reduction - float representing the amount of gain reduction currently applied by the compressor to the signal.
+
+<tt>Attack</tt> - the amount of time, in seconds, required to reduce the gain by 10 dB. This value can be a decimal.
+
+<tt>Release</tt> - the amount of time, in seconds, required to increase the gain by 10 dB.
+
+<iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
+</iframe>
+
+## How audio fingerprint is calculated
+
+Now we have all the concepts we need to start working on our audio fingerprinting code.
+
+Safari doesn’t support unprefixed OfflineAudioContext, but supports 
+webkitOfflineAudioContext, so we’ll use this trick to make it work in Chrome and Safari:
+
+```javascript
+const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContex
+```
+
+Now we create an AudioContext instance. We’ll use one channel, a 44,100 sample rate and 5,000 samples total, which will make it about 113 ms long.
+
+```javascript
+const context = new AudioContext(1, 5000, 44100)
+```
+
+Next let’s create our sound source - an Oscillator instance. It will generate a triangular-shaped sound wave that will fluctuate 1,000 times per second (1,000 Hz).
+
+```javascript
+const oscillator = context.createOscillator()
+oscillator.type = "triangle"
+oscillator.frequency.value = 1000
+```
+
+Now let’s create our compressor to add more variety and transform the original signal.
+Note that the values for all these parameters are arbitrary and are only meant to change the source signal in interesting ways. We could use any other values and it would work equally well.
+
+```javascript
+const compressor = context.createDynamicsCompressor()
+compressor.threshold.value = -50
+compressor.knee.value = 40
+compressor.ratio.value = 12
+compressor.reduction.value = 20
+compressor.attack.value = 0
+compressor.release.value = 0.2
+```
+
+Let’s connect our nodes together: oscillator to compressor, and compressor to the context destination.
+
+```javascript
+oscillator.connect(compressor)
+compressor.connect(context.destination);
+```
+
+It is time to generate the audio snippet. We’ll use the oncomplete event to get the result when it’s ready.
+
+```javascript
+oscillator.start()
+context.oncomplete = event => {
+  // We have only one channel, so we get it by index
+  const samples = event.renderedBuffer.getChannelData(0)
+};
+context.startRendering()
+```
+
+Samples is an array of floating-point values that represent the uncompressed sound. Now we need to calculate a single value from that array.
+
+Let’s do it by simply summing up a slice of the array values:
+
+```javascript
+function calculateHash(samples) {
+  let hash = 0
+  for (let i = 0; i < samples.length; ++i) {
+    hash += Math.abs(samples\[i])
+  }
+  return hash
+}
+
+console.log(getHash(samples))
+```
+
+Now we are ready to generate the audio fingerprint. When I run it on Chrome on MacOS I get the value:
+
+* 101.45647543197447
+
+That’s all there is to it, our audio fingerprint is this number!
+
+You can check out a production implementation in our open source browser fingerprinting library.
+
+If I try executing the code in Safari, I get a different number:
+
+* 79.58850509487092
+
+And get another unique result in Firefox:
+
+* 80.95458510611206
+
+Every browser I have on my laptop generates a different value. This value is very stable and remains the same in incognito mode. 
+
+**This value depends on the underlying hardware and OS, and in your case may be different.**
