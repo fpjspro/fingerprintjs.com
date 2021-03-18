@@ -67,7 +67,7 @@ In its simplest form, an oscillator generates a periodic waveform with a specifi
 \
 The default shape is a sine wave.
 
-<iframe style ="width: calc(100% + 24px); height: 380px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 380px; margin-left: -12px; margin-right: -12px; margin-bottom: 3rem"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no"> 
 </iframe>
 
 It’s also possible to generate other types of waves, such as square, sawtooth, and triangle.\
@@ -87,7 +87,7 @@ Reduction - float representing the amount of gain reduction currently applied by
 <tt>Attack</tt> - the amount of time, in seconds, required to reduce the gain by 10 dB. This value can be a decimal.\
 <tt>Release</tt> - the amount of time, in seconds, required to increase the gain by 10 dB.
 
-<iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px; margin-bottom: 3rem"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
 </iframe>
 
 ## How audio fingerprint is calculated
@@ -205,7 +205,7 @@ However the underlying values are different between the two browsers (I’m show
 \
 Let’s take a look at this demo to visually see those differences.
 
-<iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px; margin-bottom: 3rem"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
 </iframe>
 
 Historically, all major browser engines (Blink, WebKit, and Gecko) based their Web Audio API implementations on code that was originally developed by Google in 2011 and 2012 for the WebKit project.\
