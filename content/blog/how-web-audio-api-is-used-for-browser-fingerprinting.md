@@ -2,7 +2,7 @@
 templateKey: long-form-content
 metadata:
   title: How Web Audio API is used for browser fingerprinting
-  url: https://fingerprintjs.com/blog/test-mini-apps
+  url: https://fingerprintjs.com/blog/audio-fingerprinting
   image: /img/uploads/fpjs_cover2.png
   description: description
 featured: true
