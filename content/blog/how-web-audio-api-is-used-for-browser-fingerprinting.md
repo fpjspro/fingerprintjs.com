@@ -241,5 +241,15 @@ According to the browsers’ source code, audio processing doesn’t use dedicat
 
 ## Pitfalls
 
-When we started to use audio fingerprinting in production, we aimed to achieve good browser compatibility, stability and performance.For browser compatibility, we also looked at privacy-focused browsers, such as Tor and Brave.
+When we started to use audio fingerprinting in production, we aimed to achieve good browser compatibility, stability and performance. For browser compatibility, we also looked at privacy-focused browsers, such as Tor and Brave.
 
+### OfflineAudioContext
+
+
+
+As you can see on <a href="https://caniuse.com/mdn-api_offlineaudiocontext" target="_blank" rel="noopener"><span>caniuse.com</span> </a>, <tt>OfflineAudioContext</tt> works almost everywhere. But there are some cases that need special handling.
+
+The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span> </a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be suspended and rendering will hang indefinitely unless you add a timeout. There were not many users who still used this iOS version, so we decided to disable audio fingerprinting for them.
+
+The second case are browsers on iOS 12 or newer. They can reject starting audio processing if the page is in the background. Luckily, browsers allow you to resume the processing when the page returns to the foreground.
+When the page is activated, we attempt calling <tt>context.startRendering()</tt> several times until the <tt>context.state</tt> becomes running. If the processing doesn’t start after several attempts, the code stops. We also use a regular <tt>setTimeout</tt> on top of our retry strategy in case of an unexpected error or freeze. You can see <a href="https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b" target="_blank" rel="noopener"><span>a code example here</span> </a>.
