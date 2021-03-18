@@ -25,7 +25,19 @@ It’s also possible to generate other types of waves, such as square, sawtooth,
 
 ![](/img/uploads/triangle.jpg)
 
-## Demo:
+## Demos:
+
+Oscillator:
+
+<iframe style ="width: calc(100% + 24px); height: 380px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no"> 
+</iframe>
+
+Dynamics compressor:
+
+<iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
+</iframe>
+
+Different browsers:
 
 <iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
 </iframe>
