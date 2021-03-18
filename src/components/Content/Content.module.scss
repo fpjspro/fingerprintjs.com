@@ -106,18 +106,19 @@
   table,
   th,
   td {
-    border: 2px solid var(--off-white);
-    box-shadow: 0 3rem 7rem 0 transparentize(c('brand-water'), 0.9);
+    border: 2px solid rgb(238, 238, 238);
     background-color: var(--white);
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 1rem;
+    color: rgb(70, 70, 70);
   }
 
   th {
-    color: v('white');
-    font-size: 2.5rem;
-    background: adjust-color(c('brand-water'), $saturation: -32%, $lightness: +24%);
-  }
-
-  td {
-    background: var(--off-white);
+    font-weight: v(normal);
+    background: rgb(250, 250, 250);
   }
 }
