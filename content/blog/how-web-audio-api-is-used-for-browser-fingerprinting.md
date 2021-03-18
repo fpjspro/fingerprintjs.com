@@ -245,11 +245,20 @@ When we started to use audio fingerprinting in production, we aimed to achieve g
 
 ### OfflineAudioContext
 
-
-
 As you can see on <a href="https://caniuse.com/mdn-api_offlineaudiocontext" target="_blank" rel="noopener"><span>caniuse.com</span> </a>, <tt>OfflineAudioContext</tt> works almost everywhere. But there are some cases that need special handling.
 
 The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span> </a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be suspended and rendering will hang indefinitely unless you add a timeout. There were not many users who still used this iOS version, so we decided to disable audio fingerprinting for them.
 
 The second case are browsers on iOS 12 or newer. They can reject starting audio processing if the page is in the background. Luckily, browsers allow you to resume the processing when the page returns to the foreground.
 When the page is activated, we attempt calling <tt>context.startRendering()</tt> several times until the <tt>context.state</tt> becomes running. If the processing doesn’t start after several attempts, the code stops. We also use a regular <tt>setTimeout</tt> on top of our retry strategy in case of an unexpected error or freeze. You can see <a href="https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b" target="_blank" rel="noopener"><span>a code example here</span> </a>.
+
+### Tor
+
+**In the case of Tor browser, everything is simple. Web Audio API is disabled there, so audio fingerprinting is <a href="https://gitlab.torproject.org/legacy/trac/-/issues/21984" target="_blank" rel="noopener"><span>not possible</span> </a>.**
+
+### Brave
+
+With Brave, the situation is more nuanced. Brave is a privacy-focused browser based on Blink.
+It is known to slightly randomize the audio sample values, which it calls “farbling”.
+
+> Farbling is Brave’s term for slightly randomizing the output of semi-identifying browser features, in a way that’s difficult for websites to detect, but doesn’t break benign, user-serving websites. These “farbled” values are deterministically generated using a per-session, <a href="https://publicsuffix.org/" target="_blank" rel="noopener"><span>per-eTLD</span> </a>+1 seed2 so that a site will get the exact same value each time it tries to fingerprint within the same session, but that different sites will get different values, and the same site will get different values on the next session. This technique has its roots in prior privacy research, including the <a href="https://dl.acm.org/doi/abs/10.1145/2736277.2741090" target="_blank" rel="noopener"><span>PriVaricator</span> </a> (Nikiforakis et al, WWW 2015) and <a href="https://hal.inria.fr/hal-01527580/document" target="_blank" rel="noopener"><span>FPRandom</span> </a> (Laperdrix et al, ESSoS 2017) projects.
