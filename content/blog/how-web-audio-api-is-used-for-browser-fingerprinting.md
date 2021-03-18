@@ -215,7 +215,14 @@ However the underlying values are different between the two browsers (I’m show
 
 Let’s take a look at this demo to visually see those differences.
 
-
 <iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
 </iframe>
 
+Historically, all major browser engines (Blink, WebKit, and Gecko) based their Web Audio API implementations on code that was originally developed by Google in 2011 and 2012 for the WebKit project.
+
+Examples of Google contributions to the Webkit project include:
+<a href="https://github.com/WebKit/WebKit/commit/d187ecab7b152962465c23be04ab7ed3ef70f382" target="_blank" rel="noopener"><span>creation of OfflineAudioContext</span> </a>, 
+<a href="https://github.com/WebKit/WebKit/commit/fad97bfb064446f78c78338104fb3f22be666cbb" target="_blank" rel="noopener"><span>creation of OscillatorNode</span> </a>
+, <a href="https://github.com/WebKit/WebKit/commit/6f2b47e87bc414001affb258048749130bc91083" target="_blank" rel="noopener"><span>creation of DynamicsCompressorNode</span> </a>. 
+
+Since then browser developers have made a lot of small changes. These changes, combined with a huge amount of mathematical operations involved, lead to fingerprinting differences. Audio signal processing uses floating point arithmetic, which also contributes to discrepancies in calculations.
