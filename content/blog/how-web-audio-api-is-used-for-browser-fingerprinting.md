@@ -191,3 +191,31 @@ And get another unique result in Firefox:
 Every browser I have on my laptop generates a different value. This value is very stable and remains the same in incognito mode. 
 
 **This value depends on the underlying hardware and OS, and in your case may be different.**
+
+## Why audio fingerprint varies in different browsers
+
+Let’s take a closer look at why the values are different in different browsers. We’ll examine a single oscillation wave under a microscope in both Chrome and Firefox.
+
+First, let’s reduce the duration of our audio snippet to 1/2000th of a second, which corresponds to a single wave and examine the values that make up that wave.
+
+We need to change our context duration to 23 samples, which roughly corresponds to a <tt>1/2000th</tt> of a second. We’ll also skip the compressor for now and only examine the differences of the unmodified oscillator signal.
+
+```javascript
+const context = new AudioContext(1, 23, 44100)
+```
+
+Here is how a single triangular oscillation looks in both Chrome and Firefox now: 
+
+![](/img/uploads/triangular_oscillation.png)
+
+However the underlying values are different between the two browsers (I’m showing only the first 3 values  for simplicity):
+
+<tt>Chrome:    **\[0,0.08988945186138153,0.18264609575271606,0.2712443470954895]**</tt>
+<tt>Firefox:   **\[0,0.09155717492103577,0.18603470921516418,0.2762767672538757]**</tt>
+
+Let’s take a look at this demo to visually see those differences.
+
+
+<iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
+</iframe>
+
