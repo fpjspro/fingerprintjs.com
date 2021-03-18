@@ -11,6 +11,8 @@ title: How Web Audio API is used for browser fingerprinting
 tags:
   - fingerprinting
 ---
+![]()
+
 Did you know that you can identify web browsers without using cookies or asking for permissions?
 
 This is known as “browser fingerprinting” and it works by reading browser attributes and combining them together into a single identifier. This identifier is stateless and works well in normal and incognito modes.
@@ -46,8 +48,37 @@ There is a special type of AudioContext, <tt>-- OfflineAudioContext</tt>. The ma
 
 When creating an instance of OfflineAudioContext, we pass 3 arguments: number of channels, total number of samples and a sample rate (samples per second).
 
-```
+```javascript
 const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext
 const context = new AudioContext(1, 5000, 44100)
 ```
+
 ## AudioBuffer
+
+It represents an audio snippet, stored in memory. It’s designed to hold small snippets, because the data is represented internally as linear PCM with each sample being a 32-bit float value in the range between -1.0 and 1.0.
+It can hold multiple channels, but for our purposes we’ll only use one.
+
+***diagram of 32bit numbers in the range between -1.0 to 1.0***
+
+## Oscillator
+
+When working with audio, we always need a source. <tt>Oscillator</tt> is a good candidate, because it generates samples mathematically, as opposed to playing an audio file.
+In its simplest form, an oscillator generates a periodic waveform with a specified frequency. 
+The default shape is a sine wave.
+
+![](/img/uploads/sinewave.jpg)
+
+It’s also possible to generate other types of waves, such as square, sawtooth, and triangle.
+
+![](/img/uploads/square.jpg)
+
+![](/img/uploads/sawtooth.jpg)
+
+![](/img/uploads/triangle.jpg)
+
+The default frequency is 440 Hz, which is a standard A4 note.
+
+<iframe style ="width: calc(100% + 24px); height: 380px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no"> 
+</iframe>
+
+## Compressor
