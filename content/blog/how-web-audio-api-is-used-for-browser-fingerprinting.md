@@ -4,7 +4,9 @@ metadata:
   title: How Web Audio API is used for browser fingerprinting
   url: https://fingerprintjs.com/blog/audio-fingerprinting
   image: /img/uploads/fpjs_cover2.png
-  description: description
+  description: Audio Fingerprinting is used to uniquely identify visitors without
+    cookies. A deep dive into this highly stable browser fingerprinting
+    technique.
 featured: true
 publishDate: 2021-03-18T13:12:29.612Z
 title: How Web Audio API is used for browser fingerprinting
