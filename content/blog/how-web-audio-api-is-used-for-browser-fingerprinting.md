@@ -81,7 +81,8 @@ Web Audio API provides a DynamicsCompressorNode, which lowers the volume of the 
 <tt>DynamicsCompressorNode</tt> has many interesting properties that we’ll use. These properties will help create more variability between browsers.
 
 <tt>Threshold</tt> - value in decibels above which the compressor will start taking effect.
-Knee - value in decibels representing the range above the threshold where the curve smoothly transitions to the compressed portion.
+
+<tt>Knee</tt> - value in decibels representing the range above the threshold where the curve smoothly transitions to the compressed portion.
 
 <tt>Ratio</tt> - amount of input change, in dB, needed for a 1 dB change in the output.
 Reduction - float representing the amount of gain reduction currently applied by the compressor to the signal.
