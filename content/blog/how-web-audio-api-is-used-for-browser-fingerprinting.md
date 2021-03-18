@@ -232,3 +232,14 @@ You can see how these things are implemented now in the three major browser engi
 * Blink: <a href="https://github.com/chromium/chromium/blob/9841ee86b710dc649cf41772f560600324cadf45/third_party/blink/renderer/modules/webaudio/periodic_wave.cc#L468" target="_blank" rel="noopener"><span>oscillator</span> </a> , <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/dynamics_compressor_kernel.cc#L202" target="_blank" rel="noopener"><span>dynamics compressor</span> </a>
 * WebKit: <a href="https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/Modules/webaudio/PeriodicWave.cpp#L250" target="_blank" rel="noopener"><span>oscillator</span> </a> , <a href="https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/platform/audio/DynamicsCompressorKernel.cpp#L188" target="_blank" rel="noopener"><span>dynamics compressor</span> </a>
 * Gecko: <a href="https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/PeriodicWave.cpp#L286" target="_blank" rel="noopener"><span>oscillator</span> </a> , <a href="https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/DynamicsCompressorKernel.cpp#L213" target="_blank" rel="noopener"><span>dynamics compressor</span> </a>
+
+Additionally, browsers use different implementations for different CPU architectures and OSes to leverage features like <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener"><span>SIMD</span> </a>. For example, Chrome uses <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/mac/fft_frame_mac.cc" target="_blank" rel="noopener"><span>a separate fast Fourier transform implementation</span> </a> on macOS (producing a different oscillator signal) and <a href="https://github.com/chromium/chromium/tree/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/cpu" target="_blank" rel="noopener"><span>different vector operation implementations</span> </a> on different CPU architectures (which are used in the DynamicsCompressor implementation). These platform-specific changes also contribute to differences in the final audio fingerprint.
+
+Fingerprint results also depend on the Android version (it’s different in Android 9 and 10 on the same devices on Browserstack).
+
+According to the browsers’ source code, audio processing doesn’t use dedicated audio hardware or OS features, all calculations are done by the CPU. 
+
+## Pitfalls
+
+When we started to use audio fingerprinting in production, we aimed to achieve good browser compatibility, stability and performance.For browser compatibility, we also looked at privacy-focused browsers, such as Tor and Brave.
+
