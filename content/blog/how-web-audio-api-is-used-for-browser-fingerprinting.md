@@ -194,7 +194,7 @@ We need to change our context duration to 23 samples, which roughly corresponds 
 const context = new AudioContext(1, 23, 44100)
 ```
 
-Here is how a single triangular oscillation looks in both Chrome and Firefox now: 
+Here is how a single triangular oscillation looks in both Chrome and Firefox now:
 
 ![](/img/uploads/triangular_oscillation.png)
 
