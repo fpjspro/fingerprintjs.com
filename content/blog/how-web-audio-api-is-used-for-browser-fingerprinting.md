@@ -269,6 +269,97 @@ Brave offers three levels of farbling (users can choose the level they want in s
 * Standard — This is the default value. The audio signal values are multiplied by a fixed number, called the “fudge” factor, that is stable for a given domain within a user session. In practice it means that the audio wave sounds and looks the same, but has tiny variations that make it difficult to use in fingerprinting.
 * Strict — the sound wave is replaced with a pseudo-random sequence.
 
+The farbling <a href="https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/modules/webaudio/audio_buffer.cc#L16" target="_blank" rel="noopener"><span>modifies</span> </a> the original Blink <tt>AudioBuffer</tt> by <a href="https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/core/execution_context/execution_context.cc#L133" target="_blank" rel="noopener"><span>transforming</span> </a> the original audio values.
+
+### Reverting Brave standard farbling
+
+To revert the farbling, we need to obtain the fudge factor first. Then we can get back the original buffer by dividing the farbled values by the fudge factor:
+
+```javascript
+async function getFudgeFactor() {
+  const context = new AudioContext(1, 1, 44100)
+  const inputBuffer = context.createBuffer(1, 1, 44100)
+  inputBuffer.getChannelData(0)[0] = 1
+
+  const inputNode = context.createBufferSource()
+  inputNode.buffer = inputBuffer
+  inputNode.connect(context.destination)
+  inputNode.start()
+
+  // See renderAudio the implementation at https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b
+  const outputBuffer = await renderAudio(context)
+  return outputBuffer.getChannelData(0)[0]
+}
+
+const [fingerprint, fudgeFactor] = await Promise.all([
+  // This function is the fingerprint algorithm
+  // described in the “How audio fingerprint is calculated” section
+  getFingerprint(),
+  getFudgeFactor(),
+])
+const restoredFingerprint = fingerprint / fudgeFactor
+```
+
+Unfortunately, floating point operations lack the required precision to get the original samples exactly. The table below shows restored audio fingerprint in different cases and shows how close they are to the original values:
+
+| OS, browser                                  | Fingerprint                                                                                                                                                  | Absolute difference between the target fingerprint |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| macOS 11, Chrome 89 (the target fingerprint) | 1.240.434.806.260.740                                                                                                                                        | n/a                                                |
+| macOS 11, Brave 1.21 (same device and OS)    | Various fingerprints after browser restarts:<br />12.404.347.912.294.400<br />1.240.434.832.855.700<br />12.404.347.889.351.200<br />12.404.348.024.313.600  | 0.00000014% – 0.00000214%                          |
+| Windows 10, Chrome 89                        | 12.404.347.527.516.000                                                                                                                                       | 0.00000431%                                        |
+| Windows 10, Brave 1.21                       | Various fingerprints after browser restarts:<br />12.404.347.610.535.500<br />12.404.347.187.270.700<br />12.404.347.220.244.100<br />12.404.347.384.813.700 | 0.00000364% – 0.00000679%                          |
+| Android 11, Chrome 89                        | 12.408.075.528.279.000                                                                                                                                       | 0.03%                                              |
+| Android 9, Chrome 89                         | 12.408.074.500.028.300                                                                                                                                       | 0.03%                                              |
+| ChromeOS 89                                  | 12.404.347.721.464                                                                                                                                           | 0.00000275%                                        |
+| macOS 11, Safari 14                          | 3.510.893.232.002.850                                                                                                                                        | 71.7%                                              |
+| macOS 11, Firefox 86                         | 357.383.295.930.922                                                                                                                                          | 71.2%                                              |
+
+As you can see, the restored Brave fingerprints are closer to the original fingerprints than to other browsers’ fingerprints. This means that you can use a fuzzy algorithm to match them. For example, if the difference between a pair of audio fingerprint numbers is more than 0.0000022%, you can assume that these are different devices or browsers.
+
+## Performance
+
+### Web Audio API rendering
+
+Let’s take a look at what happens under the hood in Chrome during audio fingerprint generation. In the screenshot below, the horizontal axis is time, the rows are execution threads, and the bars are time slices when the browser is busy. You can learn more about the performance panel in this <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance" target="_blank" rel="noopener"><span>Chrome article</span> </a>. The audio processing starts at 809.6ms and completes at 814.1ms:
+
+![](/img/uploads/performance.jpg)
+
+The main thread, labeled as “Main” on the image, handles user input (mouse movements, clicks, taps, etc) and animation. When the main thread is busy, the page freezes. It’s a good practice to avoid running blocking operations on the main thread for more than several milliseconds. 
+
+As you can see on the image above, the browser delegates some work to the <tt>OfflineAudioRender</tt> thread, freeing the main thread. 
+**Therefore the page stays responsive during most of the audio fingerprint calculation.**
+
+<info icon> Web Audio API is not available in web workers, so we cannot calculate audio fingerprints there.
+
+### Performance summary in different browsers
+
+The table below shows the time it takes to get a fingerprint on different browsers and devices. The time is measured immediately after the cold page load.
+
+| Device, OS, browser                              | Time to fingerprint |
+| ------------------------------------------------ | ------------------- |
+| MacBook Pro 2015 (Core i7), macOS 11, Safari 14  | 5 ms                |
+| MacBook Pro 2015 (Core i7), macOS 11, Chrome 89  | 7 ms                |
+| Acer Chromebook 314, Chrome OS 89                | 7 ms                |
+| Pixel 5, Android 11, Chrome 89                   | 7 ms                |
+| iPhone SE1, iOS 13, Safari 13                    | 12 ms               |
+| Pixel 1, Android 7.1, Chrome 88                  | 17 ms               |
+| Galaxy S4, Android 4.4, Chrome 80                | 40 ms               |
+| MacBook Pro 2015 (Core i7), macOS 11, Firefox 86 | 50 ms               |
+
+## Audio fingerprinting is only a small part of the larger identification process.
+
+Audio fingerprinting is one of the many signals our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>open source library</span> </a> uses to generate a browser fingerprint. However, we do not blindly incorporate every signal available in the browser. Instead we analyze the stability and uniqueness of each signal separately to determine their impact on fingerprint accuracy.
 
 
-The farbling <a href="https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/modules/webaudio/audio_buffer.cc#L16" target="_blank" rel="noopener"><span>modifies</span> </a> the original Blink <tt>AudioBuffer</tt> by <a href="https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/core/execution_context/execution_context.cc#L133" target="_blank" rel="noopener"><span>transforming</span> </a> the original audio values. 
+For audio fingerprinting, we found that the signal contributes only slightly to uniqueness but is highly stable, resulting in a small net increase to fingerprint accuracy.
+
+You can learn more about stability, uniqueness and accuracy in our <a href="https://fingerprintjs.com/blog/what-is-browser-fingerprinting/" target="_blank" rel="noopener"><span>beginner’s guide to browser fingerprinting</span> </a>.
+
+### Try Browser Fingerprinting for Yourself
+
+Browser fingerprinting is a useful method of visitor identification for a variety of anti-fraud applications. It is particularly useful to identify malicious visitors attempting to circumvent tracking by clearing cookies, browsing in incognito mode or using a VPN. 
+
+You can try implementing browser fingerprinting yourself with our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>open source library</span> </a>. FingerprintJS is the most popular browser fingerprinting library available, with over 12K GitHub stars.
+
+For higher identification accuracy, we also developed the <a href="https://fingerprintjs.com/" target="_blank" rel="noopener"><span>FingerprintJS Pro API</span> </a>, which uses machine learning to combine browser fingerprinting with additional identification techniques. You can try FingerprintJS Pro free for 10 days with no usage limits.
+
