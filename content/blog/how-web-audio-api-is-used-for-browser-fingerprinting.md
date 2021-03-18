@@ -50,3 +50,4 @@ When creating an instance of OfflineAudioContext, we pass 3 arguments: number of
 const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext
 const context = new AudioContext(1, 5000, 44100)
 ```
+## AudioBuffer
