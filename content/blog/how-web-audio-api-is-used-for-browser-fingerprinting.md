@@ -363,3 +363,9 @@ You can try implementing browser fingerprinting yourself with our <a href="https
 
 For higher identification accuracy, we also developed the <a href="https://fingerprintjs.com/" target="_blank" rel="noopener"><span>FingerprintJS Pro API</span> </a>, which uses machine learning to combine browser fingerprinting with additional identification techniques. You can try FingerprintJS Pro free for 10 days with no usage limits.
 
+### Get in touch
+* Star, follow or fork our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>GitHub project</span> </a>
+* Email us your questions at oss@fingerprintJS.com
+* Sign up to our <a href="https://mailchi.mp/708d84efc0c1/updates-signup" target="_blank" rel="noopener"><span>newsletter</span> </a> for updates
+
+
