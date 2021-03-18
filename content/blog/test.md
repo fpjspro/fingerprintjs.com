@@ -29,7 +29,7 @@ It’s also possible to generate other types of waves, such as square, sawtooth,
 
 iframe height="500px" width= "100%" scrolling="no"
 
-<iframe id="demoIframe" height="500px" width= "110%" scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
+<iframe id="demoIframe" height="500px" width= "100%" scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
 </iframe>
 
 ## Quotes:
