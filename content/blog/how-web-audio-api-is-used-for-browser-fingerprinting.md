@@ -44,7 +44,7 @@ It controls the creation of the nodes and execution of the audio processing. You
 \
 AudioContext has a destination property that represents the destination of all audio from that context. \
 \
-There is a special type of AudioContext, <tt>-- OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt> </a>. So the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
+There is a special type of AudioContext, <tt>-- OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. So the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
 \
 When creating an instance of OfflineAudioContext, we pass 3 arguments: number of channels, total number of samples and a sample rate (samples per second).
 
@@ -67,7 +67,7 @@ In its simplest form, an oscillator generates a periodic waveform with a specifi
 \
 The default shape is a sine wave.
 
-<iframe style ="width: calc(100% + 24px); height: 380px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 380px; margin-left: -12px; margin-right: -12px; margin-bottom: 3rem"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no"> 
 </iframe>
 
 It’s also possible to generate other types of waves, such as square, sawtooth, and triangle.\
@@ -87,7 +87,7 @@ Reduction - float representing the amount of gain reduction currently applied by
 <tt>Attack</tt> - the amount of time, in seconds, required to reduce the gain by 10 dB. This value can be a decimal.\
 <tt>Release</tt> - the amount of time, in seconds, required to increase the gain by 10 dB.
 
-<iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px; margin-bottom: 3rem"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
 </iframe>
 
 ## How audio fingerprint is calculated
@@ -205,25 +205,24 @@ However the underlying values are different between the two browsers (I’m show
 \
 Let’s take a look at this demo to visually see those differences.
 
-<iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px; margin-bottom: 3rem"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
 </iframe>
 
 Historically, all major browser engines (Blink, WebKit, and Gecko) based their Web Audio API implementations on code that was originally developed by Google in 2011 and 2012 for the WebKit project.\
 \
 Examples of Google contributions to the Webkit project include:
-<a href="https://github.com/WebKit/WebKit/commit/d187ecab7b152962465c23be04ab7ed3ef70f382" target="_blank" rel="noopener"><span>creation of OfflineAudioContext</span> </a>, 
-<a href="https://github.com/WebKit/WebKit/commit/fad97bfb064446f78c78338104fb3f22be666cbb" target="_blank" rel="noopener"><span>creation of OscillatorNode</span> </a>
-, <a href="https://github.com/WebKit/WebKit/commit/6f2b47e87bc414001affb258048749130bc91083" target="_blank" rel="noopener"><span>creation of DynamicsCompressorNode</span> </a>. \
+<a href="https://github.com/WebKit/WebKit/commit/d187ecab7b152962465c23be04ab7ed3ef70f382" target="_blank" rel="noopener"><span>creation of OfflineAudioContext</span></a>, 
+<a href="https://github.com/WebKit/WebKit/commit/fad97bfb064446f78c78338104fb3f22be666cbb" target="_blank" rel="noopener"><span>creation of OscillatorNode</span></a>, <a href="https://github.com/WebKit/WebKit/commit/6f2b47e87bc414001affb258048749130bc91083" target="_blank" rel="noopener"><span>creation of DynamicsCompressorNode</span></a>. \
 \
 Since then browser developers have made a lot of small changes. These changes, combined with a huge amount of mathematical operations involved, lead to fingerprinting differences. Audio signal processing uses floating point arithmetic, which also contributes to discrepancies in calculations.\
 \
 You can see how these things are implemented now in the three major browser engines:
 
-* Blink: <a href="https://github.com/chromium/chromium/blob/9841ee86b710dc649cf41772f560600324cadf45/third_party/blink/renderer/modules/webaudio/periodic_wave.cc#L468" target="_blank" rel="noopener"><span>oscillator</span> </a> , <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/dynamics_compressor_kernel.cc#L202" target="_blank" rel="noopener"><span>dynamics compressor</span> </a>
-* WebKit: <a href="https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/Modules/webaudio/PeriodicWave.cpp#L250" target="_blank" rel="noopener"><span>oscillator</span> </a> , <a href="https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/platform/audio/DynamicsCompressorKernel.cpp#L188" target="_blank" rel="noopener"><span>dynamics compressor</span> </a>
-* Gecko: <a href="https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/PeriodicWave.cpp#L286" target="_blank" rel="noopener"><span>oscillator</span> </a> , <a href="https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/DynamicsCompressorKernel.cpp#L213" target="_blank" rel="noopener"><span>dynamics compressor</span> </a>
+* Blink: <a href="https://github.com/chromium/chromium/blob/9841ee86b710dc649cf41772f560600324cadf45/third_party/blink/renderer/modules/webaudio/periodic_wave.cc#L468" target="_blank" rel="noopener"><span>oscillator</span></a>, <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/dynamics_compressor_kernel.cc#L202" target="_blank" rel="noopener"><span>dynamics compressor</span></a>
+* WebKit: <a href="https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/Modules/webaudio/PeriodicWave.cpp#L250" target="_blank" rel="noopener"><span>oscillator</span></a>, <a href="https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/platform/audio/DynamicsCompressorKernel.cpp#L188" target="_blank" rel="noopener"><span>dynamics compressor</span></a>
+* Gecko: <a href="https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/PeriodicWave.cpp#L286" target="_blank" rel="noopener"><span>oscillator</span></a>, <a href="https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/DynamicsCompressorKernel.cpp#L213" target="_blank" rel="noopener"><span>dynamics compressor</span></a>
 
-Additionally, browsers use different implementations for different CPU architectures and OSes to leverage features like <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener"><span>SIMD</span> </a>. For example, Chrome uses <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/mac/fft_frame_mac.cc" target="_blank" rel="noopener"><span>a separate fast Fourier transform implementation</span> </a> on macOS (producing a different oscillator signal) and <a href="https://github.com/chromium/chromium/tree/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/cpu" target="_blank" rel="noopener"><span>different vector operation implementations</span> </a> on different CPU architectures (which are used in the DynamicsCompressor implementation). These platform-specific changes also contribute to differences in the final audio fingerprint.\
+Additionally, browsers use different implementations for different CPU architectures and OSes to leverage features like <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener"><span>SIMD</span></a>. For example, Chrome uses <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/mac/fft_frame_mac.cc" target="_blank" rel="noopener"><span>a separate fast Fourier transform implementation</span></a> on macOS (producing a different oscillator signal) and <a href="https://github.com/chromium/chromium/tree/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/cpu" target="_blank" rel="noopener"><span>different vector operation implementations</span></a> on different CPU architectures (which are used in the DynamicsCompressor implementation). These platform-specific changes also contribute to differences in the final audio fingerprint.\
 \
 Fingerprint results also depend on the Android version (it’s different in Android 9 and 10 on the same devices on Browserstack).\
 \
@@ -235,23 +234,23 @@ When we started to use audio fingerprinting in production, we aimed to achieve g
 
 ### OfflineAudioContext
 
-As you can see on <a href="https://caniuse.com/mdn-api_offlineaudiocontext" target="_blank" rel="noopener"><span>caniuse.com</span> </a>, <tt>OfflineAudioContext</tt> works almost everywhere. But there are some cases that need special handling.\
+As you can see on <a href="https://caniuse.com/mdn-api_offlineaudiocontext" target="_blank" rel="noopener"><span>caniuse.com</span></a>, <tt>OfflineAudioContext</tt> works almost everywhere. But there are some cases that need special handling.\
 \
-The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span> </a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be suspended and rendering will hang indefinitely unless you add a timeout. There were not many users who still used this iOS version, so we decided to disable audio fingerprinting for them.\
+The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span></a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be suspended and rendering will hang indefinitely unless you add a timeout. There were not many users who still used this iOS version, so we decided to disable audio fingerprinting for them.\
 \
 The second case are browsers on iOS 12 or newer. They can reject starting audio processing if the page is in the background. Luckily, browsers allow you to resume the processing when the page returns to the foreground.
-When the page is activated, we attempt calling <tt>context.startRendering()</tt> several times until the <tt>context.state</tt> becomes running. If the processing doesn’t start after several attempts, the code stops. We also use a regular <tt>setTimeout</tt> on top of our retry strategy in case of an unexpected error or freeze. You can see <a href="https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b" target="_blank" rel="noopener"><span>a code example here</span> </a>.
+When the page is activated, we attempt calling <tt>context.startRendering()</tt> several times until the <tt>context.state</tt> becomes running. If the processing doesn’t start after several attempts, the code stops. We also use a regular <tt>setTimeout</tt> on top of our retry strategy in case of an unexpected error or freeze. You can see <a href="https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b" target="_blank" rel="noopener"><span>a code example here</span></a>.
 
 ### Tor
 
-**In the case of Tor browser, everything is simple. Web Audio API is disabled there, so audio fingerprinting is <a href="https://gitlab.torproject.org/legacy/trac/-/issues/21984" target="_blank" rel="noopener"><span>not possible</span> </a>.**
+**In the case of Tor browser, everything is simple. Web Audio API is disabled there, so audio fingerprinting is <a href="https://gitlab.torproject.org/legacy/trac/-/issues/21984" target="_blank" rel="noopener"><span>not possible</span></a>.**
 
 ### Brave
 
 With Brave, the situation is more nuanced. Brave is a privacy-focused browser based on Blink.
 It is known to slightly randomize the audio sample values, which it calls “farbling”.
 
-> Farbling is Brave’s term for slightly randomizing the output of semi-identifying browser features, in a way that’s difficult for websites to detect, but doesn’t break benign, user-serving websites. These “farbled” values are deterministically generated using a per-session, <a href="https://publicsuffix.org/" target="_blank" rel="noopener"><span>per-eTLD</span> </a>+1 seed2 so that a site will get the exact same value each time it tries to fingerprint within the same session, but that different sites will get different values, and the same site will get different values on the next session. This technique has its roots in prior privacy research, including the <a href="https://dl.acm.org/doi/abs/10.1145/2736277.2741090" target="_blank" rel="noopener"><span>PriVaricator</span> </a> (Nikiforakis et al, WWW 2015) and <a href="https://hal.inria.fr/hal-01527580/document" target="_blank" rel="noopener"><span>FPRandom</span> </a> (Laperdrix et al, ESSoS 2017) projects.
+> Farbling is Brave’s term for slightly randomizing the output of semi-identifying browser features, in a way that’s difficult for websites to detect, but doesn’t break benign, user-serving websites. These “farbled” values are deterministically generated using a per-session, <a href="https://publicsuffix.org/" target="_blank" rel="noopener"><span>per-eTLD</span></a>+1 seed2 so that a site will get the exact same value each time it tries to fingerprint within the same session, but that different sites will get different values, and the same site will get different values on the next session. This technique has its roots in prior privacy research, including the <a href="https://dl.acm.org/doi/abs/10.1145/2736277.2741090" target="_blank" rel="noopener"><span>PriVaricator</span></a> (Nikiforakis et al, WWW 2015) and <a href="https://hal.inria.fr/hal-01527580/document" target="_blank" rel="noopener"><span>FPRandom</span></a> (Laperdrix et al, ESSoS 2017) projects.
 
 Brave offers three levels of farbling (users can choose the level they want in settings):
 
@@ -259,7 +258,7 @@ Brave offers three levels of farbling (users can choose the level they want in s
 * Standard — This is the default value. The audio signal values are multiplied by a fixed number, called the “fudge” factor, that is stable for a given domain within a user session. In practice it means that the audio wave sounds and looks the same, but has tiny variations that make it difficult to use in fingerprinting.
 * Strict — the sound wave is replaced with a pseudo-random sequence.
 
-The farbling <a href="https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/modules/webaudio/audio_buffer.cc#L16" target="_blank" rel="noopener"><span>modifies</span> </a> the original Blink <tt>AudioBuffer</tt> by <a href="https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/core/execution_context/execution_context.cc#L133" target="_blank" rel="noopener"><span>transforming</span> </a> the original audio values.
+The farbling <a href="https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/modules/webaudio/audio_buffer.cc#L16" target="_blank" rel="noopener"><span>modifies</span></a> the original Blink <tt>AudioBuffer</tt> by <a href="https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/core/execution_context/execution_context.cc#L133" target="_blank" rel="noopener"><span>transforming</span></a> the original audio values.
 
 ### Reverting Brave standard farbling
 
@@ -310,7 +309,7 @@ As you can see, the restored Brave fingerprints are closer to the original finge
 
 ### Web Audio API rendering
 
-Let’s take a look at what happens under the hood in Chrome during audio fingerprint generation. In the screenshot below, the horizontal axis is time, the rows are execution threads, and the bars are time slices when the browser is busy. You can learn more about the performance panel in this <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance" target="_blank" rel="noopener"><span>Chrome article</span> </a>. The audio processing starts at 809.6ms and completes at 814.1ms:
+Let’s take a look at what happens under the hood in Chrome during audio fingerprint generation. In the screenshot below, the horizontal axis is time, the rows are execution threads, and the bars are time slices when the browser is busy. You can learn more about the performance panel in this <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance" target="_blank" rel="noopener"><span>Chrome article</span></a>. The audio processing starts at 809.6ms and completes at 814.1ms:
 
 ![](/img/uploads/performance.jpg)
 
@@ -338,22 +337,22 @@ The table below shows the time it takes to get a fingerprint on different browse
 
 ## Audio fingerprinting is only a small part of the larger identification process.
 
-Audio fingerprinting is one of the many signals our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>open source library</span> </a> uses to generate a browser fingerprint. However, we do not blindly incorporate every signal available in the browser. Instead we analyze the stability and uniqueness of each signal separately to determine their impact on fingerprint accuracy.\
+Audio fingerprinting is one of the many signals our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>open source library</span></a> uses to generate a browser fingerprint. However, we do not blindly incorporate every signal available in the browser. Instead we analyze the stability and uniqueness of each signal separately to determine their impact on fingerprint accuracy.\
 \
 For audio fingerprinting, we found that the signal contributes only slightly to uniqueness but is highly stable, resulting in a small net increase to fingerprint accuracy.\
 \
-You can learn more about stability, uniqueness and accuracy in our <a href="https://fingerprintjs.com/blog/what-is-browser-fingerprinting/" target="_blank" rel="noopener"><span>beginner’s guide to browser fingerprinting</span> </a>.
+You can learn more about stability, uniqueness and accuracy in our <a href="https://fingerprintjs.com/blog/what-is-browser-fingerprinting/" target="_blank" rel="noopener"><span>beginner’s guide to browser fingerprinting</span></a>.
 
 ### Try Browser Fingerprinting for Yourself
 
 Browser fingerprinting is a useful method of visitor identification for a variety of anti-fraud applications. It is particularly useful to identify malicious visitors attempting to circumvent tracking by clearing cookies, browsing in incognito mode or using a VPN. \
 \
-You can try implementing browser fingerprinting yourself with our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>open source library</span> </a>. FingerprintJS is the most popular browser fingerprinting library available, with over 12K GitHub stars.\
+You can try implementing browser fingerprinting yourself with our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>open source library</span></a>. FingerprintJS is the most popular browser fingerprinting library available, with over 12K GitHub stars.\
 \
-For higher identification accuracy, we also developed the <a href="https://fingerprintjs.com/" target="_blank" rel="noopener"><span>FingerprintJS Pro API</span> </a>, which uses machine learning to combine browser fingerprinting with additional identification techniques. You can try FingerprintJS Pro free for 10 days with no usage limits.
+For higher identification accuracy, we also developed the <a href="https://fingerprintjs.com/" target="_blank" rel="noopener"><span>FingerprintJS Pro API</span></a>, which uses machine learning to combine browser fingerprinting with additional identification techniques. You can try FingerprintJS Pro free for 10 days with no usage limits.
 
 ### Get in touch
 
-* Star, follow or fork our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>GitHub project</span> </a>
+* Star, follow or fork our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>GitHub project</span></a>
 * Email us your questions at oss@fingerprintJS.com
-* Sign up to our <a href="https://mailchi.mp/708d84efc0c1/updates-signup" target="_blank" rel="noopener"><span>newsletter</span> </a> for updates
+* Sign up to our <a href="https://mailchi.mp/708d84efc0c1/updates-signup" target="_blank" rel="noopener"><span>newsletter</span></a> for updates
