@@ -64,22 +64,15 @@ It can hold multiple channels, but for our purposes we’ll only use one.
 
 When working with audio, we always need a source. <tt>Oscillator</tt> is a good candidate, because it generates samples mathematically, as opposed to playing an audio file.
 In its simplest form, an oscillator generates a periodic waveform with a specified frequency. 
+
 The default shape is a sine wave.
-
-![](/img/uploads/sinewave.jpg)
-
-It’s also possible to generate other types of waves, such as square, sawtooth, and triangle.
-
-![](/img/uploads/square.jpg)
-
-![](/img/uploads/sawtooth.jpg)
-
-![](/img/uploads/triangle.jpg)
-
-The default frequency is 440 Hz, which is a standard A4 note.
 
 <iframe style ="width: calc(100% + 24px); height: 380px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no"> 
 </iframe>
+
+It’s also possible to generate other types of waves, such as square, sawtooth, and triangle.
+
+The default frequency is 440 Hz, which is a standard A4 note.
 
 ## Compressor
 
