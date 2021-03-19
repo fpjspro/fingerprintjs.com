@@ -11,6 +11,25 @@
     margin-bottom: 6rem;
   }
 
+  deckgo-highlight-code {
+    font-weight: 500;
+    --deckgo-highlight-code-color: #abb2bf;
+    --deckgo-highlight-code-background: #282c34;
+    --deckgo-highlight-code-token-punctuation: #abb2bf;
+    --deckgo-highlight-code-token-atrule: #c678dd;
+    --deckgo-highlight-code-token-operator: #56b6c2;
+    --deckgo-highlight-code-token-regex: #f1fa8c;
+    --deckgo-highlight-code-token-selector: #98c379;
+    --deckgo-highlight-code-token-function: #61afef;
+    --deckgo-highlight-code-font-family: v(ff-mono);
+    --deckgo-highlight-code-font-size: 2rem;
+
+    --deckgo-highlight-code-line-numbers: #4f5665;
+
+    --deckgo-highlight-code-padding: 2rem 2rem;
+    --deckgo-highlight-code-border-radius: 1rem;
+  }
+
   @for $index from 1 through 6 {
     h#{$index} {
       font-family: v('ff-mono');
