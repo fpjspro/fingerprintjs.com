@@ -49,8 +49,9 @@ There also exist a special type of AudioContext: <tt>OfflineAudioContext</tt>. T
 When creating an instance of OfflineAudioContext, we pass 3 arguments: the number of channels, the total number of samples and a sample rate in samples per second.
 
 ```javascript
-const AudioContext = window.OfflineAudioContext ||
-      window.webkitOfflineAudioContext
+const AudioContext = 
+  window.OfflineAudioContext ||
+  window.webkitOfflineAudioContext
 const context = new AudioContext(1, 5000, 44100)
 ```
 
@@ -99,7 +100,9 @@ Safari doesn’t support unprefixed OfflineAudioContext, but does support
 webkitOfflineAudioContext, so we’ll use this method to make it work in Chrome and Safari:
 
 ```javascript
-const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContex
+const AudioContext =
+  window.OfflineAudioContext ||
+  window.webkitOfflineAudioContex
 ```
 
 Now we create an AudioContext instance. We’ll use one channel, a 44,100 sample rate and 5,000 samples total, which will make it about 113 ms long.
