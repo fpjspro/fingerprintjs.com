@@ -44,7 +44,7 @@ It controls the creation of the nodes and execution of the audio processing. You
 \
 AudioContext has a destination property that represents the destination of all audio from that context. \
 \
-There is a special type of AudioContext, <tt>-- OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. So the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
+There is a special type of AudioContext, <tt>— OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. So the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
 \
 When creating an instance of OfflineAudioContext, we pass 3 arguments: number of channels, total number of samples and a sample rate (samples per second).
 
@@ -154,7 +154,7 @@ Let’s do it by simply summing up a slice of the array values:
 function calculateHash(samples) {
   let hash = 0
   for (let i = 0; i < samples.length; ++i) {
-    hash += Math.abs(samples\[i])
+    hash += Math.abs(samples[i])
   }
   return hash
 }
@@ -275,14 +275,16 @@ async function getFudgeFactor() {
   inputNode.connect(context.destination)
   inputNode.start()
 
-  // See renderAudio the implementation at https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b
+  // See renderAudio the implementation at https://git.io/Jmw1j
   const outputBuffer = await renderAudio(context)
   return outputBuffer.getChannelData(0)[0]
 }
 
 const [fingerprint, fudgeFactor] = await Promise.all([
-  // This function is the fingerprint algorithm
-  // described in the “How audio fingerprint is calculated” section
+  /*
+  This function is the fingerprint algorithm
+  described in the “How audio fingerprint is calculated” section 
+  */
   getFingerprint(),
   getFudgeFactor(),
 ])
@@ -318,7 +320,7 @@ The main thread, labeled as “Main” on the image, handles user input (mouse m
 As you can see on the image above, the browser delegates some work to the <tt>OfflineAudioRender</tt> thread, freeing the main thread. 
 **Therefore the page stays responsive during most of the audio fingerprint calculation.**\
 \
-<info icon> Web Audio API is not available in web workers, so we cannot calculate audio fingerprints there.
+<info icon> Web Audio API is not available in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API" target="_blank" rel="noopener"><span>web workers</span></a>, so we cannot calculate audio fingerprints there.
 
 ### Performance summary in different browsers
 
