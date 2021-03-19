@@ -164,7 +164,7 @@ console.log(getHash(samples))
 
 Now we are ready to generate the audio fingerprint. When I run it on Chrome on MacOS I get the value:
 
-* 101.45647543197447
+* <tt>101.45647543197447</tt>
 
 That’s all there is to it, our audio fingerprint is this number!\
 \
@@ -172,11 +172,11 @@ You can check out a production implementation in our open source browser fingerp
 \
 If I try executing the code in Safari, I get a different number:
 
-* 79.58850509487092
+* <tt>79.58850509487092</tt>
 
 And get another unique result in Firefox:
 
-* 80.95458510611206
+* <tt>80.95458510611206</tt>
 
 Every browser I have on my laptop generates a different value. This value is very stable and remains the same in incognito mode. \
 \
@@ -198,7 +198,7 @@ Here is how a single triangular oscillation looks in both Chrome and Firefox now
 
 ![](/img/uploads/triangular_oscillation.png)
 
-However the underlying values are different between the two browsers (I’m showing only the first 3 values  for simplicity):\
+However the underlying values are different between the two browsers (I’m showing only the first 3 values for simplicity):\
 \
 `Chrome:`    `[0,0.08988945186138153,0.18264609575271606,0.2712443470954895]`
 `Firefox:`   `[0,0.09155717492103577,0.18603470921516418,0.2762767672538757]`\
