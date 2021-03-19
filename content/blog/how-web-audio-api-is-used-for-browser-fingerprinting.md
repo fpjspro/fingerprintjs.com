@@ -275,7 +275,8 @@ async function getFudgeFactor() {
   inputNode.connect(context.destination)
   inputNode.start()
 
-  // See renderAudio the implementation at https://git.io/Jmw1j
+  // See renderAudio the implementation 
+  // at https://git.io/Jmw1j
   const outputBuffer = await renderAudio(context)
   return outputBuffer.getChannelData(0)[0]
 }
