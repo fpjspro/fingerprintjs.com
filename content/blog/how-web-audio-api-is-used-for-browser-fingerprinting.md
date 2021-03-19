@@ -22,31 +22,31 @@ This is known as “browser fingerprinting” and it works by reading browser at
 When generating a browser identifier, we can read browser attributes directly or use attribute processing techniques first. One of the creative techniques that we’ll discuss today is audio fingerprinting.\
 \
 Audio fingerprinting is a valuable technique because it is relatively unique and stable.
-Its uniqueness comes from the internal complexity and sophistication of the Web Audio API.
-The stability is achieved because the audio source that we’ll use is a sequence of numbers, generated mathematically. Those numbers will later combine into a single audio fingerprint value.\
+Its uniqueness comes from the internal complexity and sophistication of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" target="_blank" rel="noopener"><span>Web Audio API</span></a>.
+The stability is achieved because the audio source that we’ll use is a sequence of numbers, generated mathematically. Those numbers will later be combined into a single audio fingerprint value.\
 \
 Before we dive into the technical implementation, we need to understand a few ideas from the Web Audio API and its building blocks.
 
-# A brief overview of Web Audio API
+# A brief overview of the Web Audio API
 
-The Web Audio API is a powerful system for handling audio operations. It is designed to perform inside an <tt>AudioContext</tt> by linking together audio nodes and building an audio graph. A single AudioContext can handle multiple types of audio sources, that plug into other nodes and form chains of audio processing.\
+The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" target="_blank" rel="noopener"><tt>AudioContext</tt></a> by linking together audio nodes and building an audio graph. A single AudioContext can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.\
 \
 ***diagram showing source => node1 => node2 => output***\
 \
-A source can be an <tt><audio/></tt> element, a stream, or generated mathematically with an <tt>Oscillator</tt>. We’ll be using the oscillator for our purposes and then connect it to other nodes for additional processing.\
+A source can be an <tt><audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the oscillator for our purposes and then connecting it to other nodes for additional processing.\
 \
-Before we dive into the audio fingerprint implementation details, it’s helpful to make an overview of all the building blocks of the API that we’ll be using.
+Before we dive into the audio fingerprint implementation details, it’s helpful to review all of the building blocks of the API that we’ll be using.
 
 ## AudioContext
 
-<tt>AudioContext</tt> represents an entire chain, built from audio nodes linked together. 
+<tt>AudioContext</tt> represents an entire chain built from audio nodes linked together. 
 It controls the creation of the nodes and execution of the audio processing. You always start by creating an instance of AudioContext before you do anything else. It’s a good practice to create a single AudioContext instance and reuse it for all future processing.\
 \
 AudioContext has a destination property that represents the destination of all audio from that context. \
 \
-There is a special type of AudioContext, <tt>— OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. So the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
+There also exist a special type of AudioContext<tt>:OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
 \
-When creating an instance of OfflineAudioContext, we pass 3 arguments: number of channels, total number of samples and a sample rate (samples per second).
+When creating an instance of OfflineAudioContext, we pass 3 arguments: the number of channels, the total number of samples and a sample rate in samples per second.
 
 ```javascript
 const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext
@@ -55,14 +55,14 @@ const context = new AudioContext(1, 5000, 44100)
 
 ## AudioBuffer
 
-It represents an audio snippet, stored in memory. It’s designed to hold small snippets, because the data is represented internally as linear PCM with each sample being a 32-bit float value in the range between -1.0 and 1.0.
-It can hold multiple channels, but for our purposes we’ll only use one.\
+An AudioBuffer represents an audio snippet, stored in memory. It’s designed to hold small snippets. The data is represented internally in Linear PCM with each sample represented by a 32-bit float between -1.0 and 1.0.
+It can hold multiple channels, but for our purposes we’ll use only one channel.\
 \
 ***diagram of 32bit numbers in the range between -1.0 to 1.0***
 
 ## Oscillator
 
-When working with audio, we always need a source. <tt>Oscillator</tt> is a good candidate, because it generates samples mathematically, as opposed to playing an audio file.
+When working with audio, we always need a source. An <tt>oscillator</tt> is a good candidate, because it generates samples mathematically, as opposed to playing an audio file.
 In its simplest form, an oscillator generates a periodic waveform with a specified frequency. \
 \
 The default shape is a sine wave.
@@ -76,7 +76,7 @@ The default frequency is 440 Hz, which is a standard A4 note.
 
 ## Compressor
 
-Web Audio API provides a DynamicsCompressorNode, which lowers the volume of the loudest parts of the signal and helps prevent distortion or clipping. \
+The Web Audio API provides a <tt>DynamicsCompressorNode</tt>, which lowers the volume of the loudest parts of the signal and helps prevent distortion or clipping. \
 \
 <tt>DynamicsCompressorNode</tt> has many interesting properties that we’ll use. These properties will help create more variability between browsers.\
 \
@@ -90,12 +90,12 @@ Reduction - float representing the amount of gain reduction currently applied by
 <iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px; margin-bottom: 3rem"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
 </iframe>
 
-## How audio fingerprint is calculated
+## How the audio fingerprint is calculated
 
-Now we have all the concepts we need to start working on our audio fingerprinting code.\
+Now that we have all the concepts we need, we can start working on our audio fingerprinting code.\
 \
-Safari doesn’t support unprefixed OfflineAudioContext, but supports 
-webkitOfflineAudioContext, so we’ll use this trick to make it work in Chrome and Safari:
+Safari doesn’t support unprefixed OfflineAudioContext, but does support 
+webkitOfflineAudioContext, so we’ll use this method to make it work in Chrome and Safari:
 
 ```javascript
 const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContex
@@ -107,7 +107,7 @@ Now we create an AudioContext instance. We’ll use one channel, a 44,100 sample
 const context = new AudioContext(1, 5000, 44100)
 ```
 
-Next let’s create our sound source - an Oscillator instance. It will generate a triangular-shaped sound wave that will fluctuate 1,000 times per second (1,000 Hz).
+Next let’s create a sound source - an Oscillator instance. It will generate a triangular-shaped sound wave that will fluctuate 1,000 times per second (1,000 Hz).
 
 ```javascript
 const oscillator = context.createOscillator()
@@ -115,8 +115,8 @@ oscillator.type = "triangle"
 oscillator.frequency.value = 1000
 ```
 
-Now let’s create our compressor to add more variety and transform the original signal.
-Note that the values for all these parameters are arbitrary and are only meant to change the source signal in interesting ways. We could use any other values and it would work equally well.
+Now let’s create a compressor to add more variety and transform the original signal.
+Note that the values for all these parameters are arbitrary and are only meant to change the source signal in interesting ways. We could use other values and it would still work.
 
 ```javascript
 const compressor = context.createDynamicsCompressor()
@@ -135,7 +135,7 @@ oscillator.connect(compressor)
 compressor.connect(context.destination);
 ```
 
-It is time to generate the audio snippet. We’ll use the oncomplete event to get the result when it’s ready.
+It is time to generate the audio snippet. We’ll use the <tt>oncomplete</tt> event to get the result when it’s ready.
 
 ```javascript
 oscillator.start()
@@ -146,7 +146,7 @@ context.oncomplete = event => {
 context.startRendering()
 ```
 
-Samples is an array of floating-point values that represent the uncompressed sound. Now we need to calculate a single value from that array.\
+<tt>Samples</tt> is an array of floating-point values that represents the uncompressed sound. Now we need to calculate a single value from that array.\
 \
 Let’s do it by simply summing up a slice of the array values:
 
@@ -164,27 +164,27 @@ console.log(getHash(samples))
 
 Now we are ready to generate the audio fingerprint. When I run it on Chrome on MacOS I get the value:
 
-* <tt>101.45647543197447</tt>
+* **<tt>101.45647543197447</tt>**
 
-That’s all there is to it, our audio fingerprint is this number!\
+That’s all there is to it. Our audio fingerprint is this number!\
 \
-You can check out a production implementation in our open source browser fingerprinting library.\
+You can check out a <a href="https://github.com/fingerprintjs/fingerprintjs/blob/3201a7d61bb4df2816c226d8364cc98bb4235e59/src/sources/audio.ts" target="_blank" rel="noopener"><span>production implementation</span></a> in our open source browser fingerprinting library.\
 \
 If I try executing the code in Safari, I get a different number:
 
-* <tt>79.58850509487092</tt>
+* **<tt>79.58850509487092</tt>**
 
 And get another unique result in Firefox:
 
-* <tt>80.95458510611206</tt>
+* **<tt>80.95458510611206</tt>**
 
-Every browser I have on my laptop generates a different value. This value is very stable and remains the same in incognito mode. \
+Every browser we have on our testing laptops generate a different value. This value is very stable and remains the same in incognito mode.\
 \
 **This value depends on the underlying hardware and OS, and in your case may be different.**
 
-## Why audio fingerprint varies in different browsers
+## Why the audio fingerprint varies by browser
 
-Let’s take a closer look at why the values are different in different browsers. We’ll examine a single oscillation wave under a microscope in both Chrome and Firefox.\
+Let’s take a closer look at why the values are different in different browsers. We’ll examine a single oscillation wave in both Chrome and Firefox.\
 \
 First, let’s reduce the duration of our audio snippet to 1/2000th of a second, which corresponds to a single wave and examine the values that make up that wave.\
 \
@@ -214,7 +214,7 @@ Examples of Google contributions to the Webkit project include:
 <a href="https://github.com/WebKit/WebKit/commit/d187ecab7b152962465c23be04ab7ed3ef70f382" target="_blank" rel="noopener"><span>creation of OfflineAudioContext</span></a>, 
 <a href="https://github.com/WebKit/WebKit/commit/fad97bfb064446f78c78338104fb3f22be666cbb" target="_blank" rel="noopener"><span>creation of OscillatorNode</span></a>, <a href="https://github.com/WebKit/WebKit/commit/6f2b47e87bc414001affb258048749130bc91083" target="_blank" rel="noopener"><span>creation of DynamicsCompressorNode</span></a>. \
 \
-Since then browser developers have made a lot of small changes. These changes, combined with a huge amount of mathematical operations involved, lead to fingerprinting differences. Audio signal processing uses floating point arithmetic, which also contributes to discrepancies in calculations.\
+Since then browser developers have made a lot of small changes. These changes, compounded by the large number of mathematical operations involved, lead to fingerprinting differences. Audio signal processing uses floating point arithmetic, which also contributes to discrepancies in calculations.\
 \
 You can see how these things are implemented now in the three major browser engines:
 
@@ -224,26 +224,26 @@ You can see how these things are implemented now in the three major browser engi
 
 Additionally, browsers use different implementations for different CPU architectures and OSes to leverage features like <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener"><span>SIMD</span></a>. For example, Chrome uses <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/mac/fft_frame_mac.cc" target="_blank" rel="noopener"><span>a separate fast Fourier transform implementation</span></a> on macOS (producing a different oscillator signal) and <a href="https://github.com/chromium/chromium/tree/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/cpu" target="_blank" rel="noopener"><span>different vector operation implementations</span></a> on different CPU architectures (which are used in the DynamicsCompressor implementation). These platform-specific changes also contribute to differences in the final audio fingerprint.\
 \
-Fingerprint results also depend on the Android version (it’s different in Android 9 and 10 on the same devices on Browserstack).\
+Fingerprint results also depend on the Android version (it’s different in Android 9 and 10 on the same devices for example).\
 \
-According to the browsers’ source code, audio processing doesn’t use dedicated audio hardware or OS features, all calculations are done by the CPU. 
+According to browser source code, audio processing doesn’t use dedicated audio hardware or OS features—all calculations are done by the CPU. 
 
 ## Pitfalls
 
-When we started to use audio fingerprinting in production, we aimed to achieve good browser compatibility, stability and performance. For browser compatibility, we also looked at privacy-focused browsers, such as Tor and Brave.
+When we started to use audio fingerprinting in production, we aimed to achieve good browser compatibility, stability and performance. For high browser compatibility, we also looked at privacy-focused browsers, such as Tor and Brave.
 
 ### OfflineAudioContext
 
 As you can see on <a href="https://caniuse.com/mdn-api_offlineaudiocontext" target="_blank" rel="noopener"><span>caniuse.com</span></a>, <tt>OfflineAudioContext</tt> works almost everywhere. But there are some cases that need special handling.\
 \
-The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span></a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be suspended and rendering will hang indefinitely unless you add a timeout. There were not many users who still used this iOS version, so we decided to disable audio fingerprinting for them.\
+The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span></a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be <tt>suspended</tt> and rendering will hang indefinitely unless you add a timeout. There are not many users who still use this iOS version, so we decided to disable audio fingerprinting for them.\
 \
 The second case are browsers on iOS 12 or newer. They can reject starting audio processing if the page is in the background. Luckily, browsers allow you to resume the processing when the page returns to the foreground.
-When the page is activated, we attempt calling <tt>context.startRendering()</tt> several times until the <tt>context.state</tt> becomes running. If the processing doesn’t start after several attempts, the code stops. We also use a regular <tt>setTimeout</tt> on top of our retry strategy in case of an unexpected error or freeze. You can see <a href="https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b" target="_blank" rel="noopener"><span>a code example here</span></a>.
+When the page is activated, we attempt calling <tt>context.startRendering()</tt> several times until the <tt>context.state</tt> becomes <tt>running</tt>. If the processing doesn’t start after several attempts, the code stops. We also use a regular <tt>setTimeout</tt> on top of our retry strategy in case of an unexpected error or freeze. You can see <a href="https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b" target="_blank" rel="noopener"><span>a code example here</span></a>.
 
 ### Tor
 
-**In the case of Tor browser, everything is simple. Web Audio API is disabled there, so audio fingerprinting is <a href="https://gitlab.torproject.org/legacy/trac/-/issues/21984" target="_blank" rel="noopener"><span>not possible</span></a>.**
+**In the case of the Tor browser, everything is simple. Web Audio API is disabled there, so audio fingerprinting is <a href="https://gitlab.torproject.org/legacy/trac/-/issues/21984" target="_blank" rel="noopener"><span>not possible</span></a>.**
 
 ### Brave
 
@@ -275,7 +275,7 @@ async function getFudgeFactor() {
   inputNode.connect(context.destination)
   inputNode.start()
 
-  // See renderAudio the implementation 
+  // See the renderAudio implementation 
   // at https://git.io/Jmw1j
   const outputBuffer = await renderAudio(context)
   return outputBuffer.getChannelData(0)[0]
