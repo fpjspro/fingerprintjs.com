@@ -281,7 +281,7 @@ async function getFudgeFactor() {
 }
 
 const [fingerprint, fudgeFactor] = await Promise.all([
- /**
+ /*
   * This function is the fingerprint algorithm
   * described in the “How audio fingerprint is calculated” section
   */
