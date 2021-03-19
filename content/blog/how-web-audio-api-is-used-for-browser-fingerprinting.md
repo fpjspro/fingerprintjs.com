@@ -49,7 +49,8 @@ There also exist a special type of AudioContext: <tt>OfflineAudioContext</tt>. T
 When creating an instance of OfflineAudioContext, we pass 3 arguments: the number of channels, the total number of samples and a sample rate in samples per second.
 
 ```javascript
-const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext
+const AudioContext = window.OfflineAudioContext ||
+  window.webkitOfflineAudioContext
 const context = new AudioContext(1, 5000, 44100)
 ```
 
