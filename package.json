@@ -18,9 +18,10 @@
     "privacy"
   ],
   "browserslist": [
-    "> 1%",
+    "cover 95%",
     "last 2 versions",
-    "IE 11"
+    "not dead",
+    "not IE 11"
   ],
   "bundlewatch": {
     "files": [
