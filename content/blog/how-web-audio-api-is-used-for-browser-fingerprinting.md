@@ -44,7 +44,7 @@ It controls the creation of the nodes and execution of the audio processing. You
 \
 AudioContext has a destination property that represents the destination of all audio from that context. \
 \
-There also exist a special type of AudioContext<tt>: OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
+There also exist a special type of AudioContext: <tt>OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
 \
 When creating an instance of OfflineAudioContext, we pass 3 arguments: the number of channels, the total number of samples and a sample rate in samples per second.
 
