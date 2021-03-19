@@ -168,7 +168,7 @@ Now we are ready to generate the audio fingerprint. When I run it on Chrome on M
 
 That’s all there is to it. Our audio fingerprint is this number!\
 \
-You can check out a production implementation in our open source browser fingerprinting library.\
+You can check out a <a href="https://github.com/fingerprintjs/fingerprintjs/blob/3201a7d61bb4df2816c226d8364cc98bb4235e59/src/sources/audio.ts" target="_blank" rel="noopener"><span>production implementation</span></a> in our open source browser fingerprinting library.\
 \
 If I try executing the code in Safari, I get a different number:
 
@@ -236,7 +236,7 @@ When we started to use audio fingerprinting in production, we aimed to achieve g
 
 As you can see on <a href="https://caniuse.com/mdn-api_offlineaudiocontext" target="_blank" rel="noopener"><span>caniuse.com</span></a>, <tt>OfflineAudioContext</tt> works almost everywhere. But there are some cases that need special handling.\
 \
-The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span></a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be suspended and rendering will hang indefinitely unless you add a timeout. There are not many users who still use this iOS version, so we decided to disable audio fingerprinting for them.\
+The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span></a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be <tt>suspended</tt> and rendering will hang indefinitely unless you add a timeout. There are not many users who still use this iOS version, so we decided to disable audio fingerprinting for them.\
 \
 The second case are browsers on iOS 12 or newer. They can reject starting audio processing if the page is in the background. Luckily, browsers allow you to resume the processing when the page returns to the foreground.
 When the page is activated, we attempt calling <tt>context.startRendering()</tt> several times until the <tt>context.state</tt> becomes running. If the processing doesn’t start after several attempts, the code stops. We also use a regular <tt>setTimeout</tt> on top of our retry strategy in case of an unexpected error or freeze. You can see <a href="https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b" target="_blank" rel="noopener"><span>a code example here</span></a>.
