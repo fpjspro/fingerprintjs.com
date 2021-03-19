@@ -29,7 +29,7 @@ Before we dive into the technical implementation, we need to understand a few id
 
 # A brief overview of the Web Audio API
 
-The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <tt>AudioContext</tt> by linking together audio nodes and building an audio graph. A single AudioContext can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.\
+The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" target="_blank" rel="noopener"><tt>AudioContext</tt></a> by linking together audio nodes and building an audio graph. A single AudioContext can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.\
 \
 ***diagram showing source => node1 => node2 => output***\
 \
