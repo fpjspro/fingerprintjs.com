@@ -44,9 +44,9 @@ It controls the creation of the nodes and execution of the audio processing. You
 \
 AudioContext has a destination property that represents the destination of all audio from that context. \
 \
-There also exist a special type of AudioContext, <tt>— OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. So the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
+There also exist a special type of AudioContext<tt>:OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
 \
-When creating an instance of OfflineAudioContext, we pass 3 arguments: number of channels, total number of samples and a sample rate (samples per second).
+When creating an instance of OfflineAudioContext, we pass 3 arguments: the number of channels, the total number of samples and a sample rate in samples per second.
 
 ```javascript
 const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext
@@ -55,8 +55,8 @@ const context = new AudioContext(1, 5000, 44100)
 
 ## AudioBuffer
 
-It represents an audio snippet, stored in memory. It’s designed to hold small snippets, because the data is represented internally as linear PCM with each sample being a 32-bit float value in the range between -1.0 and 1.0.
-It can hold multiple channels, but for our purposes we’ll only use one.\
+An AudioBuffer represents an audio snippet, stored in memory. It’s designed to hold small snippets. The data is represented internally in Linear PCM with each sample represented by a 32-bit float between -1.0 and 1.0.
+It can hold multiple channels, but for our purposes we’ll use only one channel.\
 \
 ***diagram of 32bit numbers in the range between -1.0 to 1.0***
 
