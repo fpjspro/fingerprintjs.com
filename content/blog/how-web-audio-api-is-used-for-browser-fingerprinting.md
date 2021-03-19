@@ -146,7 +146,7 @@ context.oncomplete = event => {
 context.startRendering()
 ```
 
-<tt>Samples</tt> is an array of floating-point values that represent the uncompressed sound. Now we need to calculate a single value from that array.\
+<tt>Samples</tt> is an array of floating-point values that represents the uncompressed sound. Now we need to calculate a single value from that array.\
 \
 Let’s do it by simply summing up a slice of the array values:
 
@@ -164,25 +164,25 @@ console.log(getHash(samples))
 
 Now we are ready to generate the audio fingerprint. When I run it on Chrome on MacOS I get the value:
 
-* <tt>101.45647543197447</tt>
+* **<tt>101.45647543197447</tt>**
 
-That’s all there is to it, our audio fingerprint is this number!\
+That’s all there is to it. Our audio fingerprint is this number!\
 \
 You can check out a production implementation in our open source browser fingerprinting library.\
 \
 If I try executing the code in Safari, I get a different number:
 
-* <tt>79.58850509487092</tt>
+* **<tt>79.58850509487092</tt>**
 
 And get another unique result in Firefox:
 
-* <tt>80.95458510611206</tt>
+* **<tt>80.95458510611206</tt>**
 
-Every browser I have on my laptop generates a different value. This value is very stable and remains the same in incognito mode. \
+Every browser we have on our testing laptops generate a different value. This value is very stable and remains the same in incognito mode.\
 \
 **This value depends on the underlying hardware and OS, and in your case may be different.**
 
-## Why audio fingerprint varies in different browsers
+## Why the audio fingerprint varies by browser
 
 Let’s take a closer look at why the values are different in different browsers. We’ll examine a single oscillation wave under a microscope in both Chrome and Firefox.\
 \
