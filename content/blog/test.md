@@ -29,17 +29,17 @@ It’s also possible to generate other types of waves, such as square, sawtooth,
 
 Oscillator:
 
-<iframe style ="width: calc(100% + 24px); height: 380px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 392px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=oscillator-options" frameborder="no" loading="lazy"> 
 </iframe>
 
 Dynamics compressor:
 
-<iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 592px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no" loading="lazy"> 
 </iframe>
 
 Different browsers:
 
-<iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no"> 
+<iframe style ="width: calc(100% + 24px); height: 500px; margin-left: -12px; margin-right: -12px;"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=difference" frameborder="no" loading="lazy"> 
 </iframe>
 
 ## Quotes:
