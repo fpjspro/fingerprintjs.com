@@ -200,8 +200,8 @@ Here is how a single triangular oscillation looks in both Chrome and Firefox now
 
 However the underlying values are different between the two browsers (I’m showing only the first 3 values for simplicity):\
 \
-`Chrome:`    `[0,0.08988945186138153,0.18264609575271606,0.2712443470954895]`
-`Firefox:`   `[0,0.09155717492103577,0.18603470921516418,0.2762767672538757]`\
+`Chrome:` `[0,0.08988945186138153,` `0.18264609575271606,` `0.2712443470954895]`
+`Firefox:` `[0,0.09155717492103577,` `0.18603470921516418,` `0.2762767672538757]`\
 \
 Let’s take a look at this demo to visually see those differences.
 
