@@ -62,7 +62,7 @@ It can hold multiple channels, but for our purposes we’ll use only one channel
 
 ## Oscillator
 
-When working with audio, we always need a source. <tt>Oscillator</tt> is a good candidate, because it generates samples mathematically, as opposed to playing an audio file.
+When working with audio, we always need a source. An <tt>oscillator</tt> is a good candidate, because it generates samples mathematically, as opposed to playing an audio file.
 In its simplest form, an oscillator generates a periodic waveform with a specified frequency. \
 \
 The default shape is a sine wave.
@@ -76,7 +76,7 @@ The default frequency is 440 Hz, which is a standard A4 note.
 
 ## Compressor
 
-Web Audio API provides a DynamicsCompressorNode, which lowers the volume of the loudest parts of the signal and helps prevent distortion or clipping. \
+The Web Audio API provides a <tt>DynamicsCompressorNode</tt>, which lowers the volume of the loudest parts of the signal and helps prevent distortion or clipping. \
 \
 <tt>DynamicsCompressorNode</tt> has many interesting properties that we’ll use. These properties will help create more variability between browsers.\
 \
@@ -90,12 +90,12 @@ Reduction - float representing the amount of gain reduction currently applied by
 <iframe style ="width: calc(100% + 24px); height: 580px; margin-left: -12px; margin-right: -12px; margin-bottom: 3rem"scrolling="no"src="https://fingerprintjs.github.io/audio-fingerprint-article-demos/?demo=dynamics-compressor-options" frameborder="no"> 
 </iframe>
 
-## How audio fingerprint is calculated
+## How the audio fingerprint is calculated
 
-Now we have all the concepts we need to start working on our audio fingerprinting code.\
+Now that we have all the concepts we need, we can start working on our audio fingerprinting code.\
 \
-Safari doesn’t support unprefixed OfflineAudioContext, but supports 
-webkitOfflineAudioContext, so we’ll use this trick to make it work in Chrome and Safari:
+Safari doesn’t support unprefixed OfflineAudioContext, but does support 
+webkitOfflineAudioContext, so we’ll use this method to make it work in Chrome and Safari:
 
 ```javascript
 const AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContex
@@ -107,7 +107,7 @@ Now we create an AudioContext instance. We’ll use one channel, a 44,100 sample
 const context = new AudioContext(1, 5000, 44100)
 ```
 
-Next let’s create our sound source - an Oscillator instance. It will generate a triangular-shaped sound wave that will fluctuate 1,000 times per second (1,000 Hz).
+Next let’s create a sound source - an Oscillator instance. It will generate a triangular-shaped sound wave that will fluctuate 1,000 times per second (1,000 Hz).
 
 ```javascript
 const oscillator = context.createOscillator()
