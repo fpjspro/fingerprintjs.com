@@ -184,7 +184,7 @@ Every browser we have on our testing laptops generate a different value. This va
 
 ## Why the audio fingerprint varies by browser
 
-Let’s take a closer look at why the values are different in different browsers. We’ll examine a single oscillation wave under a microscope in both Chrome and Firefox.\
+Let’s take a closer look at why the values are different in different browsers. We’ll examine a single oscillation wave in both Chrome and Firefox.\
 \
 First, let’s reduce the duration of our audio snippet to 1/2000th of a second, which corresponds to a single wave and examine the values that make up that wave.\
 \
@@ -214,7 +214,7 @@ Examples of Google contributions to the Webkit project include:
 <a href="https://github.com/WebKit/WebKit/commit/d187ecab7b152962465c23be04ab7ed3ef70f382" target="_blank" rel="noopener"><span>creation of OfflineAudioContext</span></a>, 
 <a href="https://github.com/WebKit/WebKit/commit/fad97bfb064446f78c78338104fb3f22be666cbb" target="_blank" rel="noopener"><span>creation of OscillatorNode</span></a>, <a href="https://github.com/WebKit/WebKit/commit/6f2b47e87bc414001affb258048749130bc91083" target="_blank" rel="noopener"><span>creation of DynamicsCompressorNode</span></a>. \
 \
-Since then browser developers have made a lot of small changes. These changes, combined with a huge amount of mathematical operations involved, lead to fingerprinting differences. Audio signal processing uses floating point arithmetic, which also contributes to discrepancies in calculations.\
+Since then browser developers have made a lot of small changes. These changes, compounded by the large number of mathematical operations involved, lead to fingerprinting differences. Audio signal processing uses floating point arithmetic, which also contributes to discrepancies in calculations.\
 \
 You can see how these things are implemented now in the three major browser engines:
 
@@ -224,19 +224,19 @@ You can see how these things are implemented now in the three major browser engi
 
 Additionally, browsers use different implementations for different CPU architectures and OSes to leverage features like <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener"><span>SIMD</span></a>. For example, Chrome uses <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/mac/fft_frame_mac.cc" target="_blank" rel="noopener"><span>a separate fast Fourier transform implementation</span></a> on macOS (producing a different oscillator signal) and <a href="https://github.com/chromium/chromium/tree/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/cpu" target="_blank" rel="noopener"><span>different vector operation implementations</span></a> on different CPU architectures (which are used in the DynamicsCompressor implementation). These platform-specific changes also contribute to differences in the final audio fingerprint.\
 \
-Fingerprint results also depend on the Android version (it’s different in Android 9 and 10 on the same devices on Browserstack).\
+Fingerprint results also depend on the Android version (it’s different in Android 9 and 10 on the same devices for example).\
 \
-According to the browsers’ source code, audio processing doesn’t use dedicated audio hardware or OS features, all calculations are done by the CPU. 
+According to browser source code, audio processing doesn’t use dedicated audio hardware or OS features—all calculations are done by the CPU. 
 
 ## Pitfalls
 
-When we started to use audio fingerprinting in production, we aimed to achieve good browser compatibility, stability and performance. For browser compatibility, we also looked at privacy-focused browsers, such as Tor and Brave.
+When we started to use audio fingerprinting in production, we aimed to achieve good browser compatibility, stability and performance. For high browser compatibility, we also looked at privacy-focused browsers, such as Tor and Brave.
 
 ### OfflineAudioContext
 
 As you can see on <a href="https://caniuse.com/mdn-api_offlineaudiocontext" target="_blank" rel="noopener"><span>caniuse.com</span></a>, <tt>OfflineAudioContext</tt> works almost everywhere. But there are some cases that need special handling.\
 \
-The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span></a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be suspended and rendering will hang indefinitely unless you add a timeout. There were not many users who still used this iOS version, so we decided to disable audio fingerprinting for them.\
+The first case is iOS 11 or older. It does support <tt>OfflineAudioContext</tt>, but the rendering only starts if <a href="https://stackoverflow.com/a/46534088/1118709" target="_blank" rel="noopener"><span>triggered by a user action</span></a>, for example by a button click. If <tt>context.startRendering</tt> is not triggered by a user action, the <tt>context.state</tt> will be suspended and rendering will hang indefinitely unless you add a timeout. There are not many users who still use this iOS version, so we decided to disable audio fingerprinting for them.\
 \
 The second case are browsers on iOS 12 or newer. They can reject starting audio processing if the page is in the background. Luckily, browsers allow you to resume the processing when the page returns to the foreground.
 When the page is activated, we attempt calling <tt>context.startRendering()</tt> several times until the <tt>context.state</tt> becomes running. If the processing doesn’t start after several attempts, the code stops. We also use a regular <tt>setTimeout</tt> on top of our retry strategy in case of an unexpected error or freeze. You can see <a href="https://gist.github.com/Finesse/92959ce907a5ba7ee5c05542e3f8741b" target="_blank" rel="noopener"><span>a code example here</span></a>.
