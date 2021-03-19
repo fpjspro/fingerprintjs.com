@@ -26,8 +26,11 @@
     --deckgo-highlight-code-token-function: #61afef;
     --deckgo-highlight-code-font-family: var(--ff-mono);
     --deckgo-highlight-code-font-size: 2rem;
-
     --deckgo-highlight-code-line-numbers: #4f5665;
+
+    @include media('<=phone') {
+      --deckgo-highlight-code-font-size: 1.5rem;
+    }
   }
 
   @for $index from 1 through 6 {
