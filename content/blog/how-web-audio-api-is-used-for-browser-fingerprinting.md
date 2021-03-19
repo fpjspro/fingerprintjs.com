@@ -44,7 +44,7 @@ It controls the creation of the nodes and execution of the audio processing. You
 \
 AudioContext has a destination property that represents the destination of all audio from that context. \
 \
-There also exist a special type of AudioContext<tt>:OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
+There also exist a special type of AudioContext<tt>: OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
 \
 When creating an instance of OfflineAudioContext, we pass 3 arguments: the number of channels, the total number of samples and a sample rate in samples per second.
 
@@ -299,10 +299,10 @@ Unfortunately, floating point operations lack the required precision to get the 
 | Windows 10, Chrome 89                        | 124.04347527516074                                                                                                                           | 0.00000431%                                        |
 | Windows 10, Brave 1.21                       | Various fingerprints after browser restarts:<br />124.04347610535537<br />124.04347187270707<br />124.04347220244154<br />124.04347384813703 | 0.00000364% – 0.00000679%                          |
 | Android 11, Chrome 89                        | 124.08075528279005                                                                                                                           | 0.03%                                              |
-| Android 9, Chrome 89                         | 124.08074500028306                                                                                                                          | 0.03%                                              |
+| Android 9, Chrome 89                         | 124.08074500028306                                                                                                                           | 0.03%                                              |
 | ChromeOS 89                                  | 124.04347721464                                                                                                                              | 0.00000275%                                        |
-| macOS 11, Safari 14                          | 35.10893232002854                                                                                                                        | 71.7%                                              |
-| macOS 11, Firefox 86                         | 35.7383295930922                                                                                                                          | 71.2%                                              |
+| macOS 11, Safari 14                          | 35.10893232002854                                                                                                                            | 71.7%                                              |
+| macOS 11, Firefox 86                         | 35.7383295930922                                                                                                                             | 71.2%                                              |
 
 As you can see, the restored Brave fingerprints are closer to the original fingerprints than to other browsers’ fingerprints. This means that you can use a fuzzy algorithm to match them. For example, if the difference between a pair of audio fingerprint numbers is more than 0.0000022%, you can assume that these are different devices or browsers.
 
