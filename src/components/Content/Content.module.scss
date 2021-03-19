@@ -12,6 +12,9 @@
   }
 
   deckgo-highlight-code {
+    --deckgo-highlight-code-carbon-toolbar-display: none;
+    --deckgo-highlight-code-carbon-header-padding: 8px;
+
     font-weight: 500;
     --deckgo-highlight-code-color: #abb2bf;
     --deckgo-highlight-code-background: #282c34;
@@ -25,9 +28,6 @@
     --deckgo-highlight-code-font-size: 2rem;
 
     --deckgo-highlight-code-line-numbers: #4f5665;
-
-    --deckgo-highlight-code-padding: 2rem 2rem;
-    --deckgo-highlight-code-border-radius: 1rem;
   }
 
   @for $index from 1 through 6 {
