@@ -243,7 +243,7 @@ When the page is activated, we attempt calling <tt>context.startRendering()</tt>
 
 ### Tor
 
-**In the case of Tor browser, everything is simple. Web Audio API is disabled there, so audio fingerprinting is <a href="https://gitlab.torproject.org/legacy/trac/-/issues/21984" target="_blank" rel="noopener"><span>not possible</span></a>.**
+**In the case of the Tor browser, everything is simple. Web Audio API is disabled there, so audio fingerprinting is <a href="https://gitlab.torproject.org/legacy/trac/-/issues/21984" target="_blank" rel="noopener"><span>not possible</span></a>.**
 
 ### Brave
 
@@ -275,7 +275,7 @@ async function getFudgeFactor() {
   inputNode.connect(context.destination)
   inputNode.start()
 
-  // See renderAudio the implementation 
+  // See the renderAudio implementation 
   // at https://git.io/Jmw1j
   const outputBuffer = await renderAudio(context)
   return outputBuffer.getChannelData(0)[0]
