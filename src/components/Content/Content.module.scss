@@ -121,6 +121,12 @@
 
   table {
     width: 100%;
+    
+    @include media('<=phone') {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
   }
 
   table,
@@ -129,6 +135,7 @@
     border: 2px solid rgb(238, 238, 238);
     background-color: var(--white);
     border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   th,
