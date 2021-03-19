@@ -22,7 +22,7 @@ This is known as “browser fingerprinting” and it works by reading browser at
 When generating a browser identifier, we can read browser attributes directly or use attribute processing techniques first. One of the creative techniques that we’ll discuss today is audio fingerprinting.\
 \
 Audio fingerprinting is a valuable technique because it is relatively unique and stable.
-Its uniqueness comes from the internal complexity and sophistication of the Web Audio API.
+Its uniqueness comes from the internal complexity and sophistication of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" target="_blank" rel="noopener"><span>Web Audio API</span></a>.
 The stability is achieved because the audio source that we’ll use is a sequence of numbers, generated mathematically. Those numbers will later be combined into a single audio fingerprint value.\
 \
 Before we dive into the technical implementation, we need to understand a few ideas from the Web Audio API and its building blocks.
