@@ -9,7 +9,7 @@ metadata:
     technique.
 featured: true
 publishDate: 2021-03-18T13:12:29.612Z
-title: How Web Audio API is used for browser fingerprinting
+title: How the Web Audio API is used for browser fingerprinting
 tags:
   - fingerprinting
 ---
