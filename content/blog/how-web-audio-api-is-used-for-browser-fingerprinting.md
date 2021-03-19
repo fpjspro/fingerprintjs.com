@@ -115,8 +115,8 @@ oscillator.type = "triangle"
 oscillator.frequency.value = 1000
 ```
 
-Now let’s create our compressor to add more variety and transform the original signal.
-Note that the values for all these parameters are arbitrary and are only meant to change the source signal in interesting ways. We could use any other values and it would work equally well.
+Now let’s create a compressor to add more variety and transform the original signal.
+Note that the values for all these parameters are arbitrary and are only meant to change the source signal in interesting ways. We could use other values and it would still work.
 
 ```javascript
 const compressor = context.createDynamicsCompressor()
@@ -135,7 +135,7 @@ oscillator.connect(compressor)
 compressor.connect(context.destination);
 ```
 
-It is time to generate the audio snippet. We’ll use the oncomplete event to get the result when it’s ready.
+It is time to generate the audio snippet. We’ll use the <tt>oncomplete</tt> event to get the result when it’s ready.
 
 ```javascript
 oscillator.start()
@@ -146,7 +146,7 @@ context.oncomplete = event => {
 context.startRendering()
 ```
 
-Samples is an array of floating-point values that represent the uncompressed sound. Now we need to calculate a single value from that array.\
+<tt>Samples</tt> is an array of floating-point values that represent the uncompressed sound. Now we need to calculate a single value from that array.\
 \
 Let’s do it by simply summing up a slice of the array values:
 
