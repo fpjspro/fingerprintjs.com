@@ -53,11 +53,14 @@ Open the template for your signup page – which is  [views/signup.hbs](https:/
 
 ```javascript
 <script>
-  function initFingerprintJS() {
-    FingerprintJS.load({ token: 'your-browser-token', region: 'eu' })
-      .then(fp => fp.get())
-      .then(result => console.log(result.visitorId));
-  }
+function initFingerprintJS() {
+  FingerprintJS.load({
+    token: "your-browser-token",
+    region: "eu",
+  })
+    .then((fp) => fp.get())
+    .then((result) => console.log(result.visitorId));
+}
 </script>
 <script
   async
