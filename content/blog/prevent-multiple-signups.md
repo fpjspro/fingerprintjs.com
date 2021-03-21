@@ -90,13 +90,17 @@ Then you want to set the visitorID as the value of this field, so go to line 65 
 
 ```javascript
 <script>
-  function initFingerprintJS() {
-    FingerprintJS.load({ token: 'your-browser-token', region: 'eu' })
-      .then(fp => fp.get())
-      .then(result => {
-        document.getElementById('visitorId').value = result.visitorId
-      });
-  }
+function initFingerprintJS() {
+  FingerprintJS.load({
+    token: "your-browser-token",
+    region: "eu",
+  })
+    .then((fp) => fp.get())
+    .then((result) => {
+      document.getElementById("visitorId").value =
+        result.visitorId;
+    });
+}
 </script>
 ```
 
@@ -126,18 +130,26 @@ Now you can store the visitorID in the database, so you’ll need to add some lo
 
 ```javascript
 const result = await client.query(
-'insert into users(email, visitor_id)
-values($1, $2) returning *', [email, visitorId])
+  "insert into users(email, visitor_id)values($1, $2) returning *",
+  [email, visitorId]
+);
 ```
 
 Finally, you need to check if the visitorID is already in the system, and if so, throw an error. So add this check above the insert statement:
 
 ```javascript
-const hasVisitorId = (await client.query(
-'select * from users where visitor_id = $1', [visitorId])).rows.length > 0
+const hasVisitorId =
+  (
+    await client.query(
+      "select * from users where visitor_id = $1",
+      [visitorId]
+    )
+  ).rows.length > 0;
 
 if (hasVisitorId) {
-  throw new Error('Looks like you already have an account, please sign in')
+  throw new Error(
+    "Looks like you already have an account, please sign in"
+  );
 }
 ```
 
