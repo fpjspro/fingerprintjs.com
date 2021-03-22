@@ -203,7 +203,7 @@ Here is how a single triangular oscillation looks in both Chrome and Firefox now
 
 ![](/img/uploads/triangular_oscillation.png)
 
-However the underlying values are different between the two browsers (I’m showing only the first <tt>3</tt> values for simplicity):\
+However the underlying values are different between the two browsers (I’m showing only the first <tt>4</tt> values for simplicity):\
 \
 <tt>**Chrome:**</tt>\
 <tt>[0,0.08988945186138153,</tt> \
