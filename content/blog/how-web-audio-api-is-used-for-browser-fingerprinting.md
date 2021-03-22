@@ -30,24 +30,24 @@ Before we dive into the technical implementation, we need to understand a few id
 
 # A brief overview of the Web Audio API
 
-The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" target="_blank" rel="noopener"><tt>AudioContext</tt></a> by linking together audio nodes and building an audio graph. A single AudioContext can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.
+The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" target="_blank" rel="noopener"><tt>AudioContext</tt></a> by linking together audio nodes and building an audio graph. A single <tt>AudioContext</tt> can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.
 
 ![Graphic of audio context](/img/uploads/audio-fp-audio-context-diagram.png)
 
-A source can be an <tt>\<audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the oscillator for our purposes and then connecting it to other nodes for additional processing.\
+A source can be an <tt>\<audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the <tt>Oscillator</tt> for our purposes and then connecting it to other nodes for additional processing.\
 \
 Before we dive into the audio fingerprint implementation details, it’s helpful to review all of the building blocks of the API that we’ll be using.
 
 ## AudioContext
 
 <tt>AudioContext</tt> represents an entire chain built from audio nodes linked together. 
-It controls the creation of the nodes and execution of the audio processing. You always start by creating an instance of AudioContext before you do anything else. It’s a good practice to create a single AudioContext instance and reuse it for all future processing.\
+It controls the creation of the nodes and execution of the audio processing. You always start by creating an instance of <tt>AudioContext</tt> before you do anything else. It’s a good practice to create a single <tt>AudioContext</tt> instance and reuse it for all future processing.\
 \
-AudioContext has a destination property that represents the destination of all audio from that context. \
+<tt>AudioContext</tt> has a destination property that represents the destination of all audio from that context. \
 \
-There also exist a special type of AudioContext: <tt>OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
+There also exist a special type of <tt>AudioContext</tt>: <tt>OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
 \
-When creating an instance of OfflineAudioContext, we pass <tt>3</tt> arguments: the number of channels, the total number of samples and a sample rate in samples per second.
+When creating an instance of <tt>OfflineAudioContext</tt>, we pass <tt>3</tt> arguments: the number of channels, the total number of samples and a sample rate in samples per second.
 
 ```javascript
 const AudioContext = 
@@ -58,7 +58,7 @@ const context = new AudioContext(1, 5000, 44100)
 
 ## AudioBuffer
 
-An AudioBuffer represents an audio snippet, stored in memory. It’s designed to hold small snippets. The data is represented internally in Linear PCM with each sample represented by a <tt>32</tt>-bit float between <tt>-1.0</tt> and <tt>1.0.</tt>
+An <tt>AudioBuffer</tt> represents an audio snippet, stored in memory. It’s designed to hold small snippets. The data is represented internally in Linear PCM with each sample represented by a <tt>32</tt>-bit float between <tt>-1.0</tt> and <tt>1.0.</tt>
 It can hold multiple channels, but for our purposes we’ll use only one channel.
 
 ![Diagram of 32-bit numbers](/img/uploads/audio-fp-32-bits-numbers-diagram.png)
@@ -66,7 +66,7 @@ It can hold multiple channels, but for our purposes we’ll use only one channel
 ## Oscillator
 
 When working with audio, we always need a source. An <tt>oscillator</tt> is a good candidate, because it generates samples mathematically, as opposed to playing an audio file.
-In its simplest form, an oscillator generates a periodic waveform with a specified frequency. \
+In its simplest form, an <tt>oscillator</tt> generates a periodic waveform with a specified frequency. \
 \
 The default shape is a sine wave.
 
@@ -97,8 +97,8 @@ Reduction - float representing the amount of gain reduction currently applied by
 
 Now that we have all the concepts we need, we can start working on our audio fingerprinting code.\
 \
-Safari doesn’t support unprefixed OfflineAudioContext, but does support 
-webkitOfflineAudioContext, so we’ll use this method to make it work in Chrome and Safari:
+Safari doesn’t support unprefixed <tt>OfflineAudioContext</tt>, but does support 
+<tt>webkitOfflineAudioContext</tt>, so we’ll use this method to make it work in Chrome and Safari:
 
 ```javascript
 const AudioContext =
@@ -106,13 +106,13 @@ const AudioContext =
   window.webkitOfflineAudioContex
 ```
 
-Now we create an AudioContext instance. We’ll use one channel, a <tt>44,100</tt> sample rate and <tt>5,000</tt> samples total, which will make it about <tt>113</tt> ms long.
+Now we create an <tt>AudioContext</tt> instance. We’ll use one channel, a <tt>44,100</tt> sample rate and <tt>5,000</tt> samples total, which will make it about <tt>113</tt> ms long.
 
 ```javascript
 const context = new AudioContext(1, 5000, 44100)
 ```
 
-Next let’s create a sound source - an Oscillator instance. It will generate a triangular-shaped sound wave that will fluctuate <tt>1,000</tt> times per second (<tt>1,000 Hz</tt>).
+Next let’s create a sound source - an <tt>oscillator</tt> instance. It will generate a triangular-shaped sound wave that will fluctuate <tt>1,000</tt> times per second (<tt>1,000 Hz</tt>).
 
 ```javascript
 const oscillator = context.createOscillator()
@@ -133,7 +133,7 @@ compressor.attack.value = 0
 compressor.release.value = 0.2
 ```
 
-Let’s connect our nodes together: oscillator to compressor, and compressor to the context destination.
+Let’s connect our nodes together: <tt>oscillator</tt> to <tt>compressor</tt>, and compressor to the context destination.
 
 ```javascript
 oscillator.connect(compressor)
@@ -193,7 +193,7 @@ Let’s take a closer look at why the values are different in different browsers
 \
 First, let’s reduce the duration of our audio snippet to <tt>1/2000th</tt> of a second, which corresponds to a single wave and examine the values that make up that wave.\
 \
-We need to change our context duration to <tt>23</tt> samples, which roughly corresponds to a <tt>1/2000th</tt> of a second. We’ll also skip the compressor for now and only examine the differences of the unmodified oscillator signal.
+We need to change our context duration to <tt>23</tt> samples, which roughly corresponds to a <tt>1/2000th</tt> of a second. We’ll also skip the compressor for now and only examine the differences of the unmodified <tt>oscillator</tt> signal.
 
 ```javascript
 const context = new AudioContext(1, 23, 44100)
@@ -222,8 +222,8 @@ Let’s take a look at this demo to visually see those differences.
 Historically, all major browser engines (Blink, WebKit, and Gecko) based their Web Audio API implementations on code that was originally developed by Google in <tt>2011</tt> and <tt>2012</tt> for the WebKit project.\
 \
 Examples of Google contributions to the Webkit project include:
-<a href="https://github.com/WebKit/WebKit/commit/d187ecab7b152962465c23be04ab7ed3ef70f382" target="_blank" rel="noopener"><span>creation of OfflineAudioContext</span></a>, 
-<a href="https://github.com/WebKit/WebKit/commit/fad97bfb064446f78c78338104fb3f22be666cbb" target="_blank" rel="noopener"><span>creation of OscillatorNode</span></a>, <a href="https://github.com/WebKit/WebKit/commit/6f2b47e87bc414001affb258048749130bc91083" target="_blank" rel="noopener"><span>creation of DynamicsCompressorNode</span></a>. \
+<a href="https://github.com/WebKit/WebKit/commit/d187ecab7b152962465c23be04ab7ed3ef70f382" target="_blank" rel="noopener"><span>creation of <tt>OfflineAudioContext</tt></span></a>, 
+<a href="https://github.com/WebKit/WebKit/commit/fad97bfb064446f78c78338104fb3f22be666cbb" target="_blank" rel="noopener"><span>creation of <tt>OscillatorNode</tt></span></a>, <a href="https://github.com/WebKit/WebKit/commit/6f2b47e87bc414001affb258048749130bc91083" target="_blank" rel="noopener"><span>creation of DynamicsCompressorNode</span></a>. \
 \
 Since then browser developers have made a lot of small changes. These changes, compounded by the large number of mathematical operations involved, lead to fingerprinting differences. Audio signal processing uses floating point arithmetic, which also contributes to discrepancies in calculations.\
 \
@@ -233,7 +233,7 @@ You can see how these things are implemented now in the three major browser engi
 * WebKit: <a href="https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/Modules/webaudio/PeriodicWave.cpp#L250" target="_blank" rel="noopener"><span>oscillator</span></a>, <a href="https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/platform/audio/DynamicsCompressorKernel.cpp#L188" target="_blank" rel="noopener"><span>dynamics compressor</span></a>
 * Gecko: <a href="https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/PeriodicWave.cpp#L286" target="_blank" rel="noopener"><span>oscillator</span></a>, <a href="https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/DynamicsCompressorKernel.cpp#L213" target="_blank" rel="noopener"><span>dynamics compressor</span></a>
 
-Additionally, browsers use different implementations for different CPU architectures and OSes to leverage features like <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener"><span>SIMD</span></a>. For example, Chrome uses <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/mac/fft_frame_mac.cc" target="_blank" rel="noopener"><span>a separate fast Fourier transform implementation</span></a> on macOS (producing a different oscillator signal) and <a href="https://github.com/chromium/chromium/tree/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/cpu" target="_blank" rel="noopener"><span>different vector operation implementations</span></a> on different CPU architectures (which are used in the DynamicsCompressor implementation). These platform-specific changes also contribute to differences in the final audio fingerprint.\
+Additionally, browsers use different implementations for different CPU architectures and OSes to leverage features like <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener"><span>SIMD</span></a>. For example, Chrome uses <a href="https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/mac/fft_frame_mac.cc" target="_blank" rel="noopener"><span>a separate fast Fourier transform implementation</span></a> on macOS (producing a different <tt>oscillator</tt> signal) and <a href="https://github.com/chromium/chromium/tree/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/cpu" target="_blank" rel="noopener"><span>different vector operation implementations</span></a> on different CPU architectures (which are used in the DynamicsCompressor implementation). These platform-specific changes also contribute to differences in the final audio fingerprint.\
 \
 Fingerprint results also depend on the Android version (it’s different in Android <tt>9</tt> and <tt>10</tt> on the same devices for example).\
 \
