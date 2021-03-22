@@ -78,11 +78,11 @@
   }
 
   ul {
-    list-style: '>  ' outside none;
     padding-left: 4rem;
 
     li {
       &::marker {
+        content: '>  ';
         font-size: 2.5rem;
         font-weight: v('semi');
         color: v('brand-fire');
