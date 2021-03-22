@@ -17,7 +17,7 @@ Did you know that you can identify web browsers without using cookies or asking 
 \
 This is known as “browser fingerprinting” and it works by reading browser attributes and combining them together into a single identifier. This identifier is stateless and works well in normal and incognito modes.
 
-![](/img/uploads/browser-fingerprinting-image.png)
+![](/img/uploads/audio-fp-browser-fingerprinting-image.png)
 
 When generating a browser identifier, we can read browser attributes directly or use attribute processing techniques first. One of the creative techniques that we’ll discuss today is audio fingerprinting.\
 \
@@ -31,7 +31,7 @@ Before we dive into the technical implementation, we need to understand a few id
 
 The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" target="_blank" rel="noopener"><tt>AudioContext</tt></a> by linking together audio nodes and building an audio graph. A single AudioContext can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.
 
-![](/img/uploads/audio-context-diagram.png)
+![](/img/uploads/audio-fp-audio-context-diagram.png)
 
 A source can be an <tt><audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the oscillator for our purposes and then connecting it to other nodes for additional processing.\
 \
@@ -60,7 +60,7 @@ const context = new AudioContext(1, 5000, 44100)
 An AudioBuffer represents an audio snippet, stored in memory. It’s designed to hold small snippets. The data is represented internally in Linear PCM with each sample represented by a <tt>32</tt>-bit float between <tt>-1.0</tt> and <tt>1.0.</tt>
 It can hold multiple channels, but for our purposes we’ll use only one channel.
 
-![](/img/uploads/diagram-of-32-bit-numbers.png)
+![](/img/uploads/audio-fp-diagram-of-32-bit-numbers.png)
 
 ## Oscillator
 
