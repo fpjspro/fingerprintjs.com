@@ -32,7 +32,7 @@ export default function CaseStudies({ pageContext }: CaseStudyProps) {
     {
       title: 'Account sharing prevention in Edtech',
       description:
-        'Read about how a SaaS educational technology company used FingerpringJS to significantly reduce unauthorized account sharing, increasing their annual recurring revenue by $2M+ ARR while keeping legitimate users happy.',
+        'Read about how a SaaS educational technology company used FingerpringJS to significantly reduce unauthorized account sharing, increasing their annual recurring revenue by $4M+ ARR while keeping legitimate users happy.',
       publishDate: 'January 26, 2021',
       path: `${BASE_URL}case-studies/edtech/`,
     },
