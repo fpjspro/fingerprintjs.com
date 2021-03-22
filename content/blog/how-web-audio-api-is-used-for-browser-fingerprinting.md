@@ -3,7 +3,7 @@ templateKey: long-form-content
 metadata:
   title: How the Web Audio API is used for browser fingerprinting
   url: https://fingerprintjs.com/blog/audio-fingerprinting
-  image: /img/uploads/fpjs_cover2.png
+  image: /img/uploads/audio-fp-hero.png
   description: Audio Fingerprinting is used to uniquely identify visitors without
     cookies. A deep dive into this highly stable browser fingerprinting
     technique.
@@ -15,9 +15,11 @@ tags:
 ---
 Did you know that you can identify web browsers without using cookies or asking for permissions?\
 \
-This is known as “browser fingerprinting” and it works by reading browser attributes and combining them together into a single identifier. This identifier is stateless and works well in normal and incognito modes.\
+This is known as “browser fingerprinting” and it works by reading browser attributes and combining them together into a single identifier. This identifier is stateless and works well in normal and incognito modes.
+
+![](/img/uploads/browser-fingerprinting-image.png)
+
 \
-***browser fingerprinting image***\
 \
 When generating a browser identifier, we can read browser attributes directly or use attribute processing techniques first. One of the creative techniques that we’ll discuss today is audio fingerprinting.\
 \
@@ -29,9 +31,11 @@ Before we dive into the technical implementation, we need to understand a few id
 
 # A brief overview of the Web Audio API
 
-The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" target="_blank" rel="noopener"><tt>AudioContext</tt></a> by linking together audio nodes and building an audio graph. A single AudioContext can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.\
+The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" target="_blank" rel="noopener"><tt>AudioContext</tt></a> by linking together audio nodes and building an audio graph. A single AudioContext can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.
+
+![](/img/uploads/audio-context-diagram.png)
+
 \
-***diagram showing source => node1 => node2 => output***\
 \
 A source can be an <tt><audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the oscillator for our purposes and then connecting it to other nodes for additional processing.\
 \
@@ -58,9 +62,9 @@ const context = new AudioContext(1, 5000, 44100)
 ## AudioBuffer
 
 An AudioBuffer represents an audio snippet, stored in memory. It’s designed to hold small snippets. The data is represented internally in Linear PCM with each sample represented by a <tt>32</tt>-bit float between <tt>-1.0</tt> and <tt>1.0.</tt>
-It can hold multiple channels, but for our purposes we’ll use only one channel.\
-\
-***diagram of 32bit numbers in the range between -1.0 to 1.0***
+It can hold multiple channels, but for our purposes we’ll use only one channel.
+
+![](/img/uploads/diagram-of-32-bit-numbers.png)
 
 ## Oscillator
 
