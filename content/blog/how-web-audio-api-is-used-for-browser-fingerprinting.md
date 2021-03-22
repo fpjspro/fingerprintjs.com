@@ -34,7 +34,7 @@ The Web Audio API is a powerful system for handling audio operations. It is desi
 
 ![Graphic of audio context](/img/uploads/audio-fp-audio-context-diagram.png)
 
-A source can be an <tt>\<audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the <tt>Oscillator</tt> for our purposes and then connecting it to other nodes for additional processing.\
+A source can be an <tt><audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the <tt>Oscillator</tt> for our purposes and then connecting it to other nodes for additional processing.\
 \
 Before we dive into the audio fingerprint implementation details, it’s helpful to review all of the building blocks of the API that we’ll be using.
 
@@ -261,11 +261,11 @@ When the page is activated, we attempt calling <tt>context.startRendering()</tt>
 With Brave, the situation is more nuanced. Brave is a privacy-focused browser based on Blink.
 It is known to slightly randomize the audio sample values, which it calls “farbling”.
 
-> Farbling is Brave’s term for slightly randomizing the output of semi-identifying browser features, in a way that’s difficult for websites to detect, but doesn’t break benign, user-serving websites. These “farbled” values are deterministically generated using a per-session, <a href="https://publicsuffix.org/" target="_blank" rel="noopener"><span>per-eTLD</span></a>+1 seed2 so that a site will get the exact same value each time it tries to fingerprint within the same session, but that different sites will get different values, and the same site will get different values on the next session. This technique has its roots in prior privacy research, including the <a href="https://dl.acm.org/doi/abs/10.1145/2736277.2741090" target="_blank" rel="noopener"><span>PriVaricator</span></a> (Nikiforakis et al, WWW 2015) and <a href="https://hal.inria.fr/hal-01527580/document" target="_blank" rel="noopener"><span>FPRandom</span></a> (Laperdrix et al, ESSoS 2017) projects.
+> Farbling is Brave’s term for slightly randomizing the output of semi-identifying browser features, in a way that’s difficult for websites to detect, but doesn’t break benign, user-serving websites. These “farbled” values are deterministically generated using a per-session, <a href="https://publicsuffix.org/" target="_blank" rel="noopener"><span>per-eTLD</span></a>+1 seed so that a site will get the exact same value each time it tries to fingerprint within the same session, but that different sites will get different values, and the same site will get different values on the next session. This technique has its roots in prior privacy research, including the <a href="https://dl.acm.org/doi/abs/10.1145/2736277.2741090" target="_blank" rel="noopener"><span>PriVaricator</span></a> (Nikiforakis et al, WWW 2015) and <a href="https://hal.inria.fr/hal-01527580/document" target="_blank" rel="noopener"><span>FPRandom</span></a> (Laperdrix et al, ESSoS 2017) projects.
 
 Brave offers three levels of farbling (users can choose the level they want in settings):
 
-* Disabled — no fudging is applied. The fingerprint is the same as in other Blink browsers such as Chrome.
+* Disabled — no farbling is applied. The fingerprint is the same as in other Blink browsers such as Chrome.
 * Standard — This is the default value. The audio signal values are multiplied by a fixed number, called the “fudge” factor, that is stable for a given domain within a user session. In practice it means that the audio wave sounds and looks the same, but has tiny variations that make it difficult to use in fingerprinting.
 * Strict — the sound wave is replaced with a pseudo-random sequence.
 
@@ -321,7 +321,7 @@ As you can see, the restored Brave fingerprints are closer to the original finge
 
 ### Web Audio API rendering
 
-Let’s take a look at what happens under the hood in Chrome during audio fingerprint generation. In the screenshot below, the horizontal axis is time, the rows are execution threads, and the bars are time slices when the browser is busy. You can learn more about the performance panel in this <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance" target="_blank" rel="noopener"><span>Chrome article</span></a>. The audio processing starts at <tt>809.6ms</tt> and completes at <tt>814.1ms</tt>:
+Let’s take a look at what happens under the hood in Chrome during audio fingerprint generation. In the screenshot below, the horizontal axis is time, the rows are execution threads, and the bars are time slices when the browser is busy. You can learn more about the performance panel in this <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance" target="_blank" rel="noopener"><span>Chrome article</span></a>. The audio processing starts at <tt>809.6 ms</tt> and completes at <tt>814.1 ms</tt>:
 
 ![](/img/uploads/performance.jpg)
 
