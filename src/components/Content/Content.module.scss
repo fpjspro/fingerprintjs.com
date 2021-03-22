@@ -81,9 +81,9 @@
     padding-left: 4rem;
     list-style-type: disc;
 
-    li {
+    li {      
       &::marker {
-        content: '>  ';
+        content: '>\00a0\00a0'; /* prevent collapsing whitespace in Firefox  */
         font-size: 2.5rem;
         font-weight: v('semi');
         color: v('brand-fire');
