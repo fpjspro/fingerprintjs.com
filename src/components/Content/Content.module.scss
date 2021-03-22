@@ -79,7 +79,7 @@
 
   ul {
     padding-left: 4rem;
-    list-style-type: disc;
+    list-style-type: disc; /* Safari doesn't support the marker content attribute and list-style-type: <String>  */
 
     li {
       white-space: pre-wrap; /* prevent collapsing whitespace in Firefox  */
