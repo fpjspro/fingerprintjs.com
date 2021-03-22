@@ -34,7 +34,7 @@ The Web Audio API is a powerful system for handling audio operations. It is desi
 
 ![Graphic of audio context](/img/uploads/audio-fp-audio-context-diagram.png)
 
-A source can be an <tt><audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the <tt>Oscillator</tt> for our purposes and then connecting it to other nodes for additional processing.\
+A source can be an <tt>< audio/ ></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the <tt>Oscillator</tt> for our purposes and then connecting it to other nodes for additional processing.\
 \
 Before we dive into the audio fingerprint implementation details, it’s helpful to review all of the building blocks of the API that we’ll be using.
 
@@ -45,7 +45,7 @@ It controls the creation of the nodes and execution of the audio processing. You
 \
 <tt>AudioContext</tt> has a destination property that represents the destination of all audio from that context. \
 \
-There also exist a special type of <tt>AudioContext</tt>: <tt>OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
+There also exists a special type of <tt>AudioContext</tt>: <tt>OfflineAudioContext</tt>. The main difference is that it does not render the audio to the device hardware. Instead, it generates the audio as fast as possible and saves it into an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer" target="_blank" rel="noopener"><tt>AudioBuffer</tt></a>. Thus, the destination of the OfflineAudioContext will be an in-memory data structure, while with a regular AudioContext, the destination will be an audio-rendering device.\
 \
 When creating an instance of <tt>OfflineAudioContext</tt>, we pass <tt>3</tt> arguments: the number of channels, the total number of samples and a sample rate in samples per second.
 
