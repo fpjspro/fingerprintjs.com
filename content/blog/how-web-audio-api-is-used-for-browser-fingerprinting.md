@@ -85,8 +85,8 @@ The Web Audio API provides a <tt>DynamicsCompressorNode</tt>, which lowers the v
 \
 <tt>Threshold</tt> - value in decibels above which the compressor will start taking effect.\
 <tt>Knee</tt> - value in decibels representing the range above the threshold where the curve smoothly transitions to the compressed portion.\
-<tt>Ratio</tt> - amount of input change, in dB, needed for a <tt>1</tt> dB change in the output.
-Reduction - float representing the amount of gain reduction currently applied by the compressor to the signal.\
+<tt>Ratio</tt> - amount of input change, in dB, needed for a <tt>1</tt> dB change in the output.\
+<tt>Reduction</tt> - float representing the amount of gain reduction currently applied by the compressor to the signal.\
 <tt>Attack</tt> - the amount of time, in seconds, required to reduce the gain by <tt>10</tt> dB. This value can be a decimal.\
 <tt>Release</tt> - the amount of time, in seconds, required to increase the gain by <tt>10</tt> dB.
 
