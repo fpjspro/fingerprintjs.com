@@ -34,7 +34,7 @@ The Web Audio API is a powerful system for handling audio operations. It is desi
 
 ![Graphic of audio context](/img/uploads/audio-fp-audio-context-diagram.png)
 
-A source can be an <tt><audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the oscillator for our purposes and then connecting it to other nodes for additional processing.\
+A source can be an <tt>\<audio/></tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the oscillator for our purposes and then connecting it to other nodes for additional processing.\
 \
 Before we dive into the audio fingerprint implementation details, it’s helpful to review all of the building blocks of the API that we’ll be using.
 
