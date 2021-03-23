@@ -14,14 +14,18 @@ export default function PriceCalculator() {
     label: numberFormatter.format(entry.value),
     value: entry.value,
   }))
-  selectOptions.push({ label: `${numberFormatter.format(10000000)}+`, value: Infinity })
+  selectOptions.push({ label: `${numberFormatter.format(500000)}+`, value: Infinity })
 
   const [selectedPreset, setSelectedPreset] = useState(selectOptions[0])
   const [customCount, setCustomCount] = useState<number | undefined>(undefined)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
   function isCustomPricing() {
-    return (!customCount && selectedPreset.value === Infinity) || (customCount && customCount >= 10000000)
+    return (!customCount && selectedPreset.value === Infinity) || (customCount && customCount >= 500000)
+  }
+
+  function isFree() {
+    return (!customCount && selectedPreset.value === 1000) || (customCount && customCount <= 1000)
   }
 
   function onPresetSelected(newPreset: ValuePreset): void {
@@ -73,13 +77,13 @@ export default function PriceCalculator() {
         <Column title={'On-Demand'}>
           <Price
             value={isCustomPricing() ? 'Custom' : getPrice(PaymentType.Monthly)}
-            description='Pay as you go, cancel any time'
+            description={isFree() ? 'Free up to 1,000 unique visitors' : 'Pay as you go, cancel any time'}
           />
         </Column>
         <Column title='Annual'>
           <Price
             value={isCustomPricing() ? 'Custom' : getPrice(PaymentType.Annually)}
-            description='Requires a 12 month prepay'
+            description={isFree() ? 'Free up to 1,000 unique visitors' : 'Requires a 12 month prepay'}
           />
         </Column>
         <Column title='Enterprise License'>
