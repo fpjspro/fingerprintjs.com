@@ -61,7 +61,7 @@ function CalculatorSection({ mainBackground }: { mainBackground: SectionProps['b
         <SectionHeader
           title='Calculator'
           subtitle='Pro Pricing'
-          description="If you don't know how many identifications you need, use monthly user sessions"
+          description="If you don't know how many unique visitors you need, use monthly active users"
         />
         <PriceCalculator />
       </Container>

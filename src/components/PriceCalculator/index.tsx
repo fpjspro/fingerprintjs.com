@@ -48,7 +48,7 @@ export default function PriceCalculator() {
   return (
     <>
       <div className={styles.wrapper}>
-        <Column title='How many identifications per month do you need?'>
+        <Column title='How many unique visitors per month do you have?'>
           <div className={styles.presetSelector}>
             <div className={styles.description}>
               <strong>Select from preset</strong>
