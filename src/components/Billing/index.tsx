@@ -22,7 +22,7 @@ export default function Billing() {
   const sliderTable = pricingTable.map(({ label, value }) => {
     return { label, value } as SliderValue
   })
-  sliderTable.push({ label: '10M+', value: Infinity })
+  sliderTable.push({ label: '500K+', value: Infinity })
 
   const defaultValue = 0
   const [sliderValue, setSliderValue] = useState(defaultValue)
@@ -66,7 +66,7 @@ export default function Billing() {
           </header>
           <div className={styles.content}>
             <div className={styles.idsPerMonth}>
-              <h3 className={styles.title}>How many identification API calls per month do you need?</h3>
+              <h3 className={styles.title}>How many unique visitors per month does your site have?</h3>
               <RangeSlider
                 values={sliderTable}
                 currentValue={sliderValue}
