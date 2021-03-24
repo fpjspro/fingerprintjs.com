@@ -82,7 +82,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
             type='submit'
             mobileIcon={<ChevronRightSvg className='gtm-get-started-btn' />}
           >
-            Create Free Account
+            Start Free Trial
           </Button>
         </div>
       )}
@@ -101,11 +101,11 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
       <ul className={styles.description}>
         <li>
           <CheckSvg className={styles.check} />
-          1K Visitors/Month Free
+          10 Day Trial
         </li>
         <li>
           <CheckSvg className={styles.check} />
-          No Credit Card Required
+          Money back guarantee
         </li>
         <li>
           <CheckSvg className={styles.check} />
