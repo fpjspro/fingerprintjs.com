@@ -1,4 +1,4 @@
-$ossColor: rgb(67, 72, 118);
+$ossColor: adjust-color(c('brand-water'), $lightness: +30%);
 
 .root {
   overflow: hidden;
