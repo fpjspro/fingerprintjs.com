@@ -20,11 +20,11 @@ export default function PriceCalculator() {
   const [customCount, setCustomCount] = useState<number | undefined>(undefined)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
-  function isCustomPricing() {
+  const isCustomPricing = () => {
     return (!customCount && selectedPreset.value === Infinity) || (customCount && customCount >= 500000)
   }
 
-  function isFree() {
+  const isFree = () => {
     return (
       (!customCount && selectedPreset.value === freeUniqueVisitors) ||
       (customCount && customCount <= freeUniqueVisitors)
