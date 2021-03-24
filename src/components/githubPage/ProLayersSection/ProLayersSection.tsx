@@ -31,15 +31,15 @@ export default function ProLayersSection() {
           </h2>
         </header>
         <h1 className={styles.proTitle}>FingerprintJS Pro</h1>
-        <div className={styles.wrapper}>
-          <div className={styles.imageWrapper}>
-            <div className={styles.aside}>
+        <article className={styles.wrapper}>
+          <section className={styles.imageWrapper}>
+            <aside className={styles.aside}>
               <div className={styles.server}>Runs on server</div>
               <div className={styles.browser}>Runs in browser</div>
-            </div>
+            </aside>
             <Img alt='FingerprintJS Pro layers' fluid={data.file.childImageSharp.fluid} />
-          </div>
-          <div className={styles.textWrapper}>
+          </section>
+          <section className={styles.textWrapper}>
             <Layer title='Server-side analysis and machine learning'>
               Holistic view of all attributes and layers below to generate the most stable and accurate visitorID
             </Layer>
@@ -50,8 +50,8 @@ export default function ProLayersSection() {
             <Layer title='Browser Fingerprinting Library' oss={true}>
               Generates browser fingerprints from exact matching browser attributes
             </Layer>
-          </div>
-        </div>
+          </section>
+        </article>
       </Container>
     </Section>
   )
