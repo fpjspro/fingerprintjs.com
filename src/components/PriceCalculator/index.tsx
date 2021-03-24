@@ -20,16 +20,9 @@ export default function PriceCalculator() {
   const [customCount, setCustomCount] = useState<number | undefined>(undefined)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
-  const isCustomPricing = () => {
-    return (!customCount && selectedPreset.value === Infinity) || (customCount && customCount >= 500000)
-  }
-
-  const isFree = () => {
-    return (
-      (!customCount && selectedPreset.value === freeUniqueVisitors) ||
-      (customCount && customCount <= freeUniqueVisitors)
-    )
-  }
+  const isCustomPricing = (!customCount && selectedPreset.value === Infinity) || (customCount && customCount >= 500000)
+  const isFree =
+    (!customCount && selectedPreset.value === freeUniqueVisitors) || (customCount && customCount <= freeUniqueVisitors)
 
   function onPresetSelected(newPreset: ValuePreset): void {
     setSelectedPreset(newPreset)
@@ -53,9 +46,9 @@ export default function PriceCalculator() {
   }
 
   function getPriceValue(paymentType: PaymentType) {
-    if (isFree()) {
+    if (isFree) {
       return '$0'
-    } else if (isCustomPricing()) {
+    } else if (isCustomPricing) {
       return 'Custom'
     } else {
       return getPrice(paymentType)
@@ -90,17 +83,17 @@ export default function PriceCalculator() {
         <Column title={'On-Demand'}>
           <Price
             value={getPriceValue(PaymentType.Monthly)}
-            description={isFree() ? 'Free up to 1,000 unique visitors' : 'Pay as you go, cancel any time'}
+            description={isFree ? 'Free up to 1,000 unique visitors' : 'Pay as you go, cancel any time'}
           />
         </Column>
         <Column title='Annual'>
           <Price
             value={getPriceValue(PaymentType.Annually)}
-            description={isFree() ? 'Free up to 1,000 unique visitors' : 'Requires a 12 month prepay'}
+            description={isFree ? 'Free up to 1,000 unique visitors' : 'Requires a 12 month prepay'}
           />
         </Column>
         <Column title='Enterprise License'>
-          {isCustomPricing() ? (
+          {isCustomPricing ? (
             <div className={styles.description}>Custom pricing for high traffic websites</div>
           ) : (
             <div className={styles.description}>Enterprise support license with SLA</div>
