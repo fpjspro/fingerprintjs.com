@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import Button from '../common/Button'
 
-import styles from './ActionableCard.module.scss'
+import styles from './ActionableCards.module.scss'
 
 export interface Card {
   title: string
@@ -13,13 +13,13 @@ export interface Card {
   variant?: 'primary' | 'outline' | 'clear' | 'faded'
 }
 
-export interface ActionableCardProps {
+export interface ActionableCardsProps {
   cards: Card[]
   perRow?: 2 | 3 | 4
   className?: string
 }
 
-export default function ActionableCard({ cards, className, perRow = 2 }: ActionableCardProps) {
+export default function ActionableCards({ cards, className, perRow = 2 }: ActionableCardsProps) {
   return (
     <section className={classNames(styles.grid, className)}>
       {cards.map((card) => (

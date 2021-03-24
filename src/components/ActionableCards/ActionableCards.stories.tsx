@@ -1,21 +1,21 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import Container from '../common/Container'
-import ActionableCard, { ActionableCardProps } from './ActionableCard'
+import ActionableCards, { ActionableCardsProps } from './ActionableCards'
 
 export default {
-  title: 'Components / ActionableCard',
-  component: ActionableCard,
+  title: 'Components / ActionableCards',
+  component: ActionableCards,
 }
 
-const Template: Story<ActionableCardProps> = (args) => (
+const Template: Story<ActionableCardsProps> = (args) => (
   <Container size='large'>
-    <ActionableCard {...args} />
+    <ActionableCards {...args} />
   </Container>
 )
 
-export const ActionableCards = Template.bind({})
-ActionableCards.args = {
+export const ActionableCardss = Template.bind({})
+ActionableCardss.args = {
   cards: [
     {
       title: 'Sed facilisis.',
