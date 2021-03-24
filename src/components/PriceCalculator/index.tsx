@@ -83,7 +83,7 @@ export default function PriceCalculator() {
               onChange={(e) => onCustomCountChanged(e.target.value)}
               type='number'
               name='identification-user-input'
-              placeholder='ex. 630,000'
+              placeholder='ex. 8,000'
             />
           </div>
         </Column>
