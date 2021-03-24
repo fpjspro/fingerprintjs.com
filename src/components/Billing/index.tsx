@@ -42,14 +42,12 @@ export default function Billing() {
 
   const recalculatePricing = (value: number, paymentType: PaymentType) => {
     switch (value) {
-      case Infinity: {
+      case Infinity:
         setMonthlyPaymentLabel('Custom pricing')
         break
-      }
-      case freeUniqueVisitors: {
+      case freeUniqueVisitors:
         setMonthlyPaymentLabel('0$')
         break
-      }
       default: {
         const newPrice = handlePriceChange(value, paymentType)
         setMonthlyPaymentLabel(newPrice)
