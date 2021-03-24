@@ -81,12 +81,6 @@ $ossColor: adjust-color(c('brand-water'), $lightness: +30%);
 
   padding: 2rem 0;
 
-  .image {
-    @include media('<=tablet') {
-      align-self: stretch;
-    }
-  }
-
   @include media('>=tablet') {
     grid-template-columns: 1fr 5fr;
     grid-gap: 8px;
