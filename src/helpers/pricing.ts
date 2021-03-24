@@ -1,6 +1,6 @@
 import { PaymentType } from './../types/PaymentType'
 
-export const minimumIdentifications = 100000
+export const minimumIdentifications = 5000
 
 export const pricingTable = [
   { label: '1K', value: 1000 },
@@ -27,10 +27,10 @@ export function calculatePrice(price: number, type: PaymentType): string {
   }
 
   if (type === PaymentType.Monthly) {
-    return new Intl.NumberFormat('en-US', currencyFormatOptions).format(price / 1000)
+    return new Intl.NumberFormat('en-US', currencyFormatOptions).format(price / 50)
   }
   if (type === PaymentType.Annually) {
-    return new Intl.NumberFormat('en-US', currencyFormatOptions).format((price / 1000) * 0.8)
+    return new Intl.NumberFormat('en-US', currencyFormatOptions).format((price / 50) * 0.8)
   } else {
     throw new Error('Payment type is required')
   }

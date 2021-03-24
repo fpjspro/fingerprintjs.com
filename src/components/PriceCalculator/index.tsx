@@ -49,6 +49,16 @@ export default function PriceCalculator() {
       : calculatePrice(customCount >= minimumIdentifications ? customCount : minimumIdentifications, paymentType)
   }
 
+  function getPriceValue(paymentType: PaymentType) {
+    if (isFree()) {
+      return '$0'
+    } else if (isCustomPricing()) {
+      return 'Custom'
+    } else {
+      return getPrice(paymentType)
+    }
+  }
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -76,13 +86,13 @@ export default function PriceCalculator() {
         </Column>
         <Column title={'On-Demand'}>
           <Price
-            value={isCustomPricing() ? 'Custom' : getPrice(PaymentType.Monthly)}
+            value={getPriceValue(PaymentType.Monthly)}
             description={isFree() ? 'Free up to 1,000 unique visitors' : 'Pay as you go, cancel any time'}
           />
         </Column>
         <Column title='Annual'>
           <Price
-            value={isCustomPricing() ? 'Custom' : getPrice(PaymentType.Annually)}
+            value={getPriceValue(PaymentType.Annually)}
             description={isFree() ? 'Free up to 1,000 unique visitors' : 'Requires a 12 month prepay'}
           />
         </Column>
