@@ -1,6 +1,7 @@
 import { PaymentType } from './../types/PaymentType'
 
 export const minimumIdentifications = 5000
+export const freeUniqueVisitors = 1000
 
 export const pricingTable = [
   { label: '1K', value: 1000 },

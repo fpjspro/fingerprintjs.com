@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Select from '../common/Select'
 import classNames from 'classnames'
-import { minimumIdentifications, pricingTable, calculatePrice } from '../../helpers/pricing'
+import { minimumIdentifications, freeUniqueVisitors, pricingTable, calculatePrice } from '../../helpers/pricing'
 import { PaymentType } from '../../types/PaymentType'
 import Button from '../../components/common/Button'
 import Modal from '../../components/common/Modal'
@@ -25,7 +25,10 @@ export default function PriceCalculator() {
   }
 
   function isFree() {
-    return (!customCount && selectedPreset.value === 1000) || (customCount && customCount <= 1000)
+    return (
+      (!customCount && selectedPreset.value === freeUniqueVisitors) ||
+      (customCount && customCount <= freeUniqueVisitors)
+    )
   }
 
   function onPresetSelected(newPreset: ValuePreset): void {

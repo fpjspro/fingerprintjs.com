@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import classNames from 'classnames'
 import { PaymentType } from '../../types/PaymentType'
-import { handlePriceChange, pricingTable } from '../../helpers/pricing'
+import { freeUniqueVisitors, handlePriceChange, pricingTable } from '../../helpers/pricing'
 import Container from '../common/Container'
 import Section from '../common/Section'
 import RangeSlider, { SliderValue } from '../common/RangeSlider'
@@ -41,13 +41,21 @@ export default function Billing() {
   }
 
   const recalculatePricing = (value: number, paymentType: PaymentType) => {
-    if (value === Infinity) {
-      setMonthlyPaymentLabel('Custom pricing')
-      return
+    switch (value) {
+      case Infinity: {
+        setMonthlyPaymentLabel('Custom pricing')
+        break
+      }
+      case freeUniqueVisitors: {
+        setMonthlyPaymentLabel('0$')
+        break
+      }
+      default: {
+        const newPrice = handlePriceChange(value, paymentType)
+        setMonthlyPaymentLabel(newPrice)
+        break
+      }
     }
-
-    const newPrice = handlePriceChange(value, paymentType)
-    setMonthlyPaymentLabel(newPrice)
   }
 
   useEffect(() => {
