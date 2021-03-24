@@ -13,6 +13,7 @@ module.exports = {
         'http://localhost/pricing/index.html',
         'http://localhost/case-studies/edtech/index.html',
         'http://localhost/ecommerce/index.html',
+        'http://localhost/github/index.html',
       ],
     },
     upload: {
