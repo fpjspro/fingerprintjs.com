@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import classNames from 'classnames'
 import { PaymentType } from '../../types/PaymentType'
-import { handlePriceChange, pricingTable } from '../../helpers/pricing'
+import { freeUniqueVisitors, handlePriceChange, pricingTable } from '../../helpers/pricing'
 import Container from '../common/Container'
 import Section from '../common/Section'
 import RangeSlider, { SliderValue } from '../common/RangeSlider'
@@ -22,7 +22,7 @@ export default function Billing() {
   const sliderTable = pricingTable.map(({ label, value }) => {
     return { label, value } as SliderValue
   })
-  sliderTable.push({ label: '10M+', value: Infinity })
+  sliderTable.push({ label: '500K+', value: Infinity })
 
   const defaultValue = 0
   const [sliderValue, setSliderValue] = useState(defaultValue)
@@ -41,13 +41,19 @@ export default function Billing() {
   }
 
   const recalculatePricing = (value: number, paymentType: PaymentType) => {
-    if (value === Infinity) {
-      setMonthlyPaymentLabel('Custom pricing')
-      return
+    switch (value) {
+      case Infinity:
+        setMonthlyPaymentLabel('Custom pricing')
+        break
+      case freeUniqueVisitors:
+        setMonthlyPaymentLabel('0$')
+        break
+      default: {
+        const newPrice = handlePriceChange(value, paymentType)
+        setMonthlyPaymentLabel(newPrice)
+        break
+      }
     }
-
-    const newPrice = handlePriceChange(value, paymentType)
-    setMonthlyPaymentLabel(newPrice)
   }
 
   useEffect(() => {
@@ -66,7 +72,7 @@ export default function Billing() {
           </header>
           <div className={styles.content}>
             <div className={styles.idsPerMonth}>
-              <h3 className={styles.title}>How many identification API calls per month do you need?</h3>
+              <h3 className={styles.title}>How many unique visitors per month does your site have?</h3>
               <RangeSlider
                 values={sliderTable}
                 currentValue={sliderValue}
