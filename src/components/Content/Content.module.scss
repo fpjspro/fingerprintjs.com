@@ -83,7 +83,7 @@
 
     li {
       &::marker {
-        content: '>\00a0\00a0'; /* added non-breaking spaces to prevent collapsing whitespace in Firefox due to this bug https://bugzil.la/1696712  */
+        content: '>\00a0\00a0'; /* added non-breaking spaces to prevent collapsing whitespace in Firefox due to https://bugzil.la/1696712  */
         font-size: 2.5rem;
         font-weight: v('semi');
         color: v('brand-fire');
