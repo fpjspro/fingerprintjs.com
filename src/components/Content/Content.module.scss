@@ -92,15 +92,12 @@
   }
 
   ol {
-    counter-reset: number;
-    @include gap(2rem);
+    list-style-type: decimal;
 
     li {
-      counter-increment: number;
-      display: flex;
+      margin-left: 3rem;
 
-      &:before {
-        content: counter(number) '.';
+      &::marker {
         font-weight: v('semi');
         color: v('brand-fire');
         margin-right: 1rem;

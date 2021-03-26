@@ -129,11 +129,11 @@ Cookies store a unique identifier hash within the browser every time a user firs
 
 The problem with relying solely on cookies is that they can be cleared in browser settings. Ad Blockers can also disable them by default, and even the user can refuse to be cookies as part of the CCPA and [**General Data Protection Regulation (GDPR)**](https://gdpr-info.eu/). 
 
-1.  **Device Identification**
+2.  **Device Identification**
 
 Device identification refers to methods that identify a specific computer or mobile device model that the visitor uses. This technique could have been helpful since it narrows down the account usage or access to a few devices. However, it is still pretty inaccurate as there isn't a foolproof system of tying browsing sessions between browsers or web and native applications.
 
-1.  **IP Address**
+3.  **IP Address**
 
 IP addresses can be used to identify a visitor, but there are some instances where it will not be accurate. For example, university campuses will often have a small handful of IP addresses, making distinctions between students impossible.
 
