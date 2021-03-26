@@ -2,7 +2,7 @@ import React from 'react'
 import { LayoutTemplate } from '../../components/Layout'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
-
+import ProLayersSection from '../../components/githubPage/ProLayersSection/ProLayersSection'
 import GetStartedSection from '../../components/githubPage/GetStartedSection/GetStartedSection'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { useLocation } from '@reach/router'
@@ -25,6 +25,7 @@ export default function GitHubPage({ pageContext }: GitHubProps) {
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
 
       <GetStartedSection />
+      <ProLayersSection />
     </LayoutTemplate>
   )
 }
