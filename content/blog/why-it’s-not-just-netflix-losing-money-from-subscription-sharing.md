@@ -144,7 +144,7 @@ IP addresses can be used to identify a visitor, but there are some instances whe
 
 The first step in limiting the effects of shared passwords and subscription sharing is to create an accurate visitor identification system. By doing so, you can be sure that the one using the service is, in fact, the person who subscribed to it.
 
-[FingerprintJS Pro](https://fingerprintjs.com/) is the most accurate user identification service on the market. It has a 99.5% visitor identification accuracy that relies on a combination of browser fingerprinting, IP address, cookies, and other server-side identification techniques to identify users correctly. Generated VisitorIDs are accurate even for visitors using incognito browsing, Virtual Private Networks (VPNs), and other spoofing techniques.
+[FingerprintJS Pro](https://fingerprintjs.com/) is the most accurate user identification service on the market. It has a 99.5% visitor identification accuracy that relies on a combination of browser fingerprinting, IP address, cookies, and other server-side identification techniques to identify users correctly. Generated VisitorIDs are accurate even for visitors using incognito browsing, Virtual Private Networks (VPNs), and other spoofing techniques. 
 
 
 Whatever your identification solution may be, we hope the techniques outlined in this article can help your business prevent subscription sharing.
