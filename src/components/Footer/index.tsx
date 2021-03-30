@@ -56,6 +56,10 @@ const footerLinks: FooterLinkSection[] = [
         title: 'Login',
         url: `${URL.dashboardLoginUrl}`,
       },
+      {
+        title: 'System Status',
+        url: `${URL.statusUrl}`,
+      },
     ],
   },
   {
