@@ -93,11 +93,17 @@
 }
 
 .wrapper {
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  height: 200px;
 
-  height: 0;
-  padding-bottom: 9 / 16 * 100%;
+  @include media('<=desktop') {
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    height: 0;
+    padding-bottom: 9 / 16 * 100%;
+  }
 }
 
 .image {
@@ -107,7 +113,10 @@
   left: 0;
 
   width: 100%;
-  height: auto;
+  
+  @include media('<=desktop') {
+    height: auto;
+  }
 }
 
 .content {
