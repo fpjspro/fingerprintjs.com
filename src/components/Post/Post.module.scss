@@ -94,10 +94,11 @@
 
 .wrapper {
   display: flex;
+  flex: 0 0 auto;
   height: 200px;
 
   @include media('>phoneLandscape', '<=desktop') {
-    height: 360px;
+    //height: 360px;
   }
 }
 
