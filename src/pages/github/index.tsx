@@ -26,9 +26,9 @@ export default function GitHubPage({ pageContext }: GitHubProps) {
     <LayoutTemplate siteMetadata={siteMetadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
 
-      <WhyGoProSection />
       <GetStartedSection />
       <ProLayersSection />
+      <WhyGoProSection />
     </LayoutTemplate>
   )
 }
