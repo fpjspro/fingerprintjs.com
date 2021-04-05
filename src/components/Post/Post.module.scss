@@ -98,7 +98,7 @@
   height: 200px;
 
   @include media('>phoneLandscape', '<=desktop') {
-    //height: 360px;
+    height: 360px;
   }
 }
 
