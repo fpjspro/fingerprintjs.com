@@ -3,9 +3,9 @@ import { LayoutTemplate } from '../../components/Layout'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
 
-import WhyGoProSection from '../../components/githubPage/WhyGoProSection/WhyGoProSection'
-import ProLayersSection from '../../components/githubPage/ProLayersSection/ProLayersSection'
 import GetStartedSection from '../../components/githubPage/GetStartedSection/GetStartedSection'
+import ProLayersSection from '../../components/githubPage/ProLayersSection/ProLayersSection'
+import WhyGoProSection from '../../components/githubPage/WhyGoProSection/WhyGoProSection'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { useLocation } from '@reach/router'
 

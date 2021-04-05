@@ -2,7 +2,10 @@ import React from 'react'
 import Section from '../../common/Section'
 import Container from '../../common/Container'
 
-import { ReactComponent as ToolsSvg } from './tools.svg'
+import { ReactComponent as accuracySvg } from './arrow_on_target.svg'
+import { ReactComponent as identifierSvg } from './id.svg'
+import { ReactComponent as secureSvg } from './padlock.svg'
+import { ReactComponent as futureProofedSvg } from './time_travel.svg'
 
 import styles from './WhyGoProSection.module.scss'
 
@@ -14,16 +17,16 @@ export default function WhyGoProSection() {
           <h1 className={styles.title}>Why Go Pro?</h1>
         </header>
         <div className={styles.benefitsSection}>
-          <ProBenefit icon={ToolsSvg} title='99.5% accuracy'>
+          <ProBenefit icon={accuracySvg} title='99.5% accuracy'>
             Highest identification accuracy using fingerprinting, fuzzy matching and server-side techniques.
           </ProBenefit>
-          <ProBenefit icon={ToolsSvg} title='Secure data processing'>
+          <ProBenefit icon={secureSvg} title='Secure data processing'>
             Pro processes all information server-side and transmits it securely to your servers using our API.
           </ProBenefit>
-          <ProBenefit icon={ToolsSvg} title='Highly stable identifier'>
+          <ProBenefit icon={identifierSvg} title='Highly stable identifier'>
             Pro&apos;s VisitorID remains the same permanently, even as browsers are upgraded.
           </ProBenefit>
-          <ProBenefit icon={ToolsSvg} title='Future-proofed'>
+          <ProBenefit icon={futureProofedSvg} title='Future-proofed'>
             Hosted and maintained by our team - ensure identification accuracy without in-house expertise.
           </ProBenefit>
         </div>
