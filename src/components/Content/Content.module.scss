@@ -4,9 +4,33 @@
   p,
   ul,
   ol,
-  img,
-  blockquote {
+  blockquote,
+  table,
+  iframe,
+  deckgo-highlight-code {
     margin-bottom: 6rem;
+  }
+
+  deckgo-highlight-code {
+    --deckgo-highlight-code-carbon-toolbar-display: none;
+    --deckgo-highlight-code-carbon-header-padding: 8px;
+
+    font-weight: 500;
+    --deckgo-highlight-code-color: #abb2bf;
+    --deckgo-highlight-code-background: #282c34;
+    --deckgo-highlight-code-token-punctuation: #abb2bf;
+    --deckgo-highlight-code-token-atrule: #c678dd;
+    --deckgo-highlight-code-token-operator: #56b6c2;
+    --deckgo-highlight-code-token-regex: #f1fa8c;
+    --deckgo-highlight-code-token-selector: #98c379;
+    --deckgo-highlight-code-token-function: #61afef;
+    --deckgo-highlight-code-font-family: var(--ff-mono);
+    --deckgo-highlight-code-font-size: 2rem;
+    --deckgo-highlight-code-line-numbers: #4f5665;
+
+    @include media('<=phone') {
+      --deckgo-highlight-code-font-size: 1.5rem;
+    }
   }
 
   @for $index from 1 through 6 {
@@ -54,11 +78,12 @@
   }
 
   ul {
-    list-style: '>  ' outside none;
     padding-left: 4rem;
+    list-style-type: disc; /* Safari doesn't support the marker content attribute and list-style-type: <String>  */
 
     li {
       &::marker {
+        content: '>\00a0\00a0'; /* added non-breaking spaces to prevent collapsing whitespace in Firefox due to https://bugzil.la/1696712  */
         font-size: 2.5rem;
         font-weight: v('semi');
         color: v('brand-fire');
@@ -67,15 +92,12 @@
   }
 
   ol {
-    counter-reset: number;
-    @include gap(2rem);
+    list-style-type: decimal;
 
     li {
-      counter-increment: number;
-      display: flex;
+      margin-left: 3rem;
 
-      &:before {
-        content: counter(number) '.';
+      &::marker {
         font-weight: v('semi');
         color: v('brand-fire');
         margin-right: 1rem;
@@ -96,5 +118,34 @@
       @include blockQuoteText;
       margin-bottom: 0;
     }
+  }
+
+  table {
+    width: 100%;
+
+    @include media('<=phone') {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+
+  table,
+  th,
+  td {
+    border: 2px solid rgb(238, 238, 238);
+    background-color: var(--white);
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 1rem;
+    color: rgb(70, 70, 70);
+  }
+
+  th {
+    font-weight: v(normal);
+    background: rgb(250, 250, 250);
   }
 }

@@ -90,6 +90,13 @@ module.exports = {
               destinationDir: 'static',
             },
           },
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: 'carbon',
+              lineNumbers: false,
+            },
+          },
         ],
       },
     },

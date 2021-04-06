@@ -9,12 +9,12 @@ metadata:
   image: /img/uploads/4.png
 featured: false
 publishDate: 2020-12-08T16:18
-title: 'Life after ANDROID_ID: Android Identification via Device Fingerprinting'
+title: "Life after ANDROID_ID: Android Identification via Device Fingerprinting"
 tags:
   - java
   - fingerprinting
 ---
-![Device Fingerprinting For Android](/img/uploads/4.png 'Fingerprint Android')
+![Device Fingerprinting For Android](/img/uploads/4.png)
 
 **Last week, our team launched Fingerprint Android, an open-source library for accurately identifying Android devices using all available signals.**
 
@@ -68,7 +68,7 @@ Android provides a few IDs for advertisement or fraud prevention cases.
 
 ## Device Fingerprinting
 
-Fingerprinting techniques have already become an essential tool for identifying devices. Our open source browser fingerprinting library has over 12K stars on Github and is used by 8,000+ websites. Fingerprinting techniques on their own have been found to be over 90% accurate in correctly identifying a unique user in the browser, and when combined with usage history, fuzzy matching, and probability engines, this accuracy can be further improved.
+Fingerprinting techniques have already become an essential tool for identifying devices. Our open source [browser fingerprinting library](https://github.com/fingerprintjs/fingerprintjs) has over 12K stars on Github and is used by 8,000+ websites. Fingerprinting techniques on their own have been found to be over 90% accurate in correctly identifying a unique user in the browser, and when combined with usage history, fuzzy matching, and probability engines, this accuracy can be further improved.
 
 One of the main advantages of device fingerprinting is that it is stateless. A well-implemented fingerprint can remain stable through multiple sessions, incognito browsing, uninstalling or reinstalling apps, or clearing cookies.
 

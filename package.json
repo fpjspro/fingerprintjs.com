@@ -18,9 +18,10 @@
     "privacy"
   ],
   "browserslist": [
-    "> 1%",
+    "cover 95%",
     "last 2 versions",
-    "IE 11"
+    "not dead",
+    "not IE 11"
   ],
   "bundlewatch": {
     "files": [
@@ -31,7 +32,8 @@
     ]
   },
   "dependencies": {
-    "@fingerprintjs/fingerprintjs-pro": "^3.3.0-dev.3",
+    "@deckdeckgo/highlight-code": "^2.5.1",
+    "@fingerprintjs/fingerprintjs-pro": "^3.3.0-dev.6",
     "@loadable/component": "^5.14.1",
     "@tippyjs/react": "^4.2.0",
     "classnames": "^2.2.6",
@@ -52,10 +54,11 @@
     "gatsby-plugin-typegen": "^2.2.1",
     "gatsby-plugin-typescript": "^2.5.0",
     "gatsby-remark-copy-linked-files": "^2.2.4",
+    "gatsby-remark-highlight-code": "^2.2.0",
     "gatsby-remark-images": "^3.4.2",
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-source-filesystem": "^2.2.5",
-    "gatsby-transformer-remark": "^2.9.2",
+    "gatsby-transformer-remark": "^2.16.1",
     "gatsby-transformer-sharp": "^2.5.21",
     "include-media": "^1.4.9",
     "netlify-cms-app": "^2.9.6",

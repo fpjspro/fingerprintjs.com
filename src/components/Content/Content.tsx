@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader'
+deckDeckGoHighlightElement()
 
 import styles from './Content.module.scss'
 

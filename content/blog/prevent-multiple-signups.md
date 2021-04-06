@@ -5,7 +5,7 @@ metadata:
   description: Protect your free trial offer forms from signup abuse. In this
     step-by-step tutorial, catch visitors who have filled out a form previously
     using FingerprintJS Pro.
-  url: https://fingerprintjs.com/blog/multiple-signups-tutorial
+  url: https://fingerprintjs.com/blog/prevent-multiple-signups-tutorial
   image: /img/uploads/signup-abuse-tutorial.png
 featured: false
 publishDate: 2021-03-16T18:09:51.690Z
@@ -51,13 +51,16 @@ You can either download the snippet from the CDN or install the NPM package. Thi
 
 Open the template for your signup page – which is  [views/signup.hbs](https://github.com/fingerprintjs/multiple-signup-demo/compare/initial-project-setup...fpjs-integration#diff-57854b4693d7efc8a7cc138e3429fdb5d5ccd5a8fe927a9c3633ac455f9d7b6f) for this tutorial – and paste the JavaScript snippet to the bottom of the file:
 
-```
+```javascript
 <script>
-  function initFingerprintJS() {
-    FingerprintJS.load({ token: 'your-browser-token', region: 'eu' })
-      .then(fp => fp.get())
-      .then(result => console.log(result.visitorId));
-  }
+function initFingerprintJS() {
+  FingerprintJS.load({
+    token: "your-browser-token",
+    region: "eu",
+  })
+    .then((fp) => fp.get())
+    .then((result) => console.log(result.visitorId));
+}
 </script>
 <script
   async
@@ -82,21 +85,25 @@ Open the `signup.hbs` again, go to line 43 and add a line with a hidden form fie
 
 It should look something like this:
 
-```
+```html
 <input hidden type="text" id="visitorId" name="visitorId" value="">
 ```
 
 Then you want to set the visitorID as the value of this field, so go to line 65 of the same file and add this logic to the script:
 
-```
+```javascript
 <script>
-  function initFingerprintJS() {
-    FingerprintJS.load({ token: 'your-browser-token', region: 'eu' })
-      .then(fp => fp.get())
-      .then(result => {
-        document.getElementById('visitorId').value = result.visitorId
-      });
-  }
+function initFingerprintJS() {
+  FingerprintJS.load({
+    token: "your-browser-token",
+    region: "eu",
+  })
+    .then((fp) => fp.get())
+    .then((result) => {
+      document.getElementById("visitorId").value =
+        result.visitorId;
+    });
+}
 </script>
 ```
 
@@ -106,7 +113,7 @@ And we’re done! That’s it for the frontend.
 
 Now you’ll want to process the visitorID on your server. Open [`index.js`](https://github.com/fingerprintjs/multiple-signup-demo/compare/initial-project-setup...fpjs-integration#diff-e727e4bdf3657fd1d798edcd6b099d6e092f8573cba266154583a746bba0f346) on line 41 and add `visitorId` (or whatever you called the name attribute of that hidden form field) to the destructuring of the request body:
 
-```
+```javascript
 const {email, visitorId} = req.body
 ```
 
@@ -116,7 +123,7 @@ You can call the migration whatever you want, but to be consistent with the init
 
 The database has a table called users, so the migration for adding a column should look like this:
 
-```
+```sql
 alter table users add column visitor_id text null;
 ```
 
@@ -124,20 +131,28 @@ Don’t forget to run the migration after you’ve created it.
 
 Now you can store the visitorID in the database, so you’ll need to add some logic so you can save it. Go back to the insert statement at line 48 in index.js and modify it so that it reads: 
 
-```
+```javascript
 const result = await client.query(
-'insert into users(email, visitor_id)
-values($1, $2) returning *', [email, visitorId])
+  "insert into users(email, visitor_id)values($1, $2) returning *",
+  [email, visitorId]
+);
 ```
 
 Finally, you need to check if the visitorID is already in the system, and if so, throw an error. So add this check above the insert statement:
 
-```
-const hasVisitorId = (await client.query(
-'select * from users where visitor_id = $1', [visitorId])).rows.length > 0
+```javascript
+const hasVisitorId =
+  (
+    await client.query(
+      "select * from users where visitor_id = $1",
+      [visitorId]
+    )
+  ).rows.length > 0;
 
 if (hasVisitorId) {
-  throw new Error('Looks like you already have an account, please sign in')
+  throw new Error(
+    "Looks like you already have an account, please sign in"
+  );
 }
 ```
 
