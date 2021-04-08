@@ -6,6 +6,7 @@ import { GeneratedPageContext } from '../../helpers/types'
 import GetStartedSection from '../../components/githubPage/GetStartedSection/GetStartedSection'
 import ProLayersSection from '../../components/githubPage/ProLayersSection/ProLayersSection'
 import WhyGoProSection from '../../components/githubPage/WhyGoProSection/WhyGoProSection'
+import FeatureComparisonSection from '../../components/githubPage/featureComparisonSection/featureComparisonSection'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { useLocation } from '@reach/router'
 
@@ -29,6 +30,7 @@ export default function GitHubPage({ pageContext }: GitHubProps) {
       <GetStartedSection />
       <ProLayersSection />
       <WhyGoProSection />
+      <FeatureComparisonSection />
     </LayoutTemplate>
   )
 }

@@ -1,0 +1,86 @@
+.root {
+  overflow: hidden;
+
+  padding: 5rem 0 4rem;
+
+  @include media('<=phoneLandscape') {
+    padding-bottom: 3rem;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.title {
+  font-size: 3.5rem;
+
+  margin-bottom: 5rem;
+
+  @include media('<=phoneLandscape') {
+    font-size: 3rem;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  .optionColumns {
+    border-bottom: none;
+  }
+
+  td {
+    padding: 1rem 0;
+  }
+
+  tr {
+    border-bottom: 1px solid gray;
+  }
+
+  th:nth-child(1) {
+    width: 50%;
+  }
+  th:nth-child(2),
+  th:nth-child(3) {
+    width: 25%;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    background-color: var(--off-white);
+  }
+
+  .proRow {
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+  }
+
+  .featureTitleColumn {
+    font-weight: bolder;
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-style: italic;
+  }
+
+  .description,
+  .featureColumn,
+  .versionColumn {
+    font-size: 1.75rem;
+  }
+
+  .optionColumns,
+  .versionColumn {
+    text-align: center;
+  }
+
+  .versionColumnStrong {
+    font-weight: bolder;
+    font-size: 2.5rem;
+  }
+}
