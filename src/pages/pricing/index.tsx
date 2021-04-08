@@ -94,7 +94,7 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
           </ul>
           <div className={styles.priceTable}>
             <div className={classNames(styles.row, styles.header)}>
-              <div className={styles.column}>Monthly API Call</div>
+              <div className={styles.column}>Monthly Unique Visitors</div>
               <div className={styles.column}>Price</div>
             </div>
             <div className={styles.row}>
@@ -102,7 +102,7 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
               <div className={styles.column}>$0/month</div>
             </div>
             <div className={styles.row}>
-              <div className={styles.column}>1 - 5K</div>
+              <div className={styles.column}>1K - 5K</div>
               <div className={styles.column}>Flat fee of $100/month</div>
             </div>
             <div className={styles.row}>
