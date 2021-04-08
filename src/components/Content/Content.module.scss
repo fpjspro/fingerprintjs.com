@@ -82,10 +82,8 @@
     list-style-type: disc; /* Safari doesn't support the marker content attribute and list-style-type: <String>  */
 
     li {
-      white-space: pre-wrap; /* prevent collapsing whitespace in Firefox  */
-
       &::marker {
-        content: '>  ';
+        content: '>\00a0\00a0'; /* added non-breaking spaces to prevent collapsing whitespace in Firefox due to https://bugzil.la/1696712  */
         font-size: 2.5rem;
         font-weight: v('semi');
         color: v('brand-fire');
@@ -94,15 +92,12 @@
   }
 
   ol {
-    counter-reset: number;
-    @include gap(2rem);
+    list-style-type: decimal;
 
     li {
-      counter-increment: number;
-      display: flex;
+      margin-left: 3rem;
 
-      &:before {
-        content: counter(number) '.';
+      &::marker {
         font-weight: v('semi');
         color: v('brand-fire');
         margin-right: 1rem;

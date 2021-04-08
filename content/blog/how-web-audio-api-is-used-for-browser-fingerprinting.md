@@ -206,7 +206,7 @@ Here is how a single triangular oscillation looks in both Chrome and Firefox now
 However the underlying values are different between the two browsers (I’m showing only the first <tt>3</tt> values for simplicity):
 
 | <tt>**Chrome:**</tt>         | <tt>**Firefox:**</tt>        |
-|------------------------------|------------------------------|
+| ---------------------------- | ---------------------------- |
 | <tt>0.08988945186138153</tt> | <tt>0.09155717492103577</tt> |
 | <tt>0.18264609575271606</tt> | <tt>0.18603470921516418</tt> |
 | <tt>0.2712443470954895</tt>  | <tt>0.2762767672538757</tt>  |
@@ -365,3 +365,4 @@ For higher identification accuracy, we also developed the <a href="https://finge
 * Star, follow or fork our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>GitHub project</span></a>
 * Email us your questions at oss@fingerprintJS.com
 * Sign up to our <a href="https://mailchi.mp/708d84efc0c1/updates-signup" target="_blank" rel="noopener"><span>newsletter</span></a> for updates
+* Join our team to work on exciting research in online security: <a href="mailto:work@fingerprintjs.com" target="_blank" rel="noopener"><span>work@fingerprintjs.com</span></a>

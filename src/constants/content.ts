@@ -25,6 +25,7 @@ export const URL = {
   linkedinUrl: 'https://www.linkedin.com/company/fingerprintjs/',
   twitterUrl: 'https://twitter.com/FingerprintJs/',
   signupUrl: 'https://dashboard.fingerprintjs.com/signup/',
+  statusUrl: 'https://status.fingerprintjs.com/',
 } as const
 
 export const MAILTO = { mailToUrl: 'mailto:support@fingerprintjs.com' } as const

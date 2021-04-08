@@ -91,17 +91,10 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-transformer-remark`,
+            resolve: `gatsby-remark-highlight-code`,
             options: {
-              plugins: [
-                {
-                  resolve: `gatsby-remark-highlight-code`,
-                  options: {
-                    terminal: 'carbon',
-                    lineNumbers: false,
-                  },
-                },
-              ],
+              terminal: 'carbon',
+              lineNumbers: false,
             },
           },
         ],
