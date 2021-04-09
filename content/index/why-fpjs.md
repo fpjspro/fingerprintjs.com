@@ -73,7 +73,7 @@ blocks:
     isImageAfterText: false
     image: /img/uploads/dashboard-tight.png
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    ctaText: Start Free Trial
+    ctaText: Create Your Free Account
     isCtaButton: false
 inlineCta:
   title: Get FingerprintJS free with all features
