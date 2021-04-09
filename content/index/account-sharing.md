@@ -16,28 +16,28 @@ hero:
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
-  title: 'Use FingerprintJS for account sharing prevention to:'
-  subtitle: ''
+  title: "Use FingerprintJS for account sharing prevention to:"
+  subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Increase revenue for your business
-      markdown__Content: Account sharers already know the value of your service. By enforcing
-        subscription limits via user identification, you can convert "free"
-        account-sharing users to paying customers without negatively impacting
-        the rest of your users' experience.
+      markdown__Content: Account sharers already know the value of your service. By
+        enforcing subscription limits via user identification, you can convert
+        "free" account-sharing users to paying customers without negatively
+        impacting the rest of your users' experience.
     - icon: /img/uploads/payment_processing.png
       title: Increase security for your customers
-      markdown__Content: Password sharing increases the likelihood of account takeover, and
-        makes it more difficult for your team to identify real risks. By
-        ensuring customers keep their accounts to themselves, you can improve
-        account security for all users.
+      markdown__Content: Password sharing increases the likelihood of account
+        takeover, and makes it more difficult for your team to identify real
+        risks. By ensuring customers keep their accounts to themselves, you can
+        improve account security for all users.
 blocks:
   - subheader: Account sharing prevention built for your business
-    markdown__Content: Our team works with top SaaS providers to implement custom account
-      sharing solutions with the customer experience in mind. With our highly
-      accurate visitor identifier, we will work with your team to make sure your
-      preferred customers' experience is unhindered, and users breaking their
-      terms of service are caught.
+    markdown__Content: Our team works with top SaaS providers to implement custom
+      account sharing solutions with the customer experience in mind. With our
+      highly accurate visitor identifier, we will work with your team to make
+      sure your preferred customers' experience is unhindered, and users
+      breaking their terms of service are caught.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
     ctaText: Talk to sales
@@ -47,16 +47,16 @@ blocks:
     image: /img/uploads/fpjs-subscriptions.png
     isCtaButton: false
     isImageAfterText: false
-    ctaText: Start Trial
+    ctaText: Create Your Free Account
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    markdown__Content: "Mobile traffic, infrequent sign-ins and shared networks cause other
-      account sharing prevention methods to fail. FingerprintJS provides an
-      accurate ID for 99.5% of traffic, and can identify visitors where IP and
-      session tracking can't. "
+    markdown__Content: "Mobile traffic, infrequent sign-ins and shared networks
+      cause other account sharing prevention methods to fail. FingerprintJS
+      provides an accurate ID for 99.5% of traffic, and can identify visitors
+      where IP and session tracking can't. "
 inlineCta:
-  title: Try FingerprintJS - 10 days, no limits
-  markdown__Subtitle: Signing up only takes a few minutes. Start collecting visitorIDs for
-    your traffic right away.
-  buttonText: Start Free Trial
+  title: "Use FingerprintJS For Free "
+  markdown__Subtitle: Signing up only takes a few minutes. Start collecting
+    visitorIDs for your traffic right away.
+  buttonText: Create Your Account
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
