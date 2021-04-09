@@ -119,4 +119,4 @@ We are excited to see what the open source community will build with our Android
 * [Email us](mailto:sales@fingerprintjs.com) your questions
 * Sign up to our [newsletter](https://mailchi.mp/708d84efc0c1/updates-signup) for updates on our fingerprinting libraries
 * Is your company interested in further device fingerprint accuracy and stability? We would love to hear from you - reach out to [sales@fingerprintjs.com](sales@fingerprintjs.com)
-* Need browser fingerprinting as well? Check out our open source library, or try our [Browser Fingerprinting API](https://fingerprintjs.com/) FingerprintJS Pro for 99.5% fingerprinting accuracy
+* Need browser fingerprinting as well? Check out our open source library, or sign up FREE for our [Browser Fingerprinting API](https://fingerprintjs.com/) FingerprintJS Pro for 99.5% fingerprinting accuracy
