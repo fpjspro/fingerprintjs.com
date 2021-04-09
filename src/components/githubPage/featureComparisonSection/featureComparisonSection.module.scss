@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  --contentWidth: 780px;
 }
 
 .title {
@@ -29,7 +30,8 @@
   width: 100%;
   border-collapse: collapse;
 
-  .optionColumns {
+  .optionColumns,
+  .buttonsColumns {
     border-bottom: none;
   }
 
@@ -38,15 +40,16 @@
   }
 
   tr {
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid adjust-color(c('off-white'), $lightness: -10%);
   }
 
   th:nth-child(1) {
-    width: 50%;
+    width: 45%;
   }
+
   th:nth-child(2),
   th:nth-child(3) {
-    width: 25%;
+    width: 27.5%;
   }
 
   th:nth-child(3),
@@ -59,9 +62,16 @@
     border-top-right-radius: 2rem;
   }
 
+  .ButtonRow {
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+  }
+
   .featureTitleColumn {
     font-weight: bolder;
     font-size: 2.5rem;
+
+    padding-top: 3rem;
   }
 
   .description {
@@ -79,8 +89,30 @@
     text-align: center;
   }
 
+  .versionColumn {
+    padding: 0 1rem;
+  }
+
   .versionColumnStrong {
     font-weight: bolder;
     font-size: 2.5rem;
+  }
+
+  .version {
+    margin-top: 2rem;
+  }
+
+  .button {
+    margin: 3rem 0;
+  }
+}
+
+.footer {
+  margin-top: 3rem;
+
+  .note {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 2rem;
   }
 }

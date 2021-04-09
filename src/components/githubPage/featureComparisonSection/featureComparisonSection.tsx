@@ -1,6 +1,8 @@
 import React from 'react'
 import Section from '../../common/Section'
 import Container from '../../common/Container'
+import Button from '../../common/Button'
+import { URL } from '../../../constants/content'
 import classNames from 'classnames'
 
 import styles from './featureComparisonSection.module.scss'
@@ -8,16 +10,16 @@ import styles from './featureComparisonSection.module.scss'
 export default function featureComparisonSection() {
   return (
     <Section className={styles.root}>
-      <Container className={styles.container} size='small'>
+      <Container className={styles.container}>
         <h1 className={styles.title}>Feature Comparison</h1>
         <table className={styles.table}>
           <tr className={styles.optionColumns}>
             <th />
             <th>
-              <h3>Open Source</h3>
+              <h3 className={styles.version}>Open Source</h3>
             </th>
             <th className={styles.proRow}>
-              <h3>Pro</h3>
+              <h3 className={styles.version}>Pro</h3>
             </th>
           </tr>
           <FeatureTitle title='Core Features' />
@@ -68,7 +70,35 @@ export default function featureComparisonSection() {
             oss='GitHub community'
             pro='Support team via email, chat, and call-back within 1 business day'
           />
+          <tr className={styles.buttonsColumns}>
+            <th />
+            <th>
+              <Button href={URL.githubRepoUrl} variant='outline' className={styles.button}>
+                Access on GitHub
+              </Button>
+            </th>
+            <th className={styles.ButtonRow}>
+              <Button href={URL.signupUrl} variant='primary' className={styles.button}>
+                Start Trial
+              </Button>
+            </th>
+          </tr>
         </table>
+        <footer className={styles.footer}>
+          <p className={styles.note}>
+            *Pro uses the open source fingerprinting library as well as proprietary technology for increased accuracy
+            and stability.
+          </p>
+          <p className={styles.note}>
+            ** VisitorIDs, in comparison to fingerprints, include server side techniques, are deduplicated and utilize
+            fuzzy matching to result in a more accurate and stable identifier. Fingerprint hashes rely on an exact match
+            across all browser attrributes, making them unstable across &gt; 2 week time intervals.
+          </p>
+          <p className={styles.note}>
+            *** FingerprintJS is GDPR and CCPA compliant as the data processor. You still need to be compliant as the
+            data controller and use the identification for fraud under legitimate interest or ask for user consent.
+          </p>
+        </footer>
       </Container>
     </Section>
   )
