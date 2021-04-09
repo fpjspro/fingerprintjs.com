@@ -358,7 +358,7 @@ Browser fingerprinting is a useful method of visitor identification for a variet
 \
 You can try implementing browser fingerprinting yourself with our <a href="https://github.com/fingerprintjs/fingerprintjs" target="_blank" rel="noopener"><span>open source library</span></a>. FingerprintJS is the most popular browser fingerprinting library available, with over <tt>12K</tt> GitHub stars.\
 \
-For higher identification accuracy, we also developed the <a href="https://fingerprintjs.com/" target="_blank" rel="noopener"><span>FingerprintJS Pro API</span></a>, which uses machine learning to combine browser fingerprinting with additional identification techniques. You can try FingerprintJS Pro free for <tt>10</tt> days with no usage limits.
+For higher identification accuracy, we also developed the <a href="https://fingerprintjs.com/" target="_blank" rel="noopener"><span>FingerprintJS Pro API</span></a>, which uses machine learning to combine browser fingerprinting with additional identification techniques. You can <a href="https://dashboard.fingerprintjs.com/signup">sign up for FingerprintJS Pro for free</a> with up to 1,000 monthly unique visitors.
 
 ### Get in touch
 
