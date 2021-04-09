@@ -42,7 +42,7 @@ blocks:
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
-  - ctaText: Start free trial
+  - ctaText: Create your free account
     subheader: Reduce chargebacks with payment authentication
     markdown__Content: "The best way to protect your merchant reputation is to
       identify purchases with a high likelihood of fraud before they can be
