@@ -80,7 +80,7 @@ export default function Billing() {
                 handleValueChange={handleSliderChange}
               />
               <p className={styles.footnote}>
-                Our standard plan comes with 1 year visit history and email support.
+                Our paid plans come with 90 day visit history and email support.
                 <br />
                 <br />
                 <a
@@ -89,7 +89,7 @@ export default function Billing() {
                 >
                   Contact sales
                 </a>{' '}
-                for an enterprise license, 99.9% SLA and 24/7 dedicated support.
+                for an enterprise license, 99.9% uptime SLA and 24/7 dedicated support.
               </p>
             </div>
             <div className={styles.payment}>
