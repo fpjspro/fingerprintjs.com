@@ -14,7 +14,7 @@ hero:
   description: Keep your customers' accounts safe by accurately identifying
     threats before they cause damage. Powerful account fraud protection for any
     web application.
-  ctaText: Start Free Trial
+  ctaText: Sign Up Now
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: FingerprintJS helps to identify malicious actors - whatever form they take
