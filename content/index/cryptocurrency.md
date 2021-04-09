@@ -14,7 +14,7 @@ hero:
   description: Crypto exchanges are highly appealing fraud targets. With our 99.5%
     accurate browser fingerprinting API, it's easy to identify fraudsters aiming
     to steal account credentials and transfer coins into their own wallets.
-  ctaText: Start Free Trial
+  ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: Prevent online fraud from putting your exchange at risk
