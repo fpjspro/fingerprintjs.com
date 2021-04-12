@@ -6,7 +6,7 @@ import { GeneratedPageContext } from '../../helpers/types'
 import GetStartedSection from '../../components/githubPage/GetStartedSection/GetStartedSection'
 import ProLayersSection from '../../components/githubPage/ProLayersSection/ProLayersSection'
 import WhyGoProSection from '../../components/githubPage/WhyGoProSection/WhyGoProSection'
-import FeatureComparisonSection from '../../components/githubPage/featureComparisonSection/FeatureComparisonSection'
+import FeatureComparisonSection from '../../components/githubPage/FeatureComparisonSection/FeatureComparisonSection'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { useLocation } from '@reach/router'
 
