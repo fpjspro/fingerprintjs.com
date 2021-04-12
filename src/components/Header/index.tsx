@@ -17,6 +17,7 @@ import DropdownList from './DropdownList'
 import { useUtmParams } from '../../hooks/useUtmParams'
 import { buildQueryString } from '../../helpers/common'
 import { ReactComponent as LogoSvg } from './fpjs.svg'
+import { trackNavSignupClick } from '../../helpers/gtm'
 
 import styles from './Header.module.scss'
 
@@ -74,7 +75,9 @@ export default function Header() {
                 >
                   Contact Sales
                 </Button>
-                <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`}>Free Trial</Button>
+                <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`} onClick={() => trackNavSignupClick()}>
+                  Free Trial
+                </Button>
                 <Button
                   label='Mobile Menu'
                   className={styles.mobileToggler}
