@@ -2,7 +2,7 @@ import React from 'react'
 import Section from '../../common/Section'
 import Container from '../../common/Container'
 import Button from '../../common/Button'
-import { URL } from '../../../constants/content'
+import { URL, DOC_URL } from '../../../constants/content'
 import classNames from 'classnames'
 
 import styles from './FeatureComparisonSection.module.scss'
@@ -24,41 +24,32 @@ export default function FeatureComparisonSection() {
           </tr>
           <FeatureTitle title='Core Features' />
           <Feature feature='100% Open-source' oss='yes' pro='no*' />
-          <Feature
-            feature='Standard fingerprint signals'
-            description='screen, os, device name'
-            oss='✓'
-            pro='✓'
-            isSymbol
-          />
-          <Feature feature='Advanced fingerprint signals' description='canvas, audio, fonts' oss='✓' pro='✓' isSymbol />
+          <Feature feature='Standard fingerprint signals' oss='✓' pro='✓' isSymbol>
+            screen, os, device name
+          </Feature>
+          <Feature feature='Advanced fingerprint signals' oss='✓' pro='✓' isSymbol>
+            canvas, audio, fonts
+          </Feature>
           <Feature feature='ID type' oss='fingerprint' pro='visitorID**' />
           <Feature feature='ID lifetime' oss='several weeks' pro='months/years' />
           <Feature feature='ID origin' oss='client' pro='server' />
           <Feature feature='ID collisions' oss='common' pro='rare' />
           <FeatureTitle title='Additional features' />
-          <Feature
-            feature='Incognito mode detection'
-            description='works in all modern browsers - see our full list of browsers supported'
-            oss='-'
-            pro='✓'
-            isSymbol
-          />
-          <Feature
-            feature='Server-side accuracy increase'
-            description='based on additional server-side signals, such as TLS crypto support, ipv4/v6 data and others'
-            oss='-'
-            pro='✓'
-            isSymbol
-          />
-          <Feature
-            feature='Query API & realtime Webhooks'
-            description='build flexible workflows'
-            oss='-'
-            pro='✓'
-            isSymbol
-          />
-          <Feature feature='Geolocation' description='based on IP address' oss='-' pro='✓' isSymbol />
+          <Feature feature='Incognito mode detection' oss='-' pro='✓' isSymbol>
+            works in all modern browsers - see our full list of{' '}
+            <a href={DOC_URL.browserSupportUrl} target='_blank' rel='noreferrer' className={styles.link}>
+              browsers supported
+            </a>
+          </Feature>
+          <Feature feature='Server-side accuracy increase' oss='-' pro='✓' isSymbol>
+            based on additional server-side signals, such as TLS crypto support, ipv4/v6 data and others
+          </Feature>
+          <Feature feature='Query API & realtime Webhooks' oss='-' pro='✓' isSymbol>
+            build flexible workflows
+          </Feature>
+          <Feature feature='Geolocation' oss='-' pro='✓' isSymbol>
+            based on IP address
+          </Feature>
           <FeatureTitle title='Operations' />
           <Feature feature='Data security' oss='Your infrastructure' pro='Encrypted at rest' />
           <Feature feature='Storage' oss='Your infrastructure' pro='Unlimited up to 1 yr' />
@@ -121,18 +112,18 @@ function FeatureTitle({ title }: FeatureTitleProps) {
 
 interface FeatureProps {
   feature: string
-  description?: string
+  children?: React.ReactNode
   oss: string
   pro: string
   isSymbol?: boolean
 }
-function Feature({ feature, description, oss, pro, isSymbol }: FeatureProps) {
+function Feature({ feature, children, oss, pro, isSymbol }: FeatureProps) {
   return (
     <>
       <tr>
         <td className={styles.featureColumn}>
           <strong>{feature}</strong>
-          {description && <div className={styles.description}>{description}</div>}
+          {children && <div className={styles.description}>{children}</div>}
         </td>
         <td className={classNames(styles.versionColumn, { [styles.versionColumnStrong]: isSymbol })}>{oss}</td>
         <td className={classNames(styles.versionColumn, { [styles.versionColumnStrong]: isSymbol })}>{pro}</td>

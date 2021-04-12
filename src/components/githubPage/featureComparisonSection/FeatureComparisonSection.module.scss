@@ -81,6 +81,10 @@
 
   .description {
     font-style: italic;
+
+    .link {
+      text-decoration: underline;
+    }
   }
 
   .description,
