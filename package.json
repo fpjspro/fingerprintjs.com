@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@deckdeckgo/highlight-code": "^2.5.1",
-    "@fingerprintjs/fingerprintjs-pro": "^3.3.0-dev.6",
+    "@fingerprintjs/fingerprintjs-pro": "^3.3.0-dev.7",
     "@loadable/component": "^5.14.1",
     "@tippyjs/react": "^4.2.0",
     "classnames": "^2.2.6",
