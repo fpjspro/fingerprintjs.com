@@ -6,4 +6,4 @@ export default {
   component: GetStartedSection,
 }
 
-export const Default = () => <GetStartedSection />
+export const GetStarted = () => <GetStartedSection />
