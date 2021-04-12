@@ -5,9 +5,9 @@ import Button from '../../common/Button'
 import { URL } from '../../../constants/content'
 import classNames from 'classnames'
 
-import styles from './featureComparisonSection.module.scss'
+import styles from './FeatureComparisonSection.module.scss'
 
-export default function featureComparisonSection() {
+export default function FeatureComparisonSection() {
   return (
     <Section className={styles.root}>
       <Container className={styles.container}>
