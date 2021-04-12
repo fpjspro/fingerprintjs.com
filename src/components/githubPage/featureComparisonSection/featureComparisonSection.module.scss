@@ -30,6 +30,11 @@
   width: 100%;
   border-collapse: collapse;
 
+  @include media('<=phoneLandscape') {
+    border-spacing: 0;
+    table-layout: fixed;
+  }
+
   .optionColumns,
   .buttonsColumns {
     border-bottom: none;
@@ -91,6 +96,10 @@
 
   .versionColumn {
     padding: 0 1rem;
+
+    @include media('<=phoneLandscape') {
+      font-size: 1.5rem;
+    }
   }
 
   .versionColumnStrong {
@@ -103,7 +112,15 @@
   }
 
   .button {
-    margin: 3rem 0;
+    margin: 3rem;
+
+    @include media('<=phoneLandscape') {
+      white-space: normal;
+
+      width: 100%;
+      margin: 1rem 0;
+      padding: 1rem;
+    }
   }
 }
 
