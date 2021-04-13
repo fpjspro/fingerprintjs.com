@@ -40,6 +40,7 @@ export const DOC_URL = {
   legalUrl: 'https://dev.fingerprintjs.com/docs/dpa-gdpr/',
   termOfUseUrl: 'https://dev.fingerprintjs.com/docs/terms-of-service/',
   privacyPolicyUrl: 'https://dev.fingerprintjs.com/docs/privacy-policy/',
+  browserSupportUrl: 'https://dev.fingerprintjs.com/docs/browser-support/',
 } as const
 
 export const useCaseLinks = [
