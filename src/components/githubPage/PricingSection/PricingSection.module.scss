@@ -1,0 +1,43 @@
+.root {
+  background-color: v('off-white');
+  overflow: hidden;
+
+  padding: 7rem 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  --contentWidth: 720px;
+
+  @include media('<=phoneLandscape') {
+    flex-direction: column;
+  }
+}
+
+.pricingSide {
+  text-align: center;
+
+  .title {
+    font-size: 3.25rem;
+
+    margin-bottom: 2rem;
+
+    @include media('<=phoneLandscape') {
+      font-size: 3rem;
+    }
+  }
+
+  @include media('<=phoneLandscape') {
+    padding-bottom: 3rem;
+  }
+}
+
+.benefitSide {
+  align-self: center;
+
+  .bulletList {
+    list-style-type: disc;
+  }
+}
