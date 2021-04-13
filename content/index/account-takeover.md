@@ -14,29 +14,29 @@ hero:
   description: Keep your customers' accounts safe by accurately identifying
     threats before they cause damage. Powerful account fraud protection for any
     web application.
-  ctaText: Start Free Trial
+  ctaText: Sign Up Now
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: FingerprintJS helps to identify malicious actors - whatever form they take
-  subtitle: ''
+  subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Credential Stuffing
-      markdown__Content: Users that re-use passwords across multiple services are at risk of
-        having their accounts accessed by fraudsters who purchased or hacked
-        their account information from elsewhere. Catch these attempts by
+      markdown__Content: Users that re-use passwords across multiple services are at
+        risk of having their accounts accessed by fraudsters who purchased or
+        hacked their account information from elsewhere. Catch these attempts by
         associating multiple login attempts from bot networks.
     - icon: /img/uploads/incognito.svg
       title: Phishing and identity theft
-      markdown__Content: Social engineering is still one of the most reliable methods for
-        fraudsters to access accounts. Require new visitors to provide
+      markdown__Content: Social engineering is still one of the most reliable methods
+        for fraudsters to access accounts. Require new visitors to provide
         additional authentication to stop phished accounts from being accessed
         easily.
 blocks:
   - subheader: Stop account takeover at the source
-    markdown__Content: Account fraud can take many forms. Whether by brute force or individual
-      actors testing purchased credentials, uniquely identifying your website
-      visitors will provide the best defense against account
+    markdown__Content: Account fraud can take many forms. Whether by brute force or
+      individual actors testing purchased credentials, uniquely identifying your
+      website visitors will provide the best defense against account
       takeovers.  FingerprintJS seamlessly meshes into your tech stack to run in
       conjunction with existing authentication workflows, using our API and
       webhooks.
@@ -46,19 +46,19 @@ blocks:
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
     isCtaButton: false
   - subheader: Strong Account Protection means fewer chargebacks
-    markdown__Content: Protecting your users' logins is the best way to mitigate chargebacks
-      from fraudulent purchases without compromising on experience. Try
-      FingerprintJS and see the difference that accurate user detection can make
-      for your user's account security, merchant reputation, and more.
+    markdown__Content: Protecting your users' logins is the best way to mitigate
+      chargebacks from fraudulent purchases without compromising on experience.
+      Try FingerprintJS and see the difference that accurate user detection can
+      make for your user's account security, merchant reputation, and more.
     isImageAfterText: false
-    ctaText: Start free trial
+    ctaText: Create Your Free Account
     ctaUrl: https://dashboard.fingerprintjs.com/signup
     image: /img/uploads/dashboard-tight.png
     isCtaButton: false
 inlineCta:
   title: FingerprintJS for account takeover protection
-  markdown__Subtitle: 'Start your free 10-day trial and get 100% of features with no usage
-    limits. '
+  markdown__Subtitle: Sign up for a free account and get 100% of features with up
+    to 1,000 unique visitor identifications per month.
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---

@@ -76,7 +76,7 @@ export default function Header() {
                   Contact Sales
                 </Button>
                 <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`} onClick={() => trackNavSignupClick()}>
-                  Free Trial
+                  Sign Up, It’s Free
                 </Button>
                 <Button
                   label='Mobile Menu'
