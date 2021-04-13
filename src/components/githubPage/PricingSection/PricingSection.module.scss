@@ -3,6 +3,10 @@
   overflow: hidden;
 
   padding: 7rem 0;
+
+  @include media('<=phoneLandscape') {
+    padding: 3rem 0;
+  }
 }
 
 .container {
@@ -34,10 +38,26 @@
   }
 }
 
+.listOnPricingSide,
 .benefitSide {
+  text-align: left;
   align-self: center;
 
   .bulletList {
     list-style-type: disc;
+  }
+}
+
+.listOnPricingSide {
+  padding: 0 0 3rem 2rem;
+
+  @include media('>phoneLandscape') {
+    display: none;
+  }
+}
+
+.benefitSide {
+  @include media('<=phoneLandscape') {
+    display: none;
   }
 }

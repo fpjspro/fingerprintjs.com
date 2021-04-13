@@ -7,6 +7,15 @@ import { PATH } from '../../../constants/content'
 import styles from './PricingSection.module.scss'
 
 export default function PricingSection() {
+  const List = (
+    <ul className={styles.bulletList}>
+      <li>Transparent pricing</li>
+      <li>Monthly and annual plans</li>
+      <li>10 day free trial with no commitment</li>
+      <li>Money back guarantee</li>
+    </ul>
+  )
+
   return (
     <Section className={styles.root}>
       <Container className={styles.container}>
@@ -16,18 +25,12 @@ export default function PricingSection() {
             <br />
             $100/month
           </h1>
+          <article className={styles.listOnPricingSide}>{List}</article>
           <Button href={PATH.pricingUrl} variant='outline' className={styles.button}>
             See Detailed Pricing
           </Button>
         </section>
-        <section className={styles.benefitSide}>
-          <ul className={styles.bulletList}>
-            <li>Transparent pricing</li>
-            <li>Monthly and annual plans</li>
-            <li>10 day free trial with no commitment</li>
-            <li>Money back guarantee</li>
-          </ul>
-        </section>
+        <section className={styles.benefitSide}>{List}</section>
       </Container>
     </Section>
   )
