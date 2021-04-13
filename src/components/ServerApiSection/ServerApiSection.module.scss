@@ -1,5 +1,5 @@
 .flexibleApi {
-  background-color: #161e58;
+  background-color: adjust-color(c('brand-water'), $lightness: 10%, $saturation: 10%);
   background-image: url('../../img/flexible-api-background.svg');
   background-repeat: no-repeat;
   background-position: -10% 240%;
