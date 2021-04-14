@@ -1,0 +1,29 @@
+.root {
+  overflow: hidden;
+
+  padding: 7rem 0;
+
+  @include media('<=phoneLandscape') {
+    padding: 3rem 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  @include media('<=phoneLandscape') {
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-size: 3.5rem;
+
+  margin-bottom: 5rem;
+
+  @include media('<=phoneLandscape') {
+    font-size: 3rem;
+  }
+}
