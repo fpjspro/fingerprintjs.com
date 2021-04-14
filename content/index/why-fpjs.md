@@ -15,7 +15,7 @@ hero:
     platforms, FingerprintJS prevents digital fraud by uniquely and accurately
     identifying users, and empowering technical teams to use that data in a way
     that works for their applications.
-  ctaText: Start Free Trial
+  ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com
 cardSection:
   title: Why FingerprintJS is different
@@ -73,14 +73,15 @@ blocks:
     isImageAfterText: false
     image: /img/uploads/dashboard-tight.png
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    ctaText: Start Free Trial
+    ctaText: Create Your Free Account
     isCtaButton: false
 inlineCta:
-  title: Get FingerprintJS free and unlimited
-  markdown__Subtitle: Teams can try FingerprintJS free for 10 days. Install our
-    Javascript snippet on your website and begin collecting unique visitorIDs,
-    geolocation data and more. This information can then be fused into your
-    authentication workflows easily using our API and webhooks.
+  title: Get FingerprintJS free with all features
+  markdown__Subtitle: Teams can use FingerprintJS free for up to 1,000 monthly
+    unique visitors. Install our Javascript snippet on your website and begin
+    collecting unique visitorIDs, geolocation data and more. This information
+    can then be fused into your authentication workflows easily using our API
+    and webhooks.
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
