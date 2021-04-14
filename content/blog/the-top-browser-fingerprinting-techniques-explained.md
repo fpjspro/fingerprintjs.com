@@ -23,8 +23,6 @@ Also known as online fingerprinting, browser fingerprinting is a tracking and id
 
 ![Graphic of browser fingerprinting](/img/uploads/audio-fp-browser-fingerprinting-image.png "Graphic of browser fingerprinting")
 
-
-
 Browser fingerprinting can be used to stop fraudsters from attempting to hack, spam, or spoof website owners by accurately identifying site users. Browser fingerprinting is more difficult to circumvent than cookies, as a user’s fingerprint does not change between incognito browsing sessions, or clearing browser data. To generate a browser fingerprint with enough accuracy (or entropy) to uniquely identify a web visitor, the script must use a variety of browser fingerprinting techniques to gather data (called signals) that would vary between visitors. While many visitors to a website may have the same model of iPhone, the software and drivers installed, geolocation, browser and OS version, and even minute variances in the hardware could be different. Each browser fingerprinting technique is able to gather one or more of these signals that aim to identify these small variances between users.
 
 ## **What Information is Gathered?**
@@ -79,4 +77,4 @@ If your users are often the target of phishing scams, you can require email or t
 
 For virtually all types of fraud, the first step in stopping the malicious activity on your website is accurate user identification technology. That way, you can accurately single out the apples while keeping your trusted users satisfied with your website performance. 
 
-Whether you have a newly-built website or you’ve been in the online industry for years, you can safeguard your leads, clients, and business if you can stop fraud at the source. Try FingerprintJS Pro [free for 10 days](https://dashboard.fingerprintjs.com/signup/) with no restrictions to see what accurate user identification technology can do for you.
+Whether you have a newly-built website or you’ve been in the online industry for years, you can safeguard your leads, clients, and business if you can stop fraud at the source. [Sign up for a free FingerprintJS Pro account](https://dashboard.fingerprintjs.com/signup/) to see what accurate user identification technology can do for you.
