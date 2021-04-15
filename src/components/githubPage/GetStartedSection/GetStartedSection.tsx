@@ -33,7 +33,7 @@ const cards = [
     title: 'Pro',
     description: 'Recommended for businesses, and teams looking for a "turnkey" solution.',
     content: 'Cloud-hosted user identification service with 99.5% accuracy.',
-    btnText: 'Start Free Trial',
+    btnText: 'Start Free Account',
     btnHref: `${URL.signupUrl}`,
     variant: 'primary',
   },
