@@ -70,7 +70,7 @@ export default function FeatureComparisonSection() {
             </th>
             <th className={styles.ButtonRow}>
               <Button href={URL.signupUrl} variant='primary' className={styles.button}>
-                Start Trial
+                Create Account
               </Button>
             </th>
           </tr>
