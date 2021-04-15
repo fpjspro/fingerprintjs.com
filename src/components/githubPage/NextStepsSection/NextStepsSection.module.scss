@@ -1,0 +1,124 @@
+.root {
+  overflow: hidden;
+
+  padding: 7rem 0;
+
+  @include media('<=phoneLandscape') {
+    padding: 3rem 0;
+  }
+}
+
+.title {
+  font-size: 3.5rem;
+  text-align: center;
+
+  margin-bottom: 2rem;
+
+  @include media('<=phoneLandscape') {
+    font-size: 3rem;
+
+    margin-bottom: 3rem;
+  }
+}
+.stepsSection {
+  display: grid;
+
+  @include media('>phoneLandscape') {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @include media('<=phoneLandscape') {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+
+  counter-reset: number;
+
+  .stepCard {
+    display: grid;
+
+    @include media('>phoneLandscape') {
+      padding: 0 3rem;
+
+      grid-template-rows: 0.5fr 1fr 1fr 0.5fr;
+    }
+
+    @include media('<=phoneLandscape') {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-areas:
+        'title description description'
+        'title description description'
+        'title link link';
+    }
+
+    counter-increment: number;
+
+    .stepNumber {
+      &:before {
+        content: counter(number) '.';
+
+        font-family: v('ff-mono');
+        font-size: 4.5rem;
+        font-weight: v('semi');
+        color: v('brand-fire');
+
+        margin-right: 1rem;
+      }
+    }
+
+    .stepTitle {
+      font-size: 2.75rem;
+
+      @include media('<=phoneLandscape') {
+        font-size: 2rem;
+        padding-right: 0.5rem;
+      }
+    }
+
+    .stepDescription {
+      font-size: 1.75rem;
+
+      @include media('<=phoneLandscape') {
+        font-size: 1.5rem;
+      }
+    }
+
+    .stepLink {
+      text-decoration: underline;
+      font-weight: v('bold');
+      color: darkblue;
+
+      &:hover {
+        opacity: v('faded');
+      }
+
+      @include media('<=phoneLandscape') {
+        font-size: 1.75rem;
+      }
+    }
+
+    .stepNumber,
+    .stepTitle,
+    .stepDescription,
+    .stepLink {
+      @include media('>phoneLandscape') {
+        margin-top: 1.5rem;
+      }
+    }
+
+    @include media('<=phoneLandscape') {
+      .stepNumber {
+        display: none;
+      }
+      .stepTitle {
+        grid-area: title;
+      }
+      .stepDescription {
+        grid-area: description;
+      }
+      .stepLink {
+        grid-area: link;
+      }
+    }
+  }
+}

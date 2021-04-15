@@ -1,0 +1,164 @@
+$ossColor: adjust-color(c('brand-water'), $lightness: +30%);
+
+.root {
+  overflow: hidden;
+
+  padding: 8rem 0;
+
+  @include media('<=tabletWide') {
+    padding-bottom: 3rem;
+  }
+}
+
+.container {
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header {
+  margin-bottom: 1rem;
+
+  .title,
+  .subtitle {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3.5rem;
+
+    margin-bottom: 2rem;
+
+    @include media('<=phoneLandscape') {
+      font-size: 3rem;
+    }
+  }
+
+  .subtitle {
+    font-size: 2.25rem;
+    font-weight: v('normal');
+    font-family: v('ff-sans');
+
+    margin: 2rem 0;
+
+    @include media('<=phoneLandscape') {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.proTitle {
+  font-family: v(ff-sans);
+  font-weight: v('semi');
+  color: c('brand-fire');
+  font-style: italic;
+  font-size: 3rem;
+
+  margin-bottom: 1rem;
+
+  @include media('<tablet') {
+    display: none;
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  grid-gap: 8px;
+
+  padding: 1rem;
+
+  @include media('>=tablet') {
+    border-radius: 2rem;
+    border: dashed 4px c('brand-fire');
+  }
+}
+
+.imageWrapper {
+  align-items: center;
+  grid-template-columns: 1fr;
+  display: grid;
+
+  padding: 2rem 0;
+
+  @include media('>=tablet') {
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 8px;
+  }
+
+  .aside {
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+
+    font-style: italic;
+    text-align: center;
+    font-weight: v('semi');
+
+    .server {
+      color: c('brand-fire');
+      align-self: center;
+    }
+
+    .browser {
+      color: $ossColor;
+    }
+
+    @include media('<tablet') {
+      display: none;
+    }
+  }
+}
+
+.textWrapper {
+  display: grid;
+  grid-template-rows: auto;
+
+  .layer {
+    padding: 0.25rem;
+    padding-left: 1rem;
+  }
+
+  .layerTitle {
+    font-size: 2rem;
+
+    padding-bottom: 0.5rem;
+
+    @include media('<=phoneLandscape') {
+      font-size: 1rem;
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  .layerSubtitle {
+    font-size: 1.75rem;
+    font-weight: 500;
+    font-family: v('ff-sans');
+
+    padding-bottom: 1rem;
+
+    @include media('<=phoneLandscape') {
+      padding-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .ossLayer {
+    margin-top: 0.5rem;
+    border-radius: 2rem;
+    border: dashed 2px $ossColor;
+
+    padding-bottom: 0.25rem;
+
+    .ossTitle {
+      font-size: 2rem;
+      font-family: v(ff-sans);
+      font-weight: v('semi');
+      color: $ossColor;
+      font-style: italic;
+
+      @include media('<=phoneLandscape') {
+        font-size: 1rem;
+      }
+    }
+  }
+}
