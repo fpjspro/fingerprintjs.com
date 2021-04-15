@@ -11,7 +11,7 @@ export default function PricingSection() {
     <ul className={styles.bulletList}>
       <li>Transparent pricing</li>
       <li>Monthly and annual plans</li>
-      <li>10 day free trial with no commitment</li>
+      <li>Free up to 1,000 monthly unique visitors</li>
       <li>Money back guarantee</li>
     </ul>
   )
@@ -21,9 +21,9 @@ export default function PricingSection() {
       <Container className={styles.container}>
         <section className={styles.pricingSide}>
           <h1 className={styles.title}>
-            Plans start at
+            Pro plans start
             <br />
-            $100/month
+            at $0/month
           </h1>
           <article className={styles.listOnPricingSide}>{list}</article>
           <Button href={PATH.pricingUrl} variant='outline' className={styles.button}>
