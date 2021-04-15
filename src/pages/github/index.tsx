@@ -8,6 +8,8 @@ import ProLayersSection from '../../components/githubPage/ProLayersSection/ProLa
 import WhyGoProSection from '../../components/githubPage/WhyGoProSection/WhyGoProSection'
 import FeatureComparisonSection from '../../components/githubPage/FeatureComparisonSection/FeatureComparisonSection'
 import PricingSection from '../../components/githubPage/PricingSection/PricingSection'
+import NextStepsSection from '../../components/githubPage/NextStepsSection/NextStepsSection'
+
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { useLocation } from '@reach/router'
 
@@ -33,6 +35,7 @@ export default function GitHubPage({ pageContext }: GitHubProps) {
       <WhyGoProSection />
       <FeatureComparisonSection />
       <PricingSection />
+      <NextStepsSection />
     </LayoutTemplate>
   )
 }

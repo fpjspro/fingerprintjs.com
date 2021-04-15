@@ -26,6 +26,7 @@ export const URL = {
   twitterUrl: 'https://twitter.com/FingerprintJs/',
   signupUrl: 'https://dashboard.fingerprintjs.com/signup/',
   statusUrl: 'https://status.fingerprintjs.com/',
+  newsletterUrl: 'https://mailchi.mp/708d84efc0c1/updates-signup',
 } as const
 
 export const MAILTO = { mailToUrl: 'mailto:support@fingerprintjs.com' } as const
