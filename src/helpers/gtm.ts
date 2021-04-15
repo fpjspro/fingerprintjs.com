@@ -10,9 +10,7 @@ declare global {
 }
 
 export enum EventAction {
-  EmailType = 'EmailType',
-  ClickButton = 'ClickButton',
-  IntentComplete = 'IntentComplete',
+  IntentSuccess = 'IntentSuccess',
 }
 
 export enum EventCategory {
@@ -20,8 +18,6 @@ export enum EventCategory {
 }
 
 export enum EventLabel {
-  ClickTextbox = 'ClickTextbox',
-  TrialNav = 'TrialNav',
   FormFill = 'FormFill',
 }
 
@@ -36,32 +32,23 @@ type SendEventProps = {
   label?: EventLabel
 }
 
-export function sendEvent({ event }: { event: string }) {
+function setupDataLayer() {
   // Required for development since without SSR sendEvent will be called before Helmet has a chance to inject the script that initializes dataLayer.
   window.dataLayer = window.dataLayer ?? defaultDataLayer
+}
+
+export function sendGaEvent({ event }: { event: string }) {
+  setupDataLayer()
 
   window.dataLayer.push({ event })
 }
 
-export function sendLegacyEvent(props: SendEventProps) {
-  // Required for development since without SSR sendEvent will be called before Helmet has a chance to inject the script that initializes dataLayer.
-  window.dataLayer = window.dataLayer ?? defaultDataLayer
+export function sendEvent(props: SendEventProps) {
+  setupDataLayer()
 
   window.dataLayer.push({ event: EventType.LegacyEvent, eventProps: { ...props } })
 }
 
-export function trackEmbeddedFormClick() {
-  sendLegacyEvent({ action: EventAction.EmailType, category: EventCategory.Signup, label: EventLabel.ClickTextbox })
-}
-
-export function trackNavSignupClick() {
-  sendLegacyEvent({ action: EventAction.ClickButton, category: EventCategory.Signup, label: EventLabel.TrialNav })
-}
-
-export function trackSignupSubmit() {
-  sendLegacyEvent({ action: EventAction.IntentComplete, category: EventCategory.Signup, label: EventLabel.FormFill })
-}
-
 export function trackEmbeddedFormSubmit() {
-  sendLegacyEvent({ action: EventAction.IntentComplete, category: EventCategory.Signup, label: EventLabel.FormFill })
+  sendEvent({ action: EventAction.IntentSuccess, category: EventCategory.Signup, label: EventLabel.FormFill })
 }

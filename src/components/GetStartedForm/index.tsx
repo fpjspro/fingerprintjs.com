@@ -7,7 +7,7 @@ import Button from '../common/Button'
 import { FormState } from '../../types/FormState'
 import { FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
-import { trackEmbeddedFormClick, trackEmbeddedFormSubmit } from '../../helpers/gtm'
+import { trackEmbeddedFormSubmit } from '../../helpers/gtm'
 import { Forms, useForm } from '../../hooks/useForm'
 import Tippy from '@tippyjs/react'
 import { ReactComponent as InfoSvg } from '../../img/info.svg'
@@ -75,7 +75,6 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
               placeholder='Enter your email'
               value={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-              onClick={() => trackEmbeddedFormClick()}
             />
           </label>
           <Button
