@@ -14,7 +14,7 @@ export default function GetStartedSection() {
     <Section className={styles.root} backgroundImageFluid={mainBackground}>
       <Container size='large' className={styles.container}>
         <h1 className={styles.title}>Get Started With FingerprintJS</h1>
-        <ActionableCards cards={cards} />
+        <ActionableCards cards={cards} className={styles.cards} />
       </Container>
     </Section>
   )

@@ -23,3 +23,9 @@
   align-items: center;
   position: relative;
 }
+
+.cards {
+  @include media('<=tablet') {
+    flex-wrap: wrap-reverse;
+  }
+}
