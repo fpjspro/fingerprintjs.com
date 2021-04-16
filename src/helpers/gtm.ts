@@ -11,14 +11,18 @@ declare global {
 
 export enum EventAction {
   IntentSuccess = 'IntentSuccess',
+  LeadSubmit = 'lead-submit',
 }
 
 export enum EventCategory {
   Signup = 'Signup',
+  Lead = 'lead',
 }
 
 export enum EventLabel {
   FormFill = 'FormFill',
+  Error = 'error',
+  Success = 'success',
 }
 
 // We not decided yet about event payload format
@@ -37,12 +41,6 @@ function setupDataLayer() {
   window.dataLayer = window.dataLayer ?? defaultDataLayer
 }
 
-export function sendGaEvent({ event }: { event: string }) {
-  setupDataLayer()
-
-  window.dataLayer.push({ event })
-}
-
 export function sendEvent(props: SendEventProps) {
   setupDataLayer()
 
@@ -51,4 +49,12 @@ export function sendEvent(props: SendEventProps) {
 
 export function trackEmbeddedFormSubmit() {
   sendEvent({ action: EventAction.IntentSuccess, category: EventCategory.Signup, label: EventLabel.FormFill })
+}
+
+export function trackLeadSubmit(success = true) {
+  sendEvent({
+    action: EventAction.LeadSubmit,
+    category: EventCategory.Lead,
+    label: success ? EventLabel.Success : EventLabel.Error,
+  })
 }

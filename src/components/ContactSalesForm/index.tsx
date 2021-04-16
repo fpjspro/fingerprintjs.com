@@ -3,7 +3,7 @@ import Button from '../../components/common/Button'
 import { ReactComponent as CheckSvg } from '../../img/check.svg'
 import { ReactComponent as CloseSvg } from '../../img/close.svg'
 import { FormState } from '../../types/FormState'
-import { sendGaEvent } from '../../helpers/gtm'
+import { trackLeadSubmit } from '../../helpers/gtm'
 import classNames from 'classnames'
 import { Forms, useForm } from '../../hooks/useForm'
 import { createNewLead } from '../../helpers/api'
@@ -34,7 +34,7 @@ export default function ContactSalesForm({ variant = 'dark', className }: Contac
       setTimeout(() => {
         updateFormState(FormState.Default)
       }, 2500)
-      sendGaEvent({ event: 'leadSubmit.error' })
+      trackLeadSubmit(false)
     }
 
     try {
@@ -46,7 +46,7 @@ export default function ContactSalesForm({ variant = 'dark', className }: Contac
         onError()
       } else {
         updateFormState(FormState.Success)
-        sendGaEvent({ event: 'leadSubmit.success' })
+        trackLeadSubmit()
       }
     } catch (error) {
       onError()
