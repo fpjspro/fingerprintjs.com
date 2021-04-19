@@ -89,7 +89,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
       {formState === FormState.Success && (
         <div className={classNames(styles.state, styles.success)}>
           <CheckSvg className={styles.icon} />
-          <div className={styles.label}>We sent you a link to start your trial</div>
+          <div className={styles.label}>We sent you a link to create your account</div>
         </div>
       )}
       {formState === FormState.Failed && (

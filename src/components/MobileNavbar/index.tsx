@@ -28,7 +28,7 @@ export default function MobileNavbar() {
             <Button onClick={() => setIsContactSalesModalOpen(true)} variant='outline'>
               Contact Sales
             </Button>
-            <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`}>Free Trial</Button>
+            <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`}>Free Sign Up</Button>
           </div>
           <div className={classNames(styles.links, styles.main)}>
             <Container size='large' className={styles.container}>
