@@ -30,21 +30,27 @@ export function FpjsProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     async function getVisitorData() {
-      const FP = await import('@fingerprintjs/fingerprintjs-pro')
-      const fp = await FP.load({
-        token: clientToken,
-        endpoint,
-        region,
-        tlsEndpoint,
+      try {
+        const FP = await import('@fingerprintjs/fingerprintjs-pro')
+        const fp = await FP.load({
+          token: clientToken,
+          endpoint,
+          region,
+          tlsEndpoint,
 
-        // It may break after a @fingerprintjs/fingerprintjs-pro update. Please check when updating.
-        debug: monitoringToken
-          ? FP.makeRemoteDebugger({ clientId: monitoringClientId, token: monitoringToken })
-          : undefined,
-      })
-      const result = await fp.get(config)
-
-      setVisitorData(result)
+          // It may break after a @fingerprintjs/fingerprintjs-pro update. Please check when updating.
+          debug: monitoringToken
+            ? FP.makeRemoteDebugger({ clientId: monitoringClientId, token: monitoringToken })
+            : undefined,
+        })
+        const result = await fp.get(config)
+        setVisitorData(result)
+      } catch (error) {
+        // Adds a special name to JS agent errors so that they can be found in Rollbar easily.
+        error.message = `${error.name}: ${error.message}`
+        error.name = 'FPJSAgentError'
+        throw error
+      }
     }
 
     getVisitorData()
