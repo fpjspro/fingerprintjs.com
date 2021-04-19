@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../Footer'
 import Header from '../Header'
 
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { FPJS_ENDPOINT, GTM_TOKEN, OPTIMIZE_TOKEN } from '../../constants/env'
-import { sendEvent } from '../../helpers/gtm'
 import { withTrailingSlash } from '../../helpers/url'
 import { BASE_URL } from '../../constants/content'
 import { defaultDataLayer } from '../../constants/content'
@@ -29,11 +28,6 @@ export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) 
   const fpjsEndpoint = FPJS_ENDPOINT
   const gtmToken = GTM_TOKEN
   const optimizeToken = OPTIMIZE_TOKEN
-
-  useEffect(() => {
-    // We need this event for Google Optimize trigger after React hydration
-    sendEvent({ event: 'optimize.activate' })
-  }, [])
 
   return (
     <>

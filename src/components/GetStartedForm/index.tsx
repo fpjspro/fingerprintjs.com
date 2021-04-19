@@ -7,7 +7,7 @@ import Button from '../common/Button'
 import { FormState } from '../../types/FormState'
 import { FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
-import { sendEvent } from '../../helpers/gtm'
+import { trackEmbeddedFormSubmit } from '../../helpers/gtm'
 import { Forms, useForm } from '../../hooks/useForm'
 import Tippy from '@tippyjs/react'
 import { ReactComponent as InfoSvg } from '../../img/info.svg'
@@ -48,7 +48,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
       }, 2500)
     } else {
       updateFormState(FormState.Success)
-      sendEvent({ event: 'signupintent.success' })
+      trackEmbeddedFormSubmit()
     }
   }
 
