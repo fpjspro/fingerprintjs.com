@@ -53,7 +53,7 @@ export default function FeatureComparisonSection() {
           <FeatureTitle title='Operations' />
           <Feature feature='Data security' oss='Your infrastructure' pro='Encrypted at rest' />
           <Feature feature='Storage' oss='Your infrastructure' pro='Unlimited up to 1 yr' />
-          <Feature feature='Regions' oss='Your infrastructure' pro='99.9% Uptime' />
+          <Feature feature='Regions' oss='Your infrastructure' pro='Hosting in US and EU' />
           <Feature feature='Compliance' oss='Your infrastructure' pro='GDPR, CCPA compliant***' />
           <Feature feature='SLA' oss='No SLA' pro='99.9% Uptime' />
           <Feature
