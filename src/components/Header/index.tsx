@@ -74,7 +74,9 @@ export default function Header() {
                 >
                   Contact Sales
                 </Button>
-                <Button href={`${URL.signupUrl}${buildQueryString(utmInfo)}`}>Sign Up, It’s Free</Button>
+                <Button className={styles.signupButton} href={`${URL.signupUrl}${buildQueryString(utmInfo)}`}>
+                  Sign Up, It’s Free
+                </Button>
                 <Button
                   label='Mobile Menu'
                   className={styles.mobileToggler}
