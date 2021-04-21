@@ -83,7 +83,7 @@ export default function FeatureComparisonSection() {
           <p className={styles.note}>
             ** VisitorIDs, in comparison to fingerprints, include server side techniques, are deduplicated and utilize
             fuzzy matching to result in a more accurate and stable identifier. Fingerprint hashes rely on an exact match
-            across all browser attrributes, making them unstable across &gt; 2 week time intervals.
+            across all browser attributes, making them unstable across &gt; 2 week time intervals.
           </p>
           <p className={styles.note}>
             *** FingerprintJS is GDPR and CCPA compliant as the data processor. You still need to be compliant as the
