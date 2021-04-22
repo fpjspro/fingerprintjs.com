@@ -16,6 +16,7 @@ hero:
     to steal account credentials and transfer coins into their own wallets.
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
+  openCtaNewTab: false
 cardSection:
   title: Prevent online fraud from putting your exchange at risk
   subtitle: ""
