@@ -65,8 +65,8 @@ blocks:
 
 
       Using FingerprintJS Account Sharing Prevention, **the company generated $4M in new revenue over six months.** The key to their success was FingerprintJS’s accurate visitor identifier and easy-to-use APIs.
-    ctaText: " ​"
-    ctaUrl: " ​"
+    ctaText: ​Read the Case Study
+    ctaUrl: " ​https://fingerprintjs.com/case-studies/edtech/"
     isImageAfterText: false
     isCtaButton: true
     image: /img/uploads/ebook.png
@@ -88,8 +88,8 @@ blocks:
       **To ensure visitorIDs are stable over time,** FingerprintJS uses fuzzy matching and other deduplication techniques. FingerprintJS Pro associates new browsing history with the correct visitorID even if some details about the visitor have changed.
     image: /img/uploads/copy-of-the_power_of_fingerprinting_infographic_1.png
     isImageAfterText: true
-    ctaText: hey
-    ctaUrl: hey.com
+    ctaText: ​
+    ctaUrl: ​
     isCtaButton: false
   - markdown__Content: >-
       FingerprintJS Pro collects additional information to better understand
@@ -105,15 +105,15 @@ blocks:
     subheader: Learn More About Your Customers
     image: /img/uploads/additional-info.png
     isImageAfterText: false
-    ctaText: hey
-    ctaUrl: hey.com
+    ctaText: ​
+    ctaUrl: ​
     isCtaButton: false
   - subheader: Built for engineers, by engineers
     image: /img/uploads/fpjs-dashboard.png
     isCtaButton: false
     isImageAfterText: true
-    ctaText: Create Your Free Account
-    ctaUrl: https://dashboard.fingerprintjs.com/signup
+    ctaText: ​
+    ctaUrl: ​
     markdown__Content: >-
       Developer teams can easily incorporate user identification FingerprintJS
       into existing workflows or build from scratch with our highly accessible
