@@ -18,6 +18,7 @@ hero:
     incognito browsing, clearing cookies, and more. "
   ctaText: Try our Live Paywall Demo
   ctaHref: https://paywall-example.fingerprintjs.com/
+  openCtaNewTab: true
 cardSection:
   title: What FingerprintJS can do for your paywall
   subtitle: ""
