@@ -109,7 +109,7 @@ blocks:
     ctaUrl: hey.com
     isCtaButton: false
   - subheader: Built for engineers, by engineers
-    image: /img/uploads/fpjs-dashboard.png
+    image: /img/uploads/screenshot-whiteblocked.png
     isCtaButton: false
     isImageAfterText: true
     ctaText: Create Your Free Account
