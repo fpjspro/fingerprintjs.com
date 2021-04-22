@@ -86,7 +86,7 @@ blocks:
 
 
       **To ensure visitorIDs are stable over time,** FingerprintJS uses fuzzy matching and other deduplication techniques. FingerprintJS Pro associates new browsing history with the correct visitorID even if some details about the visitor have changed.
-    image: /img/uploads/infographic-whiteblocked.png
+    image: /img/uploads/rect1353-0.png
     isImageAfterText: true
     ctaText: hey
     ctaUrl: hey.com
