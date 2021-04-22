@@ -23,8 +23,8 @@ cardSection:
     - icon: /img/uploads/browser_fingerprinting.png
       title: FingerprintJS Pro
       markdown__Content: >-
-        Build your own account sharing prevention system with high accuracy
-        visitor identification. 
+        <i>Build your own account sharing prevention system with high accuracy
+        visitor identification. </i>
 
 
         **Visitor Identification:** Generates a 99.5% accurate visitorID for each unique device that visits your website. VisitorIDs will need to be mapped to your logins and stored so you can identify shared accounts.
@@ -40,8 +40,8 @@ cardSection:
     - icon: /img/uploads/worldwide-1-.png
       title: Account Sharing Prevention
       markdown__Content: >-
-        ***An all-in-one solution*** for account sharing prevention - maximize
-        revenue and minimize customer disturbance.
+        <i>An all-in-one solution for account sharing prevention - maximize
+        revenue and minimize customer disturbance.</i>
 
 
         **Visitor-Login Mapping:** Fully identifies shared accounts by mapping our 99.5% accurate visitorIDs to your logins. 
