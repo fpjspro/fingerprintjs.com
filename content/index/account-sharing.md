@@ -94,7 +94,7 @@ blocks:
   - subheader: Built for engineers, by engineers
     image: /img/uploads/fpjs-dashboard.png
     isCtaButton: false
-    isImageAfterText: true
+    isImageAfterText: false
     ctaText: ​
     ctaUrl: ​
     markdown__Content: >-
@@ -125,7 +125,7 @@ blocks:
       * Incognito browsing
     subheader: Learn More About Your Customers
     image: /img/uploads/additional-info.png
-    isImageAfterText: false
+    isImageAfterText: true
     ctaText: ​
     ctaUrl: ​
     isCtaButton: false
