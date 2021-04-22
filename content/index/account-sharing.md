@@ -104,7 +104,7 @@ blocks:
       * Incognito browsing
     subheader: Learn More About Your Customers
     image: /img/uploads/additional-info.png
-    isImageAfterText: true
+    isImageAfterText: false
     ctaText: hey
     ctaUrl: hey.com
     isCtaButton: false
