@@ -9,50 +9,126 @@ metadata:
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Stop account sharing with browser fingerprinting
-  description: FingerprintJS helps SaaS companies identify and prevent account
-    sharing, providing a path to convert shared accounts into individual paid
-    subscribers and increase total revenue.
+  title: Account Sharing Prevention For Subscription Businesses
+  description: Unlock subscription revenue from your existing customers.
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
-  title: "Use FingerprintJS for account sharing prevention to:"
-  subtitle: ""
+  title: Build Versus Buy
+  subtitle: Whether you are looking to integrate visitor identification with your
+    existing system or want a complete end-to-end solution, FingerprintJS has an
+    option for your business.
   cards:
     - icon: /img/uploads/account_fraud.png
-      title: Increase revenue for your business
-      markdown__Content: Account sharers already know the value of your service. By
-        enforcing subscription limits via user identification, you can convert
-        "free" account-sharing users to paying customers without negatively
-        impacting the rest of your users' experience.
+      title: FingerprintJS Pro
+      markdown__Content: >-
+        Build your own account sharing prevention system with high accuracy
+        visitor identification. 
+
+
+        **Visitor Identification:** Generates a 99.5% accurate visitorID for each unique device that visits your website. VisitorIDs will need to be mapped to your logins and stored so you can identify shared accounts.
+
+
+        **Additional Visitor Data:** Collect geolocation, browser and device details, and incognito mode detection for every visitor.
+
+
+        **Plans start at $0/Month**
+
+
+        [Create Your Free Account >](https://dashboard.fingerprintjs.com/signup)
     - icon: /img/uploads/payment_processing.png
-      title: Increase security for your customers
-      markdown__Content: Password sharing increases the likelihood of account
-        takeover, and makes it more difficult for your team to identify real
-        risks. By ensuring customers keep their accounts to themselves, you can
-        improve account security for all users.
+      title: Account Sharing Prevention
+      markdown__Content: >-
+        An all-in-one solution for account sharing prevention - maximize revenue
+        and minimize customer disturbance.
+
+
+        **Visitor-Login Mapping:** Fully identifies shared accounts by mapping our 99.5% accurate visitorIDs to your logins. 
+
+
+        **Account Sharing Identification:** Determines how many devices and browsers are being used to access each login, and flags accounts being shared between multiple individuals.
+
+
+        **Custom Rules:** Set up custom logic and be notified via webhook when rules are triggered.
+
+
+        **Contact Sales for Custom Pricing**
+
+
+        [Talk to Sales >](https://fingerprintjs.com/contact-sales/)
 blocks:
-  - subheader: Account sharing prevention built for your business
-    markdown__Content: Our team works with top SaaS providers to implement custom
-      account sharing solutions with the customer experience in mind. With our
-      highly accurate visitor identifier, we will work with your team to make
-      sure your preferred customers' experience is unhindered, and users
-      breaking their terms of service are caught.
+  - subheader: How Much Are You Losing From Account Sharing?
+    markdown__Content: >-
+      Subscription sharing costs businesses over 9.1 billion a year. It is
+      impossible to measure the cost to your business without accurate
+      detection.
+
+
+      **Assess the extent of account sharing for your website by booking a call with our sales team. We will work with your team to set up a trial of FingerprintJS Account Sharing Prevention and help to estimate the impact on your business.**
+    ctaText: Book Your Call
+    ctaUrl: google.com
+    isCtaButton: true
+    image: /img/uploads/anonymous_user_identification.png
+    isImageAfterText: false
+  - subheader: Catch account sharers where other tracking methods fail
+    markdown__Content: >-
+      Mobile devices, infrequent logins, and privacy browsing make detecting
+      account sharing difficult. An account can be misidentified as having
+      multiple owners if their browsing behavior changes over time. Conversely,
+      visitors can appear the same if not enough unique information is
+      collected.
+
+
+      FingerprintJS overcomes these technical challenges by using state-of-the-art browser identification and machine learning techniques.
+
+
+      **To generate unique visitorIDs,** FingerprintJS uses browser fingerprinting, cookies, and other technologies including server-side detection techniques. By combining many identification methods, FingerprintJS can reach a higher level of accuracy than any other solution.
+
+
+      **To ensure visitorIDs are stable over time,** FingerprintJS uses fuzzy matching and other deduplication techniques. FingerprintJS Pro associates new browsing history with the correct visitorID even if some details about the visitor have changed.
     image: /img/uploads/dashboard-tight.png
     isImageAfterText: true
-    ctaText: Talk to sales
-    ctaUrl: mailto:sales@fingerprintjs.com
+    ctaText: hey
+    ctaUrl: hey.com
     isCtaButton: false
-  - subheader: For when limiting sessions and IPs isn't enough
+  - markdown__Content: >-
+      FingerprintJS Pro collects additional information to better understand
+      your visitors. Use our geolocation and device data to build more targeted
+      rules to catch account sharing.
+
+
+      * Geolocation
+
+      * Device details 
+
+      * Incognito browsing
+    subheader: Learn More About Your Customers
+    image: /img/uploads/4.png
+    isImageAfterText: true
+    ctaText: hey
+    ctaUrl: hey.com
+    isCtaButton: false
+  - subheader: Built for engineers, by engineers
     image: /img/uploads/fpjs-subscriptions.png
     isCtaButton: false
-    isImageAfterText: false
+    isImageAfterText: true
     ctaText: Create Your Free Account
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    markdown__Content: "Mobile traffic, infrequent sign-ins and shared networks
-      cause other account sharing prevention methods to fail. FingerprintJS
-      provides an accurate ID for 99.5% of traffic, and can identify visitors
-      where IP and session tracking can't. "
+    markdown__Content: >-
+      Developer teams can easily incorporate user identification FingerprintJS
+      into existing workflows or build from scratch with our highly accessible
+      documentation and support.
+
+
+      * **Quick Start:** Our lightweight Javascript agent can be installed in minutes. Create an account for free with no credit card required and start collecting visitorIDs immediately.
+
+      * **API:** Access suspicious visitor activity and geolocation at lightspeed. 
+
+      * **Webhooks:** Receive instant notifications delivered securely to your backend systems, ideal for building scalable and asynchronous processes.
+
+      * **Documentation:** Extensive guides make it easy for developer teams to get up to speed with FingerprintJS, fast.
+
+      * **Support:** Get in touch via chat and email and get technical help within 1 business day.
 inlineCta:
   title: "Use FingerprintJS For Free "
   markdown__Subtitle: Signing up only takes a few minutes. Start collecting
