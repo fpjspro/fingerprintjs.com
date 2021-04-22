@@ -16,4 +16,5 @@ Default.args = {
     'Curabitur sit amet vestibulum ex. Aenean et purus fermentum, accumsan ante vel, sollicitudin odio. Praesent ut nunc tortor. Pellentesque cursus ante et augue convallis malesuada.',
   ctaText: 'Action',
   ctaHref: '/',
+  openCtaNewTab: false,
 }

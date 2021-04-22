@@ -12,9 +12,10 @@ export interface HeroProps {
   description: string
   ctaText: string
   ctaHref: string
+  openCtaNewTab?: boolean
   className?: string
 }
-export default function Hero({ title, description, ctaText, ctaHref, className }: HeroProps) {
+export default function Hero({ title, description, ctaText, ctaHref, openCtaNewTab, className }: HeroProps) {
   return (
     <Section className={classNames(styles.section, className)}>
       <Container size='large' className={styles.container}>
@@ -25,8 +26,8 @@ export default function Hero({ title, description, ctaText, ctaHref, className }
           className={styles.subHeader}
         />
 
-        <Button href={ctaHref} className={styles.button}>
-          {ctaText}
+        <Button href={ctaHref} className={styles.button} openNewTab={openCtaNewTab}>
+          {ctaText + ' ' + openCtaNewTab}
         </Button>
       </Container>
     </Section>

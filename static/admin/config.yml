@@ -43,6 +43,7 @@ collections:
               { label: Description, name: description, widget: string },
               { label: CTA Text, name: ctaText, widget: string },
               { label: CTA Href, name: ctaHref, widget: string },
+              { label: open CTA link in new tab, name: openCtaNewTab, widget: boolean, default: false },
             ],
         }
       - {
