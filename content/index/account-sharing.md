@@ -10,9 +10,9 @@ metadata:
 invertContent: false
 hero:
   title: Account Sharing Prevention For Subscription Businesses
-  description: Unlock subscription revenue from your existing customers with
+  description: Find out how much subscription revenue you can unlock with
     FingerprintJS Account Sharing Prevention.
-  ctaText: Create Account
+  ctaText: Book Your Assessment
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
   title: Build Versus Buy
@@ -136,7 +136,7 @@ inlineCta:
     impossible to measure the cost to your business without accurate detection.
 
 
-    **Assess the extent of account sharing for your website by booking a call with our sales team.** We will work with your team to set up a trial of FingerprintJS Account Sharing Prevention and help to estimate the impact on your business.
-  buttonText: Book Your Call
+    **Assess the extent of account sharing with our FREE account sharing assessment.** We will work with your team to set up a trial of FingerprintJS Account Sharing Prevention and estimate the potential revenue increase for your business.
+  buttonText: Get Your Free Assessment
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
