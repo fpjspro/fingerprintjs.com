@@ -91,23 +91,6 @@ blocks:
     ctaText: ​
     ctaUrl: ​
     isCtaButton: false
-  - markdown__Content: >-
-      FingerprintJS Pro collects additional information to better understand
-      your visitors. Use our geolocation and device data to build more targeted
-      rules to catch account sharing.
-
-
-      * Geolocation
-
-      * Device details 
-
-      * Incognito browsing
-    subheader: Learn More About Your Customers
-    image: /img/uploads/additional-info.png
-    isImageAfterText: false
-    ctaText: ​
-    ctaUrl: ​
-    isCtaButton: false
   - subheader: Built for engineers, by engineers
     image: /img/uploads/fpjs-dashboard.png
     isCtaButton: false
@@ -129,6 +112,23 @@ blocks:
       * **Documentation:** Extensive guides make it easy for developer teams to get up to speed with FingerprintJS, fast.
 
       * **Support:** Get in touch via chat and email and get technical help within 1 business day.
+  - markdown__Content: >-
+      FingerprintJS Pro collects additional information to better understand
+      your visitors. Use our geolocation and device data to build more targeted
+      rules to catch account sharing.
+
+
+      * Geolocation
+
+      * Device details 
+
+      * Incognito browsing
+    subheader: Learn More About Your Customers
+    image: /img/uploads/additional-info.png
+    isImageAfterText: false
+    ctaText: ​
+    ctaUrl: ​
+    isCtaButton: false
 inlineCta:
   title: How Much Are You Losing From Account Sharing?
   markdown__Subtitle: >-
