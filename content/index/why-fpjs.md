@@ -17,7 +17,7 @@ hero:
     that works for their applications.
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com
-  openCtaNewTab: true
+  openCtaNewTab: false
 cardSection:
   title: Why FingerprintJS is different
   subtitle: ""
