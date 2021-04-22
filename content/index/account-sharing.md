@@ -103,7 +103,7 @@ blocks:
 
       * Incognito browsing
     subheader: Learn More About Your Customers
-    image: /img/uploads/code-whiteblocked.png
+    image: /img/uploads/extra-features.png
     isImageAfterText: true
     ctaText: hey
     ctaUrl: hey.com
