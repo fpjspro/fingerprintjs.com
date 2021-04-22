@@ -27,7 +27,7 @@ export default function Hero({ title, description, ctaText, ctaHref, openCtaNewT
         />
 
         <Button href={ctaHref} className={styles.button} openNewTab={openCtaNewTab}>
-          {ctaText + ' ' + openCtaNewTab}
+          {ctaText}
         </Button>
       </Container>
     </Section>
