@@ -68,7 +68,7 @@ blocks:
     ctaUrl: hey.com
     isImageAfterText: false
     isCtaButton: true
-    image: /img/uploads/1619059631.png
+    image: /img/uploads/ebook.png
   - subheader: Catch account sharers where other tracking methods fail
     markdown__Content: >-
       Mobile devices, infrequent logins, and privacy browsing make detecting
