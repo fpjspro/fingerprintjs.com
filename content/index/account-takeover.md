@@ -16,6 +16,7 @@ hero:
     web application.
   ctaText: Sign Up Now
   ctaHref: https://dashboard.fingerprintjs.com/signup
+  openCtaNewTab: false
 cardSection:
   title: FingerprintJS helps to identify malicious actors - whatever form they take
   subtitle: ""
