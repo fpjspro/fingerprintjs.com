@@ -57,19 +57,18 @@ cardSection:
 
         [Talk to Sales >](https://fingerprintjs.com/contact-sales/)
 blocks:
-  - subheader: How Much Are You Losing From Account Sharing?
+  - subheader: How One Edtech Company Unearthed $4M+ in new revenue
     markdown__Content: >-
-      Subscription sharing costs businesses over 9.1 billion a year. It is
-      impossible to measure the cost to your business without accurate
-      detection.
+      Our client was struggling to prevent account sharing despite having a
+      dedicated anti-fraud team.
 
 
-      **Assess the extent of account sharing for your website by booking a call with our sales team. We will work with your team to set up a trial of FingerprintJS Account Sharing Prevention and help to estimate the impact on your business.**
-    ctaText: Book Your Call
-    ctaUrl: google.com
-    isCtaButton: true
-    image: /img/uploads/anonymous_user_identification.png
+      Using FingerprintJS Account Sharing Prevention, **the company generated $4M in new revenue over six months.** The key to their success was FingerprintJS’s accurate visitor identifier and easy-to-use APIs.
+    ctaText: Read the Case Study
+    ctaUrl: hey.com
     isImageAfterText: false
+    isCtaButton: true
+    image: /img/uploads/1619059631.png
   - subheader: Catch account sharers where other tracking methods fail
     markdown__Content: >-
       Mobile devices, infrequent logins, and privacy browsing make detecting
@@ -130,9 +129,13 @@ blocks:
 
       * **Support:** Get in touch via chat and email and get technical help within 1 business day.
 inlineCta:
-  title: "Use FingerprintJS For Free "
-  markdown__Subtitle: Signing up only takes a few minutes. Start collecting
-    visitorIDs for your traffic right away.
-  buttonText: Create Your Account
+  title: How Much Are You Losing From Account Sharing?
+  markdown__Subtitle: >-
+    Subscription sharing costs businesses over 9.1 billion a year. It is
+    impossible to measure the cost to your business without accurate detection.
+
+
+    **Assess the extent of account sharing for your website by booking a call with our sales team.** We will work with your team to set up a trial of FingerprintJS Account Sharing Prevention and help to estimate the impact on your business.
+  buttonText: Book Your Call
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
