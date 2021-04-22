@@ -10,7 +10,8 @@ metadata:
 invertContent: false
 hero:
   title: Account Sharing Prevention For Subscription Businesses
-  description: Unlock subscription revenue from your existing customers.
+  description: Unlock subscription revenue from your existing customers with
+    FingerprintJS Account Sharing Prevention.
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
 cardSection:
@@ -19,7 +20,7 @@ cardSection:
     existing system or want a complete end-to-end solution, FingerprintJS has an
     option for your business.
   cards:
-    - icon: /img/uploads/account_fraud.png
+    - icon: /img/uploads/browser_fingerprinting.png
       title: FingerprintJS Pro
       markdown__Content: >-
         Build your own account sharing prevention system with high accuracy
@@ -36,7 +37,7 @@ cardSection:
 
 
         [Create Your Free Account >](https://dashboard.fingerprintjs.com/signup)
-    - icon: /img/uploads/payment_processing.png
+    - icon: /img/uploads/worldwide.png
       title: Account Sharing Prevention
       markdown__Content: >-
         An all-in-one solution for account sharing prevention - maximize revenue
