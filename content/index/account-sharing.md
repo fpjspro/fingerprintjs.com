@@ -15,6 +15,7 @@ hero:
     subscribers and increase total revenue.
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
+  openCtaNewTab: false
 cardSection:
   title: "Use FingerprintJS for account sharing prevention to:"
   subtitle: ""
