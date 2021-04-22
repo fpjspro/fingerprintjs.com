@@ -53,7 +53,7 @@ cardSection:
         **Custom Rules:** Set up custom logic and be notified via webhook when rules are triggered.
 
 
-        **Contact Sales for Custom Pricing**
+        ###### **Contact Sales for Custom Pricing**
 
 
         [Talk to Sales >](https://fingerprintjs.com/contact-sales/)
