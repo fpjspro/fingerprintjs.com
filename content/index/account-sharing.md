@@ -124,7 +124,7 @@ blocks:
 
       * Incognito browsing
     subheader: Learn More About Your Customers
-    image: /img/uploads/additional-info.png
+    image: /img/uploads/extra-features.png
     isImageAfterText: true
     ctaText: ​
     ctaUrl: ​
