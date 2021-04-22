@@ -37,11 +37,11 @@ cardSection:
 
 
         [Create Your Free Account >](https://dashboard.fingerprintjs.com/signup)
-    - icon: /img/uploads/worldwide.png
+    - icon: /img/uploads/worldwide-1-.png
       title: Account Sharing Prevention
       markdown__Content: >-
-        An all-in-one solution for account sharing prevention - maximize revenue
-        and minimize customer disturbance.
+        ***An all-in-one solution*** for account sharing prevention - maximize
+        revenue and minimize customer disturbance.
 
 
         **Visitor-Login Mapping:** Fully identifies shared accounts by mapping our 99.5% accurate visitorIDs to your logins. 
