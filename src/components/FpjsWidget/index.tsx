@@ -43,7 +43,7 @@ export default memo(function FpjsWidget() {
           setCurrentVisit(visits[0])
         }
       } catch (e) {
-        rollbar.error('Unable to initialize FingerprintJS Pro', e)
+        rollbar.error('Unable to load visits', e)
       } finally {
         if (!isCancelled) {
           setIsLoading(false)

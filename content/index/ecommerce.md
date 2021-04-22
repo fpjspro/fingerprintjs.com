@@ -18,6 +18,7 @@ hero:
     safe with our flexible, developer-friendly API. "
   ctaText: Sign Up Free
   ctaHref: https://dashboard.fingerprintjs.com/signup
+  openCtaNewTab: false
 cardSection:
   title: "Add FingerprintJS to your tech stack to:"
   subtitle: ""

@@ -14,6 +14,7 @@ hero:
     FingerprintJS Account Sharing Prevention.
   ctaText: Book Your Assessment
   ctaHref: https://dashboard.fingerprintjs.com/signup
+  openCtaNewTab: false
 cardSection:
   title: Build Versus Buy
   subtitle: Whether you are looking to integrate visitor identification with your

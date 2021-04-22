@@ -53,9 +53,9 @@ export default function FeatureComparisonSection() {
           <FeatureTitle title='Operations' />
           <Feature feature='Data security' oss='Your infrastructure' pro='Encrypted at rest' />
           <Feature feature='Storage' oss='Your infrastructure' pro='Unlimited up to 1 yr' />
-          <Feature feature='Regions' oss='Your infrastructure' pro='99.99% Uptime' />
+          <Feature feature='Regions' oss='Your infrastructure' pro='Hosting in US and EU' />
           <Feature feature='Compliance' oss='Your infrastructure' pro='GDPR, CCPA compliant***' />
-          <Feature feature='SLA' oss='No SLA' pro='99.99% Uptime' />
+          <Feature feature='SLA' oss='No SLA' pro='99.9% Uptime' />
           <Feature
             feature='Support'
             oss='GitHub community'
@@ -83,7 +83,7 @@ export default function FeatureComparisonSection() {
           <p className={styles.note}>
             ** VisitorIDs, in comparison to fingerprints, include server side techniques, are deduplicated and utilize
             fuzzy matching to result in a more accurate and stable identifier. Fingerprint hashes rely on an exact match
-            across all browser attrributes, making them unstable across &gt; 2 week time intervals.
+            across all browser attributes, making them unstable across &gt; 2 week time intervals.
           </p>
           <p className={styles.note}>
             *** FingerprintJS is GDPR and CCPA compliant as the data processor. You still need to be compliant as the

@@ -116,6 +116,14 @@
   fill: v('color');
 }
 
+.signupButton {
+  @include media('<=phone') {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    height: 4rem;
+  }
+}
+
 .link {
   @include transition((opacity));
   opacity: 1;

@@ -11,6 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string
   onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
   download?: boolean
+  openNewTab?: boolean
 }
 
 export default function Button({
@@ -24,6 +25,7 @@ export default function Button({
   label = '',
   onClick,
   download,
+  openNewTab,
 }: ButtonProps) {
   const classes = classNames(
     styles.button,
@@ -35,7 +37,15 @@ export default function Button({
   )
 
   return href ? (
-    <a href={href} className={classes} onClick={onClick} aria-label={label} download={download}>
+    <a
+      href={href}
+      className={classes}
+      onClick={onClick}
+      aria-label={label}
+      download={download}
+      target={openNewTab ? '_blank' : undefined}
+      rel={openNewTab ? 'noreferrer' : undefined}
+    >
       {mobileIcon && <span className={styles.mobileOnly}>{mobileIcon}</span>}
       <span className={classNames({ [styles.desktopOnly]: mobileIcon })}>{children}</span>
     </a>
