@@ -31,7 +31,17 @@ const PreviewCompatibleImage = ({ className, imageInfo }: Props) => {
   }
 
   if (childImageSharp && isFluid(childImageSharp)) {
-    return <Img className={className} style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />
+    return (
+      <Img
+        className={className}
+        style={imageStyle}
+        fluid={childImageSharp.fluid}
+        alt={alt}
+        imgStyle={{
+          objectFit: 'contain',
+        }}
+      />
+    )
   }
 
   if (childImageSharp && isFixed(childImageSharp)) {
