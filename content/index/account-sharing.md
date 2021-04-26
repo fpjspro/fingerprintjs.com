@@ -13,7 +13,7 @@ hero:
   description: Find out how much subscription revenue you can unlock with
     FingerprintJS Account Sharing Prevention.
   ctaText: Book Your Assessment
-  ctaHref: https://dashboard.fingerprintjs.com/signup
+  ctaHref: https://fingerprintjs.com/contact-sales/
   openCtaNewTab: false
 cardSection:
   title: Build Versus Buy
@@ -139,5 +139,5 @@ inlineCta:
 
     **Assess the extent of account sharing with our FREE account sharing assessment.** We will work with your team to set up a trial of FingerprintJS Account Sharing Prevention and estimate the potential revenue increase for your business.
   buttonText: Get Your Free Assessment
-  buttonHref: https://dashboard.fingerprintjs.com/signup
+  buttonHref: https://fingerprintjs.com/contact-sales/
 ---
