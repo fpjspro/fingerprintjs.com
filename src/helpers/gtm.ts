@@ -1,5 +1,4 @@
 import { defaultDataLayer } from '../constants/content'
-import { useVisitorData } from '../context/FpjsContext'
 
 // GTM API requires dataLayer access through global window variable
 declare global {
@@ -42,34 +41,20 @@ function setupDataLayer() {
   window.dataLayer = window.dataLayer ?? defaultDataLayer
 }
 
-function sendEvent(enableTracking: boolean, props: SendEventProps) {
+export function sendEvent(props: SendEventProps) {
   setupDataLayer()
 
-  window.dataLayer.push({ event: EventType.LegacyEvent, enableTracking, eventProps: { ...props } })
+  window.dataLayer.push({ event: EventType.LegacyEvent, eventProps: { ...props } })
 }
 
-const trackEmbeddedFormSubmit = (enableTracking: boolean) => () => {
-  sendEvent(enableTracking, {
-    action: EventAction.IntentSuccess,
-    category: EventCategory.Signup,
-    label: EventLabel.FormFill,
-  })
+export function trackEmbeddedFormSubmit() {
+  sendEvent({ action: EventAction.IntentSuccess, category: EventCategory.Signup, label: EventLabel.FormFill })
 }
 
-const trackLeadSubmit = (enableTracking: boolean) => (success = true) => {
-  sendEvent(enableTracking, {
+export function trackLeadSubmit(success = true) {
+  sendEvent({
     action: EventAction.LeadSubmit,
     category: EventCategory.Lead,
     label: success ? EventLabel.Success : EventLabel.Error,
   })
-}
-
-export function useGtm() {
-  const { visitorData } = useVisitorData()
-  const enableTracking = !visitorData || visitorData.ipLocation.continent?.code === 'EU'
-
-  return {
-    trackEmbeddedFormSubmit: trackEmbeddedFormSubmit(enableTracking),
-    trackLeadSubmit: trackLeadSubmit(enableTracking),
-  }
 }
