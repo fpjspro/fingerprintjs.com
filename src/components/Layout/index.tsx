@@ -30,7 +30,7 @@ export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) 
   const fpjsEndpoint = FPJS_ENDPOINT
   const gtmToken = GTM_TOKEN
   const { visitorData } = useVisitorData()
-  const shouldEnableAnalytics = visitorData && visitorData.ipLocation.continent?.code?.toUpperCase() === 'EU'
+  const shouldEnableAnalytics = visitorData && visitorData.ipLocation.continent?.code?.toUpperCase() !== 'EU'
 
   useEffect(() => {
     if (shouldEnableAnalytics) {
