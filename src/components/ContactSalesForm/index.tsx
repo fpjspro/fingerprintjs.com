@@ -3,7 +3,7 @@ import Button from '../../components/common/Button'
 import { ReactComponent as CheckSvg } from '../../img/check.svg'
 import { ReactComponent as CloseSvg } from '../../img/close.svg'
 import { FormState } from '../../types/FormState'
-import { trackLeadSubmit } from '../../helpers/gtm'
+import { useGtm } from '../../helpers/gtm'
 import classNames from 'classnames'
 import { Forms, useForm } from '../../hooks/useForm'
 import { createNewLead } from '../../helpers/api'
@@ -19,6 +19,7 @@ export default function ContactSalesForm({ variant = 'dark', className }: Contac
   const [email, setEmail] = useState('')
   const [website, setWebsite] = useState('')
   const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.ContactSales)
+  const { trackLeadSubmit } = useGtm()
 
   const referrer = isBrowser() ? document.referrer : ''
   const utmInfo = useUtmParams({ referral_url: referrer })

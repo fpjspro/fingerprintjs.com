@@ -7,7 +7,7 @@ import Button from '../common/Button'
 import { FormState } from '../../types/FormState'
 import { FPJS_DASHBOARD_ENDPOINT } from '../../constants/env'
 import { useVisitorData } from '../../context/FpjsContext'
-import { trackEmbeddedFormSubmit } from '../../helpers/gtm'
+import { useGtm } from '../../helpers/gtm'
 import { Forms, useForm } from '../../hooks/useForm'
 import Tippy from '@tippyjs/react'
 import { ReactComponent as InfoSvg } from '../../img/info.svg'
@@ -26,6 +26,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
   const dashboardEndpoint = FPJS_DASHBOARD_ENDPOINT
   const [email, setEmail] = useState('')
   const { formState, errorMessage, updateFormState, updateErrorMessage } = useForm(Forms.Signup)
+  const { trackEmbeddedFormSubmit } = useGtm()
 
   const referrer = isBrowser() ? document.referrer : ''
   const utmInfo = useUtmParams({ referral_url: referrer })
