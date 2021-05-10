@@ -51,7 +51,7 @@ export function sendEvent(props: SendEventProps) {
 export function enableAnalytics() {
   setupDataLayer()
 
-  window.dataLayer.push({ event: EventType.EnableAnalytics })
+  window.dataLayer.push({ event: EventType.EnableAnalytics }, { enableAnalytics: true })
 }
 
 export function trackEmbeddedFormSubmit() {
