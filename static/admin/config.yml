@@ -131,7 +131,7 @@ collections:
         collection: 'author'
         searchFields: ['name']
         valueField: 'name'
-        displayFields: ['photo', 'name']
+        displayFields: ['name']
         multiple: true
       - { label: Body, name: body, widget: markdown }
   - name: 'tag'
@@ -150,8 +150,8 @@ collections:
     folder: content/author
     create: true
     fields:
-      [
-        { label: Name, name: name, widget: string },
-        { label: Photo, name: photo, widget: image },
-        { label: Bio, name: markdown__bio, widget: markdown, required: false },
-      ]
+      - { label: Name, name: title, widget: string },
+      - { label: Role, name: role, widget: string },
+      - { label: Photo, name: photo, widget: image },
+      - { label: Bio, name: markdown__bio, widget: markdown, required: false },
+

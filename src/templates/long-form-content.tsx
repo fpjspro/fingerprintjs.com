@@ -15,10 +15,15 @@ import { mapToPost, PostProps } from '../components/Post/Post'
 import PreviewProviders from '../cms/PreviewProviders'
 
 import styles from './long-form-content.module.scss'
+import AuthorComponent, { Author } from '../components/Author/Author'
+
+interface LongFormContentContext extends GeneratedPageContext {
+  authors: Author[]
+}
 
 interface LongFormContentProps {
   data: GatsbyTypes.LongFormContentQuery
-  pageContext: GeneratedPageContext
+  pageContext: LongFormContentContext
 }
 export default function LongFormContent({ data, pageContext }: LongFormContentProps) {
   if (
@@ -32,6 +37,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
   const post = mapToPost(data.markdownRemark)
   const body = data.markdownRemark.html
+  const publishDate = data.markdownRemark.frontmatter.publishDate
 
   return (
     <LongFormContentTemplate
@@ -40,6 +46,8 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
       post={post}
       body={body}
       breadcrumbs={pageContext.breadcrumb.crumbs}
+      authors={pageContext.authors}
+      publishDate={publishDate}
     />
   )
 }
@@ -64,6 +72,7 @@ export const pageQuery = graphql`
         title
         tags
         featured
+        publishDate
       }
     }
   }
@@ -75,8 +84,17 @@ export interface TemplateProps {
   body: string | React.ReactNode
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
   breadcrumbs?: Array<Breadcrumb>
+  authors?: Author[]
+  publishDate?: string
 }
-export function LongFormContentTemplate({ metadata, post, body, contentComponent, breadcrumbs }: TemplateProps) {
+export function LongFormContentTemplate({
+  metadata,
+  post,
+  body,
+  contentComponent,
+  breadcrumbs,
+  authors = [],
+}: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
   return (
@@ -89,9 +107,16 @@ export function LongFormContentTemplate({ metadata, post, body, contentComponent
           </Container>
         </>
       )}
+
       <Section className={styles.root}>
         <Container size='small' className={styles.container}>
           <h1 className={styles.title}>{post.title}</h1>
+
+          <div className={styles.authors}>
+            {authors.map((author) => (
+              <AuthorComponent key={author.name} author={author} className={styles.author} />
+            ))}
+          </div>
 
           <ContentComponent content={body} className={styles.content} />
         </Container>

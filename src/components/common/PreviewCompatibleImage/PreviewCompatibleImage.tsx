@@ -10,31 +10,32 @@ export type ImageInfo = GatsbyImageProps & {
 
 interface Props {
   className: string
+  imageStyle?: React.CSSProperties
   imageInfo?: ImageInfo | string
 }
 
-const PreviewCompatibleImage = ({ className, imageInfo }: Props) => {
+const PreviewCompatibleImage = ({ className, imageStyle, imageInfo }: Props) => {
   if (!imageInfo) {
     return <p>PreviewCompatibleImage can not be rendered (no imageInfo)</p>
   }
 
-  const imageStyle = { borderRadius: '5px' }
+  const style = imageStyle ?? { borderRadius: '5px' }
 
   if (typeof imageInfo === 'string') {
-    return <img className={className} style={imageStyle} src={imageInfo} alt='' />
+    return <img className={className} style={style} src={imageInfo} alt='' />
   }
 
   const { alt = '', childImageSharp, image, extension, publicURL } = imageInfo
 
   if (!!image && typeof image != 'string' && isFluid(image.childImageSharp)) {
-    return <Img className={className} style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
+    return <Img className={className} style={style} fluid={image.childImageSharp.fluid} alt={alt} />
   }
 
   if (childImageSharp && isFluid(childImageSharp)) {
     return (
       <Img
         className={className}
-        style={imageStyle}
+        style={style}
         fluid={childImageSharp.fluid}
         alt={alt}
         imgStyle={{
@@ -45,11 +46,10 @@ const PreviewCompatibleImage = ({ className, imageInfo }: Props) => {
   }
 
   if (childImageSharp && isFixed(childImageSharp)) {
-    return <Img className={className} style={imageStyle} fixed={childImageSharp.fixed} alt={alt} />
+    return <Img className={className} style={style} fixed={childImageSharp.fixed} alt={alt} />
   }
 
-  if (!!image && typeof image === 'string')
-    return <img className={className} style={imageStyle} src={image} alt={alt} />
+  if (!!image && typeof image === 'string') return <img className={className} style={style} src={image} alt={alt} />
 
   if (!childImageSharp && extension === 'svg') {
     return <img className={className} src={publicURL} alt={alt} />
