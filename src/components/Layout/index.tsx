@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../Footer'
 import Header from '../Header'
@@ -8,6 +8,8 @@ import { FPJS_ENDPOINT, GTM_TOKEN } from '../../constants/env'
 import { withTrailingSlash } from '../../helpers/url'
 import { BASE_URL } from '../../constants/content'
 import { defaultDataLayer } from '../../constants/content'
+import { useVisitorData } from '../../context/FpjsContext'
+import { enableAnalytics } from '../../helpers/gtm'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -27,6 +29,14 @@ export function LayoutTemplate({ children, siteMetadata }: LayoutTemplateProps) 
   const { title, description, siteUrl, image } = siteMetadata
   const fpjsEndpoint = FPJS_ENDPOINT
   const gtmToken = GTM_TOKEN
+  const { visitorData } = useVisitorData()
+  const shouldEnableAnalytics = visitorData && visitorData.ipLocation.continent?.code?.toUpperCase() !== 'EU'
+
+  useEffect(() => {
+    if (shouldEnableAnalytics) {
+      enableAnalytics()
+    }
+  }, [shouldEnableAnalytics])
 
   return (
     <>
