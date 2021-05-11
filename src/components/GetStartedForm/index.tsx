@@ -107,7 +107,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
           <CheckSvg className={styles.check} />
           <div>No Credit Card Required</div>
         </li>
-        <li className={styles.treeColumns}>
+        <li className={styles.threeColumns}>
           <CheckSvg className={styles.check} />
           <div>GDPR/CCPA Compliant</div>
           <Tippy
