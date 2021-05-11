@@ -14,6 +14,8 @@ tags:
   - js
   - web
   - fingerprinting
+authors:
+  - Vinicius Lambardozzi
 ---
 ![Fingerprint icon on map background](/img/uploads/3.png 'Fingerprint Icon')
 
