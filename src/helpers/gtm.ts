@@ -28,6 +28,7 @@ export enum EventLabel {
 // We not decided yet about event payload format
 export enum EventType {
   LegacyEvent = 'legacy.event',
+  EnableAnalytics = 'event.enableAnalytics',
 }
 
 type SendEventProps = {
@@ -45,6 +46,12 @@ export function sendEvent(props: SendEventProps) {
   setupDataLayer()
 
   window.dataLayer.push({ event: EventType.LegacyEvent, eventProps: { ...props } })
+}
+
+export function enableAnalytics() {
+  setupDataLayer()
+
+  window.dataLayer.push({ event: EventType.EnableAnalytics }, { enableAnalytics: true })
 }
 
 export function trackEmbeddedFormSubmit() {
