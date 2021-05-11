@@ -112,11 +112,13 @@ export function LongFormContentTemplate({
         <Container size='small' className={styles.container}>
           <h1 className={styles.title}>{post.title}</h1>
 
-          <div className={styles.authors}>
-            {authors.map((author) => (
-              <AuthorComponent key={author.name} author={author} className={styles.author} />
-            ))}
-          </div>
+          {authors && (
+            <div className={styles.authors}>
+              {authors.map((author) => (
+                <AuthorComponent key={author.name} author={author} className={styles.author} />
+              ))}
+            </div>
+          )}
 
           <ContentComponent content={body} className={styles.content} />
         </Container>
