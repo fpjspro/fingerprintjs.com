@@ -59,20 +59,35 @@
       font-size: 1.75rem;
       margin-top: 2rem;
 
+      @include media('<=desktop') {
+        text-align: left;
+      }
+
+      @include media('<tablet') {
+        display: list-item;
+      }
+
       li {
         display: grid;
         grid-template-columns: 0.1fr 0.9fr;
 
-        &.treeColumns{
+        &.treeColumns {
           grid-template-columns: 0.25fr 0.5fr 0.25fr;
+        }
+
+        @include media('<tablet') {
+          display: flex;
+          align-items: flex-start;
+
+          padding-bottom: 1rem;
         }
       }
 
       .check {
         width: 1.25rem;
         height: 1.25rem;
-        margin-right: 0.5rem;
-        margin-top: 0.5rem;
+        margin-right: 0.75rem;
+        margin-top: 0.75rem;
       }
     }
 
