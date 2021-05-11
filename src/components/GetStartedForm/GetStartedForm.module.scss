@@ -53,21 +53,18 @@
     }
 
     .description {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
       font-size: 1.75rem;
       margin-top: 2rem;
-      justify-content: center;
 
       li {
-        display: inline-flex;
-        white-space: nowrap;
-        align-items: center;
-        opacity: v('faded');
+        display: grid;
+        grid-template-columns: 0.1fr 0.9fr;
 
-        + li {
-          margin-left: 1.5rem;
+        &.treeColumns{
+          grid-template-columns: 0.25fr 0.5fr 0.25fr;
         }
       }
 
@@ -75,6 +72,7 @@
         width: 1.25rem;
         height: 1.25rem;
         margin-right: 0.5rem;
+        margin-top: 0.5rem;
       }
     }
 
@@ -195,6 +193,7 @@
 }
 
 .infoIcon {
+  padding-top: 0.5rem;
   cursor: pointer;
   margin-left: 1rem;
   width: 1.5rem;
