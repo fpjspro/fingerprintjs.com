@@ -149,9 +149,9 @@ collections:
     label: 'Author'
     folder: content/author
     create: true
-    fields:
-      - { label: Name, name: title, widget: string }, # The filename comes from title
-      - { label: Role, name: role, widget: string },
-      - { label: Photo, name: photo, widget: image },
-      - { label: Bio, name: markdown__bio, widget: markdown, required: false },
-
+    fields: [
+        { label: Name, name: title, widget: string }, # The filename comes from title
+        { label: Role, name: role, widget: string },
+        { label: Photo, name: photo, widget: image },
+        { label: Bio, name: markdown__bio, widget: markdown, required: false },
+      ]
