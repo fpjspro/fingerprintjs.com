@@ -49,7 +49,9 @@ const PreviewCompatibleImage = ({ className, imageStyle, imageInfo }: Props) => 
     return <Img className={className} style={style} fixed={childImageSharp.fixed} alt={alt} />
   }
 
-  if (!!image && typeof image === 'string') return <img className={className} style={style} src={image} alt={alt} />
+  if (!!image && typeof image === 'string') {
+    return <img className={className} style={style} src={image} alt={alt} />
+  }
 
   if (!childImageSharp && extension === 'svg') {
     return <img className={className} src={publicURL} alt={alt} />
