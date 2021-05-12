@@ -14,6 +14,8 @@ title: The Top Browser Fingerprinting Techniques Explained
 tags:
   - fingerprinting
   - js
+authors:
+  - Savannah Copland
 ---
 ![](/img/uploads/tw-ad-2-hd.png)
 
