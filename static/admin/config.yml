@@ -1,7 +1,6 @@
 backend:
   name: git-gateway
-  # TODO Change back before merge
-  branch: feature/web-151-blog-authors
+  branch: master
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
