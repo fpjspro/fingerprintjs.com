@@ -101,15 +101,15 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
       <ul className={styles.description}>
         <li>
           <CheckSvg className={styles.check} />
-          <div>Unlimited Identifications for 30 Days</div>
+          Unlimited Identifications for 30 Days
         </li>
         <li>
           <CheckSvg className={styles.check} />
-          <div>No Credit Card Required</div>
+          No Credit Card Required
         </li>
         <li className={styles.threeColumns}>
           <CheckSvg className={styles.check} />
-          <div>GDPR/CCPA Compliant</div>
+          GDPR/CCPA Compliant
           <Tippy
             content={
               <span>
