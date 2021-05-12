@@ -129,9 +129,9 @@ collections:
         label: Authors
         widget: relation
         collection: 'author'
-        searchFields: ['name']
-        valueField: 'name'
-        displayFields: ['name']
+        searchFields: ['title']
+        valueField: 'title'
+        displayFields: ['title']
         multiple: true
       - { label: Body, name: body, widget: markdown }
   - name: 'tag'
