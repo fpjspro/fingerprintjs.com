@@ -7,7 +7,7 @@ metadata:
   description: Audio Fingerprinting is used to uniquely identify visitors without
     cookies. A deep dive into this highly stable browser fingerprinting
     technique.
-featured: true
+featured: false
 publishDate: 2021-03-18T13:12:29.612Z
 title: How the Web Audio API is used for browser fingerprinting
 tags:
