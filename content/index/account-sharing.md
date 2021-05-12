@@ -67,7 +67,7 @@ blocks:
 
       Using FingerprintJS Account Sharing Prevention, **the company generated $4M in new revenue over six months.** The key to their success was FingerprintJS’s accurate visitor identifier and easy-to-use APIs.
     ctaText: ​Read the Case Study
-    ctaUrl: " ​https://fingerprintjs.com/case-studies/edtech/"
+    ctaUrl: https://fingerprintjs.com/case-studies/edtech/
     isImageAfterText: false
     isCtaButton: true
     image: /img/uploads/ebook.png

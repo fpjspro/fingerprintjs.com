@@ -13,6 +13,8 @@ title: "Life after ANDROID_ID: Android Identification via Device Fingerprinting"
 tags:
   - java
   - fingerprinting
+authors:
+  - Savannah Copland
 ---
 ![Device Fingerprinting For Android](/img/uploads/4.png)
 

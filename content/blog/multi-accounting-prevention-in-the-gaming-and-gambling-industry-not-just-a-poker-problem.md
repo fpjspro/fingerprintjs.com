@@ -17,6 +17,8 @@ tags:
   - fingerprinting
   - gambling
   - gaming
+authors:
+  - Savannah Copland
 ---
 Multi-accounting has historically been a huge problem for online gambling services and in particular poker websites. A quick Google search turns up both articles discouraging the practice, as well as forum posts asking for tips on how to successfully multi-account without getting caught. While poker websites have improved at catching multi-accounting users in recent years, the practice still regularly occurs at the highest levels of play. 
 

@@ -27,6 +27,7 @@ async function getFolderEdges(folder, graphql, filter = '') {
               metadata {
                 url
               }
+              authors
             }
           }
         }
@@ -73,7 +74,7 @@ function getRelativeUrl(url) {
   return relativeUrl ? withTrailingSlash(relativeUrl[1]) : '/'
 }
 
-function createPageFromEdge(edge, createPage) {
+function createPageFromEdge(edge, createPage, additionalContext = {}) {
   const id = edge.node.id
   const url = edge.node.frontmatter.metadata?.url
 
@@ -84,6 +85,7 @@ function createPageFromEdge(edge, createPage) {
     // additional data can be passed via context
     context: {
       id,
+      ...additionalContext,
     },
   })
 }
@@ -210,4 +212,29 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
 
     actions.replaceWebpackConfig(config)
   }
+}
+
+exports.sourceNodes = async ({ actions, getNodes }) => {
+  const { createNodeField } = actions
+
+  const blogPosts = getNodes().filter(
+    (node) => node.internal.type === 'MarkdownRemark' && /(blog)\/.*.md$/.test(node.fileAbsolutePath)
+  )
+  const authors = getNodes().filter(
+    (node) => node.internal.type === 'MarkdownRemark' && /(author)\/.*.md$/.test(node.fileAbsolutePath)
+  )
+
+  blogPosts.forEach((node) => {
+    if (node.frontmatter.authors) {
+      const authorNodes = authors.filter((otherNode) => node.frontmatter.authors.includes(otherNode.frontmatter.title))
+
+      if (authorNodes.length > 0) {
+        createNodeField({
+          node,
+          name: 'authors',
+          value: authorNodes,
+        })
+      }
+    }
+  })
 }

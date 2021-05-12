@@ -124,6 +124,14 @@ collections:
         valueField: 'name'
         displayFields: ['name']
         multiple: true
+      - name: authors
+        label: Authors
+        widget: relation
+        collection: 'author'
+        searchFields: ['title']
+        valueField: 'title'
+        displayFields: ['title']
+        multiple: true
       - { label: Body, name: body, widget: markdown }
   - name: 'tag'
     label: 'Tag'
@@ -136,3 +144,13 @@ collections:
           widget: string,
           pattern: ['[a-z]+[a-z\-]*', 'Must be all lowercase words, optionally separated by a "-".'],
         }
+  - name: 'author'
+    label: 'Author'
+    folder: content/author
+    create: true
+    fields: [
+        { label: Name, name: title, widget: string }, # The filename comes from title
+        { label: Role, name: role, widget: string },
+        { label: Photo, name: photo, widget: image },
+        { label: Bio, name: markdown__bio, widget: markdown, required: false },
+      ]

@@ -9,5 +9,40 @@
   font-size: 4rem;
   font-family: v('ff-mono');
 
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
+
+  @include media('>1400px') {
+    margin-bottom: 6rem;
+  }
+}
+
+.authors {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-bottom: 5rem;
+
+  @include media('<=phoneLandscape') {
+    margin-bottom: 2rem;
+  }
+
+  @include media('>1400px') {
+    position: absolute;
+    flex-direction: column;
+
+    margin-top: 16rem;
+
+    // Container padding - user component width
+    left: calc(50vw - 680px / 2 - 320px);
+  }
+}
+
+.author {
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+
+  @include media('>1400px') {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
 }

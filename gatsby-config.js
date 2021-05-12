@@ -146,4 +146,7 @@ module.exports = {
       },
     },
   ],
+  mapping: {
+    'MarkdownRemark.fields.author': 'MarkdownRemark[]',
+  },
 }

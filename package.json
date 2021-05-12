@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@deckdeckgo/highlight-code": "^2.5.1",
-    "@fingerprintjs/fingerprintjs-pro": "^3.3.0",
+    "@fingerprintjs/fingerprintjs-pro": "^3.3.2",
     "@loadable/component": "^5.14.1",
     "@tippyjs/react": "^4.2.0",
     "classnames": "^2.2.6",
@@ -70,7 +70,7 @@
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
     "rollbar": "^2.19.4",
-    "swiper": "^6.3.5"
+    "swiper": "^6.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

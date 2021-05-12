@@ -13,6 +13,8 @@ import { Content, DangerouslyRenderHtmlContent } from '../components/Content/Con
 import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
 import { mapToPost, PostProps } from '../components/Post/Post'
 import PreviewProviders from '../cms/PreviewProviders'
+import AuthorComponent, { Author } from '../components/Author/Author'
+import { ImageInfo } from '../components/common/PreviewCompatibleImage/PreviewCompatibleImage'
 
 import styles from './long-form-content.module.scss'
 
@@ -31,7 +33,9 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
 
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
   const post = mapToPost(data.markdownRemark)
+  const authors = mapToAuthors(data.markdownRemark.fields?.authors)
   const body = data.markdownRemark.html
+  const publishDate = data.markdownRemark.frontmatter.publishDate
 
   return (
     <LongFormContentTemplate
@@ -40,6 +44,8 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
       post={post}
       body={body}
       breadcrumbs={pageContext.breadcrumb.crumbs}
+      authors={authors}
+      publishDate={publishDate}
     />
   )
 }
@@ -51,6 +57,19 @@ export const pageQuery = graphql`
       html
       fields {
         slug
+        authors {
+          frontmatter {
+            title
+            role
+            photo {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
       }
       frontmatter {
         metadata {
@@ -64,6 +83,7 @@ export const pageQuery = graphql`
         title
         tags
         featured
+        publishDate
       }
     }
   }
@@ -75,8 +95,17 @@ export interface TemplateProps {
   body: string | React.ReactNode
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
   breadcrumbs?: Array<Breadcrumb>
+  authors?: Author[]
+  publishDate?: string
 }
-export function LongFormContentTemplate({ metadata, post, body, contentComponent, breadcrumbs }: TemplateProps) {
+export function LongFormContentTemplate({
+  metadata,
+  post,
+  body,
+  contentComponent,
+  breadcrumbs,
+  authors = [],
+}: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
   return (
@@ -89,9 +118,18 @@ export function LongFormContentTemplate({ metadata, post, body, contentComponent
           </Container>
         </>
       )}
+
       <Section className={styles.root}>
         <Container size='small' className={styles.container}>
           <h1 className={styles.title}>{post.title}</h1>
+
+          {authors && (
+            <div className={styles.authors}>
+              {authors.map((author) => (
+                <AuthorComponent key={author.name} author={author} className={styles.author} />
+              ))}
+            </div>
+          )}
 
           <ContentComponent content={body} className={styles.content} />
         </Container>
@@ -128,4 +166,17 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
     siteUrl: withTrailingSlash(queryMetadata?.url ?? ''),
     image: `${BASE_URL}${queryMetadata?.image?.publicURL}` ?? '',
   } as GatsbyTypes.SiteSiteMetadata
+}
+
+type QueryAuthors = NonNullable<NonNullable<GatsbyTypes.LongFormContentQuery['markdownRemark']>['fields']>['authors']
+function mapToAuthors(queryAuthors?: QueryAuthors): Author[] {
+  return (
+    queryAuthors?.map((author) => {
+      return {
+        name: author?.frontmatter?.title ?? '',
+        role: author?.frontmatter?.role ?? '',
+        photo: author?.frontmatter?.photo as ImageInfo,
+      }
+    }) ?? []
+  )
 }

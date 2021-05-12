@@ -12,6 +12,8 @@ publishDate: 2021-03-16T18:09:51.690Z
 title: "How to Prevent Multiple Signups With FingerprintJS Pro "
 tags:
   - fingerprinting
+authors:
+  - Savannah Copland
 ---
 <i>This article is a tutorial where we will build a workflow that prevents signup abuse on a free trial form using the FingerprintJS Pro API. 
 
