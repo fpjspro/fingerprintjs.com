@@ -70,7 +70,7 @@
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
     "rollbar": "^2.19.4",
-    "swiper": "^6.3.5"
+    "swiper": "^6.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
