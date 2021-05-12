@@ -14,6 +14,8 @@ title: How to Prevent Card Testing Without Destroying Your Payment Conversions
 tags:
   - fingerprinting
   - payment fraud
+authors:
+  - Savannah Copland
 ---
 Imagine your online business is suddenly getting tons of new small purchases. As soon as you check each activity, you notice many of these purchases are being declined by the payment processor, and disputes for unauthorized purchases start rolling in. Investigating further, you realize it’s all a sham.
 

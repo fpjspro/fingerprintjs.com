@@ -13,6 +13,8 @@ title: How the Web Audio API is used for browser fingerprinting
 tags:
   - fingerprinting
   - js
+authors:
+  - Savannah Copland
 ---
 Did you know that you can identify web browsers without using cookies or asking for permissions?\
 \

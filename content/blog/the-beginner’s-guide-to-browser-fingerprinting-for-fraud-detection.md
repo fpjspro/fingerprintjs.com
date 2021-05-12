@@ -15,8 +15,7 @@ tags:
   - web
   - fingerprinting
 authors:
-  - Vinicius Lambardozzi
-  - Valentin Vasilyev
+  - Savannah Copland
 ---
 
 ![Fingerprint icon on map background](/img/uploads/3.png 'Fingerprint Icon')
