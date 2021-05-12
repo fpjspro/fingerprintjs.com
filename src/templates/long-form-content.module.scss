@@ -30,6 +30,8 @@
     position: absolute;
     flex-direction: column;
 
+    margin-top: 16rem;
+
     // Container padding - user component width
     left: calc(50vw - 680px / 2 - 320px);
   }

@@ -65,45 +65,6 @@ async function getTags(graphql) {
   return data.allMarkdownRemark.group
 }
 
-async function getAllAuthors(graphql) {
-  const { data, errors } = await graphql(`
-    {
-      allMarkdownRemark(limit: 1000, filter: { fileAbsolutePath: { regex: "/(author)/.*.md$/" } }) {
-        edges {
-          node {
-            frontmatter {
-              title
-              role
-              photo {
-                childImageSharp {
-                  fluid(maxWidth: 1024, quality: 100) {
-                    base64
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
-                  }
-                }
-              }
-              markdown__bio
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  if (errors) {
-    // eslint-disable-next-line no-console
-    errors.forEach((e) => console.error(e.toString()))
-    return Promise.reject(errors)
-  }
-
-  return data.allMarkdownRemark.edges
-    .map(({ node }) => node.frontmatter)
-    .map(({ title, role, photo, markdown__bio }) => ({ name: title, role, photo, bio: markdown__bio }))
-}
-
 function withTrailingSlash(path) {
   return path.endsWith('/') ? path : `${path}/`
 }
@@ -146,25 +107,14 @@ function createPaginatedPages(numPages, itemsPerPage, pathname, template, create
   }
 }
 
-function getPostAuthors(names, authors) {
-  return authors.filter((author) => names.includes(author.name))
-}
-
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
   const pages = await getFolderEdges('index', graphql)
   pages.forEach((edge) => createPageFromEdge(edge, createPage))
 
-  const allAuthors = await getAllAuthors(graphql)
   const blogPosts = await getFolderEdges('blog', graphql)
-  blogPosts.forEach((edge) => {
-    const authorNames = edge.node.frontmatter.authors
-
-    createPageFromEdge(edge, createPage, {
-      authors: authorNames && getPostAuthors(authorNames, allAuthors),
-    })
-  })
+  blogPosts.forEach((edge) => createPageFromEdge(edge, createPage))
 
   const featuredPosts = await getFolderEdges('blog', graphql, 'frontmatter: { featured: { eq: true } }')
 
@@ -262,4 +212,29 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
 
     actions.replaceWebpackConfig(config)
   }
+}
+
+exports.sourceNodes = async ({ actions, getNodes }) => {
+  const { createNodeField } = actions
+
+  const blogPosts = getNodes().filter(
+    (node) => node.internal.type === 'MarkdownRemark' && /(blog)\/.*.md$/.test(node.fileAbsolutePath)
+  )
+  const authors = getNodes().filter(
+    (node) => node.internal.type === 'MarkdownRemark' && /(author)\/.*.md$/.test(node.fileAbsolutePath)
+  )
+
+  blogPosts.forEach((node) => {
+    if (node.frontmatter.authors) {
+      const authorNodes = authors.filter((otherNode) => node.frontmatter.authors.includes(otherNode.frontmatter.title))
+
+      if (authorNodes.length > 0) {
+        createNodeField({
+          node,
+          name: 'authors',
+          value: authorNodes,
+        })
+      }
+    }
+  })
 }

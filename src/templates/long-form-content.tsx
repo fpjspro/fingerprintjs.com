@@ -13,17 +13,14 @@ import { Content, DangerouslyRenderHtmlContent } from '../components/Content/Con
 import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
 import { mapToPost, PostProps } from '../components/Post/Post'
 import PreviewProviders from '../cms/PreviewProviders'
+import AuthorComponent, { Author } from '../components/Author/Author'
+import { ImageInfo } from '../components/common/PreviewCompatibleImage/PreviewCompatibleImage'
 
 import styles from './long-form-content.module.scss'
-import AuthorComponent, { Author } from '../components/Author/Author'
-
-interface LongFormContentContext extends GeneratedPageContext {
-  authors: Author[]
-}
 
 interface LongFormContentProps {
   data: GatsbyTypes.LongFormContentQuery
-  pageContext: LongFormContentContext
+  pageContext: GeneratedPageContext
 }
 export default function LongFormContent({ data, pageContext }: LongFormContentProps) {
   if (
@@ -36,6 +33,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
 
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
   const post = mapToPost(data.markdownRemark)
+  const authors = mapToAuthors(data.markdownRemark.fields?.authors)
   const body = data.markdownRemark.html
   const publishDate = data.markdownRemark.frontmatter.publishDate
 
@@ -46,7 +44,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
       post={post}
       body={body}
       breadcrumbs={pageContext.breadcrumb.crumbs}
-      authors={pageContext.authors}
+      authors={authors}
       publishDate={publishDate}
     />
   )
@@ -59,6 +57,19 @@ export const pageQuery = graphql`
       html
       fields {
         slug
+        authors {
+          frontmatter {
+            title
+            role
+            photo {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
       }
       frontmatter {
         metadata {
@@ -155,4 +166,17 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
     siteUrl: withTrailingSlash(queryMetadata?.url ?? ''),
     image: `${BASE_URL}${queryMetadata?.image?.publicURL}` ?? '',
   } as GatsbyTypes.SiteSiteMetadata
+}
+
+type QueryAuthors = NonNullable<NonNullable<GatsbyTypes.LongFormContentQuery['markdownRemark']>['fields']>['authors']
+function mapToAuthors(queryAuthors?: QueryAuthors): Author[] {
+  return (
+    queryAuthors?.map((author) => {
+      return {
+        name: author?.frontmatter?.title ?? '',
+        role: author?.frontmatter?.role ?? '',
+        photo: author?.frontmatter?.photo as ImageInfo,
+      }
+    }) ?? []
+  )
 }
