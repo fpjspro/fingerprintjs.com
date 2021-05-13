@@ -11,7 +11,7 @@
 
   margin-bottom: 2rem;
 
-  @include media('>1400px') {
+  @include media('>1250px') {
     margin-bottom: 6rem;
   }
 }
@@ -26,14 +26,14 @@
     margin-bottom: 2rem;
   }
 
-  @include media('>1400px') {
+  @include media('>1250px') {
     position: absolute;
     flex-direction: column;
 
     margin-top: 16rem;
 
-    // Container padding - user component width
-    left: calc(50vw - 680px / 2 - 320px);
+    // Container padding to match header
+    left: unquote('max(3rem, 50vw - 1232px / 2)');
   }
 }
 
@@ -41,7 +41,7 @@
   margin-right: 2rem;
   margin-bottom: 2rem;
 
-  @include media('>1400px') {
+  @include media('>1250px') {
     margin-right: 0;
     margin-bottom: 2rem;
   }
