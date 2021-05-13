@@ -1,8 +1,6 @@
 .root {
   display: flex;
   align-items: center;
-
-  padding: 0.5rem;
 }
 
 .photo {
@@ -12,19 +10,22 @@
 
 .textContainer {
   height: 70%;
-  margin-left: 3rem;
+  margin-left: 2rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
   font-family: v('ff-sans');
+
+  font-size: 1.75rem;
 }
 
 .name {
-  font-weight: v('bold');
+  font-weight: v('semi');
 }
 
 .role {
+  color: v('brand-water');
   opacity: v('muted');
 }
