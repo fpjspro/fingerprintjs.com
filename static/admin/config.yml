@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: draft/Savannah-draft-2
+  branch: master
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
