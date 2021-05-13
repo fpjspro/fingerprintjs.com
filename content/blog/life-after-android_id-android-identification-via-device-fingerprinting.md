@@ -7,7 +7,7 @@ metadata:
     Android library to future-proof your application security.
   url: https://fingerprintjs.com/blog/device-fingerprinting-android
   image: /img/uploads/4.png
-featured: false
+featured: true
 publishDate: 2020-12-08T16:18
 title: "Life after ANDROID_ID: Android Identification via Device Fingerprinting"
 tags:

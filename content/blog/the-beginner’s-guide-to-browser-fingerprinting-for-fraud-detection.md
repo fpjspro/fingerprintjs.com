@@ -7,7 +7,7 @@ metadata:
     technique works with a real-life example.
   url: https://fingerprintjs.com/blog/what-is-browser-fingerprinting
   image: /img/uploads/3.png
-featured: false
+featured: true
 publishDate: 2020-12-24T16:11
 title: The Beginner’s Guide to Browser Fingerprinting for Fraud Detection
 tags:
