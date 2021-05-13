@@ -3,7 +3,7 @@ templateKey: long-form-content
 metadata:
   title: How to Build the Best Paywall Solution with Node and Browser
     Fingerprinting - FingerprintJS
-  url: https://fingerprintjs.com/blog/stop-card-testing
+  url: https://fingerprintjs.com/blog/paywall-solution
   description: Tired of leaky paywalls? Build a custom paywall solution for your
     website with our step-by-step guide.
   image: /img/uploads/paywall-banner.png
