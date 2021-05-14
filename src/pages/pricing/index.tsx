@@ -5,6 +5,8 @@ import Section, { SectionProps } from '../../components/common/Section'
 import classNames from 'classnames'
 import Container from '../../components/common/Container'
 import PricingCard from '../../components/pricing/Card'
+import BannerWithCTA from '../../components/BannerWithCTA/BannerWithCTA'
+import { URL } from '../../constants/content'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
@@ -32,6 +34,7 @@ export default function PricingPage({ pageContext }: PricingPageProps) {
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
 
       <CalculatorSection mainBackground={mainBackground} />
+      <BannerSection />
       <PricingModelsSection mainBackground={mainBackground} />
     </LayoutTemplate>
   )
@@ -125,6 +128,21 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
             discount for your usage is important.
           </div>
         </PricingCard>
+      </Container>
+    </Section>
+  )
+}
+
+function BannerSection() {
+  return (
+    <Section className={styles.bannerSection}>
+      <Container>
+        <BannerWithCTA
+          title='New To FingerprintJS Pro?'
+          description='New accounts get unlimited identifications for the first 30 days. After 30 days, accounts can remain on a free plan with up to 1,000 unique visitor identifications per month, or upgrade to a paid plan for more identifications.'
+          ctaText='Try For Free'
+          ctaHref={URL.signupUrl}
+        />
       </Container>
     </Section>
   )
