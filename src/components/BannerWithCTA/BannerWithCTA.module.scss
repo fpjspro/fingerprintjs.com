@@ -1,0 +1,42 @@
+.banner {
+  border-radius: 1rem;
+  background-color: v('brand-water');
+  color: v('white');
+
+  padding: 6rem 6rem;
+
+  @include media('<=phoneLandscape') {
+    padding: 4rem 4rem;
+  }
+
+  .title {
+    font-size: 4rem;
+
+    padding-bottom: 2.5rem;
+
+    @include media('<=phoneLandscape') {
+      font-size: 2.5rem;
+    }
+  }
+
+  .description {
+    font-size: 2rem;
+
+    padding-right: 20rem;
+    padding-bottom: 5rem;
+
+    @include media('<=phoneLandscape') {
+      font-size: 1.75rem;
+
+      padding-right: 0;
+    }
+  }
+
+  .button {
+    @include media('<=phoneLandscape') {
+      font-size: 1.25rem;
+
+      height: 32px;
+    }
+  }
+}
