@@ -63,8 +63,8 @@ export const pageQuery = graphql`
             role
             photo {
               childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(width: 48, quality: 100) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
