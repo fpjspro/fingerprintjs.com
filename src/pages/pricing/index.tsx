@@ -5,6 +5,8 @@ import Section, { SectionProps } from '../../components/common/Section'
 import classNames from 'classnames'
 import Container from '../../components/common/Container'
 import PricingCard from '../../components/pricing/Card'
+import BannerWithCTA from '../../components/BannerWithCTA/BannerWithCTA'
+import { URL } from '../../constants/content'
 import { useMainBackgroundImage } from '../../hooks/useBackgroundImage'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
@@ -32,6 +34,7 @@ export default function PricingPage({ pageContext }: PricingPageProps) {
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
 
       <CalculatorSection mainBackground={mainBackground} />
+      <BannerSection />
       <PricingModelsSection mainBackground={mainBackground} />
     </LayoutTemplate>
   )
@@ -84,12 +87,13 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
               On-demand is a metered model, where we count your unique visitors and bill you accordingly every month.
             </li>
             <li>
-              The on-demand plan is recommended when you have a small and/or unpredictable volume and want to pay only
-              for what you use every month. You can cancel at any time.
+              The minimum paid plan is $100/month, which includes the identification of 5,000 unique visitors per month.
+              Unused identifications are not carried over to the next month. Both free and paid plans include unlimited
+              API calls.
             </li>
             <li>
-              The minimum plan is $100/month, which includes the identification of 5,000 unique visitors per month.
-              Unused identifications are not carried over to the next month.
+              The on-demand plan is recommended when you have a small and/or unpredictable volume and want to pay only
+              for what you use every month. You can cancel at any time.
             </li>
           </ul>
           <div className={styles.priceTable}>
@@ -125,6 +129,20 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
             discount for your usage is important.
           </div>
         </PricingCard>
+      </Container>
+    </Section>
+  )
+}
+
+function BannerSection() {
+  return (
+    <Section className={styles.bannerSection}>
+      <Container>
+        <BannerWithCTA title='New To FingerprintJS Pro?' ctaText='Try For Free' ctaHref={URL.signupUrl}>
+          New accounts get unlimited identifications for the first 30 days. After 30 days, accounts can remain on a free
+          plan with up to 1,000 unique visitor identifications per month, or upgrade to a paid plan for more
+          identifications. All plans include unlimited API calls.
+        </BannerWithCTA>
       </Container>
     </Section>
   )

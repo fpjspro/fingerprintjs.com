@@ -17,7 +17,7 @@ tags:
 authors:
   - Savannah Copland
 ---
-![](/img/uploads/tw-ad-2-hd.png)
+![Screenshot of FingerprintJS visitorID data](/img/uploads/tw-ad-2-hd.png "Screenshot of FingerprintJS visitorID data")
 
 <b>To generate a highly accurate browser fingerprint, many techniques are used to gather information about the user that can differentiate them from millions of others online. In this article, we review some of the most common methods used in a browser fingerprinting script.</b>
 

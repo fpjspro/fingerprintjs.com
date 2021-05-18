@@ -33,7 +33,9 @@ export default function PriceCalculator() {
 
   function onCustomCountChanged(newCustomCount: string): void {
     if (newCustomCount !== '') {
-      setCustomCount(parseInt(newCustomCount, 10))
+      const strippedValue = newCustomCount.replace(/\.|,/, '')
+
+      setCustomCount(parseInt(strippedValue, 10))
     } else {
       setCustomCount(undefined)
     }
@@ -76,20 +78,20 @@ export default function PriceCalculator() {
               onChange={(e) => onCustomCountChanged(e.target.value)}
               type='number'
               name='identification-user-input'
-              placeholder='ex. 8,000'
+              placeholder='ex. 8000'
             />
           </div>
         </Column>
         <Column title={'On-Demand'}>
           <Price
             value={getPriceValue(PaymentType.Monthly)}
-            description={isFree ? 'Free up to 1,000 unique visitors' : 'Pay as you go, cancel any time'}
+            description={isFree ? 'Free up to 1,000 monthly unique visitors' : 'Pay as you go, cancel any time'}
           />
         </Column>
         <Column title='Annual'>
           <Price
             value={getPriceValue(PaymentType.Annually)}
-            description={isFree ? 'Free up to 1,000 unique visitors' : 'Requires a 12 month prepay'}
+            description={isFree ? 'Free up to 1,000 monthly unique visitors' : 'Requires a 12 month prepay'}
           />
         </Column>
         <Column title='Enterprise License'>

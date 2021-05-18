@@ -1,7 +1,7 @@
 ---
 templateKey: long-form-content
 metadata:
-  title: "[VIDEO TUTORIAL] How to prevent multiple signups with FingerprintJS Pro"
+  title: How to prevent multiple signups with FingerprintJS [Video]
   description: Protect your free trial offer forms from signup abuse. In this
     step-by-step tutorial, catch visitors who have filled out a form previously
     using FingerprintJS Pro.
@@ -43,7 +43,7 @@ To begin, you’ll need a FingerprintJS Pro subscription. If you don’t have on
 
 Once you have an account, open the dashboard and take a look at the Subscription menu on the left side of the window. Click the Tokens label and copy any active browser token. 
 
-![](/img/uploads/image1.png)
+![How to get a token in FingerprintJS](/img/uploads/image1.png "How to get a token in FingerprintJS")
 
 ## Frontend
 
@@ -75,9 +75,9 @@ function initFingerprintJS() {
 
 Save the page after you’ve installed the snippet, then open your browser’s developer console and load the site. You should see an alphanumeric hash in the console.
 
-![](/img/uploads/image2.png)
+![How to find your visitorID in the browser console - part 1](/img/uploads/image2.png "How to find your visitorID in the browser console - part 1")
 
-![](/img/uploads/image5.png)
+![How to find your visitorID in the browser console - part 2](/img/uploads/image5.png "How to find your visitorID in the browser console - part 2")
 
 This hash is called a visitorID and it will be identical for the same browser on the same device in private and normal mode every time a user accesses the page.
 
@@ -164,11 +164,11 @@ That’s it! Now save this and go back to your app.
 
 Sign up with an email (you can use any valid email address) and wait for the successful response.
 
-![](/img/uploads/image3.png)
+![Screenshot of finished signup project](/img/uploads/image3.png "Screenshot of finished signup project")
 
 Try it again in incognito mode, but this time use a different email. If you’ve done everything correctly, you should see an error message below the email field.
 
-![](/img/uploads/image4.png)
+![Screenshot of form validation preventing multiple signups](/img/uploads/image4.png "Screenshot of form validation preventing multiple signups")
 
 And you are all done! 
 
