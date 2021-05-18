@@ -1,8 +1,7 @@
 ---
 templateKey: long-form-content
 metadata:
-  title: How to Prevent Card Testing Without Destroying Your Conversions -
-    FingerprintJS
+  title: How to Prevent Card Testing Without Destroying Conversions
   url: https://fingerprintjs.com/blog/stop-card-testing
   image: /img/uploads/ales-nesetril-ex_p4aabxbs-unsplash.jpg
   description: "Credit card testing can be difficult to stop without adding

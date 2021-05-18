@@ -1,7 +1,7 @@
 ---
 templateKey: long-form-content
 metadata:
-  title: How to minimize CAPTCHA API calls with user identification - FingerprintJS
+  title: Reduce CAPTCHA use with user identification - FingerprintJS
   image: /img/uploads/crosswalks.png
   url: https://fingerprintjs.com/blog/reduce-captcha
   description: Looking for CAPTCHA alternatives? With user identification, you can
@@ -22,7 +22,7 @@ It can be frustrating for users to be served CAPTCHAs as they can be deceptively
 
 Differences in how people interpret CAPTCAs can create unintended challenges for visitors. For example, a user may be prompted to click all the squares in the below image that contain a fire hydrant:
 
-![](/img/uploads/hydrants.png)
+![A screenshot of Google's RECAPTCHA](/img/uploads/hydrants.png "A screenshot of Google's RECAPTCHA")
 
 People in Mountain View, California will click the three bottom squares on the left without hesitation because they see a familiar red hydrant. A few will click all four squares on the left because the little antenna on the top is technically part of the fire hydrant. Somebody from Tokyo, Japan might hit the “SKIP” button, because their fire hydrants don’t look like the one in the picture. Billions of non-native English speakers might not know what a fire hydrant is and it may not translate correctly. 
 
@@ -78,6 +78,6 @@ FingerprintJS Pro can be used in conjunction with CAPTCHA technologies to ensure
 * *For trusted returning traffic:* Allow visitors to bypass CAPTCHA verification if they have passed a CAPTCHA in the past, or their visitorID is otherwise associated with a trusted customer
 * *For bot or suspicious traffic:* Show a CAPTCHA on subsequent attempts to log in if a visitorID has attempted to submit a form multiple times or has otherwise been flagged as suspicious.
 
-![](/img/uploads/copy-of-the_power_of_fingerprinting_infographic_2.png)
+![A flowchart showing how FingerprintJS helps to triage suspicious traffic](/img/uploads/copy-of-the_power_of_fingerprinting_infographic_2.png "A flowchart showing how FingerprintJS helps to triage suspicious traffic")
 
 FingerprintJS provides fraud protection that helps to reduce friction for legitimate users, improving conversions and facilitating more streamlined user interactions. Want to try for yourself? Create your [free FingerprintJS account](https://dashboard.fingerprintjs.com/signup) today.

@@ -10,25 +10,25 @@ metadata:
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Prevent account takeover with the most accurate browser fingerprinting API
-  description: Keep your customers' accounts safe by accurately identifying
-    threats before they cause damage. Powerful account fraud protection for any
-    web application.
+  title: Account Takeover Prevention
+  description: Powerful account takeover protection for any web application. Keep
+    your customers' accounts safe by accurately identifying threats before they
+    cause damage.
   ctaText: Sign Up Now
   ctaHref: https://dashboard.fingerprintjs.com/signup
   openCtaNewTab: false
 cardSection:
-  title: FingerprintJS helps to identify malicious actors - whatever form they take
+  title: FingerprintJS helps to prevent account takeover identity theft
   subtitle: ""
   cards:
     - icon: /img/uploads/account_fraud.png
-      title: Credential Stuffing
+      title: Credential Stuffing Prevention
       markdown__Content: Users that re-use passwords across multiple services are at
         risk of having their accounts accessed by fraudsters who purchased or
         hacked their account information from elsewhere. Catch these attempts by
         associating multiple login attempts from bot networks.
     - icon: /img/uploads/incognito.svg
-      title: Phishing and identity theft
+      title: Phishing Attack Prevention
       markdown__Content: Social engineering is still one of the most reliable methods
         for fraudsters to access accounts. Require new visitors to provide
         additional authentication to stop phished accounts from being accessed

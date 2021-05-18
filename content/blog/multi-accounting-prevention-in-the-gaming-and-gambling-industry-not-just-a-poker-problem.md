@@ -1,8 +1,7 @@
 ---
 templateKey: long-form-content
 metadata:
-  title: How to prevent multi-accounting in the gaming and gambling industries -
-    FingerprintJS
+  title: How to prevent multi-accounting in gaming - FingerprintJS
   url: https://fingerprintjs.com/blog/stop-multi-accounting-gaming
   description: Multi-accounting allows players to cheat by sharing information,
     resources, or having more chances to win a big tournament. Learn how

@@ -16,7 +16,7 @@ tags:
 authors:
   - Savannah Copland
 ---
-![Device Fingerprinting For Android](/img/uploads/4.png)
+![Device Fingerprinting For Android](/img/uploads/4.png "Device Fingerprinting For Android")
 
 **Last week, our team launched Fingerprint Android, an open-source library for accurately identifying Android devices using all available signals.**
 
@@ -120,5 +120,5 @@ We are excited to see what the open source community will build with our Android
 * Star, follow, or fork our [Github project](https://github.com/fingerprintjs/fingerprint-android)
 * [Email us](mailto:sales@fingerprintjs.com) your questions
 * Sign up to our [newsletter](https://mailchi.mp/708d84efc0c1/updates-signup) for updates on our fingerprinting libraries
-* Is your company interested in further device fingerprint accuracy and stability? We would love to hear from you - reach out to [sales@fingerprintjs.com](sales@fingerprintjs.com)
+* Is your company interested in further device fingerprint accuracy and stability? We would love to hear from you - reach out to [sales@fingerprintjs.com](mailto:sales@fingerprintjs.com)
 * Need browser fingerprinting as well? Check out our open source library, or sign up FREE for our [Browser Fingerprinting API](https://fingerprintjs.com/) FingerprintJS Pro for 99.5% fingerprinting accuracy

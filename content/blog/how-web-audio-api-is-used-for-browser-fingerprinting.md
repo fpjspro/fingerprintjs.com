@@ -7,7 +7,7 @@ metadata:
   description: Audio Fingerprinting is used to uniquely identify visitors without
     cookies. A deep dive into this highly stable browser fingerprinting
     technique.
-featured: false
+featured: true
 publishDate: 2021-03-18T13:12:29.612Z
 title: How the Web Audio API is used for browser fingerprinting
 tags:
@@ -20,7 +20,7 @@ Did you know that you can identify web browsers without using cookies or asking 
 \
 This is known as “browser fingerprinting” and it works by reading browser attributes and combining them together into a single identifier. This identifier is stateless and works well in normal and incognito modes.
 
-![Graphic of browser fingerprinting](/img/uploads/audio-fp-browser-fingerprinting-image.png)
+![Graphic of browser fingerprinting](/img/uploads/audio-fp-browser-fingerprinting-image.png "Graphic of browser fingerprinting")
 
 When generating a browser identifier, we can read browser attributes directly or use attribute processing techniques first. One of the creative techniques that we’ll discuss today is audio fingerprinting.\
 \
@@ -34,7 +34,7 @@ Before we dive into the technical implementation, we need to understand a few id
 
 The Web Audio API is a powerful system for handling audio operations. It is designed to work inside an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" target="_blank" rel="noopener"><tt>AudioContext</tt></a> by linking together audio nodes and building an audio graph. A single <tt>AudioContext</tt> can handle multiple types of audio sources that plug into other nodes and form chains of audio processing.
 
-![Graphic of audio context](/img/uploads/audio-fp-audio-context-diagram.png)
+![Graphic of audio context](/img/uploads/audio-fp-audio-context-diagram.png "Graphic of audio context")
 
 A source can be an <tt>audio</tt> element, a stream, or an in-memory source generated mathematically with an <tt>Oscillator</tt>. We’ll be using the <tt>Oscillator</tt> for our purposes and then connecting it to other nodes for additional processing.\
 \
@@ -63,7 +63,7 @@ const context = new AudioContext(1, 5000, 44100)
 An <tt>AudioBuffer</tt> represents an audio snippet, stored in memory. It’s designed to hold small snippets. The data is represented internally in Linear PCM with each sample represented by a <tt>32</tt>-bit float between <tt>-1.0</tt> and <tt>1.0.</tt>
 It can hold multiple channels, but for our purposes we’ll use only one channel.
 
-![Diagram of 32-bit numbers](/img/uploads/audio-fp-32-bits-numbers-diagram.png)
+![Diagram of 32-bit numbers](/img/uploads/audio-fp-32-bits-numbers-diagram.png "Diagram of 32-bit numbers")
 
 ## Oscillator
 
@@ -203,7 +203,7 @@ const context = new AudioContext(1, 23, 44100)
 
 Here is how a single triangular oscillation looks in both Chrome and Firefox now:
 
-![](/img/uploads/triangular_oscillation.png)
+![Graphic of a single oscillation](/img/uploads/triangular_oscillation.png "Graphic of a single oscillation")
 
 However the underlying values are different between the two browsers (I’m showing only the first <tt>3</tt> values for simplicity):
 
@@ -322,7 +322,7 @@ As you can see, the restored Brave fingerprints are closer to the original finge
 
 Let’s take a look at what happens under the hood in Chrome during audio fingerprint generation. In the screenshot below, the horizontal axis is time, the rows are execution threads, and the bars are time slices when the browser is busy. You can learn more about the performance panel in this <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance" target="_blank" rel="noopener"><span>Chrome article</span></a>. The audio processing starts at <tt>809.6 ms</tt> and completes at <tt>814.1 ms</tt>:
 
-![](/img/uploads/performance.jpg)
+![Screenshot of Chrome performance during audio fingerprinting](/img/uploads/performance.jpg "Screenshot of Chrome performance during audio fingerprinting")
 
 The main thread, labeled as “Main” on the image, handles user input (mouse movements, clicks, taps, etc) and animation. When the main thread is busy, the page freezes. It’s a good practice to avoid running blocking operations on the main thread for more than several milliseconds. \
 \
