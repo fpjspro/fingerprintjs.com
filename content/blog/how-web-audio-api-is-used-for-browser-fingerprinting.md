@@ -166,7 +166,7 @@ function calculateHash(samples) {
   return hash
 }
 
-console.log(getHash(samples))
+console.log(calculateHash(samples))
 ```
 
 Now we are ready to generate the audio fingerprint. When I run it on Chrome on MacOS I get the value:
