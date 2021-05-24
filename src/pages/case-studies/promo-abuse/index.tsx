@@ -250,7 +250,7 @@ function Footer() {
             name: 'Contact Sales',
             action: () => setIsContactSalesModalOpen(true),
           }}
-          subtitle='FingerprintJS is proud to work with many major brands to deliver state-of-the-art anti-fraud solutions. Have questions for us? Reach out to learn more about how we can help, or sign up for a free FingerprintJS Pro account today.'
+          subtitle='Learn how FingerprintJS Pro can help your business build a custom solution to prevent online fraud.'
           size='large'
           className={styles.cta}
         />

@@ -264,7 +264,7 @@ function Footer() {
             name: 'Contact Sales',
             action: () => setIsContactSalesModalOpen(true),
           }}
-          subtitle='Learn how FingerprintJS Pro can help your business build a custom solution to prevent account sharing.'
+          subtitle='Learn how FingerprintJS Pro can help your business build a custom solution to prevent online fraud.'
           size='large'
           className={styles.cta}
         />
