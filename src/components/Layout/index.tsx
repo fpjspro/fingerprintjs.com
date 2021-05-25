@@ -20,7 +20,12 @@ export function Layout({ children }: LayoutProps) {
   return (
     <LayoutTemplate
       siteMetadata={siteMetadata}
-      headerBarTitle='Venturebeat: FingerprintJS raises $8 million for fraud prevention        Read article →'
+      headerBarTitle={
+        <>
+          <div>Venturebeat: FingerprintJS raises $8 million for fraud prevention</div>
+          <div>Read article →</div>
+        </>
+      }
       headerBarHref='https://venturebeat.com/2021/02/11/fingerprintjs-raises-8-million-to-expand-its-enterprise-identification-api/'
     >
       {children}
@@ -30,7 +35,7 @@ export function Layout({ children }: LayoutProps) {
 
 interface LayoutTemplateProps extends LayoutProps {
   siteMetadata: GatsbyTypes.SiteSiteMetadata
-  headerBarTitle?: string
+  headerBarTitle?: React.ReactNode
   headerBarHref?: string
 }
 

@@ -22,7 +22,7 @@ import { ReactComponent as LogoSvg } from './fpjs.svg'
 import styles from './Header.module.scss'
 
 interface HeaderProps {
-  headerBarTitle?: string
+  headerBarTitle?: React.ReactNode
   headerBarHref?: string
 }
 export default function Header({ headerBarTitle, headerBarHref }: HeaderProps) {

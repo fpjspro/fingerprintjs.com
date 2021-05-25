@@ -4,7 +4,7 @@ import Container from '../common/Container'
 import styles from './HeaderBar.module.scss'
 
 interface headerBarProps {
-  children: string
+  children: React.ReactNode
   href?: string
 }
 

@@ -12,8 +12,4 @@
 
   font-size: rem(14px);
   text-align: center;
-  
-  @include media('>=tablet') {
-    white-space: pre;
-  }
 }
