@@ -16,7 +16,7 @@ export default function ClientsSection() {
     'coinbase',
     'neiman-marcus',
     'rockstar',
-    'sift',
+    'checkout',
     'western-union',
     'yahoo',
   ]
