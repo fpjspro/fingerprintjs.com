@@ -12,7 +12,6 @@ module.exports = {
         'http://localhost/demo/index.html',
         'http://localhost/pricing/index.html',
         'http://localhost/case-studies/edtech/index.html',
-        'http://localhost/case-studies/promo-abuse/index.html',
         'http://localhost/ecommerce/index.html',
         'http://localhost/github/index.html',
       ],
