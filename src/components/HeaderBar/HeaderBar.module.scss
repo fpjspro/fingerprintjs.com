@@ -1,0 +1,19 @@
+.top {
+  background-color: v('brand-water');
+  color: v('white');
+}
+
+.headerBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: rem(11px);
+  padding-bottom: rem(12px);
+
+  font-size: rem(14px);
+  text-align: center;
+  
+  @include media('>=tablet') {
+    white-space: pre;
+  }
+}
