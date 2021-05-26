@@ -3,27 +3,23 @@ import Container from '../common/Container'
 
 import styles from './HeaderBar.module.scss'
 
-interface headerBarProps {
+export interface headerBarProps {
   children: React.ReactNode
   href?: string
 }
 
 export default function HeaderBar({ children, href }: headerBarProps) {
   return href ? (
-    <div className={styles.top}>
-      <Container size='large'>
-        <div className={styles.headerBar}>
-          <a href={href} target='_blank' rel='noreferrer'>
-            {children}
-          </a>
-        </div>
-      </Container>
-    </div>
+    <Container className={styles.container}>
+      <div>
+        <a className={styles.headerBar} href={href} target='_blank' rel='noreferrer'>
+          {children}
+        </a>
+      </div>
+    </Container>
   ) : (
-    <div className={styles.top}>
-      <Container size='large'>
-        <span className={styles.headerBar}>{children}</span>
-      </Container>
-    </div>
+    <Container className={styles.container}>
+      <span className={styles.headerBar}>{children}</span>
+    </Container>
   )
 }

@@ -1,15 +1,24 @@
-.top {
+.container {
+  --contentWidth: 610px;
   background-color: v('brand-water');
   color: v('white');
 }
 
 .headerBar {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: rem(11px);
   padding-bottom: rem(12px);
 
   font-size: rem(14px);
   text-align: center;
+
+  @include media('<tablet') {
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: rem(8px);
+    justify-content: center;
+
+    font-size: rem(12px);
+  }
 }
