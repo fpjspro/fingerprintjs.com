@@ -20,13 +20,9 @@ export function Layout({ children }: LayoutProps) {
   return (
     <LayoutTemplate
       siteMetadata={siteMetadata}
-      headerBarTitle={
-        <>
-          <div>Venturebeat: FingerprintJS raises $8 million for fraud prevention</div>
-          <div>Read article →</div>
-        </>
-      }
-      headerBarHref='https://venturebeat.com/2021/02/11/fingerprintjs-raises-8-million-to-expand-its-enterprise-identification-api/'
+      headerBarTitle='Venturebeat: FingerprintJS raises $8 million for fraud prevention'
+      headerBarLinkText='Read article →'
+      headerBarLinkUrl='https://venturebeat.com/2021/02/11/fingerprintjs-raises-8-million-to-expand-its-enterprise-identification-api/'
     >
       {children}
     </LayoutTemplate>
@@ -35,12 +31,19 @@ export function Layout({ children }: LayoutProps) {
 
 interface LayoutTemplateProps extends LayoutProps {
   siteMetadata: GatsbyTypes.SiteSiteMetadata
-  headerBarTitle?: React.ReactNode
-  headerBarHref?: string
+  headerBarTitle?: string
+  headerBarLinkText?: string
+  headerBarLinkUrl?: string
 }
 
 // We need this to not use static GraphQL queries in order use it in CMS preview (it runs it in browser directly)
-export function LayoutTemplate({ children, siteMetadata, headerBarTitle, headerBarHref }: LayoutTemplateProps) {
+export function LayoutTemplate({
+  children,
+  siteMetadata,
+  headerBarTitle,
+  headerBarLinkText,
+  headerBarLinkUrl,
+}: LayoutTemplateProps) {
   const { title, description, siteUrl, image } = siteMetadata
   const fpjsEndpoint = FPJS_ENDPOINT
   const gtmToken = GTM_TOKEN
@@ -86,7 +89,11 @@ export function LayoutTemplate({ children, siteMetadata, headerBarTitle, headerB
         />
         <link rel='preconnect' href={fpjsEndpoint} />
       </Helmet>
-      <Header headerBarTitle={headerBarTitle} headerBarHref={headerBarHref} />
+      <Header
+        headerBarTitle={headerBarTitle}
+        headerBarLinkText={headerBarLinkText}
+        headerBarLinkUrl={headerBarLinkUrl}
+      />
       {children}
       <Footer />
     </>

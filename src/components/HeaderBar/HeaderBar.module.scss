@@ -2,23 +2,41 @@
   --contentWidth: 610px;
   background-color: v('brand-water');
   color: v('white');
+
+  padding-top: rem(11px);
+  padding-bottom: rem(12px);
 }
 
 .headerBar {
   display: flex;
   justify-content: space-between;
-  padding-top: rem(11px);
-  padding-bottom: rem(12px);
-
-  font-size: rem(14px);
-  text-align: center;
 
   @include media('<tablet') {
     display: grid;
     grid-auto-flow: row;
-    grid-row-gap: rem(8px);
     justify-content: center;
+  }
+}
 
+.text,
+.link {
+  font-size: rem(14px);
+  text-align: center;
+
+  @include media('<tablet') {
     font-size: rem(12px);
+  }
+}
+
+.link {
+  @include transition((opacity));
+  @include transition-duration(0.2s);
+
+  &:hover {
+    opacity: v('muted');
+  }
+
+  @include media('<tablet') {
+    padding-top: rem(8px);
   }
 }

@@ -22,10 +22,11 @@ import { ReactComponent as LogoSvg } from './fpjs.svg'
 import styles from './Header.module.scss'
 
 interface HeaderProps {
-  headerBarTitle?: React.ReactNode
-  headerBarHref?: string
+  headerBarTitle?: string
+  headerBarLinkText?: string
+  headerBarLinkUrl?: string
 }
-export default function Header({ headerBarTitle, headerBarHref }: HeaderProps) {
+export default function Header({ headerBarTitle, headerBarLinkText, headerBarLinkUrl }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
@@ -51,8 +52,11 @@ export default function Header({ headerBarTitle, headerBarHref }: HeaderProps) {
   return (
     <>
       <header className={styles.header}>
-        {headerBarTitle && headerBarHref && <HeaderBar href={headerBarHref}>{headerBarTitle}</HeaderBar>}
-        {headerBarTitle && !headerBarHref && <HeaderBar>{headerBarTitle}</HeaderBar>}
+        {headerBarTitle && (
+          <HeaderBar linkText={headerBarLinkText} linkUrl={headerBarLinkUrl}>
+            {headerBarTitle}
+          </HeaderBar>
+        )}
         <Navbar />
         <div className={styles.nav}>
           <Container size='large'>
