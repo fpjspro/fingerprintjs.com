@@ -36,6 +36,13 @@ export default function CaseStudies({ pageContext }: CaseStudyProps) {
       publishDate: 'January 26, 2021',
       path: `${BASE_URL}case-studies/edtech/`,
     },
+    {
+      title: 'Prevent Promotion Abuse at Live Events',
+      description:
+        'Read about how a major food and beverage brand stopped promo abuse at live events while making the redemption process even easier.',
+      publishDate: 'May 24, 2021',
+      path: `${BASE_URL}case-studies/promo-abuse/`,
+    },
   ]
 
   return (

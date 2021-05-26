@@ -264,7 +264,7 @@ function Footer() {
             name: 'Contact Sales',
             action: () => setIsContactSalesModalOpen(true),
           }}
-          subtitle='Learn how FingerprintJS Pro can help your business build a custom solution to prevent account sharing.'
+          subtitle='Learn how FingerprintJS Pro can help your business build a custom solution to prevent online fraud.'
           size='large'
           className={styles.cta}
         />
@@ -274,24 +274,5 @@ function Footer() {
         <ContactSalesForm />
       </Modal>
     </>
-  )
-}
-
-interface ReferenceListProps {
-  references: Array<{ name: string; href?: string }>
-}
-// TODO [VL] Change this to a widget when integrating the page with the CMS.
-export function ReferenceList({ references }: ReferenceListProps) {
-  return (
-    <Container size='large' className={styles.container}>
-      <ol className={styles.referenceList}>
-        {references.map(({ name, href }, index) => (
-          <li key={name} className={styles.reference}>
-            <span>({index + 1})</span>
-            {href ? <a href={href}>{name}</a> : <span>{name}</span>}
-          </li>
-        ))}
-      </ol>
-    </Container>
   )
 }
