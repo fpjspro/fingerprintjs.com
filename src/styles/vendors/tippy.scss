@@ -92,3 +92,8 @@
 .tippy-box[data-animation='shift-away'][data-state='hidden'][data-placement^='right'] {
   transform: translateX(-10px);
 }
+
+// Checkmark tooltip style
+.tippy-box[data-theme~='checkmark'] .tippy-content {
+  padding: 3rem;
+}

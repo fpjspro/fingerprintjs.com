@@ -111,14 +111,29 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
           <CheckSvg className={styles.check} />
           GDPR/CCPA Compliant
           <Tippy
+            placement='bottom'
+            theme='checkmark'
+            offset={[0, 40]}
+            arrow={false}
+            popperOptions={{
+              modifiers: [
+                {
+                  name: 'flip',
+                  options: {
+                    fallbackPlacements: ['right'],
+                  },
+                },
+              ],
+            }}
             content={
-              <span>
+              <div>
                 FingerprintJS is GDPR/CCPA compliant. Our technology is intended to be used for fraud detection only -
                 for this use case, no user consent is required.
                 <br />
+                <br />
                 Any use outside of fraud detection would need to comply with GDPR/CCPA user consent rules. We never
                 automatically track traffic, and never do cross-domain tracking.
-              </span>
+              </div>
             }
           >
             <InfoSvg tabIndex={0} className={styles.infoIcon} />
