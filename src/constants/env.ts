@@ -46,6 +46,8 @@ export const ROLLBAR_ACCESS_TOKEN = process.env.GATSBY_ROLLBAR_ACCESS_TOKEN
 export const FPJS_LEAD_URL = process.env.GATSBY_FPJS_LEAD_URL ?? ''
 export const BRANCH = process.env.BRANCH
 
+export const isProdContext = getNetlifyContext() === NetlifyContext.Production
+
 function getNetlifyContext(): NetlifyContext {
   switch (process.env.CONTEXT) {
     case 'production':

@@ -1,5 +1,12 @@
-var path = require('path')
+const path = require('path')
+
 const baseUrl = 'https://fingerprintjs.com'
+
+const isProdContext = process.env.CONTEXT === 'production' // can't use env helper from TS sources here
+
+const cspValueStaging = `default-src 'self'; script-src 'report-sample' 'self' https://analytics.twitter.com https://api.olark.com https://assets.olark.com https://netlify-cdp-loader.netlify.app https://connect.facebook.net https://nrpc.olark.com https://snap.licdn.com https://static.ads-twitter.com https://www.googleadservices.com https://www.google.com https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://tagmanager.google.com; style-src 'report-sample' 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com https://static.olark.com; object-src 'none'; base-uri 'self'; connect-src 'self' https://coreapi.fpjs.sh https://api.github.com https://api.rollbar.com https://staging.cache.fpjs.sh https://f.fingerprintjs.com https://nrpc.olark.com https://www.google-analytics.com; font-src 'self' data: https://fonts.gstatic.com https://static.olark.com; frame-src 'self' https://app.netlify.com https://static.olark.com; img-src 'self' data: https://api.mapbox.com https://i.imgur.com https://log.olark.com https://px.ads.linkedin.com https://t.co https://www.facebook.com https://googleads.g.doubleclick.net  https://www.google.com https://www.google-analytics.com https://ssl.gstatic.com https://www.gstatic.com; manifest-src 'self'; media-src 'self' https://static.olark.com; report-uri https://api.fpjs.pro/_/csp-reports; worker-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests; form-action 'none';`
+const cspValueProd = `default-src 'self'; script-src 'report-sample' 'self' https://analytics.twitter.com https://api.olark.com https://assets.olark.com https://connect.facebook.net https://nrpc.olark.com https://snap.licdn.com https://static.ads-twitter.com https://www.googleadservices.com https://www.google.com https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://tagmanager.google.com; style-src 'report-sample' 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com https://static.olark.com; object-src 'none'; base-uri 'self'; connect-src 'self' https://api.fpjs.pro https://api.github.com https://api.rollbar.com https://api.sjpf.io https://f.fingerprintjs.com https://nrpc.olark.com https://www.google-analytics.com; font-src 'self' data: https://fonts.gstatic.com https://static.olark.com; frame-src 'self' https://static.olark.com; img-src 'self' data: https://api.mapbox.com https://i.imgur.com https://log.olark.com https://px.ads.linkedin.com https://t.co https://www.facebook.com https://googleads.g.doubleclick.net  https://www.google.com https://www.google-analytics.com https://ssl.gstatic.com https://www.gstatic.com; manifest-src 'self'; media-src 'self' https://static.olark.com; report-uri https://api.fpjs.pro/_/csp-reports; worker-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests; form-action 'none';`
+const cspValue = isProdContext ? cspValueProd : cspValueStaging
 
 const resolvePath = (directoryName, pathName) => {
   const result = path.join(directoryName, pathName)
@@ -140,6 +147,7 @@ module.exports = {
             `X-Frame-Options: DENY`,
             `X-XSS-Protection: 1; mode=block`,
             `X-Content-Type-Options: nosniff`,
+            `Content-Security-Policy-Report-Only: ${cspValue}`,
             `Referrer-Policy: no-referrer-when-downgrade`,
           ],
         },
