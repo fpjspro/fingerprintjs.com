@@ -132,6 +132,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: 'fingerprintjs',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-netlify', // make sure to keep it last in the array
       options: {
         mergeSecurityHeaders: false,
