@@ -27,6 +27,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
+    data.markdownRemark?.frontmatter?.metadata?.url === undefined ||
     data.markdownRemark?.html === undefined ||
     data.markdownRemark?.fields?.slug === undefined
   ) {
