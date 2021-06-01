@@ -40,7 +40,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   const publishDate = data.markdownRemark.frontmatter.publishDate
 
   const disqusConfig = {
-    url: `${data.markdownRemark.frontmatter.metadata.url}`,
+    url: data.markdownRemark.frontmatter.metadata.url,
     identifier: data.markdownRemark.fields.slug,
     title: post.title,
   }
