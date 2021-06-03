@@ -16,6 +16,8 @@ tags:
 authors:
   - Savannah Copland
 ---
+![Captcha with crosswalks](/img/uploads/crosswalks.png "Captcha with crosswalks")
+
 CAPTCHAs make it more difficult for bots to submit fraudulent information via online forms, but they can also get in the way of humans interacting with your website.
 
 It can be frustrating for users to be served CAPTCHAs as they can be deceptively difficult to solve, and end up wasting a lot of your customer’s time.
