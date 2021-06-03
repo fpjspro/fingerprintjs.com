@@ -92,6 +92,11 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
               API calls.
             </li>
             <li>
+              If your monthly invoice exceeds $500 due to additional visitor charges, your credit card will be charged
+              immediately without waiting for the end of the billing period. This process repeats every time an
+              additional usage of $500 is reached.
+            </li>
+            <li>
               The on-demand plan is recommended when you have a small and/or unpredictable volume and want to pay only
               for what you use every month. You can cancel at any time.
             </li>

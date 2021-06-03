@@ -6,7 +6,7 @@ metadata:
     for anti-fraud? We go through the major modern browsers and determine what
     is still possible to keep your website safe.
   url: http://fingerprintjs.com/blog/browser-fingerprinting-privacy
-  image: /img/uploads/browser-privacy.png
+  image: /img/uploads/modern-browser.png
 featured: false
 publishDate: 2021-05-25T20:09:52.736Z
 title: "Fingerprinting in the Modern Browser: Are Privacy Updates Making It
@@ -16,7 +16,7 @@ tags:
 authors:
   - Savannah Copland
 ---
-![Browser fingerprinting privacy](/img/uploads/browser-privacy.png "Browser fingerprinting privacy")
+![Browser fingerprinting privacy](/img/uploads/modern-browser.png "Browser fingerprinting privacy")
 
 The trend in web browsers over the past few years has generally been in favor of more privacy for users. Almost all mainstream browsers ([Safari](https://www.infoq.com/news/2020/04/safari-third-party-cookies-block/), [Firefox](https://blog.mozilla.org/blog/2021/02/23/latest-firefox-release-includes-multiple-picture-in-picture-and-total-cookie-protection/), [Brave](https://support.brave.com/hc/en-us/articles/360050634931-How-Do-I-Manage-Cookies-In-Brave-), and [Chrome](https://blog.chromium.org/2020/01/building-more-private-web-path-towards.html)) now block third-party cookies which enabled tracking across multiple sites, and Chrome uses encrypted traffic (via HTTPS) by default.
 
