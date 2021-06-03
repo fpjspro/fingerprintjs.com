@@ -22,7 +22,7 @@ export default function GitHubPage({ pageContext }: GitHubProps) {
   let siteMetadata = useSiteMetadata()
   siteMetadata = {
     ...siteMetadata,
-    title: 'FingerprintJS Pro vs Open Source - Visitor Identification API Comparison',
+    title: 'Pro vs Open Source - Visitor Identification API Comparison',
     siteUrl: `${siteMetadata.siteUrl}${pathname}`,
   }
 
