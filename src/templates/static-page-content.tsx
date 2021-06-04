@@ -95,6 +95,8 @@ export const pageQuery = graphql`
               extension
               publicURL
             }
+            iconAlt
+            iconTitle
             title
             markdown__Content
           }
@@ -232,6 +234,8 @@ function mapToCardSection(queryCardSection: QueryCardSection, preview = false): 
         (card, index) =>
           ({
             icon: card?.icon,
+            iconAlt: card?.iconAlt,
+            iconTitle: card?.iconTitle,
             title: card?.title ?? `Nunc rhoncus et eros non lobortis. #${index}`,
             content: preview ? (
               <MarkdownContent

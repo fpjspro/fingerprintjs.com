@@ -6,6 +6,8 @@ import styles from './CardGrid.module.scss'
 
 export interface Card {
   icon?: ImageInfo
+  iconAlt?: string
+  iconTitle?: string
   title: string
   content: React.ReactNode
 }
@@ -29,19 +31,25 @@ export default function CardGrid({ cards, className, perRow = 2 }: CardGridProps
             { [styles.fourPerRow]: perRow === 4 }
           )}
         >
-          <CardComponent icon={card.icon} title={card.title} content={card.content} />
+          <CardComponent
+            icon={card.icon}
+            iconAlt={card.iconAlt}
+            iconTitle={card.iconTitle}
+            title={card.title}
+            content={card.content}
+          />
         </div>
       ))}
     </section>
   )
 }
 
-export function CardComponent({ icon, title, content }: Card) {
+export function CardComponent({ icon, iconAlt, iconTitle, title, content }: Card) {
   return (
     <div className={styles.card}>
       {icon && (
         <span className={styles.row}>
-          <PreviewCompatibleImage className={styles.icon} imageInfo={icon} />
+          <PreviewCompatibleImage className={styles.icon} imageInfo={icon} altTag={iconAlt} titleTag={iconTitle} />
         </span>
       )}
       <header className={styles.title}>{title}</header>

@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: WEB-159/fix-technical-website-changes-for-SEO
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -61,6 +61,8 @@ collections:
                 fields:
                   [
                     { label: Icon, name: icon, widget: image, required: false },
+                    { label: Icon Alt, name: iconAlt, widget: string, required: false },
+                    { label: Icon Title, name: iconTitle, widget: string, required: false },
                     { label: Title, name: title, widget: string },
                     { label: Content, name: markdown__Content, widget: markdown },
                   ],

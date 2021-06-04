@@ -22,6 +22,8 @@ cardSection:
     option for your business.
   cards:
     - icon: /img/uploads/browser_fingerprinting.png
+      iconAlt: dummy content
+      iconTitle: dummy content
       title: FingerprintJS Pro
       markdown__Content: >-
         <i>Build your own account sharing prevention system with high accuracy
@@ -39,6 +41,8 @@ cardSection:
 
         [Create Your Free Account >](https://dashboard.fingerprintjs.com/signup)
     - icon: /img/uploads/worldwide-1-.png
+      iconAlt: dummy content
+      iconTitle: dummy content
       title: Account Sharing Prevention
       markdown__Content: >-
         <i>An all-in-one solution for account sharing prevention - maximize

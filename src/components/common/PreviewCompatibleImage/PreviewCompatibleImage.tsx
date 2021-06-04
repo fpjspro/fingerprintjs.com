@@ -12,9 +12,11 @@ interface Props {
   className: string
   imageStyle?: React.CSSProperties
   imageInfo?: ImageInfo | string
+  titleTag?: string
+  altTag?: string
 }
 
-const PreviewCompatibleImage = ({ className, imageStyle, imageInfo }: Props) => {
+const PreviewCompatibleImage = ({ className, imageStyle, imageInfo, titleTag, altTag }: Props) => {
   if (!imageInfo) {
     return <p>PreviewCompatibleImage can not be rendered (no imageInfo)</p>
   }
@@ -25,7 +27,14 @@ const PreviewCompatibleImage = ({ className, imageStyle, imageInfo }: Props) => 
     return <img className={className} style={style} src={imageInfo} alt='' />
   }
 
-  const { alt = '', childImageSharp, image, extension, publicURL } = imageInfo
+  const {
+    alt = altTag ? altTag : '',
+    title = titleTag ? titleTag : undefined,
+    childImageSharp,
+    image,
+    extension,
+    publicURL,
+  } = imageInfo
 
   if (!!image && typeof image != 'string' && isFluid(image.childImageSharp)) {
     return <Img className={className} style={style} fluid={image.childImageSharp.fluid} alt={alt} />
@@ -38,6 +47,7 @@ const PreviewCompatibleImage = ({ className, imageStyle, imageInfo }: Props) => 
         style={style}
         fluid={childImageSharp.fluid}
         alt={alt}
+        title={title}
         imgStyle={{
           objectFit: 'contain',
         }}
@@ -46,15 +56,15 @@ const PreviewCompatibleImage = ({ className, imageStyle, imageInfo }: Props) => 
   }
 
   if (childImageSharp && isFixed(childImageSharp)) {
-    return <Img className={className} style={style} fixed={childImageSharp.fixed} alt={alt} />
+    return <Img className={className} style={style} fixed={childImageSharp.fixed} alt={alt} title={title} />
   }
 
   if (!!image && typeof image === 'string') {
-    return <img className={className} style={style} src={image} alt={alt} />
+    return <img className={className} style={style} src={image} alt={alt} title={title} />
   }
 
   if (!childImageSharp && extension === 'svg') {
-    return <img className={className} src={publicURL} alt={alt} />
+    return <img className={className} src={publicURL} alt={alt} title={title} />
   }
 
   return null
