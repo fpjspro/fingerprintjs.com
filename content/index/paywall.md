@@ -2,26 +2,30 @@
 title: paywall
 templateKey: static-page-content
 metadata:
-  title: Paywall Solution - FingerprintJS
-  description: Internet savvy users know how to circumvent your paywall and get
-    unlimited views of your content with incognito windows. Make sure that your
-    invested users pay a fair price for your content, based on your custom
-    paywall rules.
+  title: Paywall Security Software | For Developers | FingerprintJS
+  description: Secure Your Paywall Solution With FingerprintJS User
+    Identification. Enable Anonymous User Identification, Geolocation, Incognito
+    Mode Detection & More.
   url: https://fingerprintjs.com/paywall
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: "Secure your paywall solution with the #1 user identification API"
-  description: "FingerprintJS helps media companies, subscription services and
-    content creators monetize more effectively. Catch visitors attempting to
-    circumvent your paywall rules with our visitorIDs that remain stable through
-    incognito browsing, clearing cookies, and more. "
+  title: "Make your paywall software leakproof "
+  description: FingerprintJS helps media companies, subscription services and
+    content creators monetize more effectively with accurate visitor
+    identification. Catch visitors attempting to circumvent paywall rules with
+    visitorIDs that remain stable through incognito browsing, clearing cookies,
+    using a VPN, and more. Make leaky paywall solutions a thing of the past by
+    eliminating even the trickiest paywall circumvention techniques.
   ctaText: Try our Live Paywall Demo
   ctaHref: https://paywall-example.fingerprintjs.com/
   openCtaNewTab: true
 cardSection:
-  title: What FingerprintJS can do for your paywall
-  subtitle: ""
+  title: FingerprintJS Pro's Paywall Services
+  subtitle: Internet savvy users know how to circumvent your paywall and get
+    unlimited views of your content. Make sure that all your website visitors
+    pay their share to view your content without having to replace your existing
+    paywall software.
   cards:
     - icon: /img/uploads/account_fraud.png
       title: Anonymous user identification
