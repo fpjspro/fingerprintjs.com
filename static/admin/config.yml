@@ -76,6 +76,8 @@ collections:
           fields:
             [
               { label: Image, name: image, widget: image },
+              { label: Image Alt, name: imageAlt, widget: string, required: false },
+              { label: Image Title, name: imageTitle, widget: string, required: false },
               { label: Subheader, name: subheader, widget: string },
               { label: Content, name: markdown__Content, widget: markdown },
               { label: Is image after text, name: isImageAfterText, widget: boolean },

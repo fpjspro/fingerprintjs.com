@@ -75,6 +75,8 @@ blocks:
     isImageAfterText: false
     isCtaButton: true
     image: /img/uploads/ebook.png
+    imageAlt: image alt
+    imageTitle: image title
   - subheader: Catch account sharers where other tracking methods fail
     markdown__Content: >-
       Mobile devices, infrequent logins, and privacy browsing make detecting
@@ -98,6 +100,8 @@ blocks:
     isCtaButton: false
   - subheader: Built for engineers, by engineers
     image: /img/uploads/fpjs-dashboard.png
+    imageAlt: image alt
+    imageTitle: image title
     isCtaButton: false
     isImageAfterText: false
     ctaText: ​
@@ -130,6 +134,8 @@ blocks:
       * Incognito browsing
     subheader: Learn More About Your Customers
     image: /img/uploads/extra-features.png
+    imageAlt: image alt
+    imageTitle: image title
     isImageAfterText: true
     ctaText: ​
     ctaUrl: ​

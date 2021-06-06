@@ -111,6 +111,8 @@ export const pageQuery = graphql`
               }
             }
           }
+          imageAlt
+          imageTitle
           isImageAfterText
           ctaText
           ctaUrl
@@ -273,6 +275,8 @@ function mapToBlocks(queryBlocks: QueryBlock[], preview = false): BlockWithImage
             <DangerouslyRenderHtmlContent content={block?.markdown__Content ?? ''} className={blockStyles.content} />
           ),
           image: block?.image,
+          imageAlt: block?.imageAlt,
+          imageTitle: block?.imageTitle,
           subTitle:
             block?.subheader ?? `Vestibulum aliquam posuere enim, sed finibus sapien fringilla pharetra. #${index}`,
           isImageAfterText: block?.isImageAfterText ?? false,

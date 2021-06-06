@@ -9,6 +9,8 @@ import { Link } from 'gatsby'
 
 export interface BlockWithImage {
   image: ImageInfo | string
+  imageAlt?: string
+  imageTitle?: string
   subTitle: string
   content: React.ReactNode
   isImageAfterText: boolean
@@ -37,7 +39,12 @@ export default function AlternatingImagesText({ title, blocks, className }: Alte
 function Block({ block }: { block: BlockWithImage }) {
   return (
     <Container size='large' className={styles.container}>
-      <PreviewCompatibleImage className={styles.image} imageInfo={block.image} />
+      <PreviewCompatibleImage
+        className={styles.image}
+        imageInfo={block.image}
+        altTag={block.imageAlt}
+        titleTag={block.imageTitle}
+      />
 
       <div className={classNames(styles.text, { [styles.left]: block.isImageAfterText })}>
         <h3 className={styles.blockTitle}>{block.subTitle}</h3>
