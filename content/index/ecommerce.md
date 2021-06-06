@@ -2,20 +2,21 @@
 title: ecommerce
 templateKey: static-page-content
 metadata:
-  title: Ecommerce Fraud Prevention API - FingerprintJS
-  description: "Detect and prevent ecommerce fraud with our browser fingerprinting
-    API for user identification. Catch account and payment fraud before it costs
-    your business money. "
+  title: Ecommerce Fraud Prevention | FingerprintJS
+  description: Prevent Ecommerce Fraud With FingerprintJS Browser Fingerprinting.
+    Prevent Gift Card & Coupon Abuse, Avoid Merchant Penalties & More.
   url: https://fingerprintjs.com/ecommerce
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Take ecommerce fraud prevention seriously with the most accurate browser
-    fingerprinting API
-  description: "FingerprintJS is a 99.5% accurate browser fingerprinting tool used
-    to uniquely identify fraudsters on your ecommerce website. Stop fraudulent
-    purchases, reduce coupon and promo abuse, and keep your customers' accounts
-    safe with our flexible, developer-friendly API. "
+  title: E-commerce Fraud Prevention
+  description: "FingerprintJS is a 99.5% accurate browser fingerprinting service
+    used to uniquely identify fraudsters on your ecommerce website and assign
+    them a stable visitorID. Use our accurate visitor identification to stop
+    fraudulent purchases, reduce coupon and promo abuse, and keep your
+    customers' accounts safe. Build ecommerce fraud detection & prevention into
+    your existing website and payment workflows with our flexible,
+    developer-friendly API. "
   ctaText: Sign Up Free
   ctaHref: https://dashboard.fingerprintjs.com/signup
   openCtaNewTab: false
@@ -41,7 +42,7 @@ cardSection:
         imposed by payment service providers.
       icon: /img/uploads/commerce.png
 blocks:
-  - subheader: Stop ecommerce fraud with our flexible developer tools
+  - subheader: Flexible developer tools for ecommerce credit card fraud prevention
     markdown__Content: Incorporate browser fingerprinting and bot detection into
       your ecommerce website's existing workflows, and access suspicious visitor
       activity and geolocation at lightspeed from our API.  Every business is
