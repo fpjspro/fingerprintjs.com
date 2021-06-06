@@ -63,22 +63,21 @@ cardSection:
 
         [Talk to Sales >](https://fingerprintjs.com/contact-sales/)
 blocks:
-  - subheader: How One Edtech Company Unearthed $4M+ in new revenue
-    markdown__Content: >-
+  - markdown__Content: >-
       Our client was struggling to prevent account sharing despite having a
       dedicated anti-fraud team.
 
 
       Using FingerprintJS Account Sharing Prevention, **the company generated $4M in new revenue over six months.** The key to their success was FingerprintJS’s accurate visitor identifier and easy-to-use APIs.
-    ctaText: ​Read the Case Study
-    ctaUrl: https://fingerprintjs.com/case-studies/edtech/
+    subheader: How One Edtech Company Unearthed $4M+ in new revenue
+    imageAlt: image alt
     isImageAfterText: false
     isCtaButton: true
     image: /img/uploads/ebook.png
-    imageAlt: image alt
     imageTitle: image title
-  - subheader: Catch account sharers where other tracking methods fail
-    markdown__Content: >-
+    ctaText: ​Read the Case Study
+    ctaUrl: https://fingerprintjs.com/case-studies/edtech/
+  - markdown__Content: >-
       Mobile devices, infrequent logins, and privacy browsing make detecting
       account sharing difficult. An account can be misidentified as having
       multiple owners if their browsing behavior changes over time. Conversely,
@@ -93,20 +92,15 @@ blocks:
 
 
       **To ensure visitorIDs are stable over time,** FingerprintJS uses fuzzy matching and other deduplication techniques. FingerprintJS Pro associates new browsing history with the correct visitorID even if some details about the visitor have changed.
-    image: /img/uploads/copy-of-the_power_of_fingerprinting_infographic_1.png
-    isImageAfterText: true
-    ctaText: ​
-    ctaUrl: ​
-    isCtaButton: false
-  - subheader: Built for engineers, by engineers
-    image: /img/uploads/fpjs-dashboard.png
+    subheader: Catch account sharers where other tracking methods fail
     imageAlt: image alt
-    imageTitle: image title
+    isImageAfterText: true
     isCtaButton: false
-    isImageAfterText: false
+    image: /img/uploads/copy-of-the_power_of_fingerprinting_infographic_1.png
+    imageTitle: image title
     ctaText: ​
     ctaUrl: ​
-    markdown__Content: >-
+  - markdown__Content: >-
       Developer teams can easily incorporate user identification FingerprintJS
       into existing workflows or build from scratch with our highly accessible
       documentation and support.
@@ -121,6 +115,14 @@ blocks:
       * **Documentation:** Extensive guides make it easy for developer teams to get up to speed with FingerprintJS, fast.
 
       * **Support:** Get in touch via chat and email and get technical help within 1 business day.
+    subheader: Built for engineers, by engineers
+    imageAlt: image alt
+    isImageAfterText: false
+    isCtaButton: false
+    image: /img/uploads/fpjs-dashboard.png
+    imageTitle: image title
+    ctaText: ​
+    ctaUrl: ​
   - markdown__Content: >-
       FingerprintJS Pro collects additional information to better understand
       your visitors. Use our geolocation and device data to build more targeted
@@ -133,13 +135,13 @@ blocks:
 
       * Incognito browsing
     subheader: Learn More About Your Customers
-    image: /img/uploads/extra-features.png
     imageAlt: image alt
-    imageTitle: image title
     isImageAfterText: true
+    isCtaButton: false
+    image: /img/uploads/extra-features.png
+    imageTitle: image title
     ctaText: ​
     ctaUrl: ​
-    isCtaButton: false
 inlineCta:
   title: How Much Are You Losing From Account Sharing?
   markdown__Subtitle: >-
