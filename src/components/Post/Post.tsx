@@ -13,6 +13,8 @@ export interface PostProps {
   description: string
   publishDate: string
   image?: GatsbyTypes.File
+  imageAlt?: string
+  imageTitle?: string
   path: string
   featured?: boolean
   tags?: string[]
@@ -23,6 +25,8 @@ export default function Post({
   title,
   description,
   image,
+  imageAlt,
+  imageTitle,
   publishDate,
   path,
   tags,
@@ -35,7 +39,7 @@ export default function Post({
     <Link to={getRelativeUrl(path)} className={classNames(styles.post, { [styles.wide]: variant === 'wide' })}>
       {imageFluid && (
         <div className={styles.wrapper}>
-          <Img fluid={imageFluid} className={styles.image} />
+          <Img fluid={imageFluid} className={styles.image} alt={imageAlt} title={imageTitle} />
         </div>
       )}
 
@@ -89,13 +93,15 @@ export function mapToPost(data: any, editing?: boolean): PostProps {
   }
 
   const { publishDate = Date.now(), title = '', metadata, tags, featured } = data.frontmatter
-  const { description = '', image, url } = metadata
+  const { description = '', image, imageAlt, imageTitle, url } = metadata
 
   return {
     title,
     description,
     publishDate: displayDateFormatter.format(new Date(publishDate)),
     image: image as GatsbyTypes.File,
+    imageAlt,
+    imageTitle,
     path: url,
     featured,
     tags,
@@ -121,6 +127,8 @@ export const query = graphql`
                 }
               }
             }
+            imageAlt
+            imageTitle
             url
           }
           title
