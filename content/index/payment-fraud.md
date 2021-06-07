@@ -2,39 +2,48 @@
 title: payment-fraud
 templateKey: static-page-content
 metadata:
-  title: Payment Fraud Prevention For Websites - FingerprintJS
-  description: Prevent chargebacks, card testing, CNP fraud and more with 99.5%
-    accurate browser fingerprinting as a service.
+  title: "Payment Fraud Prevention: User Identification | FingerprintJS"
+  description: Prevent Payment Fraud With FingerprintJS' Accurate User
+    Identification. Prevent Coupon & Promo Abuse, Card Testing, Card Cracking &
+    More.
   url: https://fingerprintjs.com/payment-fraud
   image: /img/uploads/fpjs_cover3.png
 invertContent: false
 hero:
-  title: Stop payment fraud in all its forms with accurate user identification
-  description: Use FingerprintJS to keep chargebacks to a minimum, protecting your
-    bottom-line and seller reputation.
+  title: Payment Fraud Prevention and Detection
+  description: Stop payment fraud in all its forms with accurate user
+    identification. Use FingerprintJS to keep chargebacks to a minimum,
+    protecting your bottom-line and seller reputation.
   ctaText: Create Account
   ctaHref: https://dashboard.fingerprintjs.com/signup
+  openCtaNewTab: false
 cardSection:
-  title: "Add FingerprintJS to your tech stack to prevent:"
+  title: Add FingerprintJS to your tech stack to protect your payments
   subtitle: ""
   cards:
     - icon: /img/uploads/anonymous_user_identification.png
-      title: Coupon and promo abuse
+      title: Coupon and Promo Abuse
       markdown__Content: Ensure your promotions are used fairly and not repeated or
         stacked to remove all profit from your sales.
     - icon: /img/uploads/payment_processing.png
-      title: Card Testing
+      title: Credit Card Fraud Detection
       markdown__Content: Prevent fraudsters from using your site to test stolen credit
         cards through multiple small purchases.
     - title: Card Cracking
       markdown__Content: Stop malicious actors from testing combinations of expiry
-        dates, postal codes, and CVVs with lists of purchased PANs.
+        dates, postal codes, and CVVs with lists of purchased PANs. Make credit
+        card payment fraud a problem of the past.
       icon: /img/uploads/bot_detection.png
     - title: Friendly Fraud
       markdown__Content: Sometimes a real user will dispute payments even though they
         received a product or service. Flag these users easily to prevent future
         chargebacks.
       icon: /img/uploads/account_fraud.png
+    - title: Mobile Payment Fraud
+      markdown__Content: FingerprintJS Pro works for all web applications including
+        hybrid mobile apps. Flag suspicious customers making mobile purchases
+        and prevent more chargebacks.
+      icon: /img/uploads/smartphone-1-.svg
 blocks:
   - subheader: Stop chargebacks in their tracks
     markdown__Content: Any form of payment fraud can result in a chargeback for your

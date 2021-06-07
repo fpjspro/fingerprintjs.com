@@ -157,7 +157,7 @@ import FingerprintJS from '@fingerprintjs/fingerprintjs';
 
 The script above should preferably be included in the root folder of all the JS files like `index.js`.
 
-When you add a user’s unique visitor ID to a ban list with FingerprintJS, it’s difficult for them to circumvent it unless they frequently switch devices. FingerprintJS is a paid service starting at $100 per month for up to 100,000 API calls per month, but you can test it out with a free trial, or simply use its [open-source version](https://github.com/fingerprintjs/fingerprintjs/).
+When you add a user’s unique visitor ID to a ban list with FingerprintJS, it’s difficult for them to circumvent it unless they frequently switch devices. FingerprintJS Pro is a free service for up to 1,000 unique visitor identifications per month - you can [sign up](https://dashboard.fingerprintjs.com/signup/) with no credit card required. 
 
 ## Conclusion
 
