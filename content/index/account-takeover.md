@@ -33,6 +33,8 @@ cardSection:
         Stop the threat by associating multiple login attempts from bot networks
         and preventing additional attempts from related visitorIDs using
         FingerprintJS Pro.
+      iconAlt: Prevent account takeover
+      iconTitle: Prevent account takeover
     - icon: /img/uploads/incognito.svg
       title: Phishing Attack Prevention
       markdown__Content: Social engineering is among the most reliable methods for
@@ -41,29 +43,35 @@ cardSection:
         stop phishing fraud with FingerprintJS Pro's accurate visitor
         identification by requiring new and untrusted visitors to provide
         additional authentication before accessing their accounts.
+      iconAlt: Social engineering
+      iconTitle: Social engineering
 blocks:
-  - subheader: Stop account takeover at the source
-    markdown__Content: Account fraud can take many forms. Whether by brute force or
+  - markdown__Content: Account fraud can take many forms. Whether by brute force or
       individual actors testing purchased credentials, uniquely identifying your
       website visitors will provide the best defense against account
       takeovers.  FingerprintJS seamlessly meshes into your tech stack to run in
       conjunction with existing authentication workflows, using our API and
       webhooks.
-    image: /img/uploads/account-spider.png
+    subheader: Stop account takeover at the source
+    imageAlt: Sources of account takeover
     isImageAfterText: true
+    isCtaButton: false
+    image: /img/uploads/account-spider.png
+    imageTitle: Sources of account takeover
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
-    isCtaButton: false
-  - subheader: Strong Account Protection means fewer chargebacks
-    markdown__Content: Protecting your users' logins is the best way to mitigate
+  - markdown__Content: Protecting your users' logins is the best way to mitigate
       chargebacks from fraudulent purchases without compromising on experience.
       Try FingerprintJS and see the difference that accurate user detection can
       make for your user's account security, merchant reputation, and more.
+    subheader: Strong Account Protection means fewer chargebacks
+    imageAlt: FingerprintJS dashboard
     isImageAfterText: false
+    isCtaButton: false
+    image: /img/uploads/dashboard-tight.png
+    imageTitle: FingerprintJS dashboard
     ctaText: Create Your Free Account
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    image: /img/uploads/dashboard-tight.png
-    isCtaButton: false
 inlineCta:
   title: FingerprintJS for account takeover protection
   markdown__Subtitle: Sign up for a free account and get 100% of features with up
