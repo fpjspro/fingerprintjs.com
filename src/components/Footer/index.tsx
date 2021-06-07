@@ -74,8 +74,8 @@ const footerLinks: FooterLinkSection[] = [
         url: `${DOC_URL.getStartedUrl}`,
       },
       {
-        title: 'Pro vs Free Version',
-        url: `${DOC_URL.proVsFreeUrl}`,
+        title: 'Pro vs Open Source',
+        url: `${DOC_URL.proVsOpenUrl}`,
       },
       {
         title: 'Browser Fingerprinting',
