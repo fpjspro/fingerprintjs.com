@@ -22,8 +22,8 @@ cardSection:
     option for your business.
   cards:
     - icon: /img/uploads/browser_fingerprinting.png
-      iconAlt: alt text
-      iconTitle: title text
+      iconAlt: Browser fingerprint
+      iconTitle: Browser fingerprint
       title: FingerprintJS Pro
       markdown__Content: >-
         <i>Build your own account sharing prevention system with high accuracy
@@ -70,11 +70,11 @@ blocks:
 
       Using FingerprintJS Account Sharing Prevention, **the company generated $4M in new revenue over six months.** The key to their success was FingerprintJS’s accurate visitor identifier and easy-to-use APIs.
     subheader: How One Edtech Company Unearthed $4M+ in new revenue
-    imageAlt: image alt
+    imageAlt: FingerprintJS account sharing case study
     isImageAfterText: false
     isCtaButton: true
     image: /img/uploads/ebook.png
-    imageTitle: image title
+    imageTitle: FingerprintJS account sharing case study
     ctaText: ​Read the Case Study
     ctaUrl: https://fingerprintjs.com/case-studies/edtech/
   - markdown__Content: >-
@@ -93,11 +93,11 @@ blocks:
 
       **To ensure visitorIDs are stable over time,** FingerprintJS uses fuzzy matching and other deduplication techniques. FingerprintJS Pro associates new browsing history with the correct visitorID even if some details about the visitor have changed.
     subheader: Catch account sharers where other tracking methods fail
-    imageAlt: image alt
+    imageAlt: How FingerprintJS works
     isImageAfterText: true
     isCtaButton: false
     image: /img/uploads/copy-of-the_power_of_fingerprinting_infographic_1.png
-    imageTitle: image title
+    imageTitle: How FingerprintJS works
     ctaText: ​
     ctaUrl: ​
   - markdown__Content: >-
@@ -116,11 +116,11 @@ blocks:
 
       * **Support:** Get in touch via chat and email and get technical help within 1 business day.
     subheader: Built for engineers, by engineers
-    imageAlt: image alt
+    imageAlt: FingerprintJS dashboard
     isImageAfterText: false
     isCtaButton: false
     image: /img/uploads/fpjs-dashboard.png
-    imageTitle: image title
+    imageTitle: FingerprintJS dashboard
     ctaText: ​
     ctaUrl: ​
   - markdown__Content: >-
@@ -135,11 +135,11 @@ blocks:
 
       * Incognito browsing
     subheader: Learn More About Your Customers
-    imageAlt: image alt
+    imageAlt: API call from FingerprintJS Pro
     isImageAfterText: true
     isCtaButton: false
     image: /img/uploads/extra-features.png
-    imageTitle: image title
+    imageTitle: API call from FingerprintJS Pro
     ctaText: ​
     ctaUrl: ​
 inlineCta:
