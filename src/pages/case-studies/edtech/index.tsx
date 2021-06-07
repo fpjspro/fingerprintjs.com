@@ -69,7 +69,7 @@ function Header() {
           <p className={styles.description}>
             Using <strong>FingerprintJS browser fingerprinting</strong>, a SaaS educational technology company
             <strong> significantly reduced unauthorized account sharing</strong>, increasing their annual recurring
-            revenue by <strong>$4M+ ARR</strong> while keeping legitimate users happy.
+            revenue by <strong>$10M+ ARR</strong> while keeping legitimate users happy.
           </p>
           <Button href={'/pdf/case-study/account-sharing.pdf'} variant='faded' className={styles.downloadPdf} download>
             Download the PDF
@@ -87,8 +87,8 @@ function Summary() {
       title: 'New revenue from sign-ups',
       children: (
         <p className={styles.result}>
-          The SaaS company was able to grow annual recurring revenue by more than four million USD from spun off
-          accounts within several months of implementing FingerprintJS Pro.
+          The SaaS company was able to grow annual recurring revenue by more than ten million USD from spun off accounts
+          within several months of implementing FingerprintJS Pro.
         </p>
       ),
     },

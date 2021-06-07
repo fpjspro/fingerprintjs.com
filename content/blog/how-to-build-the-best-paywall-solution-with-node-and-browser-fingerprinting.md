@@ -18,8 +18,6 @@ authors:
 ---
 ![Paywall notification](/img/uploads/paywall-banner.png "Paywall notification")
 
-
-
 As online publications transition from monetization through digital advertising to charging consumers directly for their content, paywalls are becoming commonplace. And right on their heels are myriad innovations in circumventing them. For developers tasked with restricting site access to subscribers, it’s important to not only keep up with current paywall architecture, but also the latest tricks for getting around them. If you’re going to build a paywall that works, you have to know what you’re guarding against.
 
 There are varying levels of restriction when it comes to paywalls. They can be grouped into two categories:
@@ -33,7 +31,7 @@ As you probably know, there are various measures a reader can take to circumvent
 * Using an ad blocker extension
 * Blocking HTTP requests for popular paywall libraries
 * Switching to private browsing or incognito mode
-* Signing up for a free trial
+* Signing up for a free account
 * Resetting browser cookies
 * Hiding the user’s IP address
 * Manually deleting the paywall source code
@@ -55,7 +53,7 @@ Prerequisites:
 
 ### Sign Up for FingerprintJS
 
-First, create an account with FingerprintJS. The sign-up process is quick, intuitive, and conventional, however you will be required to add your credit/debit card details for a trial version.
+First, create an account with FingerprintJS. The sign-up process is quick, intuitive, and conventional, and accounts up to 1,000 unique visitors per month are completely free.
 
 Once you’ve signed up, you’ll be presented with a quick start guide for both a CDN and an NPM implementation. The code snippet for each approach will include your generated browser token which you’ll use later in this tutorial, so keep this value close at hand. If need be, you can access the Tokens page from the left-side menu at any point to fetch and generate API and browser tokens.
 
