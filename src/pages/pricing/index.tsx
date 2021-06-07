@@ -50,7 +50,7 @@ interface SectionHeaderProps {
 function SectionHeader({ title, subtitle, description, invertOrder = false }: SectionHeaderProps) {
   return (
     <header className={classNames(styles.header, { [styles.inverted]: invertOrder })}>
-      <p className={styles.subtitle}>{subtitle}</p>
+      <h1 className={styles.subtitle}>{subtitle}</h1>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.description}>{description}</p>
     </header>
