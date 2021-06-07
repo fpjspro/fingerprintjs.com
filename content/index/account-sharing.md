@@ -41,8 +41,8 @@ cardSection:
 
         [Create Your Free Account >](https://dashboard.fingerprintjs.com/signup)
     - icon: /img/uploads/worldwide-1-.png
-      iconAlt: alt text
-      iconTitle: title text
+      iconAlt: Account sharing protection
+      iconTitle: Account sharing protection
       title: Account Sharing Prevention
       markdown__Content: >-
         <i>An all-in-one solution for account sharing prevention - maximize
