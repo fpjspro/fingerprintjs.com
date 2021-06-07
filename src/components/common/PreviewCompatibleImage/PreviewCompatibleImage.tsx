@@ -27,14 +27,7 @@ const PreviewCompatibleImage = ({ className, imageStyle, imageInfo, titleTag, al
     return <img className={className} style={style} src={imageInfo} alt='' />
   }
 
-  const {
-    alt = altTag ? altTag : '',
-    title = titleTag ? titleTag : undefined,
-    childImageSharp,
-    image,
-    extension,
-    publicURL,
-  } = imageInfo
+  const { alt = altTag ?? '', title = titleTag, childImageSharp, image, extension, publicURL } = imageInfo
 
   if (!!image && typeof image != 'string' && isFluid(image.childImageSharp)) {
     return <Img className={className} style={style} fluid={image.childImageSharp.fluid} alt={alt} />
