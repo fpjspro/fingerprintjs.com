@@ -20,7 +20,7 @@ hero:
 cardSection:
   title: Stop gaming fraud by adding fingerprinting to your tech stack
   subtitle: "Fraud in online gaming can be challenging to prevent as players are
-    be highly incentivized to cheat. Accurate visitor identification empowers
+    highly incentivized to cheat. Accurate visitor identification empowers
     developer teams to identify and mitigate threats from the login screen to
     payment. "
   cards:
