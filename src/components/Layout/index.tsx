@@ -66,6 +66,7 @@ export function LayoutTemplate({
         <link rel='icon' type='image/x-icon' href='/img/favicon.ico' />
         <meta name='description' content={description} />
 
+        <meta property='og:type' content={siteUrl?.includes('/blog') ? 'blog' : 'website'} />
         <meta property='og:url' content={withTrailingSlash(siteUrl ?? BASE_URL)} />
         <meta property='og:title' content={title} />
         <meta property='og:description' content={description} />
