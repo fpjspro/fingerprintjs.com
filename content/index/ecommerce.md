@@ -71,7 +71,7 @@ inlineCta:
     3 to 4 times as much - a loss mitigated with our 99.5% accurate browser
     fingerprinting and ecommerce fraud detection solution. With FingerprintJS,
     you can protect your income against fraudulent orders that waste resources
-    ƒon labor, shipping, products, chargebacks, fines and more . "
+    on labor, shipping, products, chargebacks, fines and more."
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---
