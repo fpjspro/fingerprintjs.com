@@ -185,7 +185,7 @@ And get another unique result in Firefox:
 
 * **<tt>80.95458510611206</tt>**
 
-Every browser we have on our testing laptops generate a different value. This value is very stable and remains the same in incognito mode.\
+Every browser we have on our testing laptops generates a different value. This value is very stable and remains the same in incognito mode.\
 \
 **This value depends on the underlying hardware and OS, and in your case may be different.**
 

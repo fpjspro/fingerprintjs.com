@@ -35,7 +35,7 @@ While online gaming and gambling sites (and some of their players) may lose mone
 
 Online poker tournaments have garnered the most notoriety for multi-accounting, as there is a large financial incentive for players to successfully run multiple accounts. Multi-accounting poker players can get multiple attempts at a large cash prize in a tournament, or can collude with themselves by having more information on cards in play if they are seated at the same table (also referred to as ‘gnoming’).
 
-Poker-king’s article on multi-accounting claims that poker rooms are much more capable of catching multi-accounting users today than they were in the past, however there continue to be high-profile instances of this type of cheating in the past few years.The 2019 WSOP bracelet winner Ivan Dreya recently admitted to multi-accounting with his father’s account after a lengthy internal investigation, causing him to lose his €83,300 prize. 
+Poker-king’s article on multi-accounting claims that poker rooms are much more capable of catching multi-accounting users today than they were in the past, however there continue to be high-profile instances of this type of cheating in the past few years. The 2019 WSOP bracelet winner Ivan Dreya recently admitted to multi-accounting with his father’s account after a lengthy internal investigation, causing him to lose his €83,300 prize. 
 
 ## Multi-accounting in the online gambling industry
 
