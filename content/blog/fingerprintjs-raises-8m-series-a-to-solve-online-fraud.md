@@ -7,6 +7,8 @@ metadata:
     Accelerator and angels including Rony Kahan.
   url: https://fingerprintjs.com/blog/series-a
   image: /img/uploads/fpjs_cover2.png
+  imageAlt: FingerprintJS Series A
+  imageTitle: FingerprintJS Series A
 featured: false
 publishDate: 2021-02-11T14:30:32.339Z
 title: FingerprintJS Raises $8M Series A to Solve Online Fraud
