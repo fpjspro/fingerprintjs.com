@@ -7,6 +7,8 @@ metadata:
     required. "
   url: https://fingerprintjs.com/blog/free-plan-pro
   image: /img/uploads/free-tier.png
+  imageAlt: FingerprintJS Pro free tier announcement
+  imageTitle: FingerprintJS Pro free tier announcement
 featured: false
 publishDate: 2021-05-18T19:26:17.695Z
 title: Announcing FingerprintJS Pro Free Tier
