@@ -7,6 +7,8 @@ metadata:
   description: Looking for CAPTCHA alternatives? With user identification, you can
     reduce your need for CAPTCHA technology to catch bots and spam filling out
     forms on your website.
+  imageAlt: "How to stop using reCAPTCHA "
+  imageTitle: "How to stop using reCAPTCHA "
 featured: false
 publishDate: 2021-03-15T16:23:06.733Z
 title: How to minimize CAPTCHA API calls to streamline UX and improve conversions
