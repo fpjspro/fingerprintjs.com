@@ -33,6 +33,8 @@ cardSection:
 
 
         [Learn more about ATO >](https://fingerprintjs.com/account-takeover/)
+      iconAlt: Account takeover fraud
+      iconTitle: Account takeover fraud
     - icon: /img/uploads/gaming.png
       title: Identify suspicious activity in all its forms
       markdown__Content: >-
@@ -43,6 +45,8 @@ cardSection:
 
 
         [Multi-accounting prevention >](https://fingerprintjs.com/blog/stop-multi-accounting-gaming/)
+      iconAlt: Gaming fraud prevention
+      iconTitle: Gaming fraud prevention
     - title: Prevent gaming payment fraud
       markdown__Content: >-
         Avoid merchant penalties from chargebacks while only requiring
@@ -52,6 +56,8 @@ cardSection:
 
         [Read about how to stop card testing >](https://fingerprintjs.com/blog/stop-card-testing/)
       icon: /img/uploads/commerce.png
+      iconAlt: gaming payment fraud
+      iconTitle: gaming payment fraud
     - title: Reduce manual checks
       markdown__Content: >-
         Having to manually screen purchases for signs of fraud isn't scalable.
@@ -61,30 +67,36 @@ cardSection:
 
         [How we calculate 99.5% accuracy >](https://dev.fingerprintjs.com/docs/understanding-our-995-accuracy)
       icon: /img/uploads/anonymous_user_identification.png
+      iconAlt: Manual fraud screening
+      iconTitle: Manual fraud screening
 blocks:
-  - subheader: Powerful fingerprinting prevents gaming fraud
-    markdown__Content: Cheating in online gaming can ruin the fun for your ethical
+  - markdown__Content: Cheating in online gaming can ruin the fun for your ethical
       players, and can be notoriously difficult to stop.   Prevent fraud at its
       source by creating a unique ID for your visitors, associating their
       activity across visits, incognito mode, and other cloaking methods. By
       understanding your visitors' browsing behavior, you can identify common
       patterns of fraud and require additional authentication as needed.
-    image: /img/uploads/fpjs-flowchart-smaller.png
+    subheader: Powerful fingerprinting prevents gaming fraud
+    imageAlt: How FingerprintJS protects gaming fraud
     isImageAfterText: true
+    isCtaButton: false
+    image: /img/uploads/fpjs-flowchart-smaller.png
+    imageTitle: How FingerprintJS protects gaming fraud
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs/introduction
-    isCtaButton: false
-  - isImageAfterText: false
-    subheader: Protect your players' accounts and your bottom-line with anti-fraud
-      protection from login to payment.
-    markdown__Content: Use FingerprintJS for your site's unique fraud needs. Our API
+  - markdown__Content: Use FingerprintJS for your site's unique fraud needs. Our API
       and webhooks make it easy to build custom authentication workflows to stop
       common sources of fraud for gaming and gambling sites, including account
       takeover, promo and bonus abuse, card testing, and more.
+    subheader: Protect your players' accounts and your bottom-line with anti-fraud
+      protection from login to payment.
+    imageAlt: FingerprintJS Pro usage dashboard
+    isImageAfterText: false
+    isCtaButton: false
     image: /img/uploads/dashboard-tight.png
+    imageTitle: FingerprintJS Pro usage dashboard
     ctaText: Sign up now
     ctaUrl: https://dashboard.fingerprintjs.com/signup
-    isCtaButton: false
 inlineCta:
   title: Try FingerprintJS for gaming fraud prevention
   markdown__Subtitle: Install our Javascript snippet on your site to start
