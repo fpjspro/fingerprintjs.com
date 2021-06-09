@@ -16,7 +16,7 @@ tags:
   - fingerprinting
   - js
 authors:
-  - Savannah Copland
+  - Lukonde Mwila
 ---
 ![Paywall notification](/img/uploads/paywall-banner.png "Paywall notification")
 
