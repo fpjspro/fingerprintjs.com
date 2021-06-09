@@ -8,6 +8,8 @@ metadata:
     to generate signals that vary between site visitors enough to be useful for
     browser fingerprinting.
   image: /img/uploads/tw-ad-2-hd.png
+  imageAlt: FingerprintJS Pro query result
+  imageTitle: FingerprintJS Pro query result
 featured: false
 publishDate: 2021-04-01T21:04:39.564Z
 title: The Top Browser Fingerprinting Techniques Explained
