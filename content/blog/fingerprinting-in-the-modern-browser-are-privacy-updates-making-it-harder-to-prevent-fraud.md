@@ -16,7 +16,7 @@ title: "Fingerprinting in the Modern Browser: Are Privacy Updates Making It
 tags:
   - fingerprinting
 authors:
-  - Savannah Copland
+  - Karl Hughes
 ---
 ![Browser fingerprinting privacy](/img/uploads/modern-browser.png "Browser fingerprinting privacy")
 
