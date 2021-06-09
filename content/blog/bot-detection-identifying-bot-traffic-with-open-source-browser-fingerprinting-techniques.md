@@ -17,7 +17,7 @@ tags:
   - bot attacks
   - fingerprinting
 authors:
-  - Savannah Copland
+  - Karl Hughes
 ---
 ![Bot detection radar](/img/uploads/bot-detection.png "Bot detection radar")
 
