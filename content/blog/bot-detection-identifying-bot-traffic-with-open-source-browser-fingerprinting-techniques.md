@@ -7,6 +7,8 @@ metadata:
     techniques.
   url: https://fingerprintjs.com/blog/bot-detection/
   image: /img/uploads/bot-detection.png
+  imageAlt: Bot detection radar
+  imageTitle: Bot detection radar
 featured: true
 publishDate: 2021-06-03T17:12:58.481Z
 title: "Bot Detection: Identifying Bot Traffic with Open-source Browser
