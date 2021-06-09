@@ -8,6 +8,8 @@ metadata:
     multi-accounting works and how to stop it with sophisticated visitor
     identification techniques.
   image: /img/uploads/amanda-jones-p787-xixgio-unsplash.jpg
+  imageAlt: Playing cards
+  imageTitle: Playing cards
 featured: false
 publishDate: 2021-03-11T14:03:03.858Z
 title: "Multi-accounting prevention in the gaming and gambling industry: not
