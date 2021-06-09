@@ -26,8 +26,8 @@ cardSection:
       markdown__Content: Require additional authentication for suspicious visitors
         during login while keeping your trusted cryptocurrency users unhindered
         and safe.
-      iconAlt: Customer protection from fraud
-      iconTitle: Customer protection from fraud
+      iconAlt: Cryptocurrency fraud protection
+      iconTitle: Cryptocurrency fraud protection
     - icon: /img/uploads/payment_processing.png
       title: Stop fraudulent purchases
       markdown__Content: Blacklist users that are card testing, card cracking, or have
