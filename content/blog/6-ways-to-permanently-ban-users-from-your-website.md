@@ -15,7 +15,7 @@ tags:
   - web
   - fingerprinting
 authors:
-  - Savannah Copland
+  - Linda Ikechukwu
 ---
 ![Permanently ban users from your website with FingerprintJS](/img/uploads/ban-from-website.png "Permanently ban users from your website with FingerprintJS")
 
