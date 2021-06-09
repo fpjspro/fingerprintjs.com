@@ -7,6 +7,8 @@ metadata:
     using FingerprintJS Pro.
   url: https://fingerprintjs.com/blog/prevent-multiple-signups-tutorial
   image: /img/uploads/signup-abuse-tutorial.png
+  imageAlt: Prevent signup abuse video tutorial
+  imageTitle: Prevent signup abuse video tutorial
 featured: false
 publishDate: 2021-03-16T18:09:51.690Z
 title: "How to Prevent Multiple Signups With FingerprintJS Pro "
