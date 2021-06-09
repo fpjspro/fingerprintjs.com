@@ -7,6 +7,8 @@ metadata:
     is still possible to keep your website safe.
   url: http://fingerprintjs.com/blog/browser-fingerprinting-privacy
   image: /img/uploads/modern-browser.png
+  imageAlt: Browser fingerprinting privacy shield
+  imageTitle: Browser fingerprinting privacy shield
 featured: false
 publishDate: 2021-05-25T20:09:52.736Z
 title: "Fingerprinting in the Modern Browser: Are Privacy Updates Making It
