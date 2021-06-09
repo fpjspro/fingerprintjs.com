@@ -8,6 +8,8 @@ metadata:
     why subscription sharing might be costing your business more than you
     thought, and how to prevent it.
   image: /img/uploads/thibault-penin-awol7qqsffm-unsplash.jpg
+  imageAlt: Netflix account sharing
+  imageTitle: Netflix account sharing
 featured: false
 publishDate: 2021-03-25T20:40:51.828Z
 title: Why It’s Not Just Netflix Losing Money From Subscription Sharing
