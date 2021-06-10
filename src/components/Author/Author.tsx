@@ -19,7 +19,13 @@ export interface AuthorComponentProps {
 export default function AuthorComponent({ author, className }: AuthorComponentProps) {
   return (
     <div className={classNames(className, styles.root)}>
-      <PreviewCompatibleImage imageInfo={author.photo} className={styles.photo} imageStyle={{ borderRadius: '6rem' }} />
+      <PreviewCompatibleImage
+        imageInfo={author.photo}
+        altTag={`${author.name} photo`}
+        titleTag={`${author.name} photo`}
+        className={styles.photo}
+        imageStyle={{ borderRadius: '6rem' }}
+      />
 
       <div className={styles.textContainer}>
         <span className={styles.name}>{author.name}</span>
