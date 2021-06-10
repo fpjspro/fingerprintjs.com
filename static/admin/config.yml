@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: WEB-159/fix-technical-website-changes-for-SEO
+  branch: master
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
