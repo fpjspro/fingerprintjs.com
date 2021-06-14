@@ -32,7 +32,7 @@ export default function CaseStudies({ pageContext }: CaseStudyProps) {
     {
       title: 'Account sharing prevention in Edtech',
       description:
-        'Read about how a SaaS educational technology company used FingerpringJS to significantly reduce unauthorized account sharing, increasing their annual recurring revenue by $4M+ ARR while keeping legitimate users happy.',
+        'Read about how a SaaS educational technology company used FingerpringJS to significantly reduce unauthorized account sharing, increasing their annual recurring revenue by $10M+ ARR while keeping legitimate users happy.',
       publishDate: 'January 26, 2021',
       path: `${BASE_URL}case-studies/edtech/`,
     },
@@ -42,6 +42,13 @@ export default function CaseStudies({ pageContext }: CaseStudyProps) {
         'Read about how a major food and beverage brand stopped promo abuse at live events while making the redemption process even easier.',
       publishDate: 'May 24, 2021',
       path: `${BASE_URL}case-studies/promo-abuse/`,
+    },
+    {
+      title: 'Third Party Verification',
+      description:
+        'A door-to-door sales software company was able to greatly increase their identity verification accuracy, prevent fraud committed by sales representatives, and exceed compliance standards with FingerprintJS Pro.',
+      publishDate: 'Jun 14, 2021',
+      path: `${BASE_URL}case-studies/third-party-verification/`,
     },
   ]
 
