@@ -5,6 +5,10 @@
 
   padding-top: rem(11px);
   padding-bottom: rem(12px);
+
+  @include media('<=phone') {
+    padding: rem(11px) rem(5px) rem(12px);
+  }
 }
 
 .headerBar {
@@ -25,6 +29,10 @@
 
   @include media('<tablet') {
     font-size: rem(12px);
+  }
+
+  @include media('<phone') {
+    font-size: rem(11px);
   }
 }
 
