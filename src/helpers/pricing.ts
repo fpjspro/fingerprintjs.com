@@ -3,7 +3,6 @@ import { PaymentType } from './../types/PaymentType'
 export const minimumIdentifications = 100000
 export const freeApiCalls = 20000
 
-
 export const pricingTable = [
   { label: '100K', value: 100000 },
   { label: '250K', value: 250000 },
