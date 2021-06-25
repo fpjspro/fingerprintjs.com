@@ -242,7 +242,7 @@ function Footer() {
           title='Get in Touch'
           primaryAction={{
             label: 'Get Started Today',
-            name: 'Create Free Account',
+            name: 'Start Free Trial',
             action: URL.signupUrl,
           }}
           secondaryAction={{

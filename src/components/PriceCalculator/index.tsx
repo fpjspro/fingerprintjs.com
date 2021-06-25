@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Select from '../common/Select'
 import classNames from 'classnames'
-import { minimumIdentifications, freeUniqueVisitors, pricingTable, calculatePrice } from '../../helpers/pricing'
+import { minimumIdentifications, freeApiCalls, pricingTable, calculatePrice } from '../../helpers/pricing'
 import { PaymentType } from '../../types/PaymentType'
 import Button from '../../components/common/Button'
 import Modal from '../../components/common/Modal'
@@ -14,15 +14,15 @@ export default function PriceCalculator() {
     label: numberFormatter.format(entry.value),
     value: entry.value,
   }))
-  selectOptions.push({ label: `${numberFormatter.format(500000)}+`, value: Infinity })
+  selectOptions.push({ label: `${numberFormatter.format(10000000)}+`, value: Infinity })
 
   const [selectedPreset, setSelectedPreset] = useState(selectOptions[0])
   const [customCount, setCustomCount] = useState<number | undefined>(undefined)
   const [isContactSalesModalOpen, setIsContactSalesModalOpen] = useState(false)
 
-  const isCustomPricing = (!customCount && selectedPreset.value === Infinity) || (customCount && customCount >= 500000)
-  const isFree =
-    (!customCount && selectedPreset.value === freeUniqueVisitors) || (customCount && customCount <= freeUniqueVisitors)
+  const isCustomPricing =
+    (!customCount && selectedPreset.value === Infinity) || (customCount && customCount >= 10000000)
+  const isFree = (!customCount && selectedPreset.value === freeApiCalls) || (customCount && customCount <= freeApiCalls)
 
   function onPresetSelected(newPreset: ValuePreset): void {
     setSelectedPreset(newPreset)
@@ -60,7 +60,7 @@ export default function PriceCalculator() {
   return (
     <>
       <div className={styles.wrapper}>
-        <Column title='How many unique visitors per month do you have?'>
+        <Column title='How many identifications per month do you need?'>
           <div className={styles.presetSelector}>
             <div className={styles.description}>
               <strong>Select from preset</strong>
@@ -78,20 +78,20 @@ export default function PriceCalculator() {
               onChange={(e) => onCustomCountChanged(e.target.value)}
               type='number'
               name='identification-user-input'
-              placeholder='ex. 8000'
+              placeholder='ex. 630,000'
             />
           </div>
         </Column>
         <Column title={'On-Demand'}>
           <Price
             value={getPriceValue(PaymentType.Monthly)}
-            description={isFree ? 'Free up to 1,000 monthly unique visitors' : 'Pay as you go, cancel any time'}
+            description={isFree ? 'Free up to 20,000 monthly API calls' : 'Pay as you go, cancel any time'}
           />
         </Column>
         <Column title='Annual'>
           <Price
             value={getPriceValue(PaymentType.Annually)}
-            description={isFree ? 'Free up to 1,000 monthly unique visitors' : 'Requires a 12 month prepay'}
+            description={isFree ? 'Free up to 20,000 monthly API calls' : 'Requires a 12 month prepay'}
           />
         </Column>
         <Column title='Enterprise License'>

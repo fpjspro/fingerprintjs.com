@@ -70,12 +70,12 @@ blocks:
     isCtaButton: false
     image: /img/uploads/dashboard-tight.png
     imageTitle: FingerprintJS dashboard
-    ctaText: Create Your Free Account
+    ctaText: Start Free Trial
     ctaUrl: https://dashboard.fingerprintjs.com/signup
 inlineCta:
   title: FingerprintJS for account takeover protection
-  markdown__Subtitle: Sign up for a free account and get 100% of features with up
-    to 1,000 unique visitor identifications per month.
+  markdown__Subtitle: 'Start your free 30-day trial and get 100% of features with no usage
+    limits. '
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---

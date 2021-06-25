@@ -14,7 +14,7 @@ hero:
   description: Uniquely identify fraudulent players to prevent the most common
     forms of gaming and gambling fraud, including credential stuffing, cheating
     schemes, arbitrage, and more.
-  ctaText: Sign Up For Free
+  ctaText: Start Free Trial
   ctaHref: https://dashboard.fingerprintjs.com/signup
   openCtaNewTab: false
 cardSection:

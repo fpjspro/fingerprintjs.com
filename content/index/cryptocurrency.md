@@ -59,12 +59,12 @@ blocks:
     isCtaButton: false
     image: /img/uploads/fpjs-subscriptions.png
     imageTitle: FingerprintJS Pro subscription screen
-    ctaText: Create your free account
+    ctaText: Start your free trial
     ctaUrl: https://dashboard.fingerprintjs.com/signup
 inlineCta:
-  title: Use FingerprintJS Pro For Free
-  markdown__Subtitle: Installation of FingerprintJS' Javascript agent is easy.
-    Start collecting unique VisitorIDs in minutes.
+  title: Try FingerprintJS Free
+  markdown__Subtitle: Installation of FingerprintJS' Javascript agent is easy. Start
+    collecting unique VisitorIDs in minutes with our 30-day free trial.
   buttonText: Get Started
   buttonHref: https://dashboard.fingerprintjs.com/signup
 ---

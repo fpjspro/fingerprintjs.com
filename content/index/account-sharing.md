@@ -36,10 +36,7 @@ cardSection:
         **Additional Visitor Data:** Collect geolocation, browser and device details, and incognito mode detection for every visitor.
 
 
-        **Plans start at $0/Month**
-
-
-        [Create Your Free Account >](https://dashboard.fingerprintjs.com/signup)
+        [Start Your Free Trial >](https://dashboard.fingerprintjs.com/signup)
     - icon: /img/uploads/worldwide-1-.png
       iconAlt: Account sharing protection
       iconTitle: Account sharing protection
@@ -68,8 +65,8 @@ blocks:
       dedicated anti-fraud team.
 
 
-      Using FingerprintJS Account Sharing Prevention, **the company generated $4M in new revenue over six months.** The key to their success was FingerprintJS’s accurate visitor identifier and easy-to-use APIs.
-    subheader: How One Edtech Company Unearthed $4M+ in new revenue
+      Using FingerprintJS Account Sharing Prevention, **the company generated $10M in new revenue over six months.** The key to their success was FingerprintJS’s accurate visitor identifier and easy-to-use APIs.
+    subheader: How One Edtech Company Unearthed $10M+ in new revenue
     imageAlt: FingerprintJS account sharing case study
     isImageAfterText: false
     isCtaButton: true

@@ -101,7 +101,7 @@ export default function GetStartedForm({ className }: GetStartedFormProps) {
       <ul className={styles.description}>
         <li>
           <CheckSvg className={styles.check} />
-          Unlimited Identifications for 30 Days
+          Unlimited API calls for 30 days
         </li>
         <li>
           <CheckSvg className={styles.check} />

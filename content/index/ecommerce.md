@@ -17,7 +17,7 @@ hero:
     customers' accounts safe. Build ecommerce fraud detection & prevention into
     your existing website and payment workflows with our flexible,
     developer-friendly API. "
-  ctaText: Sign Up Free
+  ctaText: Start Free Trial
   ctaHref: https://dashboard.fingerprintjs.com/signup
   openCtaNewTab: false
 cardSection:
