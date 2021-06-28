@@ -11,7 +11,7 @@ export default function PricingSection() {
     <ul className={styles.bulletList}>
       <li>Transparent pricing</li>
       <li>Monthly and annual plans</li>
-      <li>Free up to 1,000 monthly unique visitors</li>
+      <li>Unlimited API calls for 30 days</li>
       <li>Money back guarantee</li>
     </ul>
   )
