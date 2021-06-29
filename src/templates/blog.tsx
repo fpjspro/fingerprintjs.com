@@ -57,7 +57,10 @@ export default function Blog({ data, pageContext }: BlogProps) {
 export const pageQuery = graphql`
   query Blog($skip: Int!, $limit: Int!) {
     posts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" } 
+        frontmatter: { title: { ne: "Announcing FingerprintJS Pro Free Tier" } } 
+      }        
       sort: { order: DESC, fields: frontmatter___publishDate }
       limit: $limit
       skip: $skip

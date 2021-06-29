@@ -55,7 +55,7 @@ Prerequisites:
 
 ### Sign Up for FingerprintJS
 
-First, create an account with FingerprintJS. The sign-up process is quick, intuitive, and conventional, and accounts up to 1,000 unique visitors per month are completely free.
+First, create an account with FingerprintJS. The sign-up process is quick, intuitive, and conventional, and you can try it without usage limits for 30 days.
 
 Once you’ve signed up, you’ll be presented with a quick start guide for both a CDN and an NPM implementation. The code snippet for each approach will include your generated browser token which you’ll use later in this tutorial, so keep this value close at hand. If need be, you can access the Tokens page from the left-side menu at any point to fetch and generate API and browser tokens.
 

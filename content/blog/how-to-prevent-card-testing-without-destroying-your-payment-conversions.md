@@ -83,7 +83,7 @@ FingerprintJS provides a solution to identify fraudsters and prevent them from d
 
 Want to try FingerprintJS for payment fraud prevention? Here is how you can get started:
 
-* Create your FREE [FingerprintJS Pro account](https://dashboard.fingerprintjs.com/signup)
+* Start your [30-day trial](https://dashboard.fingerprintjs.com/signup)
 * Install our Javascript snippet to start collecting visitorIDs for every guest that comes to your site.
 * When a visitor attempts to make multiple purchases in a short time or with different credit cards, you can flag their account. You can also require additional verification to continue or fully block that visitor from making further purchases.
 * Anytime a flagged or suspicious visitorID is identified returning to the site, you can require additional verification for future purchases.

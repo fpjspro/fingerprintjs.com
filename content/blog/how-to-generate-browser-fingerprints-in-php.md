@@ -185,7 +185,7 @@ In the next section, I’ll show you how to prevent re-registration using browse
 
 [FingerprintJS](https://fingerprintjs.com) is a fingerprinting service that uses a combination of fingerprinting, cookies, server-side techniques, and machine learning to generate a browser fingerprint that is up to [99.5% accurate](https://dev.fingerprintjs.com/docs/understanding-our-995-accuracy). 
 
-To get started with FingerprintJS, you will need a [FingerprintJS pro account](https://dashboard.fingerprintjs.com/signup). If you do not have an account, you can register one for free with up to 1,000 monthly unique visitors.
+To get started with FingerprintJS, you will need a [FingerprintJS pro account](https://dashboard.fingerprintjs.com/signup). If you do not have an account, you can start a trial without usage limits for 30 days.
 
 Once you have an account, visit your [dashboard](https://dashboard.fingerprintjs.com/) and select the subscription that you created while registering. Head to the `Tokens` section from the left sidebar and copy the active **browser** token.
 

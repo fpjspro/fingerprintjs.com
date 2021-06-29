@@ -151,4 +151,4 @@ Canvas fingerprinting is a useful tool for understanding visitors and keeping yo
 
 With the right mix of ingenuity (and JavaScript), you can identify people and monitor their behavior across sessions, flagging suspicious activity to help your team react to threats faster. You can also maintain consistency for returning visitors, serving them content most relevant to them and increasing engagement along the way.
 
-Instead of doing the hard work yourself, [FingerprintJS](https://fingerprintjs.com/) provides an open-source and paid solution for fingerprinting your users. Their service has 99.5% accuracy, and it’s completely free for the first 1000 visitors per month.
+Instead of doing the hard work yourself, [FingerprintJS](https://fingerprintjs.com/) provides an open-source and paid solution for fingerprinting your users. Their service has 99.5% accuracy, and you can try it without usage limits for 30 days.

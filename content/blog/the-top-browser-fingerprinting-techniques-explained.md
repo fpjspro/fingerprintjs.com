@@ -83,4 +83,4 @@ If your users are often the target of phishing scams, you can require email or t
 
 For virtually all types of fraud, the first step in stopping the malicious activity on your website is accurate user identification technology. That way, you can accurately single out the bad apples while keeping your trusted users satisfied with your website performance. 
 
-Whether you have a newly-built website or you’ve been in the online industry for years, you can safeguard your leads, clients, and business if you can stop fraud at the source. [Sign up for a free FingerprintJS Pro account](https://dashboard.fingerprintjs.com/signup/) to see what accurate user identification technology can do for you.
+Whether you have a newly-built website or you’ve been in the online industry for years, you can safeguard your leads, clients, and business if you can stop fraud at the source. [Start a 30-day trial](https://dashboard.fingerprintjs.com/signup/) to see what accurate user identification technology can do for you.
