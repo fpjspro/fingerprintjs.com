@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby'
 import React from 'react'
 import Container from '../components/common/Container'
 import Section from '../components/common/Section'
@@ -6,14 +7,16 @@ import { GeneratedPageContext } from '../helpers/types'
 import { useLocation } from '@reach/router'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import PaginationNav from '../components/PaginationNav/PaginationNav'
+import { mapToPost } from '../components/Post/Post'
 import PostGrid from '../components/PostGrid/PostGrid'
-import { BASE_URL } from '../constants/content'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 
 interface CaseStudyProps {
+  data: GatsbyTypes.CaseStudiesQuery
   pageContext: CaseStudiesContext
 }
 export default function CaseStudies({ pageContext }: CaseStudyProps) {
+  const { edges: posts } = data.posts
   const breadcrumbs = pageContext.breadcrumb.crumbs
 
   const { pathname } = useLocation()
@@ -27,31 +30,6 @@ export default function CaseStudies({ pageContext }: CaseStudyProps) {
 
   const { currentPage, numPages } = pageContext
 
-  // TODO [VL] This will be turned into a page query when integrating with the CMS.
-  const caseStudies = [
-    {
-      title: 'Account sharing prevention in Edtech',
-      description:
-        'Read about how a SaaS educational technology company used FingerpringJS to significantly reduce unauthorized account sharing, increasing their annual recurring revenue by $10M+ ARR while keeping legitimate users happy.',
-      publishDate: 'January 26, 2021',
-      path: `${BASE_URL}case-studies/edtech/`,
-    },
-    {
-      title: 'Prevent Promotion Abuse at Live Events',
-      description:
-        'Read about how a major food and beverage brand stopped promo abuse at live events while making the redemption process even easier.',
-      publishDate: 'May 24, 2021',
-      path: `${BASE_URL}case-studies/promo-abuse/`,
-    },
-    {
-      title: 'Third Party Verification',
-      description:
-        'A door-to-door sales software company was able to greatly increase their identity verification accuracy, prevent fraud committed by sales representatives, and exceed compliance standards with FingerprintJS Pro.',
-      publishDate: 'Jun 14, 2021',
-      path: `${BASE_URL}case-studies/third-party-verification/`,
-    },
-  ]
-
   return (
     <LayoutTemplate siteMetadata={siteMetadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
@@ -60,7 +38,7 @@ export default function CaseStudies({ pageContext }: CaseStudyProps) {
         <Container size='large'>
           <h1>Case Studies</h1>
 
-          <PostGrid posts={caseStudies} perRow='four' />
+          <PostGrid posts={posts.map(({ node }) => node).map((node) => mapToPost(node))} perRow='four' />
 
           <PaginationNav currentPage={currentPage} numPages={numPages} basePath='/case-studies/' />
         </Container>
@@ -68,6 +46,18 @@ export default function CaseStudies({ pageContext }: CaseStudyProps) {
     </LayoutTemplate>
   )
 }
+
+export const pageQuery = graphql`
+  query CaseStudies($skip: Int!, $limit: Int!) {
+    posts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/(case-studies)/.*\\.md$/" } }
+      limit: $limit
+      skip: $skip
+    ) {
+      ...PostData
+    }
+  }
+`
 
 interface CaseStudiesContext extends GeneratedPageContext {
   currentPage: number
