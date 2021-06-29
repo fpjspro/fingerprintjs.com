@@ -60,7 +60,7 @@ export const pageQuery = graphql`
     posts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/(blog)/.*\\.md$/" } 
-        frontmatter: { title: { ne: "Announcing FingerprintJS Pro Free Tier" } }  
+        frontmatter: { title: { ne: "Announcing FingerprintJS Pro Free Tier" } } 
       }        
       sort: { order: DESC, fields: frontmatter___publishDate }
       limit: $limit
