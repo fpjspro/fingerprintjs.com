@@ -11,10 +11,9 @@ import styles from './PriceCalculator.module.scss'
 
 export default function PriceCalculator() {
   const selectOptions = pricingTable.map((entry) => ({
-    label: numberFormatter.format(entry.value),
+    label: entry.value === Infinity ? `${numberFormatter.format(10000000)}+` : numberFormatter.format(entry.value),
     value: entry.value,
   }))
-  selectOptions.push({ label: `${numberFormatter.format(10000000)}+`, value: Infinity })
 
   const [selectedPreset, setSelectedPreset] = useState(selectOptions[0])
   const [customCount, setCustomCount] = useState<number | undefined>(undefined)

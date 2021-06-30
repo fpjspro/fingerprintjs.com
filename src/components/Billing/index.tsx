@@ -22,7 +22,6 @@ export default function Billing() {
   const sliderTable = pricingTable.map(({ label, value }) => {
     return { label, value } as SliderValue
   })
-  sliderTable.push({ label: '10M+', value: Infinity })
 
   const defaultValue = 0
   const [sliderValue, setSliderValue] = useState(defaultValue)

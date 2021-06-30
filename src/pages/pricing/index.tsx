@@ -88,6 +88,10 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
               The on-demand plan is recommended when you have a small and/or unpredictable volume and want to pay only
               for what you use every month. You can cancel at any time.
             </li>
+            <li>
+              Our minimum paid plan is $100/month, which includes 100,000 identifications per month. Unused API calls
+              are not carried over to the next month.
+            </li>
           </ul>
           <div className={styles.priceTable}>
             <div className={classNames(styles.row, styles.header)}>

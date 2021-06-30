@@ -9,6 +9,7 @@ export const pricingTable = [
   { label: '500K', value: 500000 },
   { label: '1M', value: 1000000 },
   { label: '5M', value: 5000000 },
+  { label: '10M+', value: Infinity },
 ]
 
 export function handlePriceChange(currentValue: number, type: PaymentType): string {
@@ -18,7 +19,7 @@ export function handlePriceChange(currentValue: number, type: PaymentType): stri
   return newPrice
 }
 
-export function calculatePrice(price: number, type: PaymentType): string {
+export function calculatePrice(identifications: number, type: PaymentType): string {
   const currencyFormatOptions = {
     maximumSignificantDigits: 3,
     style: 'currency',
@@ -28,10 +29,10 @@ export function calculatePrice(price: number, type: PaymentType): string {
   }
 
   if (type === PaymentType.Monthly) {
-    return new Intl.NumberFormat('en-US', currencyFormatOptions).format(price / 1000)
+    return new Intl.NumberFormat('en-US', currencyFormatOptions).format(identifications / 1000)
   }
   if (type === PaymentType.Annually) {
-    return new Intl.NumberFormat('en-US', currencyFormatOptions).format((price / 1000) * 0.8)
+    return new Intl.NumberFormat('en-US', currencyFormatOptions).format((identifications / 1000) * 0.8)
   } else {
     throw new Error('Payment type is required')
   }
