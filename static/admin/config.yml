@@ -160,13 +160,13 @@ collections:
         { label: Photo, name: photo, widget: image },
         { label: Bio, name: markdown__bio, widget: markdown, required: false },
       ]
-  - name: 'caseStudies'
-    label: 'Case Studies'
-    folder: 'content/case-studies'
+  - name: 'caseStudy'
+    label: 'Case Study'
+    folder: 'content/case-study'
     create: true
     delete: true
     fields:
-      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'case-studies-content' }
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'case-study-content' }
       - {
           label: Metadata,
           name: metadata,

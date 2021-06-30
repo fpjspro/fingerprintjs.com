@@ -15,7 +15,7 @@ interface CaseStudyProps {
   data: GatsbyTypes.CaseStudiesQuery
   pageContext: CaseStudiesContext
 }
-export default function CaseStudies({ pageContext }: CaseStudyProps) {
+export default function CaseStudies({ data, pageContext }: CaseStudyProps) {
   const { edges: posts } = data.posts
   const breadcrumbs = pageContext.breadcrumb.crumbs
 

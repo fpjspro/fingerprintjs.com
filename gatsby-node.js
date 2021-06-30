@@ -116,12 +116,18 @@ exports.createPages = async ({ actions, graphql }) => {
   const blogPosts = await getFolderEdges('blog', graphql)
   blogPosts.forEach((edge) => createPageFromEdge(edge, createPage))
 
+  const caseStudies = await getFolderEdges('case-study', graphql)
+  caseStudies.forEach((edge) => createPageFromEdge(edge, createPage))
+
   const featuredPosts = await getFolderEdges('blog', graphql, 'frontmatter: { featured: { eq: true } }')
 
   const postsPerPage = 12
 
   const numBlogPages = Math.ceil(blogPosts.length / postsPerPage)
   createPaginatedPages(numBlogPages, postsPerPage, 'blog', 'src/templates/blog.tsx', createPage)
+
+  const numCaseStudyPages = Math.ceil(caseStudies.length / postsPerPage)
+  createPaginatedPages(numCaseStudyPages, postsPerPage, 'case-studies', 'src/templates/case-studies.tsx', createPage)
 
   const numFeaturedPages = Math.ceil(featuredPosts.length / postsPerPage)
   createPaginatedPages(numFeaturedPages, postsPerPage, 'blog/featured', 'src/templates/blog-featured.tsx', createPage)
@@ -139,12 +145,6 @@ exports.createPages = async ({ actions, graphql }) => {
       createPage,
       additionalContext
     )
-  })
-
-  // Manually create the case-study landing page while we don't have a collection.
-  createPage({
-    path: 'case-studies/',
-    component: path.resolve(`src/templates/case-studies.tsx`),
   })
 }
 

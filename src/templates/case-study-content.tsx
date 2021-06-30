@@ -10,12 +10,12 @@ import { withTrailingSlash } from '../helpers/url'
 import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import PreviewProviders from '../cms/PreviewProviders'
 
-interface CaseStudiesContentProps {
-  data: GatsbyTypes.CaseStudiesContentQuery
+interface CaseStudyContentProps {
+  data: GatsbyTypes.CaseStudyContentQuery
   pageContext: GeneratedPageContext
 }
 // fix
-export default function CaseStudyContent({ data, pageContext }: CaseStudiesContentProps) {
+export default function CaseStudyContent({ data, pageContext }: CaseStudyContentProps) {
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
@@ -27,11 +27,11 @@ export default function CaseStudyContent({ data, pageContext }: CaseStudiesConte
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
   const header = mapToHeader(data.markdownRemark.frontmatter.header)
 
-  return <CaseStudiesContentTemplate metadata={metadata} header={header} breadcrumbs={pageContext.breadcrumb.crumbs} />
+  return <CaseStudyContentTemplate metadata={metadata} header={header} breadcrumbs={pageContext.breadcrumb.crumbs} />
 }
 
 export const pageQuery = graphql`
-  query CaseStudiesContent($id: String!) {
+  query CaseStudyContent($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       frontmatter {
@@ -50,12 +50,12 @@ export const pageQuery = graphql`
   }
 `
 
-export interface CaseStudiesTemplateProps {
+export interface CaseStudyTemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   header: HeaderProps
   breadcrumbs?: Array<Breadcrumb>
 }
-export function CaseStudiesContentTemplate({ metadata, header, breadcrumbs }: CaseStudiesTemplateProps) {
+export function CaseStudyContentTemplate({ metadata, header, breadcrumbs }: CaseStudyTemplateProps) {
   return (
     <LayoutTemplate siteMetadata={metadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
@@ -64,19 +64,19 @@ export function CaseStudiesContentTemplate({ metadata, header, breadcrumbs }: Ca
   )
 }
 
-export function CaseStudiesContentPreview({ entry }: PreviewTemplateComponentProps) {
+export function CaseStudyContentPreview({ entry }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const header = entry.getIn(['data', 'header'])?.toObject() as QueryHeader
 
   return (
     <PreviewProviders>
-      <CaseStudiesContentTemplate metadata={mapToMetadata(metadata)} header={mapToHeader(header)} />
+      <CaseStudyContentTemplate metadata={mapToMetadata(metadata)} header={mapToHeader(header)} />
     </PreviewProviders>
   )
 }
 
 type QueryMetadata = NonNullable<
-  NonNullable<GatsbyTypes.CaseStudiesContentQuery['markdownRemark']>['frontmatter']
+  NonNullable<GatsbyTypes.CaseStudyContentQuery['markdownRemark']>['frontmatter']
 >['metadata']
 function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetadata {
   return {
@@ -88,7 +88,7 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
 }
 
 type QueryHeader = NonNullable<
-  NonNullable<GatsbyTypes.CaseStudiesContentQuery['markdownRemark']>['frontmatter']
+  NonNullable<GatsbyTypes.CaseStudyContentQuery['markdownRemark']>['frontmatter']
 >['header']
 function mapToHeader(queryHeader: QueryHeader): HeaderProps {
   return {

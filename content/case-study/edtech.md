@@ -1,6 +1,6 @@
 ---
 title: edtech
-templateKey: case-studies-content
+templateKey: case-study-content
 metadata:
   title: Account Sharing Prevention in Edtech | FingerprintJS
   description: Learn how one educational technology company solved their account sharing problem with the FingerprintJS Pro user identification API.
