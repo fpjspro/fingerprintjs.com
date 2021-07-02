@@ -156,10 +156,13 @@ To determine which CSS selectors to check, you can download some of [the most po
 
 Your chosen selectors should contain no < embed>, no fixed positioning, no pseudo classes and no combinators. The offsetParent check will not work with either < embed> or fixed positioning. Selectors with combinators require a sophisticated script for building test HTML elements, and since there are only a few selectors with combinators, it isn't worth writing such a script. Finally, you should test only unique selectors across all the filters to avoid duplicate work. You can see a script that we use to parse the unique selectors from the filters [here](https://github.com/fingerprintjs/fingerprintjs/blob/f1174cf83e2ec94d0c576d4caabf9ebbcf41fccc/resources/content_blocking/make_selectors_tester.ts).
 
-You can see some of the selectors blocked by your browser in the interactive demo below:
+<p style="margin-bottom: 0.5em;">You can see some of the selectors blocked by your browser in an interactive demo:</p>
 
-<h3 style="width: calc(100% + 40px);margin-left: -20px;margin-bottom: 0;background: #202765; margin-right: -20px;border: 4px solid #202765;border-top-right-radius: 10px;border-top-left-radius: 10px; text-align: center; color: #FFFF; font-size: 2rem; padding: 7px 0 5px;">Interactive Demo<h3/>
-<iframe style="width: calc(100% + 40px); height: 75vh; min-height: 360px; margin-left: -20px; margin-right: -20px; border: 3px solid #434875; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px" scrolling="no" src="https://fingerprintjs.github.io/adblocker-fingerprint-article-demos/?demo=selectors" frameborder="no"></iframe>
+<p style="text-align: center; margin-top: 0.5em;">
+  <a href="https://fingerprintjs.github.io/adblocker-fingerprint-article-demos/?demo=selectors" target="_blank" style="display: inline-block; max-width: 100%; color: var(--white, #fff); background: var(--brand-fire, #f04405); text-decoration: none; padding: 0.5em 1.5em; border-radius: 0.5em; font-weight: var(--semi, 600);">
+    See the demo
+  </a>
+</p>
 
 ### Data source 2: getting the list of ad blocking filters
 
@@ -327,7 +330,13 @@ getActiveFilters(...).then(activeFilters => {
 })
 ```
 
-<iframe style="width: calc(100% + 40px); height: 75vh; min-height: 360px; margin-left: -20px; margin-right: -20px; border: 4px solid #434875; border-radius: 10px;" scrolling="no" src="https://fingerprintjs.github.io/adblocker-fingerprint-article-demos/?demo=filters" frameborder="no"></iframe>
+<p style="margin-bottom: 0.5em;">You can see some of the selectors blocked by your browser in an interactive demo:</p>
+
+<p style="text-align: center;">
+  <a href="https://fingerprintjs.github.io/adblocker-fingerprint-article-demos/?demo=filters" target="_blank" style="display: inline-block; max-width: 100%; color: var(--white, #fff); background: var(--brand-fire, #f04405); text-decoration: none; padding: 0.5em 1.5em; border-radius: 0.5em; font-weight: var(--semi, 600);">
+    See the demo
+  </a>
+</p>
 
 As we mentioned above, the filter lists themselves are updated frequently. The updates can make the fingerprint change. The fuzzy algorithm mitigates this problem, but the underlying selectors will need to be updated eventually. So, you will need to repeat the process of collecting unique selectors after some time to actualize the data and keep the fingerprinting accuracy high.
 
