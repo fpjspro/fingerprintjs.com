@@ -13,8 +13,8 @@ export default function NextStepsSection() {
           <h1 className={styles.title}>Next Steps with FingerprintJS Pro</h1>
         </header>
         <div className={styles.stepsSection}>
-          <Step step='Sign up for a free account' url={URL.dashboardLoginUrl} linkText='Create account today >'>
-            Sign up for free for up to 1,000 unique monthly visitors.
+          <Step step='Try FingerprintJS free' url={URL.dashboardLoginUrl} linkText='Create account today >'>
+            Start your free 30-day trial and get 100% of features with no usage limits.
           </Step>
           <Step step='Read our docs' url={DOC_URL.documentationUrl} linkText='View docs >'>
             Learn how to implement FingerprintJS Pro on your website and start collecting VisitorIDs.

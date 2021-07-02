@@ -88,9 +88,9 @@ const faq = [
         by empowering technical teams to build fraud prevention into their applications with our API, webhooks, and
         unparalleled identification accuracy. <br />
         <br />
-        You can use FingerprintJS Pro on websites with up to 1,000 unique visitors per month for free. Simply{' '}
+        You can try FingerprintJS Pro with all features and no usage limits for 30 days. Simply{' '}
         <a href={URL.signupUrl} className={styles.link}>
-          sign up for an account
+          sign up for our trial
         </a>
         , install our Javascript snippet on your website, and begin collecting unique VisitorIDs, geolocation data and
         more immediately.
@@ -141,8 +141,8 @@ const faq = [
     question: 'Which pricing plan is the best for me?',
     answer: (
       <>
-        FingerprintJS is free for websites with up to 1,000 unique visitors per month. Paid plans start at $100/month
-        for 5,000 unique visitors, with each additional unique visitor charged at $0.02/month. Please see our{' '}
+        FingerprintJS costs $100/month for the first 100,000 API calls, and $1 per 1,000 API calls after that. Please
+        see our{' '}
         <Link to={PATH.pricingUrl} className={styles.link}>
           pricing
         </Link>{' '}

@@ -94,7 +94,7 @@ blocks:
     ctaText: Read our documentation
     ctaUrl: https://dev.fingerprintjs.com/docs
 inlineCta:
-  title: Create Your Free FingerprintJS Account
+  title: Try FingerprintJS free for 30 days
   subtitle: Suspendisse vitae justo viverra, porttitor eros quis, lobortis libero.
     Suspendisse semper vulputate nisl, vitae blandit lacus molestie eu. Ut elit
     mi, semper et mollis in, sodales vel sem. Donec maximus condimentum sodales.
@@ -102,7 +102,7 @@ inlineCta:
   buttonText: Sign Up Now
   buttonHref: https://dashboard.fingerprintjs.com/signup
   markdown__Subtitle: Install our Javascript snippet on your website and begin
-    collecting unique VisitorIDs, geolocation data and more immediately. This
-    information can then be incorporated into your paywall workflows using our
-    API and webhooks.
+    collecting unique VisitorIDs, geolocation data and more immediately with no
+    restrictions. This information can then be incorporated into your paywall
+    workflows using our API and webhooks.
 ---

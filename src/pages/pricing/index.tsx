@@ -64,7 +64,7 @@ function CalculatorSection({ mainBackground }: { mainBackground: SectionProps['b
         <SectionHeader
           title='Calculator'
           subtitle='Pro Pricing'
-          description="If you don't know how many unique visitors you need, use monthly active users"
+          description="If you don't know how many identifications you need, use monthly user sessions"
         />
         <PriceCalculator />
       </Container>
@@ -79,44 +79,36 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
         <SectionHeader title='Pricing Models' invertOrder />
         <PricingCard
           title='On-Demand'
-          description='For on-demand pricing, you pay monthly per unique visitors identified. This plan is recommended for websites with unpredictable or low traffic volumes.'
+          description='For on-demand pricing, you pay monthly per API call. This plan is recommended for users with unpredictable or low traffic volumes.'
           sectionClasses={styles.onDemand}
         >
           <ul className={styles.arrowList}>
-            <li>
-              On-demand is a metered model, where we count your unique visitors and bill you accordingly every month.
-            </li>
-            <li>
-              The minimum paid plan is $100/month, which includes the identification of 5,000 unique visitors per month.
-              Unused identifications are not carried over to the next month. Both free and paid plans include unlimited
-              API calls.
-            </li>
-            <li>
-              If your monthly invoice exceeds $500 due to additional visitor charges, your credit card will be charged
-              immediately without waiting for the end of the billing period. This process repeats every time an
-              additional usage of $500 is reached.
-            </li>
+            <li>On-demand is a metered model, where we count your API calls and bill you accordingly every month.</li>
             <li>
               The on-demand plan is recommended when you have a small and/or unpredictable volume and want to pay only
               for what you use every month. You can cancel at any time.
             </li>
+            <li>
+              Our minimum paid plan is $100/month, which includes 100,000 identifications per month. Unused API calls
+              are not carried over to the next month.
+            </li>
           </ul>
           <div className={styles.priceTable}>
             <div className={classNames(styles.row, styles.header)}>
-              <div className={styles.column}>Monthly Unique Visitors</div>
+              <div className={styles.column}>Monthly API Call</div>
               <div className={styles.column}>Price</div>
             </div>
             <div className={styles.row}>
-              <div className={styles.column}>&lt; 1K</div>
+              <div className={styles.column}>&lt; 20K</div>
               <div className={styles.column}>$0/month</div>
             </div>
             <div className={styles.row}>
-              <div className={styles.column}>1K - 5K</div>
+              <div className={styles.column}>20K - 100K</div>
               <div className={styles.column}>Flat fee of $100/month</div>
             </div>
             <div className={styles.row}>
-              <div className={styles.column}>&gt; 5K</div>
-              <div className={styles.column}>$0.02 per unique visitor</div>
+              <div className={styles.column}>&gt; 100K</div>
+              <div className={styles.column}>$1 per 1,000 API calls</div>
             </div>
           </div>
         </PricingCard>
@@ -127,7 +119,7 @@ function PricingModelsSection({ mainBackground }: { mainBackground: SectionProps
         >
           <ul className={classNames(styles.numberList, styles.horizontal)}>
             <li>You lock in your price for 1 year and get a 20% discount.</li>
-            <li>Unused unique visitor identifications are carried over from month to month</li>
+            <li>Unused API calls are carried over from month to month</li>
           </ul>
           <div className={styles.quote}>
             An annual plan is recommended when you have a high and/or predictable volume and getting a significant
@@ -144,9 +136,7 @@ function BannerSection() {
     <Section className={styles.bannerSection}>
       <Container>
         <BannerWithCTA title='New To FingerprintJS Pro?' ctaText='Try For Free' ctaHref={URL.signupUrl}>
-          New accounts get unlimited identifications for the first 30 days. After 30 days, accounts can remain on a free
-          plan with up to 1,000 unique visitor identifications per month, or upgrade to a paid plan for more
-          identifications. All plans include unlimited API calls.
+          Start a free trial with unlimited API requests for the first 30 days.
         </BannerWithCTA>
       </Container>
     </Section>

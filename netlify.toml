@@ -1,3 +1,6 @@
 [[redirects]]
   from = "http://www.fingerprintjs.com"
   to = "https://fingerprintjs.com/"
+
+[context.branch-deploy]
+  command = "yarn noIndexBuild"

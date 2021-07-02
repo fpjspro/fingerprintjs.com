@@ -84,4 +84,4 @@ FingerprintJS Pro can be used in conjunction with CAPTCHA technologies to ensure
 
 ![A flowchart showing how FingerprintJS helps to triage suspicious traffic](/img/uploads/copy-of-the_power_of_fingerprinting_infographic_2.png "A flowchart showing how FingerprintJS helps to triage suspicious traffic")
 
-FingerprintJS provides fraud protection that helps to reduce friction for legitimate users, improving conversions and facilitating more streamlined user interactions. Want to try for yourself? Create your [free FingerprintJS account](https://dashboard.fingerprintjs.com/signup) today.
+FingerprintJS provides fraud protection that helps to reduce friction for legitimate users, improving conversions and facilitating more streamlined user interactions. Want to try for yourself? Start your [30-day trial](https://dashboard.fingerprintjs.com/signup) today.

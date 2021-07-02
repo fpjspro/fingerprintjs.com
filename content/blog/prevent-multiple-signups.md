@@ -41,7 +41,7 @@ Check out the `initial-project-setup` branch and keep adding to the code as we g
 
 ## Getting a token
 
-To begin, you’ll need a FingerprintJS Pro subscription. If you don’t have one, you can [create a free account](https://dashboard.fingerprintjs.com/signup/) with up to 1,000 monthly unique visitors.
+To begin, you’ll need a FingerprintJS Pro subscription. If you don’t have one, you can [start a free trial](https://dashboard.fingerprintjs.com/signup/) with unlimited API requests for the first 30 days.
 
 Once you have an account, open the dashboard and take a look at the Subscription menu on the left side of the window. Click the Tokens label and copy any active browser token. 
 
