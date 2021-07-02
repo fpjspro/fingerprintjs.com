@@ -167,6 +167,7 @@ Your chosen selectors should contain no < embed>, no fixed positioning, no pseud
       height: auto;" 
       src="/img/uploads/ad-demo.png" alt="ad-demo">
    <a style="
+      white-space: nowrap;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -362,6 +363,7 @@ getActiveFilters(...).then(activeFilters => {
       height: auto;" 
       src="/img/uploads/ad-demo2.png" alt="ad-demo">
    <a style="
+      white-space: nowrap;
       position: absolute;
       top: 50%;
       left: 50%;
