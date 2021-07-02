@@ -330,8 +330,6 @@ getActiveFilters(...).then(activeFilters => {
 })
 ```
 
-<p style="margin-bottom: 0.5em;">You can see some of the selectors blocked by your browser in an interactive demo:</p>
-
 <p style="text-align: center;">
   <a href="https://fingerprintjs.github.io/adblocker-fingerprint-article-demos/?demo=filters" target="_blank" style="display: inline-block; max-width: 100%; color: var(--white, #fff); background: var(--brand-fire, #f04405); text-decoration: none; padding: 0.5em 1.5em; border-radius: 0.5em; font-weight: var(--semi, 600);">
     See the demo
