@@ -176,11 +176,12 @@ Your chosen selectors should contain no < embed>, no fixed positioning, no pseud
       color: var(--white, #fff);
       text-decoration: none;
       font-weight: var(--semi, 600);
-      padding: 12px 24px;
+      text-align: center;
+      font-size: 20px;
+      padding: 13.33px 32px 16px 32px;
       border: none;
       cursor: pointer;
-      border-radius: 0.5em;
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
+      border-radius: 0.5em;"
       href="https://fingerprintjs.github.io/adblocker-fingerprint-article-demos/?demo=selectors"
       target="_blank"
       > See the demo </a>
@@ -370,11 +371,12 @@ getActiveFilters(...).then(activeFilters => {
       color: var(--white, #fff);
       text-decoration: none;
       font-weight: var(--semi, 600);
-      padding: 12px 24px;
+      font-size: 20px;
+      text-align: center;
+      padding: 13.33px 32px 16px 32px;
       border: none;
       cursor: pointer;
-      border-radius: 0.5em;
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
+      border-radius: 0.5em;"
       href="https://fingerprintjs.github.io/adblocker-fingerprint-article-demos/?demo=filters"
       target="_blank"
       > See the demo </a>
