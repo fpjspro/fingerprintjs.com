@@ -5,7 +5,6 @@ import { DangerouslyRenderHtmlContent, MarkdownContent } from '../components/Con
 import Header, { HeaderProps } from '../components/widgets/StudyCase/Header/Header'
 import { LayoutTemplate } from '../components/Layout'
 import { GeneratedPageContext } from '../helpers/types'
-import { BASE_URL } from '../constants/content'
 import Section from '../components/common/Section'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { withTrailingSlash } from '../helpers/url'
