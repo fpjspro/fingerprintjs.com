@@ -91,7 +91,6 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
     title: queryMetadata?.title ?? '',
     description: queryMetadata?.description ?? '',
     siteUrl: withTrailingSlash(queryMetadata?.url ?? ''),
-    image: `${BASE_URL}${queryMetadata?.image?.publicURL}` ?? '',
   } as GatsbyTypes.SiteSiteMetadata
 }
 
