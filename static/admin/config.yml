@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: feat/WEB-171-credit-card-study-case
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
