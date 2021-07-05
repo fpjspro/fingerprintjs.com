@@ -194,7 +194,7 @@ collections:
                 name: pdf,
                 widget: file,
                 media_folder: '/static/pdf/case-study',
-                public_folder: '/pdf/case-study'
+                public_folder: '/pdf/case-study',
               },
             ],
         }
