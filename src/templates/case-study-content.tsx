@@ -78,7 +78,7 @@ export function CaseStudyContentPreview({ entry }: PreviewTemplateComponentProps
 
   return (
     <PreviewProviders>
-      <CaseStudyContentTemplate metadata={mapToMetadata(metadata)} header={mapToHeader(header)} />
+      <CaseStudyContentTemplate metadata={mapToMetadata(metadata)} header={mapToHeader(header, true)} />
     </PreviewProviders>
   )
 }

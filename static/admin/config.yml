@@ -189,6 +189,12 @@ collections:
               { label: Label, name: subLabel, widget: string },
               { label: Title, name: subTitle, widget: string },
               { label: Description, name: markdown__Content, widget: markdown },
+              {
+                label: PDF,
+                name: pdf,
+                widget: file,
+                media_folder: '/{{media_folder}}/pdf',
+                public_folder: '{{public_folder}}/posts',
+              },
             ],
         }
-
