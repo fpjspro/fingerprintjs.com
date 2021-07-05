@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
+import { DangerouslyRenderHtmlContent, MarkdownContent } from '../components/Content/Content'
 import Header, { HeaderProps } from '../components/widgets/StudyCase/Header/Header'
 import { LayoutTemplate } from '../components/Layout'
 import { GeneratedPageContext } from '../helpers/types'
@@ -9,6 +10,8 @@ import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { withTrailingSlash } from '../helpers/url'
 import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import PreviewProviders from '../cms/PreviewProviders'
+
+import headerStyles from '../components/widgets/StudyCase/Header/Header.module.scss'
 
 interface CaseStudyContentProps {
   data: GatsbyTypes.CaseStudyContentQuery
@@ -43,7 +46,7 @@ export const pageQuery = graphql`
         header {
           subLabel
           subTitle
-          description
+          markdown__Content
         }
       }
     }
@@ -90,12 +93,22 @@ function mapToMetadata(queryMetadata: QueryMetadata): GatsbyTypes.SiteSiteMetada
 type QueryHeader = NonNullable<
   NonNullable<GatsbyTypes.CaseStudyContentQuery['markdownRemark']>['frontmatter']
 >['header']
-function mapToHeader(queryHeader: QueryHeader): HeaderProps {
+function mapToHeader(queryHeader: QueryHeader, preview = false): HeaderProps {
   return {
-    subLabel: queryHeader?.title ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subLabel: queryHeader?.subLabel ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     subTitle:
-      queryHeader?.description ??
+      queryHeader?.subTitle ??
       'Vestibulum ut mi eleifend, auctor ligula ut, feugiat nunc. Donec molestie ipsum at sagittis elementum.',
-    description: queryHeader?.ctaText ?? 'Lorem ipsum',
+    description: preview ? (
+      <MarkdownContent
+        markdown={
+          queryHeader?.markdown__Content ??
+          'Curabitur sollicitudin id mi ac ultrices. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas in ex turpis.'
+        }
+        className={headerStyles.content}
+      />
+    ) : (
+      <DangerouslyRenderHtmlContent content={queryHeader?.markdown__Content ?? ''} className={headerStyles.content} />
+    ),
   } as HeaderProps
 }

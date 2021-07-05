@@ -95,7 +95,7 @@ collections:
               { label: Title, name: title, widget: string },
               { label: Subtitle, name: markdown__Subtitle, widget: markdown },
               { label: Button text, name: buttonText, widget: string },
-              { label: Button href, name: buttonHref, widget: string },
+              { lab el: Button href, name: buttonHref, widget: string },
             ],
         }
   - name: 'blog'
@@ -186,6 +186,8 @@ collections:
             [
               { label: Label, name: subLabel, widget: string },
               { label: Title, name: subTitle, widget: string },
-              { label: Description, name: description, widget: string },
+              { label: Description, name: markdown__Content, widget: markdown },
             ],
         }
+      - { label: Publish date, name: publishDate, widget: datetime }
+      - { label: Title, name: title, widget: string }

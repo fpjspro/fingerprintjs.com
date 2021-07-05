@@ -50,7 +50,7 @@ export default function CaseStudies({ data, pageContext }: CaseStudyProps) {
 export const pageQuery = graphql`
   query CaseStudies($skip: Int!, $limit: Int!) {
     posts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(case-studies)/.*\\.md$/" } }
+      filter: { fileAbsolutePath: { regex: "/(case-study)/.*\\.md$/" } }
       limit: $limit
       skip: $skip
     ) {

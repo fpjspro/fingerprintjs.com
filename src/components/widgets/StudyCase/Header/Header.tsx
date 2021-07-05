@@ -27,7 +27,7 @@ export default function Header({ subLabel, subTitle, description }: HeaderProps)
         />
 
         <div className={styles.subHeader}>
-          <p className={styles.description}>{description}</p>
+          {description}
           <Button href='/pdf/case-study/account-sharing.pdf' variant='faded' className={styles.downloadPdf} download>
             Download the PDF
           </Button>

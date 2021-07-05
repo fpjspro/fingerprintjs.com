@@ -1,13 +1,16 @@
 ---
-title: edtech
 templateKey: case-study-content
 metadata:
   title: Account Sharing Prevention in Edtech | FingerprintJS
-  description: Learn how one educational technology company solved their account sharing problem with the FingerprintJS Pro user identification API.
+  description: Read about how a SaaS educational technology company used FingerprintJS to significantly reduce unauthorized account sharing, increasing their annual recurring revenue by $10M+ ARR while keeping legitimate users happy.
   url: https://fingerprintjs.com/case-studies/edtech/
+publishDate: 2021-01-26T20:01:48.851Z
+title: Account sharing prevention in Edtech
 header:
-  subLabel: Account Sharing Prevention For Subscription Businesses
-  subTitle: Find out how much subscription revenue you can unlock with
-    FingerprintJS Account Sharing Prevention.
-  description: Book Your Assessment
+  subLabel: Case Study
+  subTitle: How One Company Solved Account Sharing with FingerprintJS Pro
+  markdown__Content: >-
+    Using **FingerprintJS browser fingerprinting**, a SaaS educational technology company
+    **significantly reduced unauthorized account sharing**, increasing their annual recurring
+    revenue by **$10M+ ARR** while keeping legitimate users happy.
 ---
