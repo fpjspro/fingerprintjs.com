@@ -193,8 +193,8 @@ collections:
                 label: PDF,
                 name: pdf,
                 widget: file,
-                media_folder: '/{{media_folder}}/pdf',
-                public_folder: '{{public_folder}}/posts',
+                media_folder: static/pdf,
+                public_folder: /img/pdf,
               },
             ],
         }
