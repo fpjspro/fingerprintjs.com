@@ -167,6 +167,8 @@ collections:
     delete: true
     fields:
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'case-study-content' }
+      - { label: Publish date, name: publishDate, widget: datetime }
+      - { label: Title, name: title, widget: string }
       - {
           label: Metadata,
           name: metadata,
@@ -189,5 +191,4 @@ collections:
               { label: Description, name: markdown__Content, widget: markdown },
             ],
         }
-      - { label: Publish date, name: publishDate, widget: datetime }
-      - { label: Title, name: title, widget: string }
+

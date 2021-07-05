@@ -6,10 +6,13 @@ import Header, { HeaderProps } from '../components/widgets/StudyCase/Header/Head
 import { LayoutTemplate } from '../components/Layout'
 import { GeneratedPageContext } from '../helpers/types'
 import { BASE_URL } from '../constants/content'
+import Section from '../components/common/Section'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { withTrailingSlash } from '../helpers/url'
 import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
 import PreviewProviders from '../cms/PreviewProviders'
+
+import styles from './case-study-content.module.scss'
 
 import headerStyles from '../components/widgets/StudyCase/Header/Header.module.scss'
 
@@ -17,7 +20,7 @@ interface CaseStudyContentProps {
   data: GatsbyTypes.CaseStudyContentQuery
   pageContext: GeneratedPageContext
 }
-// fix
+
 export default function CaseStudyContent({ data, pageContext }: CaseStudyContentProps) {
   if (
     data.markdownRemark?.frontmatter === undefined ||
@@ -62,7 +65,9 @@ export function CaseStudyContentTemplate({ metadata, header, breadcrumbs }: Case
   return (
     <LayoutTemplate siteMetadata={metadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
-      <Header {...header} />
+      <Section className={styles.section}>
+        <Header {...header} />
+      </Section>
     </LayoutTemplate>
   )
 }

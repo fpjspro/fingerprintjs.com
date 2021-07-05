@@ -1,0 +1,6 @@
+.section {
+  padding-top: 5rem;
+  &:not(:last-child) {
+    padding-bottom: 0;
+  }
+}

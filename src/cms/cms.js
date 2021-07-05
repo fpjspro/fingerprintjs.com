@@ -6,4 +6,4 @@ import { CaseStudyContentPreview } from '../templates/case-study-content'
 
 CMS.registerPreviewTemplate('blog', LongFormContentPreview)
 CMS.registerPreviewTemplate('index', StaticPageContentPreview)
-CMS.registerPreviewTemplate('case-study', CaseStudyContentPreview)
+CMS.registerPreviewTemplate('caseStudy', CaseStudyContentPreview)
