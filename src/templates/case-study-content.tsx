@@ -49,6 +49,9 @@ export const pageQuery = graphql`
           subLabel
           subTitle
           markdown__Content
+          pdf {
+            publicURL
+          }
         }
       }
     }
@@ -113,5 +116,6 @@ function mapToHeader(queryHeader: QueryHeader, preview = false): HeaderProps {
     ) : (
       <DangerouslyRenderHtmlContent content={queryHeader?.markdown__Content ?? ''} className={headerStyles.content} />
     ),
+    pdfLink: queryHeader?.pdf?.publicURL ?? '/',
   } as HeaderProps
 }

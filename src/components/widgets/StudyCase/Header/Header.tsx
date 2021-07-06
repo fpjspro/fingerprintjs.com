@@ -9,8 +9,9 @@ export interface HeaderProps {
   subLabel: string
   subTitle: string
   description: string | React.ReactNode
+  pdfLink: string
 }
-export default function Header({ subLabel, subTitle, description }: HeaderProps) {
+export default function Header({ subLabel, subTitle, description, pdfLink }: HeaderProps) {
   return (
     <Container size='large' className={styles.container}>
       <SubHeaderComponent
@@ -26,7 +27,7 @@ export default function Header({ subLabel, subTitle, description }: HeaderProps)
 
       <div className={styles.subHeader}>
         {description}
-        <Button href='/pdf/case-study/account-sharing.pdf' variant='faded' className={styles.downloadPdf} download>
+        <Button href={pdfLink} variant='faded' className={styles.downloadPdf} download>
           Download the PDF
         </Button>
       </div>
