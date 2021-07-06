@@ -1,0 +1,125 @@
+.section {
+  padding-top: 5rem;
+  &:not(:last-child) {
+    padding-bottom: 0;
+  }
+}
+
+.container {
+  @include media('<=tablet') {
+    padding: 0;
+  }
+}
+
+.adjacent {
+  padding-top: 0;
+}
+
+.header,
+.subHeader {
+  padding: 4rem 6rem;
+  color: c('white');
+
+  @include media('<=tabletWide') {
+    padding: 4rem 3rem;
+  }
+}
+
+.header {
+  background-color: c('brand-water');
+}
+
+.subHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: adjust-color(c('brand-water'), $lightness: +5%);
+}
+
+.description {
+  font-size: 2.25rem;
+}
+
+.downloadPdf {
+  margin-top: 2rem;
+  max-width: 30rem;
+}
+
+.summaryWrapper {
+  padding: 4rem 6rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+
+  background-color: c('off-white');
+
+  @include media('<=tabletWide') {
+    display: flex;
+    flex-direction: column-reverse;
+
+    padding: 4rem 3rem;
+  }
+}
+
+.summaryTitle {
+  font-size: 3.75rem;
+}
+
+.referenceList {
+  padding: 4rem 6rem;
+
+  @include media('<=tabletWide') {
+    padding: 0 3rem;
+  }
+}
+
+.reference {
+  font-size: 1.75rem;
+
+  span {
+    margin-right: 1rem;
+  }
+}
+
+.result {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.problemQuote {
+  margin-bottom: 6rem;
+}
+
+.body {
+  padding: 0 6rem;
+
+  @include media('<=tabletWide') {
+    padding: 0 3rem;
+  }
+
+  // This will be generated from markdown when we use the CMS so we have to use element selectors.
+
+  h3 {
+    font-size: 2.75rem;
+  }
+
+  p {
+    font-size: 2.25rem;
+  }
+
+  blockquote {
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+  }
+
+  ul,
+  ol {
+    li {
+      margin: 0;
+      padding: 0;
+
+      font-size: 2.25rem;
+    }
+  }
+}

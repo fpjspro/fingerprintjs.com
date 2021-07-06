@@ -181,20 +181,40 @@ collections:
             ],
         }
       - {
-          label: Header,
-          name: header,
+          label: Summary,
+          name: summary,
           widget: object,
           fields:
             [
-              { label: Label, name: subLabel, widget: string },
-              { label: Title, name: subTitle, widget: string },
-              { label: Description, name: markdown__Content, widget: markdown },
               {
-                label: PDF,
-                name: pdf,
-                widget: file,
-                media_folder: '/static/pdf/case-study',
-                public_folder: '/pdf/case-study',
+                label: Results,
+                name: results,
+                widget: list,
+                fields:
+                  [
+                    { label: Icon, name: icon, widget: image, required: false },
+                    { label: Title, name: title, widget: string },
+                    { label: Content, name: markdown__Content, widget: markdown },
+                  ],
+              },
+              {
+                label: Overview,
+                name: overviewSection,
+                widget: object,
+                fields:
+                  [
+                    { label: Description, name: description, widget: string },
+                    {
+                      label: Bullets,
+                      name: bullets,
+                      widget: list,
+                      fields:
+                        [
+                          { label: Value, name: value, widget: string },
+                          { label: Description, name: description, widget: string },
+                        ],
+                    },
+                  ],
               },
             ],
         }

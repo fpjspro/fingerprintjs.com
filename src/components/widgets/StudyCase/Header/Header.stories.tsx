@@ -15,4 +15,5 @@ HeaderStory.args = {
   subTitle: 'ligula tristique',
   description:
     'Curabitur sit amet vestibulum ex. Aenean et purus fermentum, accumsan ante vel, sollicitudin odio. Praesent ut nunc tortor. Pellentesque cursus ante et augue convallis malesuada.',
+  pdfLink: '/',
 }
