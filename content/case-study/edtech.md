@@ -24,6 +24,8 @@ summary:
       markdown__Content: The SaaS company was able to grow annual recurring revenue by
         more than ten million USD from spun off accounts within several months
         of implementing FingerprintJS Pro.
+      iconAlt: Revenue
+      iconTitle: Revenue
     - title: Customers stay satisfied
       icon: /img/uploads/like.svg
       markdown__Content: >-
@@ -33,11 +35,15 @@ summary:
 
 
         Customer satisfaction (CSAT) surveys also remained stable, indicating that additional authentication measures did not have a negative impact on the user experience.
+      iconAlt: Satisfaction
+      iconTitle: Satisfaction
     - icon: /img/uploads/loop.svg
       title: Feedback loop with FingerprintJS
       markdown__Content: The company continues to work closely with the FingerprintJS
         technical team to adjust algorithms as user behavior changes over time,
         maintaining high accuracy and a positive student experience.
+      iconAlt: Feedback
+      iconTitle: Feedback
   overviewSection:
     description: FingerprintJS began working with an education technology company
       that provides a suite of online services. Their customers are millions of
