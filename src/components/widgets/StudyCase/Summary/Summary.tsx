@@ -1,7 +1,6 @@
 import React from 'react'
 import Section from '../../../../components/common/Section'
 import Container from '../../../common/Container'
-import classNames from 'classnames'
 import FeatureList from '../../../../components/FeatureList/FeatureList'
 import TitledParagraph from '../../../../components/TitledParagraph/TitledParagraph'
 import CustomerOverview from '../../../../components/CustomerOverview/CustomerOverview'
@@ -37,13 +36,20 @@ export default function Summary({ results, description, bullets }: SummaryProps)
   ]
 
   return (
-    <Section className={classNames(styles.section, styles.adjacent)}>
+    <Section className={styles.section}>
       <Container size='large' className={styles.container}>
-        <div className={styles.summaryWrapper}>
+        <div className={styles.wrapper}>
           <div>
-            <h2 className={styles.summaryTitle}>Results</h2>
+            <h2 className={styles.title}>Results</h2>
             {results.map(({ icon, iconAlt, iconTitle, title, children }) => (
-              <TitledParagraph key={title} icon={icon} title={title} iconAlt={iconAlt} iconTitle={iconTitle}>
+              <TitledParagraph
+                key={title}
+                icon={icon}
+                title={title}
+                iconAlt={iconAlt}
+                iconTitle={iconTitle}
+                className={styles.result}
+              >
                 {children}
               </TitledParagraph>
             ))}

@@ -9,8 +9,16 @@ export interface TitledParagraphProps {
   iconTitle?: string
   title: string
   children: React.ReactNode
+  className?: string
 }
-export default function TitledParagraph({ icon, iconAlt, iconTitle, title, children }: TitledParagraphProps) {
+export default function TitledParagraph({
+  icon,
+  iconAlt,
+  iconTitle,
+  title,
+  children,
+  className,
+}: TitledParagraphProps) {
   return (
     <div className={styles.root}>
       <header className={styles.header}>
@@ -21,8 +29,7 @@ export default function TitledParagraph({ icon, iconAlt, iconTitle, title, child
         )}
         <h3 className={styles.title}>{title}</h3>
       </header>
-
-      <div>{children}</div>
+      <div className={className}>{children}</div>
     </div>
   )
 }
