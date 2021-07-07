@@ -3,6 +3,7 @@ import React from 'react'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import { DangerouslyRenderHtmlContent, MarkdownContent } from '../components/Content/Content'
 import Header, { HeaderProps } from '../components/widgets/StudyCase/Header/Header'
+import Summary, { SummaryProps, Result, OverviewBullet } from '../components/widgets/StudyCase/Summary/Summary'
 import { LayoutTemplate } from '../components/Layout'
 import { GeneratedPageContext } from '../helpers/types'
 import Section from '../components/common/Section'
@@ -24,15 +25,24 @@ export default function CaseStudyContent({ data, pageContext }: CaseStudyContent
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
-    data.markdownRemark?.frontmatter?.header === undefined
+    data.markdownRemark?.frontmatter?.header === undefined ||
+    data.markdownRemark?.frontmatter?.summary === undefined
   ) {
     return null
   }
 
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
   const header = mapToHeader(data.markdownRemark.frontmatter.header)
+  const summary = mapToSummary(data.markdownRemark.frontmatter.summary)
 
-  return <CaseStudyContentTemplate metadata={metadata} header={header} breadcrumbs={pageContext.breadcrumb.crumbs} />
+  return (
+    <CaseStudyContentTemplate
+      metadata={metadata}
+      header={header}
+      summary={summary}
+      breadcrumbs={pageContext.breadcrumb.crumbs}
+    />
+  )
 }
 
 export const pageQuery = graphql`
@@ -53,6 +63,19 @@ export const pageQuery = graphql`
             publicURL
           }
         }
+        summary {
+          results {
+            title
+            markdown__Content
+          }
+          overviewSection {
+            description
+            bullets {
+              value
+              description
+            }
+          }
+        }
       }
     }
   }
@@ -61,14 +84,16 @@ export const pageQuery = graphql`
 export interface CaseStudyTemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   header: HeaderProps
+  summary: SummaryProps
   breadcrumbs?: Array<Breadcrumb>
 }
-export function CaseStudyContentTemplate({ metadata, header, breadcrumbs }: CaseStudyTemplateProps) {
+export function CaseStudyContentTemplate({ metadata, header, summary, breadcrumbs }: CaseStudyTemplateProps) {
   return (
     <LayoutTemplate siteMetadata={metadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
       <Section className={styles.section}>
         <Header {...header} />
+        <Summary {...summary} />
       </Section>
     </LayoutTemplate>
   )
@@ -77,10 +102,17 @@ export function CaseStudyContentTemplate({ metadata, header, breadcrumbs }: Case
 export function CaseStudyContentPreview({ entry }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const header = entry.getIn(['data', 'header'])?.toObject() as QueryHeader
+  const summary = entry.getIn(['data', 'summary'])?.toObject() as QuerySummary
+
+  console.log(summary)
 
   return (
     <PreviewProviders>
-      <CaseStudyContentTemplate metadata={mapToMetadata(metadata)} header={mapToHeader(header, true)} />
+      <CaseStudyContentTemplate
+        metadata={mapToMetadata(metadata)}
+        header={mapToHeader(header, true)}
+        summary={mapToSummary(summary, true)}
+      />
     </PreviewProviders>
   )
 }
@@ -118,4 +150,39 @@ function mapToHeader(queryHeader: QueryHeader, preview = false): HeaderProps {
     ),
     pdfLink: queryHeader?.pdf?.publicURL ?? '/',
   } as HeaderProps
+}
+
+type QuerySummary = NonNullable<
+  NonNullable<GatsbyTypes.CaseStudyContentQuery['markdownRemark']>['frontmatter']
+>['summary']
+function mapToSummary(querySummary: QuerySummary, preview = false): SummaryProps {
+  return {
+    results:
+      querySummary?.results?.map(
+        (result) =>
+          ({
+            title: result?.title ?? `Nunc rhoncus et eros non lobortis.`,
+            children: preview ? (
+              <MarkdownContent
+                markdown={
+                  result?.markdown__Content ??
+                  'Sed ut fermentum dolor. Vivamus pulvinar nisi leo, in accumsan diam pretium id. Vestibulum aliquam posuere enim, sed finibus sapien fringilla pharetra. Ut sollicitudin nunc non dui placerat facilisis. Duis neque turpis, dictum sit amet sagittis ut, finibus ac eros. Cras pulvinar laoreet diam vel lacinia.'
+                }
+              />
+            ) : (
+              <DangerouslyRenderHtmlContent content={result?.markdown__Content ?? ''} />
+            ),
+          } as Result)
+      ) ?? [],
+    description:
+      querySummary?.overviewSection?.description ?? 'Vivamus at ex a mi bibendum sollicitudin sit amet laoreet mi.',
+    bullets:
+      querySummary?.overviewSection?.bullets?.map(
+        (bullet) =>
+          ({
+            value: bullet?.value ?? `Vivamus`,
+            description: bullet?.description ?? `Lobortis`,
+          } as OverviewBullet)
+      ) ?? [],
+  } as SummaryProps
 }
