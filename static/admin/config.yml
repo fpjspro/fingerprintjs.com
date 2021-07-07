@@ -211,6 +211,8 @@ collections:
                 fields:
                   [
                     { label: Icon, name: icon, widget: image, required: false },
+                    { label: Icon Alt, name: iconAlt, widget: string, required: false },
+                    { label: Icon Title, name: iconTitle, widget: string, required: false },
                     { label: Title, name: title, widget: string },
                     { label: Content, name: markdown__Content, widget: markdown },
                   ],
