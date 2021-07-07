@@ -27,7 +27,7 @@ This guide will show you how to do that in a few easy steps with FingerprintJS P
 
 You can watch the full tutorial on Youtube or read the instructions below. 
 
-[Watch the tutorial on Youtube now!](https://www.youtube.com/watch?v=jWX9P5_jZn8)
+<iframe width=100% height=373 src="https://www.youtube.com/embed/jWX9P5_jZn8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Project setup
 
