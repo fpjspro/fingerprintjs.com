@@ -65,6 +65,17 @@ export const pageQuery = graphql`
         }
         summary {
           results {
+            icon {
+              childImageSharp {
+                fixed(width: 28, quality: 100) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+              extension
+              publicURL
+            }
+            iconAlt
+            iconTitle
             title
             markdown__Content
           }
@@ -154,12 +165,14 @@ type QuerySummary = NonNullable<
   NonNullable<GatsbyTypes.CaseStudyContentQuery['markdownRemark']>['frontmatter']
 >['summary']
 function mapToSummary(querySummary: QuerySummary, preview = false): SummaryProps {
-  console.log(querySummary)
   return {
     results:
       querySummary?.results?.map(
         (result) =>
           ({
+            icon: result?.icon,
+            iconAlt: result?.iconAlt,
+            iconTitle: result?.iconTitle,
             title: result?.title ?? `Nunc rhoncus et eros non lobortis.`,
             children: preview ? (
               <MarkdownContent

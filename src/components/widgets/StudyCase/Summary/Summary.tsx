@@ -5,11 +5,14 @@ import classNames from 'classnames'
 import FeatureList from '../../../../components/FeatureList/FeatureList'
 import TitledParagraph from '../../../../components/TitledParagraph/TitledParagraph'
 import CustomerOverview from '../../../../components/CustomerOverview/CustomerOverview'
+import { ImageInfo } from '../../../common/PreviewCompatibleImage/PreviewCompatibleImage'
 
 import styles from './Summary.module.scss'
 
 export interface Result {
-  icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+  icon?: ImageInfo
+  iconAlt?: string
+  iconTitle?: string
   title: string
   children: React.ReactNode
 }
@@ -39,8 +42,8 @@ export default function Summary({ results, description, bullets }: SummaryProps)
         <div className={styles.summaryWrapper}>
           <div>
             <h2 className={styles.summaryTitle}>Results</h2>
-            {results.map(({ icon, title, children }) => (
-              <TitledParagraph key={title} icon={icon} title={title}>
+            {results.map(({ icon, iconAlt, iconTitle, title, children }) => (
+              <TitledParagraph key={title} icon={icon} title={title} iconAlt={iconAlt} iconTitle={iconTitle}>
                 {children}
               </TitledParagraph>
             ))}
