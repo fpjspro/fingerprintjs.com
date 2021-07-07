@@ -104,8 +104,6 @@ export function CaseStudyContentPreview({ entry }: PreviewTemplateComponentProps
   const header = entry.getIn(['data', 'header'])?.toObject() as QueryHeader
   const summary = entry.getIn(['data', 'summary'])?.toObject() as QuerySummary
 
-  console.log(summary)
-
   return (
     <PreviewProviders>
       <CaseStudyContentTemplate
@@ -156,6 +154,7 @@ type QuerySummary = NonNullable<
   NonNullable<GatsbyTypes.CaseStudyContentQuery['markdownRemark']>['frontmatter']
 >['summary']
 function mapToSummary(querySummary: QuerySummary, preview = false): SummaryProps {
+  console.log(querySummary)
   return {
     results:
       querySummary?.results?.map(
