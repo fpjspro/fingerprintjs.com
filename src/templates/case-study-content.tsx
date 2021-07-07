@@ -102,7 +102,7 @@ export function CaseStudyContentTemplate({ metadata, header, summary, breadcrumb
 export function CaseStudyContentPreview({ entry }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const header = entry.getIn(['data', 'header'])?.toObject() as QueryHeader
-  const summary = entry.getIn(['data', 'summary'])?.toObject() as QuerySummary
+  const summary = entry.getIn(['data', 'summary'])?.toJS() as QuerySummary
 
   return (
     <PreviewProviders>
