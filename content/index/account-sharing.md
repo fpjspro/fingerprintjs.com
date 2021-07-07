@@ -21,7 +21,7 @@ cardSection:
     existing system or want a complete end-to-end solution, FingerprintJS has an
     option for your business.
   cards:
-    - icon: ""
+    - icon: /img/uploads/browser_fingerprinting.png
       iconAlt: Browser fingerprint
       iconTitle: Browser fingerprint
       title: FingerprintJS Pro
