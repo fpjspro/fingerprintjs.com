@@ -181,6 +181,24 @@ collections:
             ],
         }
       - {
+          label: Header,
+          name: header,
+          widget: object,
+          fields:
+            [
+              { label: Label, name: subLabel, widget: string },
+              { label: Title, name: subTitle, widget: string },
+              { label: Description, name: markdown__Content, widget: markdown },
+              {
+                label: PDF,
+                name: pdf,
+                widget: file,
+                media_folder: '/static/pdf/case-study',
+                public_folder: '/pdf/case-study',
+              },
+            ],
+        }
+      - {
           label: Summary,
           name: summary,
           widget: object,
