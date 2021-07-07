@@ -37,7 +37,7 @@ summary:
         Customer satisfaction (CSAT) surveys also remained stable, indicating that additional authentication measures did not have a negative impact on the user experience.
       iconAlt: Satisfaction
       iconTitle: Satisfaction
-    - icon: /img/uploads/loop.svg
+    - icon: /img/uploads/accuracy.svg
       title: Feedback loop with FingerprintJS
       markdown__Content: The company continues to work closely with the FingerprintJS
         technical team to adjust algorithms as user behavior changes over time,
