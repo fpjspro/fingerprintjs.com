@@ -214,7 +214,6 @@ collections:
                       label: Icon,
                       name: icon,
                       widget: image,
-                      required: false,
                       media_folder: '/static/img/uploads',
                       public_folder: '/img/uploads',
                     },
