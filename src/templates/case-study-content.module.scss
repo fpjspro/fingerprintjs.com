@@ -1,15 +1,10 @@
 .section {
   padding-top: 5rem;
-  &:not(:last-child) {
-    padding-bottom: 0;
-  }
+  padding-bottom: 0;
 }
 
 .bodySection {
-  padding-top: 5rem;
-  &:not(:last-child) {
-    padding-bottom: 0;
-  }
+  padding-bottom: 0;
 }
 
 .container {

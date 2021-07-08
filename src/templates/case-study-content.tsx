@@ -4,6 +4,7 @@ import { PreviewTemplateComponentProps } from 'netlify-cms-core'
 import { Content, DangerouslyRenderHtmlContent, MarkdownContent } from '../components/Content/Content'
 import Header, { HeaderProps } from '../components/widgets/StudyCase/Header/Header'
 import Summary, { SummaryProps, Result, OverviewBullet } from '../components/widgets/StudyCase/Summary/Summary'
+import Footer, { FooterProps } from '../components/widgets/StudyCase/Footer/Footer'
 import { LayoutTemplate } from '../components/Layout'
 import { GeneratedPageContext } from '../helpers/types'
 import Section from '../components/common/Section'
@@ -28,7 +29,8 @@ export default function CaseStudyContent({ data, pageContext }: CaseStudyContent
     data.markdownRemark?.frontmatter?.metadata === undefined ||
     data.markdownRemark?.frontmatter?.header === undefined ||
     data.markdownRemark?.html === undefined ||
-    data.markdownRemark?.frontmatter?.summary === undefined
+    data.markdownRemark?.frontmatter?.summary === undefined ||
+    data.markdownRemark?.frontmatter?.footer === undefined
   ) {
     return null
   }
@@ -37,6 +39,7 @@ export default function CaseStudyContent({ data, pageContext }: CaseStudyContent
   const header = mapToHeader(data.markdownRemark.frontmatter.header)
   const summary = mapToSummary(data.markdownRemark.frontmatter.summary)
   const body = data.markdownRemark.html
+  const footer = mapToFooter(data.markdownRemark.frontmatter.footer)
 
   return (
     <CaseStudyContentTemplate
@@ -45,6 +48,7 @@ export default function CaseStudyContent({ data, pageContext }: CaseStudyContent
       summary={summary}
       contentComponent={DangerouslyRenderHtmlContent}
       body={body}
+      footer={footer}
       breadcrumbs={pageContext.breadcrumb.crumbs}
     />
   )
@@ -93,6 +97,10 @@ export const pageQuery = graphql`
             }
           }
         }
+        footer {
+          ctaTitle
+          ctaSubtitle
+        }
       }
     }
   }
@@ -104,6 +112,7 @@ export interface CaseStudyTemplateProps {
   summary: SummaryProps
   body: string | React.ReactNode
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
+  footer: FooterProps
   breadcrumbs?: Array<Breadcrumb>
 }
 export function CaseStudyContentTemplate({
@@ -112,6 +121,7 @@ export function CaseStudyContentTemplate({
   summary,
   body,
   contentComponent,
+  footer,
   breadcrumbs,
 }: CaseStudyTemplateProps) {
   const ContentComponent = contentComponent ?? Content
@@ -128,6 +138,7 @@ export function CaseStudyContentTemplate({
           </Container>
         </Section>
       </Section>
+      <Footer {...footer} />
     </LayoutTemplate>
   )
 }
@@ -136,6 +147,7 @@ export function CaseStudyContentPreview({ entry, widgetFor }: PreviewTemplateCom
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const header = entry.getIn(['data', 'header'])?.toObject() as QueryHeader
   const summary = entry.getIn(['data', 'summary'])?.toJS() as QuerySummary
+  const footer = entry.getIn(['data', 'footer'])?.toObject() as QueryFooter
 
   return (
     <PreviewProviders>
@@ -144,6 +156,7 @@ export function CaseStudyContentPreview({ entry, widgetFor }: PreviewTemplateCom
         header={mapToHeader(header, true)}
         summary={mapToSummary(summary, true)}
         body={widgetFor('body') ?? <></>}
+        footer={mapToFooter(footer)}
       />
     </PreviewProviders>
   )
@@ -220,4 +233,14 @@ function mapToSummary(querySummary: QuerySummary, preview = false): SummaryProps
           } as OverviewBullet)
       ) ?? [],
   } as SummaryProps
+}
+
+type QueryFooter = NonNullable<
+  NonNullable<GatsbyTypes.CaseStudyContentQuery['markdownRemark']>['frontmatter']
+>['footer']
+function mapToFooter(queryFooter: QueryFooter): FooterProps {
+  return {
+    ctaTitle: queryFooter?.ctaTitle ?? '',
+    ctaSubtitle: queryFooter?.ctaSubtitle ?? '',
+  } as FooterProps
 }
