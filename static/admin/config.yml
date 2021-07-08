@@ -251,7 +251,12 @@ collections:
           widget: object,
           fields:
             [
-              { label: Cta Title, name: ctaTitle, widget: string },
-              { label: Cta Subtitle, name: ctaSubtitle, widget: string },
+              { label: Cta Title, name: ctaTitle, widget: string, default: 'Get in Touch' },
+              {
+                label: Cta Subtitle,
+                name: ctaSubtitle,
+                widget: string,
+                default: 'Learn how FingerprintJS Pro can help your business build a custom solution to prevent online fraud.',
+              },
             ],
         }
