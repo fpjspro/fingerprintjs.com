@@ -245,3 +245,13 @@ collections:
             ],
         }
       - { label: Body, name: body, widget: markdown }
+      - {
+          label: Footer,
+          name: footer,
+          widget: object,
+          fields:
+            [
+              { label: Cta Title, name: ctaTitle, widget: string },
+              { label: Cta Subtitle, name: ctaSubtitle, widget: string },
+            ],
+        }
