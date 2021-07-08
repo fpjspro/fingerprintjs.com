@@ -54,7 +54,7 @@ summary:
       - value: "Employees:"
         description: 1,000
 footer:
-  ctaTitle: Get in Touch
+  ctaTitle: Get in Touchh
   ctaSubtitle: Learn how FingerprintJS Pro can help your business build a custom
     solution to prevent online fraud.
 ---
