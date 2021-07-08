@@ -193,8 +193,8 @@ collections:
                 label: PDF,
                 name: pdf,
                 widget: file,
-                media_folder: '/{{media_folder}}',
-                public_folder: '{{public_folder}}',
+                media_folder: '/static/pdf/case-study',
+                public_folder: '/pdf/case-study',
               },
             ],
         }
