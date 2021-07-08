@@ -1,12 +1,13 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { PreviewTemplateComponentProps } from 'netlify-cms-core'
-import { DangerouslyRenderHtmlContent, MarkdownContent } from '../components/Content/Content'
+import { Content, DangerouslyRenderHtmlContent, MarkdownContent } from '../components/Content/Content'
 import Header, { HeaderProps } from '../components/widgets/StudyCase/Header/Header'
 import Summary, { SummaryProps, Result, OverviewBullet } from '../components/widgets/StudyCase/Summary/Summary'
 import { LayoutTemplate } from '../components/Layout'
 import { GeneratedPageContext } from '../helpers/types'
 import Section from '../components/common/Section'
+import Container from '../components/common/Container'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { withTrailingSlash } from '../helpers/url'
 import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
@@ -26,6 +27,7 @@ export default function CaseStudyContent({ data, pageContext }: CaseStudyContent
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
     data.markdownRemark?.frontmatter?.header === undefined ||
+    data.markdownRemark?.html === undefined ||
     data.markdownRemark?.frontmatter?.summary === undefined
   ) {
     return null
@@ -34,12 +36,15 @@ export default function CaseStudyContent({ data, pageContext }: CaseStudyContent
   const metadata = mapToMetadata(data.markdownRemark.frontmatter.metadata)
   const header = mapToHeader(data.markdownRemark.frontmatter.header)
   const summary = mapToSummary(data.markdownRemark.frontmatter.summary)
+  const body = data.markdownRemark.html
 
   return (
     <CaseStudyContentTemplate
       metadata={metadata}
       header={header}
       summary={summary}
+      contentComponent={DangerouslyRenderHtmlContent}
+      body={body}
       breadcrumbs={pageContext.breadcrumb.crumbs}
     />
   )
@@ -49,6 +54,7 @@ export const pageQuery = graphql`
   query CaseStudyContent($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
+      html
       frontmatter {
         metadata {
           title
@@ -96,21 +102,37 @@ export interface CaseStudyTemplateProps {
   metadata: GatsbyTypes.SiteSiteMetadata
   header: HeaderProps
   summary: SummaryProps
+  body: string | React.ReactNode
+  contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
   breadcrumbs?: Array<Breadcrumb>
 }
-export function CaseStudyContentTemplate({ metadata, header, summary, breadcrumbs }: CaseStudyTemplateProps) {
+export function CaseStudyContentTemplate({
+  metadata,
+  header,
+  summary,
+  body,
+  contentComponent,
+  breadcrumbs,
+}: CaseStudyTemplateProps) {
+  const ContentComponent = contentComponent ?? Content
+
   return (
     <LayoutTemplate siteMetadata={metadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
       <Section className={styles.section}>
         <Header {...header} />
         <Summary {...summary} />
+        <Section className={styles.section}>
+          <Container size='large' className={styles.container}>
+            <ContentComponent content={body} className={styles.body} />
+          </Container>
+        </Section>
       </Section>
     </LayoutTemplate>
   )
 }
 
-export function CaseStudyContentPreview({ entry }: PreviewTemplateComponentProps) {
+export function CaseStudyContentPreview({ entry, widgetFor }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
   const header = entry.getIn(['data', 'header'])?.toObject() as QueryHeader
   const summary = entry.getIn(['data', 'summary'])?.toJS() as QuerySummary
@@ -121,6 +143,7 @@ export function CaseStudyContentPreview({ entry }: PreviewTemplateComponentProps
         metadata={mapToMetadata(metadata)}
         header={mapToHeader(header, true)}
         summary={mapToSummary(summary, true)}
+        body={widgetFor('body') ?? <></>}
       />
     </PreviewProviders>
   )
