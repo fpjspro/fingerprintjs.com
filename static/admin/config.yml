@@ -186,7 +186,7 @@ collections:
           widget: object,
           fields:
             [
-              { label: Label, name: subLabel, widget: string },
+              { label: Label, name: subLabel, widget: string, default: 'Case Study' },
               { label: Title, name: subTitle, widget: string },
               { label: Description, name: markdown__Content, widget: markdown },
               {
