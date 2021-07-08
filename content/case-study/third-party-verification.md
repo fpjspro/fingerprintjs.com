@@ -15,7 +15,7 @@ header:
   markdown__Content: The company was able to greatly increase their identity
     verification accuracy, prevent fraud committed by sales representatives, and
     exceed compliance standards.
-  pdf: /pdf/case-study/third-party-verification.pdf
+  pdf: /pdf/case-study/credit-card-fraud.pdf
 summary:
   results:
     - icon: /img/uploads/business-and-finance.svg
