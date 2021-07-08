@@ -55,6 +55,10 @@ summary:
         description: Account Sharing
       - value: "Employees:"
         description: 1,000+
+footer:
+  ctaTitle: Get in Touch
+  ctaSubtitle: Learn how FingerprintJS Pro can help your business build a custom
+    solution to prevent online fraud.
 ---
 ## The problem
 
