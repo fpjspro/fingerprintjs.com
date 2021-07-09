@@ -15,7 +15,6 @@ import { mapToPost, PostProps } from '../components/Post/Post'
 import PreviewProviders from '../cms/PreviewProviders'
 import AuthorComponent, { Author } from '../components/Author/Author'
 import { ImageInfo } from '../components/common/PreviewCompatibleImage/PreviewCompatibleImage'
-import { Disqus } from 'gatsby-plugin-disqus'
 
 import styles from './long-form-content.module.scss'
 
@@ -27,9 +26,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
-    data.markdownRemark?.frontmatter?.metadata?.url === undefined ||
-    data.markdownRemark?.html === undefined ||
-    data.markdownRemark?.fields?.slug === undefined
+    data.markdownRemark?.html === undefined
   ) {
     return null
   }
@@ -40,12 +37,6 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   const body = data.markdownRemark.html
   const publishDate = data.markdownRemark.frontmatter.publishDate
 
-  const disqusConfig = {
-    url: data.markdownRemark.frontmatter.metadata.url,
-    identifier: data.markdownRemark.fields.slug,
-    title: post.title,
-  }
-
   return (
     <LongFormContentTemplate
       contentComponent={DangerouslyRenderHtmlContent}
@@ -55,7 +46,6 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
       breadcrumbs={pageContext.breadcrumb.crumbs}
       authors={authors}
       publishDate={publishDate}
-      disqusConfig={disqusConfig}
     />
   )
 }
@@ -107,7 +97,6 @@ export interface TemplateProps {
   breadcrumbs?: Array<Breadcrumb>
   authors?: Author[]
   publishDate?: string
-  disqusConfig?: { url: string; identifier: string; title: string }
 }
 export function LongFormContentTemplate({
   metadata,
@@ -116,7 +105,6 @@ export function LongFormContentTemplate({
   contentComponent,
   breadcrumbs,
   authors = [],
-  disqusConfig,
 }: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
@@ -149,13 +137,6 @@ export function LongFormContentTemplate({
         <Container>
           <RelatedArticles article={post} />
         </Container>
-
-        {disqusConfig && (
-          <Container className={styles.comments}>
-            <h2>Discussion</h2>
-            <Disqus config={disqusConfig} />
-          </Container>
-        )}
       </Section>
     </LayoutTemplate>
   )
