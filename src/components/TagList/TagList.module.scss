@@ -13,11 +13,12 @@
 .item {
   margin-right: 1rem;
   margin-top: 1rem;
+  padding-bottom: rem(8px);
 }
 
 .tag {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: rem(8px);
+  border-radius: rem(14px);
   background-color: c('off-white');
   border: 1px solid c('off-white');
 

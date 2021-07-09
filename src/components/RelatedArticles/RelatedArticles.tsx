@@ -16,7 +16,7 @@ export default function RelatedArticles({ article, count = 3 }: RelatedArticlesP
         const allArticles = data.allMarkdownRemark.edges.map(({ node }) => node)
         const relatedArticles = getRelatedArticles(article, allArticles, count)
         return relatedArticles.length > 0 ? (
-          <PostGrid posts={relatedArticles} name='Related Articles' perRow='three' />
+          <PostGrid posts={relatedArticles} name='Related Articles' perRow='four' />
         ) : null
       }}
     />

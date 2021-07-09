@@ -15,7 +15,7 @@
 }
 
 .grid {
-  margin-top: 2rem;
+  margin-top: rem(64px);
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -48,5 +48,8 @@
 
   @include media('<=tabletWide') {
     margin-top: 4rem;
+  }
+  h2 {
+    margin-bottom: rem(64px + 5px);
   }
 }
