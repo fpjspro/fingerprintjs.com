@@ -45,6 +45,8 @@ This browser fingerprinting technique takes advantage of the HTML5 canvas elemen
 
 Like any other browser fingerprinting technique, the scripts used for canvas fingerprinting operate in the background to keep the user from realizing that the fingerprinting is occurring. This fingerprinting technique is both accurate and not too processing intensive, making it one of the most employed techniques in browser fingerprinting scripts.
 
+To read more about this technique, read our in-depth article on [Javascript canvas fingerprinting](https://fingerprintjs.com/blog/canvas-fingerprinting/).
+
 ![Canvas fingerprint and WebGL fingerprint output from Amiunique.com, showing distorted text and a gradient image.](/img/uploads/image20.png "Canvas and WebGL fingerprint")
 
 <i>Canvas and WebGL rendered images, from [AmIUnique](https://amiunique.org/). Due to how this visitor's specific browser and device rendered these images, they can be narrowed down to a pool of fewer than 0.01% of total visitors.</i>

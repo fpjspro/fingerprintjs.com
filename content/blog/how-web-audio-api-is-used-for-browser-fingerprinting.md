@@ -1,7 +1,7 @@
 ---
 templateKey: long-form-content
 metadata:
-  title: How the Web Audio API is used for browser fingerprinting
+  title: How the Web Audio API is used for audio fingerprinting
   url: https://fingerprintjs.com/blog/audio-fingerprinting
   image: /img/uploads/audio-fp-hero.png
   description: Audio Fingerprinting is used to uniquely identify visitors without
@@ -11,7 +11,7 @@ metadata:
   imageTitle: Audio fingerprinting
 featured: true
 publishDate: 2021-03-18T13:12:29.612Z
-title: How the Web Audio API is used for browser fingerprinting
+title: How the Web Audio API is used for audio fingerprinting
 tags:
   - fingerprinting
   - js
@@ -21,12 +21,14 @@ authors:
 ---
 Did you know that you can identify web browsers without using cookies or asking for permissions?\
 \
-This is known as “browser fingerprinting” and it works by reading browser attributes and combining them together into a single identifier. This identifier is stateless and works well in normal and incognito modes.
+This is known as [browser fingerprinting ](https://fingerprintjs.com/blog/browser-fingerprinting-techniques/)and it works by reading browser attributes and combining them together into a single identifier. This identifier is stateless and works well in normal and incognito modes.
 
 ![Graphic of browser fingerprinting](/img/uploads/audio-fp-browser-fingerprinting-image.png "Graphic of browser fingerprinting")
 
-When generating a browser identifier, we can read browser attributes directly or use attribute processing techniques first. One of the creative techniques that we’ll discuss today is audio fingerprinting.\
-\
+When generating a browser identifier, we can read browser attributes directly or use attribute processing techniques first. One of the creative techniques that we’ll discuss today is audio fingerprinting.
+
+# Audio fingerprinting
+
 Audio fingerprinting is a valuable technique because it is relatively unique and stable.
 Its uniqueness comes from the internal complexity and sophistication of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" target="_blank" rel="noopener"><span>Web Audio API</span></a>.
 The stability is achieved because the audio source that we’ll use is a sequence of numbers, generated mathematically. Those numbers will later be combined into a single audio fingerprint value.\
