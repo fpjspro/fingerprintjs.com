@@ -20,6 +20,7 @@ export interface PostProps {
   tags?: string[]
   activeTag?: string
   variant?: 'card' | 'wide'
+  perRow?: 'four' | 'three'
 }
 export default function Post({
   title,
@@ -32,13 +33,14 @@ export default function Post({
   tags,
   activeTag,
   variant = 'card',
+  perRow,
 }: PostProps) {
   const imageFluid = image?.childImageSharp?.fluid
 
   return (
     <Link to={getRelativeUrl(path)} className={classNames(styles.post, { [styles.wide]: variant === 'wide' })}>
       {imageFluid && (
-        <div className={styles.wrapper}>
+        <div className={classNames(styles.wrapper, { [styles.threePerRow]: perRow === 'three' })}>
           <Img fluid={imageFluid} className={styles.image} alt={imageAlt} title={imageTitle} />
         </div>
       )}

@@ -31,7 +31,7 @@ export default function PostGrid({ posts, name, link, tags, perRow = 'four' }: P
         )}
         <div className={classNames(styles.grid, { [styles.threePerRow]: perRow === 'three' })}>
           {posts.map((post) => {
-            return <Post key={post.path} {...post} />
+            return <Post perRow={perRow} key={post.path} {...post} />
           })}
         </div>
       </div>
