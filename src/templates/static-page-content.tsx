@@ -39,7 +39,8 @@ export default function StaticPageContent({ data, pageContext }: StaticPageConte
     data.markdownRemark?.frontmatter?.inlineCta === undefined ||
     data.markdownRemark?.frontmatter?.cardSection === undefined ||
     data.markdownRemark?.frontmatter?.blocks === undefined ||
-    data.markdownRemark?.frontmatter?.hero === undefined
+    data.markdownRemark?.frontmatter?.hero === undefined ||
+    data.markdownRemark?.frontmatter?.relatedTitle === undefined
   ) {
     return null
   }
