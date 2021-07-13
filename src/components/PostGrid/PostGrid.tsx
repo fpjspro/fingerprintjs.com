@@ -11,8 +11,9 @@ export interface PostGridProps {
   link?: React.ReactNode
   tags?: string[]
   perRow?: 'four' | 'three'
+  nameIsCentered?: boolean
 }
-export default function PostGrid({ posts, name, link, tags, perRow = 'four' }: PostGridProps) {
+export default function PostGrid({ posts, name, nameIsCentered, link, tags, perRow = 'four' }: PostGridProps) {
   return (
     <div className={styles.root}>
       {tags && (
@@ -24,7 +25,7 @@ export default function PostGrid({ posts, name, link, tags, perRow = 'four' }: P
 
       <div className={styles.posts}>
         {name && (
-          <div className={styles.row}>
+          <div className={classNames(styles.row, { [styles.alignNameCenter]: nameIsCentered === true })}>
             <h2 className={styles.name}>{name}</h2>
             {link}
           </div>

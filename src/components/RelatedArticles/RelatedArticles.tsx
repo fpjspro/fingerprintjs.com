@@ -8,8 +8,9 @@ export interface RelatedArticlesProps {
   article: PostProps
   count?: number
   title?: string
+  titleIsCentered?: boolean
 }
-export default function RelatedArticles({ article, count = 3, title }: RelatedArticlesProps) {
+export default function RelatedArticles({ article, count = 3, title, titleIsCentered }: RelatedArticlesProps) {
   return (
     <StaticQuery<GatsbyTypes.RelatedArticlesQuery>
       query={relatedArticlesQuery}
@@ -17,7 +18,12 @@ export default function RelatedArticles({ article, count = 3, title }: RelatedAr
         const allArticles = data.allMarkdownRemark.edges.map(({ node }) => node)
         const relatedArticles = getRelatedArticles(article, allArticles, count)
         return relatedArticles.length > 0 ? (
-          <PostGrid posts={relatedArticles} name={title ? title : 'Related Articles'} perRow='four' />
+          <PostGrid
+            posts={relatedArticles}
+            name={title ? title : 'Related Articles'}
+            perRow='four'
+            nameIsCentered={titleIsCentered}
+          />
         ) : null
       }}
     />
