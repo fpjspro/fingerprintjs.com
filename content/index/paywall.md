@@ -8,6 +8,8 @@ metadata:
     Mode Detection & More.
   url: https://fingerprintjs.com/paywall
   image: /img/uploads/fpjs_cover3.png
+tags:
+  - fingerprinting
 invertContent: false
 hero:
   title: "Make your paywall software leakproof "

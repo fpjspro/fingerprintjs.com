@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: feat/WEB-160-add-optional-related-blogs-content-to-use-case
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -32,6 +32,14 @@ collections:
               { label: Image, name: image, widget: image },
             ],
         }
+      - name: tags
+        label: Tags
+        widget: relation
+        collection: 'tag'
+        searchFields: ['name']
+        valueField: 'name'
+        displayFields: ['name']
+        multiple: true
       - { label: Invert content order, name: invertContent, widget: boolean, default: false }
       - {
           label: Hero,

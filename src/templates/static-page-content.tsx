@@ -10,10 +10,13 @@ import AlternatingImagesText, { BlockWithImage } from '../components/widgets/Alt
 import CardSection, { CardSectionProps } from '../components/widgets/CardSection'
 import { Card } from '../components/widgets/CardGrid'
 import { BASE_URL } from '../constants/content'
+import Container from '../components/common/Container'
 import Section from '../components/common/Section'
 import BreadcrumbsSEO from '../components/Breadcrumbs/BreadcrumbsSEO'
 import { withTrailingSlash } from '../helpers/url'
 import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumbs'
+import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
+import { mapToPost, PostProps } from '../components/Post/Post'
 import PreviewProviders from '../cms/PreviewProviders'
 
 import styles from './static-page-content.module.scss'
@@ -47,6 +50,7 @@ export default function StaticPageContent({ data, pageContext }: StaticPageConte
   const cardSection = mapToCardSection(data.markdownRemark.frontmatter.cardSection)
   const blocks = mapToBlocks(data.markdownRemark.frontmatter.blocks as QueryBlock[])
   const hero = mapToHero(data.markdownRemark.frontmatter.hero)
+  const content = mapToPost(data.markdownRemark)
 
   return (
     <StaticPageContentTemplate
@@ -56,6 +60,7 @@ export default function StaticPageContent({ data, pageContext }: StaticPageConte
       cardSection={cardSection}
       blocks={blocks}
       hero={hero}
+      content={content}
       breadcrumbs={pageContext.breadcrumb.crumbs}
     />
   )
@@ -124,6 +129,7 @@ export const pageQuery = graphql`
           buttonText
           buttonHref
         }
+        tags
       }
     }
   }
@@ -136,6 +142,7 @@ export interface StaticPageContentTemplateProps {
   cardSection: CardSectionProps
   blocks: BlockWithImage[]
   hero: HeroProps
+  content: PostProps
   breadcrumbs?: Array<Breadcrumb>
 }
 export function StaticPageContentTemplate({
@@ -145,6 +152,7 @@ export function StaticPageContentTemplate({
   cardSection,
   blocks,
   hero,
+  content,
   breadcrumbs,
 }: StaticPageContentTemplateProps) {
   return (
@@ -164,6 +172,9 @@ export function StaticPageContentTemplate({
           </>
         )}
         <InlineCta {...inlineCta} />
+        <Container size='large'>
+          <RelatedArticles article={content} count={4} />
+        </Container>
       </Section>
     </LayoutTemplate>
   )
@@ -194,6 +205,7 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
         cardSection={mapToCardSection(cardSection, true)}
         blocks={mapToBlocks(blocks, true)}
         hero={mapToHero(hero)}
+        content={mapToPost({ frontmatter: entry.get('data').toObject() })}
       />
     </PreviewProviders>
   )

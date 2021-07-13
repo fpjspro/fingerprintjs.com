@@ -8,6 +8,8 @@ metadata:
     Penalties & More.
   url: https://fingerprintjs.com/gaming
   image: /img/uploads/fpjs_cover3.png
+tags:
+  - fingerprinting
 invertContent: false
 hero:
   title: Gaming fraud prevention built for developer teams
