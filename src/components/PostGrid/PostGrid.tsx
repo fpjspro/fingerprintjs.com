@@ -25,7 +25,7 @@ export default function PostGrid({ posts, name, link, tags, perRow = 'four' }: P
       <div className={styles.posts}>
         {name && (
           <div className={styles.row}>
-            <h2>{name}</h2>
+            <h2 className={styles.name}>{name}</h2>
             {link}
           </div>
         )}

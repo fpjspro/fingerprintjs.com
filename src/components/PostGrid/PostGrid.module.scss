@@ -14,6 +14,10 @@
   justify-content: space-between;
 }
 
+.name {
+  font-size: rem(32px);
+}
+
 .grid {
   margin-top: rem(64px);
 
@@ -51,5 +55,6 @@
   }
   h2 {
     margin-bottom: rem(64px + 5px);
+    font-size: rem(32px);
   }
 }
