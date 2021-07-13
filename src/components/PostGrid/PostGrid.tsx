@@ -34,7 +34,7 @@ export default function PostGrid({
 
       <div className={styles.posts}>
         {name && (
-          <div className={classNames(styles.row, { [styles.alignNameCenter]: nameIsCentered === true })}>
+          <div className={classNames(styles.row, { [styles.alignNameCenter]: nameIsCentered })}>
             <h2 className={styles.name}>{name}</h2>
             {link}
           </div>
