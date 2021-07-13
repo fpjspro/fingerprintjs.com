@@ -6,8 +6,7 @@
 
   overflow: hidden;
 
-  border-radius: 8px;
-  box-shadow: 0px 0px 20px 20px rgba(72, 76, 108, 0.044116);
+  border-radius: rem(15px);
   background-color: v('white');
 
   transition-duration: 0.5s;
@@ -95,11 +94,15 @@
 .wrapper {
   display: flex;
   flex: 0 0 auto;
-  height: 200px;
+  height: 170px;
 
   @include media('>phoneLandscape', '<=desktop') {
     height: 360px;
   }
+}
+
+.threePerRow {
+  height: 200px;
 }
 
 .image {
@@ -109,6 +112,8 @@
   left: 0;
 
   width: 100%;
+
+  border-radius: rem(15px);
 }
 
 .content {
@@ -117,27 +122,43 @@
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 4rem;
-  padding-top: 1rem;
+  padding: rem(16px);
 }
 
 .publishDate {
   font-family: v('ff-sans');
-  font-size: 1.5rem;
+  font-size: rem(14px);
 }
 
 .title {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-top: rem(16px);
 
-  font-family: v('ff-mono');
-  font-weight: v('bold');
-  font-size: 2.25rem;
+  font-family: v('ff-sans');
+  font-weight: v('semi');
+  font-size: rem(20px);
 
   transition-duration: 0.5s;
 }
 
+.titleLimit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .description {
+  padding-top: rem(8px);
+
   font-family: v('ff-sans');
-  font-size: 1.75rem;
+  font-size: rem(14px);
+}
+
+.descriptionLimit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }

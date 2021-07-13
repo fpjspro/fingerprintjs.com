@@ -134,8 +134,8 @@ export function LongFormContentTemplate({
           <ContentComponent content={body} className={styles.content} />
         </Container>
 
-        <Container>
-          <RelatedArticles article={post} />
+        <Container size='large'>
+          <RelatedArticles article={post} count={4} limitPostLines={true} />
         </Container>
       </Section>
     </LayoutTemplate>

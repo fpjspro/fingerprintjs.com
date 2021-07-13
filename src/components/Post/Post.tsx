@@ -20,6 +20,8 @@ export interface PostProps {
   tags?: string[]
   activeTag?: string
   variant?: 'card' | 'wide'
+  perRow?: 'four' | 'three'
+  limitTextLines?: boolean
 }
 export default function Post({
   title,
@@ -32,13 +34,14 @@ export default function Post({
   tags,
   activeTag,
   variant = 'card',
+  perRow,
+  limitTextLines,
 }: PostProps) {
   const imageFluid = image?.childImageSharp?.fluid
-
   return (
     <Link to={getRelativeUrl(path)} className={classNames(styles.post, { [styles.wide]: variant === 'wide' })}>
       {imageFluid && (
-        <div className={styles.wrapper}>
+        <div className={classNames(styles.wrapper, { [styles.threePerRow]: perRow === 'three' })}>
           <Img fluid={imageFluid} className={styles.image} alt={imageAlt} title={imageTitle} />
         </div>
       )}
@@ -46,8 +49,8 @@ export default function Post({
       <div className={styles.content}>
         <div>
           <span className={styles.publishDate}>{publishDate}</span>
-          <h1 className={styles.title}>{title}</h1>
-          <p className={styles.description}>{description}</p>
+          <h1 className={classNames(styles.title, { [styles.titleLimit]: limitTextLines })}>{title}</h1>
+          <p className={classNames(styles.description, { [styles.descriptionLimit]: limitTextLines })}>{description}</p>
         </div>
 
         {tags && <TagList tags={tags} activeTag={activeTag} format='upper' />}

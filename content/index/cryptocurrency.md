@@ -8,6 +8,9 @@ metadata:
     fraudulent purchases.
   url: https://fingerprintjs.com/cryptocurrency
   image: /img/uploads/fpjs_cover3.png
+relatedTitle: Related Articles
+tags:
+  - fingerprinting
 invertContent: false
 hero:
   title: Stop cryptocurrency fraud in its tracks
