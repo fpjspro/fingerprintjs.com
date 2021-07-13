@@ -51,6 +51,7 @@ export default function StaticPageContent({ data, pageContext }: StaticPageConte
   const blocks = mapToBlocks(data.markdownRemark.frontmatter.blocks as QueryBlock[])
   const hero = mapToHero(data.markdownRemark.frontmatter.hero)
   const content = mapToPost(data.markdownRemark)
+  const relatedArticlesTitle = data.markdownRemark.frontmatter.relatedTitle
 
   return (
     <StaticPageContentTemplate
@@ -61,6 +62,7 @@ export default function StaticPageContent({ data, pageContext }: StaticPageConte
       blocks={blocks}
       hero={hero}
       content={content}
+      relatedArticlesTitle={relatedArticlesTitle}
       breadcrumbs={pageContext.breadcrumb.crumbs}
     />
   )
@@ -129,6 +131,7 @@ export const pageQuery = graphql`
           buttonText
           buttonHref
         }
+        relatedTitle
         tags
       }
     }
@@ -143,6 +146,7 @@ export interface StaticPageContentTemplateProps {
   blocks: BlockWithImage[]
   hero: HeroProps
   content: PostProps
+  relatedArticlesTitle: string
   breadcrumbs?: Array<Breadcrumb>
 }
 export function StaticPageContentTemplate({
@@ -153,6 +157,7 @@ export function StaticPageContentTemplate({
   blocks,
   hero,
   content,
+  relatedArticlesTitle,
   breadcrumbs,
 }: StaticPageContentTemplateProps) {
   return (
@@ -173,7 +178,7 @@ export function StaticPageContentTemplate({
         )}
         <InlineCta {...inlineCta} />
         <Container size='large'>
-          <RelatedArticles article={content} count={4} />
+          <RelatedArticles article={content} count={4} title={relatedArticlesTitle} />
         </Container>
       </Section>
     </LayoutTemplate>
@@ -196,6 +201,8 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
 
   const hero = entry.getIn(['data', 'hero'])?.toObject() as QueryHero
 
+  const relatedArticlesTitle = entry.getIn(['data', 'relatedTitle'])
+
   return (
     <PreviewProviders>
       <StaticPageContentTemplate
@@ -206,6 +213,7 @@ export function StaticPageContentPreview({ entry }: PreviewTemplateComponentProp
         blocks={mapToBlocks(blocks, true)}
         hero={mapToHero(hero)}
         content={mapToPost({ frontmatter: entry.get('data').toObject() })}
+        relatedArticlesTitle={relatedArticlesTitle}
       />
     </PreviewProviders>
   )

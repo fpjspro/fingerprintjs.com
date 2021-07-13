@@ -32,8 +32,9 @@ collections:
               { label: Image, name: image, widget: image },
             ],
         }
+      - { label: 'Related Articles Title', name: 'relatedTitle', widget: 'string', default: 'Related Articles' }
       - name: tags
-        label: Tags
+        label: Related Articles Tags
         widget: relation
         collection: 'tag'
         searchFields: ['name']

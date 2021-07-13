@@ -8,6 +8,7 @@ metadata:
     Penalties & More.
   url: https://fingerprintjs.com/gaming
   image: /img/uploads/fpjs_cover3.png
+relatedTitle: Related Articles
 tags:
   - fingerprinting
 invertContent: false

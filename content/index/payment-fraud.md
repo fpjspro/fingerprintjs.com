@@ -8,6 +8,7 @@ metadata:
     More.
   url: https://fingerprintjs.com/payment-fraud
   image: /img/uploads/fpjs_cover3.png
+relatedTitle: Related Articles
 tags:
   - fingerprinting
 invertContent: false

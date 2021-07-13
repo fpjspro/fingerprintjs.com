@@ -8,6 +8,7 @@ metadata:
     Identity Theft.
   url: https://fingerprintjs.com/account-takeover
   image: /img/uploads/fpjs_cover3.png
+relatedTitle: Related Articles
 tags:
   - fingerprinting
 invertContent: false

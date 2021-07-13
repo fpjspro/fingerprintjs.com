@@ -9,6 +9,7 @@ metadata:
   image: /img/uploads/fpjs_cover3.png
 tags:
   - fingerprinting
+relatedTitle: Related Articles
 invertContent: false
 hero:
   title: Account Sharing Prevention For Subscription Businesses
