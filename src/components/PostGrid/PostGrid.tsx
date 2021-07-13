@@ -12,8 +12,17 @@ export interface PostGridProps {
   tags?: string[]
   perRow?: 'four' | 'three'
   nameIsCentered?: boolean
+  limitPostLines?: boolean
 }
-export default function PostGrid({ posts, name, nameIsCentered, link, tags, perRow = 'four' }: PostGridProps) {
+export default function PostGrid({
+  posts,
+  name,
+  nameIsCentered,
+  link,
+  tags,
+  perRow = 'four',
+  limitPostLines,
+}: PostGridProps) {
   return (
     <div className={styles.root}>
       {tags && (
@@ -32,7 +41,7 @@ export default function PostGrid({ posts, name, nameIsCentered, link, tags, perR
         )}
         <div className={classNames(styles.grid, { [styles.threePerRow]: perRow === 'three' })}>
           {posts.map((post) => {
-            return <Post perRow={perRow} key={post.path} {...post} />
+            return <Post perRow={perRow} key={post.path} limitTextLines={limitPostLines} {...post} />
           })}
         </div>
       </div>

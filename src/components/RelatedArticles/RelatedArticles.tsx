@@ -9,8 +9,15 @@ export interface RelatedArticlesProps {
   count?: number
   title?: string
   titleIsCentered?: boolean
+  limitPostLines?: boolean
 }
-export default function RelatedArticles({ article, count = 3, title, titleIsCentered }: RelatedArticlesProps) {
+export default function RelatedArticles({
+  article,
+  count = 3,
+  title,
+  titleIsCentered,
+  limitPostLines,
+}: RelatedArticlesProps) {
   return (
     <StaticQuery<GatsbyTypes.RelatedArticlesQuery>
       query={relatedArticlesQuery}
@@ -23,6 +30,7 @@ export default function RelatedArticles({ article, count = 3, title, titleIsCent
             name={title ? title : 'Related Articles'}
             perRow='four'
             nameIsCentered={titleIsCentered}
+            limitPostLines={limitPostLines}
           />
         ) : null
       }}

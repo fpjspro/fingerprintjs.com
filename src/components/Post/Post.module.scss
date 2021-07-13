@@ -131,7 +131,6 @@
 }
 
 .title {
-  padding-bottom: rem(8px);
   padding-top: rem(16px);
 
   font-family: v('ff-sans');
@@ -141,7 +140,25 @@
   transition-duration: 0.5s;
 }
 
+.titleLimit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .description {
+  padding-top: rem(8px);
+
   font-family: v('ff-sans');
   font-size: rem(14px);
+}
+
+.descriptionLimit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }

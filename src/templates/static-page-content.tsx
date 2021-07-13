@@ -179,7 +179,13 @@ export function StaticPageContentTemplate({
         )}
         <InlineCta {...inlineCta} />
         <Container size='large'>
-          <RelatedArticles article={content} count={4} title={relatedArticlesTitle} titleIsCentered={true} />
+          <RelatedArticles
+            article={content}
+            count={4}
+            title={relatedArticlesTitle}
+            titleIsCentered={true}
+            limitPostLines={true}
+          />
         </Container>
       </Section>
     </LayoutTemplate>
