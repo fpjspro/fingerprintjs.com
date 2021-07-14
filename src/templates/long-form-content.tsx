@@ -195,7 +195,6 @@ type QueryActionBar = NonNullable<NonNullable<GatsbyTypes.LongFormContentQuery['
 function mapToAction(queryAction: QueryActionBar): ActionBarProps {
   return {
     publishDate: queryAction?.publishDate ?? '',
-    title: queryAction?.metadata?.title ?? '',
     description: queryAction?.metadata?.description ?? '',
     tags: queryAction?.tags ?? '',
   } as ActionBarProps

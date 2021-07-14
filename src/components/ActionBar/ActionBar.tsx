@@ -13,11 +13,10 @@ import { ReactComponent as ShareSvg } from './shareButton.svg'
 
 export interface ActionBarProps {
   publishDate: string
-  title: string
   description: string
   tags: string[]
 }
-export default function ActionBar({ publishDate, description, tags, title }: ActionBarProps) {
+export default function ActionBar({ publishDate, description, tags }: ActionBarProps) {
   const { pathname } = useLocation()
   const siteMetadata = useSiteMetadata()
   const path = `${siteMetadata.siteUrl}${pathname}`
@@ -28,7 +27,7 @@ export default function ActionBar({ publishDate, description, tags, title }: Act
     <div className={styles.root}>
       <span className={styles.publishDate}>{date}</span>
       <div>
-        <ActionButton socialMedia='linkedin' link={path} description={description} title={title} />
+        <ActionButton socialMedia='linkedin' link={path} />
         <ActionButton socialMedia='twitter' link={path} description={description} tags={camelizedTags} />
         <ActionButton socialMedia='facebook' link={path} />
         <ActionButton socialMedia='shareLink' link={path} />
@@ -41,19 +40,22 @@ interface ActionButtonProps {
   socialMedia: 'linkedin' | 'twitter' | 'facebook' | 'shareLink'
   link: string
   description?: string
-  title?: string
   tags?: string[]
 }
-function ActionButton({ socialMedia, link, description, title, tags }: ActionButtonProps) {
+function ActionButton({ socialMedia, link, description, tags }: ActionButtonProps) {
   switch (socialMedia) {
     case 'linkedin':
       return (
         <a
           className={styles.link}
-          href={`https://www.linkedin.com/shareArticle?mini=true&url=${link}&summary=${description}&title=${title}&source=FingerprintJS`}
-          target='_blank'
-          rel='noreferrer'
           aria-label='Share on Linkedin'
+          onClick={() =>
+            window.open(
+              `https://www.linkedin.com/sharing/share-offsite/?url=${link}`,
+              '',
+              '_blank, width=560, height=745, resizable=yes, scrollbars=yes'
+            )
+          }
         >
           <LinkedinSvg />
         </a>
@@ -62,10 +64,14 @@ function ActionButton({ socialMedia, link, description, title, tags }: ActionBut
       return (
         <a
           className={styles.link}
-          href={`https://twitter.com/intent/tweet?url=${link}&text=${description}&hashtags=${tags}&via=FingerprintJS`}
-          target='_blank'
-          rel='noreferrer'
           aria-label='Share on Twitter'
+          onClick={() =>
+            window.open(
+              `https://twitter.com/intent/tweet?url=${link}&text=${description}&hashtags=${tags}&via=FingerprintJS`,
+              '',
+              '_blank, width=500, height=500, resizable=yes, scrollbars=yes'
+            )
+          }
         >
           <TwitterSvg />
         </a>
@@ -74,10 +80,14 @@ function ActionButton({ socialMedia, link, description, title, tags }: ActionBut
       return (
         <a
           className={styles.link}
-          href={`https://www.facebook.com/sharer.php?u=${link}`}
-          target='_blank'
-          rel='noreferrer'
           aria-label='Share on Facebook'
+          onClick={() =>
+            window.open(
+              `https://www.facebook.com/sharer.php?u=${link}`,
+              '',
+              '_blank, width=560, height=745, resizable=yes, scrollbars=yes'
+            )
+          }
         >
           <FacebookSvg />
         </a>
