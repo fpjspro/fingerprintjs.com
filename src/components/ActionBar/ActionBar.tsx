@@ -69,7 +69,7 @@ function ActionButton({ socialMedia, link, description, tags }: ActionButtonProp
             window.open(
               `https://twitter.com/intent/tweet?url=${link}&text=${description}&hashtags=${tags}&via=FingerprintJS`,
               '',
-              '_blank, width=500, height=500, resizable=yes, scrollbars=yes'
+              '_blank, width=560, height=745, resizable=yes, scrollbars=yes'
             )
           }
         >
