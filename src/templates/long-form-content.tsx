@@ -14,6 +14,7 @@ import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
 import { mapToPost, PostProps } from '../components/Post/Post'
 import PreviewProviders from '../cms/PreviewProviders'
 import AuthorComponent, { Author } from '../components/Author/Author'
+import ActionBar from '../components/ActionBar/ActionBar'
 import { ImageInfo } from '../components/common/PreviewCompatibleImage/PreviewCompatibleImage'
 
 import styles from './long-form-content.module.scss'
@@ -26,6 +27,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
+    data.markdownRemark?.frontmatter?.publishDate === undefined ||
     data.markdownRemark?.html === undefined
   ) {
     return null
@@ -96,7 +98,7 @@ export interface TemplateProps {
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
   breadcrumbs?: Array<Breadcrumb>
   authors?: Author[]
-  publishDate?: string
+  publishDate: string
 }
 export function LongFormContentTemplate({
   metadata,
@@ -105,6 +107,7 @@ export function LongFormContentTemplate({
   contentComponent,
   breadcrumbs,
   authors = [],
+  publishDate,
 }: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
@@ -122,6 +125,9 @@ export function LongFormContentTemplate({
       <Section className={styles.root}>
         <Container size='small' className={styles.container}>
           <h1 className={styles.title}>{post.title}</h1>
+          <div className={styles.actionBar}>
+            <ActionBar publishDate={publishDate} />
+          </div>
 
           {authors && (
             <div className={styles.authors}>

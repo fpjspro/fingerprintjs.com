@@ -12,8 +12,12 @@
   margin-bottom: 2rem;
 
   @include media('>1250px') {
-    margin-bottom: 6rem;
+    margin-bottom: rem(16px);
   }
+}
+
+.actionBar {
+  margin-bottom: rem(50px);
 }
 
 .authors {
