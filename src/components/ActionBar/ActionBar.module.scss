@@ -1,3 +1,36 @@
+.root {
+  display: flex;
+}
+
 .publishDate {
   opacity: v('muted');
+  margin-right: rem(25px);
+
+  font-size: rem(14px);
+}
+
+.link {
+  cursor: pointer;
+
+  &:hover {
+    svg {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    svg {
+      transform: translateY(2px);
+    }
+  }
+
+  svg {
+    margin-right: rem(15px);
+    margin-bottom: rem(6px);
+
+    opacity: 0.5;
+    @include transition((opacity));
+    @include transition((transform));
+    @include transition-duration(0.2s);
+  }
 }

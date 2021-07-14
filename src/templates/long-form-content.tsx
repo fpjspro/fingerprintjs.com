@@ -14,7 +14,7 @@ import RelatedArticles from '../components/RelatedArticles/RelatedArticles'
 import { mapToPost, PostProps } from '../components/Post/Post'
 import PreviewProviders from '../cms/PreviewProviders'
 import AuthorComponent, { Author } from '../components/Author/Author'
-import ActionBar from '../components/ActionBar/ActionBar'
+import ActionBar, { ActionBarProps } from '../components/ActionBar/ActionBar'
 import { ImageInfo } from '../components/common/PreviewCompatibleImage/PreviewCompatibleImage'
 
 import styles from './long-form-content.module.scss'
@@ -27,7 +27,9 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   if (
     data.markdownRemark?.frontmatter === undefined ||
     data.markdownRemark?.frontmatter?.metadata === undefined ||
+    data.markdownRemark?.frontmatter?.metadata?.description === undefined ||
     data.markdownRemark?.frontmatter?.publishDate === undefined ||
+    data.markdownRemark?.frontmatter?.tags === undefined ||
     data.markdownRemark?.html === undefined
   ) {
     return null
@@ -37,7 +39,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   const post = mapToPost(data.markdownRemark)
   const authors = mapToAuthors(data.markdownRemark.fields?.authors)
   const body = data.markdownRemark.html
-  const publishDate = data.markdownRemark.frontmatter.publishDate
+  const actionBar = mapToAction(data.markdownRemark.frontmatter)
 
   return (
     <LongFormContentTemplate
@@ -47,7 +49,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
       body={body}
       breadcrumbs={pageContext.breadcrumb.crumbs}
       authors={authors}
-      publishDate={publishDate}
+      actionBar={actionBar}
     />
   )
 }
@@ -98,7 +100,7 @@ export interface TemplateProps {
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
   breadcrumbs?: Array<Breadcrumb>
   authors?: Author[]
-  publishDate: string
+  actionBar: ActionBarProps
 }
 export function LongFormContentTemplate({
   metadata,
@@ -107,7 +109,7 @@ export function LongFormContentTemplate({
   contentComponent,
   breadcrumbs,
   authors = [],
-  publishDate,
+  actionBar,
 }: TemplateProps) {
   const ContentComponent = contentComponent ?? Content
 
@@ -126,7 +128,7 @@ export function LongFormContentTemplate({
         <Container size='small' className={styles.container}>
           <h1 className={styles.title}>{post.title}</h1>
           <div className={styles.actionBar}>
-            <ActionBar publishDate={publishDate} />
+            <ActionBar {...actionBar} />
           </div>
 
           {authors && (
@@ -150,6 +152,7 @@ export function LongFormContentTemplate({
 
 export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
+  const actionBar = entry.getIn(['data', 'frontmatter'])?.toObject() as QueryActionBar
 
   return (
     <PreviewProviders>
@@ -157,6 +160,7 @@ export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComp
         metadata={mapToMetadata(metadata)}
         post={mapToPost({ frontmatter: entry.get('data').toObject() })}
         body={widgetFor('body') ?? <></>}
+        actionBar={mapToAction(actionBar)}
       />
     </PreviewProviders>
   )
@@ -185,4 +189,14 @@ function mapToAuthors(queryAuthors?: QueryAuthors): Author[] {
       }
     }) ?? []
   )
+}
+
+type QueryActionBar = NonNullable<NonNullable<GatsbyTypes.LongFormContentQuery['markdownRemark']>['frontmatter']>
+function mapToAction(queryAction: QueryActionBar): ActionBarProps {
+  return {
+    publishDate: queryAction?.publishDate ?? '',
+    title: queryAction?.metadata?.title ?? '',
+    description: queryAction?.metadata?.description ?? '',
+    tags: queryAction?.tags ?? '',
+  } as ActionBarProps
 }
