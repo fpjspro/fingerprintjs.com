@@ -42,8 +42,9 @@
   cursor: pointer;
   border-radius: 32px;
 
-  @include transition((background));
-  @include transition-duration(0.15s);
+  @include transition(background);
+  @include transition-duration(0.2s);
+  @include transition-timing-function(ease-out);
 
   &:active {
     background: rgba(0, 0, 0, 0.07);
