@@ -1,6 +1,8 @@
 import React from 'react'
 
 import styles from './ActionBar.module.scss'
+import classNames from 'classnames'
+
 import { displayDateFormatter } from '../../helpers/format'
 import { copyToClipboard } from '../../helpers/clipboard'
 
@@ -72,7 +74,7 @@ function ActionButton({ socialMedia, link, description, tags }: ActionButtonProp
     case 'facebook':
       return (
         <a
-          className={styles.link}
+          className={classNames(styles.link, styles.fbIcon)}
           aria-label='Share on Facebook'
           onClick={() => windowsOpen(`https://www.facebook.com/sharer.php?u=${link}`)}
         >
@@ -82,7 +84,7 @@ function ActionButton({ socialMedia, link, description, tags }: ActionButtonProp
     case 'shareLink':
       return (
         <button
-          className={styles.link}
+          className={styles.button}
           onClick={() => {
             copyToClipboard(link)
           }}
