@@ -40,19 +40,17 @@ interface ActionButtonProps {
   tags?: string[]
 }
 function ActionButton({ socialMedia, link, description, tags }: ActionButtonProps) {
+  const windowsOpen = (path: string) => {
+    return window.open(path, '', '_blank, width=560, height=745, resizable=yes, scrollbars=yes')
+  }
+
   switch (socialMedia) {
     case 'linkedin':
       return (
         <a
           className={styles.link}
           aria-label='Share on Linkedin'
-          onClick={() =>
-            window.open(
-              `https://www.linkedin.com/sharing/share-offsite/?url=${link}`,
-              '',
-              '_blank, width=560, height=745, resizable=yes, scrollbars=yes'
-            )
-          }
+          onClick={() => windowsOpen(`https://www.linkedin.com/sharing/share-offsite/?url=${link}`)}
         >
           <LinkedinSvg />
         </a>
@@ -63,10 +61,8 @@ function ActionButton({ socialMedia, link, description, tags }: ActionButtonProp
           className={styles.link}
           aria-label='Share on Twitter'
           onClick={() =>
-            window.open(
-              `https://twitter.com/intent/tweet?url=${link}&text=${description}&hashtags=${tags}&via=FingerprintJS`,
-              '',
-              '_blank, width=560, height=745, resizable=yes, scrollbars=yes'
+            windowsOpen(
+              `https://twitter.com/intent/tweet?url=${link}&text=${description}&hashtags=${tags}&via=FingerprintJS`
             )
           }
         >
@@ -78,13 +74,7 @@ function ActionButton({ socialMedia, link, description, tags }: ActionButtonProp
         <a
           className={styles.link}
           aria-label='Share on Facebook'
-          onClick={() =>
-            window.open(
-              `https://www.facebook.com/sharer.php?u=${link}`,
-              '',
-              '_blank, width=560, height=745, resizable=yes, scrollbars=yes'
-            )
-          }
+          onClick={() => windowsOpen(`https://www.facebook.com/sharer.php?u=${link}`)}
         >
           <FacebookSvg />
         </a>
