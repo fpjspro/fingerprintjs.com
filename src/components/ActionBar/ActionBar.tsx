@@ -1,6 +1,5 @@
 import React from 'react'
-import { useLocation } from '@reach/router'
-import useSiteMetadata from '../../hooks/useSiteMetadata'
+
 import styles from './ActionBar.module.scss'
 import { displayDateFormatter } from '../../helpers/format'
 import { copyToClipboard } from '../../helpers/clipboard'
@@ -12,14 +11,12 @@ import { ReactComponent as TwitterSvg } from './twitter.svg'
 import { ReactComponent as ShareSvg } from './shareButton.svg'
 
 export interface ActionBarProps {
+  siteUrl: string
   publishDate: string
   description: string
   tags: string[]
 }
-export default function ActionBar({ publishDate, description, tags }: ActionBarProps) {
-  const { pathname } = useLocation()
-  const siteMetadata = useSiteMetadata()
-  const path = `${siteMetadata.siteUrl}${pathname}`
+export default function ActionBar({ siteUrl, publishDate, description, tags = [] }: ActionBarProps) {
   const camelizedTags = tags.map((tag) => camelize(tag))
 
   const date = displayDateFormatter.format(new Date(publishDate))
@@ -27,10 +24,10 @@ export default function ActionBar({ publishDate, description, tags }: ActionBarP
     <div className={styles.root}>
       <span className={styles.publishDate}>{date}</span>
       <div>
-        <ActionButton socialMedia='linkedin' link={path} />
-        <ActionButton socialMedia='twitter' link={path} description={description} tags={camelizedTags} />
-        <ActionButton socialMedia='facebook' link={path} />
-        <ActionButton socialMedia='shareLink' link={path} />
+        <ActionButton socialMedia='linkedin' link={siteUrl} />
+        <ActionButton socialMedia='twitter' link={siteUrl} description={description} tags={camelizedTags} />
+        <ActionButton socialMedia='facebook' link={siteUrl} />
+        <ActionButton socialMedia='shareLink' link={siteUrl} />
       </div>
     </div>
   )

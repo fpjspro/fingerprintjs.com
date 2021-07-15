@@ -197,6 +197,7 @@ function mapToAuthors(queryAuthors?: QueryAuthors): Author[] {
 type QueryActionBar = NonNullable<NonNullable<GatsbyTypes.LongFormContentQuery['markdownRemark']>['frontmatter']>
 function mapToAction(queryAction: QueryActionBar): ActionBarProps {
   return {
+    siteUrl: queryAction?.metadata?.url ?? '',
     publishDate: queryAction?.publishDate ?? '',
     description: queryAction?.metadata?.description ?? '',
     tags: queryAction?.tags ?? '',
