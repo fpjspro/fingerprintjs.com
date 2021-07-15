@@ -155,7 +155,7 @@ export function LongFormContentTemplate({
 
 export function LongFormContentPreview({ entry, widgetFor }: PreviewTemplateComponentProps) {
   const metadata = entry.getIn(['data', 'metadata'])?.toObject() as QueryMetadata
-  const actionBar = entry.getIn(['data', 'frontmatter'])?.toObject() as QueryActionBar
+  const actionBar = entry.getIn(['data'])?.toJS() as QueryActionBar
 
   return (
     <PreviewProviders>
