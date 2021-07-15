@@ -39,6 +39,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
   const post = mapToPost(data.markdownRemark)
   const authors = mapToAuthors(data.markdownRemark.fields?.authors)
   const body = data.markdownRemark.html
+  const publishDate = data.markdownRemark.frontmatter.publishDate
   const actionBar = mapToAction(data.markdownRemark.frontmatter)
 
   return (
@@ -49,6 +50,7 @@ export default function LongFormContent({ data, pageContext }: LongFormContentPr
       body={body}
       breadcrumbs={pageContext.breadcrumb.crumbs}
       authors={authors}
+      publishDate={publishDate}
       actionBar={actionBar}
     />
   )
@@ -100,6 +102,7 @@ export interface TemplateProps {
   contentComponent?: React.FunctionComponent<{ content: string | React.ReactNode; className?: string }>
   breadcrumbs?: Array<Breadcrumb>
   authors?: Author[]
+  publishDate?: string
   actionBar: ActionBarProps
 }
 export function LongFormContentTemplate({

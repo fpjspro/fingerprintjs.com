@@ -20,8 +20,6 @@ tags:
 authors:
   - Sergey Mostsevenko
 ---
-*July 1, 2021*
-
 ![Ad blocker fingerprinting](https://lh6.googleusercontent.com/FwfigX3pRuM1tkC_T1Emaj30G1bVAIQguQy9jzgTmQHV4cKqAXl3tLVJpfpAgbJxHFn31fBZH5reu8Ull8TGYq9QalIKwkbm6XDSgmzsEaoiM7glRplHdQSaZMesWtcWOKRZn5qr "Ad blocker fingerprinting")
 
 <i>Editor's note: we have made some changes to the article introduction for tone and clarity.</i>
