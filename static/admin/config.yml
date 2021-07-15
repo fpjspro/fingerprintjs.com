@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: fix/WEB-182-new-blog-preview
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -111,7 +111,7 @@ collections:
           widget: object,
           fields:
             [
-              { label: Title, name: title, widget: string },
+              { label: Title, name: title, widget: string, default: 'Default Title' },
               { label: Description, name: description, widget: string },
               { label: URL, name: url, widget: string },
               { label: Image, name: image, widget: image },
@@ -121,7 +121,7 @@ collections:
         }
       - { label: Featured, name: featured, widget: boolean }
       - { label: Publish date, name: publishDate, widget: datetime }
-      - { label: Title, name: title, widget: string }
+      - { label: Title, name: title, widget: string, default: 'Default Title' }
       - name: tags
         label: Tags
         widget: relation
@@ -130,6 +130,7 @@ collections:
         valueField: 'name'
         displayFields: ['name']
         multiple: true
+        default: ['fingerprinting']
       - name: authors
         label: Authors
         widget: relation
@@ -138,6 +139,7 @@ collections:
         valueField: 'title'
         displayFields: ['title']
         multiple: true
+        default: ['Savannah Copland']
       - { label: Body, name: body, widget: markdown }
   - name: 'tag'
     label: 'Tag'
