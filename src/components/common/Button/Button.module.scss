@@ -72,6 +72,16 @@
   padding: 0 1.5rem;
 }
 
+.big {
+  height: 58px;
+  padding: 0 rem(24px);
+
+  font-weight: 500;
+  font-size: rem(16px);
+
+  border-radius: rem(6px);
+}
+
 .clear {
   --padding: 0;
   --color: var(--brand-water);

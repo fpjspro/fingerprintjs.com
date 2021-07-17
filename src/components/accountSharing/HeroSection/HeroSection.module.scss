@@ -1,0 +1,79 @@
+.root {
+  overflow: hidden;
+
+  padding: 0 0 rem(94px) 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  --contentWidth: 1232px;
+
+  @include media('<=phoneLandscape') {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.descriptionSection {
+  padding-top: rem(140px);
+
+  @include media('<=phoneLandscape') {
+    padding-top: rem(48px);
+  }
+
+  .title {
+    font-family: v(ff-sans);
+    font-size: rem(14px);
+    font-weight: 500;
+    letter-spacing: 0.03rem;
+
+    color: rgba(13, 16, 43, 0.48);
+
+    margin-bottom: rem(16px);
+  }
+
+  .subtitle {
+    font-size: rem(48px);
+    font-weight: v('bold');
+
+    margin-bottom: rem(16px);
+
+    @include media('<=phone') {
+      font-size: rem(28px);
+    }
+  }
+
+  .description {
+    font-family: v(ff-sans);
+    font-size: rem(24px);
+    font-weight: v('normal');
+    color: rgba(13, 16, 43, 0.72);
+
+    margin-bottom: rem(48px);
+
+    @include media('<=phone') {
+      font-size: rem(14px);
+    }
+  }
+
+  @include media('<=phoneLandscape') {
+    padding-bottom: 3rem;
+  }
+}
+
+.imageSection {
+  display: flex;
+  align-items: center;
+  padding-top: rem(58px);
+
+  @include media('<=phoneLandscape') {
+    display: none;
+  }
+}
+
+.imageSectionMobile {
+  @include media('>phoneLandscape') {
+    display: none;
+  }
+}
