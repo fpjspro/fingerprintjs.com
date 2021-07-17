@@ -45,9 +45,9 @@ export const DOC_URL = {
 } as const
 
 export const useCaseLinks = [
+  { title: 'Account Sharing', url: PATH.accountSharing, isLocal: true },
   { title: 'Account Takeover', url: PATH.accountTakeover, isLocal: true },
   { title: 'Payment Fraud', url: PATH.paymentFraud, isLocal: true },
-  { title: 'Account Sharing', url: PATH.accountSharing, isLocal: true },
   { title: 'Paywall', url: PATH.paywall, isLocal: true },
   { title: 'Ecommerce', url: PATH.ecommerce, isLocal: true },
   { title: 'Gaming', url: PATH.gaming, isLocal: true },
