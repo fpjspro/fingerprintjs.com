@@ -3,6 +3,8 @@ import { LayoutTemplate } from '../../components/Layout'
 import BreadcrumbsSEO from '../../components/Breadcrumbs/BreadcrumbsSEO'
 import { GeneratedPageContext } from '../../helpers/types'
 
+import HeroSection from '../../components/accountSharing/HeroSection/HeroSection'
+
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { useLocation } from '@reach/router'
 
@@ -23,6 +25,7 @@ export default function AccountSharingPage({ pageContext }: AccountSharingProps)
   return (
     <LayoutTemplate siteMetadata={siteMetadata}>
       {breadcrumbs && <BreadcrumbsSEO breadcrumbs={breadcrumbs} />}
+      <HeroSection />
     </LayoutTemplate>
   )
 }

@@ -5,6 +5,7 @@ import classNames from 'classnames'
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'outline' | 'clear' | 'faded'
   small?: boolean
+  big?: boolean
   href?: string
   mobileIcon?: React.ReactNode
   children?: React.ReactNode
@@ -17,6 +18,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export default function Button({
   variant = 'primary',
   small,
+  big,
   href,
   className = '',
   mobileIcon,
@@ -33,6 +35,7 @@ export default function Button({
     { [styles.clear]: variant === 'clear' },
     { [styles.faded]: variant === 'faded' },
     { [styles.small]: small },
+    { [styles.big]: big },
     className
   )
 
